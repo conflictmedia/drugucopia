@@ -117,6 +117,9 @@ export function DoseLoggerModal({
       const existingLogs = JSON.parse(localStorage.getItem('drugucopia-dose-logs') || '[]')
       const now = new Date().toISOString()
       
+      // Get duration info from substance if available
+      const duration = selectedSubstance?.duration || null
+      
       const newLog = {
         id: `dose_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
         substanceId: substanceId || `custom-${Date.now()}`,
@@ -126,6 +129,7 @@ export function DoseLoggerModal({
         unit,
         route,
         timestamp: new Date(timestamp).toISOString(),
+        duration,
         notes: notes || null,
         mood: mood || null,
         setting: setting || null,

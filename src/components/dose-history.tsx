@@ -20,7 +20,8 @@ import {
   MapPin, 
   Smile,
   Activity,
-  Loader2
+  Loader2,
+  Timer
 } from 'lucide-react'
 import { categoryColors } from '@/lib/substances-data'
 import { useToast } from '@/hooks/use-toast'
@@ -34,6 +35,13 @@ interface DoseLog {
   unit: string
   route: string
   timestamp: string
+  duration: {
+    onset: string
+    comeup: string
+    peak: string
+    offset: string
+    total: string
+  } | null
   notes: string | null
   mood: string | null
   setting: string | null
@@ -213,6 +221,12 @@ export function DoseHistory({ refreshTrigger }: DoseHistoryProps) {
                             {format(new Date(dose.timestamp), 'h:mm a')}
                           </span>
                           <span>{dose.route}</span>
+                          {dose.duration?.total && (
+                            <span className="flex items-center gap-1">
+                              <Timer className="h-3 w-3" />
+                              {dose.duration.total}
+                            </span>
+                          )}
                         </div>
 
                         {(dose.mood || dose.setting || dose.notes) && (
