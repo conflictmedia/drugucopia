@@ -154,7 +154,7 @@ export default function Home() {
         </header>
 
         {/* Content */}
-        <main className="container py-6 lg:py-10">
+        <main className="flex-1 p-4 lg:p-6 max-w-screen-xl mx-auto w-full">
           <div className="grid gap-6 lg:grid-cols-3">
             {/* Main Content */}
             <div className="lg:col-span-2 space-y-6">
