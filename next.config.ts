@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
   basePath: '/psychodoc',
   images: {
     unoptimized: true,
-  }
+  },
   typescript: {
     ignoreBuildErrors: true,
   },
