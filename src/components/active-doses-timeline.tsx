@@ -463,12 +463,12 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
 
                 {/* Interactive Graph Container */}
                 <div 
-                  className="relative cursor-crosshair bg-muted/30 rounded-lg p-3"
+                  className="relative cursor-crosshair bg-muted/30 rounded-lg p-4"
                   onMouseMove={(e) => handleGraphMouseMove(dose.id, e, dose.timings, dose.doseTime)}
                   onMouseLeave={() => handleGraphMouseLeave(dose.id)}
                 >
-                  {/* Phase sections */}
-                  <div className="h-8 rounded overflow-hidden relative flex mb-4">
+                  {/* Phase sections bar */}
+                  <div className="h-12 rounded-lg overflow-hidden relative flex mb-2">
                     {/* Onset */}
                     <div 
                       className={`${phaseColors.onset.fill} ${phaseColors.onset.border} border-r transition-all duration-150`}
@@ -496,38 +496,47 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
                     {/* Current position line */}
                     {dose.status.phase !== 'not_started' && dose.status.phase !== 'ended' && (
                       <div 
-                        className="absolute top-0 bottom-0 w-0.5 bg-white z-10"
+                        className="absolute top-0 bottom-0 w-1 bg-white rounded z-10 shadow-lg"
                         style={{ left: `${Math.min(99, dose.status.overallProgress)}%` }}
                       />
                     )}
                   </div>
 
                   {/* Phase labels */}
-                  <div className="flex text-xs text-muted-foreground mb-2">
-                    <span style={{ width: `${(dose.timings.onsetEnd / dose.timings.totalDuration) * 100}%` }} className="text-center">Onset</span>
-                    <span style={{ width: `${((dose.timings.comeupEnd - dose.timings.onsetEnd) / dose.timings.totalDuration) * 100}%` }} className="text-center">Comeup</span>
-                    <span style={{ width: `${((dose.timings.peakEnd - dose.timings.comeupEnd) / dose.timings.totalDuration) * 100}%` }} className="text-center">Peak</span>
-                    <span style={{ width: `${((dose.timings.offsetEnd - dose.timings.peakEnd) / dose.timings.totalDuration) * 100}%` }} className="text-center">Offset</span>
+                  <div className="flex text-xs font-medium mb-3">
+                    <span style={{ width: `${(dose.timings.onsetEnd / dose.timings.totalDuration) * 100}%` }} className="text-center text-blue-400">Onset</span>
+                    <span style={{ width: `${((dose.timings.comeupEnd - dose.timings.onsetEnd) / dose.timings.totalDuration) * 100}%` }} className="text-center text-amber-400">Comeup</span>
+                    <span style={{ width: `${((dose.timings.peakEnd - dose.timings.comeupEnd) / dose.timings.totalDuration) * 100}%` }} className="text-center text-purple-400">Peak</span>
+                    <span style={{ width: `${((dose.timings.offsetEnd - dose.timings.peakEnd) / dose.timings.totalDuration) * 100}%` }} className="text-center text-cyan-400">Offset</span>
                   </div>
 
-                  {/* Intensity curve */}
-                  <svg viewBox="0 0 100 40" className="w-full h-12 mt-2">
+                  {/* Intensity curve - larger */}
+                  <svg viewBox="0 0 100 50" className="w-full h-24 mt-2">
+                    {/* Grid lines */}
+                    <line x1="0" y1="10" x2="100" y2="10" stroke="currentColor" strokeWidth="0.2" className="text-muted-foreground/30" />
+                    <line x1="0" y1="25" x2="100" y2="25" stroke="currentColor" strokeWidth="0.2" className="text-muted-foreground/30" />
+                    <line x1="0" y1="40" x2="100" y2="40" stroke="currentColor" strokeWidth="0.2" className="text-muted-foreground/30" />
+                    
+                    {/* Intensity labels */}
+                    <text x="2" y="8" className="fill-muted-foreground text-[3px]">100%</text>
+                    <text x="2" y="23" className="fill-muted-foreground text-[3px]">50%</text>
+                    <text x="2" y="38" className="fill-muted-foreground text-[3px]">0%</text>
+                    
                     {/* Generate smooth curve path */}
                     <path
                       d={(() => {
                         const points: string[] = []
-                        for (let i = 0; i <= 50; i++) {
-                          const x = i * 2
-                          const progress = i * 2
-                          const intensity = getIntensityAtProgress(progress, dose.timings)
-                          const y = 38 - (intensity * 0.35)
+                        for (let i = 0; i <= 100; i += 2) {
+                          const x = i
+                          const intensity = getIntensityAtProgress(i, dose.timings)
+                          const y = 40 - (intensity * 0.3)
                           points.push(`${i === 0 ? 'M' : 'L'} ${x.toFixed(1)},${y.toFixed(1)}`)
                         }
                         return points.join(' ')
                       })()}
                       fill="none"
                       stroke="url(#curveGradient)"
-                      strokeWidth="1.5"
+                      strokeWidth="2"
                       strokeLinecap="round"
                     />
                     
@@ -545,17 +554,17 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
                     {dose.status.phase !== 'not_started' && dose.status.phase !== 'ended' && (
                       <circle
                         cx={Math.min(98, Math.max(2, dose.status.overallProgress))}
-                        cy={38 - (getIntensityAtProgress(dose.status.overallProgress, dose.timings) * 0.35)}
-                        r="2"
+                        cy={40 - (getIntensityAtProgress(dose.status.overallProgress, dose.timings) * 0.3)}
+                        r="3"
                         fill="white"
                         stroke="#a855f7"
-                        strokeWidth="1"
+                        strokeWidth="2"
                       />
                     )}
                   </svg>
 
                   {/* Time markers */}
-                  <div className="relative h-4 mt-1">
+                  <div className="relative h-5 mt-2 border-t border-muted-foreground/20 pt-1">
                     {timeMarkers.map((marker, i) => (
                       <span 
                         key={i} 
@@ -569,18 +578,21 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
 
                   {/* Tooltip - positioned inside the graph container */}
                   {currentTooltip && (
-                    <div className="mt-2 p-2 bg-muted rounded text-xs">
-                      <div className="flex items-center justify-between gap-4">
-                        <span className="font-medium">{currentTooltip.phase}</span>
-                        <span className="text-muted-foreground">
-                          {currentTooltip.phaseTime} from dose
-                        </span>
-                        <span className="text-muted-foreground">
-                          {format(currentTooltip.absoluteTime, 'h:mm a')}
-                        </span>
-                        <span className="text-purple-400">
-                          {Math.round(currentTooltip.intensity)}% intensity
-                        </span>
+                    <div className="mt-3 p-3 bg-muted/80 rounded-lg text-sm border">
+                      <div className="flex items-center justify-between gap-6">
+                        <div>
+                          <span className="font-medium">{currentTooltip.phase}</span>
+                          <span className="text-muted-foreground ml-2">{currentTooltip.phaseTime} from dose</span>
+                        </div>
+                        <div className="flex items-center gap-4">
+                          <span className="text-muted-foreground">
+                            <Clock className="h-3 w-3 inline mr-1" />
+                            {format(currentTooltip.absoluteTime, 'h:mm a')}
+                          </span>
+                          <span className="text-purple-400 font-medium">
+                            {Math.round(currentTooltip.intensity)}% intensity
+                          </span>
+                        </div>
                       </div>
                     </div>
                   )}
