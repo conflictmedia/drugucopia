@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useMemo } from 'react'
+import Image from 'next/image'
 import { 
   Search, 
   Menu, 
@@ -403,10 +404,14 @@ export default function Home() {
           {/* Logo */}
           <div className="p-4 border-b">
             <div className="flex items-center gap-2">
-              <div className="p-1.5 rounded-lg bg-gradient-to-br from-purple-500 to-cyan-500">
-                <FlaskConical className="h-5 w-5 text-white" />
-              </div>
-              <span className="font-bold text-lg">PsychoDoc</span>
+              <Image 
+                src="/logo.png" 
+                alt="Drugucopia Logo" 
+                width={36} 
+                height={36}
+                className="rounded-lg"
+              />
+              <span className="font-bold text-lg">Drugucopia</span>
             </div>
             <p className="text-xs text-muted-foreground mt-1">Psychoactive Substances Documentation</p>
           </div>

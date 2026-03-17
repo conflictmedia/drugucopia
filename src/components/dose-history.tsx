@@ -45,7 +45,7 @@ interface DoseHistoryProps {
   refreshTrigger?: number
 }
 
-const STORAGE_KEY = 'psychodoc-dose-logs'
+const STORAGE_KEY = 'drugucopia-dose-logs'
 
 export function DoseHistory({ refreshTrigger }: DoseHistoryProps) {
   const [doses, setDoses] = useState<DoseLog[]>([])

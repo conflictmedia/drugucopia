@@ -114,7 +114,7 @@ export function DoseLoggerModal({
 
     try {
       // Save to localStorage
-      const existingLogs = JSON.parse(localStorage.getItem('psychodoc-dose-logs') || '[]')
+      const existingLogs = JSON.parse(localStorage.getItem('drugucopia-dose-logs') || '[]')
       const now = new Date().toISOString()
       
       const newLog = {
@@ -138,7 +138,7 @@ export function DoseLoggerModal({
         (a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
       )
       
-      localStorage.setItem('psychodoc-dose-logs', JSON.stringify(updatedLogs))
+      localStorage.setItem('drugucopia-dose-logs', JSON.stringify(updatedLogs))
 
       toast({
         title: 'Dose logged',
