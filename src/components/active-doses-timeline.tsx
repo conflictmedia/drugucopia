@@ -511,56 +511,58 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
                   </div>
 
                   {/* Intensity curve - larger */}
-                  <svg 
-                    viewBox="0 0 100 50" 
-                    preserveAspectRatio="none"
-                    className="w-full h-28 mt-2"
-                  >
-                    {/* Grid lines */}
-                    <line x1="0" y1="10" x2="100" y2="10" stroke="currentColor" strokeWidth="0.3" className="text-muted-foreground/30" />
-                    <line x1="0" y1="25" x2="100" y2="25" stroke="currentColor" strokeWidth="0.3" className="text-muted-foreground/30" />
-                    <line x1="0" y1="40" x2="100" y2="40" stroke="currentColor" strokeWidth="0.3" className="text-muted-foreground/30" />
-                    
-                    {/* Generate smooth curve path */}
-                    <path
-                      d={(() => {
-                        const points: string[] = []
-                        for (let i = 0; i <= 100; i += 1) {
-                          const x = i
-                          const intensity = getIntensityAtProgress(i, dose.timings)
-                          const y = 40 - (intensity * 0.3)
-                          points.push(`${i === 0 ? 'M' : 'L'} ${x.toFixed(1)},${y.toFixed(1)}`)
-                        }
-                        return points.join(' ')
-                      })()}
-                      fill="none"
-                      stroke="url(#curveGradient)"
-                      strokeWidth="0.8"
-                      strokeLinecap="round"
-                    />
-                    
-                    {/* Gradient definition */}
-                    <defs>
-                      <linearGradient id="curveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stopColor="#3b82f6" />
-                        <stop offset="30%" stopColor="#f59e0b" />
-                        <stop offset="60%" stopColor="#a855f7" />
-                        <stop offset="100%" stopColor="#06b6d4" />
-                      </linearGradient>
-                    </defs>
-                    
-                    {/* Current position marker */}
-                    {dose.status.phase !== 'not_started' && dose.status.phase !== 'ended' && (
-                      <circle
-                        cx={Math.min(99, Math.max(1, dose.status.overallProgress))}
-                        cy={40 - (getIntensityAtProgress(dose.status.overallProgress, dose.timings) * 0.3)}
-                        r="1.5"
-                        fill="white"
-                        stroke="#a855f7"
+                  <div className="relative mt-2">
+                    <svg 
+                      viewBox="0 0 100 50" 
+                      preserveAspectRatio="none"
+                      className="w-full h-28"
+                    >
+                      {/* Grid lines */}
+                      <line x1="0" y1="10" x2="100" y2="10" stroke="currentColor" strokeWidth="0.3" className="text-muted-foreground/30" />
+                      <line x1="0" y1="25" x2="100" y2="25" stroke="currentColor" strokeWidth="0.3" className="text-muted-foreground/30" />
+                      <line x1="0" y1="40" x2="100" y2="40" stroke="currentColor" strokeWidth="0.3" className="text-muted-foreground/30" />
+                      
+                      {/* Generate smooth curve path */}
+                      <path
+                        d={(() => {
+                          const points: string[] = []
+                          for (let i = 0; i <= 100; i += 1) {
+                            const x = i
+                            const intensity = getIntensityAtProgress(i, dose.timings)
+                            const y = 40 - (intensity * 0.3)
+                            points.push(`${i === 0 ? 'M' : 'L'} ${x.toFixed(1)},${y.toFixed(1)}`)
+                          }
+                          return points.join(' ')
+                        })()}
+                        fill="none"
+                        stroke="url(#curveGradient)"
                         strokeWidth="0.8"
+                        strokeLinecap="round"
+                      />
+                      
+                      {/* Gradient definition */}
+                      <defs>
+                        <linearGradient id="curveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                          <stop offset="0%" stopColor="#3b82f6" />
+                          <stop offset="30%" stopColor="#f59e0b" />
+                          <stop offset="60%" stopColor="#a855f7" />
+                          <stop offset="100%" stopColor="#06b6d4" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                    
+                    {/* Current position marker - using div instead of SVG circle to avoid distortion */}
+                    {dose.status.phase !== 'not_started' && dose.status.phase !== 'ended' && (
+                      <div 
+                        className="absolute w-3 h-3 bg-white rounded-full border-2 border-purple-500 shadow-lg pointer-events-none"
+                        style={{ 
+                          left: `${Math.min(99, dose.status.overallProgress)}%`,
+                          top: `${100 - getIntensityAtProgress(dose.status.overallProgress, dose.timings)}%`,
+                          transform: 'translate(-50%, -50%)'
+                        }}
                       />
                     )}
-                  </svg>
+                  </div>
 
                   {/* Y-axis labels */}
                   <div className="absolute left-2 top-[68px] h-28 flex flex-col justify-between text-xs text-muted-foreground pointer-events-none">
