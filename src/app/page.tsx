@@ -30,7 +30,8 @@ import {
   MinusCircle,
   XCircle,
   Activity,
-  Plus
+  Plus,
+  Syringe
 } from 'lucide-react'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { DoseLoggerModal } from '@/components/dose-logger-modal'
@@ -48,7 +49,8 @@ import {
   substances, 
   categories, 
   type Substance, 
-  type SubstanceCategory 
+  type SubstanceCategory,
+  type RouteDosageDuration
 } from '@/lib/substances-data'
 
 const categoryIcons: Record<SubstanceCategory, React.ElementType> = {
@@ -82,7 +84,253 @@ const riskLevelColors = {
   'very-high': 'bg-red-500/20 text-red-400 border-red-500/30'
 }
 
+// Route icons mapping
+const routeIconMap: Record<string, string> = {
+  'Oral': '💊',
+  'Sublingual': '👅',
+  'Inhalation': '💨',
+  'Insufflation': '👃',
+  'Intravenous': '💉',
+  'Intramuscular': '💉',
+  'Transdermal': '🩹',
+  'Rectal': '⬇️',
+  'Nasal': '👃',
+  'Smoking': '🔥',
+  'Lemon Tek': '🍋',
+  'Tea': '🍵',
+  'Topical': '🤲',
+}
+
+function getRouteIcon(route: string): string {
+  return routeIconMap[route] || '•'
+}
+
+// Route danger level colors for certain routes
+const routeDangerColors: Record<string, string> = {
+  'Intravenous': 'border-red-500/40 bg-red-500/5',
+  'Intramuscular': 'border-orange-500/40 bg-orange-500/5',
+  'Smoking': 'border-orange-500/30 bg-orange-500/5',
+}
+
 type ViewType = 'substances' | 'dose-log'
+
+// Dosage & Duration display component with route selector
+function DosageDurationPanel({ substance }: { substance: Substance }) {
+  const hasRouteData = substance.routeData && Object.keys(substance.routeData).length > 0
+  const [selectedRoute, setSelectedRoute] = useState<string | null>(() => {
+    if (hasRouteData) {
+      return Object.keys(substance.routeData!)[0]
+    }
+    return null
+  })
+
+  const currentDosage = useMemo(() => {
+    if (selectedRoute && substance.routeData?.[selectedRoute]) {
+      return substance.routeData[selectedRoute].dosage
+    }
+    return substance.dosage
+  }, [selectedRoute, substance])
+
+  const currentDuration = useMemo(() => {
+    if (selectedRoute && substance.routeData?.[selectedRoute]) {
+      return substance.routeData[selectedRoute].duration
+    }
+    return substance.duration
+  }, [selectedRoute, substance])
+
+  const currentNotes = useMemo(() => {
+    if (selectedRoute && substance.routeData?.[selectedRoute]) {
+      return substance.routeData[selectedRoute].notes
+    }
+    return null
+  }, [selectedRoute, substance])
+
+  return (
+    <div className="space-y-4">
+      {/* Route Selector */}
+      {hasRouteData && (
+        <Card className="border-primary/20 bg-primary/5">
+          <CardHeader className="pb-3">
+            <CardTitle className="flex items-center gap-2 text-base">
+              <Syringe className="h-4 w-4" />
+              Route of Administration
+            </CardTitle>
+            <CardDescription className="text-xs">
+              Dosage and duration vary significantly by route. Select to see specific data.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="flex flex-wrap gap-2">
+              {Object.keys(substance.routeData!).map((route) => {
+                const isSelected = selectedRoute === route
+                const dangerClass = routeDangerColors[route] || ''
+                return (
+                  <button
+                    key={route}
+                    onClick={() => setSelectedRoute(route)}
+                    className={`
+                      flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium border transition-all
+                      ${isSelected 
+                        ? 'bg-primary text-primary-foreground border-primary shadow-sm' 
+                        : `bg-background hover:bg-muted border-border ${dangerClass}`
+                      }
+                    `}
+                  >
+                    <span>{getRouteIcon(route)}</span>
+                    <span>{route}</span>
+                    {(route === 'Intravenous' || route === 'Smoking') && !isSelected && (
+                      <span className="text-orange-400 text-xs">⚠</span>
+                    )}
+                  </button>
+                )
+              })}
+            </div>
+            {/* Route note */}
+            {currentNotes && (
+              <div className="mt-3 flex items-start gap-2 p-3 rounded-lg bg-muted/50 border border-border">
+                <Info className="h-4 w-4 text-muted-foreground mt-0.5 shrink-0" />
+                <p className="text-xs text-muted-foreground leading-relaxed">{currentNotes}</p>
+              </div>
+            )}
+          </CardContent>
+        </Card>
+      )}
+
+      {/* Dosage & Duration Cards */}
+      <div className="grid gap-4 md:grid-cols-2">
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-lg">
+              <Droplets className="h-5 w-5" />
+              Dosage Guide
+              {selectedRoute && hasRouteData && (
+                <Badge variant="outline" className="ml-auto text-xs font-normal">
+                  {getRouteIcon(selectedRoute)} {selectedRoute}
+                </Badge>
+              )}
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-1">
+              {Object.entries(currentDosage).map(([level, amount]) => {
+                const levelColors: Record<string, string> = {
+                  threshold: 'text-blue-400 bg-blue-500/10',
+                  light: 'text-green-400 bg-green-500/10',
+                  common: 'text-yellow-400 bg-yellow-500/10',
+                  strong: 'text-orange-400 bg-orange-500/10',
+                  heavy: 'text-red-400 bg-red-500/10',
+                }
+                return (
+                  <div key={level} className="flex justify-between items-center py-2 border-b last:border-0">
+                    <div className="flex items-center gap-2">
+                      <span className={`text-xs px-2 py-0.5 rounded capitalize font-medium ${levelColors[level] || ''}`}>
+                        {level}
+                      </span>
+                    </div>
+                    <Badge variant="secondary" className="font-mono text-xs">{amount}</Badge>
+                  </div>
+                )
+              })}
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-lg">
+              <Clock className="h-5 w-5" />
+              Duration
+              {selectedRoute && hasRouteData && (
+                <Badge variant="outline" className="ml-auto text-xs font-normal">
+                  {getRouteIcon(selectedRoute)} {selectedRoute}
+                </Badge>
+              )}
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-1">
+              {Object.entries(currentDuration).map(([phase, time]) => {
+                const phaseColors: Record<string, string> = {
+                  onset: 'text-blue-400 bg-blue-500/10',
+                  comeup: 'text-amber-400 bg-amber-500/10',
+                  peak: 'text-purple-400 bg-purple-500/10',
+                  offset: 'text-cyan-400 bg-cyan-500/10',
+                  total: 'text-green-400 bg-green-500/10',
+                }
+                return (
+                  <div key={phase} className="flex justify-between items-center py-2 border-b last:border-0">
+                    <div className="flex items-center gap-2">
+                      <span className={`text-xs px-2 py-0.5 rounded capitalize font-medium ${phaseColors[phase] || ''}`}>
+                        {phase}
+                      </span>
+                    </div>
+                    <Badge variant="secondary" className="font-mono text-xs text-right max-w-[180px] whitespace-normal text-right">
+                      {time}
+                    </Badge>
+                  </div>
+                )
+              })}
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Route comparison note if no route selected */}
+      {!hasRouteData && (
+        <p className="text-xs text-muted-foreground text-center py-2 opacity-70">
+          Route-specific data not available for this substance
+        </p>
+      )}
+
+      {/* All Routes Comparison Table (if route data exists) */}
+      {hasRouteData && Object.keys(substance.routeData!).length > 1 && (
+        <Card>
+          <CardHeader className="pb-3">
+            <CardTitle className="text-base flex items-center gap-2">
+              <Route className="h-4 w-4" />
+              Routes Comparison
+            </CardTitle>
+            <CardDescription className="text-xs">Common dose and onset by route</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="overflow-x-auto">
+              <table className="w-full text-xs">
+                <thead>
+                  <tr className="border-b">
+                    <th className="text-left py-2 pr-3 text-muted-foreground font-medium">Route</th>
+                    <th className="text-left py-2 pr-3 text-muted-foreground font-medium">Common Dose</th>
+                    <th className="text-left py-2 pr-3 text-muted-foreground font-medium">Onset</th>
+                    <th className="text-left py-2 text-muted-foreground font-medium">Total Duration</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {Object.entries(substance.routeData!).map(([route, data]) => (
+                    <tr 
+                      key={route} 
+                      className={`border-b last:border-0 cursor-pointer transition-colors hover:bg-muted/50 ${selectedRoute === route ? 'bg-primary/5' : ''}`}
+                      onClick={() => setSelectedRoute(route)}
+                    >
+                      <td className="py-2 pr-3 font-medium">
+                        <span className="flex items-center gap-1">
+                          <span>{getRouteIcon(route)}</span>
+                          <span>{route}</span>
+                          {selectedRoute === route && <span className="text-primary text-xs">●</span>}
+                        </span>
+                      </td>
+                      <td className="py-2 pr-3 text-muted-foreground font-mono">{data.dosage.common}</td>
+                      <td className="py-2 pr-3 text-muted-foreground font-mono">{data.duration.onset}</td>
+                      <td className="py-2 text-muted-foreground font-mono">{data.duration.total}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </CardContent>
+        </Card>
+      )}
+    </div>
+  )
+}
 
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState<SubstanceCategory | 'all'>('all')
@@ -154,7 +402,7 @@ export default function Home() {
         </header>
 
         {/* Content */}
-        <main className="flex-1 p-4 lg:p-6 max-w-screen-xl mx-auto w-full">
+        <main className="container py-6 lg:py-10">
           <div className="grid gap-6 lg:grid-cols-3">
             {/* Main Content */}
             <div className="lg:col-span-2 space-y-6">
@@ -232,46 +480,8 @@ export default function Home() {
                 </CardContent>
               </Card>
 
-              {/* Dosage & Duration */}
-              <div className="grid gap-6 md:grid-cols-2">
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2 text-lg">
-                      <Droplets className="h-5 w-5" />
-                      Dosage Guide
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-3">
-                      {Object.entries(selectedSubstance.dosage).map(([level, amount]) => (
-                        <div key={level} className="flex justify-between items-center py-2 border-b last:border-0">
-                          <span className="capitalize text-muted-foreground">{level}</span>
-                          <Badge variant="secondary">{amount}</Badge>
-                        </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2 text-lg">
-                      <Clock className="h-5 w-5" />
-                      Duration
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-3">
-                      {Object.entries(selectedSubstance.duration).map(([phase, time]) => (
-                        <div key={phase} className="flex justify-between items-center py-2 border-b last:border-0">
-                          <span className="capitalize text-muted-foreground">{phase}</span>
-                          <Badge variant="secondary">{time}</Badge>
-                        </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
+              {/* Dosage & Duration with Route Selector */}
+              <DosageDurationPanel substance={selectedSubstance} />
 
               {/* Harm Reduction */}
               <Card className="border-orange-500/30 bg-orange-500/5">
@@ -309,11 +519,18 @@ export default function Home() {
                       <p className="font-medium">{selectedSubstance.class}</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <Route className="h-4 w-4 text-muted-foreground" />
+                  <div className="flex items-start gap-3">
+                    <Route className="h-4 w-4 text-muted-foreground mt-0.5" />
                     <div>
                       <p className="text-sm text-muted-foreground">Routes</p>
-                      <p className="font-medium">{selectedSubstance.routes.join(', ')}</p>
+                      <div className="flex flex-wrap gap-1 mt-1">
+                        {selectedSubstance.routes.map((route) => (
+                          <span key={route} className="text-xs bg-muted px-2 py-0.5 rounded flex items-center gap-1">
+                            <span>{getRouteIcon(route)}</span>
+                            <span>{route}</span>
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
@@ -518,7 +735,7 @@ export default function Home() {
         </header>
 
         {/* Content */}
-        <main className="flex-1 p-4 lg:p-6">
+        <main className="flex-1 p-4 lg:p-6 max-w-screen-xl mx-auto w-full">
           {currentView === 'dose-log' ? (
             /* Dose Log View */
             <div className="space-y-6">
@@ -565,6 +782,7 @@ export default function Home() {
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {filteredSubstances.map((substance) => {
                   const Icon = categoryIcons[substance.category]
+                  const hasRouteData = substance.routeData && Object.keys(substance.routeData).length > 1
                   return (
                     <Card 
                       key={substance.id} 
@@ -606,9 +824,16 @@ export default function Home() {
                               </Badge>
                             )}
                           </div>
-                          <Badge variant="outline" className={riskLevelColors[substance.riskLevel]}>
-                            {substance.riskLevel.replace('-', ' ')}
-                          </Badge>
+                          <div className="flex items-center gap-1.5">
+                            {hasRouteData && (
+                              <Badge variant="outline" className="text-xs border-primary/30 text-primary/70">
+                                {Object.keys(substance.routeData!).length} routes
+                              </Badge>
+                            )}
+                            <Badge variant="outline" className={riskLevelColors[substance.riskLevel]}>
+                              {substance.riskLevel.replace('-', ' ')}
+                            </Badge>
+                          </div>
                         </div>
                       </CardContent>
                     </Card>
