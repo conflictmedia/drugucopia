@@ -1,9 +1,13 @@
 import type { NextConfig } from "next";
 
+const isGithubActions = process.env.GITHUB_ACTIONS === 'true';
+
+const GITHUB_REPO_NAME = 'drugucopia';
+
 const nextConfig: NextConfig = {
   /* config options here */
   output: 'export',
-  basePath: '/drugucopia',
+  basePath: isGithubActions ? `/${GITHUB_REPO_NAME}` : '',
   images: {
     unoptimized: true,
   },
