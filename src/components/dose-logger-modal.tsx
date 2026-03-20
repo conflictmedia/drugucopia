@@ -271,16 +271,16 @@ export function DoseLoggerModal({
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="mg">mg</SelectItem>
-                  <SelectItem value="g">g</SelectItem>
-                  <SelectItem value="μg">μg</SelectItem>
-                  <SelectItem value="ml">ml</SelectItem>
-                  <SelectItem value="drops">drops</SelectItem>
-                  <SelectItem value="puffs">puffs</SelectItem>
-                  <SelectItem value="tabs">tabs</SelectItem>
-                  <SelectItem value="capsules">capsules</SelectItem>
-                  <SelectItem value="hits">hits</SelectItem>
-                  <SelectItem value="lines">lines</SelectItem>
+                  <SelectItem value="mg"> mg</SelectItem>
+                  <SelectItem value="g"> g</SelectItem>
+                  <SelectItem value="μg"> μg</SelectItem>
+                  <SelectItem value="ml"> ml</SelectItem>
+                  <SelectItem value="drops"> drops</SelectItem>
+                  <SelectItem value="puffs"> puffs</SelectItem>
+                  <SelectItem value="tabs"> tabs</SelectItem>
+                  <SelectItem value="capsules"> capsules</SelectItem>
+                  <SelectItem value="hits"> hits</SelectItem>
+                  <SelectItem value="lines"> lines</SelectItem>
                 </SelectContent>
               </Select>
             </div>
