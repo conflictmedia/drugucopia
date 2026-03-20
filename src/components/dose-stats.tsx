@@ -1,7 +1,7 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { format, subDays, startOfDay, isAfter } from 'date-fns'
+import { useState, useEffect, useCallback, useRef } from 'react'
+import { format, subDays, isAfter } from 'date-fns'
 import { 
   Card, 
   CardContent, 
@@ -35,26 +35,69 @@ interface DoseStatsProps {
 }
 
 const STORAGE_KEY = 'drugucopia-dose-logs'
+const DOSE_CHANGE_EVENT = 'drugucopia-dose-change'
 
 export function DoseStats({ refreshTrigger }: DoseStatsProps) {
   const [doses, setDoses] = useState<DoseLog[]>([])
   const [loading, setLoading] = useState(true)
+  const lastKnownDataRef = useRef<string>('')
 
+  const readAndUpdateDoses = useCallback(() => {
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY) || '[]'
+      
+      if (stored === lastKnownDataRef.current) return
+      lastKnownDataRef.current = stored
+      
+      const logs: DoseLog[] = JSON.parse(stored)
+      setDoses(logs)
+    } catch (error) {
+      console.error('Error loading dose logs:', error)
+      setDoses([])
+    }
+  }, [])
+
+  // Initial load
   useEffect(() => {
-    const loadDoses = () => {
-      try {
-        const stored = localStorage.getItem(STORAGE_KEY)
-        const logs = stored ? JSON.parse(stored) : []
-        setDoses(logs)
-      } catch (error) {
-        console.error('Error loading dose logs:', error)
-        setDoses([])
-      } finally {
-        setLoading(false)
+    readAndUpdateDoses()
+    setLoading(false)
+  }, [readAndUpdateDoses])
+
+  // React to refreshTrigger from parent
+  useEffect(() => {
+    readAndUpdateDoses()
+  }, [refreshTrigger, readAndUpdateDoses])
+
+  // Listen for same-tab dose changes (custom event)
+  useEffect(() => {
+    const handleDoseChange = () => {
+      readAndUpdateDoses()
+    }
+
+    window.addEventListener(DOSE_CHANGE_EVENT, handleDoseChange)
+    return () => window.removeEventListener(DOSE_CHANGE_EVENT, handleDoseChange)
+  }, [readAndUpdateDoses])
+
+  // Listen for cross-tab localStorage changes
+  useEffect(() => {
+    const handleStorageChange = (e: StorageEvent) => {
+      if (e.key === STORAGE_KEY) {
+        readAndUpdateDoses()
       }
     }
-    loadDoses()
-  }, [refreshTrigger])
+
+    window.addEventListener('storage', handleStorageChange)
+    return () => window.removeEventListener('storage', handleStorageChange)
+  }, [readAndUpdateDoses])
+
+  // Poll localStorage for sync-driven changes
+  useEffect(() => {
+    const pollInterval = setInterval(() => {
+      readAndUpdateDoses()
+    }, 2000)
+
+    return () => clearInterval(pollInterval)
+  }, [readAndUpdateDoses])
 
   if (loading) {
     return (
@@ -84,12 +127,6 @@ export function DoseStats({ refreshTrigger }: DoseStatsProps) {
     .sort((a, b) => b[1] - a[1])
     .slice(0, 3)
 
-  // Shelved: Average intensity calculation
-  // const dosesWithIntensity = doses.filter(d => d.intensity !== null)
-  // const avgIntensity = dosesWithIntensity.length > 0
-  //   ? (dosesWithIntensity.reduce((acc, d) => acc + (d.intensity || 0), 0) / dosesWithIntensity.length).toFixed(1)
-  //   : null
-
   // Most common category
   const categoryCounts: { [key: string]: number } = {}
   doses.forEach(d => {
@@ -101,7 +138,10 @@ export function DoseStats({ refreshTrigger }: DoseStatsProps) {
     .sort((a, b) => b[1] - a[1])[0]
 
   // Days since last dose
-  const lastDose = doses[0]
+  const sortedDoses = [...doses].sort((a, b) => 
+    new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+  )
+  const lastDose = sortedDoses[0]
   const daysSinceLast = lastDose
     ? Math.floor((now.getTime() - new Date(lastDose.timestamp).getTime()) / (1000 * 60 * 60 * 24))
     : null
@@ -169,21 +209,6 @@ export function DoseStats({ refreshTrigger }: DoseStatsProps) {
           </div>
         </CardContent>
       </Card>
-
-      {/* Shelved: Average Intensity card
-      <Card>
-        <CardHeader className="pb-2">
-          <CardDescription>Avg Intensity</CardDescription>
-          <CardTitle className="text-3xl">{avgIntensity ?? '-'}</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <TrendingUp className="h-4 w-4" />
-            <span>out of 10</span>
-          </div>
-        </CardContent>
-      </Card>
-      */}
 
       {/* Top Substances */}
       {topSubstances.length > 0 && (
