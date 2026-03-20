@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Drugucopia - Psychoactive Substances Documentation",
-  description: "Comprehensive documentation for psychoactive substances including effects, dosages, harm reduction, and chemistry.",
+  description: "Documentation for psychoactive substances including effects, dosages, harm reductioni.",
   keywords: ["psychoactive", "substances", "documentation", "harm reduction", "drug information"],
   authors: [{ name: "conflictmedia @ conflict@cocaine.ninja" }],
   icons: {
