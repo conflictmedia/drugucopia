@@ -21,7 +21,8 @@ import {
   Smile,
   Activity,
   Loader2,
-  Timer
+  Timer,
+  Download
 } from 'lucide-react'
 import { categoryColors } from '@/lib/substance-index'
 import { useToast } from '@/hooks/use-toast'
@@ -102,6 +103,77 @@ export function DoseHistory({ refreshTrigger }: DoseHistoryProps) {
     }
   }
 
+  const exportToCSV = () => {
+    if (doses.length === 0) {
+      toast({
+        title: 'Nothing to export',
+        description: 'You have no dose logs to export yet.',
+        variant: 'destructive'
+      })
+      return
+    }
+
+    const headers = [
+      'Date',
+      'Time',
+      'Substance',
+      'Category',
+      'Amount',
+      'Unit',
+      'Route',
+      'Total Duration',
+      'Mood',
+      'Setting',
+      'Intensity',
+      'Notes'
+    ]
+
+    const escapeCSV = (value: any) => {
+      if (value === null || value === undefined) return '""'
+      const str = String(value)
+      return `"${str.replace(/"/g, '""')}"`
+    }
+
+    const rows = doses.map((dose) => {
+      const dateObj = new Date(dose.timestamp)
+      return [
+        format(dateObj, 'yyyy-MM-dd'),
+        format(dateObj, 'HH:mm:ss'),
+        dose.substanceName,
+        dose.category,
+        dose.amount,
+        dose.unit,
+        dose.route,
+        dose.duration?.total || '',
+        dose.mood || '',
+        dose.setting || '',
+        dose.intensity || '',
+        dose.notes || ''
+      ]
+        .map(escapeCSV)
+        .join(',')
+    })
+
+    const csvContent = [headers.map(escapeCSV).join(','), ...rows].join('\n')
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' })
+    const url = URL.createObjectURL(blob)
+    const link = document.createElement('a')
+    
+    link.setAttribute('href', url)
+    link.setAttribute('download', `dose-history-${format(new Date(), 'yyyy-MM-dd')}.csv`)
+    document.body.appendChild(link)
+    
+    link.click()
+    
+    document.body.removeChild(link)
+    URL.revokeObjectURL(url)
+
+    toast({
+      title: 'Export successful',
+      description: 'Your dose history has been downloaded as a CSV file.'
+    })
+  }
+
   const groupDosesByDate = (doses: DoseLog[]) => {
     const groups: { [key: string]: DoseLog[] } = {}
     
@@ -134,14 +206,6 @@ export function DoseHistory({ refreshTrigger }: DoseHistoryProps) {
     return categoryColors[category as keyof typeof categoryColors] || 'text-gray-500 bg-gray-500/10 border-gray-500/20'
   }
 
-  const getIntensityColor = (intensity: number | null) => {
-    if (!intensity) return 'bg-gray-500'
-    if (intensity <= 3) return 'bg-green-500'
-    if (intensity <= 6) return 'bg-yellow-500'
-    if (intensity <= 8) return 'bg-orange-500'
-    return 'bg-red-500'
-  }
-
   if (loading) {
     return (
       <Card>
@@ -170,20 +234,31 @@ export function DoseHistory({ refreshTrigger }: DoseHistoryProps) {
 
   return (
     <Card>
-      <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <Activity className="h-5 w-5" />
-          Dose History
-        </CardTitle>
-        <CardDescription>
-          Your logged substance doses
-        </CardDescription>
+      <CardHeader className="flex flex-row items-start justify-between space-y-0 pb-4">
+        <div className="space-y-1.5">
+          <CardTitle className="flex items-center gap-2">
+            <Activity className="h-5 w-5" />
+            Dose History
+          </CardTitle>
+          <CardDescription>
+            Your logged substance doses
+          </CardDescription>
+        </div>
+        <Button 
+          variant="outline" 
+          size="sm" 
+          onClick={exportToCSV}
+          className="shrink-0"
+        >
+          <Download className="mr-2 h-4 w-4" />
+          Export CSV
+        </Button>
       </CardHeader>
       <CardContent>
         <ScrollArea className="h-[400px] pr-4">
           {Object.entries(groupedDoses).map(([dateGroup, groupDoses]) => (
             <div key={dateGroup} className="mb-6">
-              <h4 className="text-sm font-medium text-muted-foreground mb-3 sticky top-0 bg-background py-1">
+              <h4 className="text-sm font-medium text-muted-foreground mb-3 sticky top-0 bg-background py-1 z-10 text-center">
                 {dateGroup}
               </h4>
               <div className="space-y-3">
@@ -201,20 +276,16 @@ export function DoseHistory({ refreshTrigger }: DoseHistoryProps) {
                               {dose.category}
                             </Badge>
                           )}
-                          {/* Shelved: Intensity display
-                          {dose.intensity && (
-                            <div className="flex items-center gap-1">
-                              <div className={`w-2 h-2 rounded-full ${getIntensityColor(dose.intensity)}`} />
-                              <span className="text-xs text-muted-foreground">{dose.intensity}/10</span>
-                            </div>
-                          )}
-                          */}
                         </div>
                         
                         <div className="flex items-center gap-4 mt-1 text-sm text-muted-foreground">
                           <span className="flex items-center gap-1">
                             <Droplets className="h-3 w-3" />
                             {dose.amount} {dose.unit}
+                          </span>
+                          <span className="flex items-center gap-1">
+                            <Calendar className="h-3 w-3" />
+                            {format(new Date(dose.timestamp), 'MMM d, yyyy')}
                           </span>
                           <span className="flex items-center gap-1">
                             <Clock className="h-3 w-3" />
@@ -256,7 +327,7 @@ export function DoseHistory({ refreshTrigger }: DoseHistoryProps) {
                       <Button
                         variant="ghost"
                         size="icon"
-                        className="h-8 w-8 text-muted-foreground hover:text-destructive"
+                        className="h-8 w-8 text-muted-foreground hover:text-destructive shrink-0"
                         onClick={() => deleteDose(dose.id)}
                         disabled={deleting === dose.id}
                       >

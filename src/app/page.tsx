@@ -31,7 +31,8 @@ import {
   XCircle,
   Activity,
   Plus,
-  Syringe
+  Syringe,
+  Github
 } from 'lucide-react'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { DoseLoggerModal } from '@/components/dose-logger-modal'
@@ -434,7 +435,7 @@ export default function Home() {
 
         {/* Content */}
         <main className="container mx-auto py-6 lg:py-10">
-          <div className="grid gap-6 lg:grid-cols-3">
+          <div className="grid gap-6 lg:grid-cols-3 mb-8">
             {/* Main Content */}
             <div className="lg:col-span-2 space-y-6">
               {/* Overview Card */}
@@ -455,10 +456,19 @@ export default function Home() {
                     </div>
                   </div>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="space-y-4">
                   <p className="text-muted-foreground leading-relaxed">
                     {selectedSubstance.description}
                   </p>
+                  <Button 
+                    variant="secondary" 
+                    size="sm" 
+                    className="w-full sm:w-auto"
+                    onClick={() => window.open('github.com/conflictmedia/drugucopia/issues/new', '_blank')}
+                  >
+                    <Github className="mr-2 h-4 w-4" />
+                    Incorrect info? Submit a issue on GitHub
+                  </Button>
                 </CardContent>
               </Card>
 
@@ -653,19 +663,30 @@ export default function Home() {
       {/* Sidebar */}
       <aside className={`${sidebarOpen ? 'w-64' : 'w-0'} transition-all duration-300 border-r bg-muted/30 overflow-hidden shrink-0`}>
         <div className="h-full flex flex-col">
-          {/* Logo */}
-          <div className="p-4 border-b">
-            <div className="flex items-center gap-2">
-              <Image 
-                src="logo.png" 
-                alt="Drugucopia Logo" 
-                width={36} 
-                height={36}
-                className="rounded-lg"
-              />
-              <span className="font-bold text-lg">Drugucopia</span>
+          {/* Logo & Top Actions */}
+          <div className="p-4 border-b space-y-4">
+            <div>
+              <div className="flex items-center gap-2">
+                <Image 
+                  src="logo.png" 
+                  alt="Drugucopia Logo" 
+                  width={36} 
+                  height={36}
+                  className="rounded-lg"
+                />
+                <span className="font-bold text-lg">Drugucopia</span>
+              </div>
+              <p className="text-xs text-muted-foreground mt-1">Psychoactive Substances Documentation</p>
             </div>
-            <p className="text-xs text-muted-foreground mt-1">Psychoactive Substances Documentation</p>
+            <Button 
+              variant="outline" 
+              size="sm" 
+              className="w-full text-xs bg-background"
+              onClick={() => window.open('github.com/conflictmedia/drugucopia/issues/new', '_blank')}
+            >
+              <Github className="mr-2 h-3 w-3" />
+              Feedback/Issues
+            </Button>
           </div>
 
           {/* Navigation */}
