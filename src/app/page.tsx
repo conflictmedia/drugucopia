@@ -51,7 +51,7 @@ import {
   type Substance, 
   type SubstanceCategory,
   type RouteDosageDuration
-} from '@/lib/substances-data'
+} from '@/lib/substance-index'
 
 const categoryIcons: Record<SubstanceCategory, React.ElementType> = {
   stimulants: Zap,
@@ -558,20 +558,12 @@ export default function Home() {
                     <div>
                       <p className="text-sm text-muted-foreground">Routes</p>
                       <div className="flex flex-wrap gap-1 mt-1">
-                        {selectedSubstance.routeData 
-                          ? Object.keys(selectedSubstance.routeData).map((route) => (
-                              <span key={route} className="text-xs bg-muted px-2 py-0.5 rounded flex items-center gap-1">
-                                <span>{getRouteIcon(route)}</span>
-                                <span>{route}</span>
-                              </span>
-                            ))
-                          : selectedSubstance.routes.map((route) => (
-                              <span key={route} className="text-xs bg-muted px-2 py-0.5 rounded flex items-center gap-1">
-                                <span>{getRouteIcon(route)}</span>
-                                <span>{route}</span>
-                              </span>
-                            ))
-                        }
+                        {selectedSubstance.routeData && Object.keys(selectedSubstance.routeData).map((route) => (
+                          <span key={route} className="text-xs bg-muted px-2 py-0.5 rounded flex items-center gap-1">
+                            <span>{getRouteIcon(route)}</span>
+                            <span>{route}</span>
+                          </span>
+                        ))}
                       </div>
                     </div>
                   </div>

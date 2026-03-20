@@ -26,7 +26,7 @@ import { Textarea } from '@/components/ui/textarea'
 // import { Slider } from '@/components/ui/slider' // Shelved: Intensity slider
 import { Combobox, type ComboboxOption } from '@/components/ui/combobox'
 import { Plus, Loader2 } from 'lucide-react'
-import { substances, type Substance } from '@/lib/substances-data'
+import { substances, type Substance } from '@/lib/substance-index'
 import { useToast } from '@/hooks/use-toast'
 
 interface DoseLoggerModalProps {
@@ -198,8 +198,8 @@ export function DoseLoggerModal({
   }
 
   const getRoutesForSubstance = () => {
-    if (selectedSubstance?.routes) {
-      return selectedSubstance.routes
+    if (selectedSubstance?.routeData) {
+      return Object.keys(selectedSubstance.routeData)
     }
     return ['Oral', 'Insufflation', 'Inhalation', 'Sublingual', 'Rectal', 'Transdermal', 'Intravenous', 'Smoked', 'Vaped']
   }

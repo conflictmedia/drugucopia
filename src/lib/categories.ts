@@ -1,0 +1,81 @@
+// Psychoactive Substances Documentation - Category Definitions
+
+import { CategoryInfo, SubstanceCategory } from './types';
+
+export const categories: CategoryInfo[] = [
+  {
+    id: 'stimulants',
+    name: 'Stimulants',
+    description: 'Substances that increase activity in the central nervous system, leading to enhanced alertness, attention, and energy.',
+    icon: 'Zap',
+    color: 'amber'
+  },
+  {
+    id: 'depressants',
+    name: 'Depressants',
+    description: 'Substances that slow down brain function and central nervous system activity, producing calming and sedative effects.',
+    icon: 'Moon',
+    color: 'indigo'
+  },
+  {
+    id: 'hallucinogens',
+    name: 'Hallucinogens',
+    description: 'Substances that cause profound alterations in perception, thought, and mood, often leading to visual and auditory hallucinations.',
+    icon: 'Sparkles',
+    color: 'purple'
+  },
+  {
+    id: 'dissociatives',
+    name: 'Dissociatives',
+    description: 'Substances that produce feelings of detachment from reality and oneself, often described as an out-of-body experience.',
+    icon: 'Split',
+    color: 'cyan'
+  },
+  {
+    id: 'empathogens',
+    name: 'Empathogens',
+    description: 'Substances that enhance feelings of empathy, emotional openness, and interpersonal connection.',
+    icon: 'Heart',
+    color: 'pink'
+  },
+  {
+    id: 'cannabinoids',
+    name: 'Cannabinoids',
+    description: 'Compounds that act on cannabinoid receptors, producing a range of effects including relaxation and altered perception.',
+    icon: 'Leaf',
+    color: 'green'
+  },
+  {
+    id: 'opioids',
+    name: 'Opioids',
+    description: 'Substances that act on opioid receptors, primarily used for pain relief but with high potential for dependence.',
+    icon: 'Pill',
+    color: 'red'
+  },
+  {
+    id: 'deliriants',
+    name: 'Deliriants',
+    description: 'Substances that cause delirium, characterized by confusion, disorientation, and realistic hallucinations.',
+    icon: 'Ghost',
+    color: 'slate'
+  },
+  {
+    id: 'nootropics',
+    name: 'Nootropics',
+    description: 'Cognitive enhancers that may improve memory, focus, creativity, or other mental functions with low toxicity and minimal side effects.',
+    icon: 'Brain',
+    color: 'teal'
+  }
+];
+
+export const categoryColors: Record<SubstanceCategory, string> = {
+  stimulants: 'text-amber-500 bg-amber-500/10 border-amber-500/20',
+  depressants: 'text-indigo-500 bg-indigo-500/10 border-indigo-500/20',
+  hallucinogens: 'text-purple-500 bg-purple-500/10 border-purple-500/20',
+  dissociatives: 'text-cyan-500 bg-cyan-500/10 border-cyan-500/20',
+  empathogens: 'text-pink-500 bg-pink-500/10 border-pink-500/20',
+  cannabinoids: 'text-green-500 bg-green-500/10 border-green-500/20',
+  opioids: 'text-red-500 bg-red-500/10 border-red-500/20',
+  deliriants: 'text-slate-500 bg-slate-500/10 border-slate-500/20',
+  nootropics: 'text-teal-500 bg-teal-500/10 border-teal-500/20'
+};
