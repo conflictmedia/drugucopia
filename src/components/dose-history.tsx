@@ -13,7 +13,8 @@ import { ScrollArea } from '@/components/ui/scroll-area'
 import { Input } from '@/components/ui/input'
 import { 
   Trash2, Calendar, Clock, Droplets, MapPin, Smile,
-  Activity, Loader2, Timer, Download, Cloud, CloudOff, Lock, CheckCircle2
+  Activity, Loader2, Timer, Download, Cloud, CloudOff, Lock, CheckCircle2,
+  RotateCcw
 } from 'lucide-react'
 import { categoryColors } from '@/lib/substance-index'
 import { useToast } from '@/hooks/use-toast'
@@ -116,6 +117,7 @@ export function DoseHistory({ refreshTrigger }: DoseHistoryProps) {
   const [doses, setDoses] = useState<DoseLog[]>([])
   const [loading, setLoading] = useState(true)
   const [deleting, setDeleting] = useState<string | null>(null)
+  const [redosing, setRedosing] = useState<string | null>(null)
   const { toast } = useToast()
 
   // Sync States
@@ -297,6 +299,36 @@ export function DoseHistory({ refreshTrigger }: DoseHistoryProps) {
     }
   }
 
+  const redose = async (dose: DoseLog) => {
+    setRedosing(dose.id)
+    try {
+      const now = new Date().toISOString()
+      const newDose: DoseLog = {
+        ...dose,
+        id: crypto.randomUUID(),
+        timestamp: now,
+        createdAt: now,
+        notes: dose.notes ? `Redose — ${dose.notes}` : 'Redose',
+      }
+
+      const updated = [newDose, ...doses]
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(updated))
+      setDoses(updated)
+      notifyDoseChange()
+
+      await pushToSync(updated)
+
+      toast({
+        title: 'Redose logged',
+        description: `${dose.substanceName} ${dose.amount} ${dose.unit} logged again at ${format(new Date(now), 'h:mm a')}`,
+      })
+    } catch (error) {
+      toast({ title: 'Error', description: 'Failed to log redose', variant: 'destructive' })
+    } finally {
+      setRedosing(null)
+    }
+  }
+
   const exportToCSV = () => {
     if (doses.length === 0) {
       toast({ title: 'Nothing to export', description: 'You have no dose logs to export yet.', variant: 'destructive' })
@@ -473,14 +505,25 @@ export function DoseHistory({ refreshTrigger }: DoseHistoryProps) {
                           {dose.notes && <p className="text-xs text-muted-foreground mt-2 line-clamp-2">{dose.notes}</p>}
                         </div>
                         
-                        <Button
-                          variant="ghost" size="icon"
-                          className="h-8 w-8 text-muted-foreground hover:text-destructive shrink-0"
-                          onClick={() => deleteDose(dose.id)}
-                          disabled={deleting === dose.id}
-                        >
-                          {deleting === dose.id ? <Loader2 className="h-4 w-4 animate-spin" /> : <Trash2 className="h-4 w-4" />}
-                        </Button>
+                        <div className="flex gap-1 shrink-0">
+                          <Button
+                            variant="ghost" size="icon"
+                            className="h-8 w-8 text-muted-foreground hover:text-primary"
+                            onClick={() => redose(dose)}
+                            disabled={redosing === dose.id}
+                            title="Redose"
+                          >
+                            {redosing === dose.id ? <Loader2 className="h-4 w-4 animate-spin" /> : <RotateCcw className="h-4 w-4" />}
+                          </Button>
+                          <Button
+                            variant="ghost" size="icon"
+                            className="h-8 w-8 text-muted-foreground hover:text-destructive"
+                            onClick={() => deleteDose(dose.id)}
+                            disabled={deleting === dose.id}
+                          >
+                            {deleting === dose.id ? <Loader2 className="h-4 w-4 animate-spin" /> : <Trash2 className="h-4 w-4" />}
+                          </Button>
+                        </div>
                       </div>
                     </div>
                   ))}
