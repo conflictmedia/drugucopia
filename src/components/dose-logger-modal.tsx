@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { format } from 'date-fns'
 import { 
   Dialog, 
@@ -91,6 +91,22 @@ export function DoseLoggerModal({
   const [setting, setSetting] = useState('')
   const [intensity] = useState([5])
 
+  // Update state when preselected props change
+  useEffect(() => {
+    if (preselectedSubstanceId) {
+      setSubstanceId(preselectedSubstanceId)
+    }
+    if (preselectedSubstanceName) {
+      setSubstanceName(preselectedSubstanceName)
+    }
+    if (preselectedCategory) {
+      setCategory(preselectedCategory)
+    }
+    if (preselectedRoute) {
+      setRoute(preselectedRoute)
+    }
+  }, [preselectedSubstanceId, preselectedSubstanceName, preselectedCategory, preselectedRoute])
+
   const selectedSubstance = substances.find(s => s.id === substanceId)
   
   // Get substance options for combobox
@@ -172,7 +188,9 @@ export function DoseLoggerModal({
     }
     setAmount('')
     setUnit('mg')
-    setRoute('Oral')
+    if (!preselectedRoute) {
+      setRoute('Oral')
+    }
     setTimestamp(format(new Date(), "yyyy-MM-dd'T'HH:mm"))
     setNotes('')
     setMood('')

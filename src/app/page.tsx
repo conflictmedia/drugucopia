@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import React, { useState, useMemo, useEffect, useRef, useCallback } from 'react'
 import Image from 'next/image'
 import { 
   Search, 
@@ -115,14 +115,32 @@ const routeDangerColors: Record<string, string> = {
 type ViewType = 'substances' | 'dose-log'
 
 // Dosage & Duration display component with route selector
-function DosageDurationPanel({ substance }: { substance: Substance }) {
+function DosageDurationPanel({ 
+  substance, 
+  onRouteChange 
+}: { 
+  substance: Substance,
+  onRouteChange?: (route: string | null) => void
+}) {
   const hasRouteData = substance.routeData && Object.keys(substance.routeData).length > 0
-  const [selectedRoute, setSelectedRoute] = useState<string | null>(() => {
-    if (hasRouteData) {
-      return Object.keys(substance.routeData!)[0]
+  const initialRoute = hasRouteData ? Object.keys(substance.routeData!)[0] : null
+  
+  const [selectedRoute, setSelectedRoute] = useState<string | null>(initialRoute)
+  const prevSubstanceIdRef = useRef(substance.id)
+
+  // Notify parent of route changes (including initial)
+  useEffect(() => {
+    onRouteChange?.(selectedRoute)
+  }, [selectedRoute])
+
+  // Reset to first route when substance changes
+  useEffect(() => {
+    if (prevSubstanceIdRef.current !== substance.id) {
+      prevSubstanceIdRef.current = substance.id
+      const newRoute = hasRouteData ? Object.keys(substance.routeData!)[0] : null
+      setSelectedRoute(newRoute)
     }
-    return null
-  })
+  }, [substance.id, hasRouteData, substance.routeData])
 
   const currentDosage = useMemo(() => {
     if (selectedRoute && substance.routeData?.[selectedRoute]) {
@@ -335,6 +353,7 @@ function DosageDurationPanel({ substance }: { substance: Substance }) {
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState<SubstanceCategory | 'all'>('all')
   const [selectedSubstance, setSelectedSubstance] = useState<Substance | null>(null)
+  const [selectedRoute, setSelectedRoute] = useState<string | null>(null)
   const [searchQuery, setSearchQuery] = useState('')
   const [sidebarOpen, setSidebarOpen] = useState(true)
   const [currentView, setCurrentView] = useState<ViewType>('substances')
@@ -360,6 +379,17 @@ export default function Home() {
     setDoseRefreshTrigger(prev => prev + 1)
   }
 
+  const handleRouteChange = useCallback((route: string | null) => {
+    setSelectedRoute(route)
+  }, [])
+
+  // Reset selected route when substance changes
+  useEffect(() => {
+    if (!selectedSubstance) {
+      setSelectedRoute(null)
+    }
+  }, [selectedSubstance])
+
   if (selectedSubstance) {
     return (
       <div className="min-h-screen bg-background">
@@ -382,6 +412,7 @@ export default function Home() {
                 preselectedSubstanceId={selectedSubstance.id}
                 preselectedSubstanceName={selectedSubstance.name}
                 preselectedCategory={selectedSubstance.category}
+                preselectedRoute={selectedRoute || undefined}
                 onLogCreated={handleDoseLogged}
                 trigger={
                   <Button size="sm" className="gap-2">
@@ -481,7 +512,10 @@ export default function Home() {
               </Card>
 
               {/* Dosage & Duration with Route Selector */}
-              <DosageDurationPanel substance={selectedSubstance} />
+              <DosageDurationPanel 
+                substance={selectedSubstance} 
+                onRouteChange={handleRouteChange}
+              />
 
               {/* Harm Reduction */}
               <Card className="border-orange-500/30 bg-orange-500/5">
@@ -524,12 +558,20 @@ export default function Home() {
                     <div>
                       <p className="text-sm text-muted-foreground">Routes</p>
                       <div className="flex flex-wrap gap-1 mt-1">
-                        {selectedSubstance.routes.map((route) => (
-                          <span key={route} className="text-xs bg-muted px-2 py-0.5 rounded flex items-center gap-1">
-                            <span>{getRouteIcon(route)}</span>
-                            <span>{route}</span>
-                          </span>
-                        ))}
+                        {selectedSubstance.routeData 
+                          ? Object.keys(selectedSubstance.routeData).map((route) => (
+                              <span key={route} className="text-xs bg-muted px-2 py-0.5 rounded flex items-center gap-1">
+                                <span>{getRouteIcon(route)}</span>
+                                <span>{route}</span>
+                              </span>
+                            ))
+                          : selectedSubstance.routes.map((route) => (
+                              <span key={route} className="text-xs bg-muted px-2 py-0.5 rounded flex items-center gap-1">
+                                <span>{getRouteIcon(route)}</span>
+                                <span>{route}</span>
+                              </span>
+                            ))
+                        }
                       </div>
                     </div>
                   </div>
