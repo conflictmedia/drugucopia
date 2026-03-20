@@ -18,7 +18,8 @@ Please create an issue with as much info as you have for the substance you want 
 ## TODO:
 
 
-- [ ] Actually test the webpage on mobile (should work?)
+- [x] Actually test the webpage on mobile (should work?)
+- [ ] Tweak the page on mobile a metric fuckton
 - [ ] Populate repository entries with a lot more data like effects and pharmacology/pharmocokinetics w/ sources
 - [ ] Implement locally stored custom user added drugs to bridge gap until they are added to into the repository (maybe)
 - [ ] Add expieriences section to substances with links to expierience reports
