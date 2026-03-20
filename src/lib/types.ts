@@ -37,13 +37,6 @@ export interface Substance {
     strong: string;
     heavy: string;
   };
-  duration: {
-    onset: string;
-    comeup: string;
-    peak: string;
-    offset: string;
-    total: string;
-  };
   routeData?: Record<string, RouteDosageDuration>;
   interactions: string[];
   harmReduction: string[];
