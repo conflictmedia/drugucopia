@@ -6,344 +6,319 @@ export const empathogens: Substance[] = [
   {
       id: 'mdma',
       name: 'MDMA',
-      commonNames: ['Ecstasy', 'Molly', 'E', 'Rolls', 'Beans'],
+      commonNames: ['Molly', 'Ecstasy', 'E', 'XTC', 'Mandy', 'Pingers'],
       category: 'empathogens',
-      class: 'Phenethylamine',
-      description: 'MDMA (3,4-methylenedioxymethamphetamine) is a synthetic psychoactive drug with both stimulant and psychedelic properties. It is classified as an entactogen or empathogen for its ability to enhance feelings of emotional closeness and empathy. MDMA acts primarily as a releasing agent for serotonin, dopamine, and norepinephrine, while also acting as a serotonin reuptake inhibitor. The MDMA experience is characterized by increased energy, emotional warmth, distorted perception of time, and enhanced enjoyment of sensory experiences. MDMA has shown significant therapeutic potential for PTSD treatment.',
+      class: 'Amphetamine',
+      description: 'MDMA (3,4-Methylenedioxymethamphetamine) is the quintessential empathogen. It acts as a releasing agent of serotonin, norepinephrine, and dopamine. It produces a unique state of emotional openness, empathy, energy, and euphoria. It is currently in Phase 3 clinical trials for the treatment of PTSD.',
       effects: {
-        positive: ['Intense feelings of empathy and connection', 'Enhanced appreciation of music and touch', 'Reduced anxiety and fear', 'Increased sociability and openness', 'Mild euphoria and sense of well-being', 'Therapeutic processing of trauma'],
-        neutral: ['Increased energy and alertness', 'Jaw clenching and teeth grinding', 'Increased heart rate and blood pressure', 'Suppressed appetite', 'Dilated pupils', 'Enhanced sensory perception'],
-        negative: ['Dehydration or over-hydration', 'Hyperthermia in hot environments', 'Depression during comedown', 'Memory and cognitive issues with frequent use', 'Neurotoxicity with heavy use', 'Teeth damage from clenching']
+        positive: ['Extreme empathy', 'Euphoria', 'Music enhancement', 'Tactile enhancement', 'Decreased fear/anxiety'],
+        neutral: ['Nystagmus (Eye wiggles)', 'Bruxism (Jaw clenching)', 'Sweating', 'Time distortion'],
+        negative: ['Comedown (Tuesday Blues)', 'Neurotoxicity (high doses)', 'Hyperthermia', 'Hyponatremia (water intoxication)', 'Memory loss']
       },
       dosage: {
-        threshold: '30-50mg',
+        threshold: '30mg',
         light: '50-75mg',
         common: '75-125mg',
         strong: '125-175mg',
-        heavy: '175mg+'
+        heavy: '175mg+ (High neurotoxicity risk)'
       },
-      duration: {
-        onset: '20-40 minutes',
-        comeup: '30-60 minutes',
-        peak: '2-3 hours',
-        offset: '2-3 hours',
-        total: '4-6 hours'
-      },
-    routeData: {
-      Oral: {
-          dosage: {
-              threshold: '30-50mg',
-              light: '50-75mg',
-              common: '75-125mg',
-              strong: '125-175mg',
-              heavy: '175mg+'
-          },
-          duration: {
-              onset: '20-40 minutes',
-              comeup: '30-60 minutes',
-              peak: '2-3 hours',
-              offset: '2-3 hours',
-              total: '4-6 hours'
-          },
-          notes: 'Most common route. Effects felt in 30-60 minutes. Redosing less effective due to serotonin depletion.'
-      },
-      Insufflation: {
-          dosage: {
-              threshold: '20-40mg',
-              light: '40-60mg',
-              common: '60-100mg',
-              strong: '100-140mg',
-              heavy: '140mg+'
-          },
-          duration: {
-              onset: '5-15 minutes',
-              comeup: '15-30 minutes',
-              peak: '1-2 hours',
-              offset: '1-2 hours',
-              total: '2-4 hours'
-          },
-          notes: 'Faster onset but painful. Shorter duration. Higher neurotoxicity risk.'
-      },
-      Rectal: {
-          dosage: {
-              threshold: '25-40mg',
-              light: '40-60mg',
-              common: '60-100mg',
-              strong: '100-140mg',
-              heavy: '140mg+'
-          },
-          duration: {
-              onset: '10-20 minutes',
-              comeup: '20-40 minutes',
-              peak: '2-3 hours',
-              offset: '2-3 hours',
-              total: '4-6 hours'
-          },
-          notes: 'Higher bioavailability (~95%). Lower dose needed. Often called \'plugging\'.'
-      },
-      Sublingual: {
-          dosage: {
-              threshold: '25.5-42.5mg',
-              light: '42.5-63.8mg',
-              common: '63.8-106.3mg',
-              strong: '106.3-148.8mg',
-              heavy: '148.8mg'
-          },
-          duration: {
-              onset: '10-20 minutes',
-              comeup: '20-40 minutes',
-              peak: '2-3 hours',
-              offset: '2-3 hours',
-              total: '4-6 hours'
-          },
-          notes: 'Faster onset than oral. Good bioavailability. Held under tongue.'
-      }
-  },
-      interactions: ['SSRIs (reduce effects, risk of serotonin syndrome)', 'MAOIs (dangerous)', 'Other stimulants', 'Alcohol', 'Tramadol', 'Lithium'],
+      routeData: {
+        Oral: {
+            dosage: {
+                threshold: '30mg',
+                light: '50-75mg',
+                common: '80-120mg',
+                strong: '125-170mg',
+                heavy: '170mg+'
+            },
+            duration: {
+                onset: '30-60 minutes',
+                comeup: '30-60 minutes',
+                peak: '2-3 hours',
+                offset: '2-3 hours',
+                total: '4-6 hours'
+            },
+            notes: 'Ideal route. Redosing (booster) of 50% initial dose can extend peak by ~1 hour.'
+        },
+        Insufflation: {
+            dosage: {
+                threshold: '20mg',
+                light: '40-60mg',
+                common: '60-100mg',
+                strong: '100-140mg',
+                heavy: '140mg+'
+            },
+            duration: {
+                onset: '5-15 minutes',
+                comeup: '15-30 minutes',
+                peak: '1-2 hours',
+                offset: '1-2 hours',
+                total: '3-4 hours'
+            },
+            notes: 'Painful. Short duration. Drains serotonin faster for less magic. Not recommended.'
+        }
+    },
+      interactions: ['MAOIs (FATAL - Serotonin Syndrome)', 'SSRIs (Blocks effects completely)', 'DXM', 'Tramadol', 'Alcohol'],
       harmReduction: [
-        'Test substances with reagent kits - many "Molly" contains adulterants',
-        'Stay cool and take breaks from dancing',
-        'Drink water but do not over-hydrate (500ml per hour)',
-        'Wait at least 1-3 months between uses to reduce neurotoxicity',
-        'Take supplements (antioxidants, magnesium, 5-HTP after)',
-        'Avoid mixing with other substances',
-        'Do not use if you have heart conditions',
-        'Have trusted friends present'
+        'Test your substance (Marquis reagent)',
+        '3-Month Rule: Wait 3 months between uses to recover serotonin and prevent magic loss',
+        'Hydrate: 500ml/hr if active, 250ml/hr if sedentary',
+        'Keep body temperature down',
+        'Magnesium Glycinate helps with jaw clenching'
       ],
-      legality: 'Illegal in most countries. Schedule I controlled substance. Special exemptions exist for clinical research and some therapeutic applications.',
+      legality: 'Schedule I (US). Clinical trials active.',
       chemistry: {
         formula: 'C11H15NO2',
         molecularWeight: '193.25 g/mol',
-        class: 'Phenethylamine derivative'
+        class: 'Amphetamine'
       },
-      history: 'MDMA was first synthesized in 1912 but remained obscure until rediscovered by Alexander Shulgin in the 1970s. It gained popularity in psychotherapy before becoming a popular recreational drug. It was made illegal in the US in 1985.',
-      routes: ['Oral', 'Insufflation', 'Rectal', 'Sublingual'],
-      afterEffects: 'Comedown lasting 1-3 days including fatigue, low mood, and difficulty concentrating. More severe with frequent use.',
+      history: 'Synthesized 1912 by Merck. Rediscovered by Shulgin 1970s. Banned 1985.',
+      routes: ['Oral', 'Insufflation', 'Rectal', 'IV'],
+      afterEffects: 'Depression/Fatigue 2-3 days later due to serotonin depletion.',
       riskLevel: 'moderate',
-      aliases: ['3,4-methylenedioxymethamphetamine', 'methylsafrylamine']
+      aliases: ['3,4-methylenedioxymethamphetamine']
+    },
+  {
+      id: 'mda',
+      name: 'MDA',
+      commonNames: ['Sass', 'Sally', 'Sassafras', 'Tenamfetamine'],
+      category: 'empathogens',
+      class: 'Amphetamine',
+      description: 'MDA is a precursor to, and metabolite of, MDMA. It is known as the "harder," more psychedelic, and more neurotoxic cousin of MDMA. It lasts longer and produces more visual hallucinations but offers less emotional warmth/empathy than MDMA.',
+      effects: {
+        positive: ['Euphoria', 'Visuals (geometry/tracers)', 'Energy', 'Music appreciation'],
+        neutral: ['Heavy body load', 'Jaw clenching', 'Sweating'],
+        negative: ['Neurotoxicity (Higher than MDMA)', 'Hepatotoxicity', 'Severe comedown', 'Hallucinations (deliriant-like at high doses)']
+      },
+      dosage: {
+        threshold: '30mg',
+        light: '40-60mg',
+        common: '60-100mg',
+        strong: '100-145mg',
+        heavy: '145mg+'
+      },
+      routeData: {
+        Oral: {
+            dosage: {
+                threshold: '30mg',
+                light: '40-60mg',
+                common: '70-100mg',
+                strong: '100-130mg',
+                heavy: '130mg+'
+            },
+            duration: {
+                onset: '30-60 minutes',
+                comeup: '1 hour',
+                peak: '2-4 hours',
+                offset: '3-4 hours',
+                total: '6-8 hours'
+            },
+            notes: 'Longer lasting than MDMA. More stimulating.'
+        }
+    },
+      interactions: ['MAOIs', 'SSRIs', 'Stimulants'],
+      harmReduction: [
+        'Neurotoxicity is significantly higher than MDMA - strict spacing of usage required',
+        'Antioxidants (ALA, ALCAR) recommended',
+        'Visuals can become confusing at high doses'
+      ],
+      legality: 'Schedule I (US).',
+      chemistry: {
+        formula: 'C10H13NO2',
+        molecularWeight: '179.22 g/mol',
+        class: 'Amphetamine'
+      },
+      history: 'Synthesized 1910. Popular in the 1960s as "The Love Drug" before MDMA took over.',
+      routes: ['Oral', 'Insufflation'],
+      afterEffects: 'Rough physical hangover.',
+      riskLevel: 'high',
+      aliases: ['3,4-methylenedioxyamphetamine']
     },
   {
       id: '6-apb',
       name: '6-APB',
-      commonNames: ['Benzofury', '6-(2-aminopropyl)benzofuran', 'Benzo Fury'],
+      commonNames: ['Benzofury', 'Benfamine'],
       category: 'empathogens',
       class: 'Benzofuran',
-      description: '6-APB (6-(2-aminopropyl)benzofuran) is an empathogenic stimulant of the benzofuran class. It is structurally related to MDA and produces similar entactogenic effects, though typically with a longer duration. 6-APB acts as a releasing agent for serotonin, dopamine, and norepinephrine, and also has some receptor agonist activity. It gained popularity as a "legal alternative" to MDMA before being scheduled in many jurisdictions.',
+      description: '6-APB is a benzofuran analogue of MDA. It produces effects very similar to MDA/MDMA but with a significantly longer duration (up to 10 hours) and reportedly smoother comedown. It is a full agonist at 5-HT2B, making it potentially cardiotoxic with frequent use.',
       effects: {
-        positive: ['Increased empathy and emotional openness', 'Enhanced appreciation of music', 'Mild euphoria', 'Increased sociability', 'Relaxing body high'],
-        neutral: ['Increased heart rate', 'Mild stimulation', 'Dilated pupils', 'Jaw clenching', 'Suppressed appetite'],
-        negative: ['Nausea', 'Long duration can be exhausting', 'Anxiety at higher doses', 'Insomnia', 'Comedown symptoms', 'Dehydration']
+        positive: ['Long-lasting euphoria', 'Visuals', 'Empathy', 'Music enhancement'],
+        neutral: ['Nystagmus', 'Appetite suppression'],
+        negative: ['Cardiotoxicity (5-HT2B agonism)', 'Insomnia', 'Nausea', 'Vasoconstriction']
       },
       dosage: {
-        threshold: '30-50mg',
-        light: '50-80mg',
-        common: '80-120mg',
-        strong: '120-180mg',
-        heavy: '180mg+'
+        threshold: '40mg',
+        light: '50-70mg',
+        common: '80-120mg (Succinate: 120-160mg)',
+        strong: '120mg+ (Succinate: 170mg+)',
+        heavy: 'Variable by batch'
       },
-      duration: {
-        onset: '30-60 minutes',
-        comeup: '30-60 minutes',
-        peak: '3-5 hours',
-        offset: '3-5 hours',
-        total: '6-10 hours'
-      },
-      interactions: ['SSRIs', 'MAOIs', 'Other stimulants', 'Alcohol', 'Tramadol'],
+      routeData: {
+        Oral: {
+            dosage: {
+                threshold: '40mg',
+                light: '60mg',
+                common: '80-100mg (HCL)',
+                strong: '120mg+ (HCL)',
+                heavy: 'N/A'
+            },
+            duration: {
+                onset: '1-2 hours',
+                comeup: '2 hours',
+                peak: '3-5 hours',
+                offset: '3-4 hours',
+                total: '8-11 hours'
+            },
+            notes: 'IMPORTANT: "Succinate" batches are ~40% less potent than "HCL" batches. Onset is very slow (do not redose early).'
+        }
+    },
+      interactions: ['MAOIs', 'SSRIs'],
       harmReduction: [
-        'Start with a low dose to assess sensitivity',
-        'Stay hydrated but do not over-hydrate',
-        'Be prepared for the long duration',
-        'Avoid redosing due to long half-life',
-        'Test substances for purity',
-        'Do not combine with other stimulants',
-        'Have trusted friends present'
+        'Verify salt form (HCL vs Succinate) to dose correctly',
+        'Onset takes a long time - patience is key',
+        'Avoid frequent use due to potential heart valve issues'
       ],
-      legality: 'Controlled in many jurisdictions. Illegal in the UK, several EU countries, and China.',
+      legality: 'Schedule I (US - Analogue Act likely). Banned UK.',
       chemistry: {
         formula: 'C11H13NO',
         molecularWeight: '175.23 g/mol',
         class: 'Benzofuran'
       },
-      history: '6-APB was first synthesized in 1993 by David Nichols but wasn\'t marketed until appearing as a "legal high" around 2010.',
-      routes: ['Oral', 'Insufflation'],
-      afterEffects: 'Comedown lasting 1-2 days possible. Fatigue from long duration.',
+      history: 'Synthesized by David Nichols 1993. Marketed as legal high ~2010.',
+      routes: ['Oral', 'Rectal'],
+      afterEffects: 'Fatigue, but generally less depression than MDMA.',
       riskLevel: 'moderate',
-      aliases: ['6-(2-aminopropyl)benzofuran', 'benzofury']
+      aliases: ['6-(2-aminopropyl)benzofuran']
     },
-
-    // Additional Common Substances,
-  {
-      id: 'mda',
-      name: 'MDA',
-      commonNames: ['Sass', 'Sally', 'Mellow Drug of America', 'Love Drug'],
-      category: 'empathogens',
-      class: 'Phenethylamine',
-      description: 'MDA (3,4-methylenedioxyamphetamine) is a synthetic empathogen and stimulant closely related to MDMA. It produces stronger visual and psychedelic effects than MDMA with somewhat less emphasis on emotional openness. MDA has a longer duration and is often considered more "trippy."',
-      effects: {
-        positive: ['Euphoria', 'Empathy and connection', 'Enhanced sensory perception', 'Visual effects', 'Energy and stimulation'],
-        neutral: ['Jaw clenching', 'Nystagmus (eye wiggles)', 'Increased heart rate', 'Sweating', 'Long duration'],
-        negative: ['Neurotoxicity with heavy use', 'Comedown', 'Dehydration risk', 'Hyperthermia', 'More neurotoxic than MDMA']
-      },
-      dosage: {
-        threshold: '30-50mg',
-        light: '50-100mg',
-        common: '100-150mg',
-        strong: '150-200mg',
-        heavy: '200mg+'
-      },
-      duration: {
-        onset: '30-60 minutes',
-        comeup: '45-90 minutes',
-        peak: '2-4 hours',
-        offset: '3-5 hours',
-        total: '6-10 hours'
-      },
-    routeData: {
-      Oral: {
-          dosage: {
-              threshold: '30-50mg',
-              light: '50-100mg',
-              common: '100-150mg',
-              strong: '150-200mg',
-              heavy: '200mg'
-          },
-          duration: {
-              onset: '30-60 minutes',
-              comeup: '45-90 minutes',
-              peak: '2-4 hours',
-              offset: '3-5 hours',
-              total: '6-10 hours'
-          },
-          notes: 'Most common route for this substance.'
-      },
-      Insufflation: {
-          dosage: {
-              threshold: '21-35mg',
-              light: '35-70mg',
-              common: '70-105mg',
-              strong: '105-140mg',
-              heavy: '140mg'
-          },
-          duration: {
-              onset: '5-15 minutes',
-              comeup: '10-30 minutes',
-              peak: '2-3 hours',
-              offset: '2-4 hours',
-              total: '5-8 hours'
-          },
-          notes: 'Faster onset than oral. Nasal irritation possible with repeated use.'
-      }
-  },
-      interactions: ['SSRIs (reduce effects)', 'MAOIs (dangerous)', 'Other stimulants', 'Alcohol', 'Tramadol'],
-      harmReduction: [
-        'More neurotoxic than MDMA - use less frequently',
-        'Longer duration - plan accordingly',
-        'Stay cool and hydrated but do not over-hydrate',
-        'Test substances - MDA is often sold as MDMA',
-        'Wait at least 1-3 months between uses',
-        'More psychedelic than MDMA - different headspace'
-      ],
-      legality: 'Schedule I controlled substance in the US. Illegal internationally.',
-      chemistry: {
-        formula: 'C10H13NO2',
-        molecularWeight: '179.22 g/mol',
-        class: 'Phenethylamine'
-      },
-      history: 'MDA was first synthesized in 1910 and was used in psychotherapy before becoming a popular recreational drug. It was scheduled in 1970.',
-      routes: ['Oral', 'Insufflation'],
-      afterEffects: 'Comedown lasting 1-2 days. More draining than MDMA.',
-      riskLevel: 'moderate',
-      aliases: ['3,4-methylenedioxyamphetamine', 'tenamfetamine']
-    },
-
-    // ============================================
-    // NOOTROPICS
-    // ============================================,
   {
       id: '5-apb',
       name: '5-APB',
-      commonNames: ['5-(2-aminopropyl)benzofuran', '5-APB'],
+      commonNames: ['5-APB'],
       category: 'empathogens',
       class: 'Benzofuran',
-      description: '5-APB is a synthetic entactogen of the benzofuran class, structurally related to MDMA. It is known for combining empathogenic effects with psychedelic qualities. 5-APB is often considered more stimulating and longer-lasting than 6-APB.',
+      description: '5-APB is a positional isomer of 6-APB. It acts similarly to MDA. It is often described as producing a "couch-lock" body high with strong euphoria but less visual stimulation than 6-APB. It is often mixed with 6-APB to mimic the full MDMA experience.',
       effects: {
-        positive: ['Empathy enhancement', 'Euphoria', 'Mild visuals', 'Stimulation', 'Enhanced sociability'],
-        neutral: ['Long duration', 'Stimulation', 'Jaw clenching'],
-        negative: ['Nausea', 'Anxiety', 'Overheating', 'Insomnia', 'Comedown']
+        positive: ['Intense Euphoria', 'Empathy', 'Tactile enhancement'],
+        neutral: ['Sedation/Couch-lock', 'Jaw clenching'],
+        negative: ['Nausea', 'Cardiotoxicity risk', 'Headache']
       },
       dosage: {
-        threshold: '30-50mg',
-        light: '50-80mg',
-        common: '80-120mg',
-        strong: '120-180mg',
-        heavy: '180mg+'
+        threshold: '20mg',
+        light: '40-60mg',
+        common: '60-100mg',
+        strong: '100-150mg',
+        heavy: '150mg+'
       },
-      duration: {
-        onset: '30-60 minutes',
-        comeup: '45-90 minutes',
-        peak: '3-5 hours',
-        offset: '3-5 hours',
-        total: '7-10 hours'
-      },
-    routeData: {
-      Oral: {
-          dosage: {
-              threshold: '30-50mg',
-              light: '50-80mg',
-              common: '80-120mg',
-              strong: '120-180mg',
-              heavy: '180mg'
-          },
-          duration: {
-              onset: '30-60 minutes',
-              comeup: '45-90 minutes',
-              peak: '3-5 hours',
-              offset: '3-5 hours',
-              total: '7-10 hours'
-          },
-          notes: 'Most common route for this substance.'
-      },
-      Insufflation: {
-          dosage: {
-              threshold: '21-35mg',
-              light: '35-56mg',
-              common: '56-84mg',
-              strong: '84-126mg',
-              heavy: '126mg'
-          },
-          duration: {
-              onset: '5-15 minutes',
-              comeup: '10-30 minutes',
-              peak: '2-4 hours',
-              offset: '2-4 hours',
-              total: '5-8 hours'
-          },
-          notes: 'Faster onset than oral. Nasal irritation possible with repeated use.'
-      }
-  },
-      interactions: ['SSRIs', 'MAOIs', 'Other stimulants', 'Alcohol'],
+      routeData: {
+        Oral: {
+            dosage: {
+                threshold: '20mg',
+                light: '50mg',
+                common: '80mg',
+                strong: '120mg',
+                heavy: '150mg+'
+            },
+            duration: {
+                onset: '45-90 minutes',
+                comeup: '1-2 hours',
+                peak: '3-4 hours',
+                offset: '3-4 hours',
+                total: '7-10 hours'
+            },
+            notes: 'Often combined with 6-APB.'
+        }
+    },
+      interactions: ['MAOIs', 'SSRIs'],
       harmReduction: [
-        'Long duration - plan accordingly',
-        'Stay cool and hydrated',
-        'Similar precautions as MDMA',
-        'More stimulating than 6-APB',
-        'Avoid mixing with other substances',
-        'Test substances'
+        '5-HT2B agonist - concern for heart valves with abuse',
+        'Very physically intense'
       ],
-      legality: 'Schedule I in US. Controlled in many countries.',
+      legality: 'Gray Area/Illegal (US/UK).',
       chemistry: {
         formula: 'C11H13NO',
         molecularWeight: '175.23 g/mol',
         class: 'Benzofuran'
       },
-      history: '5-APB was first synthesized in the 1990s and appeared as a research chemical around 2011.',
-      routes: ['Oral', 'Insufflation'],
-      afterEffects: 'Comedown similar to MDMA but potentially longer.',
+      history: 'Similar to 6-APB.',
+      routes: ['Oral'],
+      afterEffects: 'Lethargy.',
       riskLevel: 'moderate',
       aliases: ['5-(2-aminopropyl)benzofuran']
     },
+  {
+      id: '5-mapb',
+      name: '5-MAPB',
+      commonNames: ['5-MAPB', 'Benzofury', 'Borax Mol'],
+      category: 'empathogens',
+      class: 'Benzofuran',
+      description: '5-MAPB (1-(benzofuran-5-yl)-N-methylpropan-2-amine) is a synthetic entactogen of the benzofuran class. It is the dihydrobenzofuran analogue of MDMA. It is known for producing intense euphoria and empathy very similar to MDMA, but with significantly less physical stimulation ("couch-lock") and almost no visual hallucinations. It was popularized as the primary ingredient in the "Borax Combo" (a mix of 5-MAPB, a stimulant, and a tryptamine designed to mimic MDMA with less neurotoxicity).',
+      effects: {
+        positive: ['Intense euphoria', 'Deep empathy', 'Tactile enhancement', 'Relaxation', 'Anxiety suppression'],
+        neutral: ['Nystagmus (Eye wiggles)', 'Bruxism (Jaw clenching)', 'Time distortion', 'Sedation'],
+        negative: ['Nausea (common on come-up)', 'Brain zaps (withdrawal)', 'Headache', 'Cardiotoxicity risk (5-HT2B agonism)', 'Dehydration']
+      },
+      dosage: {
+        threshold: '10-20mg',
+        light: '20-40mg',
+        common: '40-70mg',
+        strong: '70-100mg',
+        heavy: '100mg+'
+      },
+      routeData: {
+        Oral: {
+            dosage: {
+                threshold: '20mg',
+                light: '30-50mg',
+                common: '50-80mg (HCL)',
+                strong: '80-100mg (HCL)',
+                heavy: '100mg+'
+            },
+            duration: {
+                onset: '30-60 minutes',
+                comeup: '60-90 minutes',
+                peak: '2-4 hours',
+                offset: '3-4 hours',
+                total: '5-8 hours'
+            },
+            notes: 'HCL batches are potent. Succinate batches are heavier and require ~30% more product for same effect. Often sedating on its own.'
+        },
+        Rectal: {
+            dosage: {
+                threshold: '10mg',
+                light: '20-40mg',
+                common: '40-60mg',
+                strong: '60-80mg',
+                heavy: '80mg+'
+            },
+            duration: {
+                onset: '15-30 minutes',
+                comeup: '30-45 minutes',
+                peak: '2-3 hours',
+                offset: '2-3 hours',
+                total: '4-6 hours'
+            },
+            notes: 'Bypasses some nausea associated with oral dosing.'
+        }
+    },
+      interactions: ['MAOIs (Fatal)', 'SSRIs (Blocks effects)', 'Stimulants', 'Alcohol', 'Tramadol'],
+      harmReduction: [
+        'Check which salt form you have (HCL vs Succinate) to dose safely',
+        'Do not use frequently - potent 5-HT2B agonist (heart valve risk)',
+        'Combines safely with low dose stimulants (2-FMA) to counter sedation, but increases heart strain',
+        'Stay hydrated'
+      ],
+      legality: 'Gray Area/Illegal (US Analogue Act). Banned in UK/Germany/China.',
+      chemistry: {
+        formula: 'C12H15NO',
+        molecularWeight: '189.26 g/mol',
+        class: 'Benzofuran'
+      },
+      history: 'Synthesized by David Nichols\' team. Popularized on online forums around 2013 as a "legal MDMA".',
+      routes: ['Oral', 'Rectal', 'Insufflation (Painful)'],
+      afterEffects: 'Fatigue, low mood (less severe than MDMA for many).',
+      riskLevel: 'moderate',
+      aliases: ['1-(benzofuran-5-yl)-N-methylpropan-2-amine']
+    }
 
-    // ============================================
-    // STIMULANTS - Cathinones
-    // ============================================
+
 ];
