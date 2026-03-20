@@ -25,7 +25,7 @@ import {
   ChevronDown,
   ChevronUp
 } from 'lucide-react'
-import { categoryColors } from '@/lib/substances-data'
+import { categoryColors } from '@/lib/substance-index'
 
 interface Duration {
   onset: string
