@@ -27,13 +27,20 @@ const firebaseConfig = {
   appId: "1:871310168837:web:e85ca16b280cffd56f9d6c"
 };
 
+const hashRoomName = async (roomName: string, password: string) => {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(roomName + password + "drugucopia-salt");
+  const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('').substring(0, 32);
+};
+
 // Initialize Firebase once outside the component
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 // --- WEB CRYPTO E2EE UTILS ---
 
-// 1. Safe Base64 Encoder (prevents stack overflow on large arrays)
 const buf2base64 = (buf: ArrayBuffer | Uint8Array): string => {
   const uint8 = buf instanceof Uint8Array ? buf : new Uint8Array(buf);
   let binary = '';
@@ -43,17 +50,15 @@ const buf2base64 = (buf: ArrayBuffer | Uint8Array): string => {
   return btoa(binary);
 };
 
-// 2. Safe Base64 Decoder (guarantees strict Uint8Array for TypeScript)
 const base642buf = (b64: string): Uint8Array => {
   const binary = atob(b64);
-  const uint8 = new Uint8Array(binary.length); // This strict typing makes TS happy
+  const uint8 = new Uint8Array(binary.length);
   for (let i = 0; i < binary.length; i++) {
     uint8[i] = binary.charCodeAt(i);
   }
   return uint8;
 };
 
-// 3. Key Derivation
 const deriveKey = async (password: string, salt: string) => {
   const enc = new TextEncoder();
   const keyMaterial = await crypto.subtle.importKey(
@@ -68,25 +73,20 @@ const deriveKey = async (password: string, salt: string) => {
   );
 };
 
-// 4. Encrypt
 const encryptData = async (dataObj: any, key: CryptoKey) => {
   const iv = crypto.getRandomValues(new Uint8Array(12));
   const encodedText = new TextEncoder().encode(JSON.stringify(dataObj));
-  
-  // Pass Uint8Arrays directly (no .buffer needed anymore)
   const ciphertext = await crypto.subtle.encrypt({ name: "AES-GCM", iv }, key, encodedText);
   return { iv: buf2base64(iv), ciphertext: buf2base64(ciphertext) };
 };
 
-// 5. Decrypt
 const decryptData = async (encryptedObj: {iv: string, ciphertext: string}, key: CryptoKey) => {
   const iv = base642buf(encryptedObj.iv);
   const ciphertext = base642buf(encryptedObj.ciphertext);
-  
-  // Pass Uint8Arrays directly (no .buffer needed anymore)
   const decrypted = await crypto.subtle.decrypt({ name: "AES-GCM", iv }, key, ciphertext);
   return JSON.parse(new TextDecoder().decode(decrypted));
 };
+
 // --- INTERFACES ---
 interface DoseLog {
   id: string
@@ -127,6 +127,7 @@ export function DoseHistory({ refreshTrigger }: DoseHistoryProps) {
   // Refs for background syncing
   const cryptoKeyRef = useRef<CryptoKey | null>(null)
   const activeRoomRef = useRef<string | null>(null)
+  const hashedRoomRef = useRef<string | null>(null) // Stores the hashed ID for Firebase Docs
   const deviceIdRef = useRef(Math.random().toString(36).substring(2, 15)) // Unique ID to ignore self-echoes
   const unsubscribeRef = useRef<(() => void) | null>(null)
 
@@ -189,11 +190,14 @@ export function DoseHistory({ refreshTrigger }: DoseHistoryProps) {
       cryptoKeyRef.current = await deriveKey(pass, rId)
       activeRoomRef.current = rId
 
+      // Generate the hashed room ID for Firebase
+      const hashedRoomId = await hashRoomName(rId, pass)
+      hashedRoomRef.current = hashedRoomId
+
       // Save credentials for next visit
       localStorage.setItem(SYNC_AUTH_KEY, JSON.stringify({ savedRoom: rId, savedPass: pass }))
 
-      // Subscribe to Firestore document
-      const docRef = doc(db, 'secure_rooms', rId)
+      const docRef = doc(db, 'secure_rooms', hashedRoomId)
       unsubscribeRef.current = onSnapshot(docRef, async (docSnap) => {
         if (docSnap.exists()) {
           const remoteData = docSnap.data()
@@ -202,10 +206,38 @@ export function DoseHistory({ refreshTrigger }: DoseHistoryProps) {
           if (remoteData.sourceDevice === deviceIdRef.current) return
 
           try {
-            // Decrypt and apply remote data
-            const decryptedDoses = await decryptData(remoteData.encrypted, cryptoKeyRef.current!)
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(decryptedDoses))
-            setDoses(decryptedDoses)
+            // Decrypt remote data
+            const decryptedDoses: DoseLog[] = await decryptData(remoteData.encrypted, cryptoKeyRef.current!)
+            
+            // --- MERGE LOGIC ---
+            // Merge previously existing offline doses with the incoming synced doses
+            const currentLocal: DoseLog[] = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
+            const mergedMap = new Map<string, DoseLog>()
+            
+            // 1. Prioritize remote doses
+            decryptedDoses.forEach(d => mergedMap.set(d.id, d))
+            
+            // 2. Add local doses that aren't in remote (from before sync was enabled)
+            let hasNewLocalData = false
+            currentLocal.forEach(d => {
+              if (!mergedMap.has(d.id)) {
+                mergedMap.set(d.id, d)
+                hasNewLocalData = true
+              }
+            })
+
+            const finalDoses = Array.from(mergedMap.values()).sort((a, b) => 
+              new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+            )
+
+            // Save the merged data locally
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(finalDoses))
+            setDoses(finalDoses)
+
+            // If we found local data that the room didn't have, push the merged result back!
+            if (hasNewLocalData) {
+              pushToSync(finalDoses, hashedRoomId)
+            }
             
             toast({ title: 'Data Synced', description: 'Received updates from another device.' })
           } catch (e) {
@@ -215,7 +247,7 @@ export function DoseHistory({ refreshTrigger }: DoseHistoryProps) {
         } else {
           // Room is empty. Push our local data to start the room.
           const currentLocal = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
-          if (currentLocal.length > 0) pushToSync(currentLocal, rId)
+          if (currentLocal.length > 0) pushToSync(currentLocal, hashedRoomId)
         }
       })
 
@@ -232,6 +264,7 @@ export function DoseHistory({ refreshTrigger }: DoseHistoryProps) {
     if (unsubscribeRef.current) unsubscribeRef.current()
     cryptoKeyRef.current = null
     activeRoomRef.current = null
+    hashedRoomRef.current = null
     localStorage.removeItem(SYNC_AUTH_KEY)
     setSyncStatus('idle')
     setRoomId('')
@@ -239,12 +272,13 @@ export function DoseHistory({ refreshTrigger }: DoseHistoryProps) {
     toast({ title: 'Sync Disconnected', description: 'Data will only save locally.' })
   }
 
-  const pushToSync = async (latestDoses: DoseLog[], rId = activeRoomRef.current) => {
-    if (syncStatus !== 'synced' || !cryptoKeyRef.current || !rId) return
+  const pushToSync = async (latestDoses: DoseLog[], targetHashId = hashedRoomRef.current) => {
+    // Only proceed if we have the encryption key and a hashed room ID
+    if (!cryptoKeyRef.current || !targetHashId) return
 
     try {
       const encrypted = await encryptData(latestDoses, cryptoKeyRef.current)
-      await setDoc(doc(db, 'secure_rooms', rId), {
+      await setDoc(doc(db, 'secure_rooms', targetHashId), {
         encrypted,
         sourceDevice: deviceIdRef.current,
         timestamp: serverTimestamp()
@@ -276,7 +310,6 @@ export function DoseHistory({ refreshTrigger }: DoseHistoryProps) {
   }
 
   const exportToCSV = () => {
-    // ... [Original CSV Export logic remains identical] ...
     if (doses.length === 0) {
       toast({ title: 'Nothing to export', description: 'You have no dose logs to export yet.', variant: 'destructive' })
       return
