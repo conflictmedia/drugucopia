@@ -2163,5 +2163,61 @@ export const depressants: Substance[] = [
       afterEffects: 'Grogginess.',
       riskLevel: 'moderate',
       aliases: ['nifoxipam']
+    },
+  {
+      id: 'f-phenibut',
+      name: 'F-Phenibut',
+      commonNames: ['Fluorophenibut', 'F-Phen'],
+      category: 'depressants',
+      class: 'Gabapentinoid',
+      description: 'A fluorinated derivative of Phenibut. It is 5-10x more potent, has a much faster onset, and a shorter duration than regular Phenibut. It acts as a GABA-B agonist.',
+      effects: {
+        positive: ['Anxiety relief', 'Relaxation', 'Euphoria', 'Sleep'],
+        neutral: ['Drowsiness'],
+        negative: ['Tolerance (Rapid)', 'Withdrawal', 'Nausea']
+      },
+      dosage: {
+        threshold: '50mg',
+        light: '100-200mg',
+        common: '200-400mg',
+        strong: '400-600mg',
+        heavy: '600mg+'
+      },
+      routeData: {
+        Oral: {
+             dosage: {
+                threshold: '50mg',
+                light: '150mg',
+                common: '250mg',
+                strong: '450mg',
+                heavy: '600mg+'
+            },
+            duration: {
+                onset: '20-40 minutes',
+                comeup: '30 minutes',
+                peak: '2-4 hours',
+                offset: '3-4 hours',
+                total: '6-8 hours'
+            },
+            notes: 'Much faster onset than regular Phenibut. Use milligram scale.'
+        }
+    },
+      interactions: ['Alcohol', 'Benzodiazepines'],
+      harmReduction: [
+        'Do not use daily',
+        'Withdrawal is severe (similar to benzo withdrawal)',
+        'Do not eyeball doses'
+      ],
+      legality: 'Unscheduled (US).',
+      chemistry: {
+        formula: 'C10H12FNO2',
+        molecularWeight: '197.21 g/mol',
+        class: 'Gabapentinoid'
+      },
+      history: 'RC market.',
+      routes: ['Oral'],
+      afterEffects: 'Rebound anxiety.',
+      riskLevel: 'moderate',
+      aliases: ['4-fluorophenibut']
     }
 ];
