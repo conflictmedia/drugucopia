@@ -245,7 +245,7 @@ export function DoseLoggerModal({
               value={substanceId}
               onChange={handleSubstanceChange}
               placeholder="Select or type a substance..."
-              disabled={!!preselectedSubstanceId}
+              // disabled={!!preselectedSubstanceId}
               allowCustom={true}
             />
           </div>
