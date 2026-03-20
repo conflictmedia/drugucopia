@@ -29,3 +29,6 @@ Please create an issue with as much info as you have for the substance you want 
 - [ ] Add Harm Reduction resource page
 - [ ] Add recommended supplements section to substance info (?maybe)
 - [ ] Add positive combination section/page
+
+## DEMOS
+[drugucopia sync 3 client demo.webm](https://github.com/user-attachments/assets/f89be079-5f80-45f8-ac77-da11e97fe7f2)
