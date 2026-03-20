@@ -17,7 +17,11 @@ Please create an issue with as much info as you have for the substance you want 
 
 ## TODO:
 
-- [ ] Populate repository entries with a lot more data like effects and pharmacology/pharmocokinetics
+
+- [ ] Actually test the webpage on mobile (should work?)
+- [ ] Populate repository entries with a lot more data like effects and pharmacology/pharmocokinetics w/ sources
 - [ ] Implement locally stored custom user added drugs to bridge gap until they are added to into the repository (maybe)
 - [ ] Add expieriences section to substances with links to expierience reports
 - [ ] Add Harm Reduction resource page
+- [ ] Add recommended supplements section to substance info (?maybe)
+- [ ] Add positive combination section/page
