@@ -6,445 +6,350 @@ export const nootropics: Substance[] = [
   {
       id: 'piracetam',
       name: 'Piracetam',
-      commonNames: ['Nootropil', 'Pira', 'Nootrop'],
+      commonNames: ['Nootropil', 'Pira'],
       category: 'nootropics',
       class: 'Racetam',
-      description: 'Piracetam is the original nootropic compound, first synthesized in 1964. It is a cyclic derivative of GABA and is thought to enhance cognitive function through modulation of neurotransmitter systems and improved neuronal membrane fluidity. Piracetam is widely used as a cognitive enhancer and has a long history of relatively safe use.',
+      description: 'Piracetam is the original nootropic, synthesized in 1964. It is a cyclic derivative of GABA but does not act on GABA receptors directly. Instead, it modulates AMPA receptors and improves membrane fluidity. It is considered very safe but requires high daily doses to be effective.',
       effects: {
-        positive: ['Improved memory and learning', 'Enhanced focus', 'Better verbal fluency', 'Neuroprotective properties'],
-        neutral: ['Mild stimulation', 'Increased dream vividness'],
-        negative: ['Headaches (common without choline source)', 'Mild anxiety', 'Sleep disruption if taken late']
+        positive: ['Memory enhancement', 'Improved verbal fluency', 'Focus', 'Neuroprotection'],
+        neutral: ['Vivid dreams'],
+        negative: ['Headache (Choline depletion)', 'Brain fog (if no choline taken)', 'GI upset']
       },
       dosage: {
-        threshold: '400-800mg',
-        light: '800-1600mg',
-        common: '1600-3200mg',
-        strong: '3200-4800mg',
-        heavy: '4800mg+'
+        threshold: '800mg',
+        light: '1200-2400mg',
+        common: '2400-4800mg',
+        strong: '4800mg+',
+        heavy: 'N/A'
       },
-      duration: {
-        onset: '30-60 minutes',
-        comeup: '1-2 hours',
-        peak: '2-4 hours',
-        offset: '4-6 hours',
-        total: '6-8 hours'
-      },
-    routeData: {
-      Oral: {
-          dosage: {
-              threshold: '400-800mg',
-              light: '800-1600mg',
-              common: '1600-3200mg',
-              strong: '3200-4800mg',
-              heavy: '4800mg'
-          },
-          duration: {
-              onset: '30-60 minutes',
-              comeup: '1-2 hours',
-              peak: '2-4 hours',
-              offset: '4-6 hours',
-              total: '6-8 hours'
-          },
-          notes: 'Most common route for this substance.'
-      }
-  },
-      interactions: ['Choline supplements (synergistic)', 'Other racetams', 'Stimulants'],
+      routeData: {
+        Oral: {
+            dosage: {
+                threshold: '800mg',
+                light: '1.6g',
+                common: '3.2-4.8g',
+                strong: '4.8g+',
+                heavy: 'N/A'
+            },
+            duration: {
+                onset: '30-60 minutes',
+                comeup: '1 hour',
+                peak: '2-4 hours',
+                offset: '4-6 hours',
+                total: '6-8 hours'
+            },
+            notes: 'Requires a choline source (Alpha-GPC/CDP-Choline) to prevent headaches.'
+        }
+    },
+      interactions: ['Blood thinners (Piracetam has mild blood thinning effect)'],
       harmReduction: [
-        'Take with a choline source to prevent headaches',
-        'Effects may take weeks of daily use to become noticeable',
-        'Start with lower doses to assess tolerance',
-        'Avoid taking late in the day',
-        'Very low toxicity profile'
+        'Take with Choline',
+        'Effects are cumulative over weeks ("Attack dose" helps start)',
+        'Very low toxicity'
       ],
-      legality: 'Unscheduled in US. Available as supplement. Prescription in some countries.',
+      legality: 'Unscheduled (US). Prescription (Europe).',
       chemistry: {
         formula: 'C6H10N2O2',
         molecularWeight: '142.16 g/mol',
         class: 'Racetam'
       },
-      history: 'Piracetam was first synthesized in 1964 by Romanian chemist Corneliu E. Giurgea, who coined the term "nootropic."',
+      history: 'Synthesized 1964 by Corneliu Giurgea.',
       routes: ['Oral'],
-      afterEffects: 'Generally minimal. Effects accumulate with regular use.',
+      afterEffects: 'None.',
       riskLevel: 'low',
-      aliases: ['2-oxo-1-pyrrolidine acetamide']
+      aliases: ['2-oxo-1-pyrrolidineacetamide']
     },
   {
       id: 'aniracetam',
       name: 'Aniracetam',
-      commonNames: ['Ampamet', 'Draganon', 'Ani'],
+      commonNames: ['Draganon', 'Ani'],
       category: 'nootropics',
       class: 'Racetam',
-      description: 'Aniracetam is a nootropic compound of the racetam family, more potent than piracetam. It has anxiolytic and mood-enhancing properties in addition to cognitive benefits. Aniracetam is fat-soluble and has a shorter half-life than piracetam.',
+      description: 'Aniracetam is a fat-soluble racetam. It is more potent than Piracetam and is known for having a significant anxiolytic (anti-anxiety) and mood-boosting effect, along with enhanced creativity and "holistic" thinking.',
       effects: {
-        positive: ['Enhanced creativity and holistic thinking', 'Reduced anxiety', 'Improved memory', 'Better mood', 'Enhanced verbal fluency'],
-        neutral: ['Short duration', 'Fat-soluble (take with food)'],
-        negative: ['Headaches without choline', 'Bitter taste']
+        positive: ['Anxiolysis', 'Creativity', 'Verbal fluency', 'Visual saturation'],
+        neutral: ['Short duration'],
+        negative: ['Headache', 'Nausea']
       },
       dosage: {
-        threshold: '200-400mg',
+        threshold: '250mg',
         light: '400-750mg',
         common: '750-1500mg',
-        strong: '1500-2000mg',
-        heavy: '2000mg+'
+        strong: '1500mg+',
+        heavy: 'N/A'
       },
-      duration: {
-        onset: '30-60 minutes',
-        comeup: '45-90 minutes',
-        peak: '1-3 hours',
-        offset: '2-3 hours',
-        total: '3-5 hours'
-      },
-    routeData: {
-      Oral: {
-          dosage: {
-              threshold: '200-400mg',
-              light: '400-750mg',
-              common: '750-1500mg',
-              strong: '1500-2000mg',
-              heavy: '2000mg'
-          },
-          duration: {
-              onset: '30-60 minutes',
-              comeup: '45-90 minutes',
-              peak: '1-3 hours',
-              offset: '2-3 hours',
-              total: '3-5 hours'
-          },
-          notes: 'Most common route for this substance.'
-      }
-  },
-      interactions: ['Choline sources', 'Other racetams', 'Alcohol'],
+      routeData: {
+        Oral: {
+            dosage: {
+                threshold: '250mg',
+                light: '500mg',
+                common: '750mg',
+                strong: '1500mg',
+                heavy: 'N/A'
+            },
+            duration: {
+                onset: '20-40 minutes',
+                comeup: '30 minutes',
+                peak: '1-2 hours',
+                offset: '2-3 hours',
+                total: '3-5 hours'
+            },
+            notes: 'MUST take with fat source (Fish oil, milk, etc) for absorption.'
+        }
+    },
+      interactions: ['Alcohol'],
       harmReduction: [
-        'Take with fat-containing food for better absorption',
-        'Take with choline to prevent headaches',
-        'Short half-life - may need multiple doses',
-        'More potent than piracetam - use lower doses'
+        'Short duration means frequent redosing needed',
+        'Take with Choline'
       ],
-      legality: 'Unscheduled in US. Not FDA approved. Available as supplement.',
+      legality: 'Unscheduled (US). Prescription (Europe).',
       chemistry: {
         formula: 'C12H13NO3',
         molecularWeight: '219.24 g/mol',
         class: 'Racetam'
       },
-      history: 'Aniracetam was developed in the 1970s as a more potent alternative to piracetam.',
+      history: 'Developed 1970s.',
       routes: ['Oral'],
-      afterEffects: 'Minimal. Anxiolytic effects may persist.',
+      afterEffects: 'None.',
       riskLevel: 'low',
-      aliases: ['1-(4-methoxybenzoyl)-2-pyrrolidinone']
+      aliases: ['1-p-anisoyl-2-pyrrolidinone']
     },
   {
       id: 'noopept',
       name: 'Noopept',
-      commonNames: ['Omberacetam', 'GVS-111', 'Noo'],
+      commonNames: ['Omberacetam', 'GVS-111'],
       category: 'nootropics',
-      class: 'Dipeptide',
-      description: 'Noopept is a synthetic nootropic compound that is significantly more potent than piracetam. It is a dipeptide that may enhance memory, learning, and cognitive function. Noopept has neuroprotective properties and may promote BDNF and NGF expression.',
+      class: 'Peptide',
+      description: 'Noopept is a peptide nootropic related to the racetam family. It is roughly 1000x more potent than Piracetam by weight. It increases NGF and BDNF expression in the hippocampus. It is known for a "laser focus" effect but can cause irritability ("Noopept rage").',
       effects: {
-        positive: ['Enhanced memory and learning', 'Improved focus', 'Mild anxiolytic effect', 'Neuroprotective properties'],
-        neutral: ['Very potent - low doses needed', 'Bitter taste'],
-        negative: ['Headaches possible', 'Irritability in some users', 'Fatigue with high doses']
+        positive: ['Memory', 'Focus', 'Color enhancement', 'Neuroprotection'],
+        neutral: ['Short term memory suppression (at high doses)'],
+        negative: ['Irritability', 'Brain fog (high doses)', 'Headache']
       },
       dosage: {
-        threshold: '5-10mg',
+        threshold: '5mg',
         light: '10-20mg',
         common: '20-30mg',
-        strong: '30-40mg',
-        heavy: '40mg+'
+        strong: '30-50mg',
+        heavy: '50mg+'
       },
-      duration: {
-        onset: '20-40 minutes',
-        comeup: '30-60 minutes',
-        peak: '1-2 hours',
-        offset: '2-4 hours',
-        total: '3-5 hours'
-      },
-    routeData: {
-      Oral: {
-          dosage: {
-              threshold: '5-10mg',
-              light: '10-20mg',
-              common: '20-30mg',
-              strong: '30-40mg',
-              heavy: '40mg'
-          },
-          duration: {
-              onset: '20-40 minutes',
-              comeup: '30-60 minutes',
-              peak: '1-2 hours',
-              offset: '2-4 hours',
-              total: '3-5 hours'
-          },
-          notes: 'Most common route for this substance.'
-      },
-      Sublingual: {
-          dosage: {
-              threshold: '4.3-8.5mg',
-              light: '8.5-17mg',
-              common: '17-25.5mg',
-              strong: '25.5-34mg',
-              heavy: '34mg'
-          },
-          duration: {
-              onset: '10-20 minutes',
-              comeup: '20-40 minutes',
-              peak: '1-2 hours',
-              offset: '2-4 hours',
-              total: '3-5 hours'
-          },
-          notes: 'Faster onset than oral. Good bioavailability. Held under tongue.'
-      }
-  },
-      interactions: ['Choline sources', 'Other racetams', 'Stimulants'],
+      routeData: {
+        Sublingual: {
+            dosage: {
+                threshold: '5mg',
+                light: '10mg',
+                common: '20mg',
+                strong: '30mg+',
+                heavy: 'N/A'
+            },
+            duration: {
+                onset: '5-15 minutes',
+                comeup: '15 minutes',
+                peak: '1-2 hours',
+                offset: '2-3 hours',
+                total: '3-4 hours'
+            },
+            notes: 'Sublingual has much higher bioavailability than oral.'
+        },
+        Oral: {
+             dosage: {
+                threshold: '10mg',
+                light: '15mg',
+                common: '30mg',
+                strong: '50mg+',
+                heavy: 'N/A'
+            },
+            duration: {
+                onset: '30-60 minutes',
+                comeup: '30 minutes',
+                peak: '1-2 hours',
+                offset: '2-3 hours',
+                total: '4 hours'
+            },
+            notes: 'Oral bioavailability is very low (~10%).'
+        }
+    },
+      interactions: ['Stimulants'],
       harmReduction: [
-        'Much more potent than piracetam - use milligram scale',
-        'May work better with choline source',
-        'Sublingual administration may improve absorption',
-        'Take breaks to prevent tolerance',
-        'Effects may accumulate over time'
+        'Don\'t "mega dose" - effectiveness drops and side effects rise',
+        'Take breaks (cycling) every few months'
       ],
-      legality: 'Unscheduled in US. Available as supplement. Prescription in Russia.',
+      legality: 'Unscheduled (US). Prescription (Russia).',
       chemistry: {
         formula: 'C17H22N2O4',
         molecularWeight: '318.37 g/mol',
-        class: 'Dipeptide derivative'
+        class: 'Peptide'
       },
-      history: 'Noopept was developed in Russia in the 1990s and is used there as a prescription nootropic.',
-      routes: ['Oral', 'Sublingual'],
-      afterEffects: 'Generally minimal. Some report lasting cognitive benefits.',
+      history: 'Patented Russia 1996.',
+      routes: ['Oral', 'Sublingual', 'Intranasal'],
+      afterEffects: 'None.',
       riskLevel: 'low',
-      aliases: ['N-phenylacetyl-L-prolylglycine ethyl ester']
+      aliases: ['omberacetam']
     },
   {
       id: 'alpha-gpc',
       name: 'Alpha-GPC',
-      commonNames: ['Choline Alfoscerate', 'GPC', 'Alpha-Glycerylphosphorylcholine'],
+      commonNames: ['Choline Alfoscerate'],
       category: 'nootropics',
       class: 'Choline Source',
-      description: 'Alpha-GPC is a natural choline compound found in the brain. It is one of the most bioavailable forms of choline and is used to support cognitive function and acetylcholine production. Alpha-GPC is often stacked with racetams to prevent headaches and enhance effects.',
+      description: 'Alpha-GPC is a highly bioavailable source of choline that crosses the blood-brain barrier efficiently. It is a precursor to acetylcholine. It is primarily used to potentiate other nootropics (like Racetams) and prevent headaches caused by choline depletion.',
       effects: {
-        positive: ['Enhanced memory', 'Improved focus', 'Better physical performance', 'Supports acetylcholine production', 'Enhanced dream recall'],
-        neutral: ['Mild stimulation'],
-        negative: ['Headaches at high doses', 'Fishy body odor at very high doses', 'Insomnia if taken late']
+        positive: ['Memory', 'Physical power output', 'Growth Hormone release'],
+        neutral: ['Stimulation'],
+        negative: ['Depression (if acetylcholine is too high)', 'Headache (too much)', 'TMAO increase (heart risk with chronic use)']
       },
       dosage: {
-        threshold: '100-150mg',
-        light: '150-300mg',
+        threshold: '150mg',
+        light: '300mg',
         common: '300-600mg',
-        strong: '600-900mg',
-        heavy: '900mg+'
+        strong: '600-1200mg',
+        heavy: '1200mg+'
       },
-      duration: {
-        onset: '30-60 minutes',
-        comeup: '1-2 hours',
-        peak: '2-4 hours',
-        offset: '4-8 hours',
-        total: '6-10 hours'
-      },
-    routeData: {
-      Oral: {
-          dosage: {
-              threshold: '100-150mg',
-              light: '150-300mg',
-              common: '300-600mg',
-              strong: '600-900mg',
-              heavy: '900mg'
-          },
-          duration: {
-              onset: '30-60 minutes',
-              comeup: '1-2 hours',
-              peak: '2-4 hours',
-              offset: '4-8 hours',
-              total: '6-10 hours'
-          },
-          notes: 'Most common route for this substance.'
-      }
-  },
-      interactions: ['Racetams (synergistic)', 'Huperzine A', 'Acetylcholinesterase inhibitors'],
+      routeData: {
+        Oral: {
+             dosage: {
+                threshold: '150mg',
+                light: '300mg',
+                common: '600mg',
+                strong: '900mg',
+                heavy: '1200mg'
+            },
+            duration: {
+                onset: '30-60 minutes',
+                comeup: 'N/A',
+                peak: '2-4 hours',
+                offset: 'N/A',
+                total: '4-6 hours'
+            },
+            notes: 'Powder is hygroscopic (turns to liquid slush in air) - keep sealed.'
+        }
+    },
+      interactions: ['Racetams (Synergistic)'],
       harmReduction: [
-        'Start with lower doses to assess tolerance',
-        'Take earlier in the day',
-        'Often paired with racetam nootropics',
-        'Very safe supplement',
-        'Stay hydrated'
+        'Stop if you feel depressed/lethargic (Too much Acetylcholine)',
+        'Eat garlic (Allicin) to prevent TMAO formation'
       ],
-      legality: 'Unscheduled. Available as dietary supplement in most countries.',
+      legality: 'Supplement (US).',
       chemistry: {
         formula: 'C8H20NO6P',
         molecularWeight: '257.22 g/mol',
         class: 'Phospholipid'
       },
-      history: 'Alpha-GPC has been used in Europe as a prescription medication for cognitive decline since the 1980s.',
+      history: 'Isolated 1980s.',
       routes: ['Oral'],
-      afterEffects: 'None significant. Supports ongoing cognitive function.',
+      afterEffects: 'None.',
       riskLevel: 'low',
-      aliases: ['L-α-glycerylphosphorylcholine']
+      aliases: ['l-alpha-glycerylphosphorylcholine']
     },
   {
       id: 'l-tyrosine',
       name: 'L-Tyrosine',
-      commonNames: ['Tyrosine', 'Tyr'],
+      commonNames: ['Tyrosine'],
       category: 'nootropics',
       class: 'Amino Acid',
-      description: 'L-Tyrosine is an amino acid that serves as a precursor to dopamine, norepinephrine, and epinephrine. It is used to enhance cognitive performance under stress, improve focus, and support mood. Tyrosine is particularly effective in situations involving stress, sleep deprivation, or demanding mental tasks.',
+      description: 'L-Tyrosine is a precursor to Dopamine, Norepinephrine, and Epinephrine. It is most effective at restoring cognitive function during acute stress (cold, sleep deprivation, loud noise). It helps replenish dopamine after stimulant use.',
       effects: {
-        positive: ['Improved focus under stress', 'Better working memory', 'Enhanced mood', 'Increased motivation', 'Reduced effects of sleep deprivation'],
-        neutral: ['Mild stimulation', 'May reduce appetite'],
-        negative: ['GI upset at high doses', 'Headache', 'May worsen anxiety in some', 'Interacts with thyroid medication']
+        positive: ['Stress resilience', 'Working memory under stress', 'Wakefulness'],
+        neutral: ['Mild stimulation'],
+        negative: ['Anxiety', 'Thyroid interaction']
       },
       dosage: {
-        threshold: '250-500mg',
+        threshold: '500mg',
         light: '500-1000mg',
         common: '1000-2000mg',
-        strong: '2000-4000mg',
-        heavy: '4000mg+'
+        strong: '2000-3000mg',
+        heavy: '3000mg+'
       },
-      duration: {
-        onset: '30-60 minutes',
-        comeup: '45-90 minutes',
-        peak: '1-3 hours',
-        offset: '2-4 hours',
-        total: '4-6 hours'
-      },
-    routeData: {
-      Oral: {
-          dosage: {
-              threshold: '250-500mg',
-              light: '500-1000mg',
-              common: '1000-2000mg',
-              strong: '2000-4000mg',
-              heavy: '4000mg'
-          },
-          duration: {
-              onset: '30-60 minutes',
-              comeup: '45-90 minutes',
-              peak: '1-3 hours',
-              offset: '2-4 hours',
-              total: '4-6 hours'
-          },
-          notes: 'Most common route for this substance.'
-      }
-  },
-      interactions: ['Thyroid medications', 'MAOIs', 'Levodopa', 'Stimulants'],
+      routeData: {
+        Oral: {
+             dosage: {
+                threshold: '500mg',
+                light: '1g',
+                common: '2g',
+                strong: '3g',
+                heavy: 'N/A'
+            },
+            duration: {
+                onset: '30-60 minutes',
+                comeup: 'N/A',
+                peak: '1-2 hours',
+                offset: '2-3 hours',
+                total: '3-5 hours'
+            },
+            notes: 'Take on empty stomach (competes with other amino acids).'
+        }
+    },
+      interactions: ['MAOIs (Dangerous - Hypertension)', 'Levodopa', 'Thyroid meds'],
       harmReduction: [
-        'Take on empty stomach for better absorption',
-        'Most effective under stress or sleep deprivation',
-        'Do not take if you have thyroid conditions without consulting doctor',
-        'Avoid taking late in the day',
-        'Cycling may improve effectiveness'
+        'NALT (N-Acetyl-L-Tyrosine) is often sold but has poor conversion to Tyrosine',
+        'Use L-Tyrosine instead'
       ],
-      legality: 'Unscheduled. Available as dietary supplement.',
+      legality: 'Supplement (US).',
       chemistry: {
         formula: 'C9H11NO3',
         molecularWeight: '181.19 g/mol',
-        class: 'Amino acid'
+        class: 'Amino Acid'
       },
-      history: 'Tyrosine was first isolated from cheese protein in 1846. Its cognitive benefits were researched extensively in the late 20th century.',
+      history: 'Discovered 1846.',
       routes: ['Oral'],
-      afterEffects: 'Minimal. Benefits most apparent during stressful situations.',
+      afterEffects: 'None.',
       riskLevel: 'low',
-      aliases: ['4-hydroxyphenylalanine']
+      aliases: ['tyrosine']
     },
   {
       id: 'n-acetyl-cysteine',
-      name: 'N-Acetyl Cysteine',
-      commonNames: ['NAC', 'Acetylcysteine', 'Fluimucil'],
+      name: 'NAC',
+      commonNames: ['N-Acetyl Cysteine'],
       category: 'nootropics',
-      class: 'Amino Acid Derivative',
-      description: 'N-Acetyl Cysteine (NAC) is a supplement form of the amino acid cysteine. It serves as a precursor to glutathione, the body\'s master antioxidant. NAC has been studied for liver protection, respiratory health, psychiatric conditions, and reducing drug cravings. It may help protect against oxidative stress from drug use.',
+      class: 'Amino Acid',
+      description: 'NAC is a precursor to Glutathione (the body\'s master antioxidant) and modulates Glutamate. It is highly effective for reducing drug cravings (cocaine, nicotine, etc.), OCD symptoms, and protecting the liver from toxicity.',
       effects: {
-        positive: ['Antioxidant support', 'Liver protection', 'Reduced drug cravings', 'Respiratory support', 'May help with OCD and addiction'],
-        neutral: ['Unpleasant smell/taste', 'May cause GI upset'],
-        negative: ['Nausea', 'Diarrhea at high doses', 'Rare allergic reactions']
+        positive: ['Liver protection', 'Reduced cravings', 'Mucus thinning', 'Mood stabilization'],
+        neutral: ['Anhedonia (blunting of emotions) with chronic use'],
+        negative: ['GI upset', 'Sulphur smell', 'Reduced efficacy of stimulants (blunts euphoria)']
       },
       dosage: {
-        threshold: '200-400mg',
-        light: '400-600mg',
-        common: '600-1200mg',
-        strong: '1200-1800mg',
-        heavy: '1800mg+'
+        threshold: '600mg',
+        light: '600mg',
+        common: '1200mg',
+        strong: '1800-2400mg',
+        heavy: '2400mg+'
       },
-      duration: {
-        onset: '30-60 minutes',
-        comeup: '1-2 hours',
-        peak: '2-4 hours',
-        offset: '4-8 hours',
-        total: '6-12 hours'
-      },
-    routeData: {
-      Oral: {
-          dosage: {
-              threshold: '200-400mg',
-              light: '400-600mg',
-              common: '600-1200mg',
-              strong: '1200-1800mg',
-              heavy: '1800mg'
-          },
-          duration: {
-              onset: '30-60 minutes',
-              comeup: '1-2 hours',
-              peak: '2-4 hours',
-              offset: '4-8 hours',
-              total: '6-12 hours'
-          },
-          notes: 'Most common route for this substance.'
-      },
-      Intravenous: {
-          dosage: {
-              threshold: '80-160mg',
-              light: '160-240mg',
-              common: '240-480mg',
-              strong: '480-720mg',
-              heavy: '720mg'
-          },
-          duration: {
-              onset: '10-30 seconds',
-              comeup: '1-5 minutes',
-              peak: '1-2 hours',
-              offset: '2-4 hours',
-              total: '3-6 hours'
-          },
-          notes: 'Immediate onset. 100% bioavailability. Very high risk. Requires sterile technique.'
-      },
-      Inhalation: {
-          dosage: {
-              threshold: '120-240mg',
-              light: '240-360mg',
-              common: '360-720mg',
-              strong: '720-1080mg',
-              heavy: '1080mg'
-          },
-          duration: {
-              onset: '10-30 seconds',
-              comeup: '1-5 minutes',
-              peak: '1-2 hours',
-              offset: '2-5 hours',
-              total: '4-7 hours'
-          },
-          notes: 'Rapid onset through lungs. Similar to smoking.'
-      }
-  },
-      interactions: ['Activated charcoal', 'Nitroglycerin', 'Blood thinners', 'Immunosuppressants'],
+      routeData: {
+        Oral: {
+             dosage: {
+                threshold: '600mg',
+                light: '600mg',
+                common: '1200mg',
+                strong: '1800mg',
+                heavy: '2400mg'
+            },
+            duration: {
+                onset: '1 hour',
+                comeup: 'N/A',
+                peak: 'N/A',
+                offset: 'N/A',
+                total: 'Half-life ~6 hours'
+            },
+            notes: 'Take on empty stomach for brain effects. Take with food for liver effects.'
+        }
+    },
+      interactions: ['Stimulants (Reduces euphoria)', 'Alcohol (Must take BEFORE alcohol, taking after can worsen liver damage)'],
       harmReduction: [
-        'Take with food to reduce GI upset',
-        'Stay hydrated',
-        'Consider cycling - long-term high doses may be counterproductive',
-        'May reduce effectiveness of some medications',
-        'Useful for harm reduction after substance use'
+        'Cycle it to avoid anhedonia',
+        'Take >1hr before drinking alcohol to protect liver',
+        'Smells like rotten eggs (normal)'
       ],
-      legality: 'Unscheduled. Available as supplement. Also FDA approved as prescription medication.',
+      legality: 'Supplement (US).',
       chemistry: {
         formula: 'C5H9NO3S',
-        molecularWeight: '163.19 g/mol',
-        class: 'Acetylated amino acid'
+        molecularWeight: '163.2 g/mol',
+        class: 'Amino Acid'
       },
-      history: 'NAC was first developed in the 1960s and has been used medically for acetaminophen overdose since the 1970s.',
-      routes: ['Oral', 'Intravenous (medical)', 'Inhalation (medical)'],
-      afterEffects: 'None significant. Supports ongoing antioxidant status.',
+      history: 'Approved 1963.',
+      routes: ['Oral', 'IV'],
+      afterEffects: 'None.',
       riskLevel: 'low',
-      aliases: ['N-acetyl-L-cysteine']
-    },
-
-    // ============================================
-    // DISSOCIATIVES - Research Chemicals
-    // ============================================
+      aliases: ['acetylcysteine']
+    }
 ];
