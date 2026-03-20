@@ -94,9 +94,18 @@ assignees: ""
 
 ### route_start
 
-route_name:dosage_threshold:dosage_light:dosage_common:dosage_strong:
-dosage_heavy:duration_onset:duration_comeup:duration_peak:duration_offset:
-duration_total:route_notes:
+route_name:
+dosage_threshold:
+dosage_light:
+dosage_common:
+dosage_strong:
+dosage_heavy:
+duration_onset:
+duration_comeup:
+duration_peak:
+duration_offset:
+duration_total:
+route_notes:
 
 ### route_end
 
