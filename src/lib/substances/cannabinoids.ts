@@ -23,7 +23,7 @@ export const cannabinoids: Substance[] = [
       heavy: '30mg+'
     },
     duration: {
-      onset: 'Minutes (smoking/vaping), 30-90min (edibles)',
+      onset: '5-15s (smoking/vaping), 30-90min (edibles)',
       comeup: '15-30min (smoking), 1-2hrs (edibles)',
       peak: '30-60min (smoking), 2-4hrs (edibles)',
       offset: '1-3 hours (smoking), 4-8 hours (edibles)',

@@ -135,8 +135,10 @@ export function DoseLoggerModal({
       const existingLogs = JSON.parse(localStorage.getItem('drugucopia-dose-logs') || '[]')
       const now = new Date().toISOString()
       
-      // Get duration info from substance if available
-      const duration = selectedSubstance?.duration || null
+      // Get duration info from substance routeData if available
+      const duration = (selectedSubstance?.routeData && selectedSubstance.routeData[route]?.duration) 
+        ? selectedSubstance.routeData[route].duration 
+        : null
       
       const newLog = {
         id: `dose_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
@@ -245,7 +247,7 @@ export function DoseLoggerModal({
               value={substanceId}
               onChange={handleSubstanceChange}
               placeholder="Select or type a substance..."
-              // disabled={!!preselectedSubstanceId}
+              disabled={!!preselectedSubstanceId}
               allowCustom={true}
             />
           </div>
