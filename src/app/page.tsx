@@ -684,7 +684,7 @@ export default function Home() {
               size="sm" 
               className="w-full text-xs bg-background"
               //todo: make this a drop down for submitting new substances and info modifications
-              onClick={() => window.open('https://github.com/conflictmedia/drugucopia/issues/new?template=new-substance-request.md', '_blank')}
+              onClick={() => window.open('https://github.com/conflictmedia/drugucopia/issues/new', '_blank')}
             >
               <Github className="mr-2 h-3 w-3" />
               Feedback/Issues
