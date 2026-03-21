@@ -14,7 +14,12 @@ Recreational substance information repository and locally stored dose logger
 
 ## Wrong info or want to supply data for the repo?
 
-Please create an issue with as much info as you have for the substance you want or with corrected information for an existing substance!
+Please create an issue using one of the templates with as much info as you have for the substance you want or with corrected information for an existing substance!
+
+### Know what you're doing?
+
+Fork the repo and submit PRs with entries/changes! All substance information is stored in: `src/lib/substances/[category].ts`
+  
 
 ## TODO:
 
