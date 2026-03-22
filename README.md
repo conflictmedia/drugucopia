@@ -29,7 +29,8 @@ Fork the repo and submit PRs with entries/changes! All substance information is 
 - [ ] Tweak the page on mobile a metric fuckton
 - [ ] Import CSV so you can transfer from mobile/other devices
 - [x] Explore options for more seamless mobile-><-desktop cohesion
-- [ ] Populate repository entries with a lot more data like effects and pharmacology/pharmocokinetics w/ sources
+- [x] Populate repository entries with a lot more data like effects
+- [ ] Add section with pharmacology/pharmocokinetics w/ sources
 - [ ] Implement locally stored custom user added drugs to bridge gap until they are added to into the repository (maybe)
 - [ ] Add expieriences section to substances with links to expierience reports
 - [ ] Add Harm Reduction resource page
