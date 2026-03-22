@@ -179,6 +179,22 @@ export function DoseHistory({ refreshTrigger }: DoseHistoryProps) {
     }
   }, [])
 
+  useEffect(() => {
+    const handleExternalUpdate = () => {
+      const stored = localStorage.getItem(STORAGE_KEY)
+      const logs = stored ? JSON.parse(stored) : []
+      const sorted = logs.sort((a: DoseLog, b: DoseLog) =>
+        new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+      )
+      setDoses(sorted)
+      if (syncStatus === 'synced') {
+        pushToSync(sorted)
+      }
+    }
+
+    window.addEventListener('dose-logs-updated', handleExternalUpdate)
+    return () => window.removeEventListener('dose-logs-updated', handleExternalUpdate)
+  }, [syncStatus]) // re-register when syncStatus changes  
   // --- SYNC LOGIC ---
 
   const connectToSync = async (rId = roomId, pass = password) => {

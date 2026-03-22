@@ -181,6 +181,8 @@ export function DoseLoggerModal({
       
       localStorage.setItem('drugucopia-dose-logs', JSON.stringify(updatedLogs))
 
+      window.dispatchEvent(new CustomEvent('dose-logs-updated'))
+
       toast({
         title: 'Dose logged',
         description: `Successfully logged ${amount}${unit} of ${substanceName}`
