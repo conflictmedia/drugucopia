@@ -135,7 +135,6 @@ const GITHUB_FEEDBACK_URL = 'https://github.com/conflictmedia/drugucopia/issues/
 // Multi-category helpers
 // ---------------------------------------------------------------------------
 
-
 /**
  * Return all categories for a substance.
  * Substance.categories is SubstanceCategory[] in the new index.
@@ -478,6 +477,7 @@ export default function Home() {
 
   const handleDoseLogged = () => {
     setDoseRefreshTrigger(prev => prev + 1)
+    window.dispatchEvent(new CustomEvent('dose-logs-updated'))
   }
 
   const handleRouteChange = useCallback((route: string | null) => {
@@ -802,6 +802,11 @@ export default function Home() {
               </Card>
             </div>
           </div>
+
+          {/* Hidden but mounted so the sync event listener in DoseHistory stays active */}
+          <div className="hidden">
+            <DoseHistory refreshTrigger={doseRefreshTrigger} />
+          </div>
         </main>
       </div>
     )
@@ -962,15 +967,15 @@ export default function Home() {
 
         {/* Content */}
         <main className="container mx-auto py-6 pg:py-10 px-4 lg:px-6">
-          {currentView === 'dose-log' ? (
-            /* Dose Log View */
-            <div className="space-y-6">
-              <ActiveDosesTimeline refreshTrigger={doseRefreshTrigger} />
-              <DoseStats refreshTrigger={doseRefreshTrigger} />
-              <DoseHistory refreshTrigger={doseRefreshTrigger} />
-            </div>
-          ) : (
-            /* Substances View */
+          {/* DoseHistory is always mounted (hidden when not on dose-log view) so its
+              sync event listener stays active regardless of the current view. */}
+          <div className={currentView === 'dose-log' ? 'space-y-6' : 'hidden'}>
+            <ActiveDosesTimeline refreshTrigger={doseRefreshTrigger} />
+            <DoseStats refreshTrigger={doseRefreshTrigger} />
+            <DoseHistory refreshTrigger={doseRefreshTrigger} />
+          </div>
+
+          {currentView === 'substances' && (
             <>
               {/* Category Header */}
               {selectedCategory !== 'all' && (
