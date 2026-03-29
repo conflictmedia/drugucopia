@@ -1,0 +1,156 @@
+// Auto-generated from substances.txt
+import type { Substance } from '../types';
+
+// Substance Data
+// Name: Rolicyclidine
+// ID: rolicyclidine
+// Categories: dissociatives
+// Class: Arylcyclohexylamines
+
+export const rolicyclidine: Substance = 
+{
+  "id": "rolicyclidine",
+  "name": "Rolicyclidine",
+  "commonNames": [
+    "Arylcyclohexylamines"
+  ],
+  "categories": [
+    "dissociatives"
+  ],
+  "class": "Arylcyclohexylamines",
+  "description": "Rolicyclidine (also known as PCPy, or sometimes PHP) is a simple psychoactive class dissociative substance of the chemical class arylcyclohexylamine class. Compared to plain PCP, it is almost unknown, despite a strikingly easier synthesis, employing unwatched pyrrolidine instead of piperidine. It produces its effects by both blocking the NMDA receptor and modulating monoamine transporters. It has never been marketed, but it did enjoy a brief time of street popularity, presumably being mislabeled as PCP. Having been synthesized in a british patent from 1958, it was never developed for medical use, some higher analogues substituted at either the pyrrolidine ring or the phenyl ring are known, in this case the latter 3-Me being discovered as a strong triple reuptake inhibitor Subjective effects include motor control loss, pain relief, internal hallucinations, memory suppression, conceptual thinking, euphoria, and depersonalization / dissociation.",
+  "effects": {
+    "positive": [
+      "Cognitive disconnection",
+      "Physical disconnection",
+      "Visual disconnection - This eventually results in PCPy's equivalent of the \"k-hole\" or more specifically, holes, spaces and voids alongside of structures.",
+      "Cognitive euphoria",
+      "Creativity enhancement",
+      "Derealization",
+      "Immersion enhancement",
+      "Introspection"
+    ],
+    "neutral": [
+      "Double vision",
+      "Frame rate suppression",
+      "Pattern recognition suppression",
+      "Visual acuity suppression",
+      "Environmental cubism",
+      "Environmental orbism",
+      "Perspective distortions",
+      "Scenery slicing",
+      "Compulsive redosing",
+      "Conceptual thinking",
+      "Depersonalization",
+      "Déjà vu",
+      "Ego inflation",
+      "Mania",
+      "Thought acceleration & Thought deceleration",
+      "Thought connectivity",
+      "Thought disorganization",
+      "Time distortion",
+      "Auditory distortion"
+    ],
+    "negative": [
+      "Internal hallucination",
+      "External hallucination",
+      "Amnesia",
+      "Analysis suppression",
+      "Anxiety suppression",
+      "Delusion",
+      "Disinhibition",
+      "Ego death",
+      "Feelings of impending doom",
+      "Memory suppression",
+      "Psychosis - This effect is more common on PCP-type compounds than other dissociatives.",
+      "Suicidal ideation",
+      "Depression relief - PCP type compounds are known to provide quality anti-depressant effects similarly to Ketamine.",
+      "Auditory hallucination",
+      "Auditory suppression"
+    ]
+  },
+  "routeData": {
+    "insufflated": {
+      "dosage": {
+        "threshold": "1mg",
+        "light": "2-4mg",
+        "common": "4-8mg",
+        "strong": "8-15mg",
+        "heavy": "Unknown"
+      },
+      "duration": {
+        "onset": "3-30 minutes",
+        "comeup": "30-90 minutes",
+        "peak": "2-3 hours",
+        "offset": "1-2 hours",
+        "total": "4-6 hours"
+      },
+      "notes": "Afterglow: 4-48 hours"
+    },
+    "oral": {
+      "dosage": {
+        "threshold": "1mg",
+        "light": "3-5mg",
+        "common": "5-9mg",
+        "strong": "9-13mg",
+        "heavy": "Unknown"
+      },
+      "duration": {
+        "onset": "20-90 minutes",
+        "comeup": "30-120 minutes",
+        "peak": "2-3 hours",
+        "offset": "3-4 hours",
+        "total": "6-12 hours"
+      },
+      "notes": "Afterglow: 12-48 hours"
+    },
+    "smoked": {
+      "dosage": {
+        "threshold": "1mg",
+        "light": "2-4mg",
+        "common": "4-8mg",
+        "strong": "8-12mg",
+        "heavy": "Unknown"
+      },
+      "duration": {
+        "onset": "2-20 minutes",
+        "comeup": "20-40 minutes",
+        "peak": "2-3 hours",
+        "offset": "1-2 hours",
+        "total": "4-6 hours"
+      },
+      "notes": "Afterglow: 4-48 hours"
+    }
+  },
+  "interactions": [
+    "2C-T-x",
+    "ΑMT",
+    "5-MeO-xxT",
+    "GHB",
+    "GBL",
+    "Tramadol",
+    "MAOIs",
+    "Opioids",
+    "DOx",
+    "Amphetamines",
+    "MDMA",
+    "Cocaine",
+    "Alcohol",
+    "Benzodiazepines",
+    "SSRIs",
+    "DXM"
+  ],
+  "harmReduction": [],
+  "legality": "Legal status varies by jurisdiction. Check local laws.",
+  "chemistry": {
+    "formula": "Unknown",
+    "molecularWeight": "Unknown",
+    "class": "Arylcyclohexylamines"
+  },
+  "history": "Information not available in source data.",
+  "afterEffects": "See route data for afterglow information.",
+  "riskLevel": "high",
+  "aliases": [
+    "Arylcyclohexylamines"
+  ]
+};

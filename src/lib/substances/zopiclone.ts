@@ -1,0 +1,90 @@
+// Auto-generated from substances.txt
+import type { Substance } from '../types';
+
+// Substance Data
+// Name: Zopiclone
+// ID: zopiclone
+// Categories: depressants
+// Class: Cyclopyrrolone
+
+export const zopiclone: Substance = 
+{
+  "id": "zopiclone",
+  "name": "Zopiclone",
+  "commonNames": [
+    "Cyclopyrrolone"
+  ],
+  "categories": [
+    "depressants"
+  ],
+  "class": "Cyclopyrrolone",
+  "description": "GABAergics Zopiclone (also known by the trade names Zimovane and Imovane) is a non-benzodiazepine hypnotic substance of the chemical class cyclopyrrolone class. It belongs to a family of substances colloquially known as \"Z-drugs\", which includes zaleplon (Sonata) and zolpidem (Ambien and AmbienCR). The mechanism of action is benzodiazepine-like GABA binding activity. It is primarily used in the treatment of insomnia due to its heavy sedative effects. Daily or continuous use of the drug is usually not advised.",
+  "effects": {
+    "positive": [
+      "Sedation - zopiclone is extremely sedating and can put the user into an overwhelmingly lethargic state. At higher levels, this causes users to suddenly feel as if they are extremely sleep deprived and have not slept for days, forcing them to sit or lay down and feel as if they are constantly on the verge of passing out. This sense of sleep deprivation increases proportional to dosage and can eventually become powerful enough to force a person into complete unconsciousness regardless of where they are or what they are doing at that moment.",
+      "Muscle relaxation",
+      "Increased music appreciation"
+    ],
+    "neutral": [
+      "Shadow people",
+      "Acuity suppression",
+      "Drifting (melting, breathing, morphing and flowing) - Visual drifting effects are the most prominent visual effects of this substance. They typically occur at strong doses, or when the user resists the urge to sleep.. They are similar to the distortions produced zolpidem and are usually less pronounced than those of deliriants. Like deliriant visuals, they are most prominent in low lighting. Depending on dose and lighting, they can be described as slow or fast in speed, static in permanence, smooth in motion, realistic in appearance, and simplistic or intricate.",
+      "Tracers - This effect is mild and typically only experienced at high doses.",
+      "Thought deceleration",
+      "Delirium",
+      "Euphoria -  Some users report euphoria from zopiclone, although this is short lived and usually exclusive to the onset of the experience and often followed by emotion suppression.",
+      "Time compression - This effect is mostly noticeable while under the influence of a high dose.",
+      "Compulsive redosing"
+    ],
+    "negative": [
+      "Respiratory depression",
+      "Dizziness",
+      "Motor control loss - This effect is pronounced and comparable to the motor control loss experienced on a heavy dose of alcohol. This typically results in users stumbling and an inability to walk in a straight line. As this may easily result in injury, one should avoid walking and using stairs while on zopiclone.",
+      "Gustatory hallucination - Zopiclone is sometimes reported to leave a metallic taste in one's mouth.",
+      "External hallucinations - At very high doses, zopiclone can produce external hallucinations that are similar to, but less pronounced than those of deliriants.",
+      "Amnesia -  Compared to benzodiazepines, zopiclone can produce amnesia at much lower doses. One may potentially not remember exactly what happened while under the influence of a common dose. This is usually less intense than the amnesia produced by zolpidem.",
+      "Anxiety suppression",
+      "Disinhibition",
+      "Delusion",
+      "Analysis suppression",
+      "Emotion suppression -  While zopiclone primarily suppresses anxiety, it also suppresses other emotions in a similar but less intense fashion to antipsychotics.",
+      "Irritability - Combined with the strong disinhibiting effects of zopiclone, this effect can cause people under the influence of zopiclone to have violent behavior towards others and sometimes themselves.",
+      "Auditory hallucinations - The auditory hallucinations of Zopiclone are mostly voices, and appear at higher doses. Sleep deprivation magnifies this effect."
+    ]
+  },
+  "routeData": {
+    "oral": {
+      "dosage": {
+        "threshold": "2mg",
+        "light": "3.5-5mg",
+        "common": "5-7.5mg",
+        "strong": "7.5-15mg",
+        "heavy": "15mg"
+      },
+      "duration": {
+        "onset": "10-30 minutes",
+        "comeup": "Unknown",
+        "peak": "3-4 hours",
+        "offset": "Unknown",
+        "total": "3.5-9 hours"
+      }
+    }
+  },
+  "interactions": [],
+  "harmReduction": [
+    "low toxicity",
+    "potentially lethal when mixed with depressants like benzodiazepines, alcohol or opioids"
+  ],
+  "legality": "Legal status varies by jurisdiction. Check local laws.",
+  "chemistry": {
+    "formula": "Unknown",
+    "molecularWeight": "Unknown",
+    "class": "Cyclopyrrolone"
+  },
+  "history": "Information not available in source data.",
+  "afterEffects": "See route data for afterglow information.",
+  "riskLevel": "low",
+  "aliases": [
+    "Cyclopyrrolone"
+  ]
+};

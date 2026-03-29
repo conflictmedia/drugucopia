@@ -1,0 +1,101 @@
+// Auto-generated from substances.txt
+import type { Substance } from '../types';
+
+// Substance Data
+// Name: TMA-2
+// ID: tma-2
+// Categories: hallucinogens, stimulants
+// Class: Substituted amphetamines
+
+export const tma_2: Substance = 
+{
+  "id": "tma-2",
+  "name": "TMA-2",
+  "commonNames": [
+    "Substituted amphetamines"
+  ],
+  "categories": [
+    "hallucinogens",
+    "stimulants"
+  ],
+  "class": "Substituted amphetamines",
+  "description": "2,4,5-Trimethoxyamphetamine (abbreviated TMA-2) is a synthetic psychoactive class psychedelic amphetamine known to produce a unique spectrum of hallucinogenic and stimulant effects that differ substantially from other psychoactive phenethylamines. Members in this family been observed to produce a complex mixture of hallucinogenic, stimulant, psychedelic and entactogenic effects that qualitatively separates it from other psychedelic phenethylamine compounds like members of the 2C-x or DOx series. TMA-2 was first synthesized by Viktor Bruckner in 1933, but was not investigated as a psychoactive chemical until Alexander Shulgin synthesized and tested it in 1962. There are occasional references to the use of TMA-2 in early 1970's counter-culture publications, describing the drug as being rarely produced for sale and expensive in comparison to LSD. In terms of its subjective effects, it is known for its lack of classic psychedelic visuals compared to its parent compound (mescaline) and is known instead for its unique stimulating body-high and altered headspace that ranges from euphoric to dysphoric variably.",
+  "effects": {
+    "positive": [
+      "Stimulation - In terms of its effects on the physical energy levels of the user, TMA-2 is usually considered to be extremely stimulating at levels which do not become overwhelming, resulting in a shakiness and unsteadiness of the hands but encouraging one to move around, run, dance, climb and generally engage in physical activities. In comparison, other more commonly used psychedelics such as psilocin are generally sedating and relaxed.",
+      "Tactile enhancement - Feelings of enhanced tactile sensation are consistently present at moderate levels throughout most TMA-2 trips.",
+      "Bodily control enhancement",
+      "Colour enhancement",
+      "Empathy, affection, and sociability enhancement - This component is consistently manifested only in the context of social settings in which one is within the company of others. These feelings of sociability, love and empathy are weaker and sharper than those found on substances such as MDMA and 2C-B, but still can elevate one's mood.",
+      "Analysis enhancement",
+      "Novelty enhancement",
+      "Immersion enhancement",
+      "Emotion enhancement",
+      "Increased music appreciation",
+      "Wakefulness",
+      "Increased libido",
+      "Enhancements"
+    ],
+    "neutral": [
+      "Spontaneous bodily sensations - The \"body high\" of TMA-2 is manifested as somewhat intense in comparison to most classical psychedelics such as LSD. The sensation itself can be described as a constantly present yet somewhat mild energetic pins and needles sensation that encompasses a person’s entire body. It is usually felt over every square inch of the skin, but occasionally manifests itself in the form of a continuously shifting tingling sensation that travels up and down the body in spontaneous waves.",
+      "Pupil dilation",
+      "Visual acuity enhancement",
+      "Pattern recognition enhancement",
+      "Drifting (melting, flowing, breathing and morphing) - In comparison to other psychedelics, this effect can be described as highly detailed, slow and smooth in motion, static in appearance and unrealistic/cartoon-like in style.",
+      "Tracers",
+      "After images",
+      "Symmetrical texture repetition",
+      "Colour shifting",
+      "Diffraction",
+      "Thought acceleration",
+      "Time distortion",
+      "Conceptual thinking",
+      "Thought connectivity",
+      "Distortions"
+    ],
+    "negative": [
+      "Nausea -  Mild to extreme nausea is reported when consumed in moderate to high dosages and either passes once the person has vomited or gradually fades by itself as the peak sets in.",
+      "Vasoconstriction - This effect is usually only present at higher dosages, but can be particularly uncomfortable.",
+      "Increased blood pressure",
+      "Personal bias suppression",
+      "Memory suppression",
+      "Ego death",
+      "Hallucinations"
+    ]
+  },
+  "routeData": {
+    "oral": {
+      "dosage": {
+        "threshold": "5mg",
+        "light": "10-20mg",
+        "common": "20-40mg",
+        "strong": "40-60mg",
+        "heavy": "60mg"
+      },
+      "duration": {
+        "onset": "20-120 minutes",
+        "comeup": "1.5-3 hours",
+        "peak": "4-6 hours",
+        "offset": "2-4 hours",
+        "total": "8-12 hours"
+      },
+      "notes": "Afterglow: 4-24 hours"
+    }
+  },
+  "interactions": [],
+  "harmReduction": [
+    "toxic dose is unknown"
+  ],
+  "legality": "Legal status varies by jurisdiction. Check local laws.",
+  "chemistry": {
+    "formula": "Unknown",
+    "molecularWeight": "Unknown",
+    "class": "Substituted amphetamines"
+  },
+  "history": "Information not available in source data.",
+  "afterEffects": "See route data for afterglow information.",
+  "riskLevel": "moderate",
+  "aliases": [
+    "Substituted amphetamines"
+  ]
+};
