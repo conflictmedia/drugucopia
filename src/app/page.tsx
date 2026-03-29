@@ -421,11 +421,11 @@ function DosageDurationPanel({
 function MobileBottomNav({
   active,
   onChange,
-  onLogPress,
+  renderLogTrigger,
 }: {
   active: MobileTab
   onChange: (tab: MobileTab) => void
-  onLogPress: () => void
+  renderLogTrigger: (trigger: React.ReactNode) => React.ReactNode
 }) {
   const items: { id: MobileTab; label: string; icon: React.ElementType }[] = [
     { id: 'substances', label: 'Substances', icon: FlaskConical },
@@ -442,10 +442,9 @@ function MobileBottomNav({
           const isActive = active === id
 
           if (isLog) {
-            return (
+            const btn = (
               <button
                 key={id}
-                onClick={onLogPress}
                 className="flex-1 flex flex-col items-center justify-center py-2 gap-0.5"
               >
                 <span className="w-10 h-10 rounded-full bg-primary flex items-center justify-center shadow-sm">
@@ -454,6 +453,7 @@ function MobileBottomNav({
                 <span className="text-[10px] text-muted-foreground">{label}</span>
               </button>
             )
+            return <React.Fragment key={id}>{renderLogTrigger(btn)}</React.Fragment>
           }
 
           return (
@@ -1028,7 +1028,6 @@ export default function Home() {
   // Mobile bottom nav
   const [mobileTab, setMobileTab] = useState<MobileTab>('substances')
   const [doseRefreshTrigger, setDoseRefreshTrigger] = useState(0)
-  const [logModalOpen, setLogModalOpen] = useState(false)
 
   const filteredSubstances = useMemo(() => {
     let result = substances
@@ -1078,12 +1077,12 @@ export default function Home() {
             setSelectedSubstance(null)
             setMobileTab(tab)
           }}
-          onLogPress={() => setLogModalOpen(true)}
-        />
-        {/* Hidden log modal trigger for mobile nav */}
-        <DoseLoggerModal
-          onLogCreated={handleDoseLogged}
-          trigger={<span className="hidden" />}
+          renderLogTrigger={(btn) => (
+            <DoseLoggerModal
+              onLogCreated={handleDoseLogged}
+              trigger={btn}
+            />
+          )}
         />
       </>
     )
@@ -1467,23 +1466,15 @@ export default function Home() {
       <MobileBottomNav
         active={mobileTab}
         onChange={setMobileTab}
-        onLogPress={() => setLogModalOpen(true)}
-      />
-
-      {/* Log modal (triggered from mobile bottom nav) */}
-      <DoseLoggerModal
-        onLogCreated={() => {
-          handleDoseLogged()
-          setLogModalOpen(false)
-          setMobileTab('timeline')
-        }}
-        trigger={
-          <button
-            id="mobile-log-trigger"
-            className="hidden"
-            onClick={() => setLogModalOpen(true)}
+        renderLogTrigger={(btn) => (
+          <DoseLoggerModal
+            onLogCreated={() => {
+              handleDoseLogged()
+              setMobileTab('timeline')
+            }}
+            trigger={btn}
           />
-        }
+        )}
       />
     </div>
   )
