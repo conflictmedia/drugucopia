@@ -758,6 +758,7 @@ function SubstanceDetail({
                 <p className="text-sm text-muted-foreground leading-relaxed">{substance.history}</p>
               </CardContent>
             </Card>
+            {/*
             <Card>
               <CardHeader className="pb-2">
                 <CardTitle className="text-base flex items-center gap-2">
@@ -769,6 +770,7 @@ function SubstanceDetail({
                 <p className="text-sm text-muted-foreground">{substance.afterEffects}</p>
               </CardContent>
             </Card>
+            */}
             <Card>
               <CardContent className="pt-4 space-y-3">
                 <div className="flex items-center gap-3 text-sm">
@@ -997,13 +999,14 @@ function SubstanceDetail({
                 <p className="text-sm text-muted-foreground leading-relaxed">{substance.history}</p>
               </CardContent>
             </Card>
-
+            {/*
             <Card>
               <CardHeader><CardTitle className="text-lg">After Effects</CardTitle></CardHeader>
               <CardContent>
                 <p className="text-sm text-muted-foreground">{substance.afterEffects}</p>
               </CardContent>
             </Card>
+            */}
           </div>
         </div>
 
