@@ -12,13 +12,13 @@ export const eth_lad: Substance =
   "id": "eth-lad",
   "name": "ETH-LAD",
   "commonNames": [
-    "Lysergamides"
+    "ETH-LAD"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Lysergamides",
-  "description": "6-Ethyl-6-nor-lysergic acid diethylamide (also known as N-Ethyl-nor-lysergic acid N,N-diethylamide, N-Ethyl-nor-LSD, and ETH-LAD) is a lesser-known novel Psychoactive class psychedelic of the Chemical class lysergamide class. ETH-LAD is chemically similar to LSD and has a similar mechanism of action, acting primarily by stimulating serotonin receptors in the brain. The human use of ETH-LAD was first documented by Alexander Shulgin in his 1997 book TiHKAL (\"Tryptamines I Have Known and Loved\"). It has been marketed alongside psychedelic lysergamides like 1P-LSD and AL-LAD as a legal, grey-market alternative to LSD, and commercially distributed through online research chemical vendors. Along with its sensitive dose-response and potentially concerning physical side effects, many reports suggest that this substance may be overly difficult to use safely for those who are not experienced with hallucinogens.",
+  "description": "The human use of ETH-LAD was first documented by Alexander Shulgin in his 1997 book TiHKAL (\"Tryptamines I Have Known and Loved\"). It has been marketed alongside psychedelic lysergamides like 1P-LSD and AL-LAD as a legal, grey-market alternative to LSD, and commercially distributed through online research chemical vendors. Anecdotal reports suggest that while it produces similar effects to LSD at low to common doses, it displays a notably divergent effects profile at higher doses, sometimes described as producing \"algorithmic\" and \"warped\" visual and auditory distortions, combined with a more \"introspective\" and \"analytical\", if not more \"neutral\" head space.",
   "effects": {
     "positive": [
       "Stimulation - In terms of its effects on the physical energy levels of the user, ETH-LAD is regarded as being able to produce a spectrum of either predominantly stimulating or sedating effects, often alternating throughout the experience, sometimes to the point of feeling forced. This is in distinction to other, more commonly used psychedelics such as psilocybin which are more consistent in producing sedation and relaxation.",
@@ -118,8 +118,5 @@ export const eth_lad: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Lysergamides"
-  ]
+  "riskLevel": "moderate"
 };

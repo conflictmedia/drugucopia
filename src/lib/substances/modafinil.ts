@@ -12,13 +12,18 @@ export const modafinil: Substance =
   "id": "modafinil",
   "name": "Modafinil",
   "commonNames": [
-    "Benzhydryl"
+    "Modafinil",
+    "Alertec",
+    "Modavigil",
+    "Modiodal",
+    "Provigil",
+    "Modalert"
   ],
   "categories": [
     "stimulants"
   ],
   "class": "Benzhydryl",
-  "description": "Modafinil (also known by the brand names Provigil, Alertec, Modavigil, and others) is a psychoactive class eugeroic substance of the chemical class benzhydryl class that produces wakefulness-promoting and stimulant effects when administered. It is commonly used to enhance cognition, reduce fatigue, and increase alertness in both medical and non-medical contexts. Modafinil is approved by the U.S. Food and Drug Administration for the treatment of obstructive sleep apnea, shift work sleep disorder and narcolepsy. However, studies have shown that modafinil may also be useful off-label for alleviating the symptoms of depression, bipolar disorder, Parkinson's disease, seasonal depressive disorder, ADHD, and various other conditions which have fatigue as a symptom. Modafinil has also been used as a doping agent by various athletes due to its ability to produce physical stimulation.",
+  "description": "Modafinil (also known by the brand names Provigil, Alertec, Modavigil, and others) is a eugeroic substance of the benzhydryl class that produces wakefulness-promoting and stimulant effects when administered. Modafinil is approved by the U.S. Food and Drug Administration for the treatment of obstructive sleep apnea, shift work sleep disorder and narcolepsy. However, studies have shown that modafinil may also be useful off-label for alleviating the symptoms of depression, bipolar disorder, Parkinson's disease, seasonal depressive disorder, ADHD, and various other conditions which have fatigue as a symptom.",
   "effects": {
     "positive": [
       "Increased heart rate",
@@ -77,10 +82,7 @@ export const modafinil: Substance =
     "molecularWeight": "Unknown",
     "class": "Benzhydryl"
   },
-  "history": "Modafinil was originally developed in France by neurophysiologist professor Michel Jouvet and Lafon Laboratories. Modafinil originated with the late 1970s invention of a series of benzhydryl sulfinyl compounds, including adrafinil, which was first offered as an experimental treatment for narcolepsy in France in 1986. Modafinil is the primary metabolite of adrafinil, lacking the polar -OH group on its terminal amide, and has similar activity to the parent drug but is much more widely used. It has been prescribed in France since 1994 under the name Modiodal, and in the US since 1998 as Provigil.",
+  "history": "Modafinil was originally developed in France by neurophysiologist professor Michel Jouvet and Lafon Laboratories. Modafinil originated with the late 1970s invention of a series of benzhydryl sulfinyl compounds, including adrafinil, which was first offered as an experimental treatment for narcolepsy in France in 1986. Modafinil is the primary metabolite of adrafinil, lacking the polar -OH group on its terminal amide, and has similar activity to the parent drug but is much more widely used.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Benzhydryl"
-  ]
+  "riskLevel": "moderate"
 };

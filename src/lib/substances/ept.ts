@@ -12,13 +12,13 @@ export const ept: Substance =
   "id": "ept",
   "name": "EPT",
   "commonNames": [
-    "Substituted tryptamines"
+    "EPT"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted tryptamines",
-  "description": "EPT is chemically related to DMT and belongs to a series of psychedelic compounds known as unsubstituted tryptamines. The original synthesis date of EPT is unknown. It first appeared for sale on the online research chemical market in 2016. Unlike most research chemicals, EPT has no documentation in the scientific literature. It appears to be an entirely novel product of clandestine drug design.",
+  "description": "N-Ethyl-N-propyltryptamine (also known as Ethylpropyltryptamine and EPT) is an obscure novel psychedelic substance of the tryptamine class. It first appeared for sale on the online research chemical market in 2016. Initial reports describe the effects of EPT as mild and indistinct compared to structurally similar base tryptamines such as DMT, DET and DPT, all of which are highly powerful psychedelics.",
   "effects": {
     "positive": [
       "Stimulation",
@@ -77,8 +77,5 @@ export const ept: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted tryptamines"
-  ]
+  "riskLevel": "moderate"
 };

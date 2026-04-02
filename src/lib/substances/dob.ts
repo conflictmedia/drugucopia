@@ -12,13 +12,15 @@ export const dob: Substance =
   "id": "dob",
   "name": "DOB",
   "commonNames": [
-    "Substituted amphetamines"
+    "DOB",
+    "Brolamfetamine",
+    "Bromo-DMA"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted amphetamines",
-  "description": "4-Bromo-2,5-dimethoxyamphetamine (also known as dimethoxybromoamphetamine, brolamfetamine, bromo-DMA, and commonly as DOB) is a psychoactive class psychedelic substance of the amphetamine class that produces unusually long-lived psychedelic effects when administered. While DOB had first been synthesized in 1967 and briefly tested in 1971, it took until the 1991 publication of the book PiHKAL (\"Phenethylamines I Have Known And Loved\") by Alexander Shulgin to be documented in-depth. It is still rarely sold online but is more commonly found in the streets the form of misrepresented LSD due to its ability to fit onto similar-sized blotter paper. Very little data exists about the pharmacological properties, metabolism, and toxicity of DOB in humans. Along with its sensitive dose-response, unusually long and unpredictable duration, many reports also suggest that this substance may be overly difficult to use safely for those who are not already very experienced with using hallucinogens.",
+  "description": "While DOB had first been synthesized in 1967 and briefly tested in 1971, it took until the 1991 publication of the book PiHKAL (\"Phenethylamines I Have Known And Loved\") by Alexander Shulgin to be documented in-depth. It is still rarely sold online but is more commonly found in the streets the form of misrepresented LSD due to its ability to fit onto similar-sized blotter paper. Along with its sensitive dose-response, unusually long and unpredictable duration, many reports also suggest that this substance may be overly difficult to use safely for those who are not already very experienced with using hallucinogens.",
   "effects": {
     "positive": [
       "Stimulation - DOB is usually considered to be extremely stimulating at levels which do not become overwhelming and are encouraged instead of forced. This results in a shakiness and unsteadiness of the hands at high dosages, but encourages the person to move around, run, dance, climb and generally engage in physical activities. The level of stimulation varies between users with some people reporting it to be somewhat similar to amphetamine in its intensity and others reporting that it is extremely subtle even at higher dosages. In comparison, other more commonly used psychedelics such as psilocin are generally sedating and relaxed.",
@@ -130,8 +132,5 @@ export const dob: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted amphetamines"
-  ]
+  "riskLevel": "moderate"
 };

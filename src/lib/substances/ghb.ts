@@ -12,13 +12,16 @@ export const ghb: Substance =
   "id": "ghb",
   "name": "GHB",
   "commonNames": [
-    "Γ-Hydroxy acid"
+    "GHB",
+    "G",
+    "Xyrem",
+    "Sodium oxybate"
   ],
   "categories": [
     "depressants"
   ],
   "class": "Γ-Hydroxy acid",
-  "description": "GABAergics gamma-Hydroxybutyric acid (also known as 4-hydroxybutanoic acid and GHB) is a psychoactive class depressant substance. GHB as the sodium salt, known by the trade name Xyrem, is a prescription sleep-aid which is used to treat various medical conditions such as cataplexy and excessive daytime sleepiness in patients with narcolepsy. It has also been used in a medical setting as a general anesthetic to treat conditions such as insomnia, clinical depression, and alcoholism, and to improve athletic performance. Do not confuse grams with milliliters (the density of GHB is aproximately 1.2g/ml ). As such, users are advised to start with a low dose and work their way up slowly by increasing the dose in small increments.",
+  "description": "It is found naturally as a neurotransmitter and is also a precursor to GABA, glutamate, and glycine in certain brain areas. GHB as the sodium salt, known by the trade name Xyrem, is a prescription sleep-aid which is used to treat various medical conditions such as cataplexy and excessive daytime sleepiness in patients with narcolepsy. While a common recreational dose is between 1.5 - 2.5 grams, a dose between 2.5 grams and 5 grams will likely result in falling asleep within 5 - 15 minutes, and a dose of 5 - 10 grams can result in convulsions, unconsciousness (a coma-like state) and vomiting. If consuming GHB that has already been premixed into a liquid form, additional caution is required as there is no way to know for sure the concentration of the solution (e.g.",
   "effects": {
     "positive": [
       "Stimulation & Sedation - At lower doses, GHB is physically stimulating, encouraging movement and wakefulness. At higher doses, however, it becomes physically sedating, encouraging sleep and lethargy.",
@@ -113,8 +116,5 @@ export const ghb: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "very-high",
-  "aliases": [
-    "Γ-Hydroxy acid"
-  ]
+  "riskLevel": "very-high"
 };

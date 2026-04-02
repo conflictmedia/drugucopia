@@ -11,14 +11,12 @@ export const jwh_018: Substance =
 {
   "id": "jwh-018",
   "name": "JWH-018",
-  "commonNames": [
-    "Naphthoylindole"
-  ],
+  "commonNames": [],
   "categories": [
     "cannabinoids"
   ],
   "class": "Naphthoylindole",
-  "description": "1-Pentyl-3-(1-naphthoyl)indole (also called AM-678 and JWH-018) is a full agonist synthetic psychoactive class cannabinoid first synthesized by organic chemist John W. Huffman. It gained popularity in late 2008 when German chemists found it as a chemical within the popular synthetic cannabis blend Spice, which had been sold in numerous countries around the world since 2002. Cannabinoids are commonly smoked or vaporized to achieve a quick onset of effects and rapid offset. JWH-018 is orally active when dissolved in a lipid, which can increase the duration significantly. Like other cannabinoids, it is insoluble in water but dissolves in ethanol and lipids.",
+  "description": "1-Pentyl-3-(1-naphthoyl)indole (also called AM-678 and JWH-018) is a full agonist synthetic cannabinoid first synthesized by organic chemist John W. Huffman. It gained popularity in late 2008 when German chemists found it as a chemical within the popular synthetic cannabis blend Spice, which had been sold in numerous countries around the world since 2002. Cannabinoids are commonly smoked or vaporized to achieve a quick onset of effects and rapid offset.",
   "effects": {
     "positive": [
       "Sedation - Generally, the effects on the user's energy levels are sedating. This encourages one to relax, lie down, and (at higher doses) fall asleep. It produces strong sedative effects that can be described as on par with 5F-PB-22 and more sedating when compared to THC, JWH-073, THJ-018, AM-2201, or 5F-UR-144 but less than that of 5F-AKB48.",
@@ -93,8 +91,5 @@ export const jwh_018: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Naphthoylindole"
-  ]
+  "riskLevel": "moderate"
 };

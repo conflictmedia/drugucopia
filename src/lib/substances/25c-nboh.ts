@@ -12,13 +12,13 @@ export const _25c_nboh: Substance =
   "id": "25c-nboh",
   "name": "25C-NBOH",
   "commonNames": [
-    "Substituted phenethylamines"
+    "25C-NBOH"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted phenethylamines",
-  "description": "25C-NBOH (also known as 2C-C-NBOH and NBOH-2C-C) is novel synthetic Psychoactive class psychedelic substance of the chemical class phenethylamine chemical class that produces an array of visually-dominant and stimulating psychedelic effects when administered. It is a closely related analog of 25B-NBOMe and is reported to share most of its properties with the exception of a moderately reduced potency and a shorter duration. The name 25C-NBOH, which is short-hand for 2C-C-NBOH, is a derivative of the phenethylamine psychedelic 2C-C. It was first synthesized and documented in 2011 by Martin Hansen at the University of Copenhagen. It is worth noting that compounds of the NBOH family are not orally active and should be administered sublingually by placing and holding it into one's mouth and allowing it to absorb over a period of 15-25 minutes.",
+  "description": "25C-NBOH (also known as 2C-C-NBOH and NBOH-2C-C) is novel synthetic psychedelic substance of the phenethylamine chemical class that produces an array of visually-dominant and stimulating psychedelic effects when administered. It was first synthesized and documented in 2011 by Martin Hansen at the University of Copenhagen. It is worth noting that compounds of the NBOH family are not orally active and should be administered sublingually by placing and holding it into one's mouth and allowing it to absorb over a period of 15-25 minutes.",
   "effects": {
     "positive": [
       "Stimulation - In terms of its effects on the physical energy levels of the user, 25C-NBOH is usually considered to be very energetic and stimulating. For most people, this substance induces a unique type of physical stimulation which can be described as feeling extremely energetic but in a way which does not force the user to move unless they choose to do so. For others, however, the stimulation can be quite uncontrollable, occasionally resulting in bodily shakes and a grinding of the teeth comparable to that of MDMA and traditional stimulants such as amphetamine.",
@@ -133,8 +133,5 @@ export const _25c_nboh: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "very-high",
-  "aliases": [
-    "Substituted phenethylamines"
-  ]
+  "riskLevel": "very-high"
 };

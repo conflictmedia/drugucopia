@@ -12,15 +12,14 @@ export const _3_fea: Substance =
   "id": "3-fea",
   "name": "3-FEA",
   "commonNames": [
-    "Amphetamine",
-    "Substituted amphetamines"
+    "3-FEA"
   ],
   "categories": [
     "empathogens",
     "stimulants"
   ],
   "class": "Amphetamine",
-  "description": "3-Fluoroethamphetamine (also known as 3-FEA) is a novel ring-substituted chemical class amphetamine compound that produces a mixture of entactogenic and psychoactive class stimulant effects when administered. 3-FEA is structurally related to a series of designer fluorinated substituted amphetamines that originally included compounds such as 2-FA, 2-FMA, 3-FA, 4-FMA, 4-FA. Like its parent compound 3-FA, the pharmacological, toxicological, and subjective effects of 3-FEA in humans have yet to be mapped out in detail. Anecdotal reports have characterised 3-FEA as a moderately potent serotonin-dominant triple monoamine releaser that produces a mixture of entactogenic and mild stimulating effects. 3-FEA has an extremely short history of human recreational use and has not been documented being sold on the streets.",
+  "description": "3-Fluoroethamphetamine (also known as 3-FEA) is a novel ring-substituted amphetamine compound that produces a mixture of entactogenic and stimulant effects when administered. 3-FEA is structurally related to a series of designer fluorinated substituted amphetamines that originally included compounds such as 2-FA, 2-FMA, 3-FA, 4-FMA, 4-FA. Due to its potent psychostimulant effects, likely habit-forming properties, and unknown toxicity profile, it is strongly recommended that one use proper harm reduction practices if using this substance.",
   "effects": {
     "positive": [
       "Sedation & Stimulation - 3-FEA has been reported to produce a paradoxical combination of sedating and stimulatory effects, with the sedating aspects believed to be attributable to the significant amount of serotonin it releases. The stimulatory effects are typically more prominent at dosages in and above the strong dosage range and tend to become prominent after the peak effects of a dose have subsided.",
@@ -127,9 +126,5 @@ export const _3_fea: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Amphetamine",
-    "Substituted amphetamines"
-  ]
+  "riskLevel": "moderate"
 };

@@ -12,13 +12,16 @@ export const phenobarbital: Substance =
   "id": "phenobarbital",
   "name": "Phenobarbital",
   "commonNames": [
-    "Barbiturates"
+    "Phenobarbital",
+    "Phenobarbitone",
+    "Luminal",
+    "Phenobarb"
   ],
   "categories": [
     "depressants"
   ],
   "class": "Barbiturates",
-  "description": "Pentobarbital Phenobarbital, also known as phenobarbitone in British English and by the brand name Luminal, is a long-acting psychoactive drug of the barbiturate class which produces powerful anxiolytic, hypnotic, muscle relaxant and amnesic effects. Phenobarbital is used medically as an anticonvulsant, and occasionally in the short term treatment of insomnia. Phenobarbital works in a similar fashion to benzodiazepines, however barbiturates bind to a distinct allosteric site on the GABAA receptor. Phenobarbital, like most long-acting barbiturates, can be deemed moderately addictive. Phenobarbital drastically enhances the effects of other depressants such as alcohol, and concurrent use may lead to respiratory depression and possibly death.",
+  "description": "Pentobarbital\nPhenobarbital, also known as phenobarbitone in British English and by the brand name Luminal, is a long-acting psychoactive drug of the barbiturate class which produces powerful anxiolytic, hypnotic, muscle relaxant and amnesic effects. Phenobarbital is used medically as an anticonvulsant, and occasionally in the short term treatment of insomnia. Phenobarbital works in a similar fashion to benzodiazepines, however barbiturates bind to a distinct allosteric site on the GABAA receptor.",
   "effects": {
     "positive": [
       "Sedation -  In terms of energy level alterations, this drug has the potential to be extremely sedating and often results in an overwhelmingly lethargic state. At higher levels, this causes users to suddenly feel as if they are extremely sleep deprived and have not slept for days, forcing them to sit down and generally feel as if they are constantly on the verge of passing out instead of engaging in physical activities. This sense of sleep deprivation increases proportional to dosage and eventually becomes powerful enough to force a person into complete unconsciousness.",
@@ -79,8 +82,5 @@ export const phenobarbital: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Barbiturates"
-  ]
+  "riskLevel": "moderate"
 };

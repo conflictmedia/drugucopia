@@ -12,13 +12,13 @@ export const caffeine: Substance =
   "id": "caffeine",
   "name": "Caffeine",
   "commonNames": [
-    "Xanthines"
+    "Caffeine"
   ],
   "categories": [
     "stimulants"
   ],
   "class": "Xanthines",
-  "description": "Coffea (botany) Caffeine (also known as 1,3,7-Trimethylxanthine) is a naturally-occurring Psychoactive class stimulant substance of the Chemical class xanthine class. Notable effects include stimulation, wakefulness, enhanced focus and motivation. It is the most widely consumed psychoactive substance in the world. It is most commonly consumed by humans in infusions extracted from the seed of the coffee plant and the leaves of the tea bush, as well as from various foods and drinks containing products derived from the kola nut. This amounts to one serving of a caffeinated beverage for every person every day.",
+  "description": "Coffea (botany)\nCaffeine (also known as 1,3,7-Trimethylxanthine) is a naturally-occurring stimulant substance of the xanthine class. Caffeine is found in varying quantities in the seeds, leaves, and fruit of some plants where it acts as a natural pesticide, as well as enhancing the reward memory of pollinators. It is most commonly consumed by humans in infusions extracted from the seed of the coffee plant and the leaves of the tea bush, as well as from various foods and drinks containing products derived from the kola nut.",
   "effects": {
     "positive": [
       "Physical euphoria - Caffeine has been reported to produce very mild physical euphoria in non-tolerant users, especially when they are already well-rested. Some people report that caffeine is more euphoric in the afternoon than the morning.",
@@ -124,10 +124,7 @@ export const caffeine: Substance =
     "molecularWeight": "Unknown",
     "class": "Xanthines"
   },
-  "history": "The earliest credible evidence of either coffee drinking or knowledge of the coffee tree appears in the middle of the 15th century, in Yemen's Sufi monasteries. The Sufi monks drank coffee as an aid to concentration and even spiritual intoxication when they chanted the name of God. Caffeine is found in tea leaves. Tea ceremonies are a tradition practiced throughout East Asia, particularly Japan, Korea, and other regions.",
+  "history": "The earliest credible evidence of either coffee drinking or knowledge of the coffee tree appears in the middle of the 15th century, in Yemen's Sufi monasteries. The Sufi monks drank coffee as an aid to concentration and even spiritual intoxication when they chanted the name of God. Tea ceremonies are a tradition practiced throughout East Asia, particularly Japan, Korea, and other regions.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Xanthines"
-  ]
+  "riskLevel": "moderate"
 };

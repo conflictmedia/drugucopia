@@ -12,13 +12,17 @@ export const mescaline: Substance =
   "id": "mescaline",
   "name": "Mescaline",
   "commonNames": [
-    "Substituted phenethylamines"
+    "Mescaline",
+    "Peyote",
+    "San Pedro",
+    "Cactus",
+    "Buttons"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted phenethylamines",
-  "description": "3,4,5-Trimethoxyphenethylamine (also known as mescaline) is a naturally-occurring classical Psychoactive class psychedelic substance of the chemical class phenethylamine class. It is one of the oldest known hallucinogens and the parent compound of the psychedelic phenethylamines, one of the two major subclasses of psychedelic compounds (along with tryptamines). The ritual use of the peyote cactus has occurred for at least 5700 years by Native Americans in Mexico and other mescaline-containing cacti such as the San Pedro have a long history of use in the South American continent, from Peru to Ecuador. Mescaline is an important part of the life's work of the American chemist Alexander Shulgin, who used it as a starting point for synthesizing dozens of novel psychedelic compounds that are documented in his 1991 book PiHKAL (\"Phenethylamines I Have Known and Loved\"). Additionally, it should be noted that in street markets terms like \"mescaline\" or \"synthetic mescaline\" are commonly used as deceptive labels for other psychedelics (e.g. 2C-x, DOx, or 25x-NBOMe) that are typically more dangerous.",
+  "description": "It occurs naturally in the peyote cactus (Lophophora williamsii), San Pedro cactus (Echinopsis pachanoi), Peruvian Torch cactus (Echinopsis peruviana) as well as the Cactaceae plant and the Fabaceae bean families. The ritual use of the peyote cactus has occurred for at least 5700 years by Native Americans in Mexico and other mescaline-containing cacti such as the San Pedro have a long history of use in the South American continent, from Peru to Ecuador. Mescaline is an important part of the life's work of the American chemist Alexander Shulgin, who used it as a starting point for synthesizing dozens of novel psychedelic compounds that are documented in his 1991 book PiHKAL (\"Phenethylamines I Have Known and Loved\"). Subjective effects include open and closed-eye visuals, time distortion, enhanced introspection, conceptual thinking, euphoria, and ego loss.",
   "effects": {
     "positive": [
       "Stimulation - Mescaline is usually considered to be very energetic and stimulating without being forced. For example, when taken in any environment it will usually encourage physical activities such as running, walking, climbing or dancing. In comparison, other more commonly used psychedelics such as psilocin are generally sedating and relaxed.",
@@ -130,10 +134,7 @@ export const mescaline: Substance =
     "molecularWeight": "Unknown",
     "class": "Substituted phenethylamines"
   },
-  "history": "The ritual use of the Peyote cactus has occurred for at least 5700 years by Native Americans in Mexico. The principal psychoactive component in both Peyote and San Pedro, mescaline, was first isolated and identified in 1897 by the German chemist Arthur Heffter and first synthesized in 1919 by Ernst Späth. In modern times, users will often grind it into a powder and pour it into gel capsules to avoid having to come into contact with the bitter taste of the cactus. Shulgin used mescaline as a starting point for synthesizing dozens of novel psychedelic phenethylamine compounds such as the 2C-x and DOx families. They are found within the first book of PiHKAL, and are as follows: Mescaline, DOM, 2C-B, 2C-E, 2C-T-2 and 2C-T-7.",
+  "history": "The ritual use of the Peyote cactus has occurred for at least 5700 years by Native Americans in Mexico. Additionally, alternative mescaline-containing cacti such as the San Pedro have a long history of use in the South American continent, spanning from Peru to Ecuador. The principal psychoactive component in both Peyote and San Pedro, mescaline, was first isolated and identified in 1897 by the German chemist Arthur Heffter and first synthesized in 1919 by Ernst Späth. It was one of the first psychedelics to be experimented with by Western intellectuals like Aldous Huxley, who famously described its effects in the 1954 essay \"The Doors of Perception\".",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted phenethylamines"
-  ]
+  "riskLevel": "moderate"
 };

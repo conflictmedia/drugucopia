@@ -12,13 +12,16 @@ export const _2c_t_7: Substance =
   "id": "2c-t-7",
   "name": "2C-T-7",
   "commonNames": [
-    "Substituted phenethylamines"
+    "2C-T-7",
+    "Beautiful",
+    "Blue Mystic",
+    "7th Heaven"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted phenethylamines",
-  "description": "2,5-Dimethoxy-4-propylthiophenethylamine (also known as 2C-T-7, Blue Mystic, and Beautiful, among others) is a Psychoactive class psychedelic substance of the Chemical class phenethylamine chemical class that produces psychedelic and entactogenic effects when administered. 2C-T-7 was first synthesized by Alexander Shulgin and documented in his book PiHKAL (\"Phenethylamines I Have Known and Loved\"). It is a member of the 2C-x family of psychedelic phenethylamines, all of which were derived from the systematic modification of the mescaline molecule. In contrast to other members of the 2C-x family, 2C-T-7 has gained a reputation of being an unpredictable, dose-sensitive psychedelic capable of producing strong visual effects and an intense body load, which can manifest as a dangerous delirium in extreme cases. Many reports indicate that the physical effects are too severe for inexperienced users or those with pre-existing medical conditions.",
+  "description": "2,5-Dimethoxy-4-propylthiophenethylamine (also known as 2C-T-7, Blue Mystic, and Beautiful, among others) is a psychedelic substance of the phenethylamine chemical class that produces psychedelic and entactogenic effects when administered. 2C-T-7 was first synthesized by Alexander Shulgin and documented in his book PiHKAL (\"Phenethylamines I Have Known and Loved\"). In contrast to other members of the 2C-x family, 2C-T-7 has gained a reputation of being an unpredictable, dose-sensitive psychedelic capable of producing strong visual effects and an intense body load, which can manifest as a dangerous delirium in extreme cases.",
   "effects": {
     "positive": [
       "Stimulation - In terms of its effects on the physical energy levels of the user, 2C-T-7 is generally considered to be energetic and stimulating in a fashion is comparable to that of other phenethylamines such as 2C-B, 2C-E and 2C-P. However, at certain doses and contexts, it may produce periods of notable sedation.",
@@ -128,8 +131,5 @@ export const _2c_t_7: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted phenethylamines"
-  ]
+  "riskLevel": "moderate"
 };

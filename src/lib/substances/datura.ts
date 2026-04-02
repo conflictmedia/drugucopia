@@ -11,12 +11,15 @@ export const datura: Substance =
 {
   "id": "datura",
   "name": "Datura",
-  "commonNames": [],
+  "commonNames": [
+    "Datura",
+    "Jimson Weed"
+  ],
   "categories": [
     "deliriants"
   ],
   "class": "Unknown",
-  "description": "Datura (also known as devil's trumpet, moonflower, jimsonweed, devil's weed, hell's bells, thorn-apple, and many others) is a genus of nine species of poisonous flowering plants belonging to the family Solanaceae. Datura is known as a powerful and dangerous deliriant, used for shamanic and medical purposes, as well as poisons. They contain the potent anticholinergic substances scopolamine, hyoscyamine, and atropine primarily in their seeds and flowers. Datura's precise and natural distribution seem to be throughout most of the temperate and tropical regions of the globe, owing to its extensive cultivation and naturalization. The two most well-known species are Datura inoxia and Datura stramonium.",
+  "description": "Datura (also known as devil's trumpet, moonflower, jimsonweed, devil's weed, hell's bells, thorn-apple, and many others) is a genus of nine species of poisonous flowering plants belonging to the family Solanaceae. Both have been used in a shamanic context for religious purposes on most continents since before recorded history throughout the ancient Americas, Europe, and India. This makes Datura a highly dangerous substance to use as it can lead directly to death, it is highly advised the user does not start with a delirium inducing dosage and uses a scale to measure the dose (Although its never safe, despite the measuring tools you use.)",
   "effects": {
     "positive": [
       "Sedation or Stimulation",
@@ -140,6 +143,5 @@ export const datura: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": []
+  "riskLevel": "moderate"
 };

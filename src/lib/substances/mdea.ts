@@ -12,15 +12,15 @@ export const mdea: Substance =
   "id": "mdea",
   "name": "MDEA",
   "commonNames": [
-    "Amphetamine",
-    "MDxx",
-    "Substituted amphetamines"
+    "MDEA",
+    "MDE",
+    "Eve"
   ],
   "categories": [
     "empathogens"
   ],
   "class": "Amphetamine",
-  "description": "3,4-Methylenedioxy-N-ethylamphetamine (also known as MDEA, MDE, and colloquially as Eve) is a lesser-known Psychoactive class entactogen substance of the Chemical class amphetamine class. MDEA is chemically similar to MDMA and MDA. The first recorded human use of MDEA was in 1976 by Alexander Shulgin, who noted its similarity to MDMA in both effects and potency, though faster to act and shorter in duration. The synthesis and pharmacological evaluation of MDEA and a series of related compounds were published in 1980. MDEA is included in Shulgin's 1991 book \"PiHKAL\" (\"Phenethylamines I Have Known and Loved\").",
+  "description": "The first recorded human use of MDEA was in 1976 by Alexander Shulgin, who noted its similarity to MDMA in both effects and potency, though faster to act and shorter in duration. MDEA is included in Shulgin's 1991 book \"PiHKAL\" (\"Phenethylamines I Have Known and Loved\"). In the United States, MDEA was introduced recreationally in 1985 as a legal substitute to the newly banned MDMA before it was made a Schedule I substance two years later.",
   "effects": {
     "positive": [
       "Stimulation & Sedation - In terms of its effects on the user's physical energy levels, MDEA is commonly regarded as significantly less stimulating and energizing than MDMA, while still retaining its core entactogenic effects. Unlike MDMA, which encourages activities such as running, climbing and dancing in a way that makes it a popular choice for musical events such as festivals and raves. The distinct style of stimulation which MDEA presents can be described as mildly to moderately forced, trending more towards sedation and relaxation. This means that at higher doses, it becomes difficult or impossible to keep still as jaw clenching, involuntarily body shakes and vibrations become present, resulting in an extreme unsteadiness of the hands and a general lack of motor control, though to a far lesser degree than with MDMA.",
@@ -122,12 +122,7 @@ export const mdea: Substance =
     "molecularWeight": "Unknown",
     "class": "Amphetamine"
   },
-  "history": "In the United States, MDEA was introduced recreationally in 1985 as a legal substitute to the newly banned MDMA before it was made a Schedule I substance two years later on August 13, 1987 under the Federal Analogue Act. Since then, MDEA has rarely been sold on its own and has largely been used as an occasional additive or substitute ingredient in pills of \"Ecstasy\" (for instance, studies conducted in the 1990s found MDEA present in approximately four percent of ecstasy tablets). While MDEA shares many of the core entactogenic properties of MDMA, it is slightly less potent and considered to be more \"stoning\", lacking the pro-socializing and energizing \"magic\" most party-goers seek in their MDMA experiences. As a result, it is largely considered by most people to be a less desirable variant of MDMA and is thus rarely produced and sold in the illicit drug market, typically showing up only in small batches synthesized and distributed by hobbyist clandestine chemists.",
+  "history": "In the United States, MDEA was introduced recreationally in 1985 as a legal substitute to the newly banned MDMA before it was made a Schedule I substance two years later on August 13, 1987 under the Federal Analogue Act. Since then, MDEA has rarely been sold on its own and has largely been used as an occasional additive or substitute ingredient in pills of \"Ecstasy\" (for instance, studies conducted in the 1990s found MDEA present in approximately four percent of ecstasy tablets). While MDEA shares many of the core entactogenic properties of MDMA, it is slightly less potent and considered to be more \"stoning\", lacking the pro-socializing and energizing \"magic\" most party-goers seek in their MDMA experiences.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Amphetamine",
-    "MDxx",
-    "Substituted amphetamines"
-  ]
+  "riskLevel": "moderate"
 };

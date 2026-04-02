@@ -12,13 +12,13 @@ export const doc: Substance =
   "id": "doc",
   "name": "DOC",
   "commonNames": [
-    "Substituted amphetamines"
+    "DOC"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted amphetamines",
-  "description": "4-Chloro-2,5-dimethoxyamphetamine (also known as DOC) is a lesser-known psychoactive class psychedelic substance of the amphetamine class. It is a member of the DOx family of psychedelic amphetamines, which are known for their long duration and mixture of psychedelic and stimulant effects. DOC was first synthesized by a team at the University of Alberta in 1972. However, its usage in humans was not popularized until the 1991 publication PiHKAL (\"Phenethylamines I Have Known And Loved\") by Alexander Shulgin. Therefore it is highly advised to approach this unusually dose-sensitive, and long-lasting psychedelic substance with the proper amount of precaution and harm reduction practices if choosing to use it.",
+  "description": "However, its usage in humans was not popularized until the 1991 publication PiHKAL (\"Phenethylamines I Have Known And Loved\") by Alexander Shulgin. Preceding this, a 1989 forensic analysis of designer amphetamine samples identified DOC in Canadian drug seizures. DOC is known as a highly dose-sensitive psychedelic that is often sold in powder form or on blotting paper and known for its long duration (over 12-24 hours), strong visual effects, a unique form of stimulation, and a significant body load.",
   "effects": {
     "positive": [
       "Stimulation - DOC is usually reported to be extremely stimulating at levels which are capable of becoming uncomfortable and overwhelming. This can result in a shakiness and unsteadiness of the hands but encouraging one to move around, run, dance, climb and generally engage in physical activities. In comparison, other more commonly used psychedelics such as psilocin are generally sedating and relaxed. The type of stimulation is generally encouraged but can also present some forcefulness to it.",
@@ -142,8 +142,5 @@ export const doc: Substance =
   },
   "history": "DOC was first synthesized by 1972 by Ronald Coutts and Jerry Malicky at the University of Alberta. While human usage was popularized by the 1991 publication of its synthesis and pharmacology in PiHKAL (\"Phenethylamines I Have Known And Loved\") by Alexander Shulgin, a 1989 forensic analysis of designer amphetamine samples identified DOC in Canadian drug seizures.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted amphetamines"
-  ]
+  "riskLevel": "moderate"
 };

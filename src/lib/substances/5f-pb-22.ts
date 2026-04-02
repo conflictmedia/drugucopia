@@ -11,14 +11,12 @@ export const _5f_pb_22: Substance =
 {
   "id": "5f-pb-22",
   "name": "5F-PB-22",
-  "commonNames": [
-    "Indolecarboxylate"
-  ],
+  "commonNames": [],
   "categories": [
     "cannabinoids"
   ],
   "class": "Indolecarboxylate",
-  "description": "There is very little information regarding the pharmacology of this compound within the scientific literature. Despite this, however, it has been sold as a grey area research chemical through online vendors. Cannabinoids are commonly smoked or vaporized to achieve a quick onset of effects and rapid offset. 5F-PB-22 is orally active when dissolved in a lipid, which can increase the duration significantly. Unlike cannabis, the chronic abuse of synthetic cannabinoids has been associated with multiple deaths and more dangerous side effects and toxicity in general.",
+  "description": "5F-PB-22 (1-pentyfluoro-1H-indole-3-carboxylic acid 8-quinolinyl ester also known as 5F-QUPIC) is a synthetic cannabinoid and agonist of the cannabinoid receptors which produces predominantly sedating subjective effects somewhat similar to that of cannabis. There is very little information regarding the pharmacology of this compound within the scientific literature. Despite this, however, it has been sold as a grey area research chemical through online vendors.",
   "effects": {
     "positive": [
       "Spontaneous physical sensations - The \"body high\" of 5F-PB-22 can be described as a warm and soft pleasurable, all-encompassing tingling sensation that spreads over the body. It maintains a consistent presence that quickly rises with the onset and hits its limit once the peak has been reached before immediately dissipating.",
@@ -102,8 +100,5 @@ export const _5f_pb_22: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Indolecarboxylate"
-  ]
+  "riskLevel": "moderate"
 };

@@ -11,15 +11,12 @@ export const nm_2_ai: Substance =
 {
   "id": "nm-2-ai",
   "name": "NM-2-AI",
-  "commonNames": [
-    "Amphetamine",
-    "Aminoindane"
-  ],
+  "commonNames": [],
   "categories": [
     "stimulants"
   ],
   "class": "Amphetamine",
-  "description": "NM-2-AI (N-methyl-2-aminoindane) is a lesser-known novel psychoactive class stimulant substance of the Chemical class aminoindane class. It is structurally related to 2-AI and MDAI. In comparison to 2-AI, this compound has a lower potency, a longer duration and very similar effects. It has recently become easily accessible through online research chemical vendors where it is sold as a designer drug. Very little data exists for the effects, pharmacology, and toxicity of NM-2-AI.",
+  "description": "NM-2-AI (N-methyl-2-aminoindane) is a lesser-known novel stimulant substance of the aminoindane class. In comparison to 2-AI, this compound has a lower potency, a longer duration and very similar effects. It has recently become easily accessible  through online research chemical vendors where it is sold as a designer drug.",
   "effects": {
     "positive": [
       "Increased heart rate",
@@ -92,9 +89,5 @@ export const nm_2_ai: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Amphetamine",
-    "Aminoindane"
-  ]
+  "riskLevel": "moderate"
 };

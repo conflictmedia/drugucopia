@@ -12,13 +12,14 @@ export const det: Substance =
   "id": "det",
   "name": "DET",
   "commonNames": [
-    "Substituted tryptamines"
+    "Diethyltryptamine",
+    "DET"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted tryptamines",
-  "description": "Diethyltryptamine (also known as N,N-DET or DET) is a synthetic psychedelic tryptamine and a close structural analog of DMT (Dimethyltryptamine). It is extremely uncommon and has little history of human usage. In the 1950s, the endogenous production of psychoactive agents was considered to be a potential explanation for the hallucinatory symptoms of some psychiatric diseases; this is known as the transmethylation hypothesis. Early studies of DET as well as other psychedelics were mainly focused on their presumed psychotomimetic properties. Researchers theorized that abnormal metabolites of endogenous chemicals such as tryptamine, serotonin, and tryptophan could be the explanation for mental disorders such as schizophrenia, or psychosis.",
+  "description": "Diethyltryptamine (also known as N,N-DET or DET) is a synthetic psychedelic tryptamine and a close structural analog of DMT (Dimethyltryptamine). It is extremely uncommon and has little history of human usage. In the 1950s, the endogenous production of psychoactive agents was considered to be a potential explanation for the hallucinatory symptoms of some psychiatric diseases; this is known as the transmethylation hypothesis.",
   "effects": {
     "positive": [
       "Stimulation",
@@ -94,8 +95,5 @@ export const det: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted tryptamines"
-  ]
+  "riskLevel": "moderate"
 };

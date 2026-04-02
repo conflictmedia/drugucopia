@@ -12,13 +12,13 @@ export const aniracetam: Substance =
   "id": "aniracetam",
   "name": "Aniracetam",
   "commonNames": [
-    "Racetams"
+    "Aniracetam"
   ],
   "categories": [
     "nootropics"
   ],
   "class": "Racetams",
-  "description": "Aniracetam (Draganon, Sarpul, Ampamet, Memodrin, Referan, and systematically as N-anisoyl-2-pyrrolidinone) is a psychoactive class nootropic agent belonging to the chemical class racetam family of drugs. Although it is one of the first known and synthesized derivatives of piracetam, its research and efficacy in humans is limited. Aniracetam is readily available and sold through online vendors as a dietary supplement in the United States. Dosages are nearly fifteen times those of noopept, making it less potent while offering comparable benefit. Supplementation of aniracetam tends to be in the dosage range of 800-2500mg taken over the course of a day, either in two to three evenly spread dosing periods, such as three doses of 400mg or 800mg.",
+  "description": "Aniracetam  (Draganon, Sarpul, Ampamet, Memodrin, Referan, and systematically as N-anisoyl-2-pyrrolidinone) is a nootropic agent belonging to the racetam family of drugs. Supplementation of aniracetam tends to be in the dosage range of 800-2500mg taken over the course of a day, either in two to three evenly spread dosing periods, such as three doses of 400mg or 800mg. Aniracetam has protected against scopolamine-induced amnesia both in rat populations and in human populations, suggesting it can aid recovery from deliriant intoxication and other typically cognitively impaired states by preserving adequate levels of acetylcholine as a primary mechanism.",
   "effects": {
     "positive": [
       "Stimulation",
@@ -73,8 +73,5 @@ export const aniracetam: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Racetams"
-  ]
+  "riskLevel": "moderate"
 };

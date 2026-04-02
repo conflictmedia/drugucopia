@@ -12,13 +12,16 @@ export const etizolam: Substance =
   "id": "etizolam",
   "name": "Etizolam",
   "commonNames": [
-    "Thienodiazepines"
+    "Etizolam",
+    "Etilaam",
+    "Etizest",
+    "Depas"
   ],
   "categories": [
     "depressants"
   ],
   "class": "Thienodiazepines",
-  "description": "thienodiazepines Etizolam (also known as Etilaam, Etizest, Depas, and many others) is a novel psychoactive class depressant substance of the chemical class thienodiazepine class. Etizolam is chemically related to benzodiazepines and acts by binding to GABA receptors in the brain. Etizolam is not commonly prescribed. It has been sold as a research chemical online and is commonly used as a substitute for pharmaceutical benzodiazepines like alprazolam (Xanax) or diazepam (Valium). Etizolam is commonly found in pellet or pill form, laid on blotter paper, dissolved in propylene glycol or as a pure powder.",
+  "description": "thienodiazepines\nEtizolam (also known as Etilaam, Etizest, Depas, and many others) is a novel depressant substance of the thienodiazepine class. It has been sold as a research chemical online and is commonly used as a substitute for pharmaceutical benzodiazepines like alprazolam (Xanax) or diazepam (Valium). As a result, individuals who are physically dependent on this substance are advised to taper their dose by gradually lowering the amount taken each day over a prolonged period of time instead of stopping use abruptly.",
   "effects": {
     "positive": [
       "Sedation - Etizolam is sedating in a rapid-acting fashion. At higher doses, this can lead users to suddenly feel as if they are extremely sleep deprived and have not slept for days, forcing them to sit down and generally feel as if they are constantly on the verge of passing out instead of engaging in physical activities. This sense of sleep deprivation increases proportional to dosage and eventually becomes powerful enough to force a person into complete unconsciousness.",
@@ -86,10 +89,7 @@ export const etizolam: Substance =
     "molecularWeight": "Unknown",
     "class": "Thienodiazepines"
   },
-  "history": "Etizolam first appeared on the online research chemical market in 2011. Since then its popularity has steadily increased. This likely owes itself to both its low cost and its abundance, and the highly dependence-forming and addictive nature that it shares with recreationally-used benzodiazepines. Etizolam differs from most other research chemicals in that it is approved and actively prescribed as a medical treatment for anxiety in many countries around the world, commonly under brand names like Etilaam and Etizest. Its origins as a medical drug are unclear, although medical papers citing its use in the treatment of anxiety have been documented as early as the 1990s.",
+  "history": "Etizolam first appeared on the online research chemical market in 2011. This likely owes itself to both its low cost and its abundance, and the highly dependence-forming and addictive nature that it shares with recreationally-used benzodiazepines. Etizolam differs from most other research chemicals in that it is approved and actively prescribed as a medical treatment for anxiety in many countries around the world, commonly under brand names like Etilaam and Etizest.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Thienodiazepines"
-  ]
+  "riskLevel": "low"
 };

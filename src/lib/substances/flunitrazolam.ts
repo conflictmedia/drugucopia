@@ -12,13 +12,13 @@ export const flunitrazolam: Substance =
   "id": "flunitrazolam",
   "name": "Flunitrazolam",
   "commonNames": [
-    "Benzodiazepines"
+    "Flunitrazolam"
   ],
   "categories": [
     "depressants"
   ],
   "class": "Benzodiazepines",
-  "description": "This trait is also shared by compounds such as flubromazolam and clonazolam. Similar to flubromazolam, this is an ultra potent benzodiazepine. A dose of about 0.1 mg (100 µg) is equivalent to 10 mg diazepam or 0.25 mg alprazolam. Flunitrazolam first appeared on the online research chemical market in 2016. Any comments regarding its pharmacology are purely speculation based upon the subjective effects it induces and its structural similarity to funitrazolam and other benzodiazepines, with very little research done for far with this particular compound.",
+  "description": "It has been noted for its unusual potency for a benzodiazepine compound, being active in the low microgram range. A dose of about 0.1 mg (100 µg) is equivalent to 10 mg diazepam or 0.25 mg alprazolam. Of these, it appears to be entirely novel and has no precedent in the scientific literature before being made available for sale on online. Any comments regarding its pharmacology are purely speculation based upon the subjective effects it induces and its structural similarity to funitrazolam and other benzodiazepines, with very little research done for far with this particular compound. It is worth noting that the sudden discontinuation of benzodiazepines can be potentially dangerous or life-threatening for individuals using regularly for extended periods of time, sometimes resulting in seizures or death. It is highly recommended to taper one's dose by gradually lowering the amount taken each day for a prolonged period of time instead of stopping usage abruptly.",
   "effects": {
     "positive": [
       "Sedation -  In terms of energy level alterations, this drug has the potential to be extremely sedating and often results in an overwhelmingly lethargic state. At higher levels, this causes users to suddenly feel as if they are extremely sleep deprived and have not slept for days, forcing them to sit down and generally feel as if they are constantly on the verge of passing out instead of engaging in physical activities. This sense of sleep deprivation increases proportional to dosage and eventually becomes powerful enough to force a person into complete unconsciousness.",
@@ -81,8 +81,5 @@ export const flunitrazolam: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Benzodiazepines"
-  ]
+  "riskLevel": "low"
 };

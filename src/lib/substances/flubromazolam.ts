@@ -12,13 +12,13 @@ export const flubromazolam: Substance =
   "id": "flubromazolam",
   "name": "Flubromazolam",
   "commonNames": [
-    "Benzodiazepines"
+    "Flubromazolam"
   ],
   "categories": [
     "depressants"
   ],
   "class": "Benzodiazepines",
-  "description": "benzodiazepines Flubromazepam Flubromazolam (JYI-73) is a novel synthetic psychoactive class depressant substance of the chemical class benzodiazepine, and specifically, the triazolobenzodiazepine class which produces anxiolytic, disinhibiting, sedative, muscle relaxant, and memory suppressing effects when administered. It is considered to be the single most potent benzodiazepine, ahead of even other designer benzodiazepines. Flubromazolam is active in the microgram range, with an unusually long 18 hour duration. Thus, it poses comparatively higher risks than other designer benzodiazepines, due to its ability to produce strong sedation and amnesia even at a very low threshold dosage. Flubromazolam has been noted for its potential use in the short-term treatment of anxiety, insomnia, acute seizures, and the sedation of hospitalized patients.",
+  "description": "benzodiazepines\nFlubromazepam\nFlubromazolam (JYI-73) is a novel synthetic depressant substance of the benzodiazepine, and specifically, the triazolobenzodiazepine class which produces anxiolytic, disinhibiting, sedative, muscle relaxant, and memory suppressing effects when administered. Thus, it poses comparatively higher risks than other designer benzodiazepines, due to its ability to produce strong sedation and amnesia even at a very low threshold dosage. It is worth noting that the sudden discontinuation of benzodiazepines can be potentially dangerous or life-threatening for individuals using regularly for extended periods of time, sometimes resulting in seizures or death.",
   "effects": {
     "positive": [],
     "neutral": [
@@ -73,8 +73,5 @@ export const flubromazolam: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Benzodiazepines"
-  ]
+  "riskLevel": "low"
 };

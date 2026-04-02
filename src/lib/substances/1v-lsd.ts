@@ -12,13 +12,13 @@ export const _1v_lsd: Substance =
   "id": "1v-lsd",
   "name": "1V-LSD",
   "commonNames": [
-    "Lysergamides"
+    "1V-LSD"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Lysergamides",
-  "description": "The pharmacology is not known, but it is likely similar to that of LSD, which acts on serotonin, dopamine, and norepinephrine receptors in the brain. The similarities in chemical structure it shares with LSD predict a near-identical effects profile, likely differing primarily in its rate of absorption and duration. Subjective effects include geometric visual hallucinations, time distortion, enhanced introspection, and ego loss. Its classical psychedelic effects and favorable tolerability has led it to become popular among some novel psychoactive substance users, who use it interchangeably with LSD. It is presumed to have a similar toxicity and risk profile as LSD, although no evidence currently exists to support this.",
+  "description": "1-Valeroyl-d-lysergic acid diethylamide (also known as 1V-LSD or Valerie) is a novel psychedelic substance of the lysergamide class. 1V-LSD is a research chemical that appears to have been first synthesized in June or July of 2021. It was announced on the same day following the announcement of the German NpSG ban of 1cP-LSD.",
   "effects": {
     "positive": [
       "Stimulation - 1V-LSD is usually regarded as very energetic and stimulating without being forced. For example, when taken in any environment it will usually encourage physical activities such as running, walking, climbing or dancing. In comparison, other more commonly used psychedelics such as psilocybin which are generally sedating and relaxed.",
@@ -130,10 +130,7 @@ export const _1v_lsd: Substance =
     "molecularWeight": "Unknown",
     "class": "Lysergamides"
   },
-  "history": "1V-LSD first appeared on the online research chemical market in June or July of 2021. The provenance is not known; the substance does not appear in any academic literature pre-dating its arrival on the online research chemical market. Interestingly, the future usage of 1-akylated lysergamide derivatives as a means to bypass controlled substance laws banning LSD as a precursor was seemingly foreseen in a DEA report from 1988: Future Synthetic Drugs of Abuse, 1988.",
+  "history": "1V-LSD first appeared on the online research chemical market in June or July of 2021.\nThe provenance is not known; the substance does not appear in any academic literature pre-dating its arrival on the online research chemical market.\nInterestingly, the future usage of 1-akylated lysergamide derivatives as a means to bypass controlled substance laws banning LSD as a precursor was seemingly foreseen in a DEA report from 1988:\nFuture Synthetic Drugs of Abuse, 1988.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Lysergamides"
-  ]
+  "riskLevel": "low"
 };

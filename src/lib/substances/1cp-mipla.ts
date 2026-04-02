@@ -12,13 +12,13 @@ export const _1cp_mipla: Substance =
   "id": "1cp-mipla",
   "name": "1cP-MiPLA",
   "commonNames": [
-    "Lysergamides"
+    "1cP-MiPLA"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Lysergamides",
-  "description": "1-Cyclopropionyl-N-methyl-N-isopropyllysergamide (also known commonly as 1cP-MiPLA) is a novel Psychoactive class psychedelic substance of the chemical class lysergamide class. 1cP-MiPLA is closely related to MiPLA, for which it is suspected to be a prodrug for, but there is currently no data or enough anecdotal reports to reasonably hypothesize this. 1cP-MiPLA is a novel research chemical which seems to have appeared first in 2020 or 2021, allegedly first synthesized by either Skyler Ulrich or a chemist/group under the name of Gerstmann, alongside other novel lysergamides like 1cP-AL-LAD on various research chemical markets. User reports describe the effects of 1cP-MiPLA as similar to those of MiPLA. Some anecdotal reports state that there could be a notable, if even slight, difference between the two although this does not indicate that that it isn't a true prodrug for MiPLA.",
+  "description": "1cP-MiPLA is closely related to MiPLA, for which it is suspected to be a prodrug for, but there is currently no data or enough anecdotal reports to reasonably hypothesize this. 1cP-MiPLA is a novel research chemical which seems to have appeared first in 2020 or 2021, allegedly first synthesized by either  Skyler Ulrich or a chemist/group under the name of Gerstmann, alongside other novel lysergamides like 1cP-AL-LAD on various research chemical markets. While it is often characterized by users as being generally more recreational and non-threatening compared to LSD, it is highly advised to approach this highly potent hallucinogenic substance with the proper amount of precaution and harm reduction practices if using it.",
   "effects": {
     "positive": [
       "Stimulation - Similar to LSD, 1cP-MiPLA is considered to be primarily stimulating in nature. This is in distinction to other, more commonly used psychedelics such as psilocybin which are more consistent in producing sedation and relaxedness.",
@@ -123,8 +123,5 @@ export const _1cp_mipla: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Lysergamides"
-  ]
+  "riskLevel": "low"
 };

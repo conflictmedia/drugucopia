@@ -12,13 +12,16 @@ export const lorazepam: Substance =
   "id": "lorazepam",
   "name": "Lorazepam",
   "commonNames": [
-    "Benzodiazepines"
+    "Lorazepam",
+    "Ativan",
+    "Orfidal",
+    "Lorsilan"
   ],
   "categories": [
     "depressants"
   ],
   "class": "Benzodiazepines",
-  "description": "benzodiazepines Lorazepam (trade name Ativan or Tavor) is a psychoactive class depressant substance of the chemical class benzodiazepine class. Lorazepam is used for the short-term treatment of anxiety, insomnia, acute seizures, and the sedation of hospitalized patients. Users should note that with benzodiazepines, sudden discontinuation can be dangerous or even life-threatening for long-term or heavy users. As a result, individuals who are physically dependent on this substance are advised to taper their dose by gradually lowering the amount taken each day over a prolonged period of time instead of stopping use abruptly.",
+  "description": "benzodiazepines\nLorazepam (trade name Ativan or Tavor) is a depressant substance of the benzodiazepine class. Lorazepam is used for the short-term treatment of anxiety, insomnia, acute seizures, and the sedation of hospitalized patients. As a result, individuals who are physically dependent on this substance are advised to taper their dose by gradually lowering the amount taken each day over a prolonged period of time instead of stopping use abruptly.",
   "effects": {
     "positive": [
       "Muscle relaxation",
@@ -79,8 +82,5 @@ export const lorazepam: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Benzodiazepines"
-  ]
+  "riskLevel": "low"
 };

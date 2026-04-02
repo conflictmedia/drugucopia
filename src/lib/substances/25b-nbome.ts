@@ -12,13 +12,13 @@ export const _25b_nbome: Substance =
   "id": "25b-nbome",
   "name": "25B-NBOMe",
   "commonNames": [
-    "Substituted phenethylamines"
+    "25B-NBOMe"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted phenethylamines",
-  "description": "25B-NBOMe (also known as Cimbi-36, NBOMe-2C-B and 2C-B-NBOMe) is novel Psychoactive class psychedelic substance of the chemical class phenethylamine class. The name 25B-NBOMe, which is short-hand for 2C-B-NBOMe, indicates it is a derivative of the phenethylamine psychedelic 2C-B. It acts as a potent partial agonist for the 5-HT2A receptor. Such a dose was determined to be only 1/300th the dose expected to be hallucinogenic to humans and that recreational use would greatly exceed doses determined to be safe to humans. Along with its highly sensitive dose-response and unpredictable effects, many reports also suggest that this substance may be overly difficult to use safely.",
+  "description": "25B-NBOMe was discovered in 2004 by Ralf Heim at the Free University of Berlin. Such a dose was determined to be only 1/300th the dose expected to be hallucinogenic to humans and that recreational use would greatly exceed doses determined to be safe to humans. Subjective effects include stimulation, open and closed-eye visuals, time distortion, euphoria, and ego loss. It is worth noting that compounds of the NBOMe class are not orally active and should therefore be taken sublingually by placing them into one's mouth and allowing it to absorb over a period of 15-30 minutes.",
   "effects": {
     "positive": [
       "Stimulation - In terms of its effects on the physical energy levels of the user, 25B-NBOMe is usually considered to be energetic and stimulating, but it can be considered less stimulating when compared to 25I-NBOMe. For most people, this substance induces a unique type of physical stimulation which can be described as feeling extremely energetic but in a way which does not force the person to move unless they genuinely choose to do so. For others, however, the stimulation can be quite uncontrollable, occasionally resulting in bodily shakes and a grinding of the teeth comparable to that of MDMA and traditional stimulants such as amphetamine, but this is manifested much less consistently when compared to that of 25I-NBOMe",
@@ -118,8 +118,5 @@ export const _25b_nbome: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "very-high",
-  "aliases": [
-    "Substituted phenethylamines"
-  ]
+  "riskLevel": "very-high"
 };

@@ -11,14 +11,12 @@ export const _3c_p: Substance =
 {
   "id": "3c-p",
   "name": "3C-P",
-  "commonNames": [
-    "Substituted amphetamines"
-  ],
+  "commonNames": [],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted amphetamines",
-  "description": "3,5-Dimethoxy-4-propoxyamphetamine (also known as 3C-P or 3C-Proscaline) is a lesser-known psychoactive class psychedelic substance of the amphetamine class. Although its name suggests it may be related to the 2C-x family, this is not the case since it is the 3-Carbon analog of proscaline. The original synthesis date of 3C-P is unknown. Its theoretical synthesis is briefly mentioned in Alexander Shulgin's book PiHKAL, in which it is speculated to have psychedelic properties and a presumed dosage range of 20 to 40 milligrams. It is typically sold on the online research chemical market.",
+  "description": "Although its name suggests it may be related to the 2C-x family, this is not the case since it is the 3-Carbon analog of proscaline. Its theoretical synthesis is briefly mentioned in Alexander Shulgin's book PiHKAL, in which it is speculated to have psychedelic properties and a presumed dosage range of 20 to 40 milligrams. Very little data exists about the pharmacological properties, metabolism, and toxicity of 3C-P, and it has only a brief history of human usage.",
   "effects": {
     "positive": [
       "Colour enhancement",
@@ -101,8 +99,5 @@ export const _3c_p: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted amphetamines"
-  ]
+  "riskLevel": "moderate"
 };

@@ -12,13 +12,14 @@ export const ethylphenidate: Substance =
   "id": "ethylphenidate",
   "name": "Ethylphenidate",
   "commonNames": [
-    "Substituted phenidates"
+    "Ethylphenidate",
+    "EPH"
   ],
   "categories": [
     "stimulants"
   ],
   "class": "Substituted phenidates",
-  "description": "Ethylphenidate (also known as EPH) is a novel psychoactive class stimulant substance of the chemical class phenidate class that produces traditional stimulant effects when administered. It is a closely related analog of methylphenidate (brand names Ritalin, Concerta). The two substances have very similar pharmacological mechanisms but discernible differences in their subjective effects with ethylphenidate often considered to be recreational. Ethylphenidate is most commonly distributed as a research chemical by online vendors, due to its grey-area legal status in certain countries.",
+  "description": "Ethylphenidate (also known as EPH) is a novel stimulant substance of the phenidate class that produces traditional stimulant effects when administered. It is a closely related analog of methylphenidate (brand names Ritalin, Concerta). The two substances have very similar pharmacological mechanisms but discernible differences in their subjective effects with ethylphenidate often considered to be recreational.",
   "effects": {
     "positive": [
       "Increased heart rate",
@@ -103,8 +104,5 @@ export const ethylphenidate: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted phenidates"
-  ]
+  "riskLevel": "moderate"
 };

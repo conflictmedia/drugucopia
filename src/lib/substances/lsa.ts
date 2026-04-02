@@ -12,13 +12,14 @@ export const lsa: Substance =
   "id": "lsa",
   "name": "LSA",
   "commonNames": [
-    "Lysergamides"
+    "LSA",
+    "Ergine"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Lysergamides",
-  "description": "LSA is an ergot alkaloid and the main psychoactive constituent of morning glory seeds. LSA was first described in 1932 as part of an investigation into the alkaloids found in ergot. In 1970, LSA was detected as a constituent in Hawaiian baby woodrose seeds, which were being ground up into capsules and sold on the street as \"mescaline\". User reports describe the effects of LSA as primarily sedating and dream-like, with a mild to moderate psychedelic component. The psychedelic effects of LSA occur inconsistently and are not directly comparable to the effects of classical psychedelics like LSD, psilocybin mushrooms, or mescaline.",
+  "description": "Lysergic acid amide (also known as ergine, d-lysergic acid amide, d-lysergamide, and LSA) is a naturally-occurring psychedelic substance of the lysergamide class. In 1947, it was synthesized and tested for human activity by Albert Hofmann. The intramuscular administration of a 500 microgram dose produced a \"tired, dreamy state with an inability to maintain clear thoughts.\" In 1970, LSA was detected as a constituent in Hawaiian baby woodrose seeds, which were being ground up into capsules and sold on the street as \"mescaline\".",
   "effects": {
     "positive": [
       "Sedation - LSA is predominantly sedating; however, this can be setting dependent. For example, when taken in settings with large amounts of stimuli or during physically strenuous activities such as walking, running, climbing or dancing, LSA is capable of becoming stimulating and energetic. In contrast, when taken in calm environments such as darkened rooms with comfortable seating, it tends to be relaxing, sedating.",
@@ -140,8 +141,5 @@ export const lsa: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Lysergamides"
-  ]
+  "riskLevel": "moderate"
 };

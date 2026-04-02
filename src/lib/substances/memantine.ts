@@ -12,13 +12,19 @@ export const memantine: Substance =
   "id": "memantine",
   "name": "Memantine",
   "commonNames": [
-    "Adamantanes"
+    "Memantine",
+    "Memaxa",
+    "Ebixa",
+    "Namenda",
+    "Namenda XR",
+    "Namzaric (with donepezil",
+    "both extended-release)"
   ],
   "categories": [
     "dissociatives"
   ],
   "class": "Adamantanes",
-  "description": "Memantine is a dissociative substance of the Chemical class adamantane class that produces long-lived Psychoactive class dissociative effects when administered. It is a derivative of amantadine and is pharmacologically related to compounds like PCP, ketamine, and DXM, although its recreational use is comparatively rare. Memantine was first synthesized by Eli Lilly and Company in 1968 as a potential agent to treat diabetes. Memantine is classified as an NMDA receptor antagonist. This means it binds to and blocks the signaling of excitatory receptors in the central nervous system.",
+  "description": "Memantine is a dissociative substance of the adamantane class that produces long-lived dissociative effects when administered. It is a derivative of amantadine and is pharmacologically related to compounds like PCP, ketamine, and DXM, although its recreational use is comparatively rare. Memantine was first synthesized by Eli Lilly and Company in 1968 as a potential agent to treat diabetes.",
   "effects": {
     "positive": [
       "Stimulation - Memantine is mildly stimulating in comparison to other dissociatives such as ketamine, MXE, or DCK.",
@@ -112,8 +118,5 @@ export const memantine: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Adamantanes"
-  ]
+  "riskLevel": "moderate"
 };

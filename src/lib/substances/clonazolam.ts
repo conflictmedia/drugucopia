@@ -12,13 +12,16 @@ export const clonazolam: Substance =
   "id": "clonazolam",
   "name": "Clonazolam",
   "commonNames": [
-    "Benzodiazepines"
+    "Clonazolam",
+    "Clonitrazolam",
+    "Clam",
+    "C-lam"
   ],
   "categories": [
     "depressants"
   ],
   "class": "Benzodiazepines",
-  "description": "benzodiazepines Clonazepam Clonazolam is a novel psychoactive class depressant substance of the chemical class benzodiazepine chemical class which produces anxiolytic, sedative, muscle relaxant, and amnesic effects when administered. This compound is a novel research chemical derivative of the FDA-approved drugs clonazepam (Klonopin, Rivitrol) and alprazolam (Xanax). Clonazolam is reported to be roughly 2.5x as potent as alprazolam. Clonazolam (6-(2-chlorophenyl)-1-methyl-8-nitro-4H-[1,2,4]triazolo[4,3-a][1,4]benzodiazepine) is an analogue drug of its more potent predecessor, Clonitrazolam (6-(2-chlorophenyl)-1H-[1,2,3]triazolo[4,5-d][1,4]benzodiazepine). The synthesis of clonazolam was first reported in 1971.",
+  "description": "benzodiazepines\nClonazepam\nClonazolam is a novel depressant substance of the benzodiazepine chemical class which produces anxiolytic, sedative, muscle relaxant, and amnesic effects when administered. This compound is a novel research chemical derivative of the FDA-approved drugs clonazepam (Klonopin, Rivitrol) and alprazolam (Xanax). Clonazolam is reputed to be highly potent, and concerns have been raised that it and flubromazolam may pose comparatively higher risks than other designer benzodiazepines due to their ability to produce strong sedation and amnesia at oral doses as low as 0.5 mg, or 500 micrograms (µg).",
   "effects": {
     "positive": [
       "Sedation -  Clonazolam has the potential to be extremely sedating and often results in an overwhelmingly lethargic state. At higher levels, this causes users to suddenly feel as if they are extremely sleep deprived and have not slept for days, forcing them to sit down and generally feel as if they are constantly on the verge of passing out instead of engaging in physical activities. This sense of sleep deprivation increases proportional to dosage and eventually becomes powerful enough to force a person into complete unconsciousness.",
@@ -88,8 +91,5 @@ export const clonazolam: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Benzodiazepines"
-  ]
+  "riskLevel": "low"
 };

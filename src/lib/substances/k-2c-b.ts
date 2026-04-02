@@ -12,13 +12,15 @@ export const k_2c_b: Substance =
   "id": "k-2c-b",
   "name": "Βk-2C-B",
   "commonNames": [
-    "Substituted phenethylamines"
+    "βk-2C-B",
+    "beta-keto 2C-B",
+    "bk-2C-B"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted phenethylamines",
-  "description": "βk-2C-B (also known as Bk-2C-B, or beta-keto 2C-B) is a novel Psychoactive class psychedelic substance of the Chemical class phenethylamine class. It is a structural analog of 2C-B. Subjective effects include open and closed-eye visuals, time distortion, euphoria, and ego loss. Compared to 2C-B, its effects are often described as being considerably more stimulating and less psychedelic with a significantly longer duration. βk-2C-B is relatively uncommon and has little to no history of human usage prior to its 2014 distribution by online vendors as a research chemical.",
+  "description": "Subjective effects include open and closed-eye visuals, time distortion, euphoria, and ego loss. βk-2C-B is relatively uncommon and has little to no history of human usage prior to its 2014 distribution by online vendors as a research chemical. As a result, users are advised to approach this novel and poorly understood hallucinogenic substance with the proper amount of precaution and harm reduction practices if choosing to use it.",
   "effects": {
     "positive": [
       "Increased heart rate",
@@ -89,10 +91,7 @@ export const k_2c_b: Substance =
     "molecularWeight": "Unknown",
     "class": "Substituted phenethylamines"
   },
-  "history": "The original synthesis of βk-2C-B is not available on the public record. However, based on information gathered from internet forums and scientific studies, it appears that it was not originally synthesized in the 1970s by Alexander Shulgin like many 2C-x compounds. The first reliable mention of βk-2C-B does not appear until 2004, with it playing only a minor role in a scientific study as a precursor of 5-HT2A serotonin receptor agonists. The next confirmed mention of the substance can be dated to December 2007. At that time, the user \"King Kong\" of the bluelight.org forum opened a thread for information and discussion of bk-2c-bβk-2C-B.",
+  "history": "However, based on information gathered from internet forums and scientific studies, it appears that it was not originally synthesized in the 1970s by Alexander Shulgin like many 2C-x compounds. The first reliable mention of βk-2C-B does not appear until 2004, with it playing only a minor role in a scientific study as a precursor of 5-HT2A serotonin receptor agonists. βk-2C-B received more attention since 2013, when the first experience reports appear on the internet following its appearance on the research chemical market via \"online head shops\" start selling it as \"a legal replacement for 2C-B\".",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted phenethylamines"
-  ]
+  "riskLevel": "moderate"
 };

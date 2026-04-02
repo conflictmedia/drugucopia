@@ -12,13 +12,13 @@ export const rolicyclidine: Substance =
   "id": "rolicyclidine",
   "name": "Rolicyclidine",
   "commonNames": [
-    "Arylcyclohexylamines"
+    "PCPy"
   ],
   "categories": [
     "dissociatives"
   ],
   "class": "Arylcyclohexylamines",
-  "description": "Rolicyclidine (also known as PCPy, or sometimes PHP) is a simple psychoactive class dissociative substance of the chemical class arylcyclohexylamine class. Compared to plain PCP, it is almost unknown, despite a strikingly easier synthesis, employing unwatched pyrrolidine instead of piperidine. It produces its effects by both blocking the NMDA receptor and modulating monoamine transporters. It has never been marketed, but it did enjoy a brief time of street popularity, presumably being mislabeled as PCP. Having been synthesized in a british patent from 1958, it was never developed for medical use, some higher analogues substituted at either the pyrrolidine ring or the phenyl ring are known, in this case the latter 3-Me being discovered as a strong triple reuptake inhibitor Subjective effects include motor control loss, pain relief, internal hallucinations, memory suppression, conceptual thinking, euphoria, and depersonalization / dissociation.",
+  "description": "Rolicyclidine (also known as PCPy, or sometimes PHP) is a simple dissociative substance of the arylcyclohexylamine class. Compared to plain PCP, it is almost unknown, despite a strikingly easier synthesis, employing unwatched pyrrolidine instead of piperidine. Having been synthesized in a british patent from 1958, it was never developed for medical use, some higher analogues substituted at either the pyrrolidine ring or the phenyl ring are known, in this case the latter 3-Me being discovered as a strong triple reuptake inhibitor\nSubjective effects include motor control loss, pain relief, internal hallucinations, memory suppression, conceptual thinking, euphoria, and depersonalization / dissociation.",
   "effects": {
     "positive": [
       "Cognitive disconnection",
@@ -149,8 +149,5 @@ export const rolicyclidine: Substance =
   },
   "history": "It was synthesized by Parke Davis chemists in the year 1958, later it showed up in some street samples of supposed PCP and was responsible for at least one confirmed death by gunshot wound in 1979",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "high",
-  "aliases": [
-    "Arylcyclohexylamines"
-  ]
+  "riskLevel": "high"
 };

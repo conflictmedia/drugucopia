@@ -12,13 +12,14 @@ export const _4_meo_pcp: Substance =
   "id": "4-meo-pcp",
   "name": "4-MeO-PCP",
   "commonNames": [
-    "Arylcyclohexylamines"
+    "4-MeO-PCP",
+    "Methoxydine"
   ],
   "categories": [
     "dissociatives"
   ],
   "class": "Arylcyclohexylamines",
-  "description": "3-MeO-PCP 4-Methoxyphencyclidine (abbreviated 4-MeO-PCP) is a synthetic Psychoactive class dissociative of the Chemical class arylcyclohexylamine class which produces hallucinogenic and anesthetic effects. The synthesis of 4-MeO-PCP was first reported in 1965 by the Parke-Davis medicinal chemist Victor Maddox. A 1999 review published by a chemist using the pseudonym John Q. Beagle suggested the potency of 4-MeO-PCP in man was reduced relative to PCP. Two years later, Beagle published a detailed description of the synthesis and qualitative effects of 4-MeO-PCP which he said possessed 70% of the potency of PCP. 4-MeO-PCP was the first arylcyclohexylamine research chemical to be sold online.",
+  "description": "3-MeO-PCP\n4-Methoxyphencyclidine (abbreviated 4-MeO-PCP) is a synthetic dissociative of the arylcyclohexylamine class which produces hallucinogenic and anesthetic effects. A 1999 review published by a chemist using the pseudonym John Q. Beagle suggested the potency of 4-MeO-PCP in man was reduced relative to PCP. It was introduced in late 2008 by a company trading under the name CBAY and was followed by several related compounds such as 3-MeO-PCP and Methoxetamine (MXE).",
   "effects": {
     "positive": [
       "Perception of bodily lightness",
@@ -123,8 +124,5 @@ export const _4_meo_pcp: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Arylcyclohexylamines"
-  ]
+  "riskLevel": "moderate"
 };

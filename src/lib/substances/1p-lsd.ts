@@ -12,13 +12,13 @@ export const _1p_lsd: Substance =
   "id": "1p-lsd",
   "name": "1P-LSD",
   "commonNames": [
-    "Lysergamides"
+    "1P-LSD"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Lysergamides",
-  "description": "It is structurally related to LSD and other novel lysergamides like 1cP-LSD, 1B-LSD, and 1V-LSD. 1P-LSD has been sold online as a research chemical (also called \"designer drug\") since 2015, but the original synthesis date of 1P-LSD is unknown. Unlike most research chemicals, it has no documented record in the research literature before its emergence on the online research chemical market in 2015. This hypothesis is supported by the results of a study that demonstrated 1P-LSD is metabolized to LSD in rats. Its classical psychedelic effects and favorable tolerability has led it to become popular among novel substance users who use it interchangeably with LSD.",
+  "description": "It is thought to produce its effects by stimulating serotonin receptors in the brain, although the precise mechanism is not known. 1P-LSD has been sold online as a research chemical (also called \"designer drug\") since 2015, but the original synthesis date of 1P-LSD is unknown. In 2019, it became part of a group of molecules studied by the French laboratory Caulredaitens. Subjective effects include geometric visual hallucinations, time distortion, enhanced introspection, conceptual thinking, euphoria, and ego loss.",
   "effects": {
     "positive": [
       "Stimulation - 1P-LSD is usually regarded as very energetic and stimulating without being forced. For example, when taken in any environment it will usually encourage physical activities such as running, walking, climbing or dancing. In comparison, other more commonly used psychedelics such as psilocybin which are generally sedating and relaxed.",
@@ -129,10 +129,7 @@ export const _1p_lsd: Substance =
     "molecularWeight": "Unknown",
     "class": "Lysergamides"
   },
-  "history": "1P-LSD first appeared on the online research chemical market in January 2015. Although it was likely discovered in an academic setting, it is unknown who first synthesized 1P-LSD, as the substance does not appear in any academic literature pre-dating its arrival on the research chemical market. Interestingly, the future usage of 1-alkylated lysergamide derivatives as a means to bypass controlled substance laws banning LSD as a precursor was foreseen in a DEA report from 1988: Future Synthetic Drugs of Abuse, 1988.",
+  "history": "1P-LSD first appeared on the online research chemical market in January 2015.\nAlthough it was likely discovered in an academic setting, it is unknown who first synthesized 1P-LSD, as the substance does not appear in any academic literature pre-dating its arrival on the research chemical market.\nInterestingly, the future usage of 1-alkylated lysergamide derivatives as a means to bypass controlled substance laws banning LSD as a precursor was foreseen in a DEA report from 1988:\nFuture Synthetic Drugs of Abuse, 1988.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Lysergamides"
-  ]
+  "riskLevel": "low"
 };

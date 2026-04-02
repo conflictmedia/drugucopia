@@ -12,13 +12,14 @@ export const o_pce: Substance =
   "id": "o-pce",
   "name": "O-PCE",
   "commonNames": [
-    "Arylcyclohexylamines"
+    "O-PCE",
+    "Eticyclidone"
   ],
   "categories": [
     "dissociatives"
   ],
   "class": "Arylcyclohexylamines",
-  "description": "2'-Oxo-PCM 2'-Oxo-PCE (also known as as Eticyclidone, and O-PCE) is a lesser-known novel psychoactive class dissociative substance of the chemical class arylcyclohexylamine class that produces dissociative, anesthetic, stimulating and hallucinogenic effects when administered. It is structurally related to arylcyclohexylamines like MXE, 3-MeO-PCE, and deschloroketamine and is speculated to produce its effects through its activity as an NMDA receptor antagonist. The structural similarities O-PCE shares with DCK and ketamine which has been speculated to have antibacterial properties, has raised some concern as to whether it also shares these properties as well. However, due to the lack of scientific research on the subject, whether this is true currently remains entirely unknown. It is advised that users of this substance should keep in mind that the possibility of prolonged use may pose a serious threat to one's health and immune system if this does prove to be the case.",
+  "description": "2'-Oxo-PCM\n2'-Oxo-PCE (also known as as Eticyclidone, and O-PCE) is a lesser-known novel dissociative substance of the arylcyclohexylamine class that produces dissociative, anesthetic, stimulating and hallucinogenic effects when administered. The structural similarities O-PCE shares with DCK and ketamine which has been speculated to have antibacterial properties, has raised some concern as to whether it also shares these properties as well. It is advised that users of this substance should keep in mind that the possibility of prolonged use may pose a serious threat to one's health and immune system if this does prove to be the case.",
   "effects": {
     "positive": [
       "Stimulation - This substance is extremely stimulating when compared to other dissociatives such as ketamine, MXE, or DCK. Its stimulation can be compared to classical stimulants such as methylphenidate or cocaine, but significantly less functional and more inebriating.",
@@ -126,8 +127,5 @@ export const o_pce: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Arylcyclohexylamines"
-  ]
+  "riskLevel": "moderate"
 };

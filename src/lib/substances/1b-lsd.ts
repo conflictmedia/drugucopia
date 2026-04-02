@@ -12,13 +12,13 @@ export const _1b_lsd: Substance =
   "id": "1b-lsd",
   "name": "1B-LSD",
   "commonNames": [
-    "Lysergamides"
+    "1B-LSD"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Lysergamides",
-  "description": "1-Butanoyl-d-lysergic acid diethylamide (also known as 1B-LSD) is a novel Psychoactive class psychedelic substance of the Chemical class lysergamide class. The first reports of 1B-LSD use surfaced in 2018 following its appearance on the online research chemical market. 1B-LSD acts as a prodrug for LSD. The similarities in chemical structure between 1B-LSD and LSD predicts a near-identical effect profile, likely differing mainly in its rate of absorption and duration. It is presumed to have a similar toxicity and risk profile as LSD, although no evidence currently exists to support this.",
+  "description": "1-Butanoyl-d-lysergic acid diethylamide (also known as 1B-LSD) is a novel psychedelic substance of the lysergamide class. The first reports of 1B-LSD use surfaced in 2018 following its appearance on the online research chemical market. Subjective effects include visual geometry, hallucinatory states, time distortion, enhanced introspection, conceptual thinking, increased music appreciation, euphoria, and ego loss.",
   "effects": {
     "positive": [
       "Stimulation - 1B-LSD is usually regarded as very energetic and stimulating without being forced. For example, when taken in any environment it will usually encourage physical activities such as running, walking, climbing or dancing. In comparison, other more commonly used psychedelics such as psilocybin which are generally sedating and relaxed.",
@@ -130,10 +130,7 @@ export const _1b_lsd: Substance =
     "molecularWeight": "Unknown",
     "class": "Lysergamides"
   },
-  "history": "1B-LSD first appeared on the online research chemical market in August 2016. It is unknown who first synthesized 1B-LSD, as the substance does not appear in any academic literature pre-dating its arrival on the research chemical market. Interestingly, the future usage of 1-akylated lysergamide derivatives as a means to bypass controlled substance laws banning LSD as a precursor was foreseen in a DEA report from 1988: Future Synthetic Drugs of Abuse, 1988.",
+  "history": "1B-LSD first appeared on the online research chemical market in August 2016.\nIt is unknown who first synthesized 1B-LSD, as the substance does not appear in any academic literature pre-dating its arrival on the research chemical market.\nInterestingly, the future usage of 1-akylated lysergamide derivatives as a means to bypass controlled substance laws banning LSD as a precursor was foreseen in a DEA report from 1988:\nFuture Synthetic Drugs of Abuse, 1988.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Lysergamides"
-  ]
+  "riskLevel": "low"
 };

@@ -12,13 +12,13 @@ export const mdai: Substance =
   "id": "mdai",
   "name": "MDAI",
   "commonNames": [
-    "Aminoindane"
+    "MDAI"
   ],
   "categories": [
     "empathogens"
   ],
   "class": "Aminoindane",
-  "description": "MDAI was developed by the American medicinal chemist and pharmacologist David E. Nichols during the 1990s at Purdue University. in the 2010s, MDAI was marketed alongside novel entactogens like 5-MAPB, 5-APB, and 6-APB as a legal, grey-market alternative to MDMA in the online research chemical market. Subjective effects include sedation, muscle relaxation, tactile enhancement, anxiety suppression, enhanced empathy and sociability and euphoria. It has been described as producing the non-stimulating effects of prototypical entactogens like MDMA and MDA. It has been suggested that the lack of dopamine and norepinephrine activity limits its ability to produce overtly invigorating, prosocial or euphoric effects but with the benefit of decreased neurotoxicity and side-effects.",
+  "description": "It acts as a putatively non-neurotoxic and highly selective serotonin releasing agent (SSRA) with neglible effects on dopamine and norepinephrine. MDAI was developed by the American medicinal chemist and pharmacologist David E. Nichols during the 1990s at Purdue University. It is currently being investigated as a potential alternative to traditional entactogens in the treatment of mental health conditions like anxiety and depression.",
   "effects": {
     "positive": [
       "Spontaneous physical sensations - The \"body high\" of MDAI can be described as a moderate to extreme euphoric, soft and warm tingling sensation that encompasses the entire body. It is capable of becoming overwhelmingly pleasurable at higher doses. This sensation maintains a consistent presence that steadily rises with the onset and hits its limit once the peak has been reached.",
@@ -99,8 +99,5 @@ export const mdai: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Aminoindane"
-  ]
+  "riskLevel": "moderate"
 };

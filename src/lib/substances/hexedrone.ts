@@ -12,13 +12,13 @@ export const hexedrone: Substance =
   "id": "hexedrone",
   "name": "Hexedrone",
   "commonNames": [
-    "Cathinone"
+    "Hexedrone"
   ],
   "categories": [
     "stimulants"
   ],
   "class": "Cathinone",
-  "description": "N-Ethylhexedrone (Hexen) Hexedrone is a novel synthetic psychoactive class stimulant of the chemical class cathinone class. It has been speculated to act as a norepinephrine-dopamine-reuptake-inhibitor (NDRI). Subjective effects include stimulation, disinhibition, thought acceleration and euphoria. Little is known about toxicity, addiction, and abuse potential of hexedrone. Due to its novelty and extremely short history of human usage, all information related to the use of this compound should be treated with caution.",
+  "description": "N-Ethylhexedrone (Hexen)\nHexedrone is a novel synthetic stimulant of the cathinone class. Subjective effects include stimulation, disinhibition, thought acceleration and euphoria. Due to its novelty and extremely short history of human usage, all information related to the use of this compound should be treated with caution.",
   "effects": {
     "positive": [
       "Spontaneous tactile sensations - High doses of hexedrone result in a pleasurable body high characterized by pleasant tingling.",
@@ -75,8 +75,5 @@ export const hexedrone: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "high",
-  "aliases": [
-    "Cathinone"
-  ]
+  "riskLevel": "high"
 };

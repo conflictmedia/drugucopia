@@ -12,13 +12,13 @@ export const deschloroetizolam: Substance =
   "id": "deschloroetizolam",
   "name": "Deschloroetizolam",
   "commonNames": [
-    "Thienodiazepines"
+    "Deschloroetizolam"
   ],
   "categories": [
     "depressants"
   ],
   "class": "Thienodiazepines",
-  "description": "thienodiazepines Deschloroetizolam is a short-acting psychoactive substance of the chemical class thienodiazepine class which has been shown to produce psychoactive class depressant, anxiolytic, sedative, hypnotic, muscle relaxant, anticonvulsant and amnesic effects. Deschloroetizolam, like benzodiazepines, binds to modulatory sites on the GABA receptors. Deschloroetizolam is closely related to etizolam (Etilaam), triazolam (Halcion), and alprazolam (Xanax). It also has a similar bioavailibility and a similar time to onset in comparison to the parent drug. 2mg of deschloroetizolam is thought to be of similar potency to 10mg of diazepam.",
+  "description": "thienodiazepines\nDeschloroetizolam is a short-acting psychoactive substance of the thienodiazepine class which has been shown to produce depressant, anxiolytic, sedative, hypnotic, muscle relaxant, anticonvulsant and amnesic effects. Deschloroetizolam is closely related to etizolam (Etilaam), triazolam (Halcion), and alprazolam (Xanax). It is not prescribed and is not recognised as a controlled substance in many parts of the world, leading to its appearance within grey market research chemical vendors in 2014.",
   "effects": {
     "positive": [
       "Sedation -  In terms of energy level alterations, this drug has the potential to be extremely sedating and often results in an overwhelmingly lethargic state. At higher levels, this causes users to suddenly feel as if they are extremely sleep deprived and have not slept for days, forcing them to sit down and generally feel as if they are constantly on the verge of passing out instead of engaging in physical activities. This sense of sleep deprivation increases proportional to dosage and eventually becomes powerful enough to force a person into complete unconsciousness.",
@@ -73,8 +73,5 @@ export const deschloroetizolam: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Thienodiazepines"
-  ]
+  "riskLevel": "low"
 };

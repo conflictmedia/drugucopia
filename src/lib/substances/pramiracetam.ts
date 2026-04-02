@@ -12,13 +12,13 @@ export const pramiracetam: Substance =
   "id": "pramiracetam",
   "name": "Pramiracetam",
   "commonNames": [
-    "Racetams"
+    "Pramiracetam"
   ],
   "categories": [
     "nootropics"
   ],
   "class": "Racetams",
-  "description": "Pramiracetam (also known as Pramistar) is a psychoactive class nootropic stimulant of the chemical class racetam class. It is a derivative of piracetam, which has been studied as a cognitive enhancing agent. In parts of Europe, pramiracetam is marketed as a prescription drug by Menarini under the brand name Pramistar as a treatment for memory and attention deficits in aging people with neurodegenerative and vascular dementias. In the United States, it is readily available and sold through online vendors as a dietary supplement. Pramiracetam is typically used at dosages of either 400mg thrice daily or 600mg twice daily; both of these dosing regimens totals 1,200mg of pramiracetam a day.",
+  "description": "In parts of Europe, pramiracetam is marketed as a prescription drug by Menarini under the brand name Pramistar as a treatment for memory and attention deficits in aging people with neurodegenerative and vascular dementias. In the United States, it is readily available and sold through online vendors as a dietary supplement. Pramiracetam is typically used at dosages of either 400mg thrice daily or 600mg twice daily; both of these dosing regimens totals 1,200mg of pramiracetam a day.",
   "effects": {
     "positive": [
       "Stimulation - Pramiracetam produces a subtle form of stimulation comparable to that of caffeine.",
@@ -72,8 +72,5 @@ export const pramiracetam: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Racetams"
-  ]
+  "riskLevel": "moderate"
 };

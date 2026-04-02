@@ -12,13 +12,13 @@ export const mephenaqualone: Substance =
   "id": "mephenaqualone",
   "name": "Mephenaqualone",
   "commonNames": [
-    "Quinazolinone"
+    "Mephenaqualone"
   ],
   "categories": [
     "depressants"
   ],
   "class": "Quinazolinone",
-  "description": "GABAergics Mephenaqualone is a central nervous system (CNS) psychoactive class depressant of the chemical class quinazolinone class that acts as a sedative and hypnotic. It is an analogue of methaqualone, sharing a similar chemical structure and pharmacological effects.",
+  "description": "GABAergics\nMephenaqualone is a central nervous system (CNS) depressant of the quinazolinone class that acts as a sedative and hypnotic. It is an analogue of methaqualone, sharing a similar chemical structure and pharmacological effects.",
   "effects": {
     "positive": [
       "Sedation - Mephenaqualone induces a strong sense of sedation and relaxation, making users feel lethargic and often leading to sleepiness or even unconsciousness at higher doses.",
@@ -66,8 +66,5 @@ export const mephenaqualone: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "high",
-  "aliases": [
-    "Quinazolinone"
-  ]
+  "riskLevel": "high"
 };

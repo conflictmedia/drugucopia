@@ -12,13 +12,26 @@ export const flunitrazepam: Substance =
   "id": "flunitrazepam",
   "name": "Flunitrazepam",
   "commonNames": [
-    "Benzodiazepines"
+    "Rohypnol",
+    "Flunitrazepam",
+    "Roofies",
+    "Roches",
+    "Ruffies",
+    "Circles",
+    "Forget Pill",
+    "Forget Me Pill",
+    "La Rocha",
+    "Mexican Valium",
+    "R2",
+    "Roach 2",
+    "Rophies",
+    "Wolfies"
   ],
   "categories": [
     "depressants"
   ],
   "class": "Benzodiazepines",
-  "description": "benzodiazepines Flunitrazepam (trade name Rohypnol) is a psychoactive class depressant substance of the chemical class benzodiazepine class that produces primarily hypnotic and amnesic, but also anxiolytic, anticonvulsant and sedative effects when administered. Flunitrazepam was first synthesized in 1972 by Hoffmann-La Roche. It is used for the short term treatment of insomnia and as a preoperative sedative in some countries. It is approximately 10 times more potent by weight than diazepam. Users should note that the sudden discontinuation of benzodiazepines can be potentially dangerous or life-threatening for individuals using regularly for extended periods of time, sometimes resulting in seizures or death.",
+  "description": "benzodiazepines\nFlunitrazepam (trade name Rohypnol) is a depressant substance of the benzodiazepine class that produces primarily hypnotic and amnesic, but also anxiolytic, anticonvulsant and sedative effects when administered. Users should note that the sudden discontinuation of benzodiazepines can be potentially dangerous or life-threatening for individuals using regularly for extended periods of time, sometimes resulting in seizures or death. It is highly recommended to taper one's dose by gradually lowering the amount taken each day for a prolonged period of time instead of stopping abruptly.",
   "effects": {
     "positive": [
       "Sedation -  Flunitrazepam can produce extreme sedation and often results in an overwhelmingly lethargic state. At higher levels, this causes users to suddenly feel as if they are extremely sleep deprived and have not slept for days, forcing them to sit down and generally feel as if they are constantly on the verge of passing out instead of engaging in physical activities. This sense of sleep deprivation increases proportional to dosage and eventually becomes powerful enough to force a person into complete unconsciousness.",
@@ -90,10 +103,7 @@ export const flunitrazepam: Substance =
     "molecularWeight": "Unknown",
     "class": "Benzodiazepines"
   },
-  "history": "Flunitrazepam was discovered at Roche as part of the benzodiazepine work led by Leo Sternbach. It was first marketed in 1974 and entered the commerical market in Europe in 1975 under the name Rohypnol. It may be better known as the date-rape drug Rohypnol (with the street name “roofie”). In 1998, due to the abuse of the drug and recreation, Roche modified their 1 mg tablets to make them less soluble and added a blue dye for easier detection in drinks. In a retrospective Swedish study of 1587 deaths, in 159 cases benzodiazepines were found.",
+  "history": "Flunitrazepam was discovered at Roche as part of the benzodiazepine work led by Leo Sternbach. It was first marketed in 1974 and entered the commerical market in Europe in 1975 under the name Rohypnol. In 1998, due to the abuse of the drug and recreation, Roche modified their 1 mg tablets to make them less soluble and added a blue dye for easier detection in drinks.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Benzodiazepines"
-  ]
+  "riskLevel": "low"
 };

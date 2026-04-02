@@ -12,13 +12,13 @@ export const _2_fa: Substance =
   "id": "2-fa",
   "name": "2-FA",
   "commonNames": [
-    "Substituted amphetamines"
+    "2-FA"
   ],
   "categories": [
     "stimulants"
   ],
   "class": "Substituted amphetamines",
-  "description": "2-Fluoroamphetamine (also known as 2-FA) is a novel psychoactive class stimulant substance of the amphetamine class. It is a structural analog of amphetamine and is presumed to possess a similar mechanism of action, promoting the release of dopamine and norepinephrine in the brain. These compounds include 2-FMA, 3-FA, 3-FEA and 4-FA and are reported to produce a range of stimulating and euphoric effects, many of which have been used as research chemical substitutes for classical street stimulants and entactogens. It is commonly compared to the d-isomer of amphetamine (dexedrine). While capable of being taken via insufflation or vaporization, this has been reported to be highly unpleasant and noxious compared to its parent compound.",
+  "description": "It is a structural analog of amphetamine and is presumed to possess a similar mechanism of action, promoting the release of dopamine and norepinephrine in the brain. These compounds include 2-FMA, 3-FA, 3-FEA and 4-FA and are reported to produce a range of stimulating and euphoric effects, many of which have been used as research chemical substitutes for classical street stimulants and entactogens. Despite some users reporting efficacy as an alternative to prescription stimulants for ADHD, little is known about the potential toxicological effects that accompany its long-term use as a substitute for prescribed stimulants.",
   "effects": {
     "positive": [
       "Physical euphoria",
@@ -101,8 +101,5 @@ export const _2_fa: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted amphetamines"
-  ]
+  "riskLevel": "moderate"
 };

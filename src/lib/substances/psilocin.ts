@@ -12,13 +12,18 @@ export const psilocin: Substance =
   "id": "psilocin",
   "name": "Psilocin",
   "commonNames": [
-    "Substituted tryptamines"
+    "Psilocin",
+    "Psilocine",
+    "Psilocyn",
+    "Psilotsin",
+    "4-HO-DMT",
+    "4-OH-DMT"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted tryptamines",
-  "description": "Psilocybin mushrooms 4-Hydroxy-N,N-dimethyltryptamine (also known as 4-HO-DMT, 4-OH-DMT, and psilocin) is a naturally-occurring psychoactive class psychedelic substance of the chemical class tryptamine class. Psilocin is the primary psychoactive constituent in certain species of mushrooms, and as a closely related structural analog of the powerful visionary entheogen DMT (also known as N,N-dimethyltryptamine). Psilocin was first isolated and named by Albert Hofmann in 1958. Its psychoactivity is thought to emerge from the close chemical similarities with the neurotransmitter serotonin, which enables it to interact with a range of serotonin receptor sites throughout the brain that are integral for sensory and cognitive processes. Notably, while psilocin naturally co-occurs with psilocybin in significant amounts of most psilocybin-containing mushrooms, it is only ever rarely encountered in its synthetic form.",
+  "description": "Psilocin is the primary psychoactive constituent in certain species of mushrooms, and as a closely related structural analog of the powerful visionary entheogen DMT (also known as N,N-dimethyltryptamine). Its psychoactivity is thought to emerge from the close chemical similarities with the neurotransmitter serotonin, which enables it to interact with a range of serotonin receptor sites throughout the brain that are integral for sensory and cognitive processes. Nevertheless, adverse psychological reactions such as severe anxiety, paranoia and psychosis are always possible, particularly among those predisposed to mental illness.",
   "effects": {
     "positive": [
       "Sedation - In terms of its effects on the physical energy levels of the tripper, psilocin is considered by most to be relaxing, stoning and mildly sedating. This sense of sedation is often accompanied by compulsive yawning.",
@@ -106,8 +111,5 @@ export const psilocin: Substance =
   },
   "history": "Psilocin and its phosphorylated inactive precursor (i.e. prodrug) psilocybin were first isolated and named in 1958 by Swiss chemist Albert Hofmann. Hofmann obtained the chemicals from laboratory-grown specimens of the entheogenic mushroom Psilocybe mexicana before proceeding to find their synthetic routes.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Substituted tryptamines"
-  ]
+  "riskLevel": "low"
 };

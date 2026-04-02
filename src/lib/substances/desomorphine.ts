@@ -12,13 +12,15 @@ export const desomorphine: Substance =
   "id": "desomorphine",
   "name": "Desomorphine",
   "commonNames": [
-    "Substituted morphinans"
+    "Desomorphine",
+    "Krokodil",
+    "Krok"
   ],
   "categories": [
     "opioids"
   ],
   "class": "Substituted morphinans",
-  "description": "It is a structural analog of morphine and the psychoactive component of the mixture known as Krokodil (also known as Crocodile, Krok, or Croc). Developed by Roche in the 1930s, desomorphine first saw use in Switzerland under the trade name Permonid. Concerns about its dependence and abuse potential stemming from these properties led it to fall out of clinical use. Its use and prevalence has been attributed to widespread availability of codeine tablets as inexpensive over-the-counter drugs, along with a simple production process that can be done in a kitchen laboratory using iodine, red phosphorus, paint thinner, and hydrochloric acid. The application of krokodil regularly induces immediate damage to blood vessels, muscles, and bone and can induce multiple organ failure.",
+  "description": "opiates\nDesomorphine (also known as Dihydrodesoxymorphine) is an opioid substance of the morphinan chemical class that produces analgesic, muscle-relaxing, sedative, and euphoric effects when administered. Its use and prevalence has been attributed to widespread availability of codeine tablets as inexpensive over-the-counter drugs, along with a simple production process that can be done in a kitchen laboratory using iodine, red phosphorus, paint thinner, and hydrochloric acid. A small number of cases involving krokodil use outside of Russia, including Germany and the United States, have been reported but have failed to be substantiated.",
   "effects": {
     "positive": [
       "Physical euphoria",
@@ -73,10 +75,7 @@ export const desomorphine: Substance =
     "molecularWeight": "Unknown",
     "class": "Substituted morphinans"
   },
-  "history": "It was originally synthesized with the intention to create an alternative to morphine in terms of tolerance and addiction properties and improve the side effect profile. However, desomorphine fell short of these expectations and showed an increased dependence potential compared with morphine. Desomorphine was used in Switzerland and introduced to the Swiss market in 1940 by the company Hoffman-La Roche, under the registered trade name of Permonid. It was used predominantly for postoperative pain due to its fast onset of action and reduced the tendency to cause respiratory depression and nausea. Since 2003, the prevalence of krokodil use in Russia has been increasing rapidly, presumably as a consequence of its low cost and its high dependence potential.",
+  "history": "It was originally synthesized with the intention to create an alternative to morphine in terms of tolerance and addiction properties and improve the side effect profile. Notably, the production of Permonid was continued in Switzerland until 1981 due to the idiosyncratic analgesic needs of a single patient in Bern, Switzerland, who suffered from a rare disease. These additives can include hydrochloric acid, red phosphorus (from matchbook striking surfaces), iodine, gasoline, and paint thinner and have been proposed to underly krokodil's severe skin and systemic effects.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted morphinans"
-  ]
+  "riskLevel": "moderate"
 };

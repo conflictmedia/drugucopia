@@ -12,13 +12,14 @@ export const _3_meo_pcp: Substance =
   "id": "3-meo-pcp",
   "name": "3-MeO-PCP",
   "commonNames": [
-    "Arylcyclohexylamines"
+    "3-MeO-PCP",
+    "3-MeO"
   ],
   "categories": [
     "dissociatives"
   ],
   "class": "Arylcyclohexylamines",
-  "description": "4-MeO-PCP 3-Methoxyphencyclidine (also known as 3-MeO-PCP) is a lesser-known novel Psychoactive class dissociative substance of the Chemical class arylcyclohexylamine class. 3-MeO-PCP is a derivative of phencyclidine (PCP) and is chemically related to substances like methoxetamine and 3-MeO-PCE. It produces its effects by blocking NMDA receptors in the brain. However, its activity in humans was not described until 1999 when a chemist using the pseudonym John Q. Beagle reported qualitative similarities to PCP along with comparable potency. In 2009, it began to be discussed on online forums such as bluelight.ru and was made available for sale on the research chemicals market.",
+  "description": "However, its activity in humans was not described until 1999 when a chemist using the pseudonym John Q. Beagle reported qualitative similarities to PCP along with comparable potency. In 2009, it began to be discussed on online forums such as bluelight.ru and was made available for sale on the research chemicals market. Like other arylcyclohexylamines, 3-MeO-PCP induces a state referred to as \"dissociative anesthesia\", although the extent to which this occurs is reported to be highly dose-dependent and variable in its effects.",
   "effects": {
     "positive": [
       "Stimulation - 3-MeO-PCP is regarded to be noticeably stimulating in comparison to other dissociatives such as ketamine, MXE, or DCK. The stimulation it presents is described as clear and subtle.",
@@ -151,8 +152,5 @@ export const _3_meo_pcp: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Arylcyclohexylamines"
-  ]
+  "riskLevel": "moderate"
 };

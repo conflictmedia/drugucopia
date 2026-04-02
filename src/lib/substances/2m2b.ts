@@ -12,13 +12,14 @@ export const _2m2b: Substance =
   "id": "2m2b",
   "name": "2M2B",
   "commonNames": [
-    "Alcohol"
+    "2M2B",
+    "2-methyl-2-butanol"
   ],
   "categories": [
     "depressants"
   ],
   "class": "Alcohol",
-  "description": "GABAergics 2-Methyl-2-butanol (also known as tert-amyl alcohol or 2M2B) is a tertiary chemical class alcohol substance that produces psychoactive class depressant, hypnotic, and anxiolytic effects. Historically, it has been used in anesthesia as a component of avertin fluid mixed with tribromoethanol and water. It has a strong solvent smell reminiscent of gasoline and camphor, but with little flavor aside from a burning sensation. 2M2B's simple structure and intoxicating effects have led to its use as a recreational drug. Fusel alcohols including 2M2B are a grain fermentation by-product and therefore present in many alcoholic beverages.",
+  "description": "GABAergics\n2-Methyl-2-butanol (also known as tert-amyl alcohol or 2M2B) is a tertiary alcohol substance that produces depressant, hypnotic, and anxiolytic effects. Historically, it has been used in anesthesia as a component of avertin fluid mixed with tribromoethanol and water. It has a strong solvent smell reminiscent of gasoline and camphor, but with little flavor aside from a burning sensation.",
   "effects": {
     "positive": [
       "Sedation - In comparison to alcohol,  2-methyl-2-butanol is significantly more sedating. On low to moderate doses, one may feel a lack of energy, resulting in extreme difficulty in performing basic tasks. This effect can last up to 24 hours afterwards.",
@@ -79,8 +80,5 @@ export const _2m2b: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Alcohol"
-  ]
+  "riskLevel": "moderate"
 };

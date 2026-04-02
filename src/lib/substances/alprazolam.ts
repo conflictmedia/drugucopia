@@ -12,13 +12,15 @@ export const alprazolam: Substance =
   "id": "alprazolam",
   "name": "Alprazolam",
   "commonNames": [
-    "Benzodiazepines"
+    "Xanax",
+    "Alprazolam",
+    "Ksalol"
   ],
   "categories": [
     "depressants"
   ],
   "class": "Benzodiazepines",
-  "description": "benzodiazepines Alprazolam (also known as Xanax) is a psychoactive class depressant substance of the Chemical class benzodiazepine class. Like other benzodiazepines, alprazolam binds to specific sites on the GABAA receptor. Alprazolam has a fast onset of action and symptomatic relief. 90% of peak effects are achieved within the 1st hour of using in preparation for panic disorder and full peak effects are achieved in 1.5 and 1.6 hours respectively. It is highly recommended to taper one's dose by gradually lowering the amount taken each day for a prolonged period of time instead of stopping abruptly.",
+  "description": "benzodiazepines\nAlprazolam (also known as Xanax) is a depressant substance of the benzodiazepine class. 90% of peak effects are achieved within the 1st hour of using in preparation for panic disorder and full peak effects are achieved in 1.5 and 1.6 hours respectively. It is highly recommended to taper one's dose by gradually lowering the amount taken each day for a prolonged period of time instead of stopping abruptly.",
   "effects": {
     "positive": [
       "Sedation -  Alprazolam is capable of producing strong sedation and can lead to a lethargic state. At higher levels, this causes users to suddenly feel as if they are extremely sleep deprived and need to fight to stay awake. This sleep deprivation increases proportionally to dosage and eventually becomes powerful enough to force the user into a deep state of unconsciousness.",
@@ -94,8 +96,5 @@ export const alprazolam: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Benzodiazepines"
-  ]
+  "riskLevel": "low"
 };

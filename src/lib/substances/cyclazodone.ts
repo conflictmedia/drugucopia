@@ -12,14 +12,13 @@ export const cyclazodone: Substance =
   "id": "cyclazodone",
   "name": "Cyclazodone",
   "commonNames": [
-    "Substituted aminorexes",
-    "4-oxazolidinone"
+    "Cyclazodone"
   ],
   "categories": [
     "stimulants"
   ],
   "class": "Substituted aminorexes",
-  "description": "N-Cyclopropylpemoline (also known as Cyclazodone) is a novel psychoactive class stimulant substance of the chemical class 4-oxazolidinone class. It is structurally related to pemoline and 4-methylaminorex. The mechanism of action involves promoting the release of dopamine and norepinephrine in the brain. Cyclazodone was developed in the 1960s by the American Cyanamid Company. Cyclazodone had no documented history of recreational human usage prior to its appearance on the online research chemical market in 2017.",
+  "description": "It should be noted that the lack of pharmacological data and extremely limited history of human usage pose considerable concern regarding its long-term use as a substitute for prescription stimulants. Subjective effects include stimulation, focus enhancement, stamina enhancement, increased blood pressure, and mild euphoria. Some anecdotal reports suggest that cyclazodone and its parent compound pemoline may have nootropic properties similar to central nervous system stimulants such as methylphenidate and amphetamine.",
   "effects": {
     "positive": [
       "Stimulation - Cyclazodone is reported to be somewhat stimulating though soft in a fashion that is slightly weaker to that of methamphetamine, but stronger than that of modafinil, caffeine, and methylphenidate.",
@@ -121,9 +120,5 @@ export const cyclazodone: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted aminorexes",
-    "4-oxazolidinone"
-  ]
+  "riskLevel": "moderate"
 };

@@ -12,13 +12,13 @@ export const proscaline: Substance =
   "id": "proscaline",
   "name": "Proscaline",
   "commonNames": [
-    "Substituted phenethylamines"
+    "Proscaline"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted phenethylamines",
-  "description": "4-Propyloxy-3,5-dimethoxyphenethylamine (also known as proscaline) is a lesser-known Psychoactive class psychedelic substance of the Chemical class phenethylamine class. It is a structurally related to mescaline and belongs to a series of mescaline analogs that include isoproscaline, escaline and allylescaline. The synthesis of proscaline was first published by David E. Nichols in 1977. Subjective effects are similar to mescaline and include open and closed-eye visuals, time distortion, enhanced introspection, conceptual thinking, euphoria, and ego loss. It is assumed to have a risk profile similar to mescaline, although this has not been confirmed in studies.",
+  "description": "The synthesis of proscaline was first published by David E. Nichols in 1977. Around the same time, Alexander Shulgin sampled and evaluated the chemical at doses up to 60 mg, estimating its potency as five times that of mescaline. Shulgin later documented his findings in the 1991 book PiHKAL (\"Phenethylamines I Have Known and Loved\").",
   "effects": {
     "positive": [
       "Increased heart rate",
@@ -91,8 +91,5 @@ export const proscaline: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted phenethylamines"
-  ]
+  "riskLevel": "moderate"
 };

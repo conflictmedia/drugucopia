@@ -12,13 +12,13 @@ export const escaline: Substance =
   "id": "escaline",
   "name": "Escaline",
   "commonNames": [
-    "Substituted phenethylamines"
+    "Escaline"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted phenethylamines",
-  "description": "3,5-Dimethoxy-4-ethoxyphenethylamine (commonly known as Escaline) is a synthetic psychoactive class psychedelic substance of the chemical class phenethylamine chemical class that produces psychedelic effects when administered. It is a closely related structural analog of mescaline with which it shares many common properties. Escaline was first synthesized and reported in the scientific literature by Benington, et al., in 1954, but was later re-examined in the laboratory of David E. Nichols who prepared a series of mescaline analogues, including proscaline, jimscaline, isoproscaline, and others. The effects of escaline were first described by Alexander Shulgin in his book PiHKAL: A Chemical Love Story. He lists the dosage range as 40 mg to 60 mg orally and describes the duration of action to be 8–12 hours.",
+  "description": "3,5-Dimethoxy-4-ethoxyphenethylamine (commonly known as Escaline) is a synthetic psychedelic substance of the phenethylamine chemical class that produces psychedelic effects when administered. Escaline was first synthesized and reported in the scientific literature by Benington, et al., in 1954, but was later re-examined in the laboratory of David E. Nichols who prepared a series of mescaline analogues, including proscaline, jimscaline, isoproscaline, and others. He lists the dosage range as 40 mg to 60 mg orally and describes the duration of action to be 8–12 hours.",
   "effects": {
     "positive": [
       "Stimulation",
@@ -104,8 +104,5 @@ export const escaline: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted phenethylamines"
-  ]
+  "riskLevel": "moderate"
 };

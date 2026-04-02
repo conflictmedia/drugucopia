@@ -12,13 +12,13 @@ export const choline_bitartrate: Substance =
   "id": "choline-bitartrate",
   "name": "Choline bitartrate",
   "commonNames": [
-    "Ammonium salt"
+    "Choline"
   ],
   "categories": [
     "nootropics"
   ],
   "class": "Ammonium salt",
-  "description": "Choline is a chemical substance which serves as a precursor to the neurotransmitter acetylcholine in the brain. Choline is an essential nutrient in humans, with documented roles in reducing the risk of neural tube defects, fatty liver disease and other pathologies. It is also used in the synthesis of components in cell membranes. Choline is rarely sold as a free base; it is generally combined with an acid to form a salt such as choline bitartrate for stability, or conjugated into one of the more complex forms such as citicoline. Choline supplementation can be used in the treatment of liver disorders, hepatitis, glaucoma, atherosclerosis, Alzheimer's disease, bipolar disorder and possibly other neurological disorders.",
+  "description": "Choline is an essential nutrient in humans, with documented roles in reducing the risk of neural tube defects, fatty liver disease and other pathologies. Choline is rarely sold as a free base; it is generally combined with an acid to form a salt such as choline bitartrate for stability, or conjugated into one of the more complex forms such as citicoline. Choline supplementation can be used in the treatment of liver disorders, hepatitis, glaucoma, atherosclerosis, Alzheimer's disease, bipolar disorder and possibly other neurological disorders.",
   "effects": {
     "positive": [
       "Stimulation - The stimulation which choline presents can be considered as primarily subtle, less than that of caffeine."
@@ -62,8 +62,5 @@ export const choline_bitartrate: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Ammonium salt"
-  ]
+  "riskLevel": "low"
 };

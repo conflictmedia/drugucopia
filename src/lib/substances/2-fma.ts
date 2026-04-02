@@ -12,14 +12,13 @@ export const _2_fma: Substance =
   "id": "2-fma",
   "name": "2-FMA",
   "commonNames": [
-    "Amphetamine",
-    "Substituted amphetamines"
+    "2-FMA"
   ],
   "categories": [
     "stimulants"
   ],
   "class": "Amphetamine",
-  "description": "2-Fluoromethamphetamine (also known as 2-FMA) is a novel psychoactive class stimulant substance of the chemical class amphetamine class. It is a structural analog of methamphetamine and is related to 2-FA, 3-FA, and 4-FMA. 2-FMA produces its stimulant effects through action at dopamine and norepinephrine receptors in the brain. It appears to be unknown in the clinical and research literature. It is commonly taken either orally or via insufflation and is reported to be highly unpleasant and dangerous to vaporize as the heat can break off the carbon-fluoride bond which in turn can be very toxic.",
+  "description": "The sale of 2-FMA on the online research chemical market was first reported in August 2007.. Subjective effects include stimulation, focus enhancement, motivation enhancement, increased libido, appetite suppression, and euphoria. It is commonly taken either orally or via insufflation and is reported to be highly unpleasant and dangerous to vaporize as the heat can break off the carbon-fluoride bond which in turn can be very toxic.",
   "effects": {
     "positive": [
       "Physical euphoria - This effect is more prominent at higher dosages and is typically weaker then that of other stimulants such as amphetamine, lisdexamfetamine and methylphenidate",
@@ -138,9 +137,5 @@ export const _2_fma: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Amphetamine",
-    "Substituted amphetamines"
-  ]
+  "riskLevel": "moderate"
 };

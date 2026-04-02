@@ -12,13 +12,16 @@ export const _5_meo_dmt: Substance =
   "id": "5-meo-dmt",
   "name": "5-MeO-DMT",
   "commonNames": [
-    "Substituted tryptamines"
+    "5-MeO-DMT",
+    "The God Molecule",
+    "Toad",
+    "Jaguar"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted tryptamines",
-  "description": "5-MeO-DMT produces its effects by binding to serotonin receptors in the brain, although the precise mechanism is not known. It is distributed in a wide variety of plant species as well as in the venom of a single toad species (Incilius alvarius). However, it generally lacks a visual geometry component and tends to produce more physical euphoria as well as even stronger transpersonal or mystical-like effects (e.g. ego loss) than DMT. These effects include significant anxiety and dysphoria as well as nausea and bodily discomfort, and are often described as challenging and overwhelming. Anecdotal reports suggest that this substance is only suitable for users with extensive experience with powerful psychedelics (e.g. DMT, ayahuasca, and DPT) and trained in their safe use.",
+  "description": "It is structurally related to DMT and 5-HO-DMT (bufotenin) and is reputed to produce the most powerful and intense psychedelic states within the entire class. It is distributed in a wide variety of plant species as well as in the venom of a single toad species (Incilius alvarius). Although little is known about its history, it is believed to have been used in South American shamanic practices for centuries. The synthesis and psychoactive effects were documented by Alexander Shulgin in his 1997 book TiHKAL (\"Tryptamines I Have Known and Loved\"). Recent studies have demonstrated its capacity to induce mystical experiences and there is growing interest in exploring its potential therapeutic effects. Subjective effects include unity and interconnectedness, time distortion, conceptual thinking, euphoria, and ego loss.",
   "effects": {
     "positive": [
       "Analysis enhancement",
@@ -114,8 +117,5 @@ export const _5_meo_dmt: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted tryptamines"
-  ]
+  "riskLevel": "moderate"
 };

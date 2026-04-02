@@ -12,13 +12,14 @@ export const gbl: Substance =
   "id": "gbl",
   "name": "GBL",
   "commonNames": [
-    "Lactone"
+    "GBL",
+    "gamma-Butyrolactone"
   ],
   "categories": [
     "depressants"
   ],
   "class": "Lactone",
-  "description": "It has also been found in some wine products, which suggests it may be a naturally occurring substance (see section below). It is currently unknown how far plastic can be broken down, but there may be serious consequences when ingesting microplastics. To avoid this, do not handle GBL at any stage with ordinary plastic, for example with plastic syringes or glass bottles with an ordinary plastic cap. GBL and GHB are also referred to as \"K.-o.-Tropfen\" (K.-o.-drops) in German-speaking countries. Care should be taken when offered drinks from strangers.",
+  "description": "GABAergics\ngamma-Butyrolactone (also known as γ-butyrolactone and commonly as GBL) is a synthetic depressant substance of the lactone chemical class that produces powerful euphoric and disinhibiting effects similar to that of alcohol intoxication. In humans it acts as a prodrug for GHB, where 1ml is equivalent to 1.66 grams of the sodium salt of GHB (Sodium oxybate). GBL is a common solvent and reagent in chemistry and is also used as a flavoring, stain remover, wheel cleaner, superglue remover, paint stripper, and as a solvent in some wet aluminum electrolytic capacitors. For this reason, it is recommended to only transport and store the drug using a glass container, standard gelatin capsules (not vegetarian), or high-density polyethylene plastic (also known as #2 recyclable plastic).",
   "effects": {
     "positive": [
       "Stimulation & Sedation - At lower dosages, GBL is physically stimulating, encouraging movement and wakefulness. At higher dosages, however, it becomes physically sedating, encouraging sleep and lethargy.",
@@ -114,8 +115,5 @@ export const gbl: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "high",
-  "aliases": [
-    "Lactone"
-  ]
+  "riskLevel": "high"
 };

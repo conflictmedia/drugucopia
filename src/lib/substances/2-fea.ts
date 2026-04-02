@@ -12,14 +12,14 @@ export const _2_fea: Substance =
   "id": "2-fea",
   "name": "2-FEA",
   "commonNames": [
-    "Substituted amphetamines"
+    "2-FEA"
   ],
   "categories": [
     "empathogens",
     "stimulants"
   ],
   "class": "Substituted amphetamines",
-  "description": "2-Fluoroethamphetamine (2-FEA) is a novel psychoactive class stimulant substance of the amphetamine class that produces classical stimulant effects such as stimulation, enhanced focus and euphoria when administered. The exact effects of 2-FEA are not well known by its users with anecdotal reports suggesting only minimal activity and possible serotonergic qualities. 2-FEA is sold on the online research chemical market. It is strongly advised to use harm reduction practices if using this substance.",
+  "description": "2-Fluoroethamphetamine (2-FEA) is a novel stimulant substance of the amphetamine class that produces classical stimulant effects such as stimulation, enhanced focus and euphoria when administered. The exact effects of 2-FEA are not well known by its users with anecdotal reports suggesting only minimal activity and possible serotonergic qualities. 2-FEA is sold on the online research chemical market.",
   "effects": {
     "positive": [
       "Stimulation and Sedation - 2-FEA is reported to produce a paradoxical combination of sedating and stimulating effects. The sedating aspects are perhaps attributable to serotonin release. The stimulating effects are typically more prominent at dosages in and above the strong dosage range and tend to become prominent after the peak effects have subsided.",
@@ -121,8 +121,5 @@ export const _2_fea: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted amphetamines"
-  ]
+  "riskLevel": "moderate"
 };

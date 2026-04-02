@@ -12,13 +12,25 @@ export const cocaine: Substance =
   "id": "cocaine",
   "name": "Cocaine",
   "commonNames": [
-    "Substituted tropanes"
+    "Cocaine",
+    "Coke",
+    "Coca",
+    "Crack",
+    "Blow",
+    "Girl",
+    "White",
+    "Snow",
+    "Nose Candy",
+    "Yayo",
+    "Perico",
+    "Gear",
+    "Chari"
   ],
   "categories": [
     "stimulants"
   ],
   "class": "Substituted tropanes",
-  "description": "thumb|200px|Contaminated currency such as banknotes might serve as a fomite of diseases like hepatitis C thumb|200px|Chronic cocaine use can cause \"cocaine nose\"—damage ranging from nasal septum perforation (pictured) to cocaine-induced midline destructive lesions (CIMDL) Cocaine (also known as benzoylmethylecgonine, and informally as coke, cola, snow, blow, white, among others) is a classical psychoactive class stimulant substance of the chemical class tropane class. It is a naturally-occurring alkaloid extracted from the leaves of two coca plant species; namely Erythroxylum coca and E. novogranatense that are native to South America. It is considered a major so-called \"street drug\" and \"drug of abuse\", alongside heroin and methamphetamine. Cocaine use spans all social classes, defying traditional stereotypes that associate the drug solely with either the wealthy or the poor. Although cocaine is an expensive drug—often considered a status symbol among affluent users—studies indicate that its use is proportionately higher among those with higher incomes and education levels, particularly in so-called “middle-class” or wealthy groups.",
+  "description": "thumb|200px|Contaminated currency such as banknotes might serve as a fomite of diseases like hepatitis C\nthumb|200px|Chronic cocaine use can cause \"cocaine nose\"—damage ranging from nasal septum perforation (pictured) to cocaine-induced midline destructive lesions (CIMDL)\nCocaine (also known as benzoylmethylecgonine, and informally as coke,  cola, snow, blow, white, among others) is a classical stimulant substance of the tropane class. It is a naturally-occurring alkaloid extracted from the leaves of two coca plant species; namely Erythroxylum coca and E. novogranatense that are native to South America. According to a 2007 United Nations report, it was the second most widely used substance in the world, after cannabis. Due to its high profit margins and longtime steady demand, it has become a staple product trade and smuggling for various transnational criminal syndicates or related organizations who traffic drugs in the black market. Subjective effects include stimulation, increased blood pressure, appetite suppression, disinhibition, motivation enhancement, ego inflation, increased libido, and euphoria. Oral intake is rare but possible, and possesses a marketly longer duration; 60 minutes as opposed to 10 - 20 minutes when insufflated or 5 minutes smoked.",
   "effects": {
     "positive": [
       "Physical euphoria",
@@ -152,10 +164,7 @@ export const cocaine: Substance =
     "molecularWeight": "Unknown",
     "class": "Substituted tropanes"
   },
-  "history": "In these papers, he correctly speculates on the medical use of cocaine as a topical anesthetic due to its numbing effects. Furthermore to cocaine's numbing effects on the lips and mouth being observed by Freud. In other words, you are simply normal, and it is soon hard to believe that you are under the influence of any drug .... Long intensive mental or physical work is performed without any fatigue .... Absolutely no craving for the further use of cocaine appears after the first, or even repeated, taking of the drug; one feels rather a certain curious aversion to it.\" One feels a certain furriness on the lips and palate, followed by a feeling of warmth in the same areas; if one now drinks cold water, it feels warm on the lips and cold in the throat.",
+  "history": "Cocaine (presumably in the form of coca leaves) is among one of the oldest used drugs, with a 1000-year-old collection of ancient “drug paraphernalia” (most likely used ceremonially), discovered in a rock shelter in south-western Bolivia known as Cueva del Chilano which is seemingly traceable to the archaic Tiwanuku culture. The ancient Andean site features traces of five drug chemicals which include cocaine, benzoylecgonine (inactive metabolite of cocaine), bufotenine, DMT, as well as harmine (possibly indicating utilization of ayahuasca). However, it is highly unlikely that it was consumed as “powdered cocaine”, but rather simply with raw, unprocessed coca leaves which can be chewed to create a less intense and less dangerous stimulant effect than modern-day cocaine powder or freebase. The degree of subjective intensity in regards to the stimulating and psychoactive effects felt when chewing coca leaves or consuming it when brewed as a drink (tea) known as mate de coca is perhaps conversely more so comparable to that of caffeine, albeit with many users maintaining the notion of “coca tea” still technically feeling stronger than ordinary caffeinated-drinks like coffee or black tea. One of the earliest documentations of the cocaine alkaloid being isolated from the plant was in 1855  where German chemist Friedrich Gaedcke published a description in the journal \"Archiv der Pharmazie\", naming the alkaloid \"erythoxyline.\" Five years later in 1860, Albert Niemann describes the isolation of an alkaloid from coca who then went on to call it cocaine. One such highlight of the papers published would be Sigmund Freud's collection of publications referred to as the \"Cocaine Papers\" which can be considered partly responsible for the surge in popularity both when published and upon the rediscovery of the papers, around 1974. describing; \"...exhilaration and lasting euphoria, which in no way differs from the normal euphoria of the healthy person .... You perceive an increase of selfcontrol and possess more vitality and capacity for work .... The final statement contradicting much of the modern reputation surrounding the cravings cocaine induces following use (compulsive redosing). In the past several years, cocaine trafficking and general usage has seen what can aptly be described as an exponential growth in various nations and regions throughout the Eastern Hemisphere, with many organized crime groups now having shifted their business models to heavily favor cocaine trafficking often by working directly with major criminal groups in South America. \" Other countries where the usage rate meets or exceeds 1.5% are the United States (2.8%), England and Wales (2.4%), Canada (2.3%), Italy (2.1%), Bolivia (1.9%), Chile (1.8%), and Scotland (1.5%).",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "high",
-  "aliases": [
-    "Substituted tropanes"
-  ]
+  "riskLevel": "high"
 };

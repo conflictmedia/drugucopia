@@ -12,13 +12,16 @@ export const _25c_nbome: Substance =
   "id": "25c-nbome",
   "name": "25C-NBOMe",
   "commonNames": [
-    "Substituted phenethylamines"
+    "25C-NBOMe",
+    "Cimbi-82",
+    "NBOMe-2C-C",
+    "2C-C-NBOMe"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted phenethylamines",
-  "description": "The name 25C-NBOMe, which is short-hand for 2C-C-NBOMe, is a derivative of the phenethylamine psychedelic 2C-C. Subjective effects include stimulation, open and closed-eye visuals, time distortion, euphoria, and ego loss. It is worth noting that members of the NBOMe series are not orally active and should be administered sublingually (by holding it into one's mouth and allowing it to absorb over a period of 15 minutes). However, it has been associated with many deaths and hospitalizations which suggests that it has a significantly worse toxicity profile than classical psychedelics like LSD or psilocybin mushrooms. Along with its highly sensitive dose-response and unpredictable effects, many reports also suggest that this substance may be overly difficult to use safely.",
+  "description": "It was discovered in 2003 by Ralf Heim at the Free University of Berlin, and subsequently investigated by a team at Purdue University led by David Nichols. It has been studied in its radiolabelled form as a potential ligand for mapping the distribution of serotonin-2A receptors in the brain using positron emission tomography (PET). The first reports of human use appeared in 2010 following its appearance on the online research chemical market. Subjective effects include stimulation, open and closed-eye visuals, time distortion, euphoria, and ego loss. It is worth noting that members of the NBOMe series are not orally active and should be administered sublingually (by holding it into one's mouth and allowing it to absorb over a period of 15 minutes).",
   "effects": {
     "positive": [
       "Spontaneous bodily sensations - The \"body high\" itself can be described as a generally mild, all-encompassing, soft but euphoric tingling sensation. This tingling sensation is also accompanied by spontaneous rushes of euphoria that become longer and more drawn out proportional to the dosage consumed.",
@@ -132,8 +135,5 @@ export const _25c_nbome: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "very-high",
-  "aliases": [
-    "Substituted phenethylamines"
-  ]
+  "riskLevel": "very-high"
 };

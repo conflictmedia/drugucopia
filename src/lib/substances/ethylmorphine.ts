@@ -12,13 +12,15 @@ export const ethylmorphine: Substance =
   "id": "ethylmorphine",
   "name": "Ethylmorphine",
   "commonNames": [
-    "Substituted morphinans"
+    "Ethylmorphine",
+    "Codethyline",
+    "Dionine"
   ],
   "categories": [
     "opioids"
   ],
   "class": "Substituted morphinans",
-  "description": "opiates Ethylmorphine, also known as codethyline and dionine, is a semi-synthetic chemical class morphinan psychoactive class opioid first created by Merck in 1884 and used as a weaker alternative to morphine. (in combination with guaifenesin) and Lepheton (in combination with ephedrine), or in tablet form sold as Tussipax (in combination with codeine). Cough syrup preparations commonly include a mild laxative to counter the constipation which is a common side effect of opioids. Ethylmorphine is also used in ophthalmic preparations as dionine to treat inflammations of the eye. In 1904, an ethylmorphine preparation was described as \"a new ocular analgesic.\"",
+  "description": "opiates\nEthylmorphine, also known as codethyline and dionine, is a semi-synthetic morphinan opioid first created by Merck in 1884 and used as a weaker alternative to morphine. Today, it is most commonly used as an antitussive which is available in cough syrup preparations like Cocillana, Cosylan, Solvipect comp. (in combination with guaifenesin) and Lepheton (in combination with ephedrine), or in tablet form sold as Tussipax (in combination with codeine).",
   "effects": {
     "positive": [
       "Euphoria - This particular substance can be considered as less intense in its physical euphoria when compared with that of morphine or diacetylmorphine (heroin).",
@@ -86,8 +88,5 @@ export const ethylmorphine: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Substituted morphinans"
-  ]
+  "riskLevel": "low"
 };

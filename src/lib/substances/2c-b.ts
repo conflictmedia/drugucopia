@@ -12,13 +12,15 @@ export const _2c_b: Substance =
   "id": "2c-b",
   "name": "2C-B",
   "commonNames": [
-    "Substituted phenethylamines"
+    "2C-B",
+    "Nexus",
+    "Bees"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted phenethylamines",
-  "description": "4-Bromo-2,5-dimethoxyphenethylamine (also known as Nexus, Bromo Mescaline, BDMPEA, Venus, and 2C-B) is a novel Psychoactive class psychedelic substance of the chemical class phenethylamine class. It is perhaps the most well-known member of the 2C-x family, which are structurally related to the classical psychedelic mescaline. The mechanism of action is not fully known, although serotonin receptor binding activity is thought to be principally involved. 2C-B was discovered in 1974 by the American chemist Alexander Shulgin, who was investigating psychedelic phenethylamines derived from mescaline. Subjective effects include open and closed-eye visuals, time distortion, euphoria, and ego loss.",
+  "description": "4-Bromo-2,5-dimethoxyphenethylamine (also known as Nexus, Bromo Mescaline, BDMPEA, Venus, and 2C-B) is a novel psychedelic substance of the phenethylamine class. In the 1970s, it first saw use as a therapeutic aid by a small circle of American psychotherapists and was considered one of the best substances for this purpose due to its short duration, relative absence of side effects, and comparably mild nature. Recreational use was observed shortly afterward and it was briefly manufactured and sold commercially under such names as \"Erox\" and \"Nexus\" in \"head\" / \"smart\" shops and adult video stores before being federally scheduled in 1995. Smaller doses (under 15 mg) are reported to be useful as a sensory and aesthetic enhancer (in a manner somewhat similar to MDMA) while larger doses are reported to produce a distinct mind-manifesting psychedelic effect.",
   "effects": {
     "positive": [
       "Stimulation - 2C-B is typically described as very energetic and stimulating in a fashion that draws comparisons to MDMA. At higher doses this effect can become more forced, encouraging users to engage in physical activities such as dancing.",
@@ -165,10 +167,7 @@ export const _2c_b: Substance =
     "molecularWeight": "Unknown",
     "class": "Substituted phenethylamines"
   },
-  "history": "2C-B was first synthesized and tested for psychoactivity in 1974 by the American chemist and psychedelic researcher Alexander Shulgin, who was investigating novel psychedelic compounds based on the chemical structure of mescaline. Shulgin's findings were later published in the 1991 book PiHKAL, in which he listed 2C-B among the \"magical half-dozen\" of psychedelic phenethylamines that he deemed most important. These therapists reported that it created a warm, empathetic bond between them and their patients, helping to break down their ego defenses and inner resistances and allowing the patient to get in touch with suppressed emotions and repressed memories. In the United States, it gained popularity as an alternative to MDMA after the latter was classified as a Schedule I substance in 1985. 2C-B was legally sold in Southern Africa from 1993 to early 1996.",
+  "history": "2C-B was first synthesized and tested for psychoactivity in 1974 by the American chemist and psychedelic researcher Alexander Shulgin, who was investigating novel psychedelic compounds based on the chemical structure of mescaline. These therapists reported that it created a warm, empathetic bond between them and their patients, helping to break down their ego defenses and inner resistances and allowing the patient to get in touch with suppressed emotions and repressed memories. The gentle nature of 2C-B, in addition to its mild side effects and short duration, were found to be desirable traits for a therapeutic setting. In the 1980s and early 1990s, several foreign companies legally manufactured the substance under the brand names \"Nexus\", \"Erox\", and \"Performax\" and advertised that it would alleviate impotence, frigidity, and diminished libido. It was marketed as medicine for Sangomas (traditional healers) under the name \"Ubulawu Nomathotholo\", which roughly translates to \"Medicine of the Singing Ancestors\".",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted phenethylamines"
-  ]
+  "riskLevel": "moderate"
 };

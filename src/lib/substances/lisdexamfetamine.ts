@@ -12,14 +12,15 @@ export const lisdexamfetamine: Substance =
   "id": "lisdexamfetamine",
   "name": "Lisdexamfetamine",
   "commonNames": [
-    "Amphetamine",
-    "Substituted amphetamines"
+    "Lisdexamfetamine",
+    "Vyvanse",
+    "Elvanse"
   ],
   "categories": [
     "stimulants"
   ],
   "class": "Amphetamine",
-  "description": "Lisdexamfetamine (also known as lisdextroamphetamine, L-lysine-dextroamphetamine, or lisdexamfetamine dimesylate when under the brand names Elvanse, Tyvense, and Vyvanse) is a psychoactive class stimulant substance of the chemical class amphetamine class. It is a \"mutual prodrug\" (codrug) for d-amphetamine (dextroamphetamine) that is approved for the treatment of attention deficit hyperactivity disorder (ADHD) and moderate to severe binge-eating disorder. Like amphetamine, lisdexamfetamine produces its effects by promoting the release of neurotransmitters dopamine and norepinephrine in the brain. Subjective effects are essentially identical to that of dextroamphetamine except with a slower onset and a longer duration. It is sometimes sold and used illicitly as a \"study drug\" as well as a recreational substance.",
+  "description": "Lisdexamfetamine (also known as lisdextroamphetamine, L-lysine-dextroamphetamine, or lisdexamfetamine dimesylate when under the brand names Elvanse, Tyvense, and Vyvanse) is a stimulant substance of the amphetamine class. It is a \"mutual prodrug\" (codrug) for d-amphetamine (dextroamphetamine) that is approved for the treatment of attention deficit hyperactivity disorder (ADHD) and moderate to severe binge-eating disorder. These include stimulation, focus enhancement, motivation enhancement, euphoria, as well as paradoxical sedation in a small percentage of the population.",
   "effects": {
     "positive": [
       "Spontaneous bodily sensations - The \"body high\" of lisdexamphetamine can be described as a moderate euphoric tingling sensation that encompasses the entire body. This sensation maintains a consistent presence that steadily rises with the onset and hits its limit once the peak has been reached.",
@@ -118,11 +119,7 @@ export const lisdexamfetamine: Substance =
     "molecularWeight": "Unknown",
     "class": "Amphetamine"
   },
-  "history": "Lisdexamfetamine was developed by New River Pharmaceuticals as a longer-lasting and abuse-resistant version of d-amphetamine (dextroamphetamine). The FDA approved lisdexamfetamine for ADHD treatment in adults on the 23th of April 2008 , followed by an approval for use in treating binge eating disorder in adults in January 2015.",
+  "history": "Lisdexamfetamine was developed by New River Pharmaceuticals as a longer-lasting and abuse-resistant version of d-amphetamine (dextroamphetamine).\nThe FDA approved lisdexamfetamine for ADHD treatment in adults on the 23th of April 2008 , followed by an approval for use in treating binge eating disorder in adults in January 2015.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Amphetamine",
-    "Substituted amphetamines"
-  ]
+  "riskLevel": "moderate"
 };

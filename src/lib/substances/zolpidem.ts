@@ -12,13 +12,16 @@ export const zolpidem: Substance =
   "id": "zolpidem",
   "name": "Zolpidem",
   "commonNames": [
-    "Imidazopyridine"
+    "Ambien",
+    "Intermezzo",
+    "Edluar",
+    "Zolpimist"
   ],
   "categories": [
     "depressants"
   ],
   "class": "Imidazopyridine",
-  "description": "When taken at recreational doses, it reportedly produces powerful and notoriously bizarre atypical psychoactive class hallucinogenic, dissociative, deliriant and even psychedelic effects. Zolpidem is a member of a family colloquially known as a \"Z-drug.\" Other Z-drugs include zaleplon (Sonata) and zopiclone (Imovane). These drugs were initially thought to be less addictive and/or habit-forming than benzodiazepines. However, this evaluation has shifted in the last few years as cases of addiction and habituation have accumulated.",
+  "description": "GABAergics\nZolpidem (also known as Ambien, Intermezzo, Edluar, Stilnoct, Stilnox, Zolpimist, and others) is a non-benzodiazepine hypnotic of the imidazopyridine chemical class which is primarily used in the treatment of insomnia. When taken at recreational doses, it reportedly produces powerful and notoriously bizarre atypical hallucinogenic, dissociative, deliriant and even psychedelic effects. However, this evaluation has shifted  in the last few years as cases of addiction and habituation have accumulated.",
   "effects": {
     "positive": [
       "Physical euphoria - This manifests itself as a warm, soft glow which emanates from the center of the user's body.",
@@ -118,8 +121,5 @@ export const zolpidem: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Imidazopyridine"
-  ]
+  "riskLevel": "low"
 };

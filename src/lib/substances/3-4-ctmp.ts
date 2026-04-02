@@ -12,13 +12,13 @@ export const _3_4_ctmp: Substance =
   "id": "3-4-ctmp",
   "name": "3,4-CTMP",
   "commonNames": [
-    "Substituted phenidates"
+    "3,4-CTMP"
   ],
   "categories": [
     "stimulants"
   ],
   "class": "Substituted phenidates",
-  "description": "3,4-Dichloromethylphenidate (also known by the incorrectly abbreviated name 3,4-CTMP) is a psychoactive class stimulant substance of the chemical class phenidate class. It is a structural analog of methylphenidate (Ritalin). The two substances have similar pharmacological profiles but different subjective effects. It is approximately seven times more potent than methylphenidate in animal studies, but likely has weaker reinforcing effects due to its slower onset of action. 3,4-CTMP has a duration of 6 to 18 hours rather than the 4 to 6 hour duration found with methylphenidate.",
+  "description": "3,4-Dichloromethylphenidate (also known by the incorrectly abbreviated name 3,4-CTMP) is a stimulant substance of the phenidate class. It is approximately seven times more potent than methylphenidate in animal studies, but likely has weaker reinforcing effects due to its slower onset of action. 3,4-CTMP has a duration of 6 to 18 hours rather than the 4 to 6 hour duration found with methylphenidate.",
   "effects": {
     "positive": [
       "Stimulation 3,4-CTMP is moderately to highly stimulating. The stimulation present is weaker than methamphetamine, cocaine, and amphetamine. It is stronger than caffeine and similar in strength to methylphenidate. The style of stimulation can be described as forced, but less so than cocaine and amphetamine. At lower doses it encourages productivity, while at higher doses it encourages physical activity such as running and dancing.",
@@ -114,8 +114,5 @@ export const _3_4_ctmp: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted phenidates"
-  ]
+  "riskLevel": "moderate"
 };

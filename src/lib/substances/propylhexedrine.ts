@@ -12,13 +12,14 @@ export const propylhexedrine: Substance =
   "id": "propylhexedrine",
   "name": "Propylhexedrine",
   "commonNames": [
-    "Cycloalkylamines"
+    "Propylhexedrine",
+    "Benzedrex"
   ],
   "categories": [
     "stimulants"
   ],
   "class": "Cycloalkylamines",
-  "description": "It is a structural analog of methamphetamine. Propylhexedrine is widely used medicinally as a nasal decongestant (for relief of congestion due to colds, allergies and allergic rhinitis) and sometimes used recreationally as an over-the-counter \"legal high\". Benzedrex was first manufactured by Smith, Kline and French after the Benzedrine inhaler, which contained racemic amphetamine, became unavailable following the placement of amphetamines on the US Schedule II status (i.e. highest abuse potential, yet with accepted medicinal uses). Propylhexedrine has also been used in Europe as an appetite suppressant under the trade name Obesin. In the United States, propylhexedrine is sometimes extracted from over-the-counter Benzedrex nasal inhalers using lemon juice.",
+  "description": "Propylhexedrine (also known as Benzedrex and Obesin) is a stimulant substance of the cycloalkylamine class. Propylhexedrine is widely used medicinally as a nasal decongestant (for relief of congestion due to colds, allergies and allergic rhinitis) and sometimes used recreationally as an over-the-counter \"legal high\". Benzedrex was first manufactured by Smith, Kline and French after the Benzedrine inhaler, which contained racemic amphetamine, became unavailable following the placement of amphetamines on the US Schedule II status (i.e. Subjective effects include stimulation, focus enhancement, motivation enhancement, increased libido, appetite suppression, and euphoria.",
   "effects": {
     "positive": [
       "Increased heart rate - Due to its pronounced peripheral nervous system activity, propylhexedrine tends to increase heart rate much more drastically than comparable dosages of other stimulants.",
@@ -106,8 +107,5 @@ export const propylhexedrine: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Cycloalkylamines"
-  ]
+  "riskLevel": "moderate"
 };

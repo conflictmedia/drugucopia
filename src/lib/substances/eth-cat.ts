@@ -12,13 +12,15 @@ export const eth_cat: Substance =
   "id": "eth-cat",
   "name": "ETH-CAT",
   "commonNames": [
-    "Cathinone"
+    "ETH-CAT",
+    "Ethcathinone",
+    "Ethylpropion"
   ],
   "categories": [
     "stimulants"
   ],
   "class": "Cathinone",
-  "description": "Ethylcathinone (also known as Ethylpropion, Ethcathinone, and commonly as ETH-CAT) is a psychoactive class stimulant substance of the chemical class cathinone chemical class that produces stimulating and focus enhancing effects when administered. It is structurally related to cathinone and methcathinone (MCAT), which broadly shares the effects profile of amphetamine or methylphenidate. Of the substituted cathinones, ETH-CAT reportedly produces the most moderate and residually long-lasting stimulation, with subtle effects that persist well after the initial rush. It has been described as having a more functional than recreational character due to the limited euphoria it produces for a stimulant, although its short active duration can promote compulsive redosing. Very little data exists about the pharmacological properties, metabolism, and toxicity of ETH-CAT, and it has little history of human usage.",
+  "description": "Ethylcathinone (also known as Ethylpropion, Ethcathinone, and commonly as ETH-CAT) is a stimulant substance of the cathinone chemical class that produces stimulating and focus enhancing effects when administered. It has been described as having a more functional than recreational character due to the limited euphoria it produces for a stimulant, although its short active duration can promote compulsive redosing. Very little data exists about the pharmacological properties, metabolism, and toxicity of ETH-CAT, and it has little history of human usage.",
   "effects": {
     "positive": [
       "Stimulation",
@@ -105,8 +107,5 @@ export const eth_cat: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Cathinone"
-  ]
+  "riskLevel": "moderate"
 };

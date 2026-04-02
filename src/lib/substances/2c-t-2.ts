@@ -12,13 +12,14 @@ export const _2c_t_2: Substance =
   "id": "2c-t-2",
   "name": "2C-T-2",
   "commonNames": [
-    "Substituted phenethylamines"
+    "2C-T-2",
+    "Rosy"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted phenethylamines",
-  "description": "2,5-Dimethoxy-4-ethylthiophenethylamine (also known as 2C-T-2, and Rosy) is a Psychoactive class psychedelic substance of the chemical class phenethylamine chemical class that produces psychedelic effects when administered. It is a member of the 2C-x family of psychedelic phenethylamines, all of which were derived from the systematic modification of the mescaline molecule. 2C-T-2 was first synthesized and tested for activity in humans by Alexander Shulgin in 1981 and described in his 1991 book PiHKAL (\"Phenethylamines I Have Known and Loved\"). It is a member of the so-called \"magical half-dozen\" which refers to Shulgin's self-rated most important phenethylamine-derived compounds, all of which except mescaline he developed and synthesized himself. They are found within the first book of PiHKAL, and are as follows: mescaline, DOM, 2C-B, 2C-E, 2C-T-2 and 2C-T-7.",
+  "description": "2,5-Dimethoxy-4-ethylthiophenethylamine (also known as 2C-T-2, and Rosy) is a psychedelic substance of the phenethylamine chemical class that produces psychedelic effects when administered. 2C-T-2 was first synthesized and tested for activity in humans by Alexander Shulgin in 1981 and described in his 1991 book PiHKAL (\"Phenethylamines I Have Known and Loved\"). Very little data exists about the pharmacological properties, metabolism, and toxicity of 2C-T-2, and it has a relatively short history of human usage.",
   "effects": {
     "positive": [
       "Stimulation - 2C-T-2 is usually considered to be very energetic and stimulating in a fashion that is quite comparable to that of other phenethylamines such as 2C-B, 2C-E and 2C-P.",
@@ -120,8 +121,5 @@ export const _2c_t_2: Substance =
   },
   "history": "Following the initial positive results found by Shulgin's research group, a more formal study was carried out by psychedelic psychotherapy pioneer Myron J. Stolaroff who was interested in evaluating the potential use of 2C-T-2 in psychotherapy. Based on the experiences of forty participants in the study who took 2C-T-2, Stolaroff compared the effects favorably to MDMA, describing it as more emotionally opening and permitting a wider exploration of feelings and thoughts.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted phenethylamines"
-  ]
+  "riskLevel": "moderate"
 };

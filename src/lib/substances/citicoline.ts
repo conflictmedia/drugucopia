@@ -12,13 +12,13 @@ export const citicoline: Substance =
   "id": "citicoline",
   "name": "Citicoline",
   "commonNames": [
-    "Ammonium salt"
+    "Citicoline"
   ],
   "categories": [
     "nootropics"
   ],
   "class": "Ammonium salt",
-  "description": "Citicoline (CDP-choline, cytidine 5'-diphosphocholine) is a water soluble nutrient which serves as a precursor to both choline and cytidine within the brain (which later converts to uridine). To humans, choline is an essential nutrient as its role in reducing the risk of neural tube defects, fatty liver disease, and other pathologies have been documented. CDP-choline is one of the three choline-containing phospholipids that can be orally supplemented (the other two being alpha-GPC and phosphatidylcholine). This supplement is catered towards preventing or treating memory impairments associated with aging because both of the molecules it confers are neuroprotective and potentially enhance learning. One study has noted an increase in attention with low dose CDP-choline (which needs to be replicated), and CDP-choline may have roles as an anti-addictive compound against both cocaine and (preliminary evidence suggests) food as well.",
+  "description": "Citicoline (CDP-choline, cytidine 5'-diphosphocholine) is a water soluble nutrient which serves as a precursor to both choline and cytidine  within the brain  (which later converts to uridine). To humans, choline is an essential nutrient as its role in reducing the risk of neural tube defects, fatty liver disease, and other pathologies have been documented. This supplement is catered towards preventing or treating memory impairments associated with aging because both of the molecules it confers are neuroprotective and potentially enhance learning.",
   "effects": {
     "positive": [
       "Stimulation - The stimulation which citicoline presents can be considered as primarily subtle and less than that of caffeine.",
@@ -70,8 +70,5 @@ export const citicoline: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Ammonium salt"
-  ]
+  "riskLevel": "low"
 };

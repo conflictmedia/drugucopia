@@ -12,13 +12,15 @@ export const pregabalin: Substance =
   "id": "pregabalin",
   "name": "Pregabalin",
   "commonNames": [
-    "Gabapentinoids"
+    "Pregabalin",
+    "Lyrica",
+    "Nervalin"
   ],
   "categories": [
     "depressants"
   ],
   "class": "Gabapentinoids",
-  "description": "gabapentinoids Pregabalin (also known as 3-isobutyl GABA and by the trade-name Lyrica) is a psychoactive class depressant substance of the chemical class gabapentinoid class. Pregabalin is a common prescription drug, which is typically used to treat neuropathic pain, anxiety, restless leg syndrome, and as an adjunct drug in the treatment of seizures. Pregabalin has a pharmacological profile comparable to that of gabapentin as they both share similar mechanisms of action and induce similar subjective effects. The advantages pregabalin has over gabapentin include greater bioavailability and potency, as well as a wider variety of accepted medical applications for pregabalin not seen with gabapentin, such as its successful use in the treatment of anxiety, in which the use of gabapentin was not successful, excluding some more severe cases.",
+  "description": "gabapentinoids\nPregabalin (also known as 3-isobutyl GABA and by the trade-name Lyrica) is a depressant substance of the gabapentinoid class. Pregabalin is a common prescription drug, which is typically used to treat neuropathic pain, anxiety, restless leg syndrome, and as an adjunct drug in the treatment of seizures. The advantages pregabalin has over gabapentin include greater bioavailability and potency, as well as a wider variety of accepted medical applications for pregabalin not seen with gabapentin, such as its successful use in the treatment of anxiety, in which the use of gabapentin was not successful, excluding some more severe cases.",
   "effects": {
     "positive": [
       "Stimulation & Sedation -  Pregabalin produces mild sedation and improves sleep onset latency modestly. Several studies have shown pregabalin improves sleep quality of those who take it for various indications. It is unknown if this effect is carried over to those who take it recreationally. However, it is not an overly sedating substance when taken in the daytime.",
@@ -133,8 +135,5 @@ export const pregabalin: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Gabapentinoids"
-  ]
+  "riskLevel": "low"
 };

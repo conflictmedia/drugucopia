@@ -12,14 +12,18 @@ export const kratom: Substance =
   "id": "kratom",
   "name": "Kratom",
   "commonNames": [
-    "Indole alkaloids"
+    "Mitragyna Speciosa",
+    "กระท่อม (Thai)",
+    "Ketum",
+    "Kratom",
+    "Kratum"
   ],
   "categories": [
     "stimulants",
     "opioids"
   ],
   "class": "Indole alkaloids",
-  "description": "Mitragyna speciosa (also known as kratom) is a tropical tree of the coffee family indigenous to South East Asia. The pharmacology of kratom is complex, although it produces its major effects through action at opioid receptors in the brain. M. speciosa is indigenous to Thailand, Indonesia, Malaysia, Myanmar, and Papua New Guinea, where it has been used in traditional medicines for centuries. Traditionally, fresh or dried kratom leaves are chewed or made into tea. Lower doses are generally reported to produce caffeine-like stimulant effects such as enhanced focus and motivation while higher doses produce typical opioid effects like pain relief, sedation, and euphoria.",
+  "description": "Mitragyna speciosa (also known as kratom) is a tropical tree of the coffee family indigenous to South East Asia. M. speciosa is indigenous to Thailand, Indonesia, Malaysia, Myanmar, and Papua New Guinea, where it has been used in traditional medicines for centuries. Starting in the 2000s, kratom began to receive significant attention due to increased use in Western cultures as an alternative medicine. Lower doses are generally reported to produce caffeine-like stimulant effects such as enhanced focus and motivation while higher doses produce typical opioid effects like pain relief, sedation, and euphoria.",
   "effects": {
     "positive": [
       "Visual disconnection - A sense of subtle disconnection from visual input is often experienced with high doses of kratom. This is similar to a low-level version of the same effect universally experienced with dissociatives and may be a result of NMDA antagonist properties of rhynchophylline, an alkaloid found in kratom.",
@@ -84,8 +88,5 @@ export const kratom: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Indole alkaloids"
-  ]
+  "riskLevel": "low"
 };

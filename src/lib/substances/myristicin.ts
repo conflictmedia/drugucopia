@@ -12,13 +12,13 @@ export const myristicin: Substance =
   "id": "myristicin",
   "name": "Myristicin",
   "commonNames": [
-    "Phenylpropenes"
+    "Nutmeg"
   ],
   "categories": [
     "deliriants"
   ],
   "class": "Phenylpropenes",
-  "description": "Myristicin is a naturally-occurring psychoactive class deliriant substance of the Chemical class phenylpropene class. It is present in small amounts in the essential oil of nutmeg and, to a lesser extent, in other spices such as parsley and dill. Myristicin, along with elemicin, is thought to be the main psychoactive constituent of nutmeg. Nutmeg is reported to induce hallucinogenic effects, such as visual distortions and paranoid ideation. 4-8.5% of nutmeg essential oil, or 0.2-1.3% of raw nutmeg, is myristicin.",
+  "description": "It is present in small amounts in the essential oil of nutmeg and, to a lesser extent, in other spices such as parsley and dill. When oxidized with Potassium permanganate, Myristicin can be converted into Myristicinaldehyde, which can then be used to synthesize MMDPEA (Lophophine) via reductive amination. Additionally, myristicin is the traditional precursor for the psychedelic and empathogenic drug MMDA. Nutmeg is reported to induce hallucinogenic effects, such as visual distortions and paranoid ideation.",
   "effects": {
     "positive": [
       "Sedation - This effect can be extremely strong at higher dosage, leaving the user in a near sleep state during the experience.",
@@ -137,8 +137,5 @@ export const myristicin: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "very-high",
-  "aliases": [
-    "Phenylpropenes"
-  ]
+  "riskLevel": "very-high"
 };

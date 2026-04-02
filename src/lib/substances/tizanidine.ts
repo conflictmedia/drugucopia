@@ -11,15 +11,12 @@ export const tizanidine: Substance =
 {
   "id": "tizanidine",
   "name": "Tizanidine",
-  "commonNames": [
-    "Imidazoline",
-    "Arylaminoimidazoline"
-  ],
+  "commonNames": [],
   "categories": [
     "depressants"
   ],
   "class": "Imidazoline",
-  "description": "Tizanidine (known by the trade names Zanaflex and Trinex among others) is a depressant substance of the chemical class arylaminoimidazoline class closely related to clonidine. Tizanidine is primarily used primarily as an antispasmodic drug. Tizanidine's effectivness is similar to that of baclofen or diazepam . Tizanidine is a central α2 adrenergic agonist. The relationship between the α2 receptor agonism and the spasmolytic function of tizanidine is not fully understood .",
+  "description": "Tizanidine (known by the trade names Zanaflex and Trinex among others) is a depressant substance of the arylaminoimidazoline class closely related to clonidine. The relationship between the α2 receptor agonism and the spasmolytic function of tizanidine is not fully understood  . While recreational use is extremely rare, some users take tizanidine for its standalone sedative effects or to potentiate the effects of opiates       .",
   "effects": {
     "positive": [
       "Muscle relaxation",
@@ -92,9 +89,5 @@ export const tizanidine: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Imidazoline",
-    "Arylaminoimidazoline"
-  ]
+  "riskLevel": "moderate"
 };

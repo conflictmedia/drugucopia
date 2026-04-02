@@ -12,13 +12,14 @@ export const _4_ho_dipt: Substance =
   "id": "4-ho-dipt",
   "name": "4-HO-DiPT",
   "commonNames": [
-    "Substituted tryptamines"
+    "4-HO-DiPT",
+    "Iprocin"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted tryptamines",
-  "description": "4-Hydroxy-N,N-diisopropyltryptamine (also known as 4-HO-DiPT and Iprocin) is a lesser-known psychoactive class psychedelic substance of the chemical class tryptamine class that produces psilocin-like psychedelic effects when administered. It is the 4-hydroxy analog of DiPT and is structurally related to tryptamines like 4-HO-DMT (Psilocin), 4-HO-MiPT (Miprocin), and 4-HO-DET (Ethocin). Following the publication of its synthesis by David B. Repke in 1977, its effects in humans were investigated by Alexander Shulgin. It is characterized in his 1997 book TiHKAL (\"Tryptamines I Have Known and Loved\") and is noted for being unique among psychedelics in terms of its speed (apparent 15 minutes after ingestion), intensity (20 milligrams can produce a transcendent peak experience), brevity (2-3 hours), and dose sensitivity. Additionally, idiosyncratic physical effects like muscle tremors and bodily malaise were noted.",
+  "description": "It is the 4-hydroxy analog of DiPT and is structurally related to tryptamines like 4-HO-DMT (Psilocin), 4-HO-MiPT (Miprocin), and 4-HO-DET (Ethocin). Following the publication of its synthesis by David B. Repke in 1977, its effects in humans were investigated by Alexander Shulgin. It is characterized in his 1997 book TiHKAL (\"Tryptamines I Have Known and Loved\") and is noted for being unique among psychedelics in terms of its speed (apparent 15 minutes after ingestion), intensity (20 milligrams can produce a transcendent peak experience), brevity (2-3 hours), and dose sensitivity.",
   "effects": {
     "positive": [
       "Stimulation",
@@ -96,8 +97,5 @@ export const _4_ho_dipt: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted tryptamines"
-  ]
+  "riskLevel": "moderate"
 };

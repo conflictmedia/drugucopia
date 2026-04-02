@@ -12,13 +12,13 @@ export const _25d_nbome: Substance =
   "id": "25d-nbome",
   "name": "25D-NBOMe",
   "commonNames": [
-    "Substituted phenethylamines"
+    "25D-NBOMe"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted phenethylamines",
-  "description": "25D-NBOMe (also known as 2C-D-NBOMe or NBOMe-2C-D) is novel Psychoactive class psychedelic substance of the chemical class phenethylamine class. 25D-NBOMe produces an array of primarily visual and stimulating psychedelic effects when administered. The name 25D-NBOMe, which short-hand for 2C-D-NBOMe, is a derivative of the phenethylamine psychedelic 2C-D. It was first synthesized in 2011 by Martin Hansen and subsequently had its activity explored in 2012 and 2014, where it was established to be a potent agonist at the 5-HT2A receptor that produces effects similar to other members of the 25x-NBOMe series. It is worth noting that compounds of the NBOMe family are not orally active and should be administered sublingually by placing and letting it absorb into one's mouth over a period of 15-25 minutes.",
+  "description": "It was first synthesized in 2011 by Martin Hansen and subsequently had its activity explored in 2012 and 2014, where it was established to be a potent agonist at the 5-HT2A receptor that produces effects similar to other members of the 25x-NBOMe series. It is worth noting that compounds of the NBOMe family are not orally active and should be administered sublingually by placing and letting it absorb into one's mouth over a period of 15-25 minutes. Extremely little is known about the pharmacological properties, metabolism, and toxicity of 25D-NBOMe in humans, and its closely related analogs like 25I-NBOMe has been associated with many deaths and hospitalizations.",
   "effects": {
     "positive": [
       "Sedation & Stimulation - In terms of its effects on the subject's physical energy levels, 25D-NBOMe is considered to be able to produce both stimulating and sedating. The sedation it produces can be considered less intense than other psychedelics such as psilocin and 4-AcO-DMT.",
@@ -130,8 +130,5 @@ export const _25d_nbome: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted phenethylamines"
-  ]
+  "riskLevel": "moderate"
 };

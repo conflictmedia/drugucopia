@@ -12,13 +12,16 @@ export const gabapentin: Substance =
   "id": "gabapentin",
   "name": "Gabapentin",
   "commonNames": [
-    "Gabapentinoids"
+    "Gabapentin",
+    "Neurontin",
+    "Gabarone",
+    "Gralise"
   ],
   "categories": [
     "depressants"
   ],
   "class": "Gabapentinoids",
-  "description": "gabapentinoids Gabapentin (also known as Neurontin) is a psychoactive class depressant substance of the chemical class gabapentinoid class. It is a structural analog of the neurotransmitter GABA and acts by inhibiting certain calcium channels in the brain, namely α2δ subunit-containing voltage-dependent calcium channels (VGCCs). Gabapentin was originally developed to treat epilepsy and is currently FDA approved to treat postherpetic neuralgia in adults and as an adjunctive therapy in the treatment of partial onset seizures. It is often prescribed off-label for restless leg syndrome, social anxiety disorder, panic disorder, and generalized anxiety disorder. Its analgesic and anxiolytic effects provide gabapentin with some recreational potential in a manner that can be compared to a mild benzodiazepine.",
+  "description": "gabapentinoids\nGabapentin (also known as Neurontin) is a depressant substance of the gabapentinoid class. It is a structural analog of the neurotransmitter GABA and acts by inhibiting certain calcium channels in the brain, namely α2δ subunit-containing voltage-dependent calcium channels (VGCCs). Gabapentin was originally developed to treat epilepsy and is currently FDA approved to treat postherpetic neuralgia in adults and as an adjunctive therapy in the treatment of partial onset seizures.",
   "effects": {
     "positive": [
       "Appetite enhancement - Appetite enhancement is not particularly prominent, but is sometimes reported. It can have a synergistic effect when combined with cannabis.",
@@ -83,8 +86,5 @@ export const gabapentin: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Gabapentinoids"
-  ]
+  "riskLevel": "low"
 };

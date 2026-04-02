@@ -12,13 +12,17 @@ export const dmt: Substance =
   "id": "dmt",
   "name": "DMT",
   "commonNames": [
-    "Substituted tryptamines"
+    "DMT",
+    "N,N-DMT",
+    "Dmitry",
+    "The Glory",
+    "The Spirit Molecule"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted tryptamines",
-  "description": "Among psychedelics, it is known for its unique ability to produce short-lived but intense visionary states and complete hallucinations. Its presence is also known to be widespread throughout the plant kingdom. Although various theories have been postulated, its neurobiological function has yet to be determined. When ingested in combination with a MAOI or RIMA agent, it becomes active orally and significantly longer lasting, immersive, and interactive in nature: this combination is known as pharmahuasca. See also ayahuasca.",
+  "description": "N,N-Dimethyltryptamine (also known as DMT, N,N-DMT, Dmitri, and \"The Spirit Molecule\") is a classical psychedelic substance of the tryptamine class. DMT is present in over 65 species of plants and has been identified as being a normal constituent of human metabolism and an endogenous neurotransmitter in certain rodents. When ingested in combination with a MAOI or RIMA agent, it becomes active orally and significantly longer lasting, immersive, and interactive in nature: this combination is known as pharmahuasca.",
   "effects": {
     "positive": [
       "Spontaneous bodily sensations - The \"body high\" of DMT can be described as a pleasurable all-encompassing glow. It maintains a consistent presence that quickly rises with the onset and hits its limit once the peak has been reached. It is capable of becoming very powerful at higher doses and can remain after the experience itself has ended for up the same amount of time of the trip's entire duration.",
@@ -132,10 +136,7 @@ export const dmt: Substance =
     "molecularWeight": "Unknown",
     "class": "Substituted tryptamines"
   },
-  "history": "DMT was first synthesized in 1931 by the German chemist Richard Helmuth Fredrick Manske. Its discovery as a natural product is generally credited to Brazilian chemist and microbiologist Oswaldo Gonçalves de Lima who, in 1946, isolated an alkaloid he named nigerina (nigerine) from the root bark of jurema preta (Mimosa tenuiflora). It was unequivocally identified in 1959, when American chemists were provided a sample of Mimosa tenuiflora. In 1955, a team of American chemists led by Evan Horning isolated and formally identified DMT in the seeds and pods of Anadenanthera peregrina. Since 1955, the substance has been found in a host of organisms: in at least fifty plant species belonging to ten families, and in at least four animal species, including one gorgonian and three mammalian species.",
+  "history": "DMT was first synthesized in 1931 by the German chemist Richard Helmuth Fredrick Manske. Its discovery as a natural product is generally credited to Brazilian chemist and microbiologist Oswaldo Gonçalves de Lima who, in 1946, isolated an alkaloid he named nigerina (nigerine) from the root bark of jurema preta (Mimosa tenuiflora). Since 1955, the substance has been found in a host of organisms: in at least fifty plant species belonging to ten families, and in at least four animal species, including one gorgonian and three mammalian species.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Substituted tryptamines"
-  ]
+  "riskLevel": "low"
 };

@@ -12,13 +12,16 @@ export const omberacetam: Substance =
   "id": "omberacetam",
   "name": "Omberacetam",
   "commonNames": [
-    "Peptide"
+    "Noopept",
+    "Ноопепт",
+    "GVS-111",
+    "Omberacetam"
   ],
   "categories": [
     "nootropics"
   ],
   "class": "Peptide",
-  "description": "Omberacetam is promoted and prescribed in Russia and neighbouring countries as a psychoactive class nootropic with neuroprotective properties. It is growing in popularity due to its effectiveness as a cognitive enhancing compound and because its active dose range is between 10 and 30 mg, which is much lower than compounds that offer similar effects such as the racetams. When compared to the traditional racetams, omberacetam has been found to be, according to studies, 1000 times more potent than the prototypical racetam drug, piracetam. As a peptide, the oral bioavailability is very low. Insufflation and sublingual administration are sometimes preferred because its bioaccessibility is on average 10%.",
+  "description": "Omberacetam is easily accessible through the use of online vendors as a legal dietary supplement in the U.S. and as a medication in other countries. It is growing in popularity due to its effectiveness as a cognitive enhancing compound and because its active dose range is between 10 and 30 mg, which is much lower than compounds that offer similar effects such as the racetams. When compared to the traditional racetams, omberacetam has been found to be, according to studies, 1000 times more potent than the prototypical racetam drug, piracetam.",
   "effects": {
     "positive": [
       "Stimulation - The stimulation which omberacetam presents can be considered as primarily subtle and encouraged rather than forceful and distinct.",
@@ -88,8 +91,5 @@ export const omberacetam: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Peptide"
-  ]
+  "riskLevel": "moderate"
 };

@@ -12,13 +12,13 @@ export const flubromazepam: Substance =
   "id": "flubromazepam",
   "name": "Flubromazepam",
   "commonNames": [
-    "Benzodiazepines"
+    "Flubromazepam"
   ],
   "categories": [
     "depressants"
   ],
   "class": "Benzodiazepines",
-  "description": "benzodiazepines Flubromazolam Flubromazepam is a long-lasting psychoactive substance of the chemical class benzodiazepine class which produces anxiolytic, sedative, muscle relaxant, psychoactive class depressant and amnesic effects. This compound was first made in 1960, but was never marketed and did not receive any further attention or study until late 2012. It has potential use for the short-term treatment of anxiety, insomnia, acute seizures, and the sedation of hospitalized patients. However, it is currently exclusively sold by online research chemical vendors for use as a recreational psychoactive substance and has not been formally studied. This means that any comments regarding its pharmacology are purely speculation based upon the subjective effects it induces and its structural similarity to triazolam, pyrazolam and other benzodiazepines.",
+  "description": "benzodiazepines\nFlubromazolam\nFlubromazepam is a long-lasting psychoactive substance of the benzodiazepine class which produces anxiolytic, sedative, muscle relaxant, depressant and amnesic effects. This compound was first made in 1960, but was never marketed and did not receive any further attention or study until late 2012. It's worth noting that the sudden discontinuation of benzodiazepines can be potentially dangerous or life-threatening for individuals regularly using for extended periods of time, sometimes resulting in seizures or death.",
   "effects": {
     "positive": [
       "Sedation -  In terms of energy level alterations, this substance has the potential to become very sedating in a rapid-acting fashion. At higher doses, this can lead users to suddenly feel as if they are extremely sleep deprived and have not slept for days, forcing them to sit down and generally feel as if they are constantly on the verge of passing out. This sense of sleep deprivation increases proportional to dosage and eventually becomes powerful enough to force a person into complete unconsciousness.",
@@ -87,8 +87,5 @@ export const flubromazepam: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Benzodiazepines"
-  ]
+  "riskLevel": "low"
 };

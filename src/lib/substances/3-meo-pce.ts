@@ -12,13 +12,14 @@ export const _3_meo_pce: Substance =
   "id": "3-meo-pce",
   "name": "3-MeO-PCE",
   "commonNames": [
-    "Arylcyclohexylamines"
+    "3-MeO-PCE",
+    "Methoxyeticyclidine"
   ],
   "categories": [
     "dissociatives"
   ],
   "class": "Arylcyclohexylamines",
-  "description": "3-Methoxyeticyclidine (also known as Methoxieticyclidine and 3-MeO-PCE) is a novel Psychoactive class dissociative substance of the Chemical class arylcyclohexylamine class that produces dissociative and hallucinogenic effects when administered. It is a structural analog of PCE. 3-MeO-PCE began to gain popularity in 2010 and is sold on the online grey area research chemical market as a legal alternative to PCP or ketamine. Very little data exists about the pharmacological properties, metabolism, and toxicity of 3-MeO-PCE, and it has a very brief history of human usage. It is strongly recommended that one use harm reduction practices if using this substance.",
+  "description": "3-Methoxyeticyclidine (also known as Methoxieticyclidine and 3-MeO-PCE) is a novel dissociative substance of the arylcyclohexylamine class that produces dissociative and hallucinogenic effects when administered. 3-MeO-PCE began to gain popularity in 2010  and is sold on the online grey area research chemical market as a legal alternative to PCP or ketamine. Very little data exists about the pharmacological properties, metabolism, and toxicity of 3-MeO-PCE, and it has a very brief history of human usage.",
   "effects": {
     "positive": [
       "Tactile disconnection",
@@ -118,8 +119,5 @@ export const _3_meo_pce: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Arylcyclohexylamines"
-  ]
+  "riskLevel": "moderate"
 };

@@ -12,13 +12,13 @@ export const _2c_c: Substance =
   "id": "2c-c",
   "name": "2C-C",
   "commonNames": [
-    "Substituted phenethylamines"
+    "2C-C"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted phenethylamines",
-  "description": "4-Chloro-2,5-dimethoxyphenethylamine (commonly known as 2C-C) is a lesser-known Psychoactive class psychedelic substance of the Chemical class phenethylamine class that produces psychedelic effects when administered. It is a member of the 2C-x family of psychedelic phenethylamines, all of which were derived from the systematic modification of the mescaline molecule. 2C-C was first synthesized by Alice C. Cheng and Neal Castagnoli Jr. in 1983 as an intermediate in a study evaluating the neurotoxicity of 6-hydroxydopamine analogs. Its activity in humans was later investigated and documented by Alexander Shulgin in his book PiHKAL (\"Phenethylamines I Have Known and Loved\"). Many users report that the effects of 2C-C are gentler, more relaxed, and sedating than other closely related psychedelic phenethylamines such as 2C-B, 2C-I, and 2C-E.",
+  "description": "2C-C was first synthesized by Alice C. Cheng and Neal Castagnoli Jr. in 1983 as an intermediate in a study evaluating the neurotoxicity of 6-hydroxydopamine analogs. Its activity in humans was later investigated and documented by Alexander Shulgin in his book PiHKAL (\"Phenethylamines I Have Known and Loved\"). Very little data exists about the pharmacological properties, metabolism, and toxicity of 2C-C, and its history of human use is limited.",
   "effects": {
     "positive": [
       "Stimulation & Sedation - In terms of its effects on the physical energy levels of the user, the 2C-C experience typically begins with mild stimulation, but usually becomes somewhat sedating as the experience progresses and surprisingly lacks the distinctive energetic feeling associated with most phenethylamines. This is described in PiHKAL as \"an intense form of relaxation.\"",
@@ -105,8 +105,5 @@ export const _2c_c: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted phenethylamines"
-  ]
+  "riskLevel": "moderate"
 };

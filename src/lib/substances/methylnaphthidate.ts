@@ -12,13 +12,14 @@ export const methylnaphthidate: Substance =
   "id": "methylnaphthidate",
   "name": "Methylnaphthidate",
   "commonNames": [
-    "Substituted phenidates"
+    "Methylnaphthidate",
+    "HDMP-28"
   ],
   "categories": [
     "stimulants"
   ],
   "class": "Substituted phenidates",
-  "description": "Methylnaphthidate (also known as HDMP-28) is a novel synthetic psychoactive class stimulant substance of the substituted chemical class phenidate chemical class. It is a structural analog of the commonly prescribed ADHD drug methylphenidate (e.g. Ritalin, Concerta) that produces moderately stimulating effects when administered. Like members of the phenidate class, methylnaphthidate is believed to act as a monoamine reuptake inhibitor. However, it has been reported to display distinct differences in its subjective effects by not behaving as a traditional dopaminergic stimulant. This has been speculated to owe itself to its appreciable effects on serotonin reuptake inhibition that is not observed in typical methylphenidate analogs.",
+  "description": "Methylnaphthidate (also known as HDMP-28) is a novel synthetic stimulant substance of the substituted phenidate chemical class. Ritalin, Concerta) that produces moderately stimulating effects when administered. Very little data exists about the pharmacological properties, metabolism, and toxicity of methylnaphthidate, and it has little history of human usage.",
   "effects": {
     "positive": [
       "Stimulation",
@@ -104,8 +105,5 @@ export const methylnaphthidate: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted phenidates"
-  ]
+  "riskLevel": "moderate"
 };

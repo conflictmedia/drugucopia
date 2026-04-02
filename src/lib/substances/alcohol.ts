@@ -12,13 +12,19 @@ export const alcohol: Substance =
   "id": "alcohol",
   "name": "Alcohol",
   "commonNames": [
-    "Alcohol"
+    "Alcohol",
+    "Booze",
+    "Liquor",
+    "Moonshine",
+    "Sauce",
+    "Juice",
+    "Bevvy"
   ],
   "categories": [
     "depressants"
   ],
   "class": "Alcohol",
-  "description": "It is the primary psychoactive component of alcoholic drinks, liquors and spirits; making it the second-most widely used recreational substance globally (after caffeine). However, isopropyl alcohol, and ethanol, are just a few psychoactive alcohols in alcoholic drinks, and analogues. In modern times, drinking alcohol is the most commonly used legal recreational substance in the world. It is considered to have moderate abuse potential and chronic use is associated with escalating tolerance, physical dependence, and addiction. Additionally, chronic use is associated with negative effects on the brain and other organs.",
+  "description": "alcohol\nEthanol (also known as ethyl alcohol, ethyl hydroxide, drinking alcohol or simply alcohol) is a depressant substance of the alcohol class. It is the primary psychoactive component of alcoholic drinks, liquors and spirits; making it the second-most widely used recreational substance globally (after caffeine). Ethanol principally acts by binding to GABA receptors in parts of the brain, but is also known to exhibit “promiscuous” pharmacological activity due to its activation of and/or interaction with various neurotransmitters and receptor sites. A mild, brief exposure to isopropyl alcohol (which is only moderately more toxic than ethanol) is unlikely to cause any serious harm, but methanol is lethal even in small quantities, as little as 10–15 milliliters (2–3 teaspoons). Alcoholic beverages have been produced and consumed by humans since the Neolithic Era, from hunter-gatherer communities to nation-states. Subjective effects include sedation, disinhibition, anxiety suppression, empathy, affection and sociability enhancement, muscle relaxation, and euphoria.",
   "effects": {
     "positive": [
       "Sedation & Stimulation - This effect manifests itself as an increase in energy and desire to do certain activities in moderate doses, whereas low or high doses can cause the user to feel sedated and sleepy",
@@ -131,10 +137,7 @@ export const alcohol: Substance =
     "molecularWeight": "Unknown",
     "class": "Alcohol"
   },
-  "history": "History and culture of alcoholic drinks Alcohol was brewed as early as 7000 to 6650 BCE in northern China. Beer was likely brewed from barley as early as the sixth century BCE in Egypt. Pliny the Elder wrote about the golden age of winemaking in Rome, the second century BCE, when vineyards were planted. In vino veritas is a Latin phrase that means \"in wine there is truth.\" The global alcoholic beverages industry exceeded $1 trillion in 2018.",
+  "history": "History and culture of alcoholic drinks\nAlcohol was brewed as early as 7000 to 6650 BCE in northern China. Pliny the Elder wrote about the golden age of winemaking in Rome, the second century BCE, when vineyards were planted. In vino veritas is a Latin phrase that means \"in wine there is truth.\"",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "very-high",
-  "aliases": [
-    "Alcohol"
-  ]
+  "riskLevel": "very-high"
 };

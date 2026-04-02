@@ -12,14 +12,13 @@ export const pma: Substance =
   "id": "pma",
   "name": "PMA",
   "commonNames": [
-    "Amphetamine",
-    "Substituted amphetamines"
+    "PMA"
   ],
   "categories": [
     "empathogens"
   ],
   "class": "Amphetamine",
-  "description": "para-Methoxyamphetamine (also known as 4-methoxyamphetamine, 4-MeOA, inaccurately as 4-MA (which should be reserved for 4-MA (4-MeA) instead) and more commonly as PMA) is a potent psychoactive class hallucinogen substance of the chemical class amphetamine class. PMA belongs to a family of substances known as the substituted amphetamines. However, unlike other substituted amphetamines, PMA does not produce stimulant or entactogen effects, nor euphoria. It is not taken on its own but is instead found as an ingredient in tablets of \"Ecstasy\" as a false substitute for MDMA. PMA, along with other drugs like PMMA and PMEA have very little recreational value and are considered as one of the most dangerous and toxic substances known.",
+  "description": "para-Methoxyamphetamine (also known as 4-methoxyamphetamine, 4-MeOA, inaccurately as 4-MA (which should be reserved for 4-MA (4-MeA) instead) and more commonly as PMA) is a potent hallucinogen substance of the amphetamine class. PMA has been around since the 1970s, where it was sold along with PMMA as Ecstasy, and has gained great attention following a number of hospitalizations and deaths. It produces dangerous adverse effects, including a sudden and extremely high rise in body temperature and blood pressure, abnormal heartbeats, dehydration and sometimes severe dizziness.",
   "effects": {
     "positive": [
       "Stimulation - In terms of its effects on the user's physical energy levels, PMA is commonly regarded as moderately stimulating and energetic exclusively at lower dosages.",
@@ -94,9 +93,5 @@ export const pma: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "very-high",
-  "aliases": [
-    "Amphetamine",
-    "Substituted amphetamines"
-  ]
+  "riskLevel": "very-high"
 };

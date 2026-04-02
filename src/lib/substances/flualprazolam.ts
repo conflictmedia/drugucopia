@@ -12,13 +12,13 @@ export const flualprazolam: Substance =
   "id": "flualprazolam",
   "name": "Flualprazolam",
   "commonNames": [
-    "Benzodiazepines"
+    "Flualprazolam"
   ],
   "categories": [
     "depressants"
   ],
   "class": "Benzodiazepines",
-  "description": "benzodiazepines Flualprazolam is a novel psychoactive class depressant substance of the chemical class benzodiazepine class. It is a structural analog of alprazolam (Xanax), a widely used prescription benzodiazepine with high recreational potential. Its effects are somewhat similar to alprazolam; however, it is reported to be more hypnotic and sedating than anxiolytic, and not as recreational. It appears to be more potent-by-weight than alprazolam. The potency of Flualprazolam compared to Alprazolam has been reported to vary dramatically by users (ranging anywhere between 1.5x and 5x stronger than Alprazolam).",
+  "description": "Flualprazolam appears to have first become available for sale in 2017 on the online research chemical market. It has been marketed or deceptively sold as a replacement for alprazolam despite differing in substantive ways, according to some reports. Subjective effects include sedation, muscle relaxation, disinhibition, anxiety suppression, memory suppression, and euphoria. The health risks of forming physical dependence to this compound are not known, and may possess additional risks relative to traditional benzodiazepines. It is strongly advised to only use Flualprazolam for short periods of time, and if used as an emergency substitute to avoid benzodiazepine withdrawal, to avoid compulsive redosing and minimize the administered dose as much as possible.",
   "effects": {
     "positive": [
       "Muscle relaxation - Reportedly stronger than Alprazolam.",
@@ -87,8 +87,5 @@ export const flualprazolam: Substance =
   },
   "history": "Flualprazolam first appeared on the research chemical market around 2017",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Benzodiazepines"
-  ]
+  "riskLevel": "moderate"
 };

@@ -12,13 +12,13 @@ export const u_47700: Substance =
   "id": "u-47700",
   "name": "U-47700",
   "commonNames": [
-    "Benzamide"
+    "U-47700"
   ],
   "categories": [
     "opioids"
   ],
   "class": "Benzamide",
-  "description": "opiates U-47700 is a synthetic psychoactive class opioid substance of the chemical class benzamide chemical class that produces analgesic, relaxing, sedating and euphoric effects when administered. This compound was initially developed by a team at Upjohn in the 1970s. Upjohn created over a dozen patents on related compounds until they discovered that U-47700 was the most active. This was done by looking for the key functional groups which gave the greatest activity. Very little is known about the toxicity of U-47700 and it has very little history of human usage.",
+  "description": "opiates\nU-47700 is a synthetic opioid substance of the benzamide chemical class that produces analgesic, relaxing, sedating and euphoric effects when administered. Upjohn created over a dozen patents on related compounds until they discovered that U-47700 was the most active. Many reports suggest that it possesses unique physical properties relative to most opioids such as an unusual amount of causticity (ability to destroy living tissue) that may make it significantly more harmful to expose to the body, particularly when it is injected.",
   "effects": {
     "positive": [
       "Physical euphoria - This particular substance is considered to cause less physically intense euphoria as compared to morphine or diacetylmorphine (heroin). This sensation is described as moderate feelings of physical comfort, warmth and physical euphoria which spreads throughout the body.",
@@ -89,8 +89,5 @@ export const u_47700: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "high",
-  "aliases": [
-    "Benzamide"
-  ]
+  "riskLevel": "high"
 };

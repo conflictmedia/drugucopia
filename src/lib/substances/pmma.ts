@@ -12,14 +12,13 @@ export const pmma: Substance =
   "id": "pmma",
   "name": "PMMA",
   "commonNames": [
-    "Amphetamine",
-    "Substituted amphetamines"
+    "PMMA"
   ],
   "categories": [
     "empathogens"
   ],
   "class": "Amphetamine",
-  "description": "para-Methoxymethamphetamine (also known as 4-methoxymethamphetamine, 4-MeOMA, inaccurately as \"4-MMA\" (which should instead be reserved for 4-MMA (4-MeMA) instead) and more commonly as PMMA) is a highly dangerous and toxic synthetic substance of the Chemical class amphetamine class that is closely related to PMA. Like PMA, it is known for producing extremely dangerous, life-threatening side effects. At lower dosages, its effects are somewhat different from PMA, with reduced tendency to cause severe hyperthermia while producing more entactogenic effects that can be mistaken for MDMA (although at higher dosages it does have the same risk as PMA). Its history of use is unknown, but it has appeared more frequently in the 2000s and 2010s. It is generally less potent than PMA.",
+  "description": "para-Methoxymethamphetamine (also known as 4-methoxymethamphetamine, 4-MeOMA, inaccurately as \"4-MMA\" (which should instead be reserved for 4-MMA (4-MeMA) instead) and more commonly as PMMA) is a highly dangerous and toxic synthetic substance of the amphetamine class that is closely related to PMA. At lower dosages, its effects are somewhat different from PMA, with reduced tendency to cause severe hyperthermia while producing more entactogenic effects that can be mistaken for MDMA (although at higher dosages it does have the same risk as PMA). Its history of use is unknown, but it has appeared more frequently in the 2000s and 2010s.",
   "effects": {
     "positive": [
       "Stimulation - In terms of its effects on the user's physical energy levels, PMMA is commonly regarded as moderately stimulating and energetic exclusively at lower dosages.",
@@ -85,9 +84,5 @@ export const pmma: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "very-high",
-  "aliases": [
-    "Amphetamine",
-    "Substituted amphetamines"
-  ]
+  "riskLevel": "very-high"
 };

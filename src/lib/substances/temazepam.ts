@@ -12,13 +12,15 @@ export const temazepam: Substance =
   "id": "temazepam",
   "name": "Temazepam",
   "commonNames": [
-    "Benzodiazepines"
+    "Temazepam",
+    "Restoril",
+    "Normison"
   ],
   "categories": [
     "depressants"
   ],
   "class": "Benzodiazepines",
-  "description": "benzodiazepines Temazepam (trade name Restoril) is a short-acting psychoactive substance of the Chemical class benzodiazepine class which produces anxiolytic, sedative, hypnotic, muscle relaxant, anticonvulsant, and amnesic effects. Temazepam, like other benzodiazepines, binds to specific sites on the GABAA gamma-amino-butyric acid receptor. Temazepam is used for the short term treatment of severe and debilitating insomnia and as a preoperative sedative. Oral administration of temazepam in humans resulted in rapid absorption, a fast onset of action and symptomatic relief. Significant blood levels were achieved in 15-30 minutes post-ingestion with peak levels achieved within 30 minutes to 3 three hours.",
+  "description": "benzodiazepines\nTemazepam (trade name Restoril) is a short-acting psychoactive substance of the benzodiazepine class which produces anxiolytic, sedative, hypnotic, muscle relaxant, anticonvulsant, and amnesic effects. Significant blood levels were achieved in 15-30 minutes post-ingestion with peak levels achieved within 30 minutes to 3 three hours. It's worth noting that the sudden discontinuation of benzodiazepines can be potentially dangerous or life-threatening for individuals using regularly for extended periods of time, sometimes resulting in seizures or death.",
   "effects": {
     "positive": [
       "Sedation -  In terms of energy level alterations, this drug has the potential to be extremely sedating and often results in an overwhelmingly lethargic state. At higher levels, this causes users to suddenly feel as if they are extremely sleep deprived and have not slept for days, forcing them to sit down and generally feel as if they are constantly on the verge of passing out instead of engaging in physical activities. This sense of sleep deprivation increases proportional to dosage and eventually becomes powerful enough to force a person into complete unconsciousness.",
@@ -82,8 +84,5 @@ export const temazepam: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Benzodiazepines"
-  ]
+  "riskLevel": "low"
 };

@@ -12,13 +12,14 @@ export const jwh_073: Substance =
   "id": "jwh-073",
   "name": "JWH-073",
   "commonNames": [
-    "Naphthoylindole"
+    "JWH-073",
+    "Spice"
   ],
   "categories": [
     "cannabinoids"
   ],
   "class": "Naphthoylindole",
-  "description": "JWH-073 is an analgesic chemical from the naphthoylindole family that acts as a full agonist at both the CB1 and CB2 psychoactive class cannabinoid receptors. It is somewhat selective for the CB1 subtype, with affinity at this subtype approximately 5x the affinity at CB2. The abbreviation JWH stands for John W. Huffman, one of the inventors of the compound. JWH-073 gained popularity in April 2009, when it was claimed by chemists at the University of Freiburg to have been found in a \"fertilizer\" product called \"Forest Humus\", along with another synthetic cannabinoid, CP 47,497. It was subsequently found as a chemical within the popular synthetic cannabis blend Spice, which had been sold in numerous countries around the world since 2002.",
+  "description": "The abbreviation JWH stands for John W. Huffman, one of the inventors of the compound. JWH-073 gained popularity in April 2009, when it was claimed by chemists at the University of Freiburg to have been found in a \"fertilizer\" product called \"Forest Humus\", along with another synthetic cannabinoid, CP 47,497. It was subsequently found as a chemical within the popular synthetic cannabis blend Spice, which had been sold in numerous countries around the world since 2002.",
   "effects": {
     "positive": [
       "Spontaneous tactile sensations - The \"body high\" of JWH-073 can be described as a warm and soft pleasurable, all-encompassing tingling sensation that spreads over the body in a prior to initial ingestion. It maintains a consistent presence that quickly rises with the onset and hits its limit once the peak has been reached before immediately dissipating. It can be described as less intense in proportion to cognitive effects when compared to JWH-018",
@@ -81,8 +82,5 @@ export const jwh_073: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "high",
-  "aliases": [
-    "Naphthoylindole"
-  ]
+  "riskLevel": "high"
 };

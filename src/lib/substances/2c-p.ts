@@ -12,13 +12,13 @@ export const _2c_p: Substance =
   "id": "2c-p",
   "name": "2C-P",
   "commonNames": [
-    "Substituted phenethylamines"
+    "2C-P"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted phenethylamines",
-  "description": "2,5-Dimethoxy-4-propylphenethylamine (also known as 2C-P) is a lesser-known novel Psychoactive class psychedelic substance of the chemical class phenethylamine class. 2C-P is a relatively obscure member of the 2C-x family of psychedelic phenethylamines, which are closely related to the classical psychedelic mescaline. It is known as one of the most potent, dose-sensitive, and long-lasting of the series. Although the precise mechanism is not known, it is thought to produce its psychoactive effects by activating serotonin receptors in parts of the brain. Very little data exists about the pharmacological properties, metabolism, and toxicity of 2C-P. Due its powerful effects and unusually long duration, 2C-P may be overly intense and difficult to use safely for those who are not highly experienced with hallucinogens.",
+  "description": "Although the precise mechanism is not known, it is thought to produce its psychoactive effects by activating serotonin receptors in parts of the brain. 2C-P was first synthesized and tested for human activity by the American chemist Alexander Shulgin, who documented his findings in the 1991 book PiHKAL (\"Phenethylamines I Have Known and Loved\"). The commentary also notes the small window separating an adequate dose from an excessive dose, suggesting it is relatively easy to overdose on. User reports tend to characterize the effects of 2C-P in terms of its unusually long duration, powerful, sometimes overwhelming visuals, and intense \"body load\" consisting of nausea, muscle tension, and general bodily discomfort.",
   "effects": {
     "positive": [
       "Stimulation - 2C-P is considered to be very energetic and stimulating in a fashion that is comparable to that of 2C-B, 2C-I and other substances within the 2C-x family, being encouraged instead of forced.",
@@ -111,8 +111,5 @@ export const _2c_p: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted phenethylamines"
-  ]
+  "riskLevel": "moderate"
 };

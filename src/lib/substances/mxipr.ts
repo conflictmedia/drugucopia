@@ -12,13 +12,14 @@ export const mxipr: Substance =
   "id": "mxipr",
   "name": "MXiPr",
   "commonNames": [
-    "Arylcyclohexylamines"
+    "MXiPR",
+    "MXiP"
   ],
   "categories": [
     "dissociatives"
   ],
   "class": "Arylcyclohexylamines",
-  "description": "3-MeO-2′-Oxo-PCiPr (also known as MXiPr) is a novel Psychoactive class dissociative substance of the Chemical class arylcyclohexylamine class. It is a structural analog of MXE. The mechanism of action is not known, but it is likely an NMDA receptor antagonist, producing dissociative and euphoric effects. It first appeared on the online research chemical market in late 2020 and was specifically marketed as a legal substitute for MXE or ketamine. Its subjective effects are described as mostly similar to O-PCE or MXE, but being more unpredictable and euphoric which makes it further away from ketamine effects-wise.",
+  "description": "The mechanism of action is not known, but it is likely an NMDA receptor antagonist, producing dissociative and euphoric effects. It first appeared on the online research chemical market in late 2020 and was specifically marketed as a legal substitute for MXE or ketamine. Its subjective effects are comparable to that of ketamine and MXE and include sedation, motor control loss, pain relief, internal hallucinations, conceptual thinking, euphoria, and dissociation.",
   "effects": {
     "positive": [
       "Cognitive euphoria - The euphoria of this substance is reported to be stronger than that of other dissociatives like O-PCE but weaker than that of MXE.",
@@ -113,8 +114,5 @@ export const mxipr: Substance =
   },
   "history": "MXiPr first appeared for sale on the online research chemical market in late 2020.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Arylcyclohexylamines"
-  ]
+  "riskLevel": "moderate"
 };

@@ -12,16 +12,16 @@ export const butylone: Substance =
   "id": "butylone",
   "name": "Butylone",
   "commonNames": [
-    "MDxx",
-    "Cathinone",
-    "Substituted cathinones"
+    "Butylone",
+    "bk-MBDB",
+    "B1"
   ],
   "categories": [
     "empathogens",
     "stimulants"
   ],
   "class": "MDxx",
-  "description": "Butylone (also known as β-keto-N-methylbenzodioxolylbutanamine, βk-MBDB, or B1) is a synthetic entactogen and psychoactive class stimulant substance of the chemical class cathinone class. It is the β-keto analog of MBDB and the substituted methylenedioxy analogue of buphedrone. As a designer drug, it is commonly sold on the street along with ethylone as a substitute or counterfeit for MDMA and methylone (all of which have collectively come to be referred to as \"Molly\") due to methylone's declining availability on the research chemical market. However, in spite of behavioral and pharmacological similarities between butylone and MDMA, the observed subjective effects of both substances are not completely identical. Subjective effects include stimulation, thought acceleration, motivation enhancement, increased libido, appetite suppression, and euphoria, Butylone is reported to be less potent than its relatives methylone and ethylone as well as possessing more classic stimulant as opposed to entactogenic effects.",
+  "description": "Butylone (also known as β-keto-N-methylbenzodioxolylbutanamine, βk-MBDB, or B1) is a synthetic entactogen and stimulant substance of the cathinone class. As a designer drug, it is commonly sold on the street along with ethylone as a substitute or counterfeit for MDMA and methylone (all of which have collectively come to be referred to as \"Molly\") due to methylone's declining availability on the research chemical market. Subjective effects include stimulation, thought acceleration, motivation enhancement, increased libido, appetite suppression, and euphoria, Butylone is reported to be less potent than its relatives methylone and ethylone as well as possessing more classic stimulant as opposed to entactogenic effects.",
   "effects": {
     "positive": [
       "Stimulation - In terms of its effects on the user's physical energy levels, butylone is commonly considered to be highly stimulating and energetic. This encourages activities such as running, climbing and dancing in a way that makes butylone a popular choice for musical events such as festivals and raves. The particular style of stimulation which butylone presents can be described as forced. This means that at higher doses, it becomes difficult or impossible to keep still as jaw clenching, involuntarily bodily shakes, and vibrations become present, resulting in an extreme unsteadiness of the hands and a general lack of motor control.",
@@ -99,10 +99,5 @@ export const butylone: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "MDxx",
-    "Cathinone",
-    "Substituted cathinones"
-  ]
+  "riskLevel": "moderate"
 };

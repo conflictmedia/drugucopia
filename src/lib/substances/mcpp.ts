@@ -12,13 +12,13 @@ export const mcpp: Substance =
   "id": "mcpp",
   "name": "MCPP",
   "commonNames": [
-    "Substituted piperazines"
+    "mCPP"
   ],
   "categories": [
     "stimulants"
   ],
   "class": "Substituted piperazines",
-  "description": "meta-Chlorophenylpiperazine (also known as mCPP) is a stimulant drug of the phenylpiperazine class. It was first synthesized as one in a series of potential novel antihistamines by Thomas H. Wicker Jr. in 1951 as part of his doctoral work at the University of Florida. Unlike many other stimulants like amphetamine, mCPP is generally considered to be unpleasant. mCPP is notable for inducing anxiety, and causing migraines and severe headaches. mCPP is occasionally encountered as an adulterant in street MDMA.",
+  "description": "meta-Chlorophenylpiperazine (also known as mCPP) is a stimulant drug of the phenylpiperazine class. It was first synthesized as one in a series of potential novel antihistamines by Thomas H. Wicker Jr. in 1951 as part of his doctoral work at the University of Florida. Unlike many other stimulants like amphetamine, mCPP is generally considered to be unpleasant.",
   "effects": {
     "positive": [
       "Increased bodily temperature"
@@ -88,8 +88,5 @@ export const mcpp: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted piperazines"
-  ]
+  "riskLevel": "moderate"
 };

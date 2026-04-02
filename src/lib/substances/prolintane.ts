@@ -12,15 +12,13 @@ export const prolintane: Substance =
   "id": "prolintane",
   "name": "Prolintane",
   "commonNames": [
-    "Amphetamine",
-    "Substituted amphetamines",
-    "Substituted pyrrolidines"
+    "Prolintane"
   ],
   "categories": [
     "stimulants"
   ],
   "class": "Amphetamine",
-  "description": "1-Phenyl-2-pyrrolidinylpentane (also known as Prolintane, and by the trade names Catovit, Promotil, and Villescon) is a synthetic central nervous system (CNS) psychoactive class stimulant that is structurally similar to the chemical class substituted pyrrolidine class of compounds such as MDPV and A-PVP albeit with notably attenuated effects. Prolintane was first synthesized in the 1950s, where it was found primarily to act as as a norepinephrine-dopamine reuptake inhibitor (NDRI) which is thought to confer its stimulant and potential nootropic qualities. Historical reports show records of the preparation of prolintane for use as a mild CNS stimulant, wakefulness agent, and cessation aid for cocaine addiction. It has been marketed in Europe since the 1960s as an antidepressant (i.e. due to its anti-fatigue properties) and analeptic. It has a history of being used in neuropsychiatric research related to CNS stimulants with reduced side effects.",
+  "description": "1-Phenyl-2-pyrrolidinylpentane (also known as Prolintane, and by the trade names Catovit, Promotil, and Villescon) is a synthetic central nervous system (CNS) stimulant that is structurally similar to the substituted pyrrolidine class of compounds such as MDPV and A-PVP albeit with notably attenuated effects. Prolintane was first synthesized in the 1950s, where it was found primarily to act as as a norepinephrine-dopamine reuptake inhibitor (NDRI) which is thought to confer its stimulant and potential nootropic qualities. Therapeutic uses of prolintane in Africa, Europe, and Australia include the treatment of narcolepsy, ADHD, fatigue, and orthostatic hypotension.",
   "effects": {
     "positive": [
       "Stamina enhancement",
@@ -100,10 +98,5 @@ export const prolintane: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Amphetamine",
-    "Substituted amphetamines",
-    "Substituted pyrrolidines"
-  ]
+  "riskLevel": "moderate"
 };

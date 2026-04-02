@@ -12,13 +12,15 @@ export const secobarbital: Substance =
   "id": "secobarbital",
   "name": "Secobarbital",
   "commonNames": [
-    "Barbiturates"
+    "Secobarbital",
+    "Secobarbitone",
+    "Seconal"
   ],
   "categories": [
     "depressants"
   ],
   "class": "Barbiturates",
-  "description": "barbiturates Secobarbital, also known as secobarbitone in British English and by the brand name Seconal, is a short-acting psychoactive drug of the barbiturate class which produces powerful anxiolytic, hypnotic, muscle relaxant and amnesic effects. The combination drug Tuinal has a combination of secobarbital and amobarbital. Secobarbital is used medically as a hypnotic for the short-term treatment of insomnia and as an anticonvulsant in emergency situations, such as status epilepticus. Secobarbital works in a similar fashion to benzodiazepines, however, barbiturates bind to a different and distinct allosteric site on the GABAA receptor. Compared to other barbiturates such as phenobarbital, secobarbital has a prompt onset of action, generally working within fifteen minutes of ingestion.",
+  "description": "barbiturates\nSecobarbital, also known as secobarbitone in British English and by the brand name Seconal, is a short-acting psychoactive drug of the barbiturate class which produces powerful anxiolytic, hypnotic, muscle relaxant and amnesic effects. Secobarbital works in a similar fashion to benzodiazepines, however, barbiturates bind to a different and distinct allosteric site on the GABAA receptor. Compared to other barbiturates such as phenobarbital, secobarbital has a prompt onset of action, generally working within fifteen minutes of ingestion.",
   "effects": {
     "positive": [
       "Sedation -  In terms of energy level alterations, this drug has the potential to be extremely sedating and often results in an overwhelmingly lethargic state. At higher levels, this causes users to suddenly feel as if they are extremely sleep deprived and have not slept for days, forcing them to sit down and generally feel as if they are constantly on the verge of passing out instead of engaging in physical activities. This sense of sleep deprivation increases proportional to dosage and eventually becomes powerful enough to force a person into complete unconsciousness.",
@@ -79,8 +81,5 @@ export const secobarbital: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Barbiturates"
-  ]
+  "riskLevel": "moderate"
 };

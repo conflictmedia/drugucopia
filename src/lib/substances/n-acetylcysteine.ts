@@ -12,13 +12,13 @@ export const n_acetylcysteine: Substance =
   "id": "n-acetylcysteine",
   "name": "N-Acetylcysteine",
   "commonNames": [
-    "Cysteine"
+    "N-Acetylcysteine"
   ],
   "categories": [
     "nootropics"
   ],
   "class": "Cysteine",
-  "description": "N-Acetylcysteine (NAC), also known as Acetylcysteine, is a medication that is used to treat paracetamol (acetaminophen) overdose, and to loosen thick mucus in individuals with chronic bronchopulmonary disorders like pneumonia, bronchitis and cystic fibrosis. It has been used to treat lactobezoar in infants. It can be taken intravenously, by mouth, or inhaled as a mist. Some people use it as a dietary supplement. It is currently being explored in its effect and relief of a wide variety of cognitive disorders including, but not limited to addiction, autism, obsessive compulsive disorder, grooming disorders, schizophrenia, and bipolar disorder.",
+  "description": "N-Acetylcysteine (NAC), also known as Acetylcysteine, is a medication that is used to treat paracetamol (acetaminophen) overdose, and to loosen thick mucus in individuals with chronic bronchopulmonary disorders like pneumonia, bronchitis and cystic fibrosis. It is currently being explored in its effect and relief of a wide variety of cognitive disorders including, but not limited to addiction, autism, obsessive compulsive disorder, grooming disorders, schizophrenia, and bipolar disorder. The safe oral dosage of Acetylcysteine appears to range between 300mg and 3000mg daily depending of specific individuals and their underlying condition.",
   "effects": {
     "positive": [
       "Addiction suppression - Acetylcysteine's action on glutaminergic and dopaminergic pathways is thought to reverse brain functions which have been disturbed by drug abuse and addiction. This mechanism has been shown to provide relief for those who struggle with compulsive redosing, reward behaviors and psychological cravings, and has been shown to positively reverse nicotine addiction, cocaine addiction, marijuana dependence., and many other compulsive behaviors. Anecdotal reports suggest that one can take this compound over their addictive drug of choice for the purpose of quickly suppressing their cravings.",
@@ -70,8 +70,5 @@ export const n_acetylcysteine: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Cysteine"
-  ]
+  "riskLevel": "moderate"
 };

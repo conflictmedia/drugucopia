@@ -12,15 +12,14 @@ export const _5_apb: Substance =
   "id": "5-apb",
   "name": "5-APB",
   "commonNames": [
-    "Substituted amphetamines",
-    "Substituted benzofurans"
+    "5-APB"
   ],
   "categories": [
     "empathogens",
     "stimulants"
   ],
   "class": "Substituted amphetamines",
-  "description": "5-(2-Aminopropyl)benzofuran (commonly known as 5-APB) is a lesser-known novel Psychoactive class entactogen of the chemical class benzofuran class that produces MDA-like entactogenic and stimulating effects when administered. It is structurally related to entactogens like 5-MAPB, 6-APB, and MDA. 5-APB was first synthesized in 1993 by psychedelic chemist and researcher David E. Nichols as a potential non-neurotoxic alternative to MDMA. However, it did not come into popular recreational use until over a decade later, where it briefly entered the rave scene and global research chemicals market. It was sold along with other novel benzofuran entactogens under the name \"Benzofury\" before its sale and import were subsequently banned.",
+  "description": "5-APB was first synthesized in 1993 by psychedelic chemist and researcher David E. Nichols as a potential non-neurotoxic alternative to MDMA. However, it did not come into popular recreational use until over a decade later, where it briefly entered the rave scene and global research chemicals market. Compared to other members of its family such as 6-APB and 5-MAPB, this compound in particular is known for its stimulating and euphoric effects which has resulted in its rise in popularity as a product which is easily accessible through the use of online research chemical vendors.",
   "effects": {
     "positive": [
       "Stimulation",
@@ -96,11 +95,7 @@ export const _5_apb: Substance =
     "molecularWeight": "Unknown",
     "class": "Substituted amphetamines"
   },
-  "history": "The synthesis of 5-APB was first reported by a team led by the medicinal chemist and psychedelic researcher David E. Nichols at Purdue University. They were examining the role of the MDA dioxle ring structure in interacting with serotonergic neurons. It was also partly an effort to find an alternative to MDMA, which was gaining recognition as a potentially useful adjunct in psychotherapy, but was also being linked to neurotoxic effects. Human usage was not documented until 2010, when it emerged for sale on the research chemical market. On March 5, 2014 the UK Home Office announced that 6-APB would be made a class B drug on 10 June 2014 alongside every other benzofuran entactogen and many structurally related drugs.",
+  "history": "The synthesis of 5-APB was first reported by a team led by the medicinal chemist and psychedelic researcher David E. Nichols at Purdue University. It was also partly an effort to find an alternative to MDMA, which was gaining recognition as a potentially useful adjunct in psychotherapy, but was also being linked to neurotoxic effects. On March 5, 2014 the UK Home Office announced that 6-APB would be made a class B drug on 10 June 2014 alongside every other benzofuran entactogen and many structurally related drugs.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted amphetamines",
-    "Substituted benzofurans"
-  ]
+  "riskLevel": "moderate"
 };

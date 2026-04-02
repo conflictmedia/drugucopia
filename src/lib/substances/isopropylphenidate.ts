@@ -12,13 +12,15 @@ export const isopropylphenidate: Substance =
   "id": "isopropylphenidate",
   "name": "Isopropylphenidate",
   "commonNames": [
-    "Substituted phenidates"
+    "Isopropylphenidate",
+    "IPH",
+    "IPPH"
   ],
   "categories": [
     "stimulants"
   ],
   "class": "Substituted phenidates",
-  "description": "Isopropylphenidate (also known as IPH, IPP, IPPH, IPD and IPPD) is a novel lesser-known psychoactive class stimulant of the chemical class phenidate chemical class. It is a structural analog of the widely-prescribed ADHD medication methylphenidate. It is a norepinephrine-dopamine reuptake inhibitor (NDRI). Isopropylphenidate has been investigated for its potential use as a replacement for methylphenidate in the treatment of ADHD and related disorders. Shortly after, it became made available for sale on the online gray market as a research chemical for global distribution.",
+  "description": "Isopropylphenidate (also known as IPH, IPP, IPPH, IPD and IPPD) is a novel lesser-known stimulant of the phenidate chemical class. One study found that it displayed the same basic activity as a norepinephrine-dopamine reuptake inhibitor (NDRI), possessing, along with both methylphenidate and ethylphenidate, an appreciably high affinity for the dopamine transporter and effects on its cellular reuptake. It was initially released following the banning of ethylphenidate, which on April 2015 became illegal in the United Kingdom following a temporary-then-permanent blanket ban.",
   "effects": {
     "positive": [
       "Increased heart rate",
@@ -109,8 +111,5 @@ export const isopropylphenidate: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted phenidates"
-  ]
+  "riskLevel": "moderate"
 };

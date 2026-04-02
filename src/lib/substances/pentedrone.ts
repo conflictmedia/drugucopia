@@ -12,13 +12,14 @@ export const pentedrone: Substance =
   "id": "pentedrone",
   "name": "Pentedrone",
   "commonNames": [
-    "Cathinone"
+    "Pentedrone",
+    "Drone"
   ],
   "categories": [
     "stimulants"
   ],
   "class": "Cathinone",
-  "description": "Pentedrone (also known as drone) is a lesser-known novel psychoactive class stimulant substance of the cathinone class. Pentedrone acts as a norepinephrine-dopamine reuptake inhibitor (NDRI). Pentedrone was first detected being sold online in 2010. Pentedrone and similar compounds are sometimes referred to as \"bath salts\". Pentedrone is known to come in the form of either a white powder or crystallized shards which users can ingest to produce a powerful, fast-acting but short-lived euphoric stimulant effects which are comparable to those of crack-cocaine, N-ethylpentedrone and a-PVP-type compounds, particularly when they are insufflated, vaporized or injected.",
+  "description": "It is an example of a contemporary designer drug specifically chosen to mimic and/or replace the effects of street drugs like cocaine, MDMA, or methamphetamine. Pentedrone is known to come in the form of either a white powder or crystallized shards which users can ingest to produce a powerful, fast-acting but short-lived euphoric stimulant effects which are comparable to those of crack-cocaine, N-ethylpentedrone and a-PVP-type compounds, particularly when they are insufflated, vaporized or injected. Starting with the advent of MDPV, research chemical stimulants like pentedrone have gained notoriety for its tendency to induce compulsive redosing and addictive behaviors in a seemingly significant percentage of its users as well the ability to readily induce paranoid, delusional states and stimulant psychosis when abused.",
   "effects": {
     "positive": [
       "Stimulation - In terms of its effects on the user's physical energy levels, pentedrone can be considered to be very stimulating and energetic.",
@@ -104,8 +105,5 @@ export const pentedrone: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Cathinone"
-  ]
+  "riskLevel": "moderate"
 };

@@ -12,13 +12,13 @@ export const piracetam: Substance =
   "id": "piracetam",
   "name": "Piracetam",
   "commonNames": [
-    "Racetams"
+    "Piracetam"
   ],
   "categories": [
     "nootropics"
   ],
   "class": "Racetams",
-  "description": "Piracetam (2-oxo-1-pyrrolidine acetamide) is a psychoactive class nootropic substance of the chemical class racetam class. It is a derivative of GABA. Piracetam was first synthesized in 1964 by Corneliu E. Giurgea and other scientists at the Belgian pharmaceutical company UCB. In the United Kingdom, piracetam is prescribed mainly for myoclonus (spasmodic jerky contraction of groups of muscles), but is used off-label for other conditions. The largest effective dose is 1,600mg taken three times a day for a total of 4,800mg.",
+  "description": "Piracetam was first synthesized in 1964 by Corneliu E. Giurgea and other scientists at the Belgian pharmaceutical company UCB. In the United Kingdom, piracetam is prescribed mainly for myoclonus (spasmodic jerky contraction of groups of muscles), but is used off-label for other conditions. In the United States, it is not approved by the Food and Drug Administration for any medical use and it is not permitted to be sold as a dietary supplement.",
   "effects": {
     "positive": [
       "Stimulation - The stimulation which piracetam presents can be considered as primarily subtle, comparable to that of caffeine.",
@@ -71,8 +71,5 @@ export const piracetam: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Racetams"
-  ]
+  "riskLevel": "moderate"
 };

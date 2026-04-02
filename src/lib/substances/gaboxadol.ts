@@ -11,15 +11,12 @@ export const gaboxadol: Substance =
 {
   "id": "gaboxadol",
   "name": "Gaboxadol",
-  "commonNames": [
-    "3-hydroxyisoxazole",
-    "3-Hydroxyisoxazole"
-  ],
+  "commonNames": [],
   "categories": [
     "depressants"
   ],
   "class": "3-hydroxyisoxazole",
-  "description": "It is chemically related to muscimol, which is the primary alkaloid responsible for the psychoactive effects of amanita muscaria. It has been specifically developed alongside hundreds of other analogs to display more pronounced and selective therapeutic effects as well as a higher bioavailability than its parent compound muscimol. Since then it was subject to numerous medical evaluations for potential applications as an anxiolytic and hypnotic as well as treating conditions such as Alzheimer's disease among others. It's latest attempt at clinical trials was for the treatment of insomnia, although the trials have been cancelled. In high doses, Gaboxadol produces distinct deliriant effects but not in the manner of traditional deliriants.",
+  "description": "It has been specifically developed alongside hundreds of other analogs to display more pronounced and selective therapeutic effects as well as a higher bioavailability than its parent compound muscimol. Since then it was subject to numerous medical evaluations for potential applications as an anxiolytic and hypnotic as well as treating conditions such as Alzheimer's disease among others. It increases stage 4 deep sleep and simultaneously does not inhibit REM sleep, this is a trait currently unique to Gaboxadol and some related GABAergics such as pregabalin\n, GHB or cinazepam.",
   "effects": {
     "positive": [
       "Stimulation - While most users report sedation and a lack of energy, some users also report a relatively intense stimulation.",
@@ -103,9 +100,5 @@ export const gaboxadol: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "3-hydroxyisoxazole",
-    "3-Hydroxyisoxazole"
-  ]
+  "riskLevel": "moderate"
 };

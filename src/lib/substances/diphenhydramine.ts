@@ -12,13 +12,18 @@ export const diphenhydramine: Substance =
   "id": "diphenhydramine",
   "name": "Diphenhydramine",
   "commonNames": [
-    "Ethanolamine"
+    "DPH",
+    "Benadryl",
+    "Nytol",
+    "Sominex",
+    "Unisom SleepMelts",
+    "ZzzQuil"
   ],
   "categories": [
     "deliriants"
   ],
   "class": "Ethanolamine",
-  "description": "It is a first-generation H1 antihistamine that is widely used as a generic, over-the-counter medication to treat allergies. It was approved for over-the-counter use in the 1980s. Subjective effects include sedation, anxiety, tactile hallucinations, memory suppression, thought disorganization, dysphoria, and external hallucinations. Doses between these two points are uncomfortable and dysphoric. The toxicity of recreational use is not well-studied.",
+  "description": "Diphenhydramine (also known as DPH, Dimedrol, Benadryl, and many others) is a deliriant substance of the ethanolamine class. In 1946, it became the first prescription antihistamine approved by the U.S. Food and Drug Administration. Today, it is typically used to treat allergies, but it may also be used for several conditions, including itchiness, insomnia, motion sickness, nausea, and the symptoms of Parkinson's disease. Subjective effects include sedation, anxiety, tactile hallucinations, memory suppression, thought disorganization, dysphoria, and external hallucinations. Lower doses tend to produce a stoning, body-high effect, while higher doses produce a state of delirium in which the user sees and hears fully-formed, compelling hallucinations.",
   "effects": {
     "positive": [
       "Sedation - Diphenhydramine produces considerable sedation, and low doses are commonly used as a sleep aid. This sense of sedation is accompanied by a heavy body load, which can become overwhelmingly uncomfortable. However, higher doses of diphenhydramine also have a stimulating quality that can make actual rest difficult.",
@@ -144,10 +149,7 @@ export const diphenhydramine: Substance =
     "molecularWeight": "Unknown",
     "class": "Ethanolamine"
   },
-  "history": "Diphenhydramine was discovered in 1943 by George Rieveschl, a former professor at the University of Cincinnati. In 1946, it became the first prescription antihistamine approved by the United States Food and Drug Administration (FDA). In the 1960s, diphenhydramine was found to inhibit reuptake of the neurotransmitter serotonin. This discovery led to a search for viable antidepressants with similar structures and fewer side effects, culminating in the invention of fluoxetine (Prozac), a selective serotonin reuptake inhibitor (SSRI).",
+  "history": "Diphenhydramine was discovered in 1943 by George Rieveschl, a former professor at the University of Cincinnati. In 1946, it became the first prescription antihistamine approved by the United States Food and Drug Administration (FDA). This discovery led to a search for viable antidepressants with similar structures and fewer side effects, culminating in the invention of fluoxetine (Prozac), a selective serotonin reuptake inhibitor (SSRI).",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "very-high",
-  "aliases": [
-    "Ethanolamine"
-  ]
+  "riskLevel": "very-high"
 };

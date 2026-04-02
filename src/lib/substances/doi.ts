@@ -12,13 +12,13 @@ export const doi: Substance =
   "id": "doi",
   "name": "DOI",
   "commonNames": [
-    "Substituted amphetamines"
+    "DOI"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted amphetamines",
-  "description": "It is a member of the DOx family of psychedelic amphetamines. The synthesis of DOI was first described in 1972 and its usage in humans was first documented by Alexander Shulgin in the 1991 book PiHKAL (\"Phenethylamines I Have Known and Loved\"). It is regularly used in research as a radioligand to map serotonin-2A receptors in the brain. The effects of DOI are often compared to those of LSD, although notable differences can be distinguished. Besides the significantly longer duration, the experience is commonly reported to be more stimulating than LSD, with a more pronounced body load and a less complex head space.",
+  "description": "The synthesis of DOI was first described in 1972 and its usage in humans was first documented by Alexander Shulgin in the 1991 book PiHKAL (\"Phenethylamines I Have Known and Loved\"). Besides the significantly longer duration, the experience is commonly reported to be more stimulating than LSD, with a more pronounced body load and a less complex head space. The after effects include long-lasting residual stimulation and difficulty sleeping, which, depending on the dose and time taken during the day, may persist for days afterwards.",
   "effects": {
     "positive": [
       "Stimulation - In terms of its effects on the physical energy levels of the user, DOI is usually considered to be extremely stimulating at levels which are capable of becoming uncomfortable and overwhelming. This can result in a shakiness and unsteadiness of the hands but encouraging one to move around, run, dance, climb and generally engage in physical activities. In comparison, other more commonly used psychedelics such as psilocin are generally sedating and relaxed.",
@@ -121,8 +121,5 @@ export const doi: Substance =
   },
   "history": "DOI was first synthesized by a team at the University of Alberta in 1972.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted amphetamines"
-  ]
+  "riskLevel": "moderate"
 };

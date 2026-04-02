@@ -12,13 +12,14 @@ export const ephenidine: Substance =
   "id": "ephenidine",
   "name": "Ephenidine",
   "commonNames": [
-    "Diarylethylamines"
+    "Ephenidine",
+    "NEDPA"
   ],
   "categories": [
     "dissociatives"
   ],
   "class": "Diarylethylamines",
-  "description": "Ephedrine Ephenidine (also known as NEDPA and EPE) is a lesser-known novel Psychoactive class dissociative substance of the chemical class diarylethylamine class. Ephenidine is an NMDA receptor antagonist that is structurally related to diarylethylamines like diphenidine and methoxphenidine. Notable effects include sedation, hallucinations, anesthesia, and out-of-body states, referred to as \"dissociative anesthesia\". Recreational use was not documented until the 2013 U.K. arylcyclohexylamine ban, when it was released on the online research chemical market. Very little data exists about the pharmacological properties, metabolism, and toxicity of ephenidine, and it has an extremely limited history of human usage.",
+  "description": "Ephedrine\nEphenidine (also known as NEDPA and EPE) is a lesser-known novel dissociative substance of the diarylethylamine class. Recreational use was not documented until the 2013 U.K. arylcyclohexylamine ban, when it was released on the online research chemical market. It was marketed alongside diphenidine and methoxphenidine as a substitute for methoxetamine (MXE) despite users claiming markedly different effects.",
   "effects": {
     "positive": [
       "Stimulation - This compound produces stimulating effects at lower doses which are less intense than that of diphenidine or methoxphenidine.",
@@ -117,8 +118,5 @@ export const ephenidine: Substance =
   },
   "history": "Ephenidine has been described as a designer drug. Designer drugs are substances mimic the functional and structural features of commonly used illicit substances in order to circumvent government regulation.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Diarylethylamines"
-  ]
+  "riskLevel": "moderate"
 };

@@ -12,13 +12,16 @@ export const methoxphenidine: Substance =
   "id": "methoxphenidine",
   "name": "Methoxphenidine",
   "commonNames": [
-    "Diarylethylamines"
+    "Methoxphenidine",
+    "Methoxyphenidine",
+    "MXP",
+    "2-MXP"
   ],
   "categories": [
     "dissociatives"
   ],
   "class": "Diarylethylamines",
-  "description": "Methoxphenidine (also known as 2-MXP or MXP) is a lesser-known novel psychoactive class dissociative substance of the Chemical class diarylethylamine class. It is an NMDA antagonist with subjective effects similar to those of ketamine and phencyclidine (PCP). It is structurally related to diphenidine and ephenidine. Methoxphenidine has been studied alongside other diarylethylamines as a treatment for neurotoxic injuries. The first reports of human recreational use appeared shortly after the 2013 U.K. arylcyclohexylamine ban, during which it and diphenidine began to be sold in powder and tablet form on the online research chemical market.",
+  "description": "The first reports of human recreational use appeared shortly after the 2013 U.K. arylcyclohexylamine ban, during which it and diphenidine began to be sold in powder and tablet form on the online research chemical market. It was initially marketed by vendors as a replacement for the highly popular methoxetamine (MXE) despite little to no evidence that it possessed similar effects. Methoxphenidine belongs to a class of substances that can induce a hallucinogenic state known as \"dissociative anesthesia\", in which the user feels detached from their bodies.",
   "effects": {
     "positive": [
       "Tactile disconnection - This results in typical states of progressive physical disconnection but is far more consciously controllable than that of other dissociatives. This allows one to choose how much of their body they are currently aware of and connected to simply by directing their focus towards it even throughout higher states of disconnection and out-of-body experiences.",
@@ -87,8 +90,5 @@ export const methoxphenidine: Substance =
   },
   "history": "Methoxphenidine is an example of a designer drug, specifically chosen to mimic the functional or structural features of commonly used illicit substances and circumvent government regulation.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Diarylethylamines"
-  ]
+  "riskLevel": "moderate"
 };

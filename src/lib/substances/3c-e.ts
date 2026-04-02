@@ -12,13 +12,14 @@ export const _3c_e: Substance =
   "id": "3c-e",
   "name": "3C-E",
   "commonNames": [
-    "Substituted amphetamines"
+    "3C-E",
+    "3C-Escaline"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted amphetamines",
-  "description": "3,5-Dimethoxy-4-ethoxyamphetamine (commonly known as 3C-E or 3C-Escaline) is a synthetic psychoactive class psychedelic compound of the amphetamine chemical class. Although it's name suggests it may be related to the 2C-x family, this is not the case. 3C-E has the structure of escaline, a mescaline analogue, with an additional carbon rendering it a substituted amphetamine. 3C-E was presumably first synthesized by Alexander Shulgin and published in his book PiHKAL in 1991. Today, 3C-E is used for recreational and research purposes, and exclusively distributed as a gray area research chemical by online vendors.",
+  "description": "3C-E has the structure of escaline, a mescaline analogue, with an additional carbon rendering it a substituted amphetamine. 3C-E was presumably first synthesized by Alexander Shulgin and published in his book PiHKAL in 1991. Today, 3C-E is used for recreational and research purposes, and exclusively distributed as a gray area research chemical by online vendors.",
   "effects": {
     "positive": [
       "Colour enhancement",
@@ -118,8 +119,5 @@ export const _3c_e: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted amphetamines"
-  ]
+  "riskLevel": "moderate"
 };

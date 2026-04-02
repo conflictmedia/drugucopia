@@ -12,13 +12,13 @@ export const diclazepam: Substance =
   "id": "diclazepam",
   "name": "Diclazepam",
   "commonNames": [
-    "Benzodiazepines"
+    "Diclazepam"
   ],
   "categories": [
     "depressants"
   ],
   "class": "Benzodiazepines",
-  "description": "benzodiazepines Diazepam Diclazepam (also known as chlorodiazepam) is a lesser-known novel psychoactive class depressant substance of the chemical class benzodiazepine class. It is a structural analog of diazepam (Valium) and is reported to produce similar effects. Diclazepam was first synthesized by Leo Sternbach and his team at Hoffman-La Roche in 1960. Diclazepam is not currently marketed as a medication, but rather sold online as a research chemical. Subjective effects are similar to diazepam and include anxiety suppression, disinhibition, anticonvulsant, hypnotic, muscle relaxing, and amnesia.",
+  "description": "benzodiazepines\nDiazepam\nDiclazepam (also known as chlorodiazepam) is a lesser-known novel depressant substance of the benzodiazepine class. Diclazepam was first synthesized by Leo Sternbach and his team at Hoffman-La Roche in 1960. It is highly recommended to taper one's dose by gradually lowering the amount taken each day over a prolonged period of time rather than stopping use abruptly, as this can lead to severe, potentially life-threatening withdrawal symptoms.",
   "effects": {
     "positive": [
       "Muscle relaxation",
@@ -78,8 +78,5 @@ export const diclazepam: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Benzodiazepines"
-  ]
+  "riskLevel": "low"
 };

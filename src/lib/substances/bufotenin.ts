@@ -12,13 +12,14 @@ export const bufotenin: Substance =
   "id": "bufotenin",
   "name": "Bufotenin",
   "commonNames": [
-    "Substituted tryptamines"
+    "Bufotenin",
+    "5-HO-DMT"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted tryptamines",
-  "description": "Bufotenin (5-HO-DMT, N,N-dimethylserotonin, bufotenine) is a naturally occurring substituted Chemical class tryptamine alkaloid and a serotonergic Psychoactive class psychedelic drug. Bufotenin is a structural derivative of tryptamine and serotonin. Bufotenin is found in a wide array of flora and fauna, including several species of psychoactive toads, most notably the Colorado River toad. The overall effects of bufotenin are generally described as less pleasant than those of other psychedelics such as LSD.",
+  "description": "Bufotenin (5-HO-DMT, N,N-dimethylserotonin, bufotenine) is a naturally occurring substituted tryptamine alkaloid and a serotonergic psychedelic drug. Bufotenin is found in a wide array of flora and fauna, including several species of psychoactive toads, most notably the Colorado River toad. The overall effects of bufotenin are generally described as less pleasant than those of other psychedelics such as LSD.",
   "effects": {
     "positive": [
       "Colour enhancement",
@@ -85,8 +86,5 @@ export const bufotenin: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted tryptamines"
-  ]
+  "riskLevel": "moderate"
 };

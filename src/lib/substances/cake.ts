@@ -11,12 +11,16 @@ export const cake: Substance =
 {
   "id": "cake",
   "name": "Cake",
-  "commonNames": [],
+  "commonNames": [
+    "Cake",
+    "Caky",
+    "Cokoo"
+  ],
   "categories": [
     "depressants"
   ],
   "class": "Unknown",
-  "description": "This was the 2017 \"April Fools\" joke. This page is satire. Thanks to White for contributing to this years' April Fools! Cake is a sugary round shaped substance. The main psychoactive constituent in cake is cakecadine (known colloquially as C-AKE, Caky or Cokoo) which is a novel synthetic psychoactive class depressant belonging to the substituted wheat class.",
+  "description": "Thanks to White for contributing to this years' April Fools! The main psychoactive constituent in cake is cakecadine (known colloquially as C-AKE, Caky or Cokoo) which is a novel synthetic depressant belonging to the substituted wheat class. This compound is orally active, and dosages between 25–500 g are commonly reported.",
   "effects": {
     "positive": [
       "Novelty enhancement",
@@ -65,6 +69,5 @@ export const cake: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": []
+  "riskLevel": "moderate"
 };

@@ -12,13 +12,25 @@ export const oxycodone: Substance =
   "id": "oxycodone",
   "name": "Oxycodone",
   "commonNames": [
-    "Substituted morphinans"
+    "OxyContin",
+    "Oxy",
+    "Roxicodone",
+    "Oxecta",
+    "OxyIR",
+    "Endone",
+    "Oxynor",
+    "Codilek",
+    "Oxydor",
+    "Redocam",
+    "Oxygesic",
+    "Percodan",
+    "Percocet"
   ],
   "categories": [
     "opioids"
   ],
   "class": "Substituted morphinans",
-  "description": "opiates Oxycodone (also known under brand names including Roxicodone, OxyContin, Percocet, Oxecta, OxyIR, Endone, Oxynorm, Faroxy and OxyNEO) is a semi-synthetic psychoactive class opioid synthesized from poppy-derived thebaine. It is a narcotic analgesic within the chemical class morphinan chemical class and is generally indicated for relief of moderate to severe pain. It was developed in 1916 in Germany as one of several new semi-synthetic opioids in an attempt to improve on the existing opioids. Oxycodone is available as single-ingredient medication in immediate release and controlled release. Combination products, such as Percocet, formulated with non-narcotic ingredients such as NSAIDs and paracetamol (acetaminophen) are also available.",
+  "description": "opiates\nOxycodone (also known under brand names including Roxicodone, OxyContin, Percocet, Oxecta, OxyIR, Endone, Oxynorm, Faroxy and OxyNEO) is a semi-synthetic opioid synthesized from poppy-derived thebaine. It is a narcotic analgesic within the morphinan chemical class and is generally indicated for relief of moderate to severe pain. It was developed in 1916 in Germany as one of several new semi-synthetic opioids in an attempt to improve on the existing opioids.",
   "effects": {
     "positive": [
       "Euphoria - In comparison to other opioids, this particular substance can be considered similar in its physical euphoria when compared with that of morphine or diacetylmorphine (heroin) and more intense when compared to kratom and hydrocodone. The sensation itself can be described as extreme feelings of intense physical comfort, warmth, love and bliss.",
@@ -140,8 +152,5 @@ export const oxycodone: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Substituted morphinans"
-  ]
+  "riskLevel": "low"
 };

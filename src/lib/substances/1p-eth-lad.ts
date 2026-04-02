@@ -12,13 +12,14 @@ export const _1p_eth_lad: Substance =
   "id": "1p-eth-lad",
   "name": "1P-ETH-LAD",
   "commonNames": [
-    "Lysergamides"
+    "1P-ETH-LAD",
+    "1-Propionyl-6-ethyl-6-nor-lysergic acid diethyamide"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Lysergamides",
-  "description": "Common name 1-Propionyl-6-ethyl-6-nor-lysergic acid diethyamide (also known as Common name 1P-ETH-LAD) is a semisynthetic Psychoactive class psychedelic substance of the Chemical class lysergamide chemical class. It is a designer drug analog and suspected prodrug to ETH-LAD, which shares a close structural relationship with LSD and 1P-LSD. Like its parent compound ETH-LAD, this compound has been reported to be moderately to significantly more potent than LSD itself. It has also been reported as being subtly different in effect to LSD and is often described as being more visual and synaesthetic, with a deeper, less emotionally-charged headspace analogous to that of psychedelics like 2C-E or DPT. Very little data exists about the pharmacological properties, metabolism, and toxicity of 1P-ETH-LAD, and it has little history of human usage before January 2016.",
+  "description": "It is a designer drug analog and suspected prodrug to ETH-LAD, which shares a close structural relationship with LSD and 1P-LSD. It has also been reported to be more likely to induce undesirable effects like anxiety, thought loops in addition to pronounced nausea and other discomforting physical effects it displays relative to other lysergamides. Very little data exists about the pharmacological properties, metabolism, and toxicity of 1P-ETH-LAD, and it has little history of human usage before January 2016.",
   "effects": {
     "positive": [
       "Colour enhancement",
@@ -95,8 +96,5 @@ export const _1p_eth_lad: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Lysergamides"
-  ]
+  "riskLevel": "moderate"
 };

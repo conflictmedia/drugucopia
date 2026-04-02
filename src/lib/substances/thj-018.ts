@@ -12,13 +12,13 @@ export const thj_018: Substance =
   "id": "thj-018",
   "name": "THJ-018",
   "commonNames": [
-    "Naphthoylindazole"
+    "THJ-018"
   ],
   "categories": [
     "cannabinoids"
   ],
   "class": "Naphthoylindazole",
-  "description": "THJ-018 (1-​naphthalenyl(1-​pentyl-​1H-​indazol-​3-​yl)-​methanone) is a synthetic psychoactive class cannabinoid and analog of JWH-018. It has been marketed by many research chemical vendors as a legal alternative to the popular JWH-018, which had been banned in 2009. Its appearance is a brown, sticky and chunky powder. It smells very similarly to naphthalene. Cannabinoids are commonly smoked or vaporized to achieve a quick onset of effects and rapid offset.",
+  "description": "It has been marketed by many research chemical vendors as a legal alternative to the popular JWH-018, which had been banned in 2009. Unlike cannabis, the chronic abuse of synthetic cannabinoids has been associated with multiple deaths and more dangerous side effects and toxicity in general. Therefore, it is strongly discouraged to take this substance for extended periods of time or in excessive doses.",
   "effects": {
     "positive": [
       "Spontaneous physical sensations - The \"body high\" of THJ-018 can be described as a warm, soft, pleasurable, all-encompassing tingling sensation that spreads over the body after initial ingestion. It maintains a consistent presence that quickly rises with the onset and hits its limit once the peak has been reached before immediately dissipating.",
@@ -86,8 +86,5 @@ export const thj_018: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Naphthoylindazole"
-  ]
+  "riskLevel": "moderate"
 };

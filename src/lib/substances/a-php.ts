@@ -12,15 +12,15 @@ export const a_php: Substance =
   "id": "a-php",
   "name": "A-PHP",
   "commonNames": [
-    "Cathinone",
-    "Substituted cathinones",
-    "Substituted pyrrolidines"
+    "α-PHP",
+    "alpha-PHP",
+    "PV7"
   ],
   "categories": [
     "stimulants"
   ],
   "class": "Cathinone",
-  "description": "alpha-Pyrrolidinohexiophenone (also known as PV-7, alpha-PHP, A-PHP, and α-PHP) is a lesser-known novel psychoactive class stimulant substance of the chemical class cathinone class. It is being used and marketed as a replacement for α-PVP (known on the street as flakka) a few years following its ban, where it has come to substitute α-PVP in many parts of the world. While initially mass synthesized in Chinese industrial laboratories, a ban on α-PHP within China's borders has forced production to nations worldwide. Subjective effects such as euphoria, thought acceleration, disinhibition and ego inflation. It generally comes in the form of either a fine powder or crystallized shards that can produce powerful but short-lived euphoric stimulant effects comparable to those of vaporized methamphetamine and cocaine.",
+  "description": "While initially mass synthesized in Chinese industrial laboratories, a ban on α-PHP within China's borders has forced production to nations worldwide. It generally comes in the form of either a fine powder or crystallized shards that can produce powerful but short-lived euphoric stimulant effects comparable to those of vaporized methamphetamine and cocaine. It has recently become commonly marketed alongside research chemical stimulants like NEP and Hexen as a legal, grey-market alternative to a-PVP, and commercially distributed through online research chemical vendors.",
   "effects": {
     "positive": [
       "Stimulation - α-PHP can be considered to be extremely stimulating and energetic, although less so than α-PVP. This encourages activities such as running, climbing and dancing, although it can also encourage sitting immobile and engaging in repetitive tasks. The particular style of stimulation which α-PHP presents can be described as forced. This means that at higher dosages it becomes difficult or impossible to keep still as jaw clenching, involuntarily bodily shakes and vibrations become present, resulting in an extreme unsteadiness of the hands and a general lack of motor control.",
@@ -157,10 +157,5 @@ export const a_php: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Cathinone",
-    "Substituted cathinones",
-    "Substituted pyrrolidines"
-  ]
+  "riskLevel": "moderate"
 };

@@ -12,13 +12,14 @@ export const _5_meo_dalt: Substance =
   "id": "5-meo-dalt",
   "name": "5-MeO-DALT",
   "commonNames": [
-    "Substituted tryptamines"
+    "5-MeO-DALT",
+    "Foxtrot"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted tryptamines",
-  "description": "N,N-Diallyl-5-methoxytryptamine (also known as 5-MeO-DALT or colloquially as Foxtrot) is a lesser-known psychoactive class psychedelic substance of the chemical class tryptamine class that produces short-lived psychedelic effects when administered. It is structurally related to tryptamines like 5-MeO-DiPT and DALT, although it is reported to produce distinct effects. 5-MeO-DALT was first synthesized by Alexander Shulgin, who sent the first material regarding the synthesis and effects to a researcher in May 2004. This material was subsequently circulated online and the compound soon appeared on the online research chemical market. In August 2004, the synthesis and effects of 5-MeO-DALT were officially published by Erowid.",
+  "description": "N,N-Diallyl-5-methoxytryptamine (also known as 5-MeO-DALT or colloquially as Foxtrot) is a lesser-known psychedelic substance of the tryptamine class that produces short-lived psychedelic effects when administered. 5-MeO-DALT was first synthesized by Alexander Shulgin, who sent the first material regarding the synthesis and effects to a researcher in May 2004. This material was subsequently circulated online and the compound soon appeared on the online research chemical market.",
   "effects": {
     "positive": [
       "Stimulation",
@@ -111,8 +112,5 @@ export const _5_meo_dalt: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted tryptamines"
-  ]
+  "riskLevel": "moderate"
 };

@@ -12,13 +12,15 @@ export const desoxypipradrol: Substance =
   "id": "desoxypipradrol",
   "name": "Desoxypipradrol",
   "commonNames": [
-    "Substituted piperidines"
+    "Desoxypipradol",
+    "2-DPMP",
+    "Ivory Wave"
   ],
   "categories": [
     "stimulants"
   ],
   "class": "Substituted piperidines",
-  "description": "Desoxypipradrol (also known as 2-DPMP, 2-diphenylmethylpiperidine, or Ivory Wave) is a chemical class benzylpiperidine-based psychoactive class stimulant drug which is closely related to methylphenidate and pipradol. Developed by Ciba in the 1950s and researched for applications such as the treatment of narcolepsy and ADHD; it was dropped from development after the related drug methylphenidate was developed by the same company. As with methylphenidate and pipradol, it is thought to act as a norepinephrine-dopamine reuptake inhibitor (NDRI). Of these three piperidines, it is noteworthy that desoxypipradrol has the longest elimination half-life, as it is a highly lipophilic molecule lacking polar functional groups that are typically targeted by metabolic enzymes, giving it an unusually long duration of action when compared to most stimulants. This property combined with its ultra-high potency (starting at 2mg) has given this compound a reputation for being extremely dangerous when abused or mishandled.",
+  "description": "Developed by Ciba in the 1950s and researched for applications such as the treatment of narcolepsy and ADHD; it was dropped from development after the related drug methylphenidate was developed by the same company. However, the hydroxylated derivative pipradrol was introduced as a clinical drug indicated for depression, narcolepsy and cognitive enhancement in organic dementia. Of these three piperidines, it is noteworthy that desoxypipradrol has the longest elimination half-life, as it is a highly lipophilic molecule lacking polar functional groups that are typically targeted by metabolic enzymes, giving it an unusually long duration of action when compared to most stimulants.",
   "effects": {
     "positive": [
       "Stimulation - In terms of its effects on the physical energy levels of the user, desoxypipradrol is usually considered to be energetic and stimulating in a fashion that is stronger but much subtler than that of amphetamine or methamphetamine and stronger than that of modafinil and caffeine. At lower to moderate doses, it encourages general productivity but at higher dosages may encourages physical activities such as dancing, socializing, running, or cleaning. The particular style of stimulation which desoxypipradrol presents is not forced, however, but clean and lucid with manic undertones.",
@@ -128,8 +130,5 @@ export const desoxypipradrol: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "high",
-  "aliases": [
-    "Substituted piperidines"
-  ]
+  "riskLevel": "high"
 };

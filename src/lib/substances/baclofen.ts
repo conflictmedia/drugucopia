@@ -12,14 +12,14 @@ export const baclofen: Substance =
   "id": "baclofen",
   "name": "Baclofen",
   "commonNames": [
-    "Butyric acid",
-    "Gabapentinoids"
+    "Baclofen",
+    "Lioresal"
   ],
   "categories": [
     "depressants"
   ],
   "class": "Butyric acid",
-  "description": "GABAergics Baclofen (also known as Lioresal, Gablofen, Kemstro, Liofen) is a psychoactive class depressant substance of the chemical class butyric acid class. It is a derivative of GABA and is chemically related to phenibut, pregabalin, and gabapentin. It primarily acts as a GABAB receptor agonist. Baclofen was synthesized in 1962 at Ciba-Geigy, a Swiss pharmaceutical company. Today, it is used clinically to treat muscle spasticity, and holds promise as a treatment for alcoholism.",
+  "description": "GABAergics\nBaclofen (also known as Lioresal, Gablofen, Kemstro, Liofen) is a depressant substance of the butyric acid class. Today, it is used clinically to treat muscle spasticity, and holds promise as a treatment for alcoholism. Once physical dependence to a GABAergic substance occurs, the user cannot stop use abruptly without risking withdrawal symptoms such as anxiety, muscle tremors, and in severe cases, seizures.",
   "effects": {
     "positive": [
       "Stimulation and Sedation - Baclofen has different effects on physical energy levels depending on the dosage used. At lower doses, baclofen has a mild physical and mental stimulation effect, encouraging movement, wakefulness, and productivity. At common doses and higher, baclofen is physically sedating, encouraging sleep and lethargy.",
@@ -106,11 +106,7 @@ export const baclofen: Substance =
     "molecularWeight": "Unknown",
     "class": "Butyric acid"
   },
-  "history": "Baclofen was synthesized in 1962 by Heinrich Keberle at Ciba (pharmaceutical company) in Basel, Switzerland, based on the idea of enhancing the lipophilicity of GABA in order to achieve penetration of the blood-brain barrier. It was marketed as Lioresal in 1972. In his 2008 book, Le Dernier Verre (translated literally as \"The Last Glass\" and published in English as \"The End of my Addiction\"), French-American cardiologist Olivier Ameisen described how he treated his alcoholism with baclofen. Inspired by this book, an anonymous donor gave $750,000 to the University of Amsterdam to initiate a clinical trial of high-dose baclofen, which Ameisen had called for since 2004.",
+  "history": "Baclofen was synthesized in 1962 by Heinrich Keberle at Ciba (pharmaceutical company) in Basel, Switzerland, based on the idea of enhancing the lipophilicity of GABA in order to achieve penetration of the blood-brain barrier. In his 2008 book, Le Dernier Verre (translated literally as \"The Last Glass\" and published in English as \"The End of my Addiction\"), French-American cardiologist Olivier Ameisen described how he treated his alcoholism with baclofen. Inspired by this book, an anonymous donor gave $750,000 to the University of Amsterdam to initiate a clinical trial of high-dose baclofen, which Ameisen had called for since 2004.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Butyric acid",
-    "Gabapentinoids"
-  ]
+  "riskLevel": "low"
 };

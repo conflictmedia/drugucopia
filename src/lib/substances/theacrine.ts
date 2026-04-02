@@ -12,15 +12,16 @@ export const theacrine: Substance =
   "id": "theacrine",
   "name": "Theacrine",
   "commonNames": [
-    "Xanthines",
-    "Purine alkaloid"
+    "Theacrine",
+    "Temurin",
+    "Temorine"
   ],
   "categories": [
     "stimulants",
     "nootropics"
   ],
   "class": "Xanthines",
-  "description": "Theacrine (also known as Teacrine) is a psychoactive class nootropic psychoactive class stimulant and a structural analog of caffeine, appearing to be synthesized from caffeine in some plants. It is a bitter, white crystalline chemical class purine alkaloid that increases activity in the brain and induces temporary improvements including enhanced alertness, wakefulness, and stimulation. Relative to caffeine, it displays about 2/3rds the potency in terms of the stimulation it produces. The mechanisms of theacrine largely parallel those of caffeine in that while it seems to have a stimulatory effect in rodents, this only occurs at a higher dose (and the exact oral dose where it peaks with theacrine is not known). Similar to caffeine, it produces a sedative effect at relatively low doses, but where this sedative effect with caffeine is at an impractically low dose with theacrine it is the dose normally consumed by tea; this may underlie why Kucha tea tends to be recommended for relaxation more than stimulation.",
+  "description": "Theacrine (also known as Teacrine) is a nootropic stimulant and a structural analog of caffeine, appearing to be synthesized from caffeine in some plants. It is a bitter, white crystalline purine alkaloid that increases activity in the brain and induces temporary improvements including enhanced alertness, wakefulness, and stimulation. Similar to caffeine, it produces a sedative effect at relatively low doses, but where this sedative effect with caffeine is at an impractically low dose with theacrine it is the dose normally consumed by tea; this may underlie why Kucha tea tends to be recommended for relaxation more than stimulation.",
   "effects": {
     "positive": [
       "Analysis enhancement",
@@ -89,9 +90,5 @@ export const theacrine: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Xanthines",
-    "Purine alkaloid"
-  ]
+  "riskLevel": "moderate"
 };

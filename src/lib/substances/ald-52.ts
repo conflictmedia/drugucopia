@@ -12,13 +12,17 @@ export const ald_52: Substance =
   "id": "ald-52",
   "name": "ALD-52",
   "commonNames": [
-    "Lysergamides"
+    "ALD-52",
+    "1-Acetyl-LSD",
+    "1A-LSD",
+    "1A-LAD",
+    "Orange Sunshine"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Lysergamides",
-  "description": "1-Acetyl-N,N-diethyllysergamide (also known as ALD-52, 1-Acetyl-LSD, 1A-LSD, 1A-LAD, and mistakenly as Orange Sunshine) is a lesser-known Psychoactive class psychedelic substance of the Chemical class lysergamide class that produces LSD-like psychedelic effects when administered. It's structurally related to psychedelic lysergamides like LSD and 1P-LSD and is reported to produce largely indistinguishable effects. His writings are based on second-hand accounts which state that doses in the 50-175 µg range result in various effects that are not particularly distinct from LSD. Nevertheless, unpredictable adverse reactions such as anxiety, paranoia, delusions and psychosis are always possible, particularly among those who are predisposed to psychiatric disorders. While these negative reactions or \"bad trips\" can often be attributed to factors like user inexperience or improper preparation of set and setting, they are known to happen spontaneously among even highly experienced users as well.",
+  "description": "1-Acetyl-N,N-diethyllysergamide (also known as ALD-52, 1-Acetyl-LSD, 1A-LSD, 1A-LAD, and mistakenly as Orange Sunshine) is a lesser-known psychedelic substance of the lysergamide class that produces LSD-like psychedelic effects when administered. ALD-52 was originally discovered by Albert Hofmann in his study of LSD analogs, but it did not enter mainstream awareness until the 1960s through Western youth counterculture. Alexander Shulgin touches briefly on the subject of ALD-52 in the commentary section of LSD-25 in the book TiHKAL (\"Tryptamines I have Known and Loved\").",
   "effects": {
     "positive": [
       "Stimulation - In terms of its effects on the physical energy levels of the user, ALD-52 produces stimulating effects similar to LSD. This is in distinction to other, more commonly used psychedelics such as psilocybin which are more consistent in producing sedation and relaxedness.",
@@ -129,8 +133,5 @@ export const ald_52: Substance =
   },
   "history": "In 1968 and 1969, a famous batch of LSD known as \"Orange Sunshine\" was synthesized by Nick Sand and Tim Scully and made widely available in California. This \"Orange Sunshine\" was long held by the hippie generation to be ALD-52 until 2005, when it was revealed by Nick Sand that \"Orange Sunshine\" was just a particularly well made batch of LSD dosed at 300 micrograms per unit. This was confirmed by Tim Scully in a 2017 Reddit AMA, where Scully explained that the claim that \"Orange Sunshine\" was technically not LSD arose from an \"ill-advised desperate defense strategy that failed miserably\" during his trial for LSD manufacture.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Lysergamides"
-  ]
+  "riskLevel": "low"
 };

@@ -11,7 +11,23 @@ export const bromazepam: Substance =
 {
   "id": "bromazepam",
   "name": "Bromazepam",
-  "commonNames": [],
+  "commonNames": [
+    "Bromazepam",
+    "Brozam",
+    "Lectopam",
+    "Lexomil",
+    "Lexotan",
+    "Lexilium",
+    "Lexaurin",
+    "Brazepam",
+    "Rekotnil",
+    "Bromaze",
+    "Somalium",
+    "Lexatin",
+    "Calmepam",
+    "Zepam",
+    "Lexotanil"
+  ],
   "categories": [
     "other"
   ],
@@ -87,6 +103,5 @@ export const bromazepam: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": []
+  "riskLevel": "low"
 };

@@ -12,14 +12,13 @@ export const _2c_b_fly: Substance =
   "id": "2c-b-fly",
   "name": "2C-B-FLY",
   "commonNames": [
-    "Substituted phenethylamines",
-    "Substituted benzofurans"
+    "2C-B-FLY"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted phenethylamines",
-  "description": "2C-B-FLY is a lesser-known novel psychoactive class psychedelic substance of the chemical class phenethylamine and chemical class benzodihydrodifuran classes that produces an array of psychedelic and entactogenic effects when administered. Reports have characterized its effects profile as possessing features of 2C-B, mescaline and MDA, with a duration of 6–8 hours (or up to 12 hours in larger doses). 2C-B-FLY is a derivative of the 2C-x family of psychedelic phenethylamines, specifically 2C-B, of which it significantly differs from in terms of its potency, metabolism, and potential toxicity. It was first synthesized by Aaron P. Monte in 1996. Around 2005, 2C-B-FLY appeared and gained some popularity in the online research chemicals market before largely disappearing in October 2009, when a batch of Bromo-DragonFLY was accidentally mislabeled as 2C-B-FLY (Bromo-DragonFLY is dosed in micrograms, where 2C-B-FLY is dosed in milligrams) led to two deaths as a result of taking overdoses of Bromo-DragonFLY meant to be effective doses for 2C-B-FLY.",
+  "description": "Reports have characterized its effects profile as possessing features of 2C-B, mescaline and MDA, with a duration of 6–8 hours (or up to 12 hours in larger doses). 2C-B-FLY is a derivative of the 2C-x family of psychedelic phenethylamines, specifically 2C-B, of which it significantly differs from in terms of its potency, metabolism, and potential toxicity. Around 2005, 2C-B-FLY appeared and gained some popularity in the online research chemicals market before largely disappearing in October 2009, when a batch of Bromo-DragonFLY was accidentally mislabeled as 2C-B-FLY (Bromo-DragonFLY is dosed in micrograms, where 2C-B-FLY is dosed in milligrams) led to two deaths as a result of taking overdoses of Bromo-DragonFLY meant to be effective doses for 2C-B-FLY.",
   "effects": {
     "positive": [
       "Stimulation and Sedation - At light dosages, this compound is generally stimulating but in a gentle, non-forceful manner similar to that of 2C-B or mescaline. At higher dosages one may find the amount of stimulation to increase to an uncomfortable level with undertones of sedation or lethargy in a manner similar to that of 2C-C or 2C-T-7.",
@@ -115,11 +114,7 @@ export const _2c_b_fly: Substance =
     "molecularWeight": "Unknown",
     "class": "Substituted phenethylamines"
   },
-  "history": "In a 2007 MAPS newsletter interview, Ann Shulgin revealed that 2C-B-FLY as one of her favorite psychedelic substances while also acknowledging the high variability in responses it seemed to display. Ann Shulgin",
+  "history": "In a 2007 MAPS newsletter interview, Ann Shulgin revealed that 2C-B-FLY as one of her favorite psychedelic substances while also acknowledging the high variability in responses it seemed to display.\nAnn Shulgin",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted phenethylamines",
-    "Substituted benzofurans"
-  ]
+  "riskLevel": "moderate"
 };

@@ -12,13 +12,15 @@ export const _25i_nbome: Substance =
   "id": "25i-nbome",
   "name": "25I-NBOMe",
   "commonNames": [
-    "Substituted phenethylamines"
+    "25i-NBOMe",
+    "25i",
+    "Cimbi-5"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted phenethylamines",
-  "description": "25I-NBOMe (also known as 2C-I-NBOMe, NBOMe-2C-I, Cimbi-5, Smiles, and one of many drugs referred to as N-Bomb) is a novel Psychoactive class psychedelic substance of the chemical class phenethylamine chemical class that produces an array of visually-dominant and stimulating psychedelic effects when administered. It was first synthesized and documented in 2003 by Ralf Heim at the Free University of Berlin. It was further researched by a team at Purdue University led by David Nichols. It has been studied in its 11C radiolabelled form as a potential ligand for mapping the distribution of 5-HT2A receptors in the brain, using positron emission tomography (PET). It is worth noting that compounds of the NBOMe family (any of which could be referred to as \"N-Bomb\", especially 25I-NBOMe and 25N-NBOMe) should be administered sublingually by placing and holding it into one's mouth and allowing it to absorb over a period of 15-25 minutes.",
+  "description": "25I-NBOMe (also known as 2C-I-NBOMe, NBOMe-2C-I, Cimbi-5, Smiles, and one of many drugs referred to as N-Bomb) is a novel psychedelic substance of the phenethylamine chemical class that produces an array of visually-dominant and stimulating psychedelic effects when administered. It was first synthesized and documented in 2003 by Ralf Heim at the Free University of Berlin. It has been studied in its 11C radiolabelled form as a potential ligand for mapping the distribution of 5-HT2A receptors in the brain, using positron emission tomography (PET).",
   "effects": {
     "positive": [
       "Stimulation - In terms of its effects on the physical energy levels of the user, 25I-NBOMe is usually considered to be very energetic and stimulating. For most people, this substance induces a unique type of physical stimulation which can be described as feeling extremely energetic but in a way which does not force the tripper to move unless they genuinely choose to do so. For others, however, the stimulation can be quite uncontrollable, occasionally resulting in bodily shakes and a grinding of the teeth comparable to that of MDMA and traditional stimulants such as amphetamine.",
@@ -156,8 +158,5 @@ export const _25i_nbome: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "very-high",
-  "aliases": [
-    "Substituted phenethylamines"
-  ]
+  "riskLevel": "very-high"
 };

@@ -12,13 +12,17 @@ export const tramadol: Substance =
   "id": "tramadol",
   "name": "Tramadol",
   "commonNames": [
-    "Phenylpropylamine"
+    "Tramadol",
+    "Tramal",
+    "Tadol",
+    "Tramacur",
+    "Tramundin"
   ],
   "categories": [
     "opioids"
   ],
   "class": "Phenylpropylamine",
-  "description": "opiates Tramadol (also known as Ultram, Ralivia or Tramal) is a synthetic psychoactive class opioid substance of the chemical class phenylpropylamine class that is structurally related to codeine and morphine. It acts as a weak μ-opioid receptor agonist and a reuptake inhibitor of norepinephrine and serotonin. Tramadol was developed in 1962 and launched under the name \"Tramal\" by the German pharmaceutical company Grünenthal GmbH in 1977. In the mid-1990s, it was approved for use in the United Kingdom and the United States. Tramadol is also known to produce mild to moderate entactogenic effects like increased music appreciation and empathy, affection, and sociability enhancement, which is thought to be due to its serotonergic effects.",
+  "description": "opiates\nTramadol (also known as Ultram, Ralivia or Tramal) is a synthetic opioid substance of the phenylpropylamine class that is structurally related to codeine and morphine. Tramadol was developed in 1962 and launched under the name \"Tramal\" by the German pharmaceutical company Grünenthal GmbH in 1977. Subjective effects are largely consistent with that of traditional opioids and include sedation, pain relief, anxiety suppression, muscle relaxation, and euphoria.",
   "effects": {
     "positive": [
       "Physical euphoria - Tramadol is considered as less intense in its physical euphoria when compared with that of morphine or heroin.  The sensation itself can be described as extreme feelings of intense physical comfort, warmth, love and bliss.",
@@ -95,10 +99,7 @@ export const tramadol: Substance =
     "molecularWeight": "Unknown",
     "class": "Phenylpropylamine"
   },
-  "history": "Tramadol was synthesized in 1962 by chemists employed by the German pharmaceutical company Grünenthal. However, it was not approved in Germany until 1977, entering the market as Tramal. It became the leading analgesic drug in Germany and during the past 38 years it has been approved in over 100 countries, including the UK, USA, Republic of China and Canada. For a period of time it was believed tramadol was not a purely synthetic drug after its apparent discovery in the roots of the pin cushion tree. These reports later proved to be erroneous; the tramadol had been excreted by cows treated with the drug, resulting in the tramadol having seeped into the roots through their urine.",
+  "history": "Tramadol was synthesized in 1962 by chemists employed by the German pharmaceutical company Grünenthal. It became the leading analgesic drug in Germany and during the past 38 years it has been approved in over 100 countries, including the UK, USA, Republic of China and Canada. For a period of time it was believed tramadol was not a purely synthetic drug after its apparent discovery in the roots of the pin cushion tree.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Phenylpropylamine"
-  ]
+  "riskLevel": "low"
 };

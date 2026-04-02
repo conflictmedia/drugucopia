@@ -12,14 +12,21 @@ export const _5_hydroxytryptophan: Substance =
   "id": "5-hydroxytryptophan",
   "name": "5-Hydroxytryptophan",
   "commonNames": [
-    "Substituted tryptamines",
-    "Amino acid"
+    "5-HTP",
+    "Oxitriptan",
+    "Cincofarm",
+    "Levothym",
+    "Levotonine",
+    "Oxyfan",
+    "Telesol",
+    "Tript-OH",
+    "Triptum"
   ],
   "categories": [
     "nootropics"
   ],
   "class": "Substituted tryptamines",
-  "description": "Serotonin (5-hydroxytryptamine, 5-HT) 5-Hydroxytryptophan (also known as 5-HTP and oxitriptan) is a naturally occurring chemical substance and a metabolic intermediate in the biosynthesis of serotonin in the human body. 5-HTP is available over the counter in the United States, United Kingdom, and Canada as a dietary supplement and is sometimes used as an antidepressant, sleep aid, and appetite suppressant. It is marketed in some European countries as a prescription drug for the treatment of major depression. 5-HTP is also popularly consumed by users of MDMA and other serotonin-releasing agents to try to reduce the negative after effects that begin during the substance's come down period, including anxiety, depression, and cognitive fatigue. Since 5-HTP is a precursor for the neurotransmitter serotonin and MDMA administration both depletes serotonin levels in the brain as well as inhibit the enzyme needed to produce it (i.e. tryptophan hydroxylase) for a short period after, it is believed that taking 5-HTP in the days after coming down will speed up the production of serotonin and decrease the time needed to recover (though there are many popular misconceptions and controversies as to just how effective it is for this purpose).",
+  "description": "5-HTP is available over the counter in the United States, United Kingdom, and Canada as a dietary supplement and is sometimes used as an antidepressant, sleep aid, and appetite suppressant. 5-HTP is also popularly consumed by users of MDMA and other serotonin-releasing agents to try to reduce the negative after effects that begin during the substance's come down period, including anxiety, depression, and cognitive fatigue. tryptophan hydroxylase) for a short period after, it is believed that taking 5-HTP in the days after coming down will speed up the production of serotonin and decrease the time needed to recover (though there are many popular misconceptions and controversies as to just how effective it is for this purpose).",
   "effects": {
     "positive": [
       "Stimulation",
@@ -94,9 +101,5 @@ export const _5_hydroxytryptophan: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted tryptamines",
-    "Amino acid"
-  ]
+  "riskLevel": "moderate"
 };

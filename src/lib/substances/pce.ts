@@ -12,13 +12,14 @@ export const pce: Substance =
   "id": "pce",
   "name": "PCE",
   "commonNames": [
-    "Arylcyclohexylamines"
+    "PCE",
+    "Eticyclidine"
   ],
   "categories": [
     "dissociatives"
   ],
   "class": "Arylcyclohexylamines",
-  "description": "PCP was marketed in the 1950s as an anesthetic pharmaceutical drug but was taken off the market in 1965 due to the high prevalence of dissociative hallucinogenic side effects, which was also discovered of PCE. Since this time, a number of synthetic derivatives of PCP have been sold as dissociative drugs for recreational and non-medical use. Today, PCE is typically taken as a recreational drug or more rarely, for entheogenic purposes alongside its popular contemporary relatives 3-MeO-PCP and 3-MeO-PCE. PCE may be ingested orally, smoked, insufflated or injected. It has been noted for its potency, diversity in effects, long-lived effects, and abuse liability.",
+  "description": "PCE (also known as Eticyclidine or CI-400) is a synthetic dissociative substance of the arylcyclohexylamine chemical class that produces dissociative, anesthetic and hallucinogenic effects when administered. Like its closely related structural analog PCP, PCE primarily exerts its effect as an NMDA receptor antagonist, where it noncompetitively binds to and blocks the activity of the NMDA receptor. Notably, PCE is slightly more potent than PCP and has similar effects, but its unpleasant taste and tendency to cause nausea made it less accepted by users, making it relatively obscure.",
   "effects": {
     "positive": [
       "Physical euphoria",
@@ -138,8 +139,5 @@ export const pce: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "high",
-  "aliases": [
-    "Arylcyclohexylamines"
-  ]
+  "riskLevel": "high"
 };

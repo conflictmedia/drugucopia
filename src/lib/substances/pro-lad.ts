@@ -12,13 +12,13 @@ export const pro_lad: Substance =
   "id": "pro-lad",
   "name": "PRO-LAD",
   "commonNames": [
-    "Lysergamides"
+    "PRO-LAD"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Lysergamides",
-  "description": "N-Propylnorlysergic acid N,N-diethylamide (also known as 6-Propyl-6-nor-lysergic acid diethylamide, N-PropylnorLSD or simply PRO-LAD) is a novel Psychoactive class psychedelic substance of the Chemical class lysergamide class. PRO-LAD was first investigated by Andrew J. Hoffman and David E. Nichols in 1984 as part of a series of LSD analogs. It has been sold on the online research chemical market alongside lysergamides like 1P-LSD and AL-LAD as a legal, grey-market alternative to LSD. Subjective effects are similar to LSD and include open and closed-eye visuals, time distortion, enhanced introspection, ego loss, and euphoria. It has been reported to be around as potent as LSD itself with an active dose reported at between 100 and 200 micrograms.",
+  "description": "N-Propylnorlysergic acid N,N-diethylamide (also known as 6-Propyl-6-nor-lysergic acid diethylamide, N-PropylnorLSD or simply PRO-LAD) is a novel psychedelic substance of the lysergamide class. PRO-LAD was first investigated by Andrew J. Hoffman and David E. Nichols in 1984 as part of a series of LSD analogs. It was later described as an analog of LSD by Alexander Shulgin in the book TiHKAL (\"Tryptamines I Have Known and Loved\"), in which one report remarks that it is \"good for humor, even excellent... very good for clear thinking, although not cosmic-type particularly.\"",
   "effects": {
     "positive": [
       "Physical euphoria - This component can occur with the development of spontaneous bodily sensations, but is not as consistent as it is with LSD.",
@@ -134,8 +134,5 @@ export const pro_lad: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Lysergamides"
-  ]
+  "riskLevel": "moderate"
 };

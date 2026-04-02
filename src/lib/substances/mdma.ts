@@ -12,16 +12,25 @@ export const mdma: Substance =
   "id": "mdma",
   "name": "MDMA",
   "commonNames": [
-    "Amphetamine",
-    "MDxx",
-    "Substituted amphetamines"
+    "MDMA",
+    "Molly",
+    "Mandy",
+    "Emma",
+    "MD",
+    "Ecstasy",
+    "E",
+    "X",
+    "XTC",
+    "Rolls",
+    "Beans",
+    "Pingers"
   ],
   "categories": [
     "empathogens",
     "stimulants"
   ],
   "class": "Amphetamine",
-  "description": "Additionally, using excessively high doses and multiple redosing is highly discouraged as this is thought to significantly increase the toxicity of MDMA. Interestingly, MDMA’s potential for overuse and dependence or addiction can actually be greatly influenced by certain geographical components such as in other cultures or subcultures similarly to ketamine. Although ketamine‘s addiction potential is still notably higher across various cultures then compared to MDMA. It has also been shown to be neurotoxic at high doses; however, it is unclear how much this risk applies to typical recreational usage. MDMA has been shown to cause Effects sexual dysfunction, including erectile dysfunction and delayed orgasm (see subjective effects).",
+  "description": "3,4-Methylenedioxymethamphetamine (also known as ecstasy, E, XTC, emma, molly, mandy, pingers, and MDMA) is a classical entactogen substance of the amphetamine class. However, human use was not reported until the 1970s, when it became known to underground psychotherapy circles in the United States. In the early 1980s, it spread into nightlife and rave culture, which eventually resulted in federal scheduling in 1985. Researchers are currently investigating whether MDMA may assist in treatment-resistant post-traumatic stress disorder (PTSD), social anxiety in autistic adults, and anxiety in those with life-threatening illness. A notable property of MDMA is that tolerance builds unusually quickly and many users report that it dramatically loses effectiveness if used on a frequent basis. It is usually recommended to wait for one to three months between each use to give the brain adequate time to restore serotonin levels and avoid toxicity. MDMA has moderate to high abuse potential but a conversely low potential for a genuine psychological dependence or addiction which appears even lower than cannabis (lower than 10%).",
   "effects": {
     "positive": [
       "Bodily control enhancement",
@@ -138,12 +147,7 @@ export const mdma: Substance =
     "molecularWeight": "Unknown",
     "class": "Amphetamine"
   },
-  "history": "thumb|left|200px|Patent Certificate for Merck's synthesis of MDMA, dated 1912 MDMA was first synthesized in 1912 by the German chemist Dr. Anton Köllisch while employed at the pharmaceutical company Merck. Despite promising results, research was halted due to rising substance prices. Shulgin claims to have first heard about the effects of MDMA in 1967 from a student and decided to experiment with it himself. From the mid-1970s to the mid-1980s there was a growth of clinicians using MDMA (then known as \"Adam\") in California. Despite this, the director of the DEA overruled this recommendation and classified MDMA as a Schedule I controlled substance.",
+  "history": "thumb|left|200px|Patent Certificate for Merck's synthesis of MDMA, dated 1912\nMDMA was first synthesized in 1912 by the German chemist Dr. Anton Köllisch while employed at the pharmaceutical company Merck. It was not mentioned again until 1927, when Dr. Max Oberlin conducted the first proven pharmacological tests at Merck while searching for compounds with a similar action spectrum to adrenaline or ephetonine. After several hearings, a US Federal Administrative Law Judge recommended that MDMA should be made a Schedule III controlled substance so that it could be used in the medical field. In the United Kingdom, the 1971 Misuse of Drugs Act, which had already been altered in 1977 to include all ring-substituted amphetamines like MDMA, was further amended in 1985 to refer specifically to Ecstasy, placing it in the Class A category.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Amphetamine",
-    "MDxx",
-    "Substituted amphetamines"
-  ]
+  "riskLevel": "moderate"
 };

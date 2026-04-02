@@ -12,13 +12,18 @@ export const armodafinil: Substance =
   "id": "armodafinil",
   "name": "Armodafinil",
   "commonNames": [
-    "Benzhydryl"
+    "Armodafinil",
+    "Nuvigil",
+    "Waklert",
+    "Artvigil",
+    "R-Modawake",
+    "Neoresotyl"
   ],
   "categories": [
     "stimulants"
   ],
   "class": "Benzhydryl",
-  "description": "(R)-Modafinil (also known as Armodafinil and by the brand names Nuvigil, Artvigil, and Waklert) is a psychoactive class eugeroic substance of the chemical class benzhydryl class. Armodafinil was approved by the U.S. Food and Drug Administration (FDA) in June 2007 for the treatment of obstructive sleep apnea, shift work sleep disorder, and narcolepsy. In addition to its wakefulness-promoting effects and ability to increase locomotor activity in animals, armodafinil can produce rewarding psychoactive and euphoric effects such as alterations in mood, perception, thinking, and feelings typically observed with other central nervous system (CNS) stimulants in humans. A study in which patients were administered modafinil, methylphenidate, and a placebo found that armodafinil produces \"psychoactive and euphoric effects and feelings consistent with methylphenidate.\" Relative to modafinil, armodafinil reaches its peak concentration in the blood later after administration than modafinil does, which may make it more effective at improving wakefulness in patients with excessive daytime sleepiness.",
+  "description": "(R)-Modafinil (also known as Armodafinil and by the brand names Nuvigil, Artvigil, and Waklert) is a eugeroic substance of the benzhydryl class. Armodafinil was approved by the U.S. Food and Drug Administration (FDA) in June 2007 for the treatment of obstructive sleep apnea, shift work sleep disorder, and narcolepsy. In addition to its wakefulness-promoting effects and ability to increase locomotor activity in animals, armodafinil can produce rewarding psychoactive and euphoric effects such as alterations in mood, perception, thinking, and feelings typically observed with other central nervous system (CNS) stimulants in humans.",
   "effects": {
     "positive": [
       "Increased heart rate",
@@ -87,8 +92,5 @@ export const armodafinil: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Benzhydryl"
-  ]
+  "riskLevel": "moderate"
 };

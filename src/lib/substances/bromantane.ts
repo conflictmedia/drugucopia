@@ -12,14 +12,16 @@ export const bromantane: Substance =
   "id": "bromantane",
   "name": "Bromantane",
   "commonNames": [
-    "Adamantanes"
+    "Bromantane",
+    "Bromantan",
+    "Ladasten"
   ],
   "categories": [
     "stimulants",
     "nootropics"
   ],
   "class": "Adamantanes",
-  "description": "Bromantane (trade name Ladasten / Ладастен) is a Russian pharmaceutical substance developed in the late 1980s that possesses both stimulant and anxiolytic properties. Although it is a commonly used medication in Russia and surrounding countries, it has not gained widespread recognition or pharmaceutical use in other countries. During the 1996 Olympic Games in Atlanta, 5 different Russian athletes tested positive for bromantane use. A study conducted on human subjects displayed bromantane's ability to improve endurance and work capacity during stressful and intense conditions. This is because bromantane works as an actoprotector, a substance that makes the body more stable under physical duress without increasing oxygen consumption.",
+  "description": "Bromantane (trade name Ladasten / Ладастен) is a Russian pharmaceutical substance developed in the late 1980s that possesses both stimulant and anxiolytic properties. Although it is a commonly used medication in Russia and surrounding countries, it has not gained widespread recognition or pharmaceutical use in other countries. During the 1996 Olympic Games in Atlanta, 5 different Russian athletes tested positive for bromantane use.",
   "effects": {
     "positive": [
       "Stimulation - It is generally not described as forced and is mild comparing to that produced by typical stimulants like amphetamine.",
@@ -73,8 +75,5 @@ export const bromantane: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Adamantanes"
-  ]
+  "riskLevel": "moderate"
 };

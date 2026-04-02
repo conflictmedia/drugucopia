@@ -11,14 +11,12 @@ export const lae_32: Substance =
 {
   "id": "lae-32",
   "name": "LAE-32",
-  "commonNames": [
-    "Lysergamides"
-  ],
+  "commonNames": [],
   "categories": [
     "hallucinogens"
   ],
   "class": "Lysergamides",
-  "description": "Lysergic acid ethylamide (also known as LAE-32, LAE, and d-ethyllysergamide) is a lesser-known psychoactive class psychedelic substance of the chemical class lysergamide class. It is one of the least known and least researched psychedelic substances. The pharmacology of LAE-32 is complex, but it acts primarily by binding to serotonin receptors in the brain, much like LSD and other serotonergic psychedelics.",
+  "description": "Lysergic acid ethylamide (also known as LAE-32, LAE, and d-ethyllysergamide) is a lesser-known psychedelic substance of the lysergamide class. It is one of the least known and least researched psychedelic substances.\nThe pharmacology of LAE-32 is complex, but it acts primarily by binding to serotonin receptors in the brain, much like LSD and other serotonergic psychedelics.",
   "effects": {
     "positive": [],
     "neutral": [
@@ -61,8 +59,5 @@ export const lae_32: Substance =
   },
   "history": "",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Lysergamides"
-  ]
+  "riskLevel": "moderate"
 };

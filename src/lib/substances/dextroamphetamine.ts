@@ -12,13 +12,18 @@ export const dextroamphetamine: Substance =
   "id": "dextroamphetamine",
   "name": "Dextroamphetamine",
   "commonNames": [
-    "Substituted phenethylamines"
+    "Dextroamphetamine",
+    "Dexamphetamine",
+    "D-amphetamine",
+    "Dexedrine",
+    "Dex",
+    "Attentin"
   ],
   "categories": [
     "stimulants"
   ],
   "class": "Substituted phenethylamines",
-  "description": "Dextroamphetamine (also known as Dexamphetamine, Dex, Dexies, and sold under brand names like Adderall, Dexedrine, and Zenzedi) is a central nervous system stimulant and the right-handed enantiomer of amphetamine. It's more potent than its mirror twin, levoamphetamine, especially in stimulating dopamine and norepinephrine activity in the brain. Subjective effects include stimulation, increased focus, motivation enhancement, appetite suppression, wakefulness, thought acceleration, and euphoria. At lower to moderate doses, it can promote productivity, alertness, and sociability. However, higher doses may induce restlessness, anxiety, compulsive redosing, and over-stimulation.",
+  "description": "Dextroamphetamine (also known as Dexamphetamine, Dex, Dexies, and sold under brand names like Adderall, Dexedrine, and Zenzedi) is a central nervous system stimulant and the right-handed enantiomer of amphetamine. It's more potent than its mirror twin, levoamphetamine, especially in stimulating dopamine and norepinephrine activity in the brain. Subjective effects include stimulation, increased focus, motivation enhancement, appetite suppression, wakefulness, thought acceleration, and euphoria.",
   "effects": {
     "positive": [],
     "neutral": [],
@@ -80,8 +85,5 @@ export const dextroamphetamine: Substance =
   },
   "history": "In 1937 Smith, Kline and French introduced tablets of the dextrorotary enantiomer of amphetamine(at that time sold as Benzedrine)under the tradename Dexedrine.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted phenethylamines"
-  ]
+  "riskLevel": "moderate"
 };

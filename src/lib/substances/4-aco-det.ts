@@ -12,13 +12,15 @@ export const _4_aco_det: Substance =
   "id": "4-aco-det",
   "name": "4-AcO-DET",
   "commonNames": [
-    "Substituted tryptamines"
+    "4-AcO-DET",
+    "4-Acetoxy-DET",
+    "Ethacetin"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted tryptamines",
-  "description": "4-AcO-DET (4-Acetoxy-N,N-diethyltryptamine, ethacetin) is a lesser-known novel psychoactive class psychedelic substance of the chemical class tryptamine class. It is chemically related to psilocin and part of a series of substituted tryptamines that includes 4-AcO-MET and 4-AcO-DMT. Today it is either used recreationally as a designer drug or as an entheogenic compound and is typically acquired through the use of online research chemical vendors. There is very little data on the human pharmacology or toxicity of 4-AcO-DET, although analytical methods have been developed for its detection. It remains relatively rare and has very little documented history of human usage.",
+  "description": "It is chemically related to psilocin and part of a series of substituted tryptamines that includes 4-AcO-MET and 4-AcO-DMT. Today it is either used recreationally as a designer drug or as an entheogenic compound and is typically acquired through the use of online research chemical vendors. There is very little data on the human pharmacology or toxicity of 4-AcO-DET, although analytical methods have been developed for its detection.",
   "effects": {
     "positive": [
       "Sedation and Stimulation - In terms of its effects on the physical energy levels of the user, 4-AcO-DET is typically relaxing, stoning and mildly sedating, although it can also sometimes be very stimulating and give users a \"wired\" feeling. This sense of sedation is often accompanied by uncontrollable yawning.",
@@ -119,8 +121,5 @@ export const _4_aco_det: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted tryptamines"
-  ]
+  "riskLevel": "moderate"
 };

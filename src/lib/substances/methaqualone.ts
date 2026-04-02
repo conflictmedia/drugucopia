@@ -12,13 +12,20 @@ export const methaqualone: Substance =
   "id": "methaqualone",
   "name": "Methaqualone",
   "commonNames": [
-    "Quinazolinone"
+    "Methaqualone",
+    "Quaaludes",
+    "Ludes",
+    "Mandrax",
+    "Sopor",
+    "Quack",
+    "Vitamin Q",
+    "Soaper"
   ],
   "categories": [
     "depressants"
   ],
   "class": "Quinazolinone",
-  "description": "GABAergics Methaqualone (brand name Quaalude in the US and Mandrax in the UK) is a central nervous system (CNS) psychoactive class depressant of the chemical class quinazolinone class that acts as a sedative and hypnotic. The sedative–hypnotic activity of methaqualone was first noted by researchers in the 1950s and in 1962 methaqualone itself was patented in the US by Wallace and Tiernan. Its use peaked in the early 1970s as a hypnotic, for the treatment of insomnia, and as a sedative and muscle relaxant. It is still produced and used clandestinely as a recreational drug throughout the world. The drug was popular in the 1970s with hippies and in the disco club scene, known as ludes (from \"quaaludes\") or disco biscuits.",
+  "description": "GABAergics\nMethaqualone (brand name Quaalude in the US and Mandrax in the UK) is a central nervous system (CNS) depressant of the quinazolinone class that acts as a sedative and hypnotic. The sedative–hypnotic activity of methaqualone was first noted by researchers in the 1950s and in 1962 methaqualone itself was patented in the US by Wallace and Tiernan. The drug was popular in the 1970s with hippies and in the disco club scene, known as ludes (from \"quaaludes\") or disco biscuits.",
   "effects": {
     "positive": [
       "Sedation -  In terms of energy level alterations, this drug is extremely sedating and often results in an overwhelmingly lethargic state. At higher levels, this causes users to suddenly feel as if they are extremely sleep deprived and have not slept for days, forcing them to sit down and generally feel as if they are constantly on the verge of passing out instead of engaging in physical activities. This sense of sleep deprivation increases proportional to dosage and eventually becomes powerful enough to force a person into complete unconsciousness.",
@@ -100,8 +107,5 @@ export const methaqualone: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Quinazolinone"
-  ]
+  "riskLevel": "moderate"
 };
