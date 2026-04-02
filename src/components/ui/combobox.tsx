@@ -76,8 +76,10 @@ export function Combobox({
             value={search}
             onValueChange={setSearch}
           />
-          {/* ⬇️ This is the only line that changed */}
-          <CommandList onTouchMove={(e) => e.stopPropagation()}>
+          <CommandList
+            onTouchMove={(e) => e.stopPropagation()}
+            onWheel={(e) => e.stopPropagation()}
+           >
             <CommandEmpty>
               {allowCustom ? (
                 <div className="py-2 px-2">

@@ -236,11 +236,16 @@ export function DoseLoggerModal({
       setCategories(cats)
     } else {
       // Custom substance
-      setSubstanceId(`custom-${Date.now()}`)
+      setSubstanceId(value)
       setSubstanceName(value)
       setCategories([])
     }
   }
+
+  const onSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    handleSubmit();
+  };
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -259,7 +264,7 @@ export function DoseLoggerModal({
             Record your substance use for tracking and harm reduction purposes.
           </DialogDescription>
         </DialogHeader>
-
+        <form onSubmit={onSubmit}>
         <div className="grid gap-4 py-4">
           {/* Substance Selection */}
           <div className="grid gap-2">
@@ -375,13 +380,14 @@ export function DoseLoggerModal({
 
         <DialogFooter>
           <DialogClose asChild>
-            <Button variant="outline">Cancel</Button>
+            <Button type="button" variant="outline">Cancel</Button>
           </DialogClose>
-          <Button onClick={handleSubmit} disabled={loading}>
+          <Button type="submit" disabled={loading}>
             {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
             Log Dose
           </Button>
         </DialogFooter>
+       </form>
       </DialogContent>
     </Dialog>
   )

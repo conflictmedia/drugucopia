@@ -152,11 +152,9 @@ export function EditDoseModal({ dose, open, onOpenChange, onSaved }: EditDoseMod
     await new Promise((r) => setTimeout(r, 150))
 
     try {
-      // Recalculate duration from substance routeData if available
       const duration =
         selectedSubstance?.routeData?.[route]?.duration ?? dose.duration
 
-      // Update createdAt to now so merge logic on other devices picks this as the newer version
       const now = new Date().toISOString()
       const updated: DoseLog = {
         ...dose,
@@ -173,7 +171,6 @@ export function EditDoseModal({ dose, open, onOpenChange, onSaved }: EditDoseMod
         createdAt: now,
       }
 
-      // Persist to localStorage
       const existing: DoseLog[] = JSON.parse(
         localStorage.getItem(STORAGE_KEY) || '[]'
       )
@@ -201,6 +198,11 @@ export function EditDoseModal({ dose, open, onOpenChange, onSaved }: EditDoseMod
     }
   }
 
+  const onSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    handleSave();
+  };
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[500px]">
@@ -213,7 +215,7 @@ export function EditDoseModal({ dose, open, onOpenChange, onSaved }: EditDoseMod
             Correct any details for this dose entry.
           </DialogDescription>
         </DialogHeader>
-
+       <form onSubmit={onSubmit}>
         <div className="grid gap-4 py-4">
           {/* Substance */}
           <div className="grid gap-2">
@@ -322,13 +324,14 @@ export function EditDoseModal({ dose, open, onOpenChange, onSaved }: EditDoseMod
 
         <DialogFooter>
           <DialogClose asChild>
-            <Button variant="outline">Cancel</Button>
+            <Button type="button" variant="outline">Cancel</Button>
           </DialogClose>
-          <Button onClick={handleSave} disabled={loading}>
+          <Button type="submit" disabled={loading}>
             {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
             Save changes
           </Button>
         </DialogFooter>
+       </form>
       </DialogContent>
     </Dialog>
   )
