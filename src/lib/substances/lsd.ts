@@ -12,13 +12,20 @@ export const lsd: Substance =
   "id": "lsd",
   "name": "LSD",
   "commonNames": [
-    "Lysergamides"
+    "LSD",
+    "LSD-25",
+    "Lucy",
+    "L",
+    "Acid",
+    "Cid",
+    "Tabs",
+    "Blotter"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Lysergamides",
-  "description": "It is perhaps the most researched and culturally influential psychedelic substance, as well as the prototypal lysergamide. In the 1950s, it was widely distributed by Sandoz as an experimental drug for psychotherapy and scientific research; during this era, it provoked considerable interest from the intellectual establishment and was even the subject of a clandestine investigation by the U.S. Central Intelligence Agency (CIA) for potential applications in \"mind control\". Recreational LSD use became a central, highly-visible aspect of the 1960s youth counterculture movement, eventually paving the way for international prohibition in 1971. Today, illicit recreational use remains widespread and it is associated in popular culture with the counterculture and rave scenes. Unlike most highly prohibited substances, LSD has not been proven to be physiologically toxic or addictive.",
+  "description": "Lysergic acid diethylamide (also known as Lysergide, LSD-25, LSD, L, Lucy, and Acid) is a classical psychedelic substance of the lysergamide class. The psychoactive effects of LSD were first discovered in 1943 by Albert Hofmann at Sandoz Laboratories (Switzerland). In the 1950s, it was widely distributed by Sandoz as an experimental drug for psychotherapy and scientific research; during this era, it provoked considerable interest from the intellectual establishment and was even the subject of a clandestine investigation by the U.S. Central Intelligence Agency (CIA) for potential applications in \"mind control\". Subjective effects include visual geometry / hallucinatory states, time distortion, enhanced introspection, conceptual thinking, increased music appreciation, euphoria, and ego loss.",
   "effects": {
     "positive": [
       "Neurogenesis",
@@ -141,10 +148,7 @@ export const lsd: Substance =
     "molecularWeight": "Unknown",
     "class": "Lysergamides"
   },
-  "history": "The compound was synthesized as part of a large research program searching for medically useful derivatives of ergot, a fungus that grows on rye and other grains. However, it was not discovered to be psychoactive until five years later, when Hofmann claimed to have accidentally ingested an unknown quantity of the chemical before proceeding to ride his bike home. The first intentional ingestion was recorded on April 19, 1943. Hofmann ingested 250 micrograms (µg) of LSD, believing it would be a threshold dose based on the doses of other ergot alkaloids. He found the effects to be much stronger than he anticipated and was impressed by its profound mind-altering effects.",
+  "history": "The original synthesis of LSD was recorded on November 16, 1938, by the Swiss chemist Albert Hofmann while employed at the Sandoz Laboratories in Basel, Switzerland. However, it was not discovered to be psychoactive until five years later, when Hofmann claimed to have accidentally ingested an unknown quantity of the chemical before proceeding to ride his bike home. In 1947, Sandoz introduced LSD to the medical community under the name Delysid, marketing it as an experimental tool to induce temporary psychotic-like states in normals (“model-psychosis”) and later to enhance psychotherapeutic treatments (“psycholytic” or “psychedelic” therapy). In the 1950s, the U.S. Central Intelligence Agency (CIA) created a research program code-named MK-ULTRA that would conduct clandestine research investigating LSD for applications in 'mind control' and chemical warfare. Several prominent intellectuals, including Aldous Huxley, Timothy Leary, Al Hubbard, and Alan Watts began to advocate for the mass consumption of LSD; according to L. R. Veysey, they profoundly influenced the thinking of the new generation of youth.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Lysergamides"
-  ]
+  "riskLevel": "low"
 };

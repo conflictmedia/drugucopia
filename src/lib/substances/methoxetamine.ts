@@ -12,13 +12,15 @@ export const methoxetamine: Substance =
   "id": "methoxetamine",
   "name": "Methoxetamine",
   "commonNames": [
-    "Arylcyclohexylamines"
+    "Methoxetamine",
+    "MXE",
+    "Mexxy"
   ],
   "categories": [
     "dissociatives"
   ],
   "class": "Arylcyclohexylamines",
-  "description": "Methoxmetamine 3-MeO-2'-Oxo-PCE (commonly known as Methoxetamine, MXE, Mexxy, among others) is a psychoactive class dissociative substance of the Chemical class arylcyclohexylamine class that produces ketamine-like dissociative effects when administered. It is structurally related to ketamine, PCE, and 3-MeO-PCP. MXE was originally developed through the use of intelligent drug design, as a potential treatment for Phantom Limb Syndrome among other ailments. MXE had no documented history of human usage until it was first identified by the European Monitoring Centre for Drugs and Drug Addiction in November 2010. Once highly popular, it is now thought to be extinct on the online research chemical market due to the global ban of the drug.",
+  "description": "Methoxmetamine\n3-MeO-2'-Oxo-PCE (commonly known as Methoxetamine, MXE, Mexxy, among others) is a dissociative substance of the arylcyclohexylamine class that produces ketamine-like dissociative effects when administered. MXE was originally developed through the use of intelligent drug design, as a potential treatment for Phantom Limb Syndrome among other ailments. MXE had no documented history of human usage until it was first identified by the European Monitoring Centre for Drugs and Drug Addiction in November 2010.",
   "effects": {
     "positive": [
       "Spontaneous bodily sensations - The MXE \"body high\" can be described as a sharp, pleasurable tingling sensation which is location specific to the hands, feet, and head.",
@@ -135,8 +137,5 @@ export const methoxetamine: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Arylcyclohexylamines"
-  ]
+  "riskLevel": "moderate"
 };

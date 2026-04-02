@@ -12,13 +12,14 @@ export const dichloropane: Substance =
   "id": "dichloropane",
   "name": "Dichloropane",
   "commonNames": [
-    "Substituted tropanes"
+    "Dichloropane",
+    "RTI-111"
   ],
   "categories": [
     "stimulants"
   ],
   "class": "Substituted tropanes",
-  "description": "Dichloropane (also known as RTI-111 or O-401) is a novel psychoactive class stimulant substance of the chemical class phenyltropane class. Its effects include stimulation, thought acceleration, appetite suppression and euphoria. It is structurally related to cocaine and shares many of its effects, although it notably lacks its local anesthetic properties. Dichloropane has been shown to have a slower onset and longer duration of action compared to cocaine in animal studies. Anecdotal reports characterize it as having the basic stimulant qualities of cocaine but without as much euphoria, more protracted comedown, and less general enjoyability.",
+  "description": "It is structurally related to cocaine and shares many of its effects, although it notably lacks its local anesthetic properties. Dichloropane has been shown to have a slower onset and longer duration of action compared to cocaine in animal studies. Anecdotal reports characterize it as having the basic stimulant qualities of cocaine but without as much euphoria, more protracted comedown, and less general enjoyability.",
   "effects": {
     "positive": [
       "Increased heart rate",
@@ -104,8 +105,5 @@ export const dichloropane: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "high",
-  "aliases": [
-    "Substituted tropanes"
-  ]
+  "riskLevel": "high"
 };

@@ -12,14 +12,15 @@ export const _5_meo_mipt: Substance =
   "id": "5-meo-mipt",
   "name": "5-MeO-MiPT",
   "commonNames": [
-    "Substituted tryptamines"
+    "5-MeO-MiPT",
+    "Moxy"
   ],
   "categories": [
     "hallucinogens",
     "empathogens"
   ],
   "class": "Substituted tryptamines",
-  "description": "5-Methoxy-N-methyl-N-isopropyltryptamine (also known as 5-MeO-MiPT and moxy) is a lesser-known psychoactive class psychedelic substance of the chemical class tryptamine class. 5-MeO-MiPT is chemically related to tryptamines like 5-MeO-DMT and 5-MeO-DiPT. The synthesis and pharmacology of 5-MeO-MiPT was first reported in 1985 by David Repke and Alexander Shulgin. Its effects in humans was documented in Shulgin's book TiHKAL (\"Tryptamines I Have Known and Loved\"). Anecdotal reports describe 5-MeO-MiPT's effects as highly stimulating and mildly entactogenic, lacking in typical psychedelic visual distortions.",
+  "description": "The synthesis and pharmacology of 5-MeO-MiPT was first reported in 1985 by David Repke and Alexander Shulgin. Its effects in humans was documented in Shulgin's book TiHKAL (\"Tryptamines I Have Known and Loved\"). Anecdotal reports describe 5-MeO-MiPT's effects as highly stimulating and mildly entactogenic, lacking in typical psychedelic visual distortions.",
   "effects": {
     "positive": [
       "Stimulation - At doses below 10 to 15mg, 5-MeO-MiPT produces a degree of stimulation comparable to that of LSD.",
@@ -123,8 +124,5 @@ export const _5_meo_mipt: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted tryptamines"
-  ]
+  "riskLevel": "moderate"
 };

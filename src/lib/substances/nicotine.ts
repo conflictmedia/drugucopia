@@ -12,15 +12,14 @@ export const nicotine: Substance =
   "id": "nicotine",
   "name": "Nicotine",
   "commonNames": [
-    "Pyridine",
-    "Substituted pyrrolidines"
+    "Nicotine"
   ],
   "categories": [
     "depressants",
     "stimulants"
   ],
   "class": "Pyridine",
-  "description": "It is the principal alkaloid found in the nightshade family of plants. It is also used as an antiherbivore agent to deter plant predation and has been used as an insecticide in the past. Unlike many other psychoactive substances, nicotine in the form of tobacco is reported to have a unique biphasic effect in which inhaling it in short puffs produces a psychoactive class stimulant effect, while deep drags produces a relaxing one. Nicotine overdoses, even mild ones, are reported to be highly unpleasant and result in significant nausea and light-headedness. While the link between tobacco use and cancer is well-established, various roles of nicotine in cancer initiation have also been found.",
+  "description": "Nicotine is a naturally-occurring alkaloid which can have both stimulant and depressant effects due to it affecting a range of biological systems simultaneously. It is also used as an antiherbivore agent to deter plant predation and has been used as an insecticide in the past. Subjective effects include stimulation, focus enhancement, motivation enhancement, anxiety suppression, and mild euphoria. Unlike many other psychoactive substances, nicotine in the form of tobacco is reported to have a unique biphasic effect in which inhaling it in short puffs produces a stimulant effect, while deep drags produces a relaxing one. At sufficiently high doses, it can potentially be deadly, though serious or fatal overdoses are rare.",
   "effects": {
     "positive": [
       "Stimulation & Sedation - The stimulatory effects of nicotine are much less pronounced than other stimulants such as caffeine or amphetamine. At higher doses, however, nicotine inhibits nerve transmission which produces moderate sedative effects.",
@@ -116,11 +115,7 @@ export const nicotine: Substance =
     "molecularWeight": "Unknown",
     "class": "Pyridine"
   },
-  "history": "Crude nicotine was known by 1571, and the compound was obtained in purified form in 1828; the correct molecular formula was established in 1843, and the first laboratory synthesis was reported in 1904. Nicotiana rustica has been used by the Mapacho (South America) and the thuoc lao (thuốc lào) (Vietnam) people for spiritual purposes.",
+  "history": "Crude nicotine was known by 1571, and the compound was obtained in purified form in 1828; the correct molecular formula was established in 1843, and the first laboratory synthesis was reported in 1904.\nNicotiana rustica has been used by the Mapacho (South America) and the thuoc lao (thuốc lào) (Vietnam) people for spiritual purposes.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "high",
-  "aliases": [
-    "Pyridine",
-    "Substituted pyrrolidines"
-  ]
+  "riskLevel": "high"
 };

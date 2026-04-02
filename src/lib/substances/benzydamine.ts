@@ -12,14 +12,15 @@ export const benzydamine: Substance =
   "id": "benzydamine",
   "name": "Benzydamine",
   "commonNames": [
-    "Indazole"
+    "Benzydamine",
+    "Tantum Verde"
   ],
   "categories": [
     "deliriants",
     "stimulants"
   ],
   "class": "Indazole",
-  "description": "Benzydamine (also known as Difflam or Tantum Verde) is a topical anaesthetic of the Chemical class indazole chemical class. It is sometimes found in small doses in over-the-counter products used to treat sore throats. In Germany, Arabic Countries and Poland, it is sold as a vaginal douching agent under the brand name Tantum Rosa. This product is also easily accessible across the world through the use of online stores such as eBay. Alternatively, benzydamine can be used as a powerful psychoactive hallucinogen for recreational purposes.",
+  "description": "Benzydamine (also known as Difflam or Tantum Verde) is a topical anaesthetic of the indazole chemical class. It is sometimes found in small doses in over-the-counter products used to treat sore throats. In Germany, Arabic Countries and Poland, it is sold as a vaginal douching agent under the brand name Tantum Rosa.",
   "effects": {
     "positive": [
       "Increased heart rate",
@@ -94,8 +95,5 @@ export const benzydamine: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Indazole"
-  ]
+  "riskLevel": "moderate"
 };

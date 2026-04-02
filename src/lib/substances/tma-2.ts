@@ -12,14 +12,14 @@ export const tma_2: Substance =
   "id": "tma-2",
   "name": "TMA-2",
   "commonNames": [
-    "Substituted amphetamines"
+    "TMA-2"
   ],
   "categories": [
     "hallucinogens",
     "stimulants"
   ],
   "class": "Substituted amphetamines",
-  "description": "2,4,5-Trimethoxyamphetamine (abbreviated TMA-2) is a synthetic psychoactive class psychedelic amphetamine known to produce a unique spectrum of hallucinogenic and stimulant effects that differ substantially from other psychoactive phenethylamines. Members in this family been observed to produce a complex mixture of hallucinogenic, stimulant, psychedelic and entactogenic effects that qualitatively separates it from other psychedelic phenethylamine compounds like members of the 2C-x or DOx series. TMA-2 was first synthesized by Viktor Bruckner in 1933, but was not investigated as a psychoactive chemical until Alexander Shulgin synthesized and tested it in 1962. There are occasional references to the use of TMA-2 in early 1970's counter-culture publications, describing the drug as being rarely produced for sale and expensive in comparison to LSD. In terms of its subjective effects, it is known for its lack of classic psychedelic visuals compared to its parent compound (mescaline) and is known instead for its unique stimulating body-high and altered headspace that ranges from euphoric to dysphoric variably.",
+  "description": "Members in this family been observed to produce a complex mixture of hallucinogenic, stimulant, psychedelic and entactogenic effects that qualitatively separates it from other psychedelic phenethylamine compounds like members of the 2C-x or DOx series. TMA-2 was first synthesized by Viktor Bruckner in 1933, but was not investigated as a psychoactive chemical until Alexander Shulgin synthesized and tested it in 1962. This suggests that there was only very limited human usage of TMA-2 between its invention and the publication of its synthesis and pharmacology in Shulgin's 1991 book PiHKAL (\"Phenethylamines I Have Known And Loved\").",
   "effects": {
     "positive": [
       "Stimulation - In terms of its effects on the physical energy levels of the user, TMA-2 is usually considered to be extremely stimulating at levels which do not become overwhelming, resulting in a shakiness and unsteadiness of the hands but encouraging one to move around, run, dance, climb and generally engage in physical activities. In comparison, other more commonly used psychedelics such as psilocin are generally sedating and relaxed.",
@@ -94,8 +94,5 @@ export const tma_2: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted amphetamines"
-  ]
+  "riskLevel": "moderate"
 };

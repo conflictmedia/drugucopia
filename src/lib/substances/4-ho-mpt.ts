@@ -12,13 +12,14 @@ export const _4_ho_mpt: Substance =
   "id": "4-ho-mpt",
   "name": "4-HO-MPT",
   "commonNames": [
-    "Substituted tryptamines"
+    "4-HO-MPT",
+    "Meprocin"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted tryptamines",
-  "description": "4-Hydroxy-N-methyl-N-propyltryptamine (also known as 4-HO-MPT or Meprocin) is a novel synthetic psychoactive class psychedelic substance of the chemical class tryptamine chemical class that produces psychedelic effects when administered. It is a closely related structural analog of 4-HO-DMT (Psilocin) and other hallucinogenic tryptamines with powerful psychedelic effects. Very little data exists about the pharmacological properties, metabolism, and toxicity of 4-HO-MPT. It has been sold online as a research chemical as of 2016. It was synthesised and described by Alexander Shulgin in his 1994 book TiHKAL.",
+  "description": "4-Hydroxy-N-methyl-N-propyltryptamine (also known as 4-HO-MPT or Meprocin) is a novel synthetic psychedelic substance of the tryptamine chemical class that produces psychedelic effects when administered. It is a closely related structural analog of 4-HO-DMT (Psilocin) and other hallucinogenic tryptamines with powerful psychedelic effects. It was synthesised and described by Alexander Shulgin in his 1994 book TiHKAL.",
   "effects": {
     "positive": [
       "Increased heart rate",
@@ -95,8 +96,5 @@ export const _4_ho_mpt: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted tryptamines"
-  ]
+  "riskLevel": "moderate"
 };

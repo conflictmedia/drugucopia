@@ -12,14 +12,27 @@ export const methamphetamine: Substance =
   "id": "methamphetamine",
   "name": "Methamphetamine",
   "commonNames": [
-    "Amphetamine",
-    "Substituted amphetamines"
+    "Methamphetamine",
+    "Meth",
+    "Crystal",
+    "Desoxyn",
+    "Speed",
+    "Ma",
+    "Ice",
+    "Glass",
+    "Shard",
+    "Tina",
+    "T",
+    "Tweak",
+    "Crank",
+    "Shabu",
+    "Yaba"
   ],
   "categories": [
     "stimulants"
   ],
   "class": "Amphetamine",
-  "description": "N-Methylamphetamine (also known as Methamphetamine, Ma, Meth, Glass, Ice, Shard, Crank, Tina, T, Tweak, Yaba, Shabu, and Crystal) is a classical psychoactive class stimulant substance of the chemical class amphetamine class. Methamphetamine was first synthesized from ephedrine in 1893 by Japanese chemist Nagayoshi Nagai. Methamphetamine has been shown to have extremely high abuse and addiction potential; it is widely considered to be one of the most addictive substances due to the intense euphoria it produces. Additionally, unlike amphetamine at therapeutic doses, methamphetamine at moderate to heavy recreational doses is considered to be directly neurotoxic to humans, damaging both dopamine and serotonin neurons within the central nervous system. In humans the effects are also neurotoxic.",
+  "description": "N-Methylamphetamine (also known as Methamphetamine, Ma, Meth, Glass, Ice, Shard, Crank, Tina, T, Tweak, Yaba, Shabu, and Crystal) is a classical stimulant substance of the amphetamine class. Methamphetamine was first synthesized from ephedrine in 1893 by Japanese chemist Nagayoshi Nagai. Chronic high-dose use can induce states of anxiety & paranoia, delusions, thought disorganization, psychosis, and violent behavior. It is associated with compulsive redosing, especially when it is vaporized (\"smoked\") or injected, due to the overwhelming euphoric rush it produces in the user upon initial administration.",
   "effects": {
     "positive": [
       "Physical euphoria - As a potent stimulant, methamphetamine is capable producing states of intense physical euphoria, especially when it is vaporized or injected. However, the initial rush of euphoria can wear off well before the substance has run its course which can promote compulsive redosing, which can have extremely damaging cumulative effects.",
@@ -187,11 +200,7 @@ export const methamphetamine: Substance =
     "molecularWeight": "Unknown",
     "class": "Amphetamine"
   },
-  "history": "Amphetamine was first synthesized in 1887 in Germany by Romanian chemist Lazăr Edeleanu who named it phenylisopropylamine. Shortly after, methamphetamine was synthesized from ephedrine in 1893 by Japanese chemist Nagai Nagayoshi. Eventually, as the addictive properties of the drugs became known, governments began to place strict controls on the sale of the drugs. Despite strict government controls, both amphetamine and methamphetamine have still been used legally or illicitly by individuals from a variety of backgrounds for different purposes. Methamphetamine hydrochloride is approved by the United States Food and Drug Administration (USFDA) under the trade name \"Desoxyn\".",
+  "history": "Amphetamine was first synthesized in 1887 in Germany by Romanian chemist Lazăr Edeleanu who named it phenylisopropylamine. Neither drug had a pharmacological use until 1934, when Smith, Kline, and French began selling amphetamine as an inhaler under the trade name Benzedrine as a decongestant. For example, in 1970 in the United States, the two drugs methamphetamine and amphetamine became schedule II controlled substances under the Controlled Substances Act.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "high",
-  "aliases": [
-    "Amphetamine",
-    "Substituted amphetamines"
-  ]
+  "riskLevel": "high"
 };

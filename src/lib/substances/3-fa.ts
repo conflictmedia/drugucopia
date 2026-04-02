@@ -12,14 +12,14 @@ export const _3_fa: Substance =
   "id": "3-fa",
   "name": "3-FA",
   "commonNames": [
-    "Amphetamine",
-    "Substituted amphetamines"
+    "3-FA",
+    "PAL-353"
   ],
   "categories": [
     "stimulants"
   ],
   "class": "Amphetamine",
-  "description": "3-Fluoroamphetamine (3-FA) is a synthetic ring-substituted fluorinated chemical class amphetamine compound that produces potent classical psychoactive class stimulant effects that has been claimed to be \"almost equipotent\" with methamphetamine. It is one part of a series of designer fluorinated amphetamine analogs such as 2-FA, 2-FMA, 3-FEA, and 4-FA that are known for their euphoric and stimulating effects and growing popularity as research chemical substitutes for classical street stimulants. 3-FA is rarely found on the streets, and only sometimes sold as a grey market research chemical through online vendors.",
+  "description": "3-Fluoroamphetamine (3-FA) is a synthetic ring-substituted fluorinated amphetamine compound that produces potent classical stimulant effects that has been claimed to be \"almost equipotent\" with methamphetamine. It is one part of a series of designer fluorinated amphetamine analogs such as 2-FA, 2-FMA, 3-FEA, and 4-FA that are known for their euphoric and stimulating effects and growing popularity as research chemical substitutes for classical street stimulants.\n3-FA is rarely found on the streets, and only sometimes sold as a grey market research chemical through online vendors.",
   "effects": {
     "positive": [
       "Stimulation",
@@ -94,9 +94,5 @@ export const _3_fa: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Amphetamine",
-    "Substituted amphetamines"
-  ]
+  "riskLevel": "moderate"
 };

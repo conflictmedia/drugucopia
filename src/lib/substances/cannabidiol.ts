@@ -12,13 +12,15 @@ export const cannabidiol: Substance =
   "id": "cannabidiol",
   "name": "Cannabidiol",
   "commonNames": [
-    "Cannabinoid"
+    "Cannabidiol",
+    "CBD",
+    "Epidiolex"
   ],
   "categories": [
     "cannabinoids"
   ],
   "class": "Cannabinoid",
-  "description": "Cannabidiol (also known as CBD and Epidiolex®) is a naturally-occurring psychoactive class cannabinoid found in the cannabis plant. It is one of some 113 identified cannabinoids in cannabis plants, accounting for up to 40% of the plant's extract. It does not possess the same psychoactivity as tetrahydrocannabinol (THC), which is responsible for the euphoric and hallucinogenic aspects of cannabis, and is typically described as non-intoxicating. In the United States, the cannabidiol drug Epidiolex is approved by the Food and Drug Administration for the treatment of epilepsy disorders. Subjective effects include anxiety suppression, muscle relaxation, and pain relief.",
+  "description": "It does not possess the same psychoactivity as tetrahydrocannabinol (THC), which is responsible for the euphoric and hallucinogenic aspects of cannabis, and is typically described as non-intoxicating. Cannabidiol can be administered by multiple routes, including by inhalation of cannabis smoke or vapor, as an aerosol spray into the cheek, and by mouth. The U.S. Drug Enforcement Administration has assigned Epidiolex a Schedule V classification, while non-Epidiolex CBD remains a Schedule I drug prohibited for any use.",
   "effects": {
     "positive": [
       "Addiction suppression - There are some anecdotal reports that suggest CBD may have some addiction suppressing effects. However, this has not been subjected to rigorous clinical studies and more research is needed.",
@@ -65,10 +67,7 @@ export const cannabidiol: Substance =
     "molecularWeight": "Unknown",
     "class": "Cannabinoid"
   },
-  "history": "Cannibidiol was first isolated from Mexican marijuana by Roger Adams and from Indian charas by Alexander Todd, both in 1940. On the basis of chemical degradation and correlation with cannabinol, a general structure was proposed. In 1963, Raphael Mechoulam isolated CBD from Lebanese hashish and established its structure and relative stereochemistry. Its absolute stereochemistry was determined in 1967.",
+  "history": "Cannibidiol was first isolated from Mexican marijuana by Roger Adams and from Indian charas by Alexander Todd, both in 1940. On the basis of chemical degradation and correlation with cannabinol, a general structure was proposed. In 1963, Raphael Mechoulam isolated CBD from Lebanese hashish and established its structure and relative stereochemistry.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Cannabinoid"
-  ]
+  "riskLevel": "moderate"
 };

@@ -12,13 +12,13 @@ export const _25n_nbome: Substance =
   "id": "25n-nbome",
   "name": "25N-NBOMe",
   "commonNames": [
-    "Substituted phenethylamines"
+    "25N-NBOMe"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted phenethylamines",
-  "description": "25N-NBOMe (also known as 2C-N-NBOMe, NBOMe-2C-N and N-Bomb, although this term is used broadly to refer to the entire 25x-NBOMe family) is a novel Psychoactive class psychedelic substance of the chemical class phenethylamine chemical class that produces stimulating psychedelic effects when administered. 25N-NBOMe has a notably shorter duration than the rest of the 25x-NBOMe series with a total duration of 6 hours and a peak duration of 2 hours. This substance is considerably less potent when compared to the more popular NBOMe compunds such as 25B-NBOMe, 25I-NBOMe and 25C-NBOMe, all which produce strong experiences at doses above 1mg. Compounds of the NBOMe family are not orally active and should be administered sublingually by placing and holding it into one's mouth and allowing it to absorb over a period of 15-25 minutes. This substance had no history of human use before being sold online as a designer drug in 2010.",
+  "description": "25N-NBOMe (also known as 2C-N-NBOMe, NBOMe-2C-N and N-Bomb, although this term is used broadly to refer to the entire 25x-NBOMe family) is a novel psychedelic substance of the phenethylamine chemical class that produces stimulating psychedelic effects when administered. It was discovered in 2004 by Ralf Heim at the Free University of Berlin and subsequently investigated by a team at Purdue University led by David E. Nichols. 25N-NBOMe has a notably shorter duration than the rest of the 25x-NBOMe series with a total duration of 6 hours and a peak duration of 2 hours.",
   "effects": {
     "positive": [
       "Stimulation - 25N-NBOMe is usually considered to be very energetic and stimulating. For most people, this substance induces a unique type of physical stimulation which can be described as feeling extremely energetic but in a way which does not force the user to move unless they genuinely choose to do so. For others, however, the stimulation can be quite uncontrollable, occasionally resulting in bodily shakes and a grinding of the teeth comparable to that of MDMA and traditional stimulants such as amphetamine.",
@@ -122,8 +122,5 @@ export const _25n_nbome: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "very-high",
-  "aliases": [
-    "Substituted phenethylamines"
-  ]
+  "riskLevel": "very-high"
 };

@@ -12,13 +12,22 @@ export const pcp: Substance =
   "id": "pcp",
   "name": "PCP",
   "commonNames": [
-    "Arylcyclohexylamines"
+    "PCP",
+    "Angel Dust",
+    "Sherman",
+    "Sernyl",
+    "Wet",
+    "Dust",
+    "Supergrass",
+    "Boat",
+    "Tic Tac",
+    "Zoom"
   ],
   "categories": [
     "dissociatives"
   ],
   "class": "Arylcyclohexylamines",
-  "description": "It is one of the oldest and most notorious dissociatives, known for its potent effects and reputation as an established \"street drug\" (along with cocaine and heroin). It emerged as a recreational substance in mid-1967, under the name \"The Peace Pill\". Since this time, a number of synthetic derivatives of PCP (e.g. 3-MeO-PCP, 4-MeO-PCP, MXE) have been sold as dissociative drugs for both recreational and non-medical use. The effects are among the most potent and long-lasting in the class. Compulsive redosing has been reported, as well as psychological dependence following chronic use (i.e. high dose, repeated administration).",
+  "description": "Phencyclidine (also known as PCP, Angel Dust, Sherm, and Sernyl) is a classical dissociative substance of the arylcyclohexylamine class. It is one of the oldest and most notorious dissociatives, known for its potent effects and reputation as an established \"street drug\" (along with cocaine and heroin). First marketed in the 1950s as an anesthetic pharmaceutical drug, PCP was taken off the market in 1965 due to the high rate of hallucinogenic side effects. Subjective effects include motor control loss, pain relief, internal hallucinations, memory suppression, conceptual thinking, euphoria, and depersonalization / dissociation.",
   "effects": {
     "positive": [
       "Stimulation",
@@ -158,10 +167,7 @@ export const pcp: Substance =
     "molecularWeight": "Unknown",
     "class": "Arylcyclohexylamines"
   },
-  "history": "After being discovered in 1926, PCP was developed as a general anesthetic in the 1950s because it could achieve analgesia and anesthesia with minimal cardiovascular and respiratory suppression. It was marketed under the name Sernyl and began to be used in surgical procedures in 1963. By 1967, it was discontinued due to postoperative dysphoria and hallucinations. After 1967, it was limited to veterinary use. Also in the 1960s, PCP began to be illegally manufactured in laboratories and emerged as a popular street drug in San Francisco.",
+  "history": "After being discovered in 1926, PCP was developed as a general anesthetic in the 1950s because it could achieve analgesia and anesthesia with minimal cardiovascular and respiratory suppression. It was marketed under the name Sernyl and began to be used in surgical procedures in 1963. Also in the 1960s, PCP began to be illegally manufactured in laboratories and emerged as a popular street drug in San Francisco.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "high",
-  "aliases": [
-    "Arylcyclohexylamines"
-  ]
+  "riskLevel": "high"
 };

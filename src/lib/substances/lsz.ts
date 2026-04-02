@@ -12,13 +12,16 @@ export const lsz: Substance =
   "id": "lsz",
   "name": "LSZ",
   "commonNames": [
-    "Lysergamides"
+    "LSZ",
+    "LA-SS-Az",
+    "Diazedine",
+    "Lambda"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Lysergamides",
-  "description": "Lysergic acid 2,4-dimethylazetidide (also known as λ, Lambda, and LSZ) is a synthetic Psychoactive class psychedelic of the chemical class lysergamide chemical class which produces LSD-like psychedelic effects when administered. In the 2000s, a team led by David E. Nichols at Purdue University set to develop a rigid analog of LSD with the diethylamide group constrained into an azetidine ring in order to map the binding site at the 5-HT2A receptor. LSZ has little to no history of human usage prior to 2012 when it appeared on some research chemical markets in the UK. LSZ later gained international popularity through a small cluster of mail-order novel psychedelic shops that appeared in 2012. There have also been several unconfirmed reports of LSZ being synthesized in illicit laboratories and distributed on blotter paper or in liquid solution under names such as \"Diazedine\" and \"λ\" (or \"Lambda\").",
+  "description": "Lysergic acid 2,4-dimethylazetidide (also known as λ, Lambda, and LSZ) is a synthetic psychedelic of the lysergamide chemical class which produces LSD-like psychedelic effects when administered. In the 2000s, a team led by David E. Nichols at Purdue University set to develop a rigid analog of LSD with the diethylamide group constrained into an azetidine ring in order to map the binding site at the 5-HT2A receptor. Nevertheless, adverse psychological reactions such as severe anxiety, paranoia and psychosis are always possible, particularly among those predisposed to mental illness.",
   "effects": {
     "positive": [
       "Bodily control enhancement",
@@ -81,8 +84,5 @@ export const lsz: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Lysergamides"
-  ]
+  "riskLevel": "moderate"
 };

@@ -12,15 +12,14 @@ export const fenethylline: Substance =
   "id": "fenethylline",
   "name": "Fenethylline",
   "commonNames": [
-    "Amphetamine",
-    "Substituted amphetamines",
-    "Xanthines"
+    "Fenethylline",
+    "Captagon"
   ],
   "categories": [
     "stimulants"
   ],
   "class": "Amphetamine",
-  "description": "Fenethylline (also known as phenethylline, fenetylline, amphetamin​oethyl​theophylline, amfetyline, or by brand names including Captagon, Biocapton and Fitton) is a psychoactive class stimulant substance of the chemical class amphetamine class. It is a codrug for amphetamine and theophylline. Fenethylline is most common in the Middle East under the name Captagon. Captagon is primarily produced in and exported from Syria, sponsored by the Syrian government under the Assad regime. Captagon contributes to more than 90% of the foreign currency of Syria.",
+  "description": "Fenethylline (also known as phenethylline, fenetylline, amphetamin​oethyl​theophylline, amfetyline, or by brand names including Captagon, Biocapton and Fitton) is a stimulant substance of the amphetamine class. Captagon is primarily produced in and exported from Syria, sponsored by the Syrian government under the Assad regime. The annual Captagon merchandise of Syria is estimated to have been worth 57 billion US dollars in 2022.",
   "effects": {
     "positive": [
       "Stimulation",
@@ -82,12 +81,7 @@ export const fenethylline: Substance =
     "molecularWeight": "Unknown",
     "class": "Amphetamine"
   },
-  "history": "Fenethylline was first synthesized by the German chemicals company Degussa AG in 1961 It was primarily marketed as a milder alternative to amphetamine, due to its lower potential for raising blood pressure, making it ideal for patients with cardiovascular disease. It was also used for the treatment of children with ADHD and less commonly narcolepsy.",
+  "history": "Fenethylline was first synthesized by the German chemicals company Degussa AG in 1961\nIt was primarily marketed as a milder alternative to amphetamine, due to its lower potential for raising blood pressure, making it ideal for patients with cardiovascular disease. It was also used for the treatment of children with ADHD and less commonly narcolepsy.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Amphetamine",
-    "Substituted amphetamines",
-    "Xanthines"
-  ]
+  "riskLevel": "moderate"
 };

@@ -12,13 +12,16 @@ export const amphetamine: Substance =
   "id": "amphetamine",
   "name": "Amphetamine",
   "commonNames": [
-    "Substituted phenethylamines"
+    "Amphetamine",
+    "Speed",
+    "Adderall",
+    "Pep"
   ],
   "categories": [
     "stimulants"
   ],
   "class": "Substituted phenethylamines",
-  "description": "Amphetamine (also known as alpha-methylphenethylamine, amfetamine, speed, or by brand names including Adderall, Dexedrine and Tentin) is a classical psychoactive class stimulant substance of the chemical class phenethylamine class. In the 1930s, it was sold over-the-counter under the name \"Benzedrine\" as a decongestant. It became widely used to treat a range of ailments such as alcohol hangover, narcolepsy, depression, and obesity. Treatment with Amphetamine, among other stimulants, may be associated with neuroprotection for ADHD patients by reducing neurotransmitter deficiencies commonly linked to neurological deficits within untreated subjects with ADHD. Additionally, abuse has been linked to a number of health conditions, especially cardiovascular issues such as high blood pressure and increased risk of stroke.",
+  "description": "Amphetamine (also known as alpha-methylphenethylamine, amfetamine, speed, or by brand names including Adderall, Dexedrine and Tentin) is a classical stimulant substance of the phenethylamine class. It is the parent compound of the substituted amphetamines, a diverse group that includes methamphetamine, MDMA, cathinone, and bupropion. Due to issues with addiction and abuse, it was eventually listed as a controlled substance under the United Nations 1971 \"Convention on Psychotropic Substances\". Treatment with Amphetamine, among other stimulants, may be associated with neuroprotection for ADHD patients by reducing neurotransmitter deficiencies commonly linked to neurological deficits within untreated subjects with ADHD. Lower doses tend to increase focus and productivity while higher doses tend to increase sociability, sexual desire, and euphoria.",
   "effects": {
     "positive": [
       "Spontaneous bodily sensations - The \"body high\" of amphetamine can be described as a moderate euphoric tingling sensation that encompasses the entire body. This sensation maintains a consistent presence that steadily rises with the onset and hits its limit once the peak has been reached.",
@@ -158,10 +161,7 @@ export const amphetamine: Substance =
     "molecularWeight": "Unknown",
     "class": "Substituted phenethylamines"
   },
-  "history": "Amphetamine was first synthesized in Germany in 1887 by the Romanian chemist Lazăr Edeleanu, who named it phenylisopropylamine. However, its stimulant effects remained unknown until 1927, when it was independently re-synthesized by Gordon Alles and discovered to have sympathomimetic properties. In late 1933, Smith, Kline and French began selling amphetamine in the form of a decongestant inhaler under the name Benzedrine. During World War II, amphetamine and methamphetamine were used extensively by both the Allied and Axis forces for their stimulant and performance-enhancing effects. Outside Europe, the illicit market for amphetamine is much smaller than the market for methamphetamine and MDMA.",
+  "history": "Amphetamine was first synthesized in Germany in 1887 by the Romanian chemist Lazăr Edeleanu, who named it phenylisopropylamine. In late 1933, Smith, Kline and French began selling amphetamine in the form of a decongestant inhaler under the name Benzedrine. Benzedrine sulfate was introduced 3 years later and was used to treat a wide variety of medical conditions, including narcolepsy, obesity, low blood pressure, low libido, and chronic pain.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted phenethylamines"
-  ]
+  "riskLevel": "moderate"
 };

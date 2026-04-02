@@ -12,13 +12,14 @@ export const _2c_t_21: Substance =
   "id": "2c-t-21",
   "name": "2C-T-21",
   "commonNames": [
-    "Substituted phenethylamines"
+    "2C-T-21",
+    "Aurora"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted phenethylamines",
-  "description": "It is a member of the 2C-x family of psychedelic phenethylamines, all of which were derived from the systematic modification of the mescaline molecule. 2C-T-21 was first synthesized by Alexander Shulgin and documented in his book PiHKAL (\"Phenethylamines I Have Known and Loved\"). The dosage range is listed as 8–12 mg. It is described in various reports as being generally relaxed and clear-headed with mild visual effects. In Thanatos To Eros, 35 Years of Psychedelic Exploration, Myron Stolaroff describes it as \"not psychedelic, but a wonderful energizer\", along with displaying a notable lack of appetite suppression typically observed with members of its class.",
+  "description": "2C-T-21 was first synthesized by Alexander Shulgin and documented in his book PiHKAL (\"Phenethylamines I Have Known and Loved\"). In Thanatos To Eros, 35 Years of Psychedelic Exploration, Myron Stolaroff describes it as \"not psychedelic, but a wonderful energizer\", along with displaying a notable lack of appetite suppression typically observed with members of its class. This death became part of a two-year DEA investigation called \"Operation Web Tryp\" which ended with the arrests of 10 persons involved in the online distribution of research chemicals.",
   "effects": {
     "positive": [
       "Stimulation - In terms of its effects on the physical energy levels of the user, 2C-T-21 is generally considered to be energetic and stimulating in a fashion is comparable to that of other phenethylamines such as 2C-B, 2C-E and 2C-P. However, at certain doses and contexts, it may produce periods of notable sedation.",
@@ -109,8 +110,5 @@ export const _2c_t_21: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted phenethylamines"
-  ]
+  "riskLevel": "moderate"
 };

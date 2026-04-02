@@ -12,13 +12,14 @@ export const _2c_e: Substance =
   "id": "2c-e",
   "name": "2C-E",
   "commonNames": [
-    "Substituted phenethylamines"
+    "2C-E",
+    "Eternity"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted phenethylamines",
-  "description": "2,5-Dimethoxy-4-ethylphenethylamine (also known as 2C-E, or colloquially as \"Aquarust\" and \"Eternity\") is a lesser-known psychoactive class psychedelic substance of the chemical class phenethylamine class. It is a member of the 2C-x family of psychedelic phenethylamines, which are closely related to the classical psychedelic mescaline. Like other psychedelics, it is thought to produce its effects by binding to serotonin receptors in the brain, although the precise mechanism is poorly understood. 2C-E was first synthesized and tested for human activity by Alexander Shulgin in 1977, who documented his findings in the 1991 book PiHKAL (\"Phenethylamines I Have Known and Loved\"). It began to appear in drug seizures around 2004.",
+  "description": "Like other psychedelics, it is thought to produce its effects by binding to serotonin receptors in the brain, although the precise mechanism is poorly understood. 2C-E was first synthesized and tested for human activity by Alexander Shulgin in 1977,  who documented his findings in the 1991 book PiHKAL (\"Phenethylamines I Have Known and Loved\"). User reports characterize 2C-E as a highly unpredictable, dose-sensitive psychedelic that is capable of producing strong visual distortions along with a significant \"body load\", which includes nausea and bodily discomfort.",
   "effects": {
     "positive": [
       "Stimulation - 2C-E is usually considered to be very energetic and stimulating in a fashion that is comparable to that of MDMA, although it is 'encouraged' instead of 'forced' according to many users.",
@@ -129,8 +130,5 @@ export const _2c_e: Substance =
   },
   "history": "2C-E was first synthesized and tested for human activity by Alexander Shulgin in 1977, who documented his findings in the 1991 book PiHKAL (\"Phenethylamines I Have Known and Loved\"). It is a member of the so-called \"magical half-dozen\" which refers to Shulgin's self-rated most important phenethylamine-derived compounds, all of which except mescaline he developed and synthesized himself. They are found within the first book of PiHKAL, and are as follows: Mescaline, DOM, 2C-B, 2C-E, 2C-T-2 and 2C-T-7.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted phenethylamines"
-  ]
+  "riskLevel": "moderate"
 };

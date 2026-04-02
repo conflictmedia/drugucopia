@@ -12,13 +12,16 @@ export const diazepam: Substance =
   "id": "diazepam",
   "name": "Diazepam",
   "commonNames": [
-    "Benzodiazepines"
+    "Valium",
+    "Diastat",
+    "Mother's Little Helper",
+    "Apaurin"
   ],
   "categories": [
     "depressants"
   ],
   "class": "Benzodiazepines",
-  "description": "benzodiazepines Diclazepam (also known as Valium) is a psychoactive class depressant substance of the chemical class benzodiazepine class. It has been one of the most frequently prescribed medications in the world since its launch in 1963. Diazepam has a rapid onset of action compared to other benzodiazepines. However, it is generally considered to have lesser recreational effects compared to benzodiazepines like clonazepam (Klonopin) and alprazolam (Xanax). While diazepam itself does not naturally occur in plants or animals, recent research has indicated that low concentrations of its major metabolite, desmethyldiazepam (DD), can be found in various biological systems, including those of animals and certain plants.",
+  "description": "benzodiazepines\nDiclazepam\n (also known as Valium) is a depressant substance of the benzodiazepine class. It is commonly used to treat a wide range of conditions including anxiety, panic attacks, insomnia, seizures, muscle spasms, and restless legs syndrome. Diazepam is a core medicine in the World Health Organization's Essential Drugs List, the minimum medical needs for a basic health-care system. However, it is generally considered to have lesser recreational effects compared to benzodiazepines like clonazepam (Klonopin) and alprazolam (Xanax). While diazepam itself does not naturally occur in plants or animals, recent research has indicated that low concentrations of its major metabolite, desmethyldiazepam (DD), can be found in various biological systems, including those of animals and certain plants.",
   "effects": {
     "positive": [
       "Sedation -  In terms of energy level alterations, this drug is sedating and often results in an overwhelmingly lethargic state. At higher levels, this causes users to suddenly feel as if they are extremely sleep deprived and have not slept for days, forcing them to sit down and generally feel as if they are constantly on the verge of passing out instead of engaging in physical activities. This sense of sleep deprivation increases proportional to dosage and eventually becomes powerful enough to force a person into complete unconsciousness.",
@@ -63,10 +66,10 @@ export const diazepam: Substance =
       },
       "duration": {
         "onset": "20-40 minutes",
-        "comeup": "15-30 minutes",
+        "comeup": "Unknown",
         "peak": "60-90 minutes",
-        "offset": "10-24 hours",
-        "total": "10-24 hours"
+        "offset": "Unknown",
+        "total": "4-8 hours"
       },
       "notes": "Afterglow: 12-36 hours"
     }
@@ -86,10 +89,7 @@ export const diazepam: Substance =
     "molecularWeight": "Unknown",
     "class": "Benzodiazepines"
   },
-  "history": "Following chlordiazepoxide (Librium), which was approved for use in 1960, diazepam was the second benzodiazepine invented by Leo Sternbach of pharmaceutical company Hoffman-La Roche. Released in 1963 as an improved version of Librium, diazepam became incredibly popular and quickly surpassed it in sales, helping Roche to become a pharmaceutical industry giant. After this initial success, other pharmaceutical companies began to introduce other benzodiazepine derivatives. The benzodiazepines gained popularity among medical professionals as an improvement over barbiturates, which have a comparatively narrow therapeutic index, and are far more sedative at therapeutic doses. The benzodiazepines are also far less dangerous; death rarely results from diazepam overdose, except in cases where it is consumed with large amounts of other depressants (such as alcohol or opioids).",
+  "history": "Following chlordiazepoxide (Librium), which was approved for use in 1960, diazepam was the second benzodiazepine invented by Leo Sternbach of pharmaceutical company Hoffman-La Roche. Released in 1963 as an improved version of Librium, diazepam became incredibly popular and quickly surpassed it in sales, helping Roche to become a pharmaceutical industry giant. Marketed by Roche using an advertising campaign conceived by the William Douglas McAdams Agency under the leadership of Arthur Sackler, Diazepam was the top-selling pharmaceutical in the United States from 1969 to 1982, with peak annual sales in 1978 of 2.3 billion Valium tablets.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Benzodiazepines"
-  ]
+  "riskLevel": "low"
 };

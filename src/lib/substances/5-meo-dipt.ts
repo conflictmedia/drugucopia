@@ -12,13 +12,15 @@ export const _5_meo_dipt: Substance =
   "id": "5-meo-dipt",
   "name": "5-MeO-DiPT",
   "commonNames": [
-    "Substituted tryptamines"
+    "5-MeO-DiPT",
+    "Foxy Methoxy",
+    "Foxy"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted tryptamines",
-  "description": "It is related in structure to DiPT and 5-MeO-MiPT. Anecdotal reports characterize the effects of this compound as highly stimulating and mildly entactogenic, lacking in typical psychedelic visual distortions. Many users report strong physical and tactile effects that serve to enhance libido and sexual pleasure. It is relatively obscure and has a limited history of human use. It is highly advised to use harm reduction practices if using this substance.",
+  "description": "5-Methoxy-N,N-diisopropyltryptamine (also known as 5-MeO-DiPT, Foxy, and Foxy Methoxy) is a novel psychedelic substance of the tryptamine class that produces psychedelic effects when administered. The first human trials of 5-MeO-DiPT were undertaken by Alexander Shulgin in 1975. who would co-author and publish a paper detailing its synthesis and human psychopharmacology in 1981. A summary of the synthesis and reports of human use is included in Shulgin's 1997 book TiHKAL (\"Tryptamines I Have Known And Loved\").",
   "effects": {
     "positive": [
       "Stimulation",
@@ -110,8 +112,5 @@ export const _5_meo_dipt: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted tryptamines"
-  ]
+  "riskLevel": "moderate"
 };

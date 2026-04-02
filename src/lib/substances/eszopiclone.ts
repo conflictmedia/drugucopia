@@ -12,13 +12,14 @@ export const eszopiclone: Substance =
   "id": "eszopiclone",
   "name": "Eszopiclone",
   "commonNames": [
-    "Cyclopyrrolone"
+    "Lunesta",
+    "Eszop"
   ],
   "categories": [
     "depressants"
   ],
   "class": "Cyclopyrrolone",
-  "description": "GABAergics Eszopiclone (also known by the trade names Lunesta) is a non-benzodiazepine psychoactive class hypnotic substance of the chemical class cyclopyrrolone class that is primarily used in the treatment of insomnia. Eszopiclone is known to belong to a family of drugs colloquially known as \"Z-drugs\". Other Z-drugs include Zopiclone (Imovane) zaleplon (Sonata) and zolpidem (Ambien and AmbienCR). Eszopiclone is thought to increase the normal neurotransmission of the neurotransmitter GABA in the central nervous system in a similar yet distinct way to the activity of benzodiazepines. As Eszopiclone displays heavy sedating effects, it is has been approved for and is commonly sold as a sleeping pill.",
+  "description": "GABAergics\nEszopiclone (also known by the trade names Lunesta) is a non-benzodiazepine hypnotic substance of the cyclopyrrolone class that is primarily used in the treatment of insomnia. Other Z-drugs include Zopiclone (Imovane) zaleplon (Sonata) and zolpidem (Ambien and AmbienCR). Eszopiclone is thought to increase the normal neurotransmission of the neurotransmitter GABA in the central nervous system in a similar yet distinct way to the activity of benzodiazepines.",
   "effects": {
     "positive": [
       "Sedation - Eszopiclone is extremely sedating and can put the user into an overwhelmingly lethargic state. At higher levels, this causes users to suddenly feel as if they are extremely sleep deprived and have not slept for days, forcing them to sit or lay down and feel as if they are constantly on the verge of passing out. This sense of sleep deprivation increases proportional to dosage and can eventually become powerful enough to force a person into complete unconsciousness regardless of where they are or what they are doing at that moment.",
@@ -88,8 +89,5 @@ export const eszopiclone: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Cyclopyrrolone"
-  ]
+  "riskLevel": "low"
 };

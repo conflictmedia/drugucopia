@@ -12,13 +12,23 @@ export const cannabis: Substance =
   "id": "cannabis",
   "name": "Cannabis",
   "commonNames": [
-    "Cannabinoid"
+    "Cannabis",
+    "Marijuana",
+    "Weed",
+    "Pot",
+    "Mary Jane",
+    "Grass",
+    "Herb",
+    "Green",
+    "Bud",
+    "Tree",
+    "THC"
   ],
   "categories": [
     "other"
   ],
   "class": "Cannabinoid",
-  "description": "It is the most used illicit substance in the world. The principal psychoactive constituent of cannabis is tetrahydrocannabinol (THC), which makes up one of 483 known compounds in the plant, including at least 84 other cannabinoids such as cannabidiol (CBD), cannabinol (CBN), tetrahydrocannabivarin (THCV), and cannabigerol (CBG). Lower doses are associated with relaxing effects similar to a depressant. Higher doses are associated with mild-to-moderate hallucinogenic effects such as visual hallucinations, conceptual thinking and time distortion, as well as a greater risk of anxiety, paranoia, and delusions. Cannabis is considered to have low to moderate abuse potential.",
+  "description": "Cannabis (also known as THC, marijuana, weed, pot, grass, hemp, zaza, kush, and many others) is a preparation of the cannabis plant that produces psychoactive effects when consumed (via smoking, vaporizing, or ingestion). The mechanism of action is binding activity at cannabinoid receptors distributed throughout the body. The principal psychoactive constituent of cannabis is tetrahydrocannabinol (THC), which makes up one of 483 known compounds in the plant, including at least 84 other cannabinoids such as cannabidiol (CBD), cannabinol (CBN), tetrahydrocannabivarin (THCV), and cannabigerol (CBG). Subjective effects include sedation, appetite enhancement, immersion enhancement, creativity enhancement, increased sense of humor, increased music appreciation, visual disconnection, and euphoria. Higher doses are associated with mild-to-moderate hallucinogenic effects such as visual hallucinations, conceptual thinking and time distortion, as well as a greater risk of anxiety, paranoia, and delusions. However, it is capable of exacerbating certain mental health symptoms like delusions or psychosis in predisposed individuals (see this section).",
   "effects": {
     "positive": [
       "Sedation Thus, the first dose of cannabis after a period of abstinence will tend to be far more stimulating than subsequent doses, which must compete with the relaxing effects of previous doses. <p>Because the relaxation both persists much longer and shares many of the same pathways as the stimulation, regular ingestion of THC also leads to increased tolerance to its stimulating effects, but not to its relaxing effects.",
@@ -153,10 +163,7 @@ export const cannabis: Substance =
     "molecularWeight": "Unknown",
     "class": "Cannabinoid"
   },
-  "history": "The genus cannabis is indigenous to central Asia and the Indian subcontinent. The history of cannabis and its usage by humans dates back to at least the third millennium BC in written history, and possibly as far back as the Pre-Pottery Neolithic B (8800–6500 BCE) based on archaeological evidence. The earliest restrictions on cannabis were reported in the Islamic world by the 14th century. In the 19th century, it began to be restricted in colonial countries, often associated with racial and class stresses. Since the early 20th century, cannabis has been subject to legal restrictions with the possession, use, and sale of cannabis preparations containing psychoactive cannabinoids currently illegal in most countries.",
+  "history": "The history of cannabis and its usage by humans dates back to at least the third millennium BC in written history, and possibly as far back as the Pre-Pottery Neolithic B (8800–6500 BCE) based on archaeological evidence. For millennia, the plant has been valued for its use for fiber and rope, as food and medicine, and for its psychoactive properties for religious and recreational use. In 2004, the U.N. estimated that global consumption patterns of cannabis indicated that approximately 4% of the adult world population (162 million people) used cannabis annually and that approximately 0.6% (22.5 million) of people used cannabis daily.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Cannabinoid"
-  ]
+  "riskLevel": "moderate"
 };

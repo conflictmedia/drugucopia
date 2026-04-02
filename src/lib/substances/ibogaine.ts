@@ -12,13 +12,15 @@ export const ibogaine: Substance =
   "id": "ibogaine",
   "name": "Ibogaine",
   "commonNames": [
-    "Substituted tryptamines"
+    "Ibogaine",
+    "Endabuse",
+    "Iboga"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted tryptamines",
-  "description": "10-Methoxyibogamine (commonly known as ibogaine) is a naturally occurring psychedelic substance of the chemical class tryptamine class. Ibogaine is an indole alkaloid found in Tabernanthe iboga, while similar alkaloids occur in other plants of the Apocynaceae family, such as Voacanga africana and Tabernaemontana undulata. In the 1940s and 1950s, its suitability as potential cardiovascular drug was studied. Ibogaine’s complex pharmacology entails a significant potential to generate adverse effects, particularly on the cardiovascular system. Although not licensed as therapeutic drug and despite safety concerns, ibogaine is currently used as an anti-addiction medication in dozens of clinics worldwide.",
+  "description": "Ibogaine is an indole alkaloid found in Tabernanthe iboga, while similar alkaloids occur in other plants of the Apocynaceae family, such as Voacanga africana and Tabernaemontana undulata. In West Central Africa, low dosages of Tabernanthe iboga extracts have been used by indigenous people against fatigue, hunger and thirst. Ibogaine's medical history in the West began in the early 1900s when it was indicated for use as a neuromuscular stimulant. While largely behaving as a serotonergic psychedelic, ibogaine interacts with numerous brain systems including transporters, opioid receptors, sigma receptors, glutamate receptors, and nicotinic receptors.",
   "effects": {
     "positive": [
       "Stimulation - This effect is exclusively produced at low doses.",
@@ -122,10 +124,7 @@ export const ibogaine: Substance =
     "molecularWeight": "Unknown",
     "class": "Substituted tryptamines"
   },
-  "history": "The Iboga tree is the central pillar of the Bwiti religion practiced in West-Central Africa, mainly Gabon, Cameroon, and the Republic of the Congo, which uses the alkaloid-containing roots of the plant for its psychoactive properties in a number of ceremonies. Ibogaine is also used by indigenous peoples in low doses to combat fatigue, hunger, and thirst. Research of ibogaine started in late 19th century. A published description of the ceremonial use of T. iboga in Gabon appears in 1885. Ibogaine was first extracted and crystallized from the T. iboga root in 1901.",
+  "history": "The Iboga tree is the central pillar of the Bwiti religion  practiced in West-Central Africa, mainly Gabon, Cameroon, and the Republic of the Congo, which uses the alkaloid-containing roots of the plant for its psychoactive properties in a number of ceremonies. Ibogaine is also used by indigenous peoples in low doses to combat fatigue, hunger, and thirst. The total synthesis of ibogaine was described in 1956 and structural elucidation by X-ray crystallography was completed in 1960.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted tryptamines"
-  ]
+  "riskLevel": "moderate"
 };

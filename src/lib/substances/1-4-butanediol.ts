@@ -12,14 +12,20 @@ export const _1_4_butanediol: Substance =
   "id": "1-4-butanediol",
   "name": "1,4-Butanediol",
   "commonNames": [
-    "Alkanediol",
-    "Diol"
+    "1,4-Butanediol",
+    "1,4-B",
+    "BD",
+    "BDO",
+    "One Comma Four",
+    "One Four Bee",
+    "Butylene Glycol",
+    "One Four B-D-O"
   ],
   "categories": [
     "depressants"
   ],
   "class": "Alkanediol",
-  "description": "GABAergics 1,4-Butanediol (also known as 1,4-B, BDO, BD or 1,4-BD) is a psychoactive class depressant substance and a prodrug for GHB. It occurs as a thick, colorless liquid or solid depending on storage temperature (melting point of 20 ℃), and has a distinct bitter-sweet taste. It is used as a recreational intoxicant with effects similar to alcohol and GHB. 1 ml of 1,4-butanediol is equivalent to 1.4 g of Na-GHB. 1,4-Butanediol is used industrially as a solvent and in the manufacture of some types of plastics, elastic fibers and polyurethanes.",
+  "description": "It occurs as a thick, colorless liquid or solid depending on storage temperature (melting point of 20 ℃), and has a distinct bitter-sweet taste. 1,4-Butanediol is used industrially as a solvent and in the manufacture of some types of plastics, elastic fibers and polyurethanes. For this reason, it is recommended to only transport and store the drug using a glass container, standard gelatin capsules (not vegetarian), or high-density polyethylene plastic (also known as #2 recycled plastic).",
   "effects": {
     "positive": [
       "Stimulation and Sedation - At lower dosages, 1,4-Butanediol is physically stimulating, encouraging movement and wakefulness. At higher dosages, however, it becomes physically sedating, encouraging sleep and lethargy.",
@@ -73,9 +79,5 @@ export const _1_4_butanediol: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Alkanediol",
-    "Diol"
-  ]
+  "riskLevel": "moderate"
 };

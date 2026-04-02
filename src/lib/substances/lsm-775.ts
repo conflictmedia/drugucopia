@@ -12,13 +12,13 @@ export const lsm_775: Substance =
   "id": "lsm-775",
   "name": "LSM-775",
   "commonNames": [
-    "Lysergamides"
+    "LSM-775"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Lysergamides",
-  "description": "Lysergic acid morpholide (also known as N-Morpholinyllysergamide, and LSM-775) is a novel synthetic research Psychoactive class psychedelic of the Chemical class lysergamide chemical class that produces a generally similar albeit significantly less psychoactive array of LSD-like psychedelic effects when administered. It is a close structural homolog of LSD known mainly for its obscurity, low relative potency, and a few comments that have been made on the \"dream-like\" sedation it produces as well as potential nausea and other potentially uncomfortable physical effects. LSM-775 was first investigated in animal models in 1957, where it was observed to be \"qualitatively similar to LSD\" albeit with a significantly lower potency and \"half the duration\". It was later briefly described as one of the many analogs of LSD by Alexander Shulgin in his book TiHKAL (\"Tryptamines I Have Known and Loved\"), in which he mentions conflicting reports, with one stating that \"75 micrograms is an effective dose, comparable to a similar dose of LSD, and the other stating that \"between 350 and 700 micrograms was needed\" while producing \"fewer signs of cardiovascular stimulation and peripheral toxicity.\" Since then, it has been observed that the latter observation is a more accurate description of LSM-775's potency in humans, meaning it possesses about 1/10th the potency of LSD.",
+  "description": "Lysergic acid morpholide (also known as N-Morpholinyllysergamide, and LSM-775) is a novel synthetic research psychedelic of the lysergamide chemical class that produces a generally similar albeit significantly less psychoactive array of LSD-like psychedelic effects when administered. It is a close structural homolog of LSD known mainly for its obscurity, low relative potency, and a few comments that have been made on the \"dream-like\" sedation it produces as well as potential nausea and other potentially uncomfortable physical effects. It was later briefly described as one of the many analogs of LSD by Alexander Shulgin in his book TiHKAL (\"Tryptamines I Have Known and Loved\"), in which he mentions conflicting reports, with one stating that \"75 micrograms is an effective dose, comparable to a similar dose of LSD, and the other stating that \"between 350 and 700 micrograms was needed\" while producing \"fewer signs of cardiovascular stimulation and peripheral toxicity.\"",
   "effects": {
     "positive": [
       "Physical euphoria - This component can occur with the development of spontaneous bodily sensations.",
@@ -131,8 +131,5 @@ export const lsm_775: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Lysergamides"
-  ]
+  "riskLevel": "moderate"
 };

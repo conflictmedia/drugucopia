@@ -12,13 +12,16 @@ export const deschloroketamine: Substance =
   "id": "deschloroketamine",
   "name": "Deschloroketamine",
   "commonNames": [
-    "Arylcyclohexylamines"
+    "Deschloroketamine",
+    "DCK",
+    "DXE",
+    "O-PCM"
   ],
   "categories": [
     "dissociatives"
   ],
   "class": "Arylcyclohexylamines",
-  "description": "2'-Oxo-PCE 2'-Oxo-PCM (also known as deschloroketamine, O-PCM, DXE, and DCK) is a lesser-known novel psychoactive class dissociative substance of the chemical class arylcyclohexylamine class that produces dissociative, anesthetic and hallucinogenic effects when administered. Early discussion over DCK has revolved around speculation over claims of antibacterial or immunosuppressant properties. If this speculation is valid, it is possible that its prolonged use could potentially pose a serious threat to one's health and immune system, which along with bladder and urinary tract problems is why misuse of this substance is highly discouraged. Ketamine has been found to have similar properties. DCK has become easily accessible through online research chemical vendors where it is being sold as a designer drug.",
+  "description": "2'-Oxo-PCE\n2'-Oxo-PCM (also known as deschloroketamine, O-PCM, DXE, and DCK) is a lesser-known novel dissociative substance of the arylcyclohexylamine class that produces dissociative, anesthetic and hallucinogenic effects when administered. If this speculation is valid, it is possible that its prolonged use could potentially pose a serious threat to one's health and immune system, which along with bladder and urinary tract problems is why misuse of this substance is highly discouraged. DCK has become easily accessible through online research chemical vendors where it is being sold as a designer drug.",
   "effects": {
     "positive": [
       "Muscle relaxation",
@@ -147,8 +150,5 @@ export const deschloroketamine: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Arylcyclohexylamines"
-  ]
+  "riskLevel": "moderate"
 };

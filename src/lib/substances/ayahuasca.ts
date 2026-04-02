@@ -11,12 +11,23 @@ export const ayahuasca: Substance =
 {
   "id": "ayahuasca",
   "name": "Ayahuasca",
-  "commonNames": [],
+  "commonNames": [
+    "Ayahuasca",
+    "Aya",
+    "Caapi",
+    "Cipó",
+    "Hoasca",
+    "Vegetal",
+    "Yagé",
+    "Yajé",
+    "Natem",
+    "Shori"
+  ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Unknown",
-  "description": "Ayahuasca (pronounced /eye-uh-WAHS-kuh/ and also known as Yagé) is an umbrella term that refers to a wide variety of traditional and modern brews and infusions of natural plant sources that produce powerful psychoactive or hallucinogenic effects. Of these, it most commonly consists of a DMT-containing plant source in combination with one that contains an MAOI or RIMA (typically sources like B. caapi vine or syrian rue) to produce uniquely potent, sometimes medicinal, psychoactive class psychedelic effects. The co-consumption of an MAOI agent is necessary for the combination to work, as the DMT molecule (which is a monoamine closely related to serotonin) is rendered almost entirely inactive when digested by itself due to the presence of monoamine oxidase enzymes in the stomach, which rapidly degrades it. Ayahuasca is used as a traditional spiritual medicine in ceremonies among the Indigenous peoples of Amazonian Peru, many of whom say that they received the instructions in its use directly from the plants and plant spirits themselves. Ayahuasca was first described outside of Indigenous communities in the early 1950s by Harvard ethnobotanist Richard Evans Schultes, who became aware of the Native communities who use it for divinatory and healing purposes.",
+  "description": "Ayahuasca (pronounced /eye-uh-WAHS-kuh/ and also known as Yagé) is an umbrella term that refers to a wide variety of traditional and modern brews and infusions of natural plant sources that produce powerful psychoactive or hallucinogenic effects. The co-consumption of an MAOI agent is necessary for the combination to work, as the DMT molecule (which is a monoamine closely related to serotonin) is rendered almost entirely inactive when digested by itself due to the presence of  monoamine oxidase enzymes in the stomach, which rapidly degrades it. Ayahuasca was first described outside of Indigenous communities in the early 1950s by Harvard ethnobotanist Richard Evans Schultes, who became aware of the Native communities who use it for divinatory and healing purposes.",
   "effects": {
     "positive": [
       "Stimulation or Sedation - In terms of its effects on the physical energy levels of the user, ayahuasca is entirely setting dependent. For example, when taken in social settings with fast-paced music or during physically demanding situations (such as running, walking, climbing or dancing) it becomes stimulating and energetic. In contrast, however, when taken in peaceful environments (such as darkened rooms with comfortable seating) it can become relaxing, peaceful and sedating.",
@@ -135,6 +146,5 @@ export const ayahuasca: Substance =
   },
   "history": "A 1000-year-old collection of drug paraphernalia found in a rock shelter in Bolivia features traces of five psychoactive chemicals, including cocaine and components of ayahuasca.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": []
+  "riskLevel": "moderate"
 };

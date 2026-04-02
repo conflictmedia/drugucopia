@@ -12,13 +12,13 @@ export const mipt: Substance =
   "id": "mipt",
   "name": "MiPT",
   "commonNames": [
-    "Substituted tryptamines"
+    "MiPT"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted tryptamines",
-  "description": "N-Methyl-N-isopropyltryptamine (also known as MiPT) is a lesser-known psychoactive class psychedelic substance of the chemical class tryptamine class. It is structurally related to DMT, along with other analogs such as DiPT, MPT, and MET. MiPT was first synthesized and investigated by Alexander Shulgin and described in his book TiHKAL (\"Tryptamines I Have Known and Loved\"). In the commentary, Shulgin notes that \"there is almost a total lack of visual phenomena... no wave-forms, color distortion or object shape changes, and no eyes-closed imagery, unlike most N,N-disubstituted tryptamines.\" Subjective effects include hallucinatory states, time distortion, conceptual thinking, euphoria, and ego loss.",
+  "description": "It is structurally related to DMT, along with other analogs such as DiPT, MPT, and MET. MiPT was first synthesized and investigated by Alexander Shulgin and described in his book TiHKAL (\"Tryptamines I Have Known and Loved\"). In the commentary, Shulgin notes that \"there is almost a total lack of visual phenomena... no wave-forms, color distortion or object shape changes, and no eyes-closed imagery, unlike most N,N-disubstituted tryptamines.\"",
   "effects": {
     "positive": [
       "Stimulation",
@@ -88,8 +88,5 @@ export const mipt: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted tryptamines"
-  ]
+  "riskLevel": "moderate"
 };

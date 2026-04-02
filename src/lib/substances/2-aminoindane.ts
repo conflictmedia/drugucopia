@@ -12,13 +12,13 @@ export const _2_aminoindane: Substance =
   "id": "2-aminoindane",
   "name": "2-Aminoindane",
   "commonNames": [
-    "Aminoindane"
+    "2-AI"
   ],
   "categories": [
     "stimulants"
   ],
   "class": "Aminoindane",
-  "description": "2-Aminoindane (2-AI) is a psychoactive drug and research chemical with psychoactive class stimulant properties. It is an analogue of amphetamine. Very little is known about this substance, but it has recently become easily accessible through online research chemical vendors where it is being sold as a designer drug.",
+  "description": "2-Aminoindane (2-AI) is a psychoactive drug and research chemical with stimulant properties. It is an analogue of amphetamine.\nVery little is known about this substance, but it has recently become easily accessible  through online research chemical vendors where it is being sold as a designer drug.",
   "effects": {
     "positive": [
       "Pain relief - Many anecdotal reports suggest that this compound may suppress pain in a fashion somewhat similar to opioids without the distinct physical euphoria.",
@@ -95,8 +95,5 @@ export const _2_aminoindane: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Aminoindane"
-  ]
+  "riskLevel": "moderate"
 };

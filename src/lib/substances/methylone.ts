@@ -12,14 +12,17 @@ export const methylone: Substance =
   "id": "methylone",
   "name": "Methylone",
   "commonNames": [
-    "Cathinone"
+    "Methylone",
+    "bk-MDMA",
+    "M1",
+    "MDMC"
   ],
   "categories": [
     "empathogens",
     "stimulants"
   ],
   "class": "Cathinone",
-  "description": "3,4-Methylenedioxy-N-methcathinone (also known as M1, MDMC, βk-MDMA, and Methylone) is a novel psychoactive class stimulant-psychoactive class entactogen substance of the chemical class cathinone class. Methylone was first synthesized by chemists Peyton Jacob III and Alexander Shulgin in 1996 as a potential antidepressant. Methylone is sometimes used as a substitute for MDMA due to similarities in their effects. Alexander Shulgin commented that the substances has \"almost the same potency of MDMA, but it does not produce the same effects.\" He also stated that it \"has an almost antidepressant action, pleasant and positive, but not the unique magic of MDMA.\"",
+  "description": "3,4-Methylenedioxy-N-methcathinone (also known as M1, MDMC, βk-MDMA, and Methylone) is a novel stimulant-entactogen substance of the cathinone class. Methylone was first synthesized by chemists Peyton Jacob III and Alexander Shulgin in 1996 as a potential antidepressant. The toxicity of methylone has not been well-studied, although it likely does not exceed that of MDMA, and it has a limited history of human usage.",
   "effects": {
     "positive": [
       "Stimulation - In terms of its effects on the user's physical energy levels, methylone is commonly considered to be extremely stimulating and energetic. This encourages activities such as running, climbing and dancing in a way that makes methylone a popular choice for musical events such as festivals and raves. The particular style of stimulation which methylone presents can be described as forced. This means that at higher doses, it becomes difficult or impossible to keep still as jaw clenching, involuntarily bodily shakes, and vibrations become present, resulting in an extreme unsteadiness of the hands and a general lack of motor control.",
@@ -104,8 +107,5 @@ export const methylone: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Cathinone"
-  ]
+  "riskLevel": "moderate"
 };

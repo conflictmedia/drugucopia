@@ -12,13 +12,18 @@ export const buprenorphine: Substance =
   "id": "buprenorphine",
   "name": "Buprenorphine",
   "commonNames": [
-    "Substituted morphinans"
+    "Buprenex",
+    "Subutex",
+    "Butrans",
+    "Cizdol",
+    "Addnok",
+    "Transtec"
   ],
   "categories": [
     "opioids"
   ],
   "class": "Substituted morphinans",
-  "description": "opiates bioavailabilty 100% Buprenorphine is a semisynthetic psychoactive class opioid of the chemical class morphinan chemical class. In lower dosages it is used to control moderate-acute pain in non-opioid-tolerant individuals and in even lower dosages it is used to control moderate chronic pain. Buprenorphine was patented in 1965, and approved for medical use in the United States in 1981. It is also a common medication used to treat opioid use disorders, such as addiction to heroin. Buprenorphine may also be used recreationally by injection or intranasally for the high it produces.",
+  "description": "opiates\nbioavailabilty 100%\nBuprenorphine is a semisynthetic opioid of the morphinan chemical class. In lower dosages it is used to control moderate-acute pain in non-opioid-tolerant individuals and in even lower dosages it is used to control moderate chronic pain. Buprenorphine was patented in 1965, and approved for medical use in the United States in 1981.",
   "effects": {
     "positive": [
       "Physical euphoria - This particular substance can be considered as less intense in its physical euphoria when compared with that of morphine or diacetylmorphine (heroin) due to it being a partial agonist of the μ-opioid receptor. The sensation itself can be described as extreme feelings of intense physical comfort, warmth and bliss which spreads throughout the body.",
@@ -103,8 +108,5 @@ export const buprenorphine: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Substituted morphinans"
-  ]
+  "riskLevel": "low"
 };

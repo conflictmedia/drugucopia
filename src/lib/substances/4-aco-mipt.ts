@@ -12,13 +12,15 @@ export const _4_aco_mipt: Substance =
   "id": "4-aco-mipt",
   "name": "4-AcO-MiPT",
   "commonNames": [
-    "Substituted tryptamines"
+    "4-AcO-MiPT",
+    "Mipracetin",
+    "O-Acetylmiprocin"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted tryptamines",
-  "description": "4-Acetoxy-N-methyl-N-isopropyltryptamine (abbreviated 4-AcO-MiPT and also known as mipracetin) is a synthetic psychoactive class psychedelic chemical class tryptamine. It is the acetylated form of 4-HO-MiPT (also known as miprocin) and is a higher homolog of 4-AcO-DMT, 4-AcO-MET and 4-AcO-DET. These substances are commonly hypothesized to act primarily as prodrugs for their respective hydroxylated counterparts (e.g. 4-HO-DMT, 4-HO-MET and 4-HO-DET), although there is on-going debate as to whether they possess their own innate activity. There is very little information on the human pharmacology or toxicity of 4-AcO-MiPT, although analytical methods have been developed for its detection. Today it is either used recreationally or as an entheogenic substance and is typically acquired through the use of online research chemical vendors.",
+  "description": "4-Acetoxy-N-methyl-N-isopropyltryptamine (abbreviated 4-AcO-MiPT and also known as mipracetin) is a synthetic psychedelic tryptamine. These substances are commonly hypothesized to act primarily as prodrugs for their respective hydroxylated counterparts (e.g. Today it is either used recreationally or as an entheogenic substance and is typically acquired through the use of online research chemical vendors.",
   "effects": {
     "positive": [
       "Sedation - In terms of its effects on the physical energy levels of the tripper, 4-AcO-MiPT is considered by most to be relaxing, stoning and mildly sedating. This sense of sedation is often accompanied by uncontrollable yawning.",
@@ -105,8 +107,5 @@ export const _4_aco_mipt: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted tryptamines"
-  ]
+  "riskLevel": "moderate"
 };

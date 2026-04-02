@@ -12,13 +12,14 @@ export const al_lad: Substance =
   "id": "al-lad",
   "name": "AL-LAD",
   "commonNames": [
-    "Lysergamides"
+    "AL-LAD",
+    "Aladdin"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Lysergamides",
-  "description": "6-Allyl-6-nor-lysergic acid diethylamide (also known as N-allyl-nor-lysergic acid N,N-diethylamide, N-allyl-nor-LSD, or commonly as AL-LAD) is a novel Psychoactive class psychedelic substance of the chemical class lysergamide class. AL-LAD is chemically similar to LSD and has a similar mechanism of action, working primarily by binding to serotonin receptors in the brain. AL-LAD was first investigated in 1984 by Andrew J. Hoffman and David Nichols as part of a series of LSD analogs, which also included ETH-LAD and PRO-LAD. Its activity in humans was later documented by Alexander Shulgin in his book TiHKAL (\"Tryptamines I Have Known and Loved\"), in which it is described as \"one of the several very potent compounds in a large series of nor-LSD analogues\". In 2013, AL-LAD appeared for sale on the research chemical market, where it has been commonly marketed alongside lysergamides such as 1P-LSD, ALD-52 and ETH-LAD as a legal, grey-market alternative to LSD.",
+  "description": "6-Allyl-6-nor-lysergic acid diethylamide (also known as N-allyl-nor-lysergic acid N,N-diethylamide, N-allyl-nor-LSD, or commonly as AL-LAD) is a novel psychedelic substance of the lysergamide class. AL-LAD was first investigated in 1984 by Andrew J. Hoffman and David Nichols as part of a series of LSD analogs, which also included ETH-LAD and PRO-LAD. Its activity in humans was later documented by Alexander Shulgin in his book TiHKAL (\"Tryptamines I Have Known and Loved\"), in which it is described as \"one of the several very potent compounds in a large series of nor-LSD analogues\".",
   "effects": {
     "positive": [
       "Stimulation - In terms of its effects on the physical energy levels of the user, AL-LAD is regarded as being able primarily stimulating in nature in the same vein as LSD. This is in distinction to other, more commonly used psychedelics such as psilocybin which are more consistent in producing sedation and relaxedness.",
@@ -129,8 +130,5 @@ export const al_lad: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Lysergamides"
-  ]
+  "riskLevel": "low"
 };

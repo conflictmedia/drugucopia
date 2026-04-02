@@ -12,13 +12,14 @@ export const midazolam: Substance =
   "id": "midazolam",
   "name": "Midazolam",
   "commonNames": [
-    "Benzodiazepines"
+    "Midazolam",
+    "Versed"
   ],
   "categories": [
     "depressants"
   ],
   "class": "Benzodiazepines",
-  "description": "benzodiazepines Midazolam (trade name Versed) is a psychoactive class depressant substance of the chemical class benzodiazepine class. It acts as a GABA receptor agonist. Midazolam was patented in 1974 and was adopted for medical use in 1982. It is used for anesthesia, procedural sedation, trouble sleeping, seizures, and severe agitation. It is on the World Health Organization's List of Essential Medicines.",
+  "description": "benzodiazepines\nMidazolam (trade name Versed) is a depressant substance of the benzodiazepine class. It is on the World Health Organization's List of Essential Medicines. Subjective effects include sedation, anxiety suppression, disinhibition, muscle relaxation, respiratory depression, and moderate euphoria.",
   "effects": {
     "positive": [],
     "neutral": [],
@@ -68,8 +69,5 @@ export const midazolam: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Benzodiazepines"
-  ]
+  "riskLevel": "moderate"
 };

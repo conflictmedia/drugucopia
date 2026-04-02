@@ -12,14 +12,14 @@ export const _5f_akb48: Substance =
   "id": "5f-akb48",
   "name": "5F-AKB48",
   "commonNames": [
-    "Indazolecarboxamide",
-    "Adamantanes"
+    "5F-AKB48",
+    "5F-APINACA"
   ],
   "categories": [
     "cannabinoids"
   ],
   "class": "Indazolecarboxamide",
-  "description": "It acts as a potent agonist for the CB1 and CB2 cannabinoid receptors 5F-AKB48 has been investigated in the scientific literature. It was first identified in South Korea and is available for sale as a grey area research chemical through online vendors. Subjective effects are reported to be somewhat similar to that of cannabis with a short duration and an emphasis on intense physical sensations. Cannabinoids are commonly smoked or vaporized to achieve a quick onset of effects and rapid offset. 5F-AKB48 is orally active when dissolved in a lipid, which can increase the duration significantly.",
+  "description": "It acts as a potent agonist for the CB1 and CB2 cannabinoid receptors\n5F-AKB48 has been investigated in the scientific literature. It was first identified in South Korea and is available for sale as a grey area research chemical through online vendors. Subjective effects are reported to be somewhat similar to that of cannabis with a short duration and an emphasis on intense physical sensations.",
   "effects": {
     "positive": [
       "Spontaneous physical sensations - The \"body high\" of 5F-AKB48 can be described as a sharp,  uncomfortable, all-encompassing, and electric tingling sensation that spreads over the body after initial ingestion. It maintains a consistent presence that quickly rises with the onset and hits its limit once the peak has been reached before immediately dissipating.",
@@ -81,9 +81,5 @@ export const _5f_akb48: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Indazolecarboxamide",
-    "Adamantanes"
-  ]
+  "riskLevel": "moderate"
 };

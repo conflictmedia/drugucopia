@@ -12,7 +12,10 @@ export const mda: Substance =
   "id": "mda",
   "name": "MDA",
   "commonNames": [
-    "Amphetamine"
+    "MDA",
+    "Sass",
+    "Sally",
+    "Tenamfetamine"
   ],
   "categories": [
     "hallucinogens",
@@ -20,7 +23,7 @@ export const mda: Substance =
     "stimulants"
   ],
   "class": "Amphetamine",
-  "description": "3,4-Methylenedioxyamphetamine (also known as MDA, and Tenamfetamine, or colloquially as \"Sally\", \"Sass\", or \"Sass-a-frass\") is a synthetic Psychoactive class entactogen of the Chemical class amphetamine chemical class. It produces long-lived entactogenic, psychoactive class stimulant and mild Psychoactive class psychedelic effects that include stimulation, anxiety suppression, enhanced feelings of empathy, affection, and sociability, and euphoria when administered. More than 500 human subjects were given MDA in an investigation of its potential use as either an antidepressant or anorectic. By 1961 it was patented as an anorectic under the trade name \"Amphedoxamine\". Contemporary reports suggest that MDA emerged as a recreational drug towards the end of 1967, meaning its use predates its more widely used relative MDMA (Ecstasy).",
+  "description": "3,4-Methylenedioxyamphetamine (also known as MDA, and Tenamfetamine, or colloquially as \"Sally\", \"Sass\", or \"Sass-a-frass\") is a synthetic entactogen of the amphetamine chemical class. It produces long-lived entactogenic, stimulant and mild psychedelic effects that include stimulation,  anxiety suppression, enhanced feelings of empathy, affection, and sociability, and euphoria when administered. Contemporary reports suggest that MDA emerged as a recreational drug towards the end of 1967, meaning its use predates its more widely used relative MDMA (Ecstasy).",
   "effects": {
     "positive": [
       "Stimulation & Sedation - In terms of its effects on the user's physical energy levels, MDA is commonly considered to have the paradoxical ability to both be stimulating as well as sedating and relaxing. While MDA is described as being more \"speedy\" than MDMA, as attributed of its higher dopamine transporter affinity. it can also produce a pronounced sedating stoning or couch-locking effect depending on one's set and setting. Unlike MDMA, this can both discourage or encourage activities such as group socializing and dancing in a way that makes it a popular substance for musical events such as festivals and raves.",
@@ -128,10 +131,7 @@ export const mda: Substance =
     "molecularWeight": "Unknown",
     "class": "Amphetamine"
   },
-  "history": "The first animal tests occurred in 1939, followed by human trials in 1941 that explored it as a possible therapy for Parkinson's disease. From 1949 to 1957, more than 500 human subjects were given MDA in an investigation of its potential use as an antidepressant and anorectic by Smith, Kline & French. The United States Army also experimented with the drug, code-named EA-1298, while working to develop a truth drug or incapacitating agent. A man named Harold Blauer died in January 1953 after being intravenously injected with 450 mg of the drug. MDA was eventually patented as a cough suppressant by H. D. Brown in 1958, as an ataractic by Smith, Kline & French in 1960, and as an anorectic under the trade name \"Amphedoxamine\" in 1961.",
+  "history": "The first animal tests occurred in 1939, followed by human trials in 1941 that explored it as a possible therapy for Parkinson's disease. MDA was eventually patented as a cough suppressant by H. D. Brown in 1958, as an ataractic by Smith, Kline & French in 1960, and as an anorectic under the trade name \"Amphedoxamine\" in 1961. In early 1968, the Bureau of Drug Abuse Control reported the seizure of over 1.4 kilograms of MDA and 11 kilograms of precursors from a clandestine laboratory in New York. The batch unleashed a wave of extraordinary hallucinations across the UK and Europe that year, since the chemists had inaccurately dosed the pills with almost 200 mg of the active substance, which is generally enjoyed at lower amounts.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "high",
-  "aliases": [
-    "Amphetamine"
-  ]
+  "riskLevel": "high"
 };

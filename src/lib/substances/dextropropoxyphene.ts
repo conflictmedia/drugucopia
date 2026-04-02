@@ -12,13 +12,15 @@ export const dextropropoxyphene: Substance =
   "id": "dextropropoxyphene",
   "name": "Dextropropoxyphene",
   "commonNames": [
-    "Phenylpropylamine"
+    "Dextropropoxyphene",
+    "Propoxyphene",
+    "Darvon"
   ],
   "categories": [
     "opioids"
   ],
   "class": "Phenylpropylamine",
-  "description": "opiates Dextropropoxyphene (also known as Propoxyphene and Darvon) is a synthetic psychoactive class opioid of the chemical class phenylpropylamine chemical class. Dextropropoxyphene was first patented in 1955 and subsequently manufactured by Eli Lilly and Company. Due to its euphoric and analgesic effects, dextropropoxyphene is known to be habit forming, albeit not to the same extent as other opioids such as morphine or heroin. Today, dextropropoxyphene is rarely encountered on the streets and is sometimes obtained by prescription from a compounding pharmacy. It is strongly recommended that one research this substance's toxicity and use proper harm reduction practices if choosing to use this substance.",
+  "description": "opiates\nDextropropoxyphene (also known as Propoxyphene  and Darvon) is a synthetic opioid of the phenylpropylamine chemical class. Like other substances in  its class, particularly tapentadol and tramadol, it produces mild  euphoric,  analgesic, sedative and  antitussive effects when administered (typically orally, but sometimes intravenous or rectally). Dextropropoxyphene was first patented in 1955 and subsequently manufactured by Eli Lilly and Company.",
   "effects": {
     "positive": [
       "Physical euphoria - This particular substance can be considered as less intense in its physical euphoria when compared with that of morphine or diacetylmorphine (heroin). The sensation itself can be described as extreme feelings of intense physical comfort, warmth, love and bliss.",
@@ -94,8 +96,5 @@ export const dextropropoxyphene: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "very-high",
-  "aliases": [
-    "Phenylpropylamine"
-  ]
+  "riskLevel": "very-high"
 };

@@ -12,13 +12,14 @@ export const methallylescaline: Substance =
   "id": "methallylescaline",
   "name": "Methallylescaline",
   "commonNames": [
-    "Substituted phenethylamines"
+    "Methallylescaline",
+    "MAL"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted phenethylamines",
-  "description": "4-Methallyloxy-3,5-dimethoxyphenethylamine (also known as methallylescaline and MAL) is a synthetic Psychoactive class psychedelic substance of the Chemical class phenethylamine chemical class. It is reported to produce hallucinogenic and stimulant effects comparable to that of other mescaline analogs (e.g. allylescaline, proscaline, and escaline) when administered. The effects of methallylescaline were first described by Alexander Shulgin in his book PiHKAL: A Chemical Love Story. He lists the dosage range as 40mg to 60mg orally and describes the duration of action to be 8 - 12 hours. Anecdotal reports portray that methallylescaline bears the most similarity to mescaline, although higher dosages can produce a strong body load.",
+  "description": "The effects of methallylescaline were first described by Alexander Shulgin in his book PiHKAL: A Chemical Love Story. He lists the dosage range as 40mg to 60mg orally and describes the duration of action to be 8 - 12 hours. Anecdotal reports portray that methallylescaline bears the most similarity to mescaline, although higher dosages can produce a strong body load.",
   "effects": {
     "positive": [
       "Stimulation - In terms of its effects on the physical energy levels of the user, methallylescaline is usually considered to be very energetic and stimulating. For example, when taken in any environment it will usually encourage physical activities such as running, walking, climbing or dancing. In comparison, other more commonly used psychedelics such as psilocin are generally sedating and relaxed.",
@@ -112,8 +113,5 @@ export const methallylescaline: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted phenethylamines"
-  ]
+  "riskLevel": "moderate"
 };

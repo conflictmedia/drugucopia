@@ -12,13 +12,14 @@ export const mexedrone: Substance =
   "id": "mexedrone",
   "name": "Mexedrone",
   "commonNames": [
-    "Cathinone"
+    "Mexedrone",
+    "4-MMC-MeO"
   ],
   "categories": [
     "stimulants"
   ],
   "class": "Cathinone",
-  "description": "Mexedrone (3-methoxy-2-(methylamino)-1-(p-tolyl)propan-1-one also known as 4-MMC-MeO) is a putative psychoactive class stimulant and possible euphoriant of the Chemical class cathinone chemical class with a potency of roughly 1/10th of that of mephedrone. This compound has little to no history of human usage prior to its release in August 2015 as a newly available grey area research chemical. It has been primarily marketed as a legal alternative to mephedrone although anecdotal reports seem to universally suggest that it is largely inferior in its recreational effects due to its weaker potency, lack of stimulation and euphoria. It may have been developed as a result of another much more effective, but problematic mephedrone derivative, N-methoxymephedrone.",
+  "description": "Mexedrone (3-methoxy-2-(methylamino)-1-(p-tolyl)propan-1-one also known as 4-MMC-MeO) is a putative stimulant and possible euphoriant of the cathinone chemical class with a potency of roughly 1/10th of that of mephedrone. This compound has little to no history of human usage prior to its release in August 2015 as a newly available grey area research chemical. It has been primarily marketed as a legal alternative to mephedrone although anecdotal reports seem to universally suggest that it is largely inferior in its recreational effects due to its weaker potency, lack of stimulation and euphoria.",
   "effects": {
     "positive": [
       "Physical euphoria",
@@ -89,8 +90,5 @@ export const mexedrone: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Cathinone"
-  ]
+  "riskLevel": "moderate"
 };

@@ -12,14 +12,16 @@ export const mt: Substance =
   "id": "mt",
   "name": "ΑMT",
   "commonNames": [
-    "Substituted tryptamines"
+    "AMT",
+    "αMT",
+    "Indopan"
   ],
   "categories": [
     "hallucinogens",
     "empathogens"
   ],
   "class": "Substituted tryptamines",
-  "description": "α-Methyltryptamine (also known as Indopan and commonly as αMT or aMT) is a lesser-known psychoactive class entactogen substance of the chemical class tryptamine class. αMT was originally developed by Upjohn in the 1960s. It was briefly used in the Soviet Union as an antidepressant under the trade name Indopan. Indopan was prescribed in 5-10 mg doses, which is significantly lower than the dose used for recreational effects. Erowid has received \"a handful of unverifiable reports of hospitalization after high-dose (over 60 mg oral) αMT ingestion.\"",
+  "description": "α-Methyltryptamine (also known as Indopan and commonly as αMT or aMT) is a lesser-known entactogen substance of the tryptamine class. It was briefly used in the Soviet Union as an antidepressant under the trade name Indopan. There were 22 deaths linked to αMT in England and Wales where the drug became popular as a legal high from 2012 until it was banned in early 2015.",
   "effects": {
     "positive": [
       "Stimulation - Regarding its effects on the physical energy levels of the user, AMT tends to be very stimulating, resulting in jaw clenching and a shakiness and unsteadiness of the hands. The stimulation encourages the user to move around, run, dance, climb or engage in physical activities. In comparison, other common psychedelics such as psilocybin are sedating and relaxed.",
@@ -115,8 +117,5 @@ export const mt: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted tryptamines"
-  ]
+  "riskLevel": "moderate"
 };

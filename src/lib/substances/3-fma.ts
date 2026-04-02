@@ -12,15 +12,14 @@ export const _3_fma: Substance =
   "id": "3-fma",
   "name": "3-FMA",
   "commonNames": [
-    "Amphetamine",
-    "Substituted amphetamines"
+    "3-FMA"
   ],
   "categories": [
     "empathogens",
     "stimulants"
   ],
   "class": "Amphetamine",
-  "description": "3-Fluoromethamphetamine (also known as 3-FMA) is a novel synthetic ring-substituted fluorinated chemical class amphetamine compound that produces psychoactive class entactogenic and psychoactive class stimulant effects when administered. Following the introduction of 3-FEA, 3-FMA subsequently entered the designer drug market as a compound structurally related to a series of fluorinated substituted amphetamines that originally included compounds such as 2-FMA, 3-FA, 4-FMA, 4-FA. Like its parent compound 3-FA, the pharmacological, toxicological, and subjective effects of 3-FMA in humans have yet to be mapped out in detail. Early reports have so far characterized 3-FMA as a moderately potent serotonin-dominant triple monoamine releaser (or reuptake inhibitor) that produces a relatively short-lived balance of entactogenic and stimulant effects. It has recently been made available for sale on the gray market as a research chemical through online vendors.",
+  "description": "Following the introduction of 3-FEA, 3-FMA subsequently entered the designer drug market as a compound structurally related to a series of fluorinated substituted amphetamines that originally included compounds such as 2-FMA, 3-FA, 4-FMA, 4-FA. Early reports have so far characterized 3-FMA as a moderately potent serotonin-dominant triple monoamine releaser (or reuptake inhibitor) that produces a relatively short-lived balance of entactogenic and stimulant effects. Due to its potent psychostimulant effect, likely habit-forming properties as well as unknown toxicity profile, it is strongly recommended that one use proper harm reduction practices if choosing to use this substance.",
   "effects": {
     "positive": [
       "Stimulation",
@@ -82,9 +81,5 @@ export const _3_fma: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Amphetamine",
-    "Substituted amphetamines"
-  ]
+  "riskLevel": "moderate"
 };

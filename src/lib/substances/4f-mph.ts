@@ -12,13 +12,14 @@ export const _4f_mph: Substance =
   "id": "4f-mph",
   "name": "4F-MPH",
   "commonNames": [
-    "Substituted phenidates"
+    "4F-MPH",
+    "4-FMPH"
   ],
   "categories": [
     "stimulants"
   ],
   "class": "Substituted phenidates",
-  "description": "4-Fluoromethylphenidate (commonly known as 4F-MPH) is a novel synthetic psychoactive class stimulant of the chemical class phenidate class that produces long-lasting euphoriant, and stimulating effects when administered. It is a closely related structural analog of the commonly prescribed ADHD drug methylphenidate (known by the brand-names Ritalin and Concerta). The two substances are believed to have very similar pharmacological mechanisms as monoamine reuptake inhibitors but have been reported to display distinctive subjective effects, with 4F-MPH being considered significantly more euphoric and recreational. Anecdotal reports suggest that it is considerably more potent with fewer uncomfortable side effects such as anxiety, muscle spasms and compulsive redosing. This perhaps owes to the fact that it has been shown to act as a higher efficiency dopamine reuptake inhibitor than the parent compound methylphenidate.",
+  "description": "It is a closely related structural analog of the commonly prescribed ADHD drug methylphenidate (known by the brand-names Ritalin and Concerta). The two substances are believed to have very similar pharmacological mechanisms as monoamine reuptake inhibitors but have been reported to display distinctive subjective effects, with 4F-MPH being considered significantly more euphoric and recreational. It was initially developed as a replacement for ethylphenidate which became illegal in the United Kingdom on April 2015 following a temporary blanket ban.",
   "effects": {
     "positive": [
       "Increased heart rate",
@@ -116,8 +117,5 @@ export const _4f_mph: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted phenidates"
-  ]
+  "riskLevel": "moderate"
 };

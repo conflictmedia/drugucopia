@@ -12,13 +12,13 @@ export const pargy_lad: Substance =
   "id": "pargy-lad",
   "name": "PARGY-LAD",
   "commonNames": [
-    "Lysergamides"
+    "PARGY-LAD"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Lysergamides",
-  "description": "6-Propynyl-6-nor- Lysergic acid diethylamide (also known as N-Propynylnorlysergic acid N,N-diethylamide, N-PropynylnorLSD or simply PARGY-LAD) is a novel synthetic Psychoactive class psychedelic substance of the Chemical class lysergamide chemical class that produces a similar albeit significantly less distinct array of LSD-like psychedelic effects when administered. It is a close structural homolog of LSD known mainly for its obscurity and lack of distinguishing features. PARGY-LAD was first briefly mentioned as an analog of LSD by Alexander Shulgin in his book TiHKAL (\"Tryptamines I Have Known and Loved\"). It has been reported to be significantly less potent than LSD itself with \"some activity reported at 160 μg\" and \"full activity at 500 micrograms.\" Very little data exists about the pharmacological properties, metabolism, and toxicity of PARGY-LAD, and it has very little history of human usage.",
+  "description": "6-Propynyl-6-nor- Lysergic acid diethylamide (also known as N-Propynylnorlysergic acid N,N-diethylamide, N-PropynylnorLSD or simply PARGY-LAD) is a novel synthetic psychedelic substance of the lysergamide chemical class that produces a similar albeit significantly less distinct array of LSD-like psychedelic effects when administered. PARGY-LAD was first briefly mentioned as an analog of LSD by Alexander Shulgin in his book TiHKAL (\"Tryptamines I Have Known and Loved\"). It has recently appeared on the market alongside research chemical psychedelic lysergamides such as AL-LAD, ETH-LAD and PRO-LAD as a legal, grey-market alternative to LSD, and commercially distributed through online research chemical vendors, and is considered to be one of the least popular and available in the series.",
   "effects": {
     "positive": [
       "Physical euphoria - This component can occur with the development of spontaneous bodily sensations, and usually occurs at the peak or in wave-like bursts.",
@@ -131,8 +131,5 @@ export const pargy_lad: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Lysergamides"
-  ]
+  "riskLevel": "moderate"
 };

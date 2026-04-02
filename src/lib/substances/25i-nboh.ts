@@ -12,13 +12,14 @@ export const _25i_nboh: Substance =
   "id": "25i-nboh",
   "name": "25I-NBOH",
   "commonNames": [
-    "Substituted phenethylamines"
+    "25i-NBOH",
+    "Cimbi-27"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted phenethylamines",
-  "description": "25I-NBOH (also known as 2C-I-NBOH, NBOH-2C-I, and Cimbi-27) is novel synthetic Psychoactive class psychedelic substance of the chemical class phenethylamine class. It is a closely related analog of 25I-NBOMe and is reported to share most of its properties with the exception of a moderately reduced potency and a shorter duration. The name 25I-NBOH, which short-hand for 2C-I-NBOH, is a derivative of the phenethylamine psychedelic 2C-I. It was first synthesized and documented in 2006 by a team at Purdue University led by David Nichols. It has been studied in its 11C radiolabelled form as a potential ligand for mapping the distribution of 5-HT2A receptors in the brain, using positron emission tomography (PET).",
+  "description": "It was first synthesized and documented in 2006 by a team at Purdue University led by David Nichols. It has been studied in its 11C radiolabelled form as a potential ligand for mapping the distribution of 5-HT2A receptors in the brain, using positron emission tomography (PET). It is worth noting that compounds of the NBOH family are not orally active and should be administered sublingually by placing and holding it into one's mouth and allowing it to absorb over a period of 15-25 minutes.",
   "effects": {
     "positive": [
       "Stimulation - In terms of its effects on the physical energy levels of the user, 25I-NBOH is usually considered to be very energetic and stimulating. For most people, this substance induces a unique type of physical stimulation which can be described as feeling extremely energetic but in a way which does not force the tripper to move unless they genuinely choose to do so. For others, however, the stimulation can be quite uncontrollable, occasionally resulting in bodily shakes and a grinding of the teeth comparable to that of MDMA and traditional stimulants such as amphetamine.",
@@ -133,8 +134,5 @@ export const _25i_nboh: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "very-high",
-  "aliases": [
-    "Substituted phenethylamines"
-  ]
+  "riskLevel": "very-high"
 };

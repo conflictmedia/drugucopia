@@ -12,13 +12,14 @@ export const zopiclone: Substance =
   "id": "zopiclone",
   "name": "Zopiclone",
   "commonNames": [
-    "Cyclopyrrolone"
+    "Zimovane",
+    "Imovane"
   ],
   "categories": [
     "depressants"
   ],
   "class": "Cyclopyrrolone",
-  "description": "GABAergics Zopiclone (also known by the trade names Zimovane and Imovane) is a non-benzodiazepine hypnotic substance of the chemical class cyclopyrrolone class. It belongs to a family of substances colloquially known as \"Z-drugs\", which includes zaleplon (Sonata) and zolpidem (Ambien and AmbienCR). The mechanism of action is benzodiazepine-like GABA binding activity. It is primarily used in the treatment of insomnia due to its heavy sedative effects. Daily or continuous use of the drug is usually not advised.",
+  "description": "GABAergics\nZopiclone (also known by the trade names Zimovane and Imovane) is a non-benzodiazepine hypnotic substance of the cyclopyrrolone class. It belongs to a family of substances colloquially known as \"Z-drugs\", which includes zaleplon (Sonata) and zolpidem (Ambien and AmbienCR). While \"Z-drugs\" were initially thought to have less misuse potential than benzodiazepines, this appraisal has shifted somewhat in the last few years as a number of cases of addiction and habituation have been observed.",
   "effects": {
     "positive": [
       "Sedation - zopiclone is extremely sedating and can put the user into an overwhelmingly lethargic state. At higher levels, this causes users to suddenly feel as if they are extremely sleep deprived and have not slept for days, forcing them to sit or lay down and feel as if they are constantly on the verge of passing out. This sense of sleep deprivation increases proportional to dosage and can eventually become powerful enough to force a person into complete unconsciousness regardless of where they are or what they are doing at that moment.",
@@ -83,8 +84,5 @@ export const zopiclone: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Cyclopyrrolone"
-  ]
+  "riskLevel": "low"
 };

@@ -12,13 +12,14 @@ export const _3_ho_pce: Substance =
   "id": "3-ho-pce",
   "name": "3-HO-PCE",
   "commonNames": [
-    "Arylcyclohexylamines"
+    "3-HO-PCE",
+    "Hydroxyeticyclidine"
   ],
   "categories": [
     "dissociatives"
   ],
   "class": "Arylcyclohexylamines",
-  "description": "It produces potent, dose-sensitive dissociative, hallucinogenic and euphoric effects when administered. Unlike its close structural analog 3-HO-PCP, this compound has no precedent in the scientific literature before being offered on the research chemicals market in the 2010s. Whether it produces any of its theorized opioid effects in humans is the subject of ongoing discussion. Following other substances of its class, particularly methoxetamine (MXE), phencyclidine (PCP), and 3-MeO-PCE, it is speculated to to be able to induce a state known as \"dissociative anesthesia\". Early reports suggest that this state is difficult to reach relative to other dissociatives, and its general effects profile has been characterized as \"lying halfway between 3-MeO-PCP and 3-MeO-PCE.\"",
+  "description": "Early discussions of this compound have revolved around whether it possesses an appreciable affinity for the μ-opioid receptor given its structural relationship to 3-HO-PCP, which has been shown to display affinity for the  μ-opioid receptor in animal models. Following other substances of its class, particularly methoxetamine (MXE), phencyclidine (PCP), and 3-MeO-PCE, it is speculated to to be able to induce a state known as \"dissociative anesthesia\". Due to an unknown toxicity profile and likely similar habit-forming properties shared by other hydroxylanated arylcyclohexylamines, it is strongly recommended that one use proper harm reduction practices if choosing to use this substance.",
   "effects": {
     "positive": [
       "Tactile disconnection",
@@ -90,8 +91,5 @@ export const _3_ho_pce: Substance =
   },
   "history": "On October 18, 2012 the Advisory Council on the Misuse of Drugs in the United Kingdom released a report about methoxetamine, saying that the \"harms of methoxetamine are commensurate with Class B of the Misuse of Drugs Act (1971)\", despite the fact that the act does not classify drugs based on harm. The report went on to suggest that all analogues of MXE should also become class B drugs and suggested a catch-all clause covering both existing and unresearched arylcyclohexamines, which includes 3-HO-PCE.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Arylcyclohexylamines"
-  ]
+  "riskLevel": "moderate"
 };

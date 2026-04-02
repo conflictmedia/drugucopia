@@ -12,14 +12,15 @@ export const adrafinil: Substance =
   "id": "adrafinil",
   "name": "Adrafinil",
   "commonNames": [
-    "Benzhydryl"
+    "Adrafinil",
+    "Olmifon"
   ],
   "categories": [
     "stimulants",
     "nootropics"
   ],
   "class": "Benzhydryl",
-  "description": "Adrafinil (also known as Olmifon) is a prodrug for modafinil - a wakefulness-promoting agent (eugeroic) with psychoactive class nootropic effects. Adrafinil is metabolized in the liver to produce modafinil. Both are stimulants with no amphetamine-like effects. Safety information on adrafinil is lacking because modafinil is often used instead, for treatment of narcolepsy and excessive daytime sleepiness. Long-term supplementation of adrafinil is not advised, since adrafinil is metabolized into modafinil in the liver, and may stress the liver through elevated liver enzymes with prolonged use.",
+  "description": "Adrafinil (also known as Olmifon) is a prodrug for modafinil - a wakefulness-promoting agent (eugeroic) with nootropic effects. Safety information on adrafinil is lacking because modafinil is often used instead, for treatment of narcolepsy and excessive daytime sleepiness. Long-term supplementation of adrafinil is not advised, since adrafinil is metabolized into modafinil in the liver, and may stress the liver through elevated liver enzymes with prolonged use.",
   "effects": {
     "positive": [
       "Stimulation",
@@ -75,8 +76,5 @@ export const adrafinil: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Benzhydryl"
-  ]
+  "riskLevel": "moderate"
 };

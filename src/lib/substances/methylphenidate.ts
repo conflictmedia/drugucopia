@@ -12,13 +12,17 @@ export const methylphenidate: Substance =
   "id": "methylphenidate",
   "name": "Methylphenidate",
   "commonNames": [
-    "Substituted phenidates"
+    "Methylphenidate",
+    "Concerta",
+    "Methylin",
+    "Ritalin",
+    "Equasym XL"
   ],
   "categories": [
     "stimulants"
   ],
   "class": "Substituted phenidates",
-  "description": "It is the parent compound of the substituted phenidates, a family of stimulants that includes ethylphenidate, isopropylphenidate, and others. It was first synthesized in 1944 and was approved for medical use in the United States in 1955. It is often used by students with or without ADHD as a cognitive enhancer and study aid. Subjective effects include stimulation, focus enhancement, motivation enhancement, increased libido, appetite suppression, and euphoria. It is usually taken orally, but can also be insufflated or administered rectally.",
+  "description": "Methylphenidate (also known as MPH, MPD, and the trade names Ritalin, Concerta, and Methylin, among others) is a classical potent stimulant substance of the phenidate class. The mechanism of action involves increasing concentrations of the neurotransmitters dopamine and norepinephrine. It was first synthesized in 1944 and was approved for medical use in the United States in 1955. Subjective effects include stimulation, focus enhancement, motivation enhancement, increased libido, appetite suppression, and euphoria.",
   "effects": {
     "positive": [
       "Increased heart rate",
@@ -102,10 +106,7 @@ export const methylphenidate: Substance =
     "molecularWeight": "Unknown",
     "class": "Substituted phenidates"
   },
-  "history": "The compound was first synthesized in 1944 by chemist Leandro Panizzon and marketed as “Ritalin” by Swiss company CIBA (now Novartis) in 1954. Although it was first used to allay barbiturate-induced coma, narcolepsy, and depression. It was estimated that the number of doses of methylphenidate used globally in 2013 increased by 66% compared to 2012. In 2022, it was the 32nd most commonly prescribed medication in the United States, with more than 17 million prescriptions. It is available as a generic medication.",
+  "history": "The compound was first synthesized in 1944 by chemist Leandro Panizzon and marketed as “Ritalin” by Swiss company CIBA (now Novartis) in 1954. Production and prescription only rose significantly in the 1990s, especially in the United States, as the ADHD diagnosis came to be better understood and more generally accepted within the medical and mental health communities. In 2000, Alza Corporation received US FDA approval to market Concerta, an extended-release form of methylphenidate.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "high",
-  "aliases": [
-    "Substituted phenidates"
-  ]
+  "riskLevel": "high"
 };

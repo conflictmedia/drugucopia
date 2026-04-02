@@ -12,13 +12,16 @@ export const clonazepam: Substance =
   "id": "clonazepam",
   "name": "Clonazepam",
   "commonNames": [
-    "Benzodiazepines"
+    "Clonazepam",
+    "Klonopin",
+    "K-Pins",
+    "Rivotril"
   ],
   "categories": [
     "depressants"
   ],
   "class": "Benzodiazepines",
-  "description": "benzodiazepines Clonazolam thumbnail|right|Klonopin 0.5 mg.thumbnail|right|Klonopin 1 mgthumbnail|right|Rivotril drops 2.5 mg/ml Clonazepam (trade name Klonopin or Rivotril) is a long-acting psychoactive substance of the chemical class benzodiazepine class which produces mainly anxiolytic, but also anticonvulsant, muscle relaxant, amnesic, sedative, psychoactive class depressant and hypnotic effects. It is commonly used and FDA approved for the medical treatment of panic disorder, generalized anxiety disorder (GAD), and social anxiety disorder (SAD). In Europe, it is generally approved for treatment-resistent epilepsy. Clonazepam has an elimination half-life of 30 – 40 hours, and is considered to be a long-acting benzodiazepine. Clonazepam has rapid onset of action, with a peak blood level occurring one to four hours after oral administration.",
+  "description": "benzodiazepines\nClonazolam\nthumbnail|right|Klonopin 0.5 mg.thumbnail|right|Klonopin 1 mgthumbnail|right|Rivotril drops 2.5 mg/ml\nClonazepam (trade name Klonopin or Rivotril) is a long-acting psychoactive substance of the benzodiazepine class which produces mainly anxiolytic, but also anticonvulsant, muscle relaxant, amnesic, sedative, depressant and hypnotic effects. It is commonly used and FDA approved for the medical treatment of panic disorder, generalized anxiety disorder (GAD), and social anxiety disorder (SAD). It is highly recommended to taper one's dose by gradually lowering the amount taken each day for a prolonged period of time instead of stopping abruptly.",
   "effects": {
     "positive": [
       "Sedation -  In terms of energy level alterations, this drug has the potential to be extremely sedating and often results in an overwhelmingly lethargic state. At higher levels, this causes users to suddenly feel as if they are extremely sleep deprived and have not slept for days, forcing them to sit down and generally feel as if they are constantly on the verge of passing out instead of engaging in physical activities. This sense of sleep deprivation increases proportional to dosage and eventually becomes powerful enough to force a person into complete unconsciousness.",
@@ -85,8 +88,5 @@ export const clonazepam: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Benzodiazepines"
-  ]
+  "riskLevel": "low"
 };

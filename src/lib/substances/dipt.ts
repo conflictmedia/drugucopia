@@ -12,13 +12,13 @@ export const dipt: Substance =
   "id": "dipt",
   "name": "DiPT",
   "commonNames": [
-    "Substituted tryptamines"
+    "DiPT"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted tryptamines",
-  "description": "A summary of the synthesis and reports of human use is included in Shulgin's 1997 book TiHKAL (\"Tryptamines I Have Known And Loved\"). It has been sold online as a research chemical. While most psychedelics are known for producing vivid visual distortions, DiPT's effects are reported to be primarily auditory in nature. Additional subjective effects of DiPT include a body high, moderate euphoria, mild visuals, dizziness, and nausea. It is highly advised to use harm reduction practices if using this substance.",
+  "description": "The first human trials of DiPT were undertaken in 1975 by Alexander Shulgin, who would co-author and publish a paper detailing its synthesis and human psychopharmacology in 1981. A summary of the synthesis and reports of human use is included in Shulgin's 1997 book TiHKAL (\"Tryptamines I Have Known And Loved\"). Additional subjective effects of DiPT include a body high, moderate euphoria, mild visuals, dizziness, and nausea.",
   "effects": {
     "positive": [
       "Stimulation",
@@ -99,8 +99,5 @@ export const dipt: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted tryptamines"
-  ]
+  "riskLevel": "moderate"
 };

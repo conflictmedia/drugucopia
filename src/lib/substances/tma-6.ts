@@ -12,15 +12,14 @@ export const tma_6: Substance =
   "id": "tma-6",
   "name": "TMA-6",
   "commonNames": [
-    "Amphetamine",
-    "Substituted amphetamines"
+    "TMA-6"
   ],
   "categories": [
     "hallucinogens",
     "stimulants"
   ],
   "class": "Amphetamine",
-  "description": "2,4,6-Trimethoxyamphetamine (also known as TMA-6) is a lesser-known psychoactive class psychedelic substance of the chemical class amphetamine class. Since then it has been regarded as a novelty in the psychedelics community and is made available for sale only rarely by clandestine laboratory operations. In terms of its subjective effects, it is known for its lack of classic psychedelic visuals compared to other hallucinogenic phenethylamines and is known instead for its unique stimulating body-high and intoxicating headspace. Anecdotal reports suggest that TMA-6 is unpredictable and dose-sensitive substance that can produce uncomfortable amounts of body load, nausea, overstimulation, and inconsistencies between experiences. In modern times, TMA-6 is used rarely as a recreational drug and a putative entheogen.",
+  "description": "It has been reported to produce a complex mixture of stimulant, hallucinogenic and entactogenic effects that distinguish it from other psychedelic phenethylamine derivatives like the 2C-x or DOx series. TMA-6 has no history of human usage prior to the 1991 publication of its synthesis and pharmacology in the book PiHKAL (\"Phenethylamines I Have Known And Loved\") by Alexander Shulgin, who called it \"one of the most rewarding and pleasurable of the methoxylated amphetamines\". Since then it has been regarded as a novelty in the psychedelics community and is made available for sale only rarely by clandestine laboratory operations.",
   "effects": {
     "positive": [
       "Stimulation - In terms of its effects on the physical energy levels of the user, TMA-6 is usually considered to be extremely stimulating at levels which do not become overwhelming, resulting in a shakiness and unsteadiness of the hands but encouraging one to move around, run, dance, climb and generally engage in physical activities. In comparison, other more commonly used psychedelics such as psilocin are generally sedating and relaxed.",
@@ -100,9 +99,5 @@ export const tma_6: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Amphetamine",
-    "Substituted amphetamines"
-  ]
+  "riskLevel": "moderate"
 };

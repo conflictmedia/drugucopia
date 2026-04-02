@@ -11,12 +11,16 @@ export const theanine: Substance =
 {
   "id": "theanine",
   "name": "Theanine",
-  "commonNames": [],
+  "commonNames": [
+    "Theanine",
+    "L-Theanine",
+    "L-γ-glutamylethylamide and N5-ethyl-L-glutamine"
+  ],
   "categories": [
     "nootropics"
   ],
   "class": "Unknown",
-  "description": "L-Theanine (also known as Theanine, L-γ-glutamylethylamide and N5-ethyl-L-glutamine) is an analog of the amino acids of glutamate and glutamine. It was discovered as a constituent of green tea in 1949 and in 1950 was isolated from gyokuro leaves, which have high theanine content. The appearance of the name \"theanine\" without a prefix is understood to imply the L-enantiomer, which is the form found in fresh teas and in some, but not all dietary supplements. The opposite D-enantiomer has far less studied pharmacologic properties, but is present in racemic chemical preparations, and substantially in some studied theanine supplements. A recent systematic review of the effects of theanine and caffeine has confirmed that the combination seems to improve aspects of attention.",
+  "description": "It was discovered as a constituent of green tea in 1949 and in 1950 was isolated from gyokuro leaves, which have high theanine content. The appearance of the name \"theanine\" without a prefix is understood to imply the L-enantiomer, which is the form found in fresh teas and in some, but not all dietary supplements. It is often taken in combination with caffeine as it has been shown to mitigate its negative aspects, such as anxiety, increased blood pressure and diminished sleep quality, while possibly improving upon the positive aspects.",
   "effects": {
     "positive": [
       "Sedation & Stimulation - Theanine is mildly stimulating at light to common dosages but becomes sedating starting with strong doses at around 300mg.",
@@ -67,6 +71,5 @@ export const theanine: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": []
+  "riskLevel": "low"
 };

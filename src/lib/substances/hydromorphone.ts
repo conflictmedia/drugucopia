@@ -12,13 +12,15 @@ export const hydromorphone: Substance =
   "id": "hydromorphone",
   "name": "Hydromorphone",
   "commonNames": [
-    "Substituted morphinans"
+    "Dilaudid",
+    "Jurnista",
+    "Palladone"
   ],
   "categories": [
     "opioids"
   ],
   "class": "Substituted morphinans",
-  "description": "opiates Hydromorphone (also known by the brand name Dilaudid in the United States) is a semisynthetic psychoactive class opioid of the chemical class morphinan chemical class that produces analgesic and euphoric effects when administered. It is occasionally prescribed for use in the management of moderate to severe pain and is structurally similar to other opioids such as morphine and heroin. Hydromorphone is commonly used in a medical setting, mostly intravenously due its very low oral, rectal, and intranasal bioavailability. If using this substance intravenously in a non-medical, recreational setting, the safer injection guide should be followed along with all harm reduction practices. Sublingual administration is also considered to be superior to oral administration in due to its increased bioavailability; however, hydromorphone is bitter and hydrophilic because the molecule is mostly ionized, true through‑mucosa uptake is limited, so it is absorbed poorly and slowly through mouth membranes.",
+  "description": "opiates\nHydromorphone (also known by the brand name Dilaudid in the United States) is a semisynthetic opioid of the morphinan chemical class that produces  analgesic and euphoric effects when administered. It is occasionally prescribed for use in the management of moderate to severe pain and is structurally similar to other opioids such as morphine and heroin. Sublingual administration is also considered to be superior to oral administration in due to its increased bioavailability; however, hydromorphone is bitter and hydrophilic because the molecule is mostly ionized, true through‑mucosa uptake is limited, so it is absorbed poorly and slowly through mouth membranes.",
   "effects": {
     "positive": [
       "Physical euphoria - In comparison to other opioids, this particular substance can be considered similar in its physical euphoria when compared with that of morphine or diacetylmorphine (heroin) and more intense when compared to kratom and hydrocodone. The sensation itself can be described as feelings of intense physical comfort, warmth, love and bliss.",
@@ -119,8 +121,5 @@ export const hydromorphone: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted morphinans"
-  ]
+  "riskLevel": "moderate"
 };

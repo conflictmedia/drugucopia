@@ -12,13 +12,13 @@ export const _1cp_al_lad: Substance =
   "id": "1cp-al-lad",
   "name": "1cP-AL-LAD",
   "commonNames": [
-    "Lysergamides"
+    "1cP-AL-LAD"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Lysergamides",
-  "description": "1-Cyclopropionyl-6-allyl-6-nor-lysergic acid diethylamide (also known commonly as 1cP-AL-LAD) is a novel Psychoactive class psychedelic substance of the chemical class lysergamide class. 1cP-AL-LAD is closely related to AL-LAD, for which it is suspected to be a prodrug for, but there is currently no data or much anecdotal reports to confirm this. 1cP-AL-LAD is a novel research chemical which has probably first been produced by a small group of chemists which have also synthesized various other novel lysergamdîdes at the time alongside like 1cP-MiPLA, LSZ and LST in 2020 or 2021. There is very little proof for the validity of this claim. Many effects seem to be identical or nearly identical, including a more manageable and lucid mental state, apparent visuals and dosage levels.",
+  "description": "1cP-AL-LAD is a novel research chemical which has probably first been produced by a small group of chemists which have also synthesized various other novel lysergamdîdes at the time alongside like 1cP-MiPLA, LSZ and LST in 2020 or 2021. Many effects seem to be identical or nearly identical, including a more manageable and lucid mental state, apparent visuals and dosage levels. While it is often characterized by users as being generally more recreational and non-threatening compared to LSD, it is highly advised to approach this highly potent hallucinogenic substance with the proper amount of precaution and harm reduction practices if using it.",
   "effects": {
     "positive": [
       "Stimulation - In terms of its effects on the physical energy levels of the user, 1cP-AL-LAD is regarded as being able primarily stimulating in nature in the same vein as LSD. This is in distinction to other, more commonly used psychedelics such as psilocybin which are more consistent in producing sedation and relaxedness.",
@@ -129,8 +129,5 @@ export const _1cp_al_lad: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Lysergamides"
-  ]
+  "riskLevel": "low"
 };

@@ -11,12 +11,21 @@ export const nitrous: Substance =
 {
   "id": "nitrous",
   "name": "Nitrous",
-  "commonNames": [],
+  "commonNames": [
+    "Nitrous Oxide",
+    "Laughing Gas",
+    "Nitrous",
+    "Hippy Crack",
+    "NOS",
+    "Nitro",
+    "N2O",
+    "Nangs"
+  ],
   "categories": [
     "dissociatives"
   ],
   "class": "Unknown",
-  "description": "Whipped cream chargers/cartridges are called whippits (also spelled “whippits”), nangs, or bulbs. The exact mechanism of action of nitrous oxide is unknown, but it is thought to have an effect on GABA and NMDA receptors in the brain. It was given the name \"laughing gas\" by the British chemist Humphry Davy due to its exhilarating and laughter-inducing effects. Today, it is widely used in surgery and dentistry for its anaesthetic and analgesic effects, and in motorsports for its performance boosting effect on internal combustion engines. Additionally, it has a number of industrial uses and is commonly sold as a whipped cream propellant in kitchen and household stores.",
+  "description": "The exact mechanism of action of nitrous oxide is unknown, but it is thought to have an effect on GABA and NMDA receptors in the brain. In the 19th century, it was discovered to have anesthetic properties which made it suitable for dental and surgical procedures. It was given the name \"laughing gas\" by the British chemist Humphry Davy due to its exhilarating and laughter-inducing effects.",
   "effects": {
     "positive": [
       "Perception of bodily lightness - This creates the sensation that the body is floating and has become entirely weightless. It is often accompanied by feelings of slowly falling or drifting.",
@@ -90,8 +99,7 @@ export const nitrous: Substance =
     "molecularWeight": "Unknown",
     "class": "Unknown"
   },
-  "history": "In 1800, Humphry Davy, an assistant at the Pneumatic Institute, published a book about nitrous oxide in 1800. Beginning in 1799, nitrous oxide was used as a recreational drug at \"laughing gas parties\". Despite Davy's discovery of nitrous' potential for anesthesia, doctors did not attempt to use it for nearly half a decade. The practice was not immediately adopted by other dentists, as Wells' first public demonstration had been partly unsuccessful. Nitrous oxide was not found to be a strong enough anesthetic for major surgeries in hospital settings, but it became useful as an initiator for stronger anesthetics like ether or chloroform.",
+  "history": "Nitrous oxide gas was first synthesized in 1772 by English natural philosopher and chemist Joseph Priestley. He published his findings in the book Experiments and Observations on Different Kinds of Air (1775), describing the synthesis of the gas by heating iron filings dampened with nitric acid. In the book, there is the following passage;\nResearches chemical and philosophical: chiefly concerning nitrous oxide\nDavy notes the analgesic effect of nitrous oxide and its potential for use in surgical operations. In 1863, Gardner Quincy Colton began to administer the gas to patients in all of his \"Colton Dental Association\" clinics, administering  nitrous oxide to over 25,000 patients over three years. Nitrous is on the World Health Organization's List of Essential Medicines, the most effective and safe medicines needed in a health system.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": []
+  "riskLevel": "moderate"
 };

@@ -12,13 +12,15 @@ export const dpt: Substance =
   "id": "dpt",
   "name": "DPT",
   "commonNames": [
-    "Substituted tryptamines"
+    "DPT",
+    "Dipropyltryptamine",
+    "The Light"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted tryptamines",
-  "description": "Human use was first reported in 1973, where it was researched in low doses as an adjunct to therapy for alcoholism. It has gained some notoriety for its adoption as the primary sacrament for the \"Temple of the True Inner Light\" in the United States, a Christian off-shoot organization who believe in the ritual use of psychedelics and refer to them as \"the true flesh of God.\" Many report the experience of insufflation to be very congestive and painful which, with the rapidness of onset, does not give the user much time to acclimate themselves to its powerful effects. It can also be administered intramuscularly or via vaporization after conversion to the freebase form. Smoking the freebase is reported to be the preferred route used by the \"Temple of True Inner Light\".",
+  "description": "N,N-Dipropyltryptamine (also known as Dipropyltryptamine, DPT,  and \"The Light\") is a lesser-known psychedelic substance of the tryptamine class. It is closely related to DMT and is reported to be uniquely similar in its hallucinogenic intensity, albeit with a moderately longer duration and greater unpredictability relative to DMT and other psychedelic tryptamines. It has gained some notoriety for its adoption as the primary sacrament for the \"Temple of the True Inner Light\" in the United States, a Christian off-shoot organization who believe in the ritual use of psychedelics and refer to them as \"the true flesh of God.\" Many report the experience of insufflation to be very congestive and painful which, with the rapidness of onset, does not give the user much time to acclimate themselves to its powerful effects.",
   "effects": {
     "positive": [
       "Physical euphoria",
@@ -159,8 +161,5 @@ export const dpt: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted tryptamines"
-  ]
+  "riskLevel": "moderate"
 };

@@ -12,15 +12,17 @@ export const tianeptine: Substance =
   "id": "tianeptine",
   "name": "Tianeptine",
   "commonNames": [
-    "Dibenzothiazepine",
-    "Antidepressants"
+    "Tianeptine",
+    "Stablon",
+    "Coaxil",
+    "Tatinol"
   ],
   "categories": [
     "nootropics",
     "opioids"
   ],
   "class": "Dibenzothiazepine",
-  "description": "While primarily a prescription drug, it is sometimes used in high doses for recreational opioid effects. While tianeptine is classified as a Chemical class tricyclic antidepressant (TCA), its pharmacological effects differ from those of typical antidepressants. This is primarily due to the fact that it is not thought to act immediately through the regulation of monoaminergic neurotransmitters (such as serotonin, dopamine, or noradrenaline.) However, tianeptine seems to exhibit fewer side effects and complications than traditional antidepressants. Subjective effects of recreational doses include sedation and/or stimulation, anxiety suppression, motivation enhancement, and euphoria.",
+  "description": "Tianeptine (trade names Stablon and Coaxil) is an atypical antidepressant. This is primarily due to the fact that it is not thought to act immediately through the regulation of monoaminergic neurotransmitters (such as serotonin, dopamine, or noradrenaline.) Rather, it is theorized to act upon glutamate and glutamatergic mechanisms, causing the brain to adapt more readily to stress and depression. Clinical trials of tianeptine suggest that it is just as effective as other, more popular antidepressants such as fluoxetine (i.e., SSRI) and amitriptyline (i.e., TCA). Prescription guidelines indicate that tianeptine should be taken in 12.5 mg doses and taken three times daily, waiting 3-4 hours between doses.",
   "effects": {
     "positive": [
       "Stimulation & Sedation - At lower to moderate doses, tianeptine is known for its  stimulating and motivating effects. Dosages beyond that can make it feel more like an traditional opioid and can result in more sedation.",
@@ -77,9 +79,5 @@ export const tianeptine: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Dibenzothiazepine",
-    "Antidepressants"
-  ]
+  "riskLevel": "moderate"
 };

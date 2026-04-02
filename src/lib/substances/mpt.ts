@@ -12,13 +12,14 @@ export const mpt: Substance =
   "id": "mpt",
   "name": "MPT",
   "commonNames": [
-    "Substituted tryptamines"
+    "MPT",
+    "Methylpropyltryptamine"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted tryptamines",
-  "description": "N-Methyl-N-propyltryptamine (abbreviated MPT; also known as Methylpropyltryptamine) is a synthetic psychoactive class psychedelic of the tryptamine class that has reported to display powerful hallucinogenic and sometimes entactogenic effects. It is structurally analogous to N,N-dimethyltryptamine (DMT) and various base psychedelic tryptamines by which one can have a \"breakthrough\" experience such as MET, EPT, and DPT. While little is known aboout the pharmacology of this substance, early reports indicate that vaporizing or freebasing the compounds shares most of the core components of the DMT experience, just with its own stylistic pharmacodynamic and kinetic variations. MPT is extremely uncommon and has little history of human usage. It has never been documented as being sold on the street and is instead primarily acquired through the use of research chemical vendors and outfits who specialize in the sale of exotic psychoactive chemicals.",
+  "description": "N-Methyl-N-propyltryptamine (abbreviated MPT; also known as Methylpropyltryptamine) is a synthetic psychedelic of the tryptamine class that has reported to display powerful hallucinogenic and sometimes entactogenic effects. It is structurally analogous to N,N-dimethyltryptamine (DMT) and various base psychedelic tryptamines by which one can have a \"breakthrough\" experience such as MET, EPT, and DPT. While little is known aboout the pharmacology of this substance, early reports indicate that vaporizing or freebasing the compounds shares most of the core components of the DMT experience, just with its own stylistic pharmacodynamic and kinetic variations.",
   "effects": {
     "positive": [
       "Increased heart rate",
@@ -91,8 +92,5 @@ export const mpt: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted tryptamines"
-  ]
+  "riskLevel": "moderate"
 };

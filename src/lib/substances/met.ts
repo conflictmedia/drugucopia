@@ -12,13 +12,14 @@ export const met: Substance =
   "id": "met",
   "name": "MET",
   "commonNames": [
-    "Substituted tryptamines"
+    "MET",
+    "Methylethyltryptamine"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted tryptamines",
-  "description": "N-Ethyl-N-methyltryptamine (also known as Methylethyltryptamine, and MET) is a lesser-known novel psychoactive class psychedelic substance of the chemical class tryptamine class that produces powerful and short-lived psychedelic effects when administered. It is structurally related to DMT and is similarly unique among psychedelics due to its short-lived effects, rapid onset and progressive stages. The fumarate salt has been reported as being active via smoking/vaporization at 15-65 mg and orally at 80-110 mg. When smoked or vaporized it has been reported to produce effects similar to those of DMT with some distinct stylistic variations which include a more grounded headspace, stimulating physical effects, and reduced subjective intensity. Very little data exists about the pharmacological properties, metabolism, and toxicity of MET, and it has a very brief history of human usage.",
+  "description": "N-Ethyl-N-methyltryptamine (also known as Methylethyltryptamine, and MET) is a lesser-known novel psychedelic substance of the tryptamine class that produces powerful and short-lived psychedelic effects when administered. It is structurally related to DMT and is similarly unique among psychedelics due to its short-lived effects, rapid onset and progressive stages. When smoked or vaporized it has been reported to produce effects similar to those of DMT with some distinct stylistic variations which include a more grounded headspace, stimulating physical effects, and reduced subjective intensity.",
   "effects": {
     "positive": [
       "Stimulation",
@@ -158,8 +159,5 @@ export const met: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted tryptamines"
-  ]
+  "riskLevel": "moderate"
 };

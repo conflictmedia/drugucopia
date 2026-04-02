@@ -1,15 +1,13 @@
 Substance Split Summary
 ==================================================
 
-Source file: ../substances.ts
+Source file: substances.ts
 Total substances (valid): 277
 Skipped (null routeData):  88
 Output directory: ../src/lib/substances
 
-Each substance has been saved to two files:
+Each substance has been saved:
   - .ts file: TypeScript format with imports
-  - .json file: Pure JSON format
-
 Skipped Substances (null routeData):
   ✗ 25B-NBOH (ID: 25b-nboh)
   ✗ 25E-NBOH (ID: 25e-nboh)

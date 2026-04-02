@@ -12,13 +12,16 @@ export const _4_aco_met: Substance =
   "id": "4-aco-met",
   "name": "4-AcO-MET",
   "commonNames": [
-    "Substituted tryptamines"
+    "4-AcO-MET",
+    "4-Acetoxy-MET",
+    "Metacetin",
+    "O-Acetylmetocin"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted tryptamines",
-  "description": "4-Acetoxy-N-methyl-N-ethyltryptamine (also known as 4-AcO-MET, Metacetin, and Azomet) is a lesser-known novel Psychoactive class psychedelic substance of Chemical class tryptamine class. Members of this group produce psilocybin-like psychedelic effects when administered. It is structurally related to psychedelic tryptamines like 4-AcO-DMT, 4-AcO-DET, and 4-AcO-MiPT. The substance is closely related in structure to 4-HO-MET, for which it is theorized to act as a prodrug. Very little data exists about the pharmacological properties, metabolism, and toxicity of 4-AcO-MET, and it has little history of human usage.",
+  "description": "4-Acetoxy-N-methyl-N-ethyltryptamine (also known as 4-AcO-MET, Metacetin, and Azomet) is a lesser-known novel psychedelic substance of tryptamine class. Members of this group produce psilocybin-like psychedelic effects when administered. Very little data exists about the pharmacological properties, metabolism, and toxicity of 4-AcO-MET, and it has little history of human usage.",
   "effects": {
     "positive": [
       "Sedation - 4-AcO-MET is considered by most to be relaxing, stoning and mildly sedating. Compulsive yawning often accompanies this sense of sedation. However, the sedation is often considered to be less strong than that of the related compounds psilocin and 4-AcO-DMT.",
@@ -108,8 +111,5 @@ export const _4_aco_met: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted tryptamines"
-  ]
+  "riskLevel": "moderate"
 };

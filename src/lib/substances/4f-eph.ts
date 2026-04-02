@@ -12,13 +12,14 @@ export const _4f_eph: Substance =
   "id": "4f-eph",
   "name": "4F-EPH",
   "commonNames": [
-    "Substituted phenidates"
+    "4F-EPH",
+    "4-FEPH"
   ],
   "categories": [
     "stimulants"
   ],
   "class": "Substituted phenidates",
-  "description": "It is a closely related structural analog of the commonly prescribed ADHD drug methylphenidate (known by the brand-names Ritalin and Concerta) as well as a designer drug analog ethylphenidate. Based on its similarities to other memebers of this class, it is speculated to exert its activity as some form of double or triple monoamine reuptake inhibitor. Like other members of the substituted phenidate family, anecdotal reports suggest that 4F-EPH can be corrosive to the nasal cavities, albeit not to the degree of ethylphenidate. 4F-EPH has little to no history of recreational use and has yet to be documented being sold on the streets. It was initially developed as a replacement and successor for compounds like ethylphenidate, which became illegal in the United Kingdom on April 2015, and later 4F-MPH.",
+  "description": "4-Fluoroethylphenidate (commonly known as 4F-EPH) is a novel synthetic stimulant of the phenidate chemical class that produces long-lasting euphoric and stimulating effects associated with potent monoamine reuptake inhibitors when administered. It is a closely related structural analog of the commonly prescribed ADHD drug methylphenidate (known by the brand-names Ritalin and Concerta) as well as a designer drug analog ethylphenidate. It was initially developed as a replacement and successor for compounds like ethylphenidate, which became illegal in the United Kingdom on April 2015, and later 4F-MPH.",
   "effects": {
     "positive": [
       "Increased heart rate - 4F-EPH has a moderate effect on heart rate that is not concerning or uncomfortable at moderate doses.",
@@ -97,8 +98,5 @@ export const _4f_eph: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "high",
-  "aliases": [
-    "Substituted phenidates"
-  ]
+  "riskLevel": "high"
 };

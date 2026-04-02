@@ -12,13 +12,13 @@ export const ab_fubinaca: Substance =
   "id": "ab-fubinaca",
   "name": "AB-FUBINACA",
   "commonNames": [
-    "Indazolecarboxamide"
+    "Ab-fubi"
   ],
   "categories": [
     "cannabinoids"
   ],
   "class": "Indazolecarboxamide",
-  "description": "Members of this group produce cannabis-like effects when administered. Subsequently in 2012, it was discovered as an ingredient in synthetic cannabis blends in Japan along with a related compound AB-PINACA which had not previously been reported. Cannabinoids are commonly smoked or vaporized to achieve a quick onset of effects and rapid offset. AB-FUBINACA is orally active when dissolved in a lipid, which can increase the duration significantly. Like other cannabinoids, it is insoluble in water but dissolves in ethanol and lipids.",
+  "description": "AB-FUBINACA was originally developed by Pfizer in 2009 as an analgesic medication, but was not pursued for human use. Subsequently in 2012, it was discovered as an ingredient in synthetic cannabis blends in Japan along with a related compound AB-PINACA which had not previously been reported. Cannabinoids are commonly smoked or vaporized to achieve a quick onset of effects and rapid offset.",
   "effects": {
     "positive": [
       "Sedation - Generally, the effects on the user's energy levels are primarily sedating. This encourages one to relax, and (at higher doses) fall asleep. This can be suppressed by simply forcing oneself to engage in physical activities.",
@@ -85,8 +85,5 @@ export const ab_fubinaca: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Indazolecarboxamide"
-  ]
+  "riskLevel": "moderate"
 };

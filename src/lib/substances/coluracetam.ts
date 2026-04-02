@@ -12,13 +12,13 @@ export const coluracetam: Substance =
   "id": "coluracetam",
   "name": "Coluracetam",
   "commonNames": [
-    "Racetams"
+    "Coluracetam"
   ],
   "categories": [
     "nootropics"
   ],
   "class": "Racetams",
-  "description": "After the drug had failed to reach the endpoints in its clinical trials, it was in-licensed by BrainCells Inc for investigations into major depressive disorder (MDD), which was preceded by being awarded a \"Qualifying Therapeutic Discovery Program Grant\" by the state of California. Colouracetam is easily available and sold through online vendors as a dietary supplement in the United States. Due to its short acting and acute nature, the preferred ROAs are generally insufflation, sublingual, or vaporisation, though it is still active orally. The active dose range of this compound is between 5 and 20mg. This is much smaller than comparable doses of the racetam class of drugs (piracetam, oxiracetam, phenylpiracetam, etc.).",
+  "description": "It was originally developed and tested by the Mitsubishi Tanabe Pharma Corporation for Alzheimer's disease. After the drug had failed to reach the endpoints in its clinical trials, it was in-licensed by BrainCells Inc for investigations into major depressive disorder (MDD), which was preceded by being awarded a \"Qualifying Therapeutic Discovery Program Grant\" by the state of California. Colouracetam is easily available and sold through online vendors as a dietary supplement in the United States.",
   "effects": {
     "positive": [
       "Stimulation - The stimulation which coluracetam presents can be considered as primarily subtle and short lasting, comparable to that of caffeine.",
@@ -90,8 +90,5 @@ export const coluracetam: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Racetams"
-  ]
+  "riskLevel": "moderate"
 };

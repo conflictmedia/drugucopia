@@ -12,13 +12,18 @@ export const morphine: Substance =
   "id": "morphine",
   "name": "Morphine",
   "commonNames": [
-    "Substituted morphinans"
+    "Morphine",
+    "MS-Contin",
+    "Oramorph",
+    "Zomorph",
+    "Sevredol",
+    "Duramorph"
   ],
   "categories": [
     "opioids"
   ],
   "class": "Substituted morphinans",
-  "description": "It is one of the natural plant alkaloids found in opium, along side codeine which is extracted from Papaver somniferum (also known as the poppy plant). Additionally, it is considered to be the prototype opiate (i.e. the standard to which others are compared) and the basis of derivatives such as codeine, diacetylmorphine (heroin), and hydrocodone. Morphine has potentially serious side effects such as respiratory depression and low blood pressure, which can be fatal when it is mixed with other depressants. Other side effects of morphine include drowsiness, vomiting, and constipation. In addition to the risk of fatal overdose from single use, the chronic use of morphine is associated with escalating tolerance, physical and psychological dependence which may bring significant harm to the user.",
+  "description": "It is one of the natural plant alkaloids found in opium, along side codeine which is extracted from Papaver somniferum (also known as the poppy plant). Morphine was first isolated from opium in 1806 by Friedrich Sertürner, a German pharmacist's assistant. It reaches its maximum effect in around 20 min when given intravenously and 60 min when given orally while the duration of effect is between three and seven hours. In addition to the risk of fatal overdose from single use, the chronic use of morphine is associated with escalating tolerance, physical and psychological dependence which may bring significant harm to the user.",
   "effects": {
     "positive": [
       "Physical euphoria - The physical euphoria experienced on this substance is extremely intense when compared to other opioids such as codeine or tramadol. The sensation itself can be described as feelings of intense physical comfort, warmth, love and bliss.",
@@ -102,10 +107,7 @@ export const morphine: Substance =
     "molecularWeight": "Unknown",
     "class": "Substituted morphinans"
   },
-  "history": "In Sertürner's, over 50 experiments he believed he had isolated the primary active ingredient in opium. This is generally believed to be the first isolation of an active ingredient from a plant. Other alkaloids were later identified from the opium plant, one of these thirty such alkaloids later became codeine. This came in the form of diacetylmorphine or as it was later marketed, Heroin. About 70% of morphine is used to make other opioids such as hydromorphone, oxycodone and heroin.",
+  "history": "Morphine was first isolated in 1806 by German pharmacist's assistant, Friedrich Sertürner. Sertürner originally named the substance morphium after the Greek god of dreams, Morpheus, for its tendency to cause sleep. Morphine's clinical significance was not recognized by the greater medical community until 1831, when Sertürner was recognized for his contribution and granted the French equivalent of the Nobel Prize. Other alkaloids were later identified from the opium plant, one of these thirty such alkaloids later became codeine. Morphine use was spearheaded by Dr. Alexander Wood's invention the hypodermic syringe in 1853. However, it wasn't until the American Civil War in 1861, the Prussian-Austrian War in 1866, and the Franco-Prussian War of 1870 that morphine saw widespread use as part of military medicine.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted morphinans"
-  ]
+  "riskLevel": "moderate"
 };

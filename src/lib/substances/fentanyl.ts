@@ -12,14 +12,25 @@ export const fentanyl: Substance =
   "id": "fentanyl",
   "name": "Fentanyl",
   "commonNames": [
-    "Anilidopiperidine",
-    "Substituted piperidines"
+    "Fentanyl",
+    "fentanil",
+    "Sublimaze",
+    "Actiq",
+    "Durogesic",
+    "Duragesic",
+    "Fentora",
+    "Matrifen",
+    "Haldid",
+    "Onsolis",
+    "Instanyl",
+    "Abstral",
+    "Lazanda"
   ],
   "categories": [
     "opioids"
   ],
   "class": "Anilidopiperidine",
-  "description": "Fentanyl (also known as Fentanil and by the brand names Sublimaze, Actiq, Durogesic, Duragesic, Fentora, Matrifen, Haldid, Onsolis, Instanyl, Abstral, Lazanda among others) is a potent Psychoactive class opioid substance of the Chemical class anilidopiperidine class. It is a strong agonist at the μ-opioid receptors and approximately 40 to 50 times more potent than pharmaceutical grade (i.e. 100% pure) heroin and roughly 80 to 100 times more potent than morphine. A wide range of pharmaceutical fentanyl preparations are available, including transdermal skin patches, lollipops, buccal tablets or patches, nasal sprays, and inhalers. On the street, it is typically encountered in powder form, where it is often cut into or sold as heroin and other drugs, which has resulted in numerous accidental overdoses and fatalities. Users are advised to be aware of the extreme risk they are placing themselves in if they choose to use fentanyl.",
+  "description": "Fentanyl (also known as Fentanil and by the brand names Sublimaze, Actiq, Durogesic, Duragesic, Fentora, Matrifen, Haldid, Onsolis, Instanyl, Abstral, Lazanda among others) is a potent opioid substance of the anilidopiperidine class. A wide range of pharmaceutical fentanyl preparations are available, including transdermal skin patches, lollipops, buccal tablets or patches, nasal sprays, and inhalers. On the street, it is typically encountered in powder form, where it is often cut into or sold as heroin and other drugs, which has resulted in numerous accidental overdoses and fatalities. In 2016, fentanyl and analogues were the most common cause of overdose deaths in the United States at more than 20,000, about half of all opioid-related deaths.",
   "effects": {
     "positive": [
       "Pain relief - In comparison to other opiates, fentanyl can be described as a strong analgesic, providing relief even at non-recreational doses.",
@@ -124,11 +135,7 @@ export const fentanyl: Substance =
     "molecularWeight": "Unknown",
     "class": "Anilidopiperidine"
   },
-  "history": "Fentanyl was first synthesized by Paul Janssen in 1960 following the medical inception of pethidine several years earlier. Janssen developed fentanyl by assaying analogues of the structurally related substance pethidine for opioid activity. Following this, many other fentanyl analogues were developed and introduced into medical practice, including sufentanil, alfentanil, remifentanil, and carfentanil. In the mid-1990s, fentanyl was first introduced for widespread palliative use with the clinical introduction of the Duragesic patch. In 2013, 1700 kilograms were used globally.",
+  "history": "Fentanyl was first synthesized by Paul Janssen in 1960 following the medical inception of pethidine several years earlier. The widespread use of fentanyl triggered the production of fentanyl citrate which entered the clinical practice as a general anesthetic under the trade name Sublimaze in the 1960s. It was followed in the next decade by the introduction of the first quick-acting prescription formulations of fentanyl for personal use, the Actiq lollipop and Fentora buccal through the delivery method of estradiol Mylan transdermal patches.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "very-high",
-  "aliases": [
-    "Anilidopiperidine",
-    "Substituted piperidines"
-  ]
+  "riskLevel": "very-high"
 };

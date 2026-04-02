@@ -11,14 +11,12 @@ export const _3_meo_pcmo: Substance =
 {
   "id": "3-meo-pcmo",
   "name": "3-MeO-PCMo",
-  "commonNames": [
-    "Arylcyclohexylamines"
-  ],
+  "commonNames": [],
   "categories": [
     "dissociatives"
   ],
   "class": "Arylcyclohexylamines",
-  "description": "3-MeO-PCMo (4-[1-(3-methoxyphenyl)cyclohexyl]morpholine) is a new morpholine analogue of 3-MeO-PCP. It is a psychoactive class dissociative NMDA receptor antagonist, sigma receptor agonist and anesthetic drug of the chemical class arylcyclohexylamine chemical class with a potency of less than 1/10th of that of 3-MeO-PCP. This compound induces a state referred to as \"dissociative anesthesia\" when ingested and is therefore used as a recreational drug. 3-MeO-PCMo has recently become easily accessible through online research chemical vendors where it is being sold as a designer drug. Although very little is known about this compound, similar morpholine analogues of phencyclidine have been researched before.",
+  "description": "It is a dissociative NMDA receptor antagonist, sigma receptor agonist and anesthetic drug of the arylcyclohexylamine chemical class with a potency of less than 1/10th of that of 3-MeO-PCP. This compound induces a state referred to as \"dissociative anesthesia\" when ingested and is therefore used as a recreational drug. 3-MeO-PCMo has recently become easily accessible  through online research chemical vendors where it is being sold as a designer drug.",
   "effects": {
     "positive": [
       "Perception of bodily lightness - This creates the sensation that the body is floating and has become entirely weightless. This effect is strangely stimulating and encourages physical activities at low to moderate doses by making the body feel light and effortless to move.",
@@ -79,8 +77,5 @@ export const _3_meo_pcmo: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Arylcyclohexylamines"
-  ]
+  "riskLevel": "moderate"
 };

@@ -12,16 +12,16 @@ export const mdpv: Substance =
   "id": "mdpv",
   "name": "MDPV",
   "commonNames": [
-    "MDxx",
-    "Substituted cathinones",
-    "Substituted pyrrolidines"
+    "MDPV",
+    "Bath Salts",
+    "NRG-1"
   ],
   "categories": [
     "empathogens",
     "stimulants"
   ],
   "class": "MDxx",
-  "description": "It is known to be one of the most powerful and potent stimulants. MDPV is thought to act primarily as a norepinephrine-dopamine reuptake inhibitor (NDRI). MDPV was first developed in the 1960s by a team at Boehringer Ingelheim. It was claimed to have potential to be an alternative for racemic amphetamine and, despite showing some desirable qualities such as reduced toxicity as compared to amphetamine, was chosen to not be developed as a medicinal drug. MDPV remained an obscure stimulant until around 2004, when it was reportedly first made available to the public as a designer drug.",
+  "description": "It was claimed to have potential to be an alternative for racemic amphetamine and, despite showing some desirable qualities such as reduced toxicity as compared to amphetamine, was chosen to not be developed as a medicinal drug. Products labeled as \"bath salts\" containing MDPV were previously sold as recreational drugs in gas stations and convenience stores in the United States, similar to the marketing strategy of Spice and K2 as incense. A total of 107 non-fatal intoxications and 99 analytically confirmed deaths related to MDPV between September 2009 and August 2013 were reported by nine European countries.",
   "effects": {
     "positive": [
       "Stimulation",
@@ -107,10 +107,5 @@ export const mdpv: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "MDxx",
-    "Substituted cathinones",
-    "Substituted pyrrolidines"
-  ]
+  "riskLevel": "moderate"
 };

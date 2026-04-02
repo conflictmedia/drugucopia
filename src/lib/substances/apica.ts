@@ -12,14 +12,15 @@ export const apica: Substance =
   "id": "apica",
   "name": "APICA",
   "commonNames": [
-    "Indolecarboxamide",
-    "Indole cannabinoid"
+    "APICA",
+    "SDB-001",
+    "2NE1"
   ],
   "categories": [
     "cannabinoids"
   ],
   "class": "Indolecarboxamide",
-  "description": "APICA (also known as SDB-001, and 2NE1) is a novel synthetic psychoactive class cannabinoid that produces modified cannabis-like effects when administered. It has been shown to act as a potent agonist for the CB1 and CB2 cannabinoid receptors. The name \"2NE1\" appears to be a reference to the South Korean all-girl K-Pop group, a naming convention shared by the closely related chemical AKB48. In 2011, the two chemicals were first identified in Japan as a mixture in a product sold under the name \"Fragrance Powder\". APICA has since been available for sale as a grey-area research chemical through online vendors.",
+  "description": "The name \"2NE1\" appears to be a reference to the South Korean all-girl K-Pop group, a naming convention shared by the closely related chemical AKB48. In 2011, the two chemicals were first identified in Japan as a mixture in a product sold under the name \"Fragrance Powder\". There is little information available about the use of APICA via other routes of administration, although as with other synthetic cannabinoids it could be expected to be orally active when dissolved in a lipid, which may significantly extend its duration.",
   "effects": {
     "positive": [
       "Spontaneous physical sensations - The \"body high\" of APICA can be described as a sharp,  uncomfortable, all-encompassing, and electric tingling sensation that spreads over the body after initial ingestion. It maintains a consistent presence that quickly rises with the onset and hits its limit once the peak has been reached before immediately dissipating.",
@@ -80,9 +81,5 @@ export const apica: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Indolecarboxamide",
-    "Indole cannabinoid"
-  ]
+  "riskLevel": "moderate"
 };

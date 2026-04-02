@@ -12,13 +12,15 @@ export const nep: Substance =
   "id": "nep",
   "name": "NEP",
   "commonNames": [
-    "Cathinone"
+    "N-Ethylpentedrone",
+    "NEP",
+    "Ethyl-Pentedrone"
   ],
   "categories": [
     "stimulants"
   ],
   "class": "Cathinone",
-  "description": "The reported entactogenic effects it displays may also be due to its activity as a serotonin reuptake inhibitor or releasing agent in moderate to high doses, although new research has shown very low serotonin reuptake inhibition. NEP is also closely related to N-Ethylhexedrone (commonly known as Hexen), and has been reported as producing largely-similar effects. NEP first became known in the research chemical market during 2016. As with its parent compound pentedrone, very little data exists about the pharmacological properties, metabolism, and toxicity of NEP in humans. Due to its novelty and extremely short history of human usage, all information related to the use of this compound should be treated with extreme caution.",
+  "description": "N-Ethyl-nor-pentedrone (also known as N-Ethylpentedrone, Ethyl-pentedrone, Ethylpentedrone or more commonly, NEP) is a lesser-known novel stimulant substance of the cathinone class that produces stimulating, euphoric, and mildly entactogenic effects when administered. The reported entactogenic effects it displays may also be due to its activity as a serotonin reuptake inhibitor or releasing agent in moderate to high doses, although new research has shown very low serotonin reuptake inhibition. NEP shares a close structural relationship to its parent compound pentedrone, differing by an addition ethyl group on the terminal nitrogen on the carbon chain.",
   "effects": {
     "positive": [
       "Stimulation - In terms of its effects on the user's physical energy levels, NEP can be considered to be extremely stimulating and energetic.",
@@ -122,8 +124,5 @@ export const nep: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Cathinone"
-  ]
+  "riskLevel": "moderate"
 };

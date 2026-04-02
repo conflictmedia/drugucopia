@@ -12,14 +12,19 @@ export const mirtazapine: Substance =
   "id": "mirtazapine",
   "name": "Mirtazapine",
   "commonNames": [
-    "Piperazinoazepine"
+    "Avanza",
+    "Axit",
+    "Mirtaz",
+    "Mirtazon",
+    "Remeron",
+    "Zispin"
   ],
   "categories": [
     "deliriants",
     "depressants"
   ],
   "class": "Piperazinoazepine",
-  "description": "Mirtazapine (trade name Remeron, among others) is an psychoactive class antidepressant substance of the Chemical class piperazinoazepine class. Mirtazapine was developed in the Netherlands and introduced in the United States in 1996. It is used primarily in the treatment of major depressive disorder and other mood disorders. Higher doses of mirtazapine (that exceed the recommended prescription dose) are reported to produce an unusual mixture of psychedelic and sedative effects. One theory suggests it has minor Stimulant effects that overpowers it's sedative effects.",
+  "description": "Mirtazapine (trade name Remeron, among others) is an antidepressant substance of the piperazinoazepine class. Mirtazapine was developed in the Netherlands and introduced in the United States in 1996. Its patent expired in 2004 and generic versions have been widely available since. It has also been prescribed off-label for the treatment of\ngeneralized anxiety disorder, social anxiety disorder, obsessive-compulsive disorder, panic disorder, post-traumatic stress disorder, low appetite, insomnia, nausea/vomiting,\nitching, and headaches and migraines.",
   "effects": {
     "positive": [
       "Sedation - In terms of energy level alterations, mirtazapine is extremely sedating and often results in an overwhelmingly lethargic state. This causes users to suddenly feel as if they are extremely sleep deprived and have not slept for days, forcing them to sit down and generally feel as if they are constantly on the verge of passing out instead of engaging in physical activities. This sense of sleep deprivation increases proportional to dosage and eventually becomes powerful enough to force a person into complete unconsciousness. It is a state which often leaves people feeling extremely lethargic and tired the following day.",
@@ -95,8 +100,5 @@ export const mirtazapine: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Piperazinoazepine"
-  ]
+  "riskLevel": "moderate"
 };

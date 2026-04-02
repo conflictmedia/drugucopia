@@ -12,13 +12,15 @@ export const _2_fluorodeschloroketamine: Substance =
   "id": "2-fluorodeschloroketamine",
   "name": "2-Fluorodeschloroketamine",
   "commonNames": [
-    "Arylcyclohexylamines"
+    "2-Fluorodeschloroketamine",
+    "Fluoroketamine",
+    "2-FDCK"
   ],
   "categories": [
     "dissociatives"
   ],
   "class": "Arylcyclohexylamines",
-  "description": "2-Fl-2'-Oxo-PCM (also known as 2-Fluorodeschloroketamine, 2-FDCK, and inaccurately as 2-Fluroketamine, Fluoroketamine, and 2-FK and known as CAS number: 111982-50-4) is a lesser-known novel psychoactive class dissociative substance of the Chemical class arylcyclohexylamine class. It is chemically similar to ketamine and deschloroketamine (DCK). It appears to have first become available for sale on the online research chemical market in 2017, in which it was marketed as a legal replacement for ketamine. Subjective effects include sedation, motor control loss, pain relief, internal hallucinations, conceptual thinking, euphoria, and dissociation. 2F-DCK's effects are reported to be similar to those of ketamine.",
+  "description": "2-Fl-2'-Oxo-PCM (also known as 2-Fluorodeschloroketamine,  2-FDCK, and inaccurately as 2-Fluroketamine, Fluoroketamine, and 2-FK and known as CAS number: 111982-50-4) is a lesser-known novel dissociative substance of the arylcyclohexylamine class. It appears to have first become available for sale on the online research chemical market in 2017, in which it was marketed as a legal replacement for ketamine. Subjective effects include sedation, motor control loss, pain relief, internal hallucinations, conceptual thinking, euphoria, and dissociation.",
   "effects": {
     "positive": [
       "Physical euphoria",
@@ -107,8 +109,5 @@ export const _2_fluorodeschloroketamine: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Arylcyclohexylamines"
-  ]
+  "riskLevel": "moderate"
 };

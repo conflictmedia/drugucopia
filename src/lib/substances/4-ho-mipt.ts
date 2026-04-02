@@ -12,13 +12,14 @@ export const _4_ho_mipt: Substance =
   "id": "4-ho-mipt",
   "name": "4-HO-MiPT",
   "commonNames": [
-    "Substituted tryptamines"
+    "4-HO-MiPT",
+    "Miprocin"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted tryptamines",
-  "description": "4-Hydroxy-N-methyl-N-isopropyltryptamine (also known as 4-HO-MiPT, and Miprocin) is a novel psychoactive class psychedelic substance of the chemical class tryptamine class that produces psilocybin-like psychedelic effects when administered. It is part of a series of psychedelic substituted tryptamines such as 4-AcO-DMT, 4-HO-MET, 4-HO-DiPT that are considered to produce variations of the core psychedelic effects typified by psilocin. This substance is relatively uncommon and has only a short history of human use. Alexander Shulgin evaluated its activity in humans in 1979, describing a trial of 12mg as a richly insightful and highly erotic experience. Shulgin's trials and other anecdotal reports suggest that 4-HO-MiPT is similar in activity to psilocin, the active component in psilocybin mushrooms.",
+  "description": "4-Hydroxy-N-methyl-N-isopropyltryptamine (also known as 4-HO-MiPT, and Miprocin) is a novel psychedelic substance of the tryptamine class that produces psilocybin-like psychedelic effects when administered. Alexander Shulgin evaluated its activity in humans in 1979, describing a trial of 12mg as a richly insightful and highly erotic experience. As with psilocin, there have been no reported deaths from 4-HO-MiPT use despite the existence of reports of people taking doses which far exceeds the active dose.",
   "effects": {
     "positive": [
       "Sedation & Stimulation - 4-HO-MiPT is considered have the paradoxical property of both being relaxing, stoning and mildly sedating with a marked sense of physical stimulation that distinguishes it from related substances like psilocybin mushrooms or 4-AcO-DMT.",
@@ -126,8 +127,5 @@ export const _4_ho_mipt: Substance =
   },
   "history": "The first synthesis of 4-HO-MiPT was published in 1981 by a team of chemists led by David Repke. Repke and Shulgin later collaborated on a paper evaluating the effects of different oxygen substituents on the MiPT structure, describing 4-HO-MiPT as the most interesting of the series and the only one to possess classical hallucinogen effects.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted tryptamines"
-  ]
+  "riskLevel": "moderate"
 };

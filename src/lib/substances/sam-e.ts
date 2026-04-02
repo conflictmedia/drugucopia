@@ -12,13 +12,15 @@ export const sam_e: Substance =
   "id": "sam-e",
   "name": "SAM-e",
   "commonNames": [
-    "Nitrogenous organic acid"
+    "S-Adenosyl Methionine",
+    "SAM-e",
+    "Methylguanidoacetic Acid"
   ],
   "categories": [
     "nootropics"
   ],
   "class": "Nitrogenous organic acid",
-  "description": "S-Adenosyl-L-methionine (also called S-Adenosyl methionine, Ademethionine and commonly as SAMe and SAM-e) is a common cosubstrate involved in methyl group transfers, transsulfuration, and aminopropylation in biological organisms. SAMe is an amino acid methionine bound to an ATP molecule that circulates in the blood naturally and acts as a 'methyl donor'. A methyl group in chemistry is simply a carbon molecule (bound to some hydrogens), and donating a methyl group to other molecules can accelerate or preserve reactions in the body as a form of metabolic 'maintenance'. SAM-e is available over the counter and by prescription in the treatment of depression and osteoarthritis. It is generally distributed in enteric-coated tablets, which allows the supplement to pass through the low pH environment of the stomach to the gastrointestinal tract, raising the bioavaliability by 600%.",
+  "description": "S-Adenosyl-L-methionine (also called S-Adenosyl methionine, Ademethionine and commonly as SAMe and SAM-e) is a common cosubstrate involved in methyl group transfers, transsulfuration, and aminopropylation in biological organisms. It is generally distributed in enteric-coated tablets, which allows the supplement to pass through the low pH environment of the stomach to the gastrointestinal tract, raising the bioavaliability by 600%. A review of trials assessing oral doses of SAM-e between 200mg and 1600mg notes that they appear to have similar efficacy to tricyclic antidepressants as well as being more effective than placebo.",
   "effects": {
     "positive": [
       "Stimulation - The stimulation which SAM-e presents can be considered as subtle, yet persistent and energetic comparable to that of caffeine, although less forced.",
@@ -79,8 +81,5 @@ export const sam_e: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Nitrogenous organic acid"
-  ]
+  "riskLevel": "moderate"
 };

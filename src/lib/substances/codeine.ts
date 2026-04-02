@@ -12,13 +12,16 @@ export const codeine: Substance =
   "id": "codeine",
   "name": "Codeine",
   "commonNames": [
-    "Substituted morphinans"
+    "Codeine",
+    "Lean",
+    "Purple Drank",
+    "Syrup"
   ],
   "categories": [
     "opioids"
   ],
   "class": "Substituted morphinans",
-  "description": "opiates Codeine (also known as 3-Methylmorphine) is a naturally-occurring psychoactive class opioid substance of the chemical class morphinan class found in extracts of the poppy, particularly Papaver bracteatum. Members of this group produce effects such as sedation, cough suppression, and euphoria when administered. Codeine is the second most predominant alkaloid in opium (up to three percent). Although codeine can be extracted from natural sources, a semi-synthetic process is the primary source of codeine for pharmaceutical use. It is considered the prototype of the weak to midrange opioids (tramadol, dextropropoxyphene, dihydrocodeine and hydrocodone.",
+  "description": "opiates\nCodeine (also known as 3-Methylmorphine) is a naturally-occurring opioid substance of the morphinan class found in extracts of the poppy, particularly Papaver bracteatum. Members of this group produce effects such as sedation, cough suppression, and euphoria when administered. Codeine is currently the most widely used opiate in the world, and is one of the most commonly used drugs overall according to numerous reports by organizations including the World Health Organization and its League of Nations predecessor agency.",
   "effects": {
     "positive": [
       "Physical euphoria - This particular substance can be considered as less intense in its physical euphoria when compared with that of morphine or diacetylmorphine (heroin) due to the upper limit of how much can be converted into its active form through metabolism. The sensation itself can be described as extreme feelings of intense physical comfort, warmth and bliss which spreads throughout the body.",
@@ -89,8 +92,5 @@ export const codeine: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Substituted morphinans"
-  ]
+  "riskLevel": "low"
 };

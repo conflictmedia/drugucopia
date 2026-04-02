@@ -12,13 +12,13 @@ export const thj_2201: Substance =
   "id": "thj-2201",
   "name": "THJ-2201",
   "commonNames": [
-    "Naphthoylindazole"
+    "THJ-2201"
   ],
   "categories": [
     "cannabinoids"
   ],
   "class": "Naphthoylindazole",
-  "description": "THJ-2201 (1-​[(5-​fluoropentyl)-​1H-​indazol-​3-​yl](naphthalen-​1-​yl)methanone) is a synthetic psychoactive class cannabinoid and analog of AM-2201. It has been marketed by many research chemical vendors as a legal alternative to the popular AM-2201, which had been banned in 2011. Cannabinoids are commonly smoked or vaporized to achieve a quick onset of effects and rapid offset. THJ-2201 is orally active when dissolved in a lipid, which can increase the duration significantly. Like other cannabinoids, it is insoluble in water but dissolves in ethanol and lipids.",
+  "description": "It has been marketed by many research chemical vendors as a legal alternative to the popular AM-2201, which had been banned in 2011. Cannabinoids are commonly smoked or vaporized to achieve a quick onset of effects and rapid offset. Unlike cannabis, the chronic abuse of synthetic cannabinoids has been associated with multiple deaths and more dangerous side effects and toxicity in general.",
   "effects": {
     "positive": [
       "Spontaneous tactile sensations - The \"body high\" of THJ-2201 can be described as a warm, soft, pleasurable, all-encompassing tingling sensation that spreads over the body after initial ingestion. It maintains a consistent presence that quickly rises with the onset and hits its limit once the peak has been reached before immediately dissipating.",
@@ -87,8 +87,5 @@ export const thj_2201: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Naphthoylindazole"
-  ]
+  "riskLevel": "moderate"
 };

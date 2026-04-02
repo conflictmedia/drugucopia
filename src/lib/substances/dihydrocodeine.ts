@@ -12,13 +12,13 @@ export const dihydrocodeine: Substance =
   "id": "dihydrocodeine",
   "name": "Dihydrocodeine",
   "commonNames": [
-    "Substituted morphinans"
+    "Dihydrocodeine"
   ],
   "categories": [
     "opioids"
   ],
   "class": "Substituted morphinans",
-  "description": "It was developed in Germany in 1908 and first marketed in 1911. Dihydrocodeine is also known as Drocode, Paracodeine and Parzone. Its many brand names include Synalgos DC, Panlor DC, Panlor SS, Contugesic, Bron Tablet, New Bron Solution-ACE, Pabron S Gold W Tablets, Huscode, Drocode, Paracodin, Codidol, Dehace, Didor Continus, Dicogesic, Codhydrine, Dekacodin, DHC, DH-Codeine, Didrate, Dihydrin, Hydrocodin, Makatussin, Nadeine, Novicodin, Rapacodin, Paramol, Remedeine, Dico and DF-118. Dihydrocodeine is used as an alternative or adjunct to codeine and is similar in chemical structure. Dihydrocodeine is generally considered to have up to twice as strong analgesic effects as codeine.",
+  "description": "opiates\nDihydrocodeine is a semi-synthetic morphinan opioid analgesic prescribed for pain, or as an antitussive (either alone or compounded with paracetamol or aspirin). Its many brand names include Synalgos DC, Panlor DC, Panlor SS, Contugesic, Bron Tablet, New Bron Solution-ACE, Pabron S Gold W Tablets, Huscode, Drocode, Paracodin, Codidol, Dehace, Didor Continus, Dicogesic, Codhydrine, Dekacodin, DHC, DH-Codeine, Didrate, Dihydrin, Hydrocodin, Makatussin, Nadeine, Novicodin, Rapacodin, Paramol, Remedeine, Dico and DF-118. It is also noteworthy that Dihydrocodeine has no ceiling effect unlike codeine (considered to be around 200-600mg/day) , meaning with Dihydrocodeine you can, theoretically, achieve more euphoria the higher the dose, which codeine can’t due to the so-called ceiling effect.",
   "effects": {
     "positive": [
       "Euphoria - This particular substance can be considered as less intense in its physical euphoria when compared with that of morphine or heroin due to the upper limit of how much can be converted into its active form through metabolism. However, may be considered more euphoric than codeine due to its more powerful analgesic effects. The sensation itself can be described as extreme feelings of intense physical comfort, warmth and bliss which spreads throughout the body.",
@@ -85,8 +85,5 @@ export const dihydrocodeine: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Substituted morphinans"
-  ]
+  "riskLevel": "low"
 };

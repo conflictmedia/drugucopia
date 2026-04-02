@@ -12,13 +12,14 @@ export const metizolam: Substance =
   "id": "metizolam",
   "name": "Metizolam",
   "commonNames": [
-    "Thienodiazepines"
+    "Metizolam",
+    "Desmethyletizolam"
   ],
   "categories": [
     "depressants"
   ],
   "class": "Thienodiazepines",
-  "description": "thienodiazepines Metizolam (also known as Desmethyletizolam) is a synthetic psychoactive class depressant of the chemical class thienodiazepine chemical class that reportedly produces etizolam-like effects such as anxiety suppression, disinhibition, sedation, muscle relaxation and memory suppression when administered. It is half as potent and has a 60% longer half-life than etizolam. This compound was patented in 1995 by a Japanese company as a medication for treating anxiety. Despite this, it has little to no history of human usage prior to its release as a grey area research chemical by online vendors in September 2015. Similar to benzodiazepines, the sudden discontinuation of thienodiazepines can be potentially dangerous or life-threatening for individuals using regularly for extended periods of time, sometimes resulting in seizures or death.",
+  "description": "thienodiazepines\nMetizolam (also known as Desmethyletizolam) is a synthetic depressant of the thienodiazepine chemical class that reportedly produces etizolam-like effects such as anxiety suppression, disinhibition, sedation, muscle relaxation and memory suppression when administered. Despite this, it has little to no history of human usage prior to its release as a grey area research chemical by online vendors in September 2015. Similar to benzodiazepines, the sudden discontinuation of thienodiazepines can be potentially dangerous or life-threatening for individuals using regularly for extended periods of time, sometimes resulting in seizures or death.",
   "effects": {
     "positive": [
       "Muscle relaxation",
@@ -73,8 +74,5 @@ export const metizolam: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Thienodiazepines"
-  ]
+  "riskLevel": "moderate"
 };

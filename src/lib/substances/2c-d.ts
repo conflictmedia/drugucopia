@@ -12,13 +12,15 @@ export const _2c_d: Substance =
   "id": "2c-d",
   "name": "2C-D",
   "commonNames": [
-    "Substituted phenethylamines"
+    "2C-D",
+    "2C-M",
+    "LE-25"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted phenethylamines",
-  "description": "2,5-Dimethoxy-4-methylphenethylamine (also known as 2C-M, LE-25 and more commonly as 2C-D) is a synthetic Psychoactive class psychedelic of the Chemical class phenethylamine chemical class that produces short-lived psychedelic effects when administered. Its sensory and cognitive effects profile has been described as being the most similar to that of mescaline among members of the 2C-x family, albeit with a significantly shorter duration. The synthesis of 2C-D was first published in 1970 by a team from the Texas Research Institute of Mental Sciences. Initial trials by Alexander Shulgin at sub-threshold doses in humans were carried out in 1964. Many anecdotal reports suggest that it is calmer, easier to handle and more comfortable on the body than other closely related psychedelic phenethylamines.",
+  "description": "Its sensory and cognitive effects profile has been described as being the most similar to that of mescaline among members of the 2C-x family, albeit with a significantly shorter duration. The synthesis of 2C-D was first published in 1970 by a team from the Texas Research Institute of Mental Sciences. While not especially visual or physically euphoric at common doses, it is reported to be very lucid, analytical and unimpaired in its headspace - a quality it retains even as the dose is increased.",
   "effects": {
     "positive": [
       "Stimulation - In terms of its effects on the physical energy levels of the user, the 2C-D experience begins with mild sedation that gives way to moderate stimulation as the experience progresses. It lacks the forceful energetic push associated with most psychedelic phenethylamines.",
@@ -101,10 +103,7 @@ export const _2c_d: Substance =
     "molecularWeight": "Unknown",
     "class": "Substituted phenethylamines"
   },
-  "history": "The synthesis of 2C-D was first published in 1970 by a team from the Texas Research Institute of Mental Sciences,, but initial trials by Alexander Shulgin at sub-threshold doses were carried out in 1964. Further investigations at higher doses were carried out by Shulgin and his fellow researchers between 1974 and 1978. The name '2C-D' derives from the chemical's structure - it is the 2-Carbon analogue of DOM. Shulgin notably referred to 2C-D as a “pharmacological tofu,” meaning it can extend or potentiate the effect of other substances without overly coloring the experience, in a manner similar to how tofu absorbs the flavors of sauces or spices it is cooked with. While some use this as evidence that 2C-D is relatively uninteresting as a psychedelic on its own, others strongly disagree with this assessment and hold that 2C-D is an unusually versatile and fully-fledged psychedelic in its own right.",
+  "history": "The synthesis of 2C-D was first published in 1970 by a team from the Texas Research Institute of Mental Sciences,, but initial trials by Alexander Shulgin at sub-threshold doses were carried out in 1964. Shulgin notably referred to 2C-D as a “pharmacological tofu,” meaning it can extend or potentiate the effect of other substances without overly coloring the experience, in a manner similar to how tofu absorbs the flavors of sauces or spices it is cooked with. Despite showing promise as a very functional psychostimulant with successful studies investigating the use in psychotherapy in Germany, 2C-D has not found widespread use.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted phenethylamines"
-  ]
+  "riskLevel": "moderate"
 };

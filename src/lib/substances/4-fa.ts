@@ -12,14 +12,17 @@ export const _4_fa: Substance =
   "id": "4-fa",
   "name": "4-FA",
   "commonNames": [
-    "Substituted amphetamines"
+    "4-FA",
+    "4-FMP",
+    "PAL-303",
+    "Flux"
   ],
   "categories": [
     "empathogens",
     "stimulants"
   ],
   "class": "Substituted amphetamines",
-  "description": "4-Fluoroamphetamine (also known as 4-FA, 4-FMP, para-Fluoroamphetamine, PAL-303 and colloquially as Flux) is a novel synthetic amphetamine compound that produces a unique progressive mixture of entactogenic and psychoactive class stimulant effects when administered. It is part of a series of fluorinated amphetamine analog that initially included such compounds as 2-FA, 2-FMA, and 3-FA. Anecdotal reports have described the subjective effects of 4-FA as having a moderate MDMA-like entactogenic onset for the initial few hours of the experience that then gradually transitions into traditional amphetamine-type stimulation (for a total duration of around 6 to 8 hours) with residual effects that can last a few hours afterward. 4-FA is rarely found on the streets but was commonly sold as a grey area research chemical by online vendors along with related compounds such as 2-FMA and 3-FA. Very little data exists about the pharmacological properties, metabolism, and toxicity of 4-FA, and it has only a brief history of human usage.",
+  "description": "4-Fluoroamphetamine (also known as 4-FA, 4-FMP, para-Fluoroamphetamine, PAL-303 and colloquially as Flux) is a novel synthetic amphetamine compound that produces a unique progressive mixture of entactogenic and stimulant effects when administered. Anecdotal reports have described the subjective effects of 4-FA as having a moderate MDMA-like entactogenic onset for the initial few hours of the experience that then gradually transitions into traditional amphetamine-type stimulation (for a total duration of around 6 to 8 hours) with residual effects that can last a few hours afterward. Due to its strong psychostimulant effects, likely habit-forming properties as well as poorly understood toxicity profile, it is strongly recommended that one use proper harm reduction practices if choosing to use this substance.",
   "effects": {
     "positive": [
       "Stimulation - The first few hours of the 4-FA experience are commonly reported to have overtones of the type of sedation that is associated with the serotonin-releasing properties of entactogens like MDMA. After these entactogenic effects fade and the stimulating effects become predominant. The stimulation which 4-FA produces throughout the entirety of the experience be described as being slightly weaker in intensity to amphetamine and less forceful than traditional dopaminergic stimulants such as cocaine.",
@@ -126,8 +129,5 @@ export const _4_fa: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "high",
-  "aliases": [
-    "Substituted amphetamines"
-  ]
+  "riskLevel": "high"
 };

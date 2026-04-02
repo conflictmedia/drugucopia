@@ -12,15 +12,19 @@ export const methcathinone: Substance =
   "id": "methcathinone",
   "name": "Methcathinone",
   "commonNames": [
-    "Cathinone",
-    "Substituted cathinones"
+    "Methcathinone",
+    "Ephedrone",
+    "Methcat",
+    "Cat",
+    "Jeff",
+    "MC"
   ],
   "categories": [
     "empathogens",
     "stimulants"
   ],
   "class": "Cathinone",
-  "description": "Methcathinone (also known as Ephedrone and MCAT) is a synthetic psychoactive class stimulant substance of the chemical class cathinone chemical class. It produces standard amphetamine-like stimulant effects. It is similar to the cathinone compounds found in the khat plant of eastern Africa and mephedrone in its structure and effects.",
+  "description": "Methcathinone (also known as Ephedrone and MCAT) is a synthetic stimulant substance of the cathinone chemical class. It produces standard amphetamine-like stimulant effects. It is similar to the cathinone compounds found in the khat plant of eastern Africa and mephedrone in its structure and effects.",
   "effects": {
     "positive": [
       "Increased heart rate - The increase in heart rate is generally weaker than with other stimulants like Methamphetamine.",
@@ -94,9 +98,5 @@ export const methcathinone: Substance =
   },
   "history": "Methcathinone was first synthesized in 1928 in the USA and it was used in the Soviet Union as an antidepressant. It is common in central and eastern Europe, often sold as the more well known mephedrone or synthesized from OTC drugs containing ephedrine or pseudoephedrine.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Cathinone",
-    "Substituted cathinones"
-  ]
+  "riskLevel": "moderate"
 };

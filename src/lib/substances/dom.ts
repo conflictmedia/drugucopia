@@ -12,13 +12,14 @@ export const dom: Substance =
   "id": "dom",
   "name": "DOM",
   "commonNames": [
-    "Substituted amphetamines"
+    "DOM",
+    "STP (Serenity, Tranquility, and Peace)"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted amphetamines",
-  "description": "2,5-Dimethoxy-4-methylamphetamine (also known as DOM and STP or \"Serenity, Tranquility and Peace\") is a lesser-known psychoactive class psychedelic substance of the amphetamine class. DOM is a member of the DOx family of compounds which are known for their high potency, long duration, and mixture of psychedelic and stimulant effects. It produces its effects by acting on serotonin receptors in the brain. DOM was first synthesized and tested in 1963 by Alexander Shulgin. It attained some popularity during the summer of 1967 under the name \"STP\" (\"Serenity, Tranquility, and Peace\"), but its use was short-lived due to its side effects.",
+  "description": "DOM is a member of the DOx family of compounds which are known for their high potency, long duration, and mixture of psychedelic and stimulant effects. It attained some popularity during the summer of 1967 under the name \"STP\" (\"Serenity, Tranquility, and Peace\"), but its use was short-lived due to its side effects. In 1991, the synthesis and pharmacology of DOM was published in Shulgin's book PiHKAL (\"Phenethylamines I Have Known And Loved\")..\nOver the years, DOM has gained a reputation for being a highly dose-sensitive psychedelic that is often sold on blotting paper and known for its strong visuals, body load and neutral, analytical headspace.",
   "effects": {
     "positive": [
       "Stimulation - In terms of its effects on the physical energy levels of the user, DOM is usually considered to be mildly stimulating at levels which do not become overwhelming, encouraging users to move around, run, dance, climb and generally engage in physical activities. In comparison, it is more stimulating than psychedelics like psilocin, but less stimulating than most compounds of the DOx family.",
@@ -115,10 +116,7 @@ export const dom: Substance =
     "molecularWeight": "Unknown",
     "class": "Substituted amphetamines"
   },
-  "history": "DOM was first synthesized and tested in 1963 by Alexander Shulgin, who was investigating the effect of 4-position substitutions on psychedelic amphetamines. DOM is part of the so-called \"magical half-dozen\" which refers to Shulgin's self-rated most important phenethylamine compounds, all of which except mescaline he developed and synthesized himself. They are found within the first book of PiHKAL and are as follows: Mescaline, DOM, 2C-B, 2C-E, 2C-T-2 and 2C-T-7. In mid-1967, tablets containing 20 mg (later 10 mg) of DOM were widely distributed in the Haight-Ashbury District of San Francisco under the name of \"STP\" (short for \"Serenity, Tranquility, and Peace\"). This short-lived appearance of DOM on the black market proved disastrous for several reasons.",
+  "history": "DOM was first synthesized and tested in 1963 by Alexander Shulgin, who was investigating the effect of 4-position substitutions on psychedelic amphetamines. In mid-1967, tablets containing 20 mg (later 10 mg) of DOM were widely distributed in the Haight-Ashbury District of San Francisco under the name of \"STP\" (short for \"Serenity, Tranquility, and Peace\"). This, combined with DOM’s slow onset of action (which encouraged some users, familiar with substances that have quicker onsets, such as LSD, to re-dose) and its remarkably long duration, caused many users to panic and sent some to the emergency room.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted amphetamines"
-  ]
+  "riskLevel": "moderate"
 };

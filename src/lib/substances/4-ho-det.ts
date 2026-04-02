@@ -12,13 +12,15 @@ export const _4_ho_det: Substance =
   "id": "4-ho-det",
   "name": "4-HO-DET",
   "commonNames": [
-    "Substituted tryptamines"
+    "4-HO-DET",
+    "Ethocin",
+    "CZ-74"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted tryptamines",
-  "description": "4-Hydroxy-N,N-diethyltryptamine (also known as 4-HO-DET, CZ-74, and Ethocin) is a lesser-known synthetic psychoactive class psychedelic of the chemical class tryptamine chemical class that produces psilocin-like psychedelic effects when adminstered. 4-HO-DET is a close structural and functional analog of psilocin (4-HO-DMT), the principal psychoactive component in magic mushrooms. It is notable for sharing many of its core features while retaining subtle variations in its duration, visual, cognitive and bodily effects. This compound was first discovered in the late 1950s by Albert Hofmann and Franz Troxler in their investigation of various psychedelic compounds that were structurally and chemically related to the principle active components he isolated from magic mushrooms, psilocybin (4-PO-DMT) and psilocin (4-HO-DMT). The substance was used together with its phosphoryloxy-analog 4-PO-DET in human clinical trials in the 1960s by the German researchers Hanscarl Leuner and G. Baer.",
+  "description": "It is notable for sharing many of its core features while retaining subtle variations in its duration, visual, cognitive and bodily effects. This compound was first discovered in the late 1950s by Albert Hofmann and Franz Troxler in their investigation of various psychedelic compounds that were structurally and chemically related to the principle active components he isolated from magic mushrooms, psilocybin (4-PO-DMT) and psilocin (4-HO-DMT). The substance was used together with its phosphoryloxy-analog 4-PO-DET in human clinical trials in the 1960s by the German researchers Hanscarl Leuner  and G. Baer.",
   "effects": {
     "positive": [
       "Tactile enhancement",
@@ -106,8 +108,5 @@ export const _4_ho_det: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted tryptamines"
-  ]
+  "riskLevel": "moderate"
 };

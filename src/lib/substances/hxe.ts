@@ -12,13 +12,13 @@ export const hxe: Substance =
   "id": "hxe",
   "name": "HXE",
   "commonNames": [
-    "Arylcyclohexylamines"
+    "HXE"
   ],
   "categories": [
     "dissociatives"
   ],
   "class": "Arylcyclohexylamines",
-  "description": "3-HO-2'-Oxo-PCE (commonly known as HXE) is a novel dissociative substance of the arylcyclohexylamine class that produces ketamine-like dissociative effects when administered. It is structurally related to Methoxetamine, Ketamine and PCE. Limited data exists about the pharmacological properties, metabolism, and toxicity of HXE in humans, and it has a limited history of human use. It is highly advised to use harm reduction practices if using this substance.",
+  "description": "3-HO-2'-Oxo-PCE (commonly known as HXE) is a novel dissociative substance of the arylcyclohexylamine class that produces ketamine-like dissociative effects when administered. It is structurally related to Methoxetamine, Ketamine and PCE. Limited data exists about the pharmacological properties, metabolism, and toxicity of HXE in humans, and it has a limited history of human use.",
   "effects": {
     "positive": [
       "Stimulation or Sedation - HXE has a mild stimulating effect which promotes activities like socializing or moving. Higher doses will evidently lead to greater amounts of sedation as moving around can become difficult. However, there are some stimulating effects that persist at higher dosages as well.",
@@ -121,8 +121,5 @@ export const hxe: Substance =
   },
   "history": "HXE first appeared for sale on the online research chemical market in late 2020. However, it has been announced about three years prior where it has been 'hyped' for a long time but was on hold due to synthesis difficulties.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "high",
-  "aliases": [
-    "Arylcyclohexylamines"
-  ]
+  "riskLevel": "high"
 };

@@ -12,14 +12,15 @@ export const _3_mmc: Substance =
   "id": "3-mmc",
   "name": "3-MMC",
   "commonNames": [
-    "Cathinone"
+    "3-MMC",
+    "Metaphedrone"
   ],
   "categories": [
     "empathogens",
     "stimulants"
   ],
   "class": "Cathinone",
-  "description": "3-Methylmethcathinone (also known as 3-MMC or metaphedrone) is a novel psychoactive class stimulant-psychoactive class entactogen substance of the chemical class cathinone class. It is a structural analog of mephedrone (4-MMC) and was created as a legal designer drug after the banning of 4-MMC. Its first emergence was recorded in Europe in 2012. The effects are reported to be similar to those of mephedrone, which is sometimes described as a hybrid of MDMA and cocaine. It is reported to produce the symptoms of serotonin depletion with overuse.",
+  "description": "The mechanism of action is not fully studied, but dopamine and serotonin and norepinephrine releasing activity is known to be involved. 3-MMC first appeared on the online research chemical market shortly after the banning of the massively popular mephedrone. It is a prominent example of a contemporary designer drug specifically chosen to mimic and/or replace the functional and structural features of its recently-controlled predecessors. Subjective effects include stimulation, anxiety suppression, disinhibition, enhanced empathy and sociability, relaxation, increased libido, and euphoria.",
   "effects": {
     "positive": [
       "Stimulation -  3-MMC is reported to be extremely stimulating and energetic. It can encourage the user towards physical activities like dancing, which makes it popular for parties and raves. <p>The type of stimulation can be described as \"forced\". This means that at higher doses, it becomes difficult or impossible to keep still as jaw clenching, involuntarily body shakes and vibrations become present. <p>Additionally, persistent or wave-like feelings of deep sedation and relaxation may be paradoxically present, typically at moderate to strong doses.",
@@ -156,8 +157,5 @@ export const _3_mmc: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "high",
-  "aliases": [
-    "Cathinone"
-  ]
+  "riskLevel": "high"
 };

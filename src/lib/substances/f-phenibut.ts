@@ -12,13 +12,15 @@ export const f_phenibut: Substance =
   "id": "f-phenibut",
   "name": "F-Phenibut",
   "commonNames": [
-    "Gabapentinoids"
+    "F-Phenibut",
+    "Fluorophenibut",
+    "Fluorobut"
   ],
   "categories": [
     "depressants"
   ],
   "class": "Gabapentinoids",
-  "description": "F-Phenibut (also known as 4-Fluorophenibut, Fluorophenibut, Fluorobut, Baflofen and CGP-11130) is a central nervous system psychoactive class depressant and closely related structural analog of phenibut. F-Phenibut possesses an effect profile similar to phenibut but with a faster onset, significantly increased potency, and shorter total duration. It has recently become available through online research chemical vendors, although little is known about this substance, particularly its potential toxicity and addiction potential. The substance can be classified as a gabapentinoid, a class which contains other substances such as gabapentin, pregabalin, baclofen, and GABOB. It is a derivative of the naturally occurring inhibitory neurotransmitter γ-aminobutyric acid (GABA), with an addition of a phenyl ring that allows it to cross the blood–brain barrier.",
+  "description": "F-Phenibut (also known as 4-Fluorophenibut, Fluorophenibut, Fluorobut, Baflofen and CGP-11130) is a central nervous system depressant and closely related structural analog of phenibut. F-Phenibut possesses an effect profile similar to phenibut but with a faster onset, significantly increased potency, and shorter total duration. It has recently become available through online research chemical vendors, although little is known about this substance, particularly its potential toxicity and addiction potential.",
   "effects": {
     "positive": [
       "Stimulation and Sedation - At lower doses, F-Phenibut has a mild physical and mental stimulation effect, encouraging movement, wakefulness, productivity and socialization. At higher doses, however, it becomes physically sedating, encouraging sleep and lethargy. Sleeping after dosing a small amount may result in a deep, restful sleep which can leave the user feeling refreshed and alert upon waking.",
@@ -87,8 +89,5 @@ export const f_phenibut: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Gabapentinoids"
-  ]
+  "riskLevel": "moderate"
 };

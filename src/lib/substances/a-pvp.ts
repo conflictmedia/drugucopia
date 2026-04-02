@@ -12,15 +12,20 @@ export const a_pvp: Substance =
   "id": "a-pvp",
   "name": "A-PVP",
   "commonNames": [
-    "Cathinone",
-    "Substituted cathinones",
-    "Substituted pyrrolidines"
+    "α-PVP",
+    "alpha-PVP",
+    "Flakka",
+    "Flak",
+    "O-2387",
+    "β-ketone-prolintane",
+    "Prolintanone",
+    "Gravel"
   ],
   "categories": [
     "stimulants"
   ],
   "class": "Cathinone",
-  "description": "α-PVP was patented in the 1960s by Boehringer Ingelheim, although it was never marketed. It has been mass produced in China and sold online as a research chemical. User reports indicate that α-PVP produces powerful but short-lived stimulant effects comparable to those of methamphetamine and cocaine when insufflated or vaporized. Like other synthetic cathinones, α-PVP is associated with compulsive use and addiction. Due to its potent psychostimulant effects and unknown toxicity profile, it is highly advised to use harm reduction practices if using with this substance.",
+  "description": "α-PVP is chemically related to prolintane and belongs to a group called the substituted cathinones, which includes compounds like MDPV, hexen, and a-PHP. α-PVP was patented in the 1960s by Boehringer Ingelheim, although it was never marketed. α-PVP has been subject to much scrutiny by the media as one of the ingredients found in \"bath salts\" or \"legal highs\" products.",
   "effects": {
     "positive": [
       "Stimulation - In terms of its effects on the user's physical energy levels, α-PVP can be considered to be extremely stimulating and energetic. This encourages activities such as running, climbing and dancing, although it can also encourage just sitting immobile engaged in repetitive tasks. The particular style of stimulation which α-PVP presents can be described as forced. This means that at higher dosages it becomes difficult or impossible to keep still as jaw clenching, involuntarily bodily shakes and vibrations become present, resulting in an extreme unsteadiness of the hands and a general loss of motor control.",
@@ -142,10 +147,5 @@ export const a_pvp: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Cathinone",
-    "Substituted cathinones",
-    "Substituted pyrrolidines"
-  ]
+  "riskLevel": "moderate"
 };

@@ -12,13 +12,13 @@ export const galantamine: Substance =
   "id": "galantamine",
   "name": "Galantamine",
   "commonNames": [
-    "Benzazepine"
+    "Galantamine"
   ],
   "categories": [
     "nootropics"
   ],
   "class": "Benzazepine",
-  "description": "Galantamine (also known as Nivalin, Razadyne, Razadyne ER, Reminyl, and Lycoremine) is a water soluble, reversible, competitive acetylcholinesterase inhibitor that functions as a nootropic, oneirogen, and mild dissociative substance. It is well known and used widely as a dream potentiator. Along with its oneirogenic effects, it has stimulant and nootropic effects in low doses, and has mild dissociative effects in higher doses. It is an alkaloid that is obtained either synthetically, or from the bulbs and flowers of Galanthus caucasicus, Galanthus woronowii and related genera. Galantamine has been used for decades in Eastern Europe and Russia for the treatment of various conditions such as myasthenia, myopathy, and sensory and motor dysfunction associated with disorders of the central nervous system.",
+  "description": "Galantamine (also known as Nivalin, Razadyne, Razadyne ER, Reminyl, and Lycoremine) is a water soluble, reversible, competitive acetylcholinesterase inhibitor that functions as a nootropic, oneirogen, and mild dissociative substance. Studies of usage in modern medicine began in the Soviet Union in the 1950s by Soviet pharmacologists M. D. Mashkovsky and R. P. Kruglikova–Lvova. Galantamine has been used for decades in Eastern Europe and Russia for the treatment of various conditions such as myasthenia, myopathy, and sensory and motor dysfunction associated with disorders of the central nervous system.",
   "effects": {
     "positive": [
       "Stimulation - Galantamine is primarily stimulating and provides nootropic effects.",
@@ -73,8 +73,5 @@ export const galantamine: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Benzazepine"
-  ]
+  "riskLevel": "low"
 };

@@ -12,13 +12,17 @@ export const heroin: Substance =
   "id": "heroin",
   "name": "Heroin",
   "commonNames": [
-    "Substituted morphinans"
+    "Heroin",
+    "H",
+    "Smack",
+    "Junk",
+    "Brown"
   ],
   "categories": [
     "opioids"
   ],
   "class": "Substituted morphinans",
-  "description": "opiates Diacetylmorphine or morphine diacetate (also known as diamorphine and heroin as well as colloquially as H, dope, smack, junk, brown, boy, and others) is a semi-synthetic psychoactive class opioid substance of the chemical class morphinan class. It is a derivative of morphine, a natural product of the opium poppy (Papaver somniferum). Heroin is known for its highly addictive properties and it makes up a large portion of the illicit traffic in narcotics. Heroin was first synthesized from morphine by a British chemist in 1874 and was introduced as a commercial product by the Bayer Company of Germany in 1898. The heroin found on streets may have a significant variation in purity, but on average is about 5%.",
+  "description": "opiates\nDiacetylmorphine or morphine diacetate (also known as diamorphine and heroin as well as colloquially as H, dope, smack, junk, brown, boy, and others) is a semi-synthetic opioid substance of the morphinan class. Heroin was first synthesized from morphine by a British chemist in 1874 and was introduced as a commercial product by the Bayer Company of Germany in 1898. These impurities can result from including processing faults during synthesis, the addition of harmful or benign cutting agents, or the substitution of significantly more potent and dangerous analogous substances such as fentanyl adulterated into the end-product before distribution.",
   "effects": {
     "positive": [
       "Physical euphoria - The physical euphoria experienced on this substance is extremely intense when compared to other opioids such as codeine or tramadol. The sensation itself can be described as extreme feelings of intense physical comfort, warmth, and all-encompassing bliss.",
@@ -121,10 +125,7 @@ export const heroin: Substance =
     "molecularWeight": "Unknown",
     "class": "Substituted morphinans"
   },
-  "history": "Diacetylmorphine was originally synthesized by C.R. Alder Wright in 1874 when attempting to combine morphine with various acids. The synthesis was achieved through boiling anhydrous morphine with morphine alkaloid with acetic anhydride. Although the name heroin is a traditional trade name for a Bayer product containing diacetylmorphine, the name has since been widely adopted for all intents and purposes and may describe a recreational depressant that may or may not contain pure diacetylmorphine.",
+  "history": "Alder Wright in 1874 when attempting to combine morphine with various acids. The synthesis was achieved through boiling anhydrous morphine with morphine alkaloid with acetic anhydride. Although the name heroin is a traditional trade name for a Bayer product containing diacetylmorphine, the name has since been widely adopted for all intents and purposes and may describe a recreational depressant that may or may not contain pure diacetylmorphine.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted morphinans"
-  ]
+  "riskLevel": "moderate"
 };

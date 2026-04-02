@@ -12,13 +12,15 @@ export const hydrocodone: Substance =
   "id": "hydrocodone",
   "name": "Hydrocodone",
   "commonNames": [
-    "Substituted morphinans"
+    "Vicodin (with paracetamol)",
+    "Zohydro ER (extended-release)",
+    "Norco"
   ],
   "categories": [
     "opioids"
   ],
   "class": "Substituted morphinans",
-  "description": "opiates Hydrocodone (commonly sold as Vicodin or Norco when combined with paracetamol) is a semi-synthetic psychoactive class opioid chemical class morphinan synthesized or chemically derived from codeine, one of the opioid alkaloids found in the opium poppy. It is a narcotic analgesic used orally as a cough suppressant, but also commonly taken orally for relief of moderate to severe pain. Those who take hydrocodone for recreational purposes report a sense of relaxation and euphoria, especially at higher doses. Hydrocodone is prescribed predominantly within the United States, with the International Narcotics Control Board reporting that 99% of the worldwide supply in 2007 was consumed in the United States. Like many opioids, such as dextropropoxyphene, hydrocodone is often combined with acetaminophen (paracetamol) to enhance analgesia and deter abuse.",
+  "description": "opiates\nHydrocodone (commonly sold as Vicodin or Norco when combined with paracetamol) is a semi-synthetic opioid morphinan synthesized or chemically derived from codeine, one of the opioid alkaloids found in the opium poppy. It is a narcotic analgesic used orally as a cough suppressant, but also commonly taken orally for relief of moderate to severe pain. Hydrocodone is prescribed predominantly within the United States, with the International Narcotics Control Board reporting that 99% of the worldwide supply in 2007 was consumed in the United States.",
   "effects": {
     "positive": [
       "Physical euphoria - Physical euphoria on hydrocodone is commonly described as less intense when compared with morphine or heroin. The sensation itself can be described as extreme feelings of intense physical comfort, warmth, pleasure and bliss which spreads throughout the body.",
@@ -87,8 +89,5 @@ export const hydrocodone: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "very-high",
-  "aliases": [
-    "Substituted morphinans"
-  ]
+  "riskLevel": "very-high"
 };

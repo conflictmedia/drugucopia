@@ -12,13 +12,13 @@ export const methiopropamine: Substance =
   "id": "methiopropamine",
   "name": "Methiopropamine",
   "commonNames": [
-    "Thiophene"
+    "MPA"
   ],
   "categories": [
     "stimulants"
   ],
   "class": "Thiophene",
-  "description": "Methiopropamine (also known as MPA) is a psychoactive class stimulant substance of the chemical class thiophene class. It is a ring-based structural analogue of methamphetamine. Methiopropamine was first synthesized in 1942. Subjective effects are reportedly similar to those of classical stimulants and includes stimulation, focus enhancement, motivation enhancement, increased libido, appetite suppression, and euphoria. However, it is generally considered to be as euphoric or recreational as classical stimulants.",
+  "description": "Methiopropamine (also known as MPA) is a stimulant substance of the thiophene class. It appeared for public sale in the U.K. in December 2010 as a research chemical or legal high, recently branded as \"Blow\". Subjective effects are reportedly similar to those of classical stimulants and includes stimulation, focus enhancement, motivation enhancement, increased libido, appetite suppression, and euphoria.",
   "effects": {
     "positive": [
       "Focus enhancement - This component is most effective at low to moderate doses as anything higher will usually impair concentration.",
@@ -98,8 +98,5 @@ export const methiopropamine: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Thiophene"
-  ]
+  "riskLevel": "moderate"
 };

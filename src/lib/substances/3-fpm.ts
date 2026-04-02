@@ -12,14 +12,14 @@ export const _3_fpm: Substance =
   "id": "3-fpm",
   "name": "3-FPM",
   "commonNames": [
-    "Substituted amphetamines",
-    "Phenylmorpholine"
+    "3-FPM",
+    "PAL-593"
   ],
   "categories": [
     "stimulants"
   ],
   "class": "Substituted amphetamines",
-  "description": "3-FPM is a derivative of phenmetrazine, a once-popular stimulant substance that was clinically used as an anorectic in Europe in the 1950s. It produces its activity by increasing the levels of serotonin, dopamine, and norepinephrine in the brain. The synthesis and pharmacology of 3-FPM was first reported in a patent filed in 2011. Subjective effects include stimulation, enhanced focus and motivation, thought acceleration, and euphoria. Users commonly report that 3-FPM produces classical stimulant effects comparable to those of amphetamine.",
+  "description": "3-FPM is a derivative of phenmetrazine, a once-popular stimulant substance that was clinically used as an anorectic in Europe in the 1950s. Reports of human use first surfaced in early 2015 after it appeared for sale on the online research chemical market. Many reports describe 3-FPM as having a relatively subtle and controlled stimulant effect which produces less nervousness, insomnia and euphoria than other stimulants, which makes it suitable as a study-aid or productivity-enhancer.",
   "effects": {
     "positive": [
       "Stimulation - In terms of its effects on the physical energy levels of the user, 3-FPM is usually considered to be mildly to moderately energetic and stimulating in a fashion that is considerably weaker in comparison to that of traditional recreational stimulants such as amphetamine, MDMA or cocaine. This encourages physical activities such as performing chores and repetitive tasks which would otherwise be boring and strenuous physical activities.",
@@ -118,9 +118,5 @@ export const _3_fpm: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted amphetamines",
-    "Phenylmorpholine"
-  ]
+  "riskLevel": "moderate"
 };

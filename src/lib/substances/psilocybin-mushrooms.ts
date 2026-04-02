@@ -12,13 +12,17 @@ export const psilocybin_mushrooms: Substance =
   "id": "psilocybin-mushrooms",
   "name": "Psilocybin mushrooms",
   "commonNames": [
-    "Substituted tryptamines"
+    "Psilocybin",
+    "Psilocybin mushrooms",
+    "Magic Mushrooms",
+    "Shrooms",
+    "4-PO-DMT"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted tryptamines",
-  "description": "thumb|Psilocybe cubensis, one of the most common psilocybin-containing mushrooms. The mechanism of action is not fully known, although binding activity at serotonin receptors is thought to be involved. Psilocybin mushrooms occur on all continents and have been taxonomically classified into over 200 species, the most potent of which belong to the genus Psilocybe. Widespread usage of psychedelics provoked a societal backlash, and they were prohibited in 1970. As a part of the so-called \"psychedelic renaissance\", they are currently being investigated in the treatment of a number of ailments including anxiety, depression, addiction, and other mental disorders.",
+  "description": "Psilocybin mushrooms (also known as magic mushrooms, psychedelic mushrooms, and shrooms) are a family of psychoactive fungi that contain psilocybin, a psychedelic substance of the tryptamine class. The mechanism of action is not fully known, although binding activity at serotonin receptors is thought to be involved. Based on imagery found in prehistoric rock art, they are thought to have been used by various human cultures since before recorded history. After being introduced to the Western world in the 1950s, they generated substantial public interest. Subjective effects include visual geometry, hallucinatory states, time distortion, enhanced introspection, conceptual thinking, euphoria, and ego loss.",
   "effects": {
     "positive": [
       "Neurogenesis",
@@ -106,10 +110,7 @@ export const psilocybin_mushrooms: Substance =
     "molecularWeight": "Unknown",
     "class": "Substituted tryptamines"
   },
-  "history": "Archaeological artifacts from Mexico have also been interpreted by some scholars as evidence for ritual and ceremonial usage of psychoactive mushrooms in the Mayan and Aztec cultures of Mesoamerica. In 1957, Wasson described the psychedelic visions that he experienced during these rituals in \"Seeking the Magic Mushroom\", an article published in Life magazine. Hofmann, who had in 1938 created LSD, led a research group that isolated and identified the psychoactive compounds from Psilocybe mexicana. Leary obtained synthesized psilocybin from Hofmann through Sandoz. In the United States, laws were passed in 1966 that prohibited the production, trade, or ingestion of hallucinogenic substances.",
+  "history": "thumb|250px|Cave art in Tassili n'Ajjer, Algeria (look at the shoulders and knees)\nA growing body of evidence suggests that psychoactive mushrooms have been used by humans in religious ceremonies for thousands of years. For example, murals dated 9000 to 7000 BCE found in the Sahara desert in southeast Algeria depict horned beings dressed as dancers holding mushroom-like objects. 6,000-year-old pictographs discovered near the Spanish town of Villar del Humo illustrate several mushrooms that have been tentatively identified as Psilocybe hispanica, a hallucinogenic species native to the area. Archaeological artifacts from Mexico have also been interpreted by some scholars as evidence for ritual and ceremonial usage of psychoactive mushrooms in the Mayan and Aztec cultures of Mesoamerica. Following the arrival of Spanish explorers to the New World in the 16th century, chroniclers reported the use of mushrooms by the natives for ceremonial and religious purposes. In 1957, Wasson described the psychedelic visions that he experienced during these rituals in \"Seeking the Magic Mushroom\", an article published in Life magazine. Heim cultivated the mushrooms in France, and sent samples for analysis to Albert Hofmann, a chemist employed by the Swiss pharmaceutical company Sandoz (now Novartis). He and his colleagues later synthesized a number of compounds chemically related to the naturally occurring psilocybin, to see how structural changes would affect psychoactivity. In the early 1960s, Harvard University became a testing ground for psilocybin via the efforts of Timothy Leary and his associates, Ralph Metzner and Richard Alpert, under a project known as the Harvard Psilocybin Project.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Substituted tryptamines"
-  ]
+  "riskLevel": "low"
 };

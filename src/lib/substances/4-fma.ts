@@ -12,14 +12,14 @@ export const _4_fma: Substance =
   "id": "4-fma",
   "name": "4-FMA",
   "commonNames": [
-    "Substituted amphetamines"
+    "4-FMA"
   ],
   "categories": [
     "empathogens",
     "stimulants"
   ],
   "class": "Substituted amphetamines",
-  "description": "4-Fluoromethamphetamine (also known as 4-FMA) is a lesser-known novel Psychoactive class stimulant-Psychoactive class entactogen substance of the amphetamine class. Little is known about its pharmacology, but it likely produces its effects by increasing levels of dopamine, norepinephrine, and serotonin in the brain. 4-FMA was first detected being sold in Japan as a legal high in 2006. It has been sold online as a research chemical alongside 2-fluoroamphetamine (2-FA), 3-fluoroamphetamine (3-FA) and 4-fluoroamphetamine (4-FA). It has been reported to be more likely to produce side effects like headaches and cardiovascular effects than similar substances.",
+  "description": "Little is known about its pharmacology, but it likely produces its effects by increasing levels of dopamine, norepinephrine, and serotonin in the brain. When 4-FA was made illegal in the Netherlands in 2017, 4-FMA grew in popularity as a legal substitute, due to their similar names and effects. In 2018, the number of analyzed 4-FA samples increasingly contained 4-FMA (and/or other fluorinated amphetamines) and the availability of actual 4-FA decreased sharply.",
   "effects": {
     "positive": [
       "Stimulation - The stimulation which 4-FMA presents can be described as being a mix between a typical entactogen stimulation and the stimulation style of Methamphetamine.",
@@ -119,8 +119,5 @@ export const _4_fma: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted amphetamines"
-  ]
+  "riskLevel": "moderate"
 };

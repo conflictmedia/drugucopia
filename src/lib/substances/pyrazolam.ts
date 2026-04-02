@@ -12,13 +12,13 @@ export const pyrazolam: Substance =
   "id": "pyrazolam",
   "name": "Pyrazolam",
   "commonNames": [
-    "Benzodiazepines"
+    "Pyrazolam"
   ],
   "categories": [
     "depressants"
   ],
   "class": "Benzodiazepines",
-  "description": "benzodiazepines Pyrazolam is a novel psychoactive class depressant substance of the chemical class benzodiazepine class. Pyrazolam was originally developed at Hoffman-La Roche in the 1970s and subsequently \"rediscovered\" and sold as a research chemical starting in 2012. Pyrazolam is reported to produce comparibily greater amounts of anxiety supression than sedation and euphoria in comparison to other benzodiazepines, limiting its recreational use. It should be noted that the sudden discontinuation of benzodiazepines can be potentially dangerous or life-threatening for individuals using regularly for extended periods of time, sometimes resulting in seizures or death. It is highly recommended to taper one's dose by gradually lowering the amount taken each day for a prolonged period of time instead of stopping abruptly.",
+  "description": "Pyrazolam was originally developed at Hoffman-La Roche in the 1970s and subsequently \"rediscovered\" and sold as a research chemical starting in 2012. It should be noted that the sudden discontinuation of benzodiazepines can be potentially dangerous or life-threatening for individuals using regularly for extended periods of time, sometimes resulting in seizures or death. It is highly recommended to taper one's dose by gradually lowering the amount taken each day for a prolonged period of time instead of stopping abruptly.",
   "effects": {
     "positive": [
       "Sedation -  In terms of energy level alterations, pyrazolam is considerably less sedating than other substances of the same class unless it is taken at heavy doses.",
@@ -71,8 +71,5 @@ export const pyrazolam: Substance =
   },
   "history": "Pyrazolam was originally developed by a team led by Leo Sternbach at Hoffman-La Roche in the 1970s and subsequently \"rediscovered\" and sold as a research chemical starting in 2012. The first official report of the drug came out of Finland in 2011 and another came from the UK in 2012.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Benzodiazepines"
-  ]
+  "riskLevel": "low"
 };

@@ -12,13 +12,16 @@ export const _4_aco_dipt: Substance =
   "id": "4-aco-dipt",
   "name": "4-AcO-DiPT",
   "commonNames": [
-    "Substituted tryptamines"
+    "4-AcO-DiPT",
+    "4-Acetoxy-DiPT",
+    "Ipracetin",
+    "Aces"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted tryptamines",
-  "description": "It has been described in early online reports as being only vaguely similar to structurally-related tryptamine substances such as psilocin or 4-AcO-DMT but with the disinhibiting, physically euphoric and libidinous signature of psychedelics like 5-MeO-DiPT, and an atypically short duration of around 3 - 4 hours. It has since been reported to be slightly longer lasting and mildly less potent than 4-HO-DiPT (also known as Iprocin) with an active dose reported as between 15 and 40 mg. 4-AcO-DiPT is primarily thought to act as a prodrug to 4-HO-DiPT, a substance which Alexander Shulgin comments on in his book TiHKAL. In it he writes that he \"truly doubt(s) that there is another psychedelic drug, anywhere, that can match this one for speed, for intensity, for brevity, and sensitive to dose, at least one that is active orally.\" Anecdotal reports dating from at least 1999 reveals that these properties are largely preserved with 4-AcO-DiPT, with the exception of a less rapid and potentially jarring onset, slightly extended duration and decreased physical side-effects from the excessive stimulation and restlessness that 4-HO-DiPT is commonly reported to produce, making it a more comfortable experience overall. It is an example of the early wave of psychedelic research chemical that were explored following the wake of its initial synthesis and documentation in TiHKAL, before the emergence of an easily-accessible network of online research chemical vendors during the early 2000s.",
+  "description": "4-Acetoxy-N,N-diisopropyltryptamine (also known as 4-AcO-DiPT, 4-Acetoxy-DiPT, Ipracetin, Iprocetyl and colloquially as \"4-Ace\" or \"Aces\") is a lesser-known synthetic psychedelic substance of the tryptamine chemical class that produces a unique mixture of physically euphoric, stimulating, and atypically minimal visual and introspective psychedelic effects when administered. It has since been reported to be slightly longer lasting and mildly less potent than 4-HO-DiPT (also known as Iprocin) with an active dose reported as between 15 and 40 mg.\n4-AcO-DiPT is primarily thought to act as a prodrug to 4-HO-DiPT, a substance which Alexander Shulgin comments on in his book TiHKAL. Anecdotal reports dating from at least 1999 reveals that these properties are largely preserved with 4-AcO-DiPT, with the exception of a less rapid and potentially jarring onset, slightly extended duration and decreased physical side-effects from the excessive stimulation and restlessness that 4-HO-DiPT is commonly reported to produce, making it a more comfortable experience overall.",
   "effects": {
     "positive": [
       "Sedation and Stimulation - In terms of its effects on the physical energy levels of the user, 4-AcO-DiPT is considered have the paradoxical property of both being relaxing, stoning and mildly sedating that arises in the first part of the experience, before the development of a marked sense of physical stimulation that can promote energetic activities such as dancing.",
@@ -99,8 +102,5 @@ export const _4_aco_dipt: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted tryptamines"
-  ]
+  "riskLevel": "moderate"
 };

@@ -12,14 +12,17 @@ export const ephylone: Substance =
   "id": "ephylone",
   "name": "Ephylone",
   "commonNames": [
-    "Cathinone"
+    "Ephylone",
+    "bk-EBDP",
+    "βk-EBDP",
+    "bk-ethyl-K"
   ],
   "categories": [
     "empathogens",
     "stimulants"
   ],
   "class": "Cathinone",
-  "description": "Little is known about its pharmacology, although it likely produces its effects by increasing levels of serotonin, dopamine, and norepinephrine in the brain. Ephylone was developed in the 1960s by Boehringer Ingelheim as a central nervous system stimulant, although it never became marketed. Reports of recreational use first appeared in late 2015. The significance of this is not known, although it may indicate that it has a different toxicity profile compared to other stimulants. Ephylone is sold online as a research chemical alongside other synthetic cathinones like ethylone and dibutylone.",
+  "description": "Little is known about its pharmacology, although it likely produces its effects by increasing levels of serotonin, dopamine, and norepinephrine in the brain. Ephylone was developed in the 1960s by Boehringer Ingelheim as a central nervous system stimulant, although it never became marketed. Since then, its prevalence has steadily risen, particularly at dance music festivals where it appears as an adulterant or counterfeit for MDMA.",
   "effects": {
     "positive": [
       "Stimulation",
@@ -111,10 +114,7 @@ export const ephylone: Substance =
     "molecularWeight": "Unknown",
     "class": "Cathinone"
   },
-  "history": "However, they did not find medical use due to their side effects. In the early 2000s, synthetic cathinones began to be sold in \"head\" shops and online as designer drugs, also known as research chemicals and \"legal highs\". The synthesis of ephylone was first described in a patent filed by Boehringer Ingelheim in 1969. The emergence of ephylone on the recreational drug market was reported in drug seizures for the first time in 2016. A 2018 report issued by the drug testing organization Energy Control found evidence indicating increasing use of ephylone as a counterfeit or adulterant for MDMA.",
+  "history": "Research chemicals#History and culture\nSynthetic cathinones were first synthesized in the late 1920s, starting with methcathinone and mephedrone. Their quasi-legality and ability to substitute for traditional stimulants like cocaine or amphetamine made them popular in certain demographics. A 2018 report issued by the drug testing organization Energy Control found evidence indicating increasing use of ephylone as a counterfeit or adulterant for MDMA.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Cathinone"
-  ]
+  "riskLevel": "moderate"
 };

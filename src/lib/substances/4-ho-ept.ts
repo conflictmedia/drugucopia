@@ -12,13 +12,14 @@ export const _4_ho_ept: Substance =
   "id": "4-ho-ept",
   "name": "4-HO-EPT",
   "commonNames": [
-    "Substituted tryptamines"
+    "4-HO-EPT",
+    "Eprocin"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted tryptamines",
-  "description": "4-Hydroxy-N-ethyl-N-propyltryptamine (also known as 4-HO-EPT or Eprocin) is a novel synthetic psychoactive class psychedelic substance of the chemical class tryptamine chemical class that produces psychedelic effects when administered. It is structurally related to psilocin (4-HO-DMT), the active component in psilocybin mushrooms, and produces similar effects. Very little data exists about the pharmacological properties, metabolism, and toxicity of 4-HO-EPT. It has no history of human use before being sold online as a research chemical in 2016. It remains obscure and is either used recreationally or for research purposes.",
+  "description": "4-Hydroxy-N-ethyl-N-propyltryptamine (also known as 4-HO-EPT or Eprocin) is a novel synthetic psychedelic substance of the tryptamine chemical class that produces psychedelic effects when administered. Very little data exists about the pharmacological properties, metabolism, and toxicity of 4-HO-EPT. Unlike other more popular 4-subbed tryptamines, Eprocin isn't really visual, it mostly enhances colors and makes them more \"neon-ish\".",
   "effects": {
     "positive": [
       "Increased heart rate",
@@ -94,8 +95,5 @@ export const _4_ho_ept: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted tryptamines"
-  ]
+  "riskLevel": "moderate"
 };

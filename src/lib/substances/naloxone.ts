@@ -12,13 +12,15 @@ export const naloxone: Substance =
   "id": "naloxone",
   "name": "Naloxone",
   "commonNames": [
-    "Substituted morphinans"
+    "Naloxone",
+    "Narcan",
+    "Evzio"
   ],
   "categories": [
     "opioids"
   ],
   "class": "Substituted morphinans",
-  "description": "Experts now advise that anyone using street drugs—and those around them—should carry naloxone, as opioids are increasingly found contaminating the drug supply. Naloxone (commonly sold under the brand names Narcan and Evzio) is a synthetic mu-opioid antagonist of the chemical class morphinan chemical class that is widely used to reverse the effects of an acute opioid overdose. This is partially due to naloxone programs in several countries to give naloxone to people who use opioids along with the rapid deployment of naloxone by law enforcement agencies and emergency medical services. Many emergency responders and law enforcement are trained to administer naloxone to reverse the effects of opioid overdoses immediately. Besides its use in emergency medicine, naloxone has been researched in the treatment of depersonalization disorder with promising results.",
+  "description": "Experts now advise that anyone using street drugs—and those around them—should carry naloxone, as opioids are increasingly found contaminating the drug supply. Naloxone (commonly sold under the brand names Narcan and Evzio) is a synthetic mu-opioid antagonist of the morphinan chemical class that is widely used to reverse the effects of an acute opioid overdose. This is partially due to naloxone programs in several countries to give naloxone to people who use opioids along with the rapid deployment of naloxone by law enforcement agencies and emergency medical services.",
   "effects": {
     "positive": [
       "Identity alteration - Naloxone has been demonstrated by a pilot study to significantly reduce the symptoms of chronic long-term depersonalization. Within this study, 11 patients received single doses (1.6 or 4 mg i.v.) and three others received multiple infusions, with the maximal dosage being 10 mg, and the effect of naloxone on symptom severity was then measured and determined."
@@ -109,8 +111,5 @@ export const naloxone: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted morphinans"
-  ]
+  "riskLevel": "moderate"
 };

@@ -12,13 +12,16 @@ export const phenibut: Substance =
   "id": "phenibut",
   "name": "Phenibut",
   "commonNames": [
-    "Gabapentinoids"
+    "Phenibut",
+    "Fenibut",
+    "Phenybut",
+    "PhGABA"
   ],
   "categories": [
     "depressants"
   ],
   "class": "Gabapentinoids",
-  "description": "gabapentinoids β-Phenyl-γ-aminobutyric acid (also known as Fenibut, Phenybut, Noofen, Citrocard, and commonly as Phenibut) is a lesser-known psychoactive class depressant substance of the chemical class gabapentinoid class. Phenibut acts as a receptor agonist for GABA, the major inhibitory neurotransmitter in the brain. It is chemically related to baclofen, pregabalin, and gabapentin. Phenibut was developed in the Soviet Union in the 1960s, where it has been used as a pharmaceutical drug to treat a wide variety of conditions, including post-traumatic stress disorder, anxiety, depression, asthenia, insomnia, alcoholism, stuttering, and vestibular disorders, and others. In the rest of the world, phenibut is not approved for clinical use and is instead sold as a nutritional supplement.",
+  "description": "gabapentinoids\nβ-Phenyl-γ-aminobutyric acid (also known as Fenibut, Phenybut, Noofen, Citrocard, and commonly as Phenibut) is a lesser-known depressant substance of the gabapentinoid class. Phenibut was developed in the Soviet Union in the 1960s, where it has been used as a pharmaceutical drug to treat a wide variety of conditions, including post-traumatic stress disorder, anxiety, depression, asthenia, insomnia, alcoholism, stuttering, and vestibular disorders, and others. Lower doses (under 1 gram) are typically used as a cognitive and lifestyle supplement while higher doses are used for a recreational high that is reported to be subjectively similar to GHB, alcohol, and certain benzodiazepines.",
   "effects": {
     "positive": [
       "Sedation or Stimulation - Phenibut has different effects on physical energy levels depending on the dosage used. At lower doses, phenibut has a mild physical and mental stimulation effect, encouraging movement, wakefulness, and productivity. At common doses and higher, phenibut is physically sedating, encouraging sleep and lethargy. Sleeping after dosing a small amount results in a deep, restful sleep which can leave the user feeling refreshed and alert upon waking.",
@@ -96,8 +99,5 @@ export const phenibut: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Gabapentinoids"
-  ]
+  "riskLevel": "low"
 };

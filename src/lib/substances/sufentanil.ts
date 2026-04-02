@@ -12,13 +12,16 @@ export const sufentanil: Substance =
   "id": "sufentanil",
   "name": "Sufentanil",
   "commonNames": [
-    "Anilidopiperidine"
+    "Sufentanil",
+    "Sufentanyl",
+    "Sufenta",
+    "Chronogesic"
   ],
   "categories": [
     "opioids"
   ],
   "class": "Anilidopiperidine",
-  "description": "Sufentanil, also known as sufentanyl and by the brand name Sufenta, is an extremely potent synthetic chemical class anilidopiperidine psychoactive class opioid analgesic. Sufentanil has a rapid onset and short mechanism and is used medically as an analgesic in surgical procedures or for the management of post-operative pain. Sufentanil is roughly 500 to 1,000 times more potent than pharmaceutical grade morphine and is approximately 10 times more potent than pharmaceutical grade fentanyl. The subjective effects of sufentanil are similar to those of heroin, with the exception that many users report a significantly less euphoric \"high\" associated with the drug and stronger respiratory depression, sedation and pain relief. Sufentanil is the most potent opioid analgesic currently used in human medicine.",
+  "description": "Sufentanil, also known as sufentanyl and by the brand name Sufenta, is an extremely potent synthetic anilidopiperidine opioid analgesic. Sufentanil is roughly 500 to 1,000 times more potent than pharmaceutical grade morphine and is approximately 10 times more potent than pharmaceutical grade fentanyl. The subjective effects of sufentanil are similar to those of heroin, with the exception that many users report a significantly less euphoric \"high\" associated with the drug and stronger respiratory depression, sedation and pain relief.",
   "effects": {
     "positive": [
       "Pain relief - In comparison to other opiates, sufentanil can be described as a strong analgesic, providing relief even at non-recreational doses.",
@@ -87,8 +90,5 @@ export const sufentanil: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Anilidopiperidine"
-  ]
+  "riskLevel": "moderate"
 };

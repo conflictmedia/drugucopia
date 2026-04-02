@@ -12,15 +12,18 @@ export const mephedrone: Substance =
   "id": "mephedrone",
   "name": "Mephedrone",
   "commonNames": [
-    "Cathinone",
-    "Substituted cathinones"
+    "Mephedrone",
+    "4-MMC",
+    "Drone",
+    "M-CAT",
+    "Meow Meow"
   ],
   "categories": [
     "empathogens",
     "stimulants"
   ],
   "class": "Cathinone",
-  "description": "4-Methylmethcathinone (also known as 4-MMC, M-CAT, drone, meow meow, and mephedrone) is a novel psychoactive class entactogen-psychoactive class stimulant substance of the chemical class cathinone class. Mephedrone belongs to a group known as the substituted cathinones, which are derivatives of the active ingredient in the khat plant (Catha edulluis). In 2007 it was reported to be available for sale on the internet, by 2008 law enforcement agencies had become aware of the compound, and by 2010 it had been reported in most of Europe, becoming particularly prevalent in the United Kingdom. Subjective effects include stimulation, anxiety suppression, disinhibition, enhanced empathy and sociability, relaxation, increased libido, and euphoria. It is reported to produce a mixture of classic stimulant and entactogenic effects reminiscent of cocaine and MDMA.",
+  "description": "Mephedrone belongs to a group known as the substituted cathinones, which are derivatives of the active ingredient in the khat plant (Catha edulluis). In 2007 it was reported to be available for sale on the internet, by 2008 law enforcement agencies had become aware of the compound, and by 2010 it had been reported in most of Europe, becoming particularly prevalent in the United Kingdom. Subjective effects include stimulation, anxiety suppression, disinhibition, enhanced empathy and sociability, relaxation, increased libido, and euphoria.",
   "effects": {
     "positive": [
       "Stimulation - In terms of its effects on the user's physical energy levels, mephedrone is commonly considered to be extremely stimulating and energetic. This encourages activities such as running, climbing and dancing in a way that makes mephedrone a popular choice for musical events such as festivals and raves. The particular style of stimulation which mephedrone presents can be described as forced. This means that at higher dosages it becomes difficult or impossible to keep still, as jaw clenching, involuntarily bodily shakes and vibrations become present, resulting in an extreme unsteadiness of the hands and a general lack of motor control.",
@@ -122,9 +125,5 @@ export const mephedrone: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Cathinone",
-    "Substituted cathinones"
-  ]
+  "riskLevel": "moderate"
 };

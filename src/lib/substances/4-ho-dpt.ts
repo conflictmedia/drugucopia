@@ -12,13 +12,14 @@ export const _4_ho_dpt: Substance =
   "id": "4-ho-dpt",
   "name": "4-HO-DPT",
   "commonNames": [
-    "Substituted tryptamines"
+    "4-HO-DPT",
+    "Procin"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted tryptamines",
-  "description": "4-HO-DPT (also known as 4-hydroxy-N,N-dipropyltryptamine and sometimes referred to as Procin) is a psychoactive class psychedelic substance of the chemical class tryptamine class. Alexander Shulgin first synthesized 4-HO-DPT and documented it in his book TiHKAL (Tryptamines I Have Known and Loved). It is the 4-hydroxyl analog of DPT. Today it is either used recreationally or as an entheogenic compound and is typically acquired through the use of online research chemical vendors. Due to the difficulty of its synthesis, it remains relatively uncommon even for a substituted tryptamine and has very little history of human usage.",
+  "description": "4-HO-DPT (also known as 4-hydroxy-N,N-dipropyltryptamine and sometimes referred to as Procin) is a psychedelic substance of the tryptamine class. Alexander Shulgin first synthesized 4-HO-DPT and documented it in his book TiHKAL (Tryptamines I Have Known and Loved). Today it is either used recreationally or as an entheogenic compound and is typically acquired through the use of online research chemical vendors.",
   "effects": {
     "positive": [
       "Bodily control enhancement",
@@ -122,8 +123,5 @@ export const _4_ho_dpt: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted tryptamines"
-  ]
+  "riskLevel": "moderate"
 };

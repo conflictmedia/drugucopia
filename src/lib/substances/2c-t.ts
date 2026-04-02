@@ -12,13 +12,14 @@ export const _2c_t: Substance =
   "id": "2c-t",
   "name": "2C-T",
   "commonNames": [
-    "Substituted phenethylamines"
+    "2C-T",
+    "Tesseract"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted phenethylamines",
-  "description": "2,5-Dimethoxy-4-methylthiophenethylamine (also known as 2C-T) is a lesser-known Psychoactive class psychedelic substance of the chemical class phenethylamine class. It is a member of the 2C-x family of psychedelic phenethylamines, all of which are close relatives to mescaline. 2C-T was first synthesized as part of a collaboration between researchers David E. Nichols and Alexander Shulgin. Its effects and synthesis is described in Shulgin's 1991 book PiHKAL (\"Phenethylamines I Have Known and Loved\"). Preliminary anecdotal reports appear to indicate it has some of the psychedelic effects of 2C-T-2 and 2C-T-7.",
+  "description": "It is thought to produce its effects by binding to serotonin receptors in the brain, although the precise mechanism is not fully understood. 2C-T was first synthesized as part of a collaboration between researchers David E. Nichols and Alexander Shulgin. Its effects and synthesis is described in Shulgin's 1991 book PiHKAL (\"Phenethylamines I Have Known and Loved\").",
   "effects": {
     "positive": [
       "Bodily control enhancement",
@@ -97,8 +98,5 @@ export const _2c_t: Substance =
   },
   "history": "It was first synthesized and studied through a collaboration between David E. Nichols and Alexander Shulgin. However, 2C-T is almost unknown on the black market and is rarely sold online.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted phenethylamines"
-  ]
+  "riskLevel": "moderate"
 };

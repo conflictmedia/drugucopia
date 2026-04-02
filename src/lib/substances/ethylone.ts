@@ -11,12 +11,16 @@ export const ethylone: Substance =
 {
   "id": "ethylone",
   "name": "Ethylone",
-  "commonNames": [],
+  "commonNames": [
+    "Ethylone",
+    "bk-MDEA",
+    "MDEC"
+  ],
   "categories": [
     "stimulants"
   ],
   "class": "Unknown",
-  "description": "Ephylone 3,4-methylenedioxy-N-ethylcathinone (also known as Ethylone, MDEC and βk-MDEA) is a synthetic entactogen and psychoactive class stimulant of the cathinone class. It is the β-keto analog of MDEA (\"Eve\"). As a designer drug, ethylone is commonly sold on the street along with other cathinones like butylone or 3-MMC as a substitute or counterfeit for MDMA and/or methylone due to methylone's declining availability on the research chemicals market. However, in spite of behavioral and pharmacological similarities between ethylone, MDMA and methylone, it should be noted that the observed subjective effects of both drugs are not completely identical. Ethylone has only a short history of human use and is reported to be less potent than its relative methylone as well as possessing more classical stimulant-type as opposed to entactogenic effects.",
+  "description": "Ephylone\n3,4-methylenedioxy-N-ethylcathinone (also known as Ethylone, MDEC and βk-MDEA) is a synthetic entactogen and stimulant of the cathinone class. As a designer drug, ethylone is commonly sold on the street along with other cathinones like butylone or 3-MMC as a substitute or counterfeit for MDMA and/or methylone due to methylone's declining availability on the research chemicals market. Ethylone has only a short history of human use and is reported to be less potent than its relative methylone as well as possessing more classical stimulant-type as opposed to entactogenic effects.",
   "effects": {
     "positive": [
       "Spontaneous physical sensations - The \"body high\" of ethylone can be described as a moderate to extreme euphoric tingling sensation that encompasses the entire body. It is capable of becoming overwhelmingly pleasurable at higher doses. This sensation maintains a consistent presence that steadily rises with the onset and hits its limit once the peak has been reached.",
@@ -94,6 +98,5 @@ export const ethylone: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": []
+  "riskLevel": "moderate"
 };

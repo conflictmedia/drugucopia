@@ -12,13 +12,14 @@ export const mipla: Substance =
   "id": "mipla",
   "name": "MiPLA",
   "commonNames": [
-    "Lysergamides"
+    "MiPLA",
+    "Lamide"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Lysergamides",
-  "description": "N-Methyl-N-isopropyllysergamide (also known as methylisopropyllysergamide, Lamide and MiPLA) is a lesser-known novel psychoactive class psychedelic substance of the chemical class lysergamide class. MiPLA was first discovered by Albert Hoffman as a part of the original structure-activity research for LSD. MiPLA and its effects are also mentioned in Alexander Shulgin's \"Pharmacology Notes #9\" and \"Pharmacology Notes C\". User reports describe the effects of MiPLA as similar to those of LSD but with some notable differences. It has been described as more mentally and physically oriented than LSD but with a less introspective headspace, accompanied by subtle visuals.",
+  "description": "MiPLA is structurally related to LSD and likely has a similar mechanism of action, working primarily by binding to the serotonin-2A receptor in the brain. It has recently been researched in greater detail by by a team led by David E. Nichols at Purdue University. MiPLA and its effects are also mentioned in Alexander Shulgin's \"Pharmacology Notes #9\" and \"Pharmacology Notes C\".",
   "effects": {
     "positive": [
       "Stimulation - Similar to LSD, MiPLA is considered to be primarily stimulating in nature. This is in distinction to other, more commonly used psychedelics such as psilocybin which are more consistent in producing sedation and relaxedness.",
@@ -122,8 +123,5 @@ export const mipla: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Lysergamides"
-  ]
+  "riskLevel": "moderate"
 };

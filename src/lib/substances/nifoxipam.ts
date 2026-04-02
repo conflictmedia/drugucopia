@@ -12,13 +12,13 @@ export const nifoxipam: Substance =
   "id": "nifoxipam",
   "name": "Nifoxipam",
   "commonNames": [
-    "Benzodiazepines"
+    "Nifoxipam"
   ],
   "categories": [
     "depressants"
   ],
   "class": "Benzodiazepines",
-  "description": "benzodiazepines Nifoxipam is a an analytical reference material and a novel psychoactive class depressant substance of the nitrobenzodiazepine class. Nifoxipam has potential use for the short-term treatment of anxiety, insomnia, acute seizures, and the sedation of hospitalized patients. However, it is currently exclusively sold by online research chemical vendors for use as a recreational psychoactive substance. Subjective effects include anxiety suppression, disinhibition, anticonvulsant, hypnotic, muscle relaxing, and amnesia. The effects of nifoxipam are notably long-lived, although reported to be relatively subtle.",
+  "description": "However, it is currently exclusively sold by online research chemical vendors for use as a recreational psychoactive substance. It is worth noting that the sudden discontinuation of benzodiazepines can be potentially dangerous or life-threatening for individuals using regularly for extended periods of time, sometimes resulting in seizures or death. It is highly recommended to taper one's dose by gradually lowering the amount taken each day for a prolonged period of time instead of stopping abruptly.",
   "effects": {
     "positive": [
       "Sedation -  In terms of energy level alterations, nifoxipam is moderately sedating and can potentially result in a lethargic state. At higher levels, this causes users to suddenly feel as if they are extremely sleep deprived and have not slept for days, forcing them to sit down and generally feel as if they are constantly on the verge of passing out instead of engaging in physical activities. This sense of sleep deprivation increases proportional to dosage and eventually becomes powerful enough to force a person into complete unconsciousness.",
@@ -81,8 +81,5 @@ export const nifoxipam: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Benzodiazepines"
-  ]
+  "riskLevel": "low"
 };

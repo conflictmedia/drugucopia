@@ -12,13 +12,15 @@ export const alpha_gpc: Substance =
   "id": "alpha-gpc",
   "name": "Alpha-GPC",
   "commonNames": [
-    "Choline derivative"
+    "Alpha-GPC",
+    "Choline Alfoscerate",
+    "L-Alpha Glycerylphosphorylcholine"
   ],
   "categories": [
     "nootropics"
   ],
   "class": "Choline derivative",
-  "description": "Alpha-GPC (L-alpha-glycerophosphocholine, choline alfoscerate) is a water-soluble nutrient which serves as a precursor to both choline and glycerophosphate within the brain. In humans, choline is considered to be an essential nutrient as its role in reducing the risk of neural tube defects, fatty liver disease, and other pathologies has been well-documented. Notably, alpha-GPC is one of the three choline-containing phospholipids that can be orally supplemented (the other two being citicoline and phosphatidylcholine) and its popularity may be due to it being the most efficient pro-drug of choline (with the ability to influence both systemic and brain concentrations of choline). Due to the provision of the other half of the alpha-GPC molecule (glycerophosphate), it also appears to support the structure and maintenance of cellular membranes, similarly to citicoline. Athletes have been known to use alpha-GPC due to its purported ability to enhance growth hormone production and to enhance power output (which is based on a lone pilot study in support of subjects ingesting 600 mg alpha-GPC prior to exercise).",
+  "description": "In humans, choline is considered to be an essential nutrient as its role in reducing the risk of neural tube defects, fatty liver disease, and other pathologies has been well-documented. Notably, alpha-GPC is one of the three choline-containing phospholipids that can be orally supplemented (the other two being citicoline and phosphatidylcholine) and its popularity may be due to it being the most efficient pro-drug of choline (with the ability to influence both systemic and brain concentrations of choline). Athletes have been known to use alpha-GPC due to its purported ability to enhance growth hormone production and to enhance power output (which is based on a lone pilot study in support of subjects ingesting 600 mg alpha-GPC prior to exercise).",
   "effects": {
     "positive": [
       "Bodily control enhancement",
@@ -69,8 +71,5 @@ export const alpha_gpc: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Choline derivative"
-  ]
+  "riskLevel": "low"
 };

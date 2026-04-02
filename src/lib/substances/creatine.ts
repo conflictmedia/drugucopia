@@ -11,12 +11,16 @@ export const creatine: Substance =
 {
   "id": "creatine",
   "name": "Creatine",
-  "commonNames": [],
+  "commonNames": [
+    "Creatine",
+    "N-Carbamimidoyl-N-methylglycine",
+    "Methylguanidoacetic acid"
+  ],
   "categories": [
     "nootropics"
   ],
   "class": "Unknown",
-  "description": "Creatine (and its derivatives hydrochloride, malate, nitrate, et al.) is an amino acid with psychoactive class nootropic effects that occurs naturally within the body of vertebrates and in some foods such as meat, eggs, and fish. It was identified in 1832 when Michel Eugène Chevreul isolated it from the basified water-extract of skeletal muscle. He later named the crystallized precipitate after the Greek word for meat, κρέας (kreas). Early analysis showed that human blood is approximately 1% creatine. Creatine helps to supply energy to all cells in the body, primarily muscle.",
+  "description": "is an amino acid with nootropic effects that occurs naturally within the body of  vertebrates and in some foods such as meat, eggs, and fish. It was identified in 1832 when Michel Eugène Chevreul isolated it from the basified water-extract of skeletal muscle. When taken as a supplement within humans, this compound has cognitive enhancing, neuroprotective, cardioprotective and performance enhancing effects which are particularly present during strenuous physical exercise.",
   "effects": {
     "positive": [
       "Stimulation - The stimulation which Creatine presents can be considered as subtle, yet persistent and energetic comparable to that of caffeine, yet even less forced in nature.",
@@ -74,6 +78,5 @@ export const creatine: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": []
+  "riskLevel": "moderate"
 };

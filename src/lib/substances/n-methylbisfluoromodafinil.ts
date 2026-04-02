@@ -12,14 +12,16 @@ export const n_methylbisfluoromodafinil: Substance =
   "id": "n-methylbisfluoromodafinil",
   "name": "N-Methylbisfluoromodafinil",
   "commonNames": [
-    "Benzhydryl"
+    "N-Methylbisfluoromodafinil",
+    "Dehydroxyfluorafinil",
+    "Modafiendz"
   ],
   "categories": [
     "stimulants",
     "nootropics"
   ],
   "class": "Benzhydryl",
-  "description": "N-Methyl-4,4'-difluoro-modafinil (also known as N-Methylbisfluoromodafinil, Dehydroxyfluorafinil, and Modafiendz) is an obscure Psychoactive class nootropic of the chemical class benzhydryl class with no history of research. Although it is closely related on a structural level to adrafinil and modafinil, neither a pharmacological nor a safety-profile similarity should be assumed.",
+  "description": "N-Methyl-4,4'-difluoro-modafinil (also known as N-Methylbisfluoromodafinil, Dehydroxyfluorafinil, and Modafiendz) is an obscure nootropic of the benzhydryl class with no history of research. Although it is closely related on a structural level to adrafinil and modafinil, neither a pharmacological nor a safety-profile similarity should be assumed.",
   "effects": {
     "positive": [
       "Dehydration - Dehydration and dry mouth commonly occur due to an increase in motivation to engage in physical activities as well as an increased sense of focus which causes one to forget to drink water.",
@@ -74,8 +76,5 @@ export const n_methylbisfluoromodafinil: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Benzhydryl"
-  ]
+  "riskLevel": "moderate"
 };

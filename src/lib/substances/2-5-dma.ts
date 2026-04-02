@@ -12,14 +12,15 @@ export const _2_5_dma: Substance =
   "id": "2-5-dma",
   "name": "2,5-DMA",
   "commonNames": [
-    "Amphetamine"
+    "2,5-DMA",
+    "DOH"
   ],
   "categories": [
     "hallucinogens",
     "stimulants"
   ],
   "class": "Amphetamine",
-  "description": "2,5-DMA belongs to the DOx family of substituted amphetamines. However, it reportedly does not have noteable psychedelic properties and is primarily used as a precursor in the synthesis of other psychedelic amphetamines such as DOB, DOI and DON. 2,5-DMA was first synthesized in Tuckahoe, New York by Richard Baltzly and Johannes S. Buck in 1939. In PiHKAL, Shulgin commented that 2,5-DMA \"appeared to be totally a physical trip with tremors and some cardiovascular push and nothing of a sensory nature\", while other reports note pleasant intoxication along with enhanced interest in one’s surroundings, no perceptual changes, no overt stimulation, and no major gross physiological effects. However, it is unknown whether this would result in typical psychedelic effects.",
+  "description": "2,5-DMA was first synthesized in Tuckahoe, New York by Richard Baltzly and Johannes S. Buck in 1939. Its effects in humans were explored in the by Alexander Shulgin, who published his findings in the book PiHKAL (Phenethylamines I Have Known and Loved). In PiHKAL, Shulgin commented that 2,5-DMA \"appeared to be totally a physical trip with tremors and some cardiovascular push and nothing of a sensory nature\", while other reports note pleasant intoxication along with enhanced interest in one’s surroundings, no perceptual changes, no overt stimulation, and no major gross physiological effects.",
   "effects": {
     "positive": [
       "Stimulation - 2,5-DMA can occasionally produce notable stimulation proportional to its dosage. However, some reports suggest little stimulation at the same dosages.",
@@ -77,8 +78,5 @@ export const _2_5_dma: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Amphetamine"
-  ]
+  "riskLevel": "moderate"
 };

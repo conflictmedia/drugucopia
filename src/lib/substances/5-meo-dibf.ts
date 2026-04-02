@@ -12,13 +12,13 @@ export const _5_meo_dibf: Substance =
   "id": "5-meo-dibf",
   "name": "5-MeO-DiBF",
   "commonNames": [
-    "Substituted benzofurans"
+    "5-MeO-DiBF"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted benzofurans",
-  "description": "5-Methoxy-N,N-diisopropylbenzofuranethylamine (also known as 5-MeO-DiBF) is a novel psychoactive class psychedelic substance of the chemical class benzofuran class that produces psychedelic and stimulating effects when administered. It is related in structure to 5-MeO-DiPT. This compound has little to no history of human usage prior to its September 2015 release on the online research chemical market. Very little is known about the pharmacological properties, metabolism, and toxicity of 5-MeO-DiBF. Due to its extreme novelty and unknown toxicity profile, it is highly advised that one use harm reduction practices if using this substance.",
+  "description": "5-Methoxy-N,N-diisopropylbenzofuranethylamine (also known as 5-MeO-DiBF) is a novel psychedelic substance of the benzofuran class that produces psychedelic and stimulating effects when administered. This compound has little to no history of human usage prior to its September 2015 release on the online research chemical market. Due to its extreme novelty and unknown toxicity profile, it is highly advised that one use harm reduction practices if using this substance.",
   "effects": {
     "positive": [
       "Stimulation",
@@ -92,8 +92,5 @@ export const _5_meo_dibf: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted benzofurans"
-  ]
+  "riskLevel": "moderate"
 };

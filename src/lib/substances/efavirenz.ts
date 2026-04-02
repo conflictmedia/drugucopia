@@ -12,13 +12,14 @@ export const efavirenz: Substance =
   "id": "efavirenz",
   "name": "Efavirenz",
   "commonNames": [
-    "Benzoxazine"
+    "Efavirenz",
+    "Sustiva"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Benzoxazine",
-  "description": "Efavirenz (sold by the brand name Sustiva) is an antiretroviral medication used in the treatment and prevention of HIV/AIDS. It is notable for being able to produce psychedelic and hallucinogenic effects despite possessing an extremely novel pharmacological profile and chemical structure not shared with any other psychedelic substance. Efavirenz was approved for medical use in the United States in 1998. It is on the World Health Organization's List of Essential Medicines, the most effective and safe medicines needed in a health system. Recreational use of efavirenz for its hallucinogenic and dissociative effects has been reported in South Africa.",
+  "description": "Efavirenz (sold by the brand name Sustiva) is an antiretroviral medication used in the treatment and prevention of HIV/AIDS. It is notable for being able to produce psychedelic and hallucinogenic effects despite possessing an extremely novel pharmacological profile and chemical structure not shared with any other psychedelic substance. It is on the World Health Organization's List of Essential Medicines, the most effective and safe medicines needed in a health system.",
   "effects": {
     "positive": [
       "Physical euphoria - This effect is generally quite mild.",
@@ -97,8 +98,5 @@ export const efavirenz: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Benzoxazine"
-  ]
+  "riskLevel": "low"
 };

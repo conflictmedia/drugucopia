@@ -12,14 +12,15 @@ export const promethazine: Substance =
   "id": "promethazine",
   "name": "Promethazine",
   "commonNames": [
-    "Phenothiazine"
+    "Phenergan",
+    "Lergigan"
   ],
   "categories": [
     "deliriants",
     "depressants"
   ],
   "class": "Phenothiazine",
-  "description": "Promethazine (commonly sold as Phenergan or Lergigan) is a psychoactive class depressant substance of the chemical class phenothiazine class. Alongside codeine, it is popularly known as one of the active two ingredients in \"lean\". It acts as an antihistamine. Promethazine was developed in the mid-1940s by French chemists. Today, it is available in many countries under many brand names.",
+  "description": "Promethazine (commonly sold as Phenergan or Lergigan) is a depressant substance of the phenothiazine class. Alongside codeine, it is popularly known as one of the active two ingredients in \"lean\". Subjective effects include muscle relaxation, nausea suppression, and strong sedation.",
   "effects": {
     "positive": [
       "Muscle relaxation",
@@ -79,10 +80,7 @@ export const promethazine: Substance =
     "molecularWeight": "Unknown",
     "class": "Phenothiazine"
   },
-  "history": "Promethazine was developed in the mid-1940s when a team of scientists from Rhône-Poulenc laboratories was able to synthesize it from phenothiazine and a diamine side chain of diphenhydramine. It was previously used as an antipsychotic, although it is generally not administered for this purpose now. It has approximately 1/10 of the antipsychotic strength of chlorpromazine. It became popular among the Houston rap and hip-hop scene in around 1990, and the trend resurfaced in around 2015 to 2016. Often, it was combined with the opiate drug codeine in a preparation called \"lean.\"",
+  "history": "Promethazine was developed in the mid-1940s when a team of scientists from Rhône-Poulenc laboratories was able to synthesize it from phenothiazine and a diamine side chain of diphenhydramine. It became popular among the Houston rap and hip-hop scene in around 1990, and the trend resurfaced in around 2015 to 2016. Lean usually consists of ice, Sprite or a citrus soda, the promethazine/codeine cough syrup, and occasionally jolly ranchers for enhanced flavor.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Phenothiazine"
-  ]
+  "riskLevel": "moderate"
 };

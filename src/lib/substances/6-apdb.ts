@@ -12,16 +12,14 @@ export const _6_apdb: Substance =
   "id": "6-apdb",
   "name": "6-APDB",
   "commonNames": [
-    "Substituted amphetamines",
-    "Substituted phenethylamines",
-    "Substituted benzofurans"
+    "6-APDB"
   ],
   "categories": [
     "empathogens",
     "stimulants"
   ],
   "class": "Substituted amphetamines",
-  "description": "6-APDB (also known as 6-(2-aminopropyl)-2,3-dihydrobenzofuran or 4-Desoxy-MDA) is a stimulant and Psychoactive class entactogenic research chemical of the Chemical class phenethylamine and benzofuran classes. It is a closely related synthetic analogue of MDA and 6-APB and broadly shares the characteristics of serotonin-selective triple monoamine releasers and reuptake inhibitors associated with other entactogenic or empathogenic compounds. 6-APDB was first synthesized and studied along with 5-APDB in 1993 by David E. Nichols as a potential non-neurotoxic alternative to MDMA. It did not come into popular recreational use until over a decade later, where it briefly entered the rave scene and global research chemicals market, in particular the \"legal highs\" market in the U.K., before its sale and import were subsequently banned. Because 6-APDB and other substituted benzofurans have not been explicitly outlawed in some countries, they are often technically legal, contributing to their popularity as a substitute or replacement for serotonergic entactogens like MDMA or MDA, and are typically distributed through the online research chemicals grey market.",
+  "description": "It is a closely related synthetic analogue of MDA and 6-APB and broadly shares the characteristics of serotonin-selective triple monoamine releasers and reuptake inhibitors associated with other entactogenic or empathogenic compounds. 6-APDB was first synthesized and studied along with 5-APDB in 1993 by David E. Nichols as a potential non-neurotoxic alternative to MDMA. It did not come into popular recreational use until over a decade later, where it briefly entered the rave scene and global research chemicals market, in particular the \"legal highs\" market in the U.K., before its sale and import were subsequently banned.",
   "effects": {
     "positive": [
       "Spontaneous physical sensations - The \"body high\" of 6-APDB can be described as a moderate to extreme euphoric tingling sensation that radiates throughout the entire body. It is capable of becoming overwhelmingly pleasurable at higher doses, and capable of immobilizing the user. This sensation maintains a consistent presence that steadily rises with the onset and hits its limit once the peak has been reached.",
@@ -119,10 +117,5 @@ export const _6_apdb: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted amphetamines",
-    "Substituted phenethylamines",
-    "Substituted benzofurans"
-  ]
+  "riskLevel": "moderate"
 };

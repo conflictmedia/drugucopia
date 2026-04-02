@@ -12,13 +12,20 @@ export const dextromethorphan: Substance =
   "id": "dextromethorphan",
   "name": "Dextromethorphan",
   "commonNames": [
-    "Substituted morphinans"
+    "DXM",
+    "DMO",
+    "DM",
+    "Dex",
+    "Robitussin",
+    "Delsym",
+    "DexAlone",
+    "Duract"
   ],
   "categories": [
     "dissociatives"
   ],
   "class": "Substituted morphinans",
-  "description": "DXM was first reported in 1953 and approved for use as a cough suppressant in the United States in 1958. As early as 1975, the popularity and extensive abuse of DXM was recognized, and Romilar was voluntarily removed from the OTC market. Users commonly describe low doses as producing an alcohol-like intoxication while higher doses produce effects similar to ketamine or PCP. It should be noted that DXM in freebase form (as found in Robocough RoboTablets) is around 27-37% more potent than its hydrobromide form due to a higher concentration of DXM by weight. The toxicity of DXM in recreational doses is unclear and has been the subject of controversy.",
+  "description": "Dextromethorphan (also known as robo, dex, DM, and DXM) is a dissociative substance of the morphinan class. DXM was first reported in 1953 and approved for use as a cough suppressant in the United States in 1958. A few years later, companies began introducing various refined DXM products designed to deter abuse, such as including ingredients with an unpleasant taste. However, recreational use of DXM has persisted and is a considered a growing trend, particularly among teenagers seeking low cost and easily available highs. Subjective effects include dissociation, time distortion, bodily hallucinations, immersion enhancement, motor control loss, euphoria, and ego loss. It should be noted that DXM in freebase form (as found in Robocough RoboTablets) is around 27-37% more potent than its hydrobromide form due to a higher concentration of DXM by weight.",
   "effects": {
     "positive": [
       "Stimulation & Sedation  - At lower, recreational doses, DXM is predominantly stimulating. However, it can produce waves of tiredness, or the desire to lay down with the eyes closed in a sleep-like state. As higher dosages are approached, the experience generally turns very sedating and lethargic, sometimes resulting in the user not moving at all. Some users report insomnia on DXM which may be a direct result of stimulation.",
@@ -169,10 +176,7 @@ export const dextromethorphan: Substance =
     "molecularWeight": "Unknown",
     "class": "Substituted morphinans"
   },
-  "history": "left|thumb|upright=0.7|1968 advertisement of Romilar DXM tablets The racemic parent compound of dextromethorphan, racemethorphan, was first described in a Swiss and US patent application from Hoffmann-La Roche in 1946 and 1947, respectively. A resolution of the two isomers of racemethorphan with tartaric acid was published in 1952, and DXM was successfully tested in 1954 as part of US Navy and CIA-funded research on nonaddictive substitutes for codeine. DXM was approved by the FDA in 1958 as an over-the-counter antitussive, or cough suppressant. The advent of widespread internet access in the 1990s allowed users to rapidly disseminate information about DXM, and online discussion groups formed around use and acquisition of the substance. As early as 1996, DXM HBr powder could be purchased in bulk from online retailers, allowing users to avoid consuming DXM in syrup preparations.",
+  "history": "left|thumb|upright=0.7|1968 advertisement of Romilar DXM tablets\nThe racemic parent compound of dextromethorphan, racemethorphan, was first described in a Swiss and US patent application from Hoffmann-La Roche in 1946 and 1947, respectively. A resolution of the two isomers of racemethorphan with tartaric acid was published in 1952, and DXM was successfully tested in 1954 as part of US Navy and CIA-funded research on nonaddictive substitutes for codeine. As had been initially hoped, DXM was a solution for some of the problems associated with the use of codeine phosphate as a cough suppressant, such as sedation and opiate dependence, but like the dissociative anesthetics phencyclidine and ketamine, DXM later became associated with nonmedical use.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted morphinans"
-  ]
+  "riskLevel": "moderate"
 };

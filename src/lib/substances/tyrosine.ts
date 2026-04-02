@@ -12,14 +12,15 @@ export const tyrosine: Substance =
   "id": "tyrosine",
   "name": "Tyrosine",
   "commonNames": [
-    "Substituted phenethylamines",
-    "Amino acid"
+    "Tyrosine",
+    "L-Tyrosine",
+    "4-Hydroxyphenylalanine"
   ],
   "categories": [
     "stimulants"
   ],
   "class": "Substituted phenethylamines",
-  "description": "Tyrosine (also known as L-Tyrosine and 4-hydroxyphenylalanine) is a non-essential chemical class amino acid that serves a precursor to dopamine, adrenaline and norepinephrine in the human body. Some evidence suggests tyrosine supplementation can affect performance on working memory tasks under certain conditions, especially stress. Tyrosine may enhance convergent (double-task) thinking. In one study, tyrosine even seemed to reverse some of the detrimental effects of sleep deprivation on cognitive performance. However, if tyrosine increases working memory performance by elevating catecholamine levels, the effect could easily be short-lived.",
+  "description": "Tyrosine (also known as L-Tyrosine and 4-hydroxyphenylalanine) is a non-essential amino acid that serves a precursor to dopamine, adrenaline and norepinephrine in the human body. It is also one of the 22 amino acids that are used by cells to synthesize proteins and is abundant in many high-protein foods, such as chicken, turkey, fish, cottage cheese, cheese, yogurt, almonds, milk, avocados, bananas, peanuts, pumpkin seeds, sesame seeds and soy products. Some evidence suggests tyrosine supplementation can affect performance on working memory tasks under certain conditions, especially stress.",
   "effects": {
     "positive": [
       "Stimulation",
@@ -89,9 +90,5 @@ export const tyrosine: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low",
-  "aliases": [
-    "Substituted phenethylamines",
-    "Amino acid"
-  ]
+  "riskLevel": "low"
 };

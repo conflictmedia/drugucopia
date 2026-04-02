@@ -12,13 +12,13 @@ export const _2c_i: Substance =
   "id": "2c-i",
   "name": "2C-I",
   "commonNames": [
-    "Substituted phenethylamines"
+    "2C-I"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted phenethylamines",
-  "description": "It is a member of the 2C-x family of psychedelic phenethylamines, all of which were derived from the systematic modification of the mescaline molecule. Its PiHKAL entry notes it for being \"very colorful and active\" but without \"feelings of insight, revelation, or progress toward the true meaning of the universe.\" It first briefly gained some popularity in the late 1990s and early 2000s, where it was sold in several smart shops as a replacement for 2C-B following its scheduling in 1995. It also has a history of being sold online as a research chemical before becoming scheduled. 2C-I is typically used recreationally for its psychedelic as well as moderate stimulating and entactogenic effects.",
+  "description": "2C-I was first synthesized and investigated for human activity by Alexander Shulgin in 1976 and later described in his 1991 book PiHKAL (\"Phenethylamines I Have Known and Loved\"). Its PiHKAL entry notes it for being \"very colorful and active\" but without \"feelings of insight, revelation, or progress toward the true meaning of the universe.\" It first briefly gained some popularity in the late 1990s and early 2000s, where it was sold in several smart shops as a replacement for 2C-B following its scheduling in 1995.",
   "effects": {
     "positive": [
       "Stimulation - In terms of its effects on the physical energy levels of the user, 2C-I is usually considered to be very energetic and stimulating in a fashion that is quite comparable to MDMA, although it is 'encouraged' instead of 'forced'.",
@@ -106,8 +106,5 @@ export const _2c_i: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted phenethylamines"
-  ]
+  "riskLevel": "moderate"
 };

@@ -12,13 +12,24 @@ export const ketamine: Substance =
   "id": "ketamine",
   "name": "Ketamine",
   "commonNames": [
-    "Arylcyclohexylamines"
+    "Ketamine",
+    "K",
+    "Ket",
+    "Kitty",
+    "Special K",
+    "Cat Tranquilizer",
+    "Ketaset",
+    "Ketalar",
+    "Ketanest",
+    "Vitamin K",
+    "Purple",
+    "Jet"
   ],
   "categories": [
     "dissociatives"
   ],
   "class": "Arylcyclohexylamines",
-  "description": "Ketamine (also known as 2-Cl-2’-oxo-PCM, Ket, K, Special K, vitamin K, Kitty, 2-CXM, and others) is a classical Psychoactive class dissociative substance of the Chemical class arylcyclohexylamine class. Developed in 1963 by Parke-Davis Laboratories, it was originally intended as a replacement for the surgical anesthetic phencyclidine (PCP). Recreational use was first reported amongst medicinal chemists in the United States in 1967, and became more widespread in Europe in the 1990s, where it gained popularity as an adulterant in ecstasy tablets. The effects are similar to PCP and DXM but with a shorter duration and a rapid onset. Additionally, the effects of ketamine are highly dose-dependent.",
+  "description": "Ketamine (also known as 2-Cl-2’-oxo-PCM, Ket, K, Special K, vitamin K, Kitty, 2-CXM, and others) is a classical dissociative substance of the arylcyclohexylamine class. It is perhaps the best-known and archetypal member of the dissociatives, a diverse group which includes PCP, methoxetamine, DXM, and nitrous oxide. Recently, it has received significant clinical research following the discovery that it can rapidly relieve treatment-resistant depression and suicidal ideation. Recreational use was first reported amongst medicinal chemists in the United States in 1967, and became more widespread in Europe in the 1990s, where it gained popularity as an adulterant in ecstasy tablets. Subjective effects include motor control loss, pain relief, internal hallucinations, memory suppression, conceptual thinking, immersion enhancement, euphoria, and depersonalization / dissociation.",
   "effects": {
     "positive": [
       "Spontaneous bodily sensations - The ketamine \"body high\" can be described as a sharp, pleasurable, tingling sensation that is location-specific to the hands, feet, and head. This manifests as an out-of-body sensation or a general disconnection between the mind and body, which can be accompanied by states of physical euphoria.",
@@ -161,10 +172,7 @@ export const ketamine: Substance =
     "molecularWeight": "Unknown",
     "class": "Arylcyclohexylamines"
   },
-  "history": "Ketamine was first synthesized at Parke Davis Laboratories by the American scientist Calvin Stevens. Upon being patented in Belgium in 1963, ketamine was initially used as a veterinary anesthetic. The United States Food and Drug Administration approved it for human consumption in 1970. Due to its favorable sympathomimetic properties and its wide margin of safety, it was administered as a field anaesthetic to soldiers during the Vietnam War. Ketamine is on the World Health Organization’s “Essential Drugs List”, a list of the safest and most effective drugs needed in a modern health system.",
+  "history": "Ketamine was first synthesized at Parke Davis Laboratories by the American scientist Calvin Stevens. The United States Food and Drug Administration approved it for human consumption in 1970. Ketamine is on the World Health Organization’s “Essential Drugs List”, a list of the safest and most effective drugs needed in a modern health system.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Arylcyclohexylamines"
-  ]
+  "riskLevel": "moderate"
 };

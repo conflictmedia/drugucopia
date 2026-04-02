@@ -12,13 +12,13 @@ export const _1cp_lsd: Substance =
   "id": "1cp-lsd",
   "name": "1cP-LSD",
   "commonNames": [
-    "Lysergamides"
+    "1cP-LSD"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Lysergamides",
-  "description": "1-Cyclopropionyl-d-lysergic acid diethylamide (also known as 1cP-LSD) is a lesser-known novel Psychoactive class psychedelic substance of the Chemical class lysergamide class. The origins of 1cP-LSD are not well-documented. Following 1P-LSD's prohibition in Germany, 1cP-LSD appeared on the online research chemical market in 2019. Subjective effects include open and closed eye visuals, time distortion, conceptual thinking, enhanced introspection, euphoria, and ego loss. While it is presumed to have a similar risk profile as LSD and its analogs, which are generally thought to be safe in controlled settings, reliable scientific data is lacking.",
+  "description": "1-Cyclopropionyl-d-lysergic acid diethylamide (also known as 1cP-LSD) is a lesser-known novel psychedelic substance of the lysergamide class. Following 1P-LSD's prohibition in Germany, 1cP-LSD appeared on the online research chemical market in 2019. Subjective effects include open and closed eye visuals, time distortion, conceptual thinking, enhanced introspection, euphoria, and ego loss.",
   "effects": {
     "positive": [
       "Stimulation - 1cP-LSD is usually regarded as very energetic and stimulating without being forced. For example, when taken in any environment it will usually encourage physical activities such as running, walking, climbing or dancing. In comparison, other more commonly used psychedelics such as psilocybin which are generally sedating and relaxed.",
@@ -127,10 +127,7 @@ export const _1cp_lsd: Substance =
     "molecularWeight": "Unknown",
     "class": "Lysergamides"
   },
-  "history": "Although formal documentation does not appear to have been published, 1cP-LSD was first discovered and synthesized in the Netherlands somewhere in 2015. It first appeared on the online research chemical market in July that same year. 1cP-LSD was released shortly after the prohibition of 1P-LSD in Germany. It is part of a larger series of designer LSD analogs that have appeared on the research chemical market since the mid-2010s. These include AL-LAD, ETH-LAD, and ALD-52.",
+  "history": "Although formal documentation does not appear to have been published, 1cP-LSD was first discovered and synthesized in the Netherlands somewhere in 2015. It is part of a larger series of designer LSD analogs that have appeared on the research chemical market since the mid-2010s. In July 2021, Germany banned 1cP-LSD, and immediately thereafter 1V-LSD appeared on the market as its replacement.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Lysergamides"
-  ]
+  "riskLevel": "moderate"
 };

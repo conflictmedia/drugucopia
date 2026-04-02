@@ -12,14 +12,13 @@ export const sts_135: Substance =
   "id": "sts-135",
   "name": "STS-135",
   "commonNames": [
-    "Indolecarboxamide",
-    "Adamantanes"
+    "STS-135"
   ],
   "categories": [
     "cannabinoids"
   ],
   "class": "Indolecarboxamide",
-  "description": "STS-135 (also called N-(adamantan-1-yl)-1-(5-fluoropentyl)-1H-indole-3-carboxamide or 5F-APICA) is a drug that acts as a potent agonist for the psychoactive class cannabinoid receptors which produces subjective effects somewhat similar to that of cannabis with a short duration and an emphasis on intense physical sensations. There is very little information regarding the pharmacology of this compound within the scientific literature. Despite this, however, it is available for sale as a grey area research chemical through online vendors. Cannabinoids are commonly smoked or vaporized to achieve a quick onset of effects and rapid offset. STS-135 is orally active when dissolved in a lipid, which can increase the duration significantly.",
+  "description": "STS-135 (also called N-(adamantan-1-yl)-1-(5-fluoropentyl)-1H-indole-3-carboxamide or 5F-APICA) is a drug that acts as a potent agonist for the cannabinoid receptors which produces subjective effects somewhat similar to that of cannabis with a short duration and an emphasis on intense physical sensations. There is very little information regarding the pharmacology of this compound within the scientific literature. Despite this, however, it is available for sale as a grey area research chemical through online vendors.",
   "effects": {
     "positive": [
       "Spontaneous tactile sensations - The \"body high\" of STS-135 can be described as a sharp,  uncomfortable, all-encompassing, electric tingling sensation that spreads over the body after initial ingestion. It maintains a consistent presence that quickly rises with the onset and hits its limit once the peak has been reached before immediately dissipating.",
@@ -82,9 +81,5 @@ export const sts_135: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Indolecarboxamide",
-    "Adamantanes"
-  ]
+  "riskLevel": "moderate"
 };

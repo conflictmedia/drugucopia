@@ -12,13 +12,14 @@ export const allylescaline: Substance =
   "id": "allylescaline",
   "name": "Allylescaline",
   "commonNames": [
-    "Substituted phenethylamines"
+    "Allylescaline",
+    "AL"
   ],
   "categories": [
     "hallucinogens"
   ],
   "class": "Substituted phenethylamines",
-  "description": "4-Allyloxy-3,5-dimethoxyphenethylamine (also known as allylescaline) is a lesser-known novel psychoactive class psychedelic substance of the chemical class phenethylamine class. It is a structural analog of mescaline and related to escaline and methallylescaline. It is relatively uncommon and has little to no history of human usage. The effects of this compound were first described by Alexander Shulgin in his book PiHKAL: A Chemical Love Story. He lists the dosage range as 20 – 35 mg orally and describes the duration of action to be 8 - 12 hours.",
+  "description": "The effects of this compound were first described by Alexander Shulgin in his book PiHKAL: A Chemical Love Story. He lists the dosage range as 20 – 35 mg orally and describes the duration of action to be 8 - 12 hours. Subjective effects bear appreciable similarity to mescaline and include open and closed-eye visuals, time distortion, enhanced introspection, conceptual thinking, euphoria, and ego loss.",
   "effects": {
     "positive": [
       "Stimulation - In terms of its effects on the physical energy levels of the user, allylescaline is usually considered to be very energetic and stimulating without being forced. For example, when taken in any environment it will usually encourage physical activities such as running, walking, climbing or dancing. In comparison, other more commonly used psychedelics such as psilocin or LSA are generally sedating and relaxed.",
@@ -99,8 +100,5 @@ export const allylescaline: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Substituted phenethylamines"
-  ]
+  "riskLevel": "moderate"
 };

@@ -12,13 +12,13 @@ export const diphenidine: Substance =
   "id": "diphenidine",
   "name": "Diphenidine",
   "commonNames": [
-    "Diarylethylamines"
+    "Diphenidine"
   ],
   "categories": [
     "dissociatives"
   ],
   "class": "Diarylethylamines",
-  "description": "Diphenhydramine (also known as \"DPH\") Diphenidine (also known as DPD, DND, 1,2-DEP, and occasionally \"DPH\") is a lesser-known novel psychoactive class dissociative substance of the chemical class diarylethylamine class. It is classified as an NMDA receptor antagonist. However, it was not selected for further development. In 2014, there were two cases of diphenidine being sold in combination with synthetic cannabinoids in Japanese herbal incense blends, one of which was implicated in a fatal overdose. It is also likely to have moderate to high abuse potential.",
+  "description": "Diphenhydramine (also known as \"DPH\")\nDiphenidine (also known as DPD, DND, 1,2-DEP, and occasionally \"DPH\") is a lesser-known novel dissociative substance of the diarylethylamine class. Shortly after the 2013 UK arylcyclohexylamine ban, diphenidine and the related compound methoxphenidine became available on the grey market. In 2014, there were two cases of diphenidine being sold in combination with synthetic cannabinoids in Japanese herbal incense blends, one of which was implicated in a fatal overdose. Subjective effects include stimulation, motor control loss, pain relief, internal hallucinations, conceptual thinking, euphoria, and dissociation.",
   "effects": {
     "positive": [
       "Derealization",
@@ -128,10 +128,7 @@ export const diphenidine: Substance =
     "molecularWeight": "Unknown",
     "class": "Diarylethylamines"
   },
-  "history": "The synthesis of diphenidine was first reported in 1924. It employed a nitrile displacement reaction analogous to the one that would later be used to discover phencyclidine in 1956. Shortly after the 2013 UK ban on arylcyclohexylamines, diphenidine and the related compound methoxphenidine became available on the grey market. In 2014, there were two cases of diphenidine being sold in combination with synthetic cannabinoids in Japanese herbal incense blends. One herbal incense blend was found to contain diphenidine and 5-fluoro-AB-PINACA at concentrations of 289 mg/g and 55.5 mg/g, respectively.",
+  "history": "It employed a nitrile displacement reaction analogous to the one that would later be used to discover phencyclidine in 1956. Shortly after the 2013 UK ban on arylcyclohexylamines, diphenidine and the related compound methoxphenidine became available on the grey market. In 2014, there were two cases of diphenidine being sold in combination with synthetic cannabinoids in Japanese herbal incense blends.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate",
-  "aliases": [
-    "Diarylethylamines"
-  ]
+  "riskLevel": "moderate"
 };
