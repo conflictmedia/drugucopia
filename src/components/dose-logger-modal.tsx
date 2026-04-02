@@ -236,7 +236,7 @@ export function DoseLoggerModal({
       setCategories(cats)
     } else {
       // Custom substance
-      setSubstanceId(`custom-${Date.now()}`)
+      setSubstanceId(value)
       setSubstanceName(value)
       setCategories([])
     }

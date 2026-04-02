@@ -1083,7 +1083,7 @@ export default function Home() {
             <div className="p-4 border-b space-y-4">
               <div>
                 <div className="flex items-center gap-2">
-                  <Image src="/logo.png" alt="Drugucopia Logo" width={36} height={36} className="rounded-lg" />
+                  <Image src="logo.png" alt="Drugucopia Logo" width={36} height={36} className="rounded-lg" />
                   <span className="font-bold text-lg flex-1">Drugucopia</span>
                   <Button
                     variant="ghost"
