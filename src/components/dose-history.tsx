@@ -493,7 +493,7 @@ export function DoseHistory({ refreshTrigger }: DoseHistoryProps) {
   return (
     <>
       <Card className="flex flex-col">
-        <CardHeader className="flex flex-row items-start justify-between space-y-0 pb-4">
+        <CardHeader className="flex flex-row items-start justify-between space-y-0 pb-4 flex-wrap gap-4">
           <div className="space-y-1.5">
             <CardTitle className="flex items-center gap-2">
               <Activity className="h-5 w-5" />
@@ -598,13 +598,13 @@ export function DoseHistory({ refreshTrigger }: DoseHistoryProps) {
                               ))}
                             </div>
 
-                            <div className="flex items-center gap-4 mt-1 text-sm text-muted-foreground">
-                              <span className="flex items-center gap-1"><Droplets className="h-3 w-3" />{dose.amount} {dose.unit}</span>
-                              <span className="flex items-center gap-1"><Calendar className="h-3 w-3" />{format(new Date(dose.timestamp), 'MMM d, yyyy')}</span>
-                              <span className="flex items-center gap-1"><Clock className="h-3 w-3" />{format(new Date(dose.timestamp), 'h:mm a')}</span>
-                              <span>{dose.route}</span>
+                            <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 mt-1.5 text-sm text-muted-foreground">
+                              <span className="flex items-center gap-1 whitespace-nowrap"><Droplets className="h-3 w-3 shrink-0" />{dose.amount} {dose.unit}</span>
+                              <span className="flex items-center gap-1 whitespace-nowrap"><Calendar className="h-3 w-3 shrink-0" />{format(new Date(dose.timestamp), 'MMM d, yyyy')}</span>
+                              <span className="flex items-center gap-1 whitespace-nowrap"><Clock className="h-3 w-3 shrink-0" />{format(new Date(dose.timestamp), 'h:mm a')}</span>
+                              <span className="whitespace-nowrap">{dose.route}</span>
                               {dose.duration?.total && (
-                                <span className="flex items-center gap-1"><Timer className="h-3 w-3" />{dose.duration.total}</span>
+                                <span className="flex items-center gap-1 whitespace-nowrap"><Timer className="h-3 w-3 shrink-0" />{dose.duration.total}</span>
                               )}
                             </div>
 
