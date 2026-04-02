@@ -4,14 +4,14 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { format, isToday, isYesterday, isThisWeek, isThisMonth } from 'date-fns'
 import { initializeApp } from 'firebase/app'
 import { getFirestore, doc, onSnapshot, setDoc, serverTimestamp } from 'firebase/firestore'
-import { 
-  Card, CardContent, CardDescription, CardHeader, CardTitle 
+import {
+  Card, CardContent, CardDescription, CardHeader, CardTitle
 } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Input } from '@/components/ui/input'
-import { 
+import {
   Trash2, Calendar, Clock, Droplets, MapPin, Smile,
   Activity, Loader2, Timer, Download, Cloud, CloudOff, Lock, CheckCircle2,
   RotateCcw, Pencil

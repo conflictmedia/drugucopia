@@ -95,7 +95,6 @@ export function DoseLoggerModal({
   const [setting, setSetting] = useState('')
   const [intensity] = useState([5])
 
-  // Update state when preselected props change
   useEffect(() => {
     if (preselectedSubstanceId) {
       setSubstanceId(preselectedSubstanceId)
@@ -103,8 +102,6 @@ export function DoseLoggerModal({
     if (preselectedSubstanceName) {
       setSubstanceName(preselectedSubstanceName)
     }
-    // Derive categories from the actual substance object so we always get the
-    // full array — the preselectedCategory prop may only carry the primary category.
     if (preselectedSubstanceId) {
       const found = substances.find(s => s.id === preselectedSubstanceId)
       if (found) {
@@ -306,6 +303,8 @@ export function DoseLoggerModal({
                   <SelectItem value="capsules"> capsules</SelectItem>
                   <SelectItem value="hits"> hits</SelectItem>
                   <SelectItem value="lines"> lines</SelectItem>
+                  <SelectItem value="drinks"> drinks</SelectItem>
+                  <SelectItem value="shots"> shots</SelectItem>
                 </SelectContent>
               </Select>
             </div>

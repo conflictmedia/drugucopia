@@ -242,7 +242,7 @@ export function EditDoseModal({ dose, open, onOpenChange, onSaved }: EditDoseMod
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  {['mg', 'g', 'μg', 'ml', 'drops', 'puffs', 'tabs', 'capsules', 'hits', 'lines'].map(
+                  {['mg', 'g', 'μg', 'ml', 'drops', 'puffs', 'tabs', 'capsules', 'hits', 'lines', 'drinks', 'shots',].map(
                     (u) => (
                       <SelectItem key={u} value={u}>
                         {u}
