@@ -70,6 +70,77 @@ const settingOptions: ComboboxOption[] = [
   { value: 'other', label: 'Other' },
 ]
 
+// Unit options for dose logging (values are singular form)
+const unitOptions: ComboboxOption[] = [
+  { value: 'mg', label: 'mg' },
+  { value: 'g', label: 'g' },
+  { value: 'μg', label: 'μg (micrograms)' },
+  { value: 'ml', label: 'ml' },
+  { value: 'drop', label: 'drop(s)' },
+  { value: 'puff', label: 'puff(s)' },
+  { value: 'tab', label: 'tab(s)' },
+  { value: 'capsule', label: 'capsule(s)' },
+  { value: 'hit', label: 'hit(s)' },
+  { value: 'line', label: 'line(s)' },
+  { value: 'drink', label: 'drink(s)' },
+  { value: 'shot', label: 'shot(s)' },
+  { value: 'joint', label: 'joint(s)' },
+  { value: 'blunt', label: 'blunt(s)' },
+  { value: 'bowl', label: 'bowl(s)' },
+  { value: 'blinker', label: 'blinker(s)' },
+]
+
+/** Format a unit with proper singular/plural based on amount */
+function formatUnit(unit: string, amount: number): string {
+  // Units that don't change (abbreviations)
+  const invariantUnits = ['mg', 'g', 'μg', 'ml', 'mL']
+  if (invariantUnits.includes(unit)) {
+    return unit
+  }
+
+  // Check if amount is exactly 1 (singular)
+  const isSingular = amount === 1
+
+  // Pluralization rules (singular -> plural)
+  const pluralRules: Record<string, string> = {
+    'drop': 'drops',
+    'puff': 'puffs',
+    'tab': 'tabs',
+    'capsule': 'capsules',
+    'hit': 'hits',
+    'line': 'lines',
+    'drink': 'drinks',
+    'shot': 'shots',
+    'joint': 'joints',
+    'blunt': 'blunts',
+    'bowl': 'bowls',
+    'blinker': 'blinkers',
+  }
+
+  // Reverse mapping for backwards compatibility (plural -> singular)
+  const singularRules: Record<string, string> = Object.fromEntries(
+    Object.entries(pluralRules).map(([sing, plur]) => [plur, sing])
+  )
+
+  // If the unit is already plural and we need singular
+  if (isSingular && singularRules[unit]) {
+    return singularRules[unit]
+  }
+
+  // If we have a known singular form and need plural
+  if (!isSingular && pluralRules[unit]) {
+    return pluralRules[unit]
+  }
+
+  // If the unit is already in correct form or unknown
+  // For unknown units, just add 's' if plural needed
+  if (!isSingular && !pluralRules[unit] && !singularRules[unit]) {
+    return unit + 's'
+  }
+
+  return unit
+}
+
 export function DoseLoggerModal({
   onLogCreated,
   trigger,
@@ -250,7 +321,7 @@ export function DoseLoggerModal({
 
       toast({
         title: 'Dose logged',
-        description: `Successfully logged ${amount}${unit} of ${substanceName}`
+        description: `Successfully logged ${amount} ${formatUnit(unit, parseFloat(amount))} of ${substanceName}`
       })
 
       setOpen(false)
@@ -372,14 +443,13 @@ export function DoseLoggerModal({
             </div>
             <div className="grid gap-2">
               <Label>Unit</Label>
-              <Select value={unit} onValueChange={setUnit}>
-                <SelectTrigger><SelectValue /></SelectTrigger>
-                <SelectContent>
-                  {['mg', 'g', 'μg', 'ml', 'drops', 'puffs', 'tabs', 'capsules', 'hits', 'lines', 'drinks', 'shots'].map(u => (
-                    <SelectItem key={u} value={u}> {u}</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+              <Combobox
+                options={unitOptions}
+                value={unit}
+                onChange={setUnit}
+                placeholder="Select or type a unit..."
+                allowCustom={true}
+              />
             </div>
           </div>
 
