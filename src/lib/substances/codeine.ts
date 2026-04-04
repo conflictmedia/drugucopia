@@ -21,7 +21,7 @@ export const codeine: Substance =
     "opioids"
   ],
   "class": "Substituted morphinans",
-  "description": "opiates\nCodeine (also known as 3-Methylmorphine) is a naturally-occurring opioid substance of the morphinan class found in extracts of the poppy, particularly Papaver bracteatum. Members of this group produce effects such as sedation, cough suppression, and euphoria when administered. Codeine is currently the most widely used opiate in the world, and is one of the most commonly used drugs overall according to numerous reports by organizations including the World Health Organization and its League of Nations predecessor agency.",
+  "description": "Codeine (also known as 3-Methylmorphine) is a naturally-occurring opioid substance of the morphinan class found in extracts of the poppy, particularly Papaver bracteatum. Members of this group produce effects such as sedation, cough suppression, and euphoria when administered. Codeine is currently the most widely used opiate in the world, and is one of the most commonly used drugs overall according to numerous reports by organizations including the World Health Organization and its League of Nations predecessor agency.",
   "effects": {
     "positive": [
       "Physical euphoria - This particular substance can be considered as less intense in its physical euphoria when compared with that of morphine or diacetylmorphine (heroin) due to the upper limit of how much can be converted into its active form through metabolism. The sensation itself can be described as extreme feelings of intense physical comfort, warmth and bliss which spreads throughout the body.",

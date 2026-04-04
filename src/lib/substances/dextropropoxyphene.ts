@@ -20,7 +20,7 @@ export const dextropropoxyphene: Substance =
     "opioids"
   ],
   "class": "Phenylpropylamine",
-  "description": "opiates\nDextropropoxyphene (also known as Propoxyphene  and Darvon) is a synthetic opioid of the phenylpropylamine chemical class. Like other substances in  its class, particularly tapentadol and tramadol, it produces mild  euphoric,  analgesic, sedative and  antitussive effects when administered (typically orally, but sometimes intravenous or rectally). Dextropropoxyphene was first patented in 1955 and subsequently manufactured by Eli Lilly and Company.",
+  "description": "Dextropropoxyphene (also known as Propoxyphene  and Darvon) is a synthetic opioid of the phenylpropylamine chemical class. Like other substances in  its class, particularly tapentadol and tramadol, it produces mild  euphoric,  analgesic, sedative and  antitussive effects when administered (typically orally, but sometimes intravenous or rectally). Dextropropoxyphene was first patented in 1955 and subsequently manufactured by Eli Lilly and Company.",
   "effects": {
     "positive": [
       "Physical euphoria - This particular substance can be considered as less intense in its physical euphoria when compared with that of morphine or diacetylmorphine (heroin). The sensation itself can be described as extreme feelings of intense physical comfort, warmth, love and bliss.",

@@ -22,7 +22,7 @@ export const heroin: Substance =
     "opioids"
   ],
   "class": "Substituted morphinans",
-  "description": "opiates\nDiacetylmorphine or morphine diacetate (also known as diamorphine and heroin as well as colloquially as H, dope, smack, junk, brown, boy, and others) is a semi-synthetic opioid substance of the morphinan class. Heroin was first synthesized from morphine by a British chemist in 1874 and was introduced as a commercial product by the Bayer Company of Germany in 1898. These impurities can result from including processing faults during synthesis, the addition of harmful or benign cutting agents, or the substitution of significantly more potent and dangerous analogous substances such as fentanyl adulterated into the end-product before distribution.",
+  "description": "Diacetylmorphine or morphine diacetate (also known as diamorphine and heroin as well as colloquially as H, dope, smack, junk, brown, boy, and others) is a semi-synthetic opioid substance of the morphinan class. Heroin was first synthesized from morphine by a British chemist in 1874 and was introduced as a commercial product by the Bayer Company of Germany in 1898. These impurities can result from including processing faults during synthesis, the addition of harmful or benign cutting agents, or the substitution of significantly more potent and dangerous analogous substances such as fentanyl adulterated into the end-product before distribution.",
   "effects": {
     "positive": [
       "Physical euphoria - The physical euphoria experienced on this substance is extremely intense when compared to other opioids such as codeine or tramadol. The sensation itself can be described as extreme feelings of intense physical comfort, warmth, and all-encompassing bliss.",

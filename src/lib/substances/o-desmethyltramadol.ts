@@ -18,7 +18,7 @@ export const o_desmethyltramadol: Substance =
     "opioids"
   ],
   "class": "Phenylpropylamine",
-  "description": "opiates\nO-Desmethyltramadol (also known as O-DSMT and desmetramadol) is an opioid substance of the phenylpropylamine class. O-DSMT has no documented history of human use before it appeared for sale on the research chemical market in the 2010s. Subjective effects include sedation, pain relief, anxiety suppression, muscle relaxation, and euphoria.",
+  "description": "O-Desmethyltramadol (also known as O-DSMT and desmetramadol) is an opioid substance of the phenylpropylamine class. O-DSMT has no documented history of human use before it appeared for sale on the research chemical market in the 2010s. Subjective effects include sedation, pain relief, anxiety suppression, muscle relaxation, and euphoria.",
   "effects": {
     "positive": [
       "Physical euphoria - This particular substance can be considered as less intense in its physical euphoria when compared with that of morphine or diacetylmorphine (heroin). The sensation itself can be described as extreme feelings of intense physical comfort, warmth, love and bliss.",

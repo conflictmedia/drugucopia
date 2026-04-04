@@ -22,7 +22,7 @@ export const tramadol: Substance =
     "opioids"
   ],
   "class": "Phenylpropylamine",
-  "description": "opiates\nTramadol (also known as Ultram, Ralivia or Tramal) is a synthetic opioid substance of the phenylpropylamine class that is structurally related to codeine and morphine. Tramadol was developed in 1962 and launched under the name \"Tramal\" by the German pharmaceutical company Grünenthal GmbH in 1977. Subjective effects are largely consistent with that of traditional opioids and include sedation, pain relief, anxiety suppression, muscle relaxation, and euphoria.",
+  "description": "Tramadol (also known as Ultram, Ralivia or Tramal) is a synthetic opioid substance of the phenylpropylamine class that is structurally related to codeine and morphine. Tramadol was developed in 1962 and launched under the name \"Tramal\" by the German pharmaceutical company Grünenthal GmbH in 1977. Subjective effects are largely consistent with that of traditional opioids and include sedation, pain relief, anxiety suppression, muscle relaxation, and euphoria.",
   "effects": {
     "positive": [
       "Physical euphoria - Tramadol is considered as less intense in its physical euphoria when compared with that of morphine or heroin.  The sensation itself can be described as extreme feelings of intense physical comfort, warmth, love and bliss.",
