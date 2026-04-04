@@ -129,8 +129,7 @@ export const o_pce: Substance =
     "Pelvic and bladder pain - Pain can develop suddenly and severely, particularly as the bladder fills with urine.",
     "Hematuria - Hematuria is visible blood in the urine.",
     "Incontinence - This is the leakage of urine.",
-    "However, anecdotal evidence suggests that these symptoms can be largely avoided by refraining from using O-PCE on a regular basis (e.g. weekly at the bare minimum) and carefully monitoring and limiting one's intake of the substance.",
-    "Alcohol - Even low doses of alcohol can cause severe interactions.  Nausea, vomiting, amnesia, and other negative effects are extremely likely when mixed."
+    "However, anecdotal evidence suggests that these symptoms can be largely avoided by refraining from using O-PCE on a regular basis (e.g. weekly at the bare minimum) and carefully monitoring and limiting one's intake of the substance."
   ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {
