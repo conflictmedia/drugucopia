@@ -363,6 +363,184 @@ function parsePsyloJSON(text: string): ImportResult {
 }
 
 
+/** Parse a PWJournal export file (from PsychonautWiki Journal app). */
+function parsePWJournalJSON(text: string): ImportResult {
+  let parsed: unknown
+  try {
+    parsed = JSON.parse(text)
+  } catch {
+    return { ok: false, error: 'File is not valid JSON.' }
+  }
+
+  const root = parsed as Record<string, unknown>
+  if (!Array.isArray(root?.experiences)) {
+    return { ok: false, error: 'Not a valid PWJournal export — expected a top-level "experiences" array.' }
+  }
+
+  const experiences = root.experiences as Record<string, unknown>[]
+  if (experiences.length === 0) {
+    return { ok: false, error: 'No experiences found in the PWJournal export.' }
+  }
+
+  const doses: DoseLog[] = []
+
+  // Route mapping from PWJournal format to standard format
+  const routeMap: Record<string, string> = {
+    'ORAL': 'Oral',
+    'SMOKED': 'Smoked',
+    'INSUFFLATED': 'Insufflated',
+    'SUBLINGUAL': 'Sublingual',
+    'INJECTED': 'Injected',
+    'RECTAL': 'Rectal',
+    'TRANSDERMAL': 'Transdermal',
+    'INHALED': 'Inhaled',
+    'BUCCAL': 'Buccal',
+    'VAPORIZED': 'Vaporized',
+  }
+
+  for (let expIdx = 0; expIdx < experiences.length; expIdx++) {
+    const experience = experiences[expIdx]
+    const expLabel = `Experience ${expIdx + 1}`
+
+    // Get experience-level notes (the "text" field)
+    const experienceNotes = typeof experience.text === 'string' && experience.text.trim()
+      ? experience.text.trim()
+      : ''
+
+    const ingestions = Array.isArray(experience.ingestions)
+      ? experience.ingestions as Record<string, unknown>[]
+      : []
+
+    if (ingestions.length === 0) {
+      continue // Skip experiences with no ingestions
+    }
+
+    for (let ingIdx = 0; ingIdx < ingestions.length; ingIdx++) {
+      const ingestion = ingestions[ingIdx]
+      const rowLabel = `${expLabel}, Ingestion ${ingIdx + 1}`
+
+      // Validate substance name
+      const substanceName = typeof ingestion.substanceName === 'string' && ingestion.substanceName.trim()
+        ? ingestion.substanceName.trim()
+        : null
+      if (!substanceName) {
+        return { ok: false, error: `${rowLabel}: "substanceName" must be a non-empty string.` }
+      }
+
+      // Validate dose amount - default to 0 if missing/invalid
+      const dose = typeof ingestion.dose === 'number' && !isNaN(ingestion.dose)
+        ? ingestion.dose
+        : 0
+
+      // Skip this ingestion if dose is 0 or negative (no valid dose data)
+      if (dose <= 0) {
+        continue
+      }
+
+      // Handle estimated dose
+      let amount = dose
+      const isEstimate = ingestion.isDoseAnEstimate === true
+      const estimateStdDev = typeof ingestion.estimatedDoseStandardDeviation === 'number'
+        ? ingestion.estimatedDoseStandardDeviation
+        : null
+
+      // Validate units - default to empty string if missing/empty
+      const units = typeof ingestion.units === 'string' && ingestion.units.trim()
+        ? ingestion.units.trim()
+        : ''
+
+      // Validate and convert timestamp (PWJournal uses milliseconds)
+      // Use experience sortDate as fallback, then creationDate, then current time
+      let timeMs: number | null = typeof ingestion.time === 'number' && !isNaN(ingestion.time)
+        ? ingestion.time
+        : null
+
+      if (timeMs === null) {
+        // Fallback to experience sortDate
+        timeMs = typeof experience.sortDate === 'number' && !isNaN(experience.sortDate)
+          ? experience.sortDate
+          : typeof experience.creationDate === 'number' && !isNaN(experience.creationDate)
+            ? experience.creationDate
+            : Date.now()
+      }
+      const timestamp = new Date(timeMs).toISOString()
+
+      // Validate and convert route
+      const rawRoute = typeof ingestion.administrationRoute === 'string'
+        ? ingestion.administrationRoute.toUpperCase()
+        : ''
+      const route = routeMap[rawRoute] || rawRoute.charAt(0) + rawRoute.slice(1).toLowerCase()
+
+      // Generate unique ID with pwj- prefix
+      const id = crypto.randomUUID()
+
+      // Get ingestion-level notes
+      const ingestionNotes = typeof ingestion.notes === 'string' && ingestion.notes.trim()
+        ? ingestion.notes.trim()
+        : ''
+
+      // Combine experience notes with ingestion notes
+      const combinedNotes: string[] = []
+      if (experienceNotes) combinedNotes.push(experienceNotes)
+      if (ingestionNotes) combinedNotes.push(ingestionNotes)
+      if (isEstimate && estimateStdDev) {
+        combinedNotes.push(`Estimated dose: ${dose}±${estimateStdDev} ${units}`)
+      } else if (isEstimate) {
+        combinedNotes.push('Estimated dose')
+      }
+      const finalNotes = combinedNotes.join(' | ') || undefined
+
+      // Handle duration from endTime
+      let duration: DoseLog['duration'] = null
+      const endTimeMs = typeof ingestion.endTime === 'number' ? ingestion.endTime : null
+      if (endTimeMs && !isNaN(endTimeMs)) {
+        const totalMinutes = Math.round((endTimeMs - timeMs) / 60_000)
+        if (totalMinutes > 0) {
+          duration = {
+            onset: '—',
+            comeup: '—',
+            peak: '—',
+            offset: '—',
+            total: `${totalMinutes} min`,
+          }
+        }
+      }
+
+      // Try to match the substance against the repository
+      const matchedSubstance = findSubstanceMatch(substanceName)
+      const finalSubstanceName = matchedSubstance?.name ?? substanceName
+      const finalCategories = matchedSubstance?.categories ?? []
+
+      // Get creation date if available
+      const createdAtMs = typeof ingestion.creationDate === 'number' ? ingestion.creationDate : timeMs
+      const createdAt = new Date(createdAtMs).toISOString()
+
+      doses.push({
+        id,
+        substanceName: finalSubstanceName,
+        categories: finalCategories,
+        amount,
+        unit: units,
+        route,
+        timestamp,
+        duration,
+        notes: finalNotes,
+        mood: undefined,
+        setting: undefined,
+        createdAt,
+        updatedAt: new Date().toISOString(),
+      })
+    }
+  }
+
+  if (doses.length === 0) {
+    return { ok: false, error: 'No valid ingestions found in the PWJournal export.' }
+  }
+
+  return { ok: true, doses }
+}
+
+
 
 export function DoseHistory() {
   const { doses, isLoaded, deleteDose, addDose } = useDoseStore()
@@ -384,7 +562,7 @@ export function DoseHistory() {
   const csvInputRef = useRef<HTMLInputElement>(null)
   const jsonInputRef = useRef<HTMLInputElement>(null)
   const psyloJsonInputRef = useRef<HTMLInputElement>(null)
-  const redosingRef = useRef(false)
+  const pwjournalInputRef = useRef<HTMLInputElement>(null)
 
   if (!isLoaded) {
     return (
@@ -479,7 +657,7 @@ export function DoseHistory() {
 
   const handleFileSelected = async (
     e: React.ChangeEvent<HTMLInputElement>,
-    type: 'csv' | 'json' | 'psylo',
+    type: 'csv' | 'json' | 'psylo' | 'pwjournal',
   ) => {
     const file = e.target.files?.[0]
     // Reset so selecting the same file again re-triggers onChange
@@ -488,7 +666,10 @@ export function DoseHistory() {
     if (!file) return
 
     const text = await file.text()
-    const result = type === 'json' ? parseJSON(text) : type === 'psylo' ? parsePsyloJSON(text) : parseCSV(text)
+    const result = type === 'json' ? parseJSON(text)
+      : type === 'psylo' ? parsePsyloJSON(text)
+      : type === 'pwjournal' ? parsePWJournalJSON(text)
+      : parseCSV(text)
 
     if (!result.ok) {
       toast({
@@ -582,47 +763,27 @@ export function DoseHistory() {
   }
 
   const handleRedose = async (dose: DoseLog) => {
-    if (redosingRef.current) return // Synchronous guard — safe on mobile double-tap
-    redosingRef.current = true
     setRedosing(dose.id)
-
-    try {
-      const now = new Date().toISOString()
-      const result = addDose({
-        id: crypto.randomUUID(),
-        timestamp: now,
-        createdAt: now,
-        updatedAt: now,
-        substanceId: dose.substanceId,
-        substanceName: dose.substanceName,
-        categories: dose.categories,
-        amount: dose.amount,
-        unit: dose.unit,
-        route: dose.route,
-        duration: dose.duration,
-        intensity: dose.intensity,
-        mood: dose.mood,
-        setting: dose.setting,
-        notes: dose.notes ? `Redose — ${dose.notes}` : 'Redose',
-      })
-
-      // Handle if addDose returns a promise (async storage)
-      if (result instanceof Promise) {
-        await result
-      }
-
-      toast({ title: 'Redose logged', description: `${dose.substanceName} logged again.` })
-    } catch (error) {
-      console.error('Redose failed:', error)
-      toast({
-        title: 'Redose failed',
-        description: 'Could not log redose. Please try again.',
-        variant: 'destructive'
-      })
-    } finally {
-      redosingRef.current = false
-      setRedosing(null)
-    }
+    const now = new Date().toISOString()
+    addDose({
+      id: crypto.randomUUID(),
+      timestamp: now,
+      createdAt: now,
+      updatedAt: now,
+      substanceId: dose.substanceId,
+      substanceName: dose.substanceName,
+      categories: dose.categories,
+      amount: dose.amount,
+      unit: dose.unit,
+      route: dose.route,
+      duration: dose.duration,
+      intensity: dose.intensity,
+      mood: dose.mood,
+      setting: dose.setting,
+      notes: dose.notes ? `Redose — ${dose.notes}` : 'Redose',
+    })
+    setRedosing(null)
+    toast({ title: 'Redose logged', description: `${dose.substanceName} logged again.` })
   }
 
   const groupDosesByDate = (doses: DoseLog[]) => {
@@ -717,6 +878,12 @@ export function DoseHistory() {
                 >
                   <FileJson className="h-4 w-4" />Import from Psylo
                 </DropdownMenuItem>
+                <DropdownMenuItem
+                  className="gap-2 cursor-pointer"
+                  onClick={() => pwjournalInputRef.current?.click()}
+                >
+                  <FileJson className="h-4 w-4" />Import from PWJournal
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
 
@@ -753,6 +920,13 @@ export function DoseHistory() {
               accept=".json,application/json"
               className="hidden"
               onChange={(e) => handleFileSelected(e, 'psylo')}
+            />
+            <input
+              ref={pwjournalInputRef}
+              type="file"
+              accept=".json,application/json"
+              className="hidden"
+              onChange={(e) => handleFileSelected(e, 'pwjournal')}
             />
           </div>
         </CardHeader>
@@ -844,7 +1018,7 @@ export function DoseHistory() {
                                 <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => setEditingDose(dose)}>
                                   <Pencil className="h-4 w-4" />
                                 </Button>
-                                <Button variant="ghost" size="icon" className="h-8 w-8 touch-manipulation" onClick={() => handleRedose(dose)} disabled={redosing === dose.id}>
+                                <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => handleRedose(dose)} disabled={redosing === dose.id}>
                                   {redosing === dose.id ? <Loader2 className="animate-spin h-4 w-4" /> : <RotateCcw className="h-4 w-4" />}
                                 </Button>
                                 <Button variant="ghost" size="icon" className="h-8 w-8 text-destructive" onClick={() => handleDelete(dose.id)} disabled={deleting === dose.id}>
