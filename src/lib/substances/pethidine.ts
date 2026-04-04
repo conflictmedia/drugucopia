@@ -22,7 +22,7 @@ export const pethidine: Substance =
     "opioids"
   ],
   "class": "Substituted piperidines",
-  "description": "opiates\nPethidine, known as meperidine in the United States (sold under the brand name Demerol), is a synthetic opioid analgesic used for the treatment of moderate to severe pain. Compared to traditional opioids such as morphine, pethidine was originially thought to be much safer and have less potential for abuse. It was later discovered that pethidine is significantly less safe than morphine and its metabolite norpethidine can be extremely toxic.",
+  "description": "Pethidine, known as meperidine in the United States (sold under the brand name Demerol), is a synthetic opioid analgesic used for the treatment of moderate to severe pain. Compared to traditional opioids such as morphine, pethidine was originially thought to be much safer and have less potential for abuse. It was later discovered that pethidine is significantly less safe than morphine and its metabolite norpethidine can be extremely toxic.",
   "effects": {
     "positive": [
       "Physical euphoria - This particular substance can be considered as very intense in its physical euphoria. The sensation itself can be described as extreme feelings of intense physical comfort, warmth, love and bliss.",

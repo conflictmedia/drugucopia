@@ -30,7 +30,7 @@ export const oxycodone: Substance =
     "opioids"
   ],
   "class": "Substituted morphinans",
-  "description": "opiates\nOxycodone (also known under brand names including Roxicodone, OxyContin, Percocet, Oxecta, OxyIR, Endone, Oxynorm, Faroxy and OxyNEO) is a semi-synthetic opioid synthesized from poppy-derived thebaine. It is a narcotic analgesic within the morphinan chemical class and is generally indicated for relief of moderate to severe pain. It was developed in 1916 in Germany as one of several new semi-synthetic opioids in an attempt to improve on the existing opioids.",
+  "description": "Oxycodone (also known under brand names including Roxicodone, OxyContin, Percocet, Oxecta, OxyIR, Endone, Oxynorm, Faroxy and OxyNEO) is a semi-synthetic opioid synthesized from poppy-derived thebaine. It is a narcotic analgesic within the morphinan chemical class and is generally indicated for relief of moderate to severe pain. It was developed in 1916 in Germany as one of several new semi-synthetic opioids in an attempt to improve on the existing opioids.",
   "effects": {
     "positive": [
       "Euphoria - In comparison to other opioids, this particular substance can be considered similar in its physical euphoria when compared with that of morphine or diacetylmorphine (heroin) and more intense when compared to kratom and hydrocodone. The sensation itself can be described as extreme feelings of intense physical comfort, warmth, love and bliss.",

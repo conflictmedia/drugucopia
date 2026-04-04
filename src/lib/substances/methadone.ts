@@ -20,7 +20,7 @@ export const methadone: Substance =
     "opioids"
   ],
   "class": "Diphenylpropylamine",
-  "description": "opiates\nMethadone (sold under trade names such as Dolophine and Methadose) is a synthetic opioid analgesic used for the treatment of moderate to severe pain and for the treatment of opioid addiction. The subjective effects are similar to those of other synthetic opioids such as fentanyl, however, most users note a significantly stronger euphoria. Like dextropropoxyphene, the use of methadone is associated with cardiac arrhythmia, however it is more common with dextropropoxyphene than it is with methadone.",
+  "description": "Methadone (sold under trade names such as Dolophine and Methadose) is a synthetic opioid analgesic used for the treatment of moderate to severe pain and for the treatment of opioid addiction. The subjective effects are similar to those of other synthetic opioids such as fentanyl, however, most users note a significantly stronger euphoria. Like dextropropoxyphene, the use of methadone is associated with cardiac arrhythmia, however it is more common with dextropropoxyphene than it is with methadone.",
   "effects": {
     "positive": [
       "Physical euphoria - This particular substance can be considered moderately intense, more commonly with the L-enantiomer, in its physical euphoria when compared with that of morphine or diacetylmorphine (heroin), and definitely stronger than that of other synthetic opioids such as tramadol. The sensation itself can be described as extreme feelings of intense physical comfort, extreme warmth, love and bliss.",

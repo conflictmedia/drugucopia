@@ -22,7 +22,7 @@ export const tapentadol: Substance =
     "opioids"
   ],
   "class": "Phenylpropylamine",
-  "description": "opiates\nTapentadol often sold under the brand name Nucynta is a synthetic opioid analgesic similar in structure to tramadol. Tapentadol has a duel mechanism of action, working on both the μ-opioid receptor and also acting as a norepinephrine reuptake inhibitor. Many users report extreme pain when trying to insufflate tapentadol.",
+  "description": "Tapentadol often sold under the brand name Nucynta is a synthetic opioid analgesic similar in structure to tramadol. Tapentadol has a duel mechanism of action, working on both the μ-opioid receptor and also acting as a norepinephrine reuptake inhibitor. Many users report extreme pain when trying to insufflate tapentadol.",
   "effects": {
     "positive": [
       "Physical euphoria - This particular substance can be considered as less intense in its physical euphoria when compared with that of morphine or diacetylmorphine (heroin). The sensation itself can be described as extreme feelings of intense physical comfort, warmth, love and bliss.",

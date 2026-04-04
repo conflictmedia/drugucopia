@@ -20,7 +20,7 @@ export const hydrocodone: Substance =
     "opioids"
   ],
   "class": "Substituted morphinans",
-  "description": "opiates\nHydrocodone (commonly sold as Vicodin or Norco when combined with paracetamol) is a semi-synthetic opioid morphinan synthesized or chemically derived from codeine, one of the opioid alkaloids found in the opium poppy. It is a narcotic analgesic used orally as a cough suppressant, but also commonly taken orally for relief of moderate to severe pain. Hydrocodone is prescribed predominantly within the United States, with the International Narcotics Control Board reporting that 99% of the worldwide supply in 2007 was consumed in the United States.",
+  "description": "Hydrocodone (commonly sold as Vicodin or Norco when combined with paracetamol) is a semi-synthetic opioid morphinan synthesized or chemically derived from codeine, one of the opioid alkaloids found in the opium poppy. It is a narcotic analgesic used orally as a cough suppressant, but also commonly taken orally for relief of moderate to severe pain. Hydrocodone is prescribed predominantly within the United States, with the International Narcotics Control Board reporting that 99% of the worldwide supply in 2007 was consumed in the United States.",
   "effects": {
     "positive": [
       "Physical euphoria - Physical euphoria on hydrocodone is commonly described as less intense when compared with morphine or heroin. The sensation itself can be described as extreme feelings of intense physical comfort, warmth, pleasure and bliss which spreads throughout the body.",

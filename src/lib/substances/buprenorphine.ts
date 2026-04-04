@@ -23,7 +23,7 @@ export const buprenorphine: Substance =
     "opioids"
   ],
   "class": "Substituted morphinans",
-  "description": "opiates\nbioavailabilty 100%\nBuprenorphine is a semisynthetic opioid of the morphinan chemical class. In lower dosages it is used to control moderate-acute pain in non-opioid-tolerant individuals and in even lower dosages it is used to control moderate chronic pain. Buprenorphine was patented in 1965, and approved for medical use in the United States in 1981.",
+  "description": "Buprenorphine is a semisynthetic opioid of the morphinan chemical class. In lower dosages it is used to control moderate-acute pain in non-opioid-tolerant individuals and in even lower dosages it is used to control moderate chronic pain. Buprenorphine was patented in 1965, and approved for medical use in the United States in 1981.",
   "effects": {
     "positive": [
       "Physical euphoria - This particular substance can be considered as less intense in its physical euphoria when compared with that of morphine or diacetylmorphine (heroin) due to it being a partial agonist of the μ-opioid receptor. The sensation itself can be described as extreme feelings of intense physical comfort, warmth and bliss which spreads throughout the body.",
