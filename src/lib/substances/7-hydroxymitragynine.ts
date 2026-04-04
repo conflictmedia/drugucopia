@@ -2,7 +2,7 @@
 import type { Substance } from '../types';
 
 
-export const kratom: Substance = 
+export const _7_hydroxymitragynine: Substance = 
 {
   "id": "7-hydroxymitragynine",
   "name": "7-Hydroxymitragynine",
@@ -64,6 +64,13 @@ export const kratom: Substance =
         "strong": "15-20mg",
         "heavy": "20mg+"
       },
+      "duration": {
+        "onset": "5-15 minutes",
+        "comeup": "20-30 minutes",
+        "peak": "1-2 hours",
+        "offset": "1-2 hours",
+        "total": "2-4 hours"
+      }
     }
   },
   "interactions": [
