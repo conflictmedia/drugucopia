@@ -163,7 +163,7 @@ export const dpt: Substance =
         "offset": "1-3 hours",
         "total": "3-4 hours"
       },
-      "notes": "LLM(GLM5 - Advanced Search) DERIVED DATA, MAY NOT BE ACCURATE!!!!!!!"
+      "notes": "LLM (GLM5 - Advanced Search) DERIVED DATA, MAY NOT BE ACCURATE!!!!!!!"
     }
   },
   "interactions": [],

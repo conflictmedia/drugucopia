@@ -51,7 +51,7 @@ export function DurationOverrideFields({
   const handleChange = (key: keyof Duration, val: string) => {
     const next = { ...values, [key]: val }
     setValues(next)
-    const hasMinimum = next.onset.trim() !== '' && next.peak.trim() !== ''
+    const hasMinimum = next.onset.trim() !== '' && next.total.trim() !== ''
     onChange(hasMinimum ? next : null)
   }
 
@@ -149,7 +149,7 @@ export function DurationOverrideFields({
 
           <p className="text-[11px] text-muted-foreground">
             Format: <span className="font-mono">30-60 minutes</span> or <span className="font-mono">1-2 hours</span>.
-            Onset and Peak are required for the timeline.
+            Onset and Total are required for the timeline.
           </p>
         </div>
       )}
