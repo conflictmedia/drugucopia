@@ -750,17 +750,19 @@ function SubstanceDetail({
           </TabsContent>
 
           <TabsContent value="info" className="mt-0 px-4 py-4 space-y-4">
-            <Card>
-              <CardHeader className="pb-2">
-                <CardTitle className="text-base flex items-center gap-2">
-                  <History className="h-4 w-4" />
-                  History
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground leading-relaxed">{substance.history}</p>
-              </CardContent>
-            </Card>
+            {substance.history && (
+              <Card>
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-base flex items-center gap-2">
+                    <History className="h-4 w-4" />
+                    History
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{substance.history}</p>
+                </CardContent>
+              </Card>
+            )}
             <Card>
               <CardContent className="pt-4 space-y-3">
                 <div className="flex items-center gap-3 text-sm">
@@ -987,16 +989,18 @@ function SubstanceDetail({
               </CardContent>
             </Card>
 
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-lg">
-                  <History className="h-5 w-5" />History
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground leading-relaxed">{substance.history}</p>
-              </CardContent>
-            </Card>
+            {substance.history && (
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-lg">
+                    <History className="h-5 w-5" />History
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{substance.history}</p>
+                </CardContent>
+              </Card>
+            )}
           </div>
         </div>
 
