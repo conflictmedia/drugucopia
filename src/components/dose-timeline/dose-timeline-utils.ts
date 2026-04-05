@@ -28,11 +28,39 @@ export function calculatePhaseTimings(duration: Duration): PhaseTimings {
   const comeupMins = parseDurationToMinutes(duration.comeup)
   const peakMins   = parseDurationToMinutes(duration.peak)
   const offsetMins = parseDurationToMinutes(duration.offset)
+  const totalMins  = parseDurationToMinutes(duration.total)
+
+  // If we have onset and total but missing individual phases,
+  // distribute the remaining time proportionally
+  if (onsetMins > 0 && totalMins > 0) {
+    const remainingAfterOnset = totalMins - onsetMins
+    
+    // If individual phases are provided, use them; otherwise distribute proportionally
+    if (comeupMins === 0 && peakMins === 0 && offsetMins === 0) {
+      // Default distribution: comeup ~15%, peak ~50%, offset ~35% of remaining time
+      const estimatedComeup = Math.round(remainingAfterOnset * 0.15)
+      const estimatedPeak   = Math.round(remainingAfterOnset * 0.50)
+      const estimatedOffset = remainingAfterOnset - estimatedComeup - estimatedPeak
+      
+      const onsetEnd  = onsetMins
+      const comeupEnd = onsetEnd + estimatedComeup
+      const peakEnd   = comeupEnd + estimatedPeak
+      const offsetEnd = peakEnd + estimatedOffset
+      
+      return { onsetEnd, comeupEnd, peakEnd, offsetEnd, totalDuration: totalMins }
+    }
+  }
+
+  // Standard calculation when all phases are provided
   const onsetEnd   = onsetMins
   const comeupEnd  = onsetEnd + comeupMins
   const peakEnd    = comeupEnd + peakMins
   const offsetEnd  = peakEnd + offsetMins
-  return { onsetEnd, comeupEnd, peakEnd, offsetEnd, totalDuration: offsetEnd }
+  
+  // Use total if provided and greater than calculated offsetEnd
+  const totalDuration = totalMins > offsetEnd ? totalMins : offsetEnd
+  
+  return { onsetEnd, comeupEnd, peakEnd, offsetEnd, totalDuration }
 }
 
 // ─── PHASE STATUS ─────────────────────────────────────────────────────────────
