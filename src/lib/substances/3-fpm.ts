@@ -73,7 +73,7 @@ export const _3_fpm: Substance =
         "heavy": "Unknown"
       },
       "duration": {
-        "onset": "Unknown",
+        "onset": "1-5 minutes",
         "comeup": "Unknown",
         "peak": "Unknown",
         "offset": "Unknown",

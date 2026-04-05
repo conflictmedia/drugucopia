@@ -68,7 +68,7 @@ export const mipt: Substance =
         "heavy": "75mg"
       },
       "duration": {
-        "onset": "Unknown",
+        "onset": "30-45 minutes",
         "comeup": "Unknown",
         "peak": "Unknown",
         "offset": "Unknown",

@@ -58,7 +58,7 @@ export const mexedrone: Substance =
         "heavy": "Unknown"
       },
       "duration": {
-        "onset": "Unknown",
+        "onset": "30-60 minutes",
         "comeup": "Unknown",
         "peak": "Unknown",
         "offset": "Unknown",

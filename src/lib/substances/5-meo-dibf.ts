@@ -69,7 +69,7 @@ export const _5_meo_dibf: Substance =
         "heavy": "140mg"
       },
       "duration": {
-        "onset": "Unknown",
+        "onset": "20-90 minutes",
         "comeup": "Unknown",
         "peak": "30-60 minutes",
         "offset": "Unknown",

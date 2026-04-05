@@ -140,7 +140,7 @@ export const dpt: Substance =
         "heavy": "100mg"
       },
       "duration": {
-        "onset": "Unknown",
+        "onset": "0-1 minutes",
         "comeup": "Unknown",
         "peak": "Unknown",
         "offset": "Unknown",
