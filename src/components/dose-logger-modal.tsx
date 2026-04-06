@@ -111,7 +111,7 @@ const UNIT_ALIASES: Record<string, string> = {
   'grams': 'g', 'gram': 'g',
   'milliliters': 'ml', 'milliliter': 'ml', 'mls': 'ml',
   'drops': 'drop', 'puffs': 'puff', 'tabs': 'tab', 'tablets': 'tab',
-  'capsules': 'capsule', 'pills': 'capsule', 'hits': 'hit',
+  'capsules': 'capsule', 'pills': 'pill', 'hits': 'hit',
   'lines': 'line', 'drinks': 'drink', 'shots': 'shot',
   'joints': 'joint', 'blunts': 'blunt', 'bowls': 'bowl', 'blinkers': 'blinker',
 }
@@ -155,6 +155,14 @@ const KNOWN_ROUTES = ['oral', 'insufflated', 'inhalation', 'sublingual', 'rectal
 
 /** Route aliases */
 const ROUTE_ALIASES: Record<string, string> = {
+  'shot': 'shot',
+  'joint': 'smoked',
+  'blunt': 'smoked',
+  'bowl': 'smoked',
+  'pill': 'oral',
+  'capsule': 'oral',
+  'tablet': 'oral',
+  'blinker': 'smoked',
   'snorted': 'insufflated',
   'snort': 'insufflated',
   'nasal': 'insufflated',
