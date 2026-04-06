@@ -514,6 +514,11 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
               ? visibleRoutes[0].primary.timings
               : group.primary.timings
 
+            // Calculate the offset for phase bands when a route/dose is isolated
+            const bandOffsetMins = visibleRoutes.length > 0
+              ? (visibleRoutes[0].primary.doseTime.getTime() - group.windowStart.getTime()) / 60_000
+              : 0
+
             const allActive = group.routes.some(rg =>
               rg.doses.some(d => d.status.phase !== 'ended' && d.status.phase !== 'not_started'),
             )
@@ -798,8 +803,11 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
                       const bandElements = bands.map((band) => {
                         const phaseBand = PHASE_BANDS.find(b => b.phase === band.phase)
                         if (!phaseBand) return null
-                        const x1 = toX(band.startFrac * 100)
-                        const x2 = toX(band.endFrac * 100)
+                        // Offset phase bands by the dose's start time when isolated
+                        const startProgress = ((bandOffsetMins + band.startFrac * bandTimings.totalDuration) / group.windowDuration) * 100
+                        const endProgress = ((bandOffsetMins + band.endFrac * bandTimings.totalDuration) / group.windowDuration) * 100
+                        const x1 = toX(startProgress)
+                        const x2 = toX(endProgress)
                         const bandWidth = x2 - x1
 
                         if (bandWidth > 0 && bandWidth < NARROW_PX) {
@@ -849,8 +857,11 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
                       return bands.map((band, bandIdx) => {
                         const phaseBand = PHASE_BANDS.find(b => b.phase === band.phase)
                         if (!phaseBand) return null
-                        const x1 = toX(band.startFrac * 100)
-                        const x2 = toX(band.endFrac * 100)
+                        // Offset phase band labels by the dose's start time when isolated
+                        const startProgress = ((bandOffsetMins + band.startFrac * bandTimings.totalDuration) / group.windowDuration) * 100
+                        const endProgress = ((bandOffsetMins + band.endFrac * bandTimings.totalDuration) / group.windowDuration) * 100
+                        const x1 = toX(startProgress)
+                        const x2 = toX(endProgress)
                         const bandWidth = x2 - x1
 
                         // Wide band: centered label (current behavior)
@@ -876,8 +887,10 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
 
                         let narrowCount = 0
                         for (let j = 0; j < bandIdx; j++) {
-                          const prevX1 = toX(bands[j].startFrac * 100)
-                          const prevX2 = toX(bands[j].endFrac * 100)
+                          const prevStartProgress = ((bandOffsetMins + bands[j].startFrac * bandTimings.totalDuration) / group.windowDuration) * 100
+                          const prevEndProgress = ((bandOffsetMins + bands[j].endFrac * bandTimings.totalDuration) / group.windowDuration) * 100
+                          const prevX1 = toX(prevStartProgress)
+                          const prevX2 = toX(prevEndProgress)
                           if (prevX2 - prevX1 > 0 && prevX2 - prevX1 < NARROW_PX) narrowCount++
                         }
 
