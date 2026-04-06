@@ -155,6 +155,11 @@ const KNOWN_ROUTES = ['oral', 'insufflated', 'inhalation', 'sublingual', 'rectal
 
 /** Route aliases */
 const ROUTE_ALIASES: Record<string, string> = {
+  'shot': 'shot',
+  'joint': 'smoked',
+  'blunt': 'smoked',
+  'bowl': 'smoked',
+  'blinker': 'smoked',
   'snorted': 'insufflated',
   'snort': 'insufflated',
   'nasal': 'insufflated',
