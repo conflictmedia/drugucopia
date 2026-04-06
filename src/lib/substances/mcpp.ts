@@ -46,6 +46,7 @@ export const mcpp: Substance =
       "Depression"
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "oral": {
       "dosage": {
@@ -60,7 +61,8 @@ export const mcpp: Substance =
         "comeup": "20-60 minutes",
         "peak": "2-4 hours",
         "offset": "3-8 hours",
-        "total": "Unknown"
+        "total": "Unknown",
+        "afterglow": "Unknown"
       }
     }
   },
@@ -78,10 +80,7 @@ export const mcpp: Substance =
     "MDMA",
     "Stimulants"
   ],
-  "harmReduction": [
-    "It is strongly recommended that one use harm reduction practices when using this drug.",
-    "mCPP is not known to be addictive, but there are not any studies exclusively on its addiction potential."
-  ],
+  "harmReduction": [],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {
     "formula": "Unknown",

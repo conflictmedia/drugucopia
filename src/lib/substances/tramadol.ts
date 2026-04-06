@@ -22,7 +22,7 @@ export const tramadol: Substance =
     "opioids"
   ],
   "class": "Phenylpropylamine",
-  "description": "Tramadol (also known as Ultram, Ralivia or Tramal) is a synthetic opioid substance of the phenylpropylamine class that is structurally related to codeine and morphine. Tramadol was developed in 1962 and launched under the name \"Tramal\" by the German pharmaceutical company Grünenthal GmbH in 1977. Subjective effects are largely consistent with that of traditional opioids and include sedation, pain relief, anxiety suppression, muscle relaxation, and euphoria.",
+  "description": "opiates\nTramadol (also known as Ultram, Ralivia or Tramal) is a synthetic opioid substance of the phenylpropylamine class that is structurally related to codeine and morphine. Tramadol was developed in 1962 and launched under the name \"Tramal\" by the German pharmaceutical company Grünenthal GmbH in 1977. Subjective effects are largely consistent with that of traditional opioids and include sedation, pain relief, anxiety suppression, muscle relaxation, and euphoria.",
   "effects": {
     "positive": [
       "Physical euphoria - Tramadol is considered as less intense in its physical euphoria when compared with that of morphine or heroin.  The sensation itself can be described as extreme feelings of intense physical comfort, warmth, love and bliss.",
@@ -60,6 +60,7 @@ export const tramadol: Substance =
       "Irritability - While opioids are well known for their ability to improve mood, they can also have the paradoxical effect of increasing the user's sensitivity to irritable stimuli. This can manifest as aloofness and sudden outbursts of anger and aggression (colloquially known as \\\"opiate rage\\\"). It appears to occur more frequently during the comedown of the experience and/or with heavy use. Tramadol's noradrenergic properties may also have a part in this effect."
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "oral": {
       "dosage": {
@@ -74,7 +75,8 @@ export const tramadol: Substance =
         "comeup": "30-60 minutes",
         "peak": "2-6 hours",
         "offset": "2-4 hours",
-        "total": "6-10 hours"
+        "total": "6-10 hours",
+        "afterglow": "Unknown"
       }
     }
   },
@@ -90,15 +92,8 @@ export const tramadol: Substance =
     "2C-T-x"
   ],
   "harmReduction": [
-    "Tramadol has a low toxicity relative to dose. As with all opioids, long-term effects can vary but can include diminished libido, apathy and memory loss. It is also Toxicity potentially lethal when mixed with depressants like alcohol or benzodiazepines and generally has a wider range of substances which it is  in comparison to other opioids. It should not be taken during  as this can potentially cause seizures.",
-    "It is strongly recommended that one use harm reduction practices when using this drug.",
-    "As with other opioids, the chronic use of tramadol can be considered moderately addictive with a high potential for abuse and is capable of causing psychological dependence among certain users. When addiction has developed, cravings and  may occur if a person suddenly stops their usage.",
-    "Tolerance to many of the effects of tramadol develops with prolonged and repeated use. The rate at which this occurs develops at different rates for different effects, with tolerance to the constipation-inducing effects developing particularly slowly for instance. This results in users having to administer increasingly large doses to achieve the same effects. After that, it takes about 3 - 7 days for the tolerance to be reduced to half and 1 - 2 weeks to be back at baseline (in the absence of further consumption). Tramadol presents cross-tolerance with all other opioids, meaning that after the consumption of tramadol all opioids will have a reduced effect.",
-    "Combinations with the following substances can lead to dangerously high serotonin levels. Serotonin syndrome requires immediate medical attention and can be fatal if left untreated.",
-    "MAOIs such as syrian rue, banisteriopsis caapi, phenelzine, selegiline, and moclobemide",
-    "Serotonin releasers such as MDMA, 4-FA, methamphetamine, methylone and aMT",
-    "2C-T-x",
-    "DXM"
+    "low toxicity",
+    "potentially lethal when mixed with depressants like alcohol or benzodiazepines"
   ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {

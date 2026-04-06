@@ -73,6 +73,7 @@ export const ephylone: Substance =
       "Motivation suppression"
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "oral": {
       "dosage": {
@@ -87,9 +88,9 @@ export const ephylone: Substance =
         "comeup": "Unknown",
         "peak": "Unknown",
         "offset": "Unknown",
-        "total": "4-8 hours"
-      },
-      "notes": "Afterglow: 6-24 hours"
+        "total": "4-8 hours",
+        "afterglow": "6-24 hours"
+      }
     }
   },
   "interactions": [
@@ -106,11 +107,7 @@ export const ephylone: Substance =
     "Stimulants"
   ],
   "harmReduction": [
-    "Ephylone is a research chemical with a very short history of human usage. Very little is known about its long-term health effects and the exact toxic dosage is unknown.",
-    "Numerous reports of hospitalizations and overdose deaths indicate that ephylone is extremely toxic at very high dosages. The DEA claimed approximately 151 ephylone-related deaths occurred in the U.S. between 2014 and 2018. Higher dosages of ephylone have been linked to serotonin syndrome, rhabdomyolysis, kidney injury, acidemia and other life-threatening symptoms.",
-    "It is strongly advised to use harm reduction practices if using this substance.",
-    "As with other stimulants, the chronic use of ephylone can be considered moderately addictive with a high potential for abuse. It is capable of causing psychological dependence among certain users. When addiction has developed, cravings and withdrawal effects will occur if one suddenly stops their use.",
-    "Tolerance to many of the effects of ephylone develops with prolonged and repeated use. This results in users having to administer increasingly large doses to achieve the same effects."
+    "exact toxic dosage is unknown"
   ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {

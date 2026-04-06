@@ -87,6 +87,7 @@ export const _4_aco_det: Substance =
       "Hallucinations"
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "oral": {
       "dosage": {
@@ -101,9 +102,9 @@ export const _4_aco_det: Substance =
         "comeup": "1-1.5 hours",
         "peak": "1.5-3 hours",
         "offset": "1-2 hours",
-        "total": "4-7 hours"
-      },
-      "notes": "Afterglow: 2-4 hours"
+        "total": "4-7 hours",
+        "afterglow": "2-4 hours"
+      }
     }
   },
   "interactions": [
@@ -111,15 +112,7 @@ export const _4_aco_det: Substance =
     "Tramadol"
   ],
   "harmReduction": [
-    "The toxicity and long-term health effects of recreational 4-AcO-DET has not been studied in any scientific context and the exact toxic dose is unknown.",
-    "This is because 4-AcO-DET is a research chemical with a very limited history of human usage.",
-    "However, it is assumed to have a similar toxicity profile as psilocybin due to their structural similarity.",
-    "Anecdotal reports from those who have tried 4-AcO-DET suggests that there are no negative health effects attributed to simply trying the substance by itself at low to moderate doses and using it very sparingly (but nothing can be completely guaranteed). Independent research should always be done to ensure that a combination of two or more substances is safe before consumption.",
-    "It is strongly recommended that one use harm reduction practices when using this substance.",
-    "Although no formal studies have been conducted, it is believed that 4-AcO-DET is not habit-forming and the desire to use it can actually decrease with use.",
-    "Tolerance to the effects of 4-AcO-DET is built almost immediately after ingestion.",
-    "After that, it takes about 3 days for the tolerance to be reduced to half and 7 days to be back at baseline (in the absence of further consumption).",
-    "4-AcO-DET presents cross-tolerance with all psychedelics, meaning that after the consumption of 4-AcO-DET all psychedelics will have a reduced effect."
+    "toxic dose is unknown"
   ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {

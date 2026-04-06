@@ -53,6 +53,7 @@ export const promethazine: Substance =
       "Delusions of sobriety - This is the false belief that one is perfectly sober despite obvious evidence to the contrary such as severe cognitive impairment and an inability to fully communicate with others."
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "oral": {
       "dosage": {
@@ -67,17 +68,13 @@ export const promethazine: Substance =
         "comeup": "20-60 minutes",
         "peak": "1-2 hours",
         "offset": "3-5 hours",
-        "total": "4-6 hours"
-      },
-      "notes": "Afterglow: <12 hours"
+        "total": "4-6 hours",
+        "afterglow": "<12 hours"
+      }
     }
   },
   "interactions": [],
-  "harmReduction": [
-    "It is strongly recommended that one use harm reduction practices when using this substance.",
-    "The lowest published toxic dose of promethazine in humans (oral) is 3.5 mg/kg. This means that a person weighing 70 kg can show signs of toxicity at 245 mg. The LD50 of promethazine in mice (oral) is 255 mg/kg. If applied to humans, this suggests that 50% of people weighing 70 kg would die after consuming 17.85 grams of promethazine.",
-    "Promethazine is not addictive."
-  ],
+  "harmReduction": [],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {
     "formula": "Unknown",

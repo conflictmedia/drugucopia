@@ -71,6 +71,7 @@ export const gaboxadol: Substance =
       "Auditory hallucination - While a wide array of auditory hallucinations are possible, many users report hearing a strange, comforting, omnipresent humming sound."
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "oral": {
       "dosage": {
@@ -85,17 +86,13 @@ export const gaboxadol: Substance =
         "comeup": "Unknown",
         "peak": "1-2 hours",
         "offset": "1-3 minutes",
-        "total": "2-5 minutes"
-      },
-      "notes": "Afterglow: 1-3 hours"
+        "total": "2-5 minutes",
+        "afterglow": "1-3 hours"
+      }
     }
   },
   "interactions": [],
-  "harmReduction": [
-    "Since Gaboxadol is a GABAA agonist, it may be harmful to combine it with other GABAergic depressants such as benzodiazepines or barbiturates.",
-    "Gaboxadol is not known to be addictive or dependence-forming, and reports even show that desire to redose goes down with usage, though there is no research on this topic.",
-    "It is strongly recommended that one use harm reduction practices when using this substance."
-  ],
+  "harmReduction": [],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {
     "formula": "Unknown",

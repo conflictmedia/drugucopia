@@ -77,6 +77,7 @@ export const _4_aco_met: Substance =
       "Hallucinations"
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "oral": {
       "dosage": {
@@ -91,9 +92,9 @@ export const _4_aco_met: Substance =
         "comeup": "30-60 minutes",
         "peak": "1-2 hours",
         "offset": "2+ hours",
-        "total": "4-6 hours"
-      },
-      "notes": "Afterglow: 2-4 hours"
+        "total": "4-6 hours",
+        "afterglow": "2-4 hours"
+      }
     }
   },
   "interactions": [
@@ -101,11 +102,7 @@ export const _4_aco_met: Substance =
     "Tramadol"
   ],
   "harmReduction": [
-    "The toxicity and long-term health effects of recreational 4-AcO-MET use do not seem to have been studied in any scientific context and the exact toxic dose is unknown. This is because 4-AcO-MET is a research chemical with very little history of human usage.",
-    "Anecdotal evidence suggests that there are no negative health effects attributed to simply trying the drug by itself at low to moderate doses and using it very sparingly (but nothing can be completely guaranteed). Independent research should always be done to ensure that a combination of two or more substances is safe before consumption.",
-    "It is strongly recommended that one use harm reduction practices when using this substance.",
-    "4-AcO-MET is not habit-forming and the desire to use it can actually decrease with use. It is most often self-regulating.",
-    "Tolerance to the effects of 4-AcO-MET is built almost immediately after ingestion. After that, it takes about 3 days for the tolerance to be reduced to half and 7 days to be back at baseline (in the absence of further consumption). 4-AcO-MET presents cross-tolerance with all psychedelics, meaning that after the consumption of 4-AcO-MET all psychedelics will have a reduced effect."
+    "toxic dose is unknown"
   ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {

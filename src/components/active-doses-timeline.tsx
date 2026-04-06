@@ -2,7 +2,6 @@
 
 import { formatDoseAmount } from '@/lib/utils'
 
-/** Format a unit with proper singular/plural based on amount */
 function formatUnit(unit: string, amount: number): string {
   const invariantUnits = ['mg', 'g', 'μg', 'ml', 'mL']
   if (invariantUnits.includes(unit)) return unit
@@ -21,43 +20,47 @@ function formatUnit(unit: string, amount: number): string {
   return unit
 }
 
-/** Check if duration has incomplete phase data (only onset + total, missing individual phases) */
-function hasIncompletePhases(duration: { onset?: string; comeup?: string; peak?: string; offset?: string; total?: string } | null | undefined): boolean {
+function hasIncompletePhases(
+  duration: { onset?: string; comeup?: string; peak?: string; offset?: string; total?: string } | null | undefined,
+): boolean {
   if (!duration) return false
-  const hasOnset = duration.onset && duration.onset.trim() !== '' && duration.onset !== '—'
-  const hasTotal = duration.total && duration.total.trim() !== '' && duration.total !== '—'
+  const hasOnset  = duration.onset  && duration.onset.trim()  !== '' && duration.onset  !== '—'
+  const hasTotal  = duration.total  && duration.total.trim()  !== '' && duration.total  !== '—'
   const hasComeup = duration.comeup && duration.comeup.trim() !== '' && duration.comeup !== '—'
-  const hasPeak = duration.peak && duration.peak.trim() !== '' && duration.peak !== '—'
+  const hasPeak   = duration.peak   && duration.peak.trim()   !== '' && duration.peak   !== '—'
   const hasOffset = duration.offset && duration.offset.trim() !== '' && duration.offset !== '—'
-  
-  // Incomplete if we have onset + total but missing at least one of comeup/peak/offset
-  if (hasOnset && hasTotal && (!hasComeup || !hasPeak || !hasOffset)) {
-    return true
-  }
+  if (hasOnset && hasTotal && (!hasComeup || !hasPeak || !hasOffset)) return true
   return false
 }
 
+/* ================================================================== */
+/*  Imports                                                            */
+/* ================================================================== */
+
 import { useState, useEffect, useMemo, useCallback, useRef } from 'react'
 import { format, addMinutes } from 'date-fns'
-import {
-  Card, CardContent, CardDescription, CardHeader, CardTitle,
-} from '@/components/ui/card'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import {
-  Activity, Timer, Clock, Loader2, Info, ChevronDown, ChevronUp, Layers, AlertTriangle,
+  Activity, Timer, Loader2, ChevronDown, ChevronUp, Layers,
 } from 'lucide-react'
 import { categoryColors } from '@/lib/categories'
 import { useDoseStore } from '@/store/dose-store'
-
-import { EnrichedDose, RouteGroup, SubstanceGroup, TooltipData } from './dose-timeline/dose-timeline-types'
 import {
-  phaseColors, phaseIcons, phaseDescriptions, ROUTE_PALETTE,
+  EnrichedDose, RouteGroup, SubstanceGroup, TooltipData,
+  RouteIntensitySnapshot, PhaseTimings, PhaseName,
+} from './dose-timeline/dose-timeline-types'
+import {
+  phaseColors, phaseIcons, ROUTE_PALETTE,
   SVG_W, SVG_H, PL, PT, GW, GH, PHASE_BANDS, ENDED_DOSE_RETENTION_MINS,
+  NOW_INDICATOR, markerHex,
 } from './dose-timeline/dose-timeline-constants'
 import {
   calculatePhaseTimings, getPhaseStatus, formatMinutes, formatPhaseName,
-  getDoseCategories, intensityAt, phaseNameAt, toX, areaPath, curvePath,
+  getDoseCategories, intensityAt, phaseNameAt, toX, toY, areaPath, curvePath,
   buildTimeMarkers, getPhaseBandRanges,
+  getNowProgress, combinedIntensityAt,
+  parseDurationToMinutes, phaseStart, phaseEnd,
 } from './dose-timeline/dose-timeline-utils'
 import { DoseMarker } from './dose-timeline/dose-marker'
 import { MobilePhaseBar } from './dose-timeline/mobile-phase-bar'
@@ -65,770 +68,1254 @@ import { EstimatedDurationBadge } from '@/components/estimated-duration-badge'
 import Link from 'next/link'
 import { substances } from '@/lib/substances/index'
 
-// ─── MAIN COMPONENT ───────────────────────────────────────────────────────────
+/* ================================================================== */
+/*  Props Interface                                                    */
+/* ================================================================== */
 
 interface ActiveDosesTimelineProps {
   refreshTrigger?: number
 }
 
+/* ================================================================== */
+/*  Helper — compute tooltip data at a given progress point            */
+/* ================================================================== */
+
+function computeTooltipAtProgress(
+  progress: number,
+  group: SubstanceGroup,
+): TooltipData | null {
+  if (progress < 0 || progress > 100) return null
+
+  const globalMins = (progress / 100) * group.windowDuration
+  const routeIntensities: RouteIntensitySnapshot[] = []
+  const allIntensities: number[] = []
+
+  for (const rg of group.routes) {
+    const offsetMins = (rg.primary.doseTime.getTime() - group.windowStart.getTime()) / 60_000
+    const localMins = globalMins - offsetMins
+    const localProgress = (localMins / rg.primary.timings.totalDuration) * 100
+
+    if (localProgress >= 0 && localProgress <= 100) {
+      const intensity = intensityAt(localProgress, rg.primary.timings)
+      const phase = phaseNameAt(localProgress, rg.primary.timings)
+      routeIntensities.push({
+        route: rg.route,
+        intensity,
+        phase,
+        paletteIndex: rg.paletteIndex,
+      })
+      allIntensities.push(intensity)
+    }
+  }
+
+  const combined = combinedIntensityAt(allIntensities)
+  const primaryPhase = routeIntensities.length > 0
+    ? routeIntensities[0].phase
+    : phaseNameAt(progress, group.primary.timings)
+
+  const absoluteDate = addMinutes(group.windowStart, globalMins)
+
+  return {
+    phase: primaryPhase,
+    phaseTime: formatMinutes(globalMins),
+    absoluteTime: absoluteDate,
+    intensity: combined,
+    progress,
+    routeIntensities,
+  }
+}
+
+/* ================================================================== */
+/*  PhaseSparkline — mini intensity curve for expanded phase details   */
+/* ================================================================== */
+
+function PhaseSparkline({
+  timings,
+  phase,
+  isActive,
+}: {
+  timings: PhaseTimings
+  phase: string
+  isActive: boolean
+}) {
+  const pStart = phaseStart(phase, timings)
+  const pEnd = phaseEnd(phase, timings)
+  const pDuration = pEnd - pStart
+
+  if (pDuration <= 0) return null
+
+  const width = 48
+  const height = 18
+  const points: string[] = []
+
+  for (let i = 0; i <= 12; i++) {
+    const frac = i / 12
+    const globalProgress = ((pStart + frac * pDuration) / timings.totalDuration) * 100
+    const intensity = intensityAt(globalProgress, timings)
+    const x = frac * width
+    const y = height - (intensity / 100) * height
+    points.push(`${i === 0 ? 'M' : 'L'} ${x.toFixed(1)},${y.toFixed(1)}`)
+  }
+
+  return (
+    <svg
+      width={width}
+      height={height}
+      className="shrink-0"
+      style={{ opacity: isActive ? 0.8 : 0.4 }}
+      aria-hidden="true"
+    >
+      <path
+        d={points.join(' ')}
+        fill="none"
+        stroke={isActive ? '#a855f7' : '#71717a'}
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
+/* ================================================================== */
+/*  ActiveDosesTimeline — main component                               */
+/* ================================================================== */
+
 export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps) {
+  /* ---------------------------------------------------------------- */
+  /*  Store & state                                                    */
+  /* ---------------------------------------------------------------- */
+
   const { doses, isLoaded } = useDoseStore()
-  const [tick, setTick]                     = useState(0)
-  const [tooltips, setTooltips]             = useState<Record<string, TooltipData>>({})
-  const [expandedGroup, setExpandedGroup]   = useState<string | null>(null)
+  const [tick, setTick] = useState(0)
+  const [tooltips, setTooltips] = useState<Record<string, TooltipData>>({})
+  const [expandedGroup, setExpandedGroup] = useState<string | null>(null)
   const [selectedRoutes, setSelectedRoutes] = useState<Record<string, string | null>>({})
-  const [focusedDoseId, setFocusedDoseId]   = useState<string | null>(null)
-  const svgRefs    = useRef<Record<string, SVGSVGElement | null>>({})
-  const rafRefs    = useRef<Record<string, number | null>>({})
+  const [focusedDoseId, setFocusedDoseId] = useState<string | null>(null)
+  const [tooltipX, setTooltipX] = useState<Record<string, number>>({})
+
+  const svgRefs = useRef<Record<string, SVGSVGElement | null>>({})
+  const rafRefs = useRef<Record<string, number | null>>({})
   const focusTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
+  /* ---------------------------------------------------------------- */
+  /*  Effects                                                          */
+  /* ---------------------------------------------------------------- */
+
+  // Re-render every minute to keep "now" indicator and timings current
   useEffect(() => {
-    const id = setInterval(() => setTick((t) => t + 1), 60_000)
+    const id = setInterval(() => setTick(t => t + 1), 60_000)
     return () => clearInterval(id)
   }, [])
 
+  // Cleanup focus timer on unmount
   useEffect(() => {
     return () => {
       if (focusTimerRef.current !== null) clearTimeout(focusTimerRef.current)
     }
   }, [])
 
+  /* ---------------------------------------------------------------- */
+  /*  Memos — data pipeline                                            */
+  /* ---------------------------------------------------------------- */
+
+  // Step 1: filter to doses that have a meaningful total duration, then enrich
   const baseDoses = useMemo(() => {
     return doses
-      .filter((d) => d.duration)
-      .map((d) => {
-        const timings  = calculatePhaseTimings(d.duration!)
+      .filter(d => {
+        if (!d.duration) return false
+        const totalMins = parseDurationToMinutes(d.duration.total ?? '')
+        return totalMins > 0
+      })
+      .map(d => {
+        const timings = calculatePhaseTimings(d.duration!)
         const doseTime = new Date(d.timestamp)
-        return { ...d, timings, doseTime }
+        const status = getPhaseStatus(doseTime, timings)
+        const enriched: EnrichedDose = {
+          ...d,
+          timings,
+          status,
+          doseTime,
+        }
+        return enriched
       })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [doses, refreshTrigger])
+      .sort((a, b) => a.doseTime.getTime() - b.doseTime.getTime())
+  }, [doses, tick, refreshTrigger])
 
-  const enriched = useMemo<EnrichedDose[]>(() => {
-    return baseDoses
-      .map((d) => ({ ...d, status: getPhaseStatus(d.doseTime, d.timings) }))
-      .filter((d) => {
-        if (d.status.phase !== 'ended') return true
-        const sinceEnd = (Date.now() - d.doseTime.getTime()) / 60_000 - d.timings.totalDuration
-        return sinceEnd < ENDED_DOSE_RETENTION_MINS
-      })
+  // Step 2: remove ended doses that have exceeded the retention window
+  const enriched = useMemo(() => {
+    const now = Date.now()
+    return baseDoses.filter(d => {
+      if (d.status.phase === 'ended') {
+        const endedAt = d.doseTime.getTime() + d.timings.afterglowEnd * 60_000
+        if (now - endedAt > ENDED_DOSE_RETENTION_MINS * 60_000) return false
+      }
+      return true
+    })
   }, [baseDoses, tick])
 
-  const groups = useMemo<SubstanceGroup[]>(() => {
-    const substanceMap = new Map<string, EnrichedDose[]>()
+  // Step 3: group by substance → route, compute display window
+  const groups = useMemo(() => {
+    const bySubstance = new Map<string, EnrichedDose[]>()
+
     for (const d of enriched) {
       const key = d.substanceName.toLowerCase()
-      const arr = substanceMap.get(key)
-      if (arr) arr.push(d)
-      else substanceMap.set(key, [d])
+      if (!bySubstance.has(key)) bySubstance.set(key, [])
+      bySubstance.get(key)!.push(d)
     }
 
-    return Array.from(substanceMap.entries()).map(([substanceKey, items]) => {
-      const routeMap = new Map<string, EnrichedDose[]>()
-      for (const d of items) {
-        const rk  = d.route.toLowerCase()
-        const arr = routeMap.get(rk)
-        if (arr) arr.push(d)
-        else routeMap.set(rk, [d])
+    const result: SubstanceGroup[] = []
+
+    for (const [, substanceDoses] of bySubstance) {
+      // Group by route
+      const byRoute = new Map<string, EnrichedDose[]>()
+      for (const d of substanceDoses) {
+        const routeKey = d.route.toLowerCase()
+        if (!byRoute.has(routeKey)) byRoute.set(routeKey, [])
+        byRoute.get(routeKey)!.push(d)
       }
 
-      let paletteIndex = 0
-      const routes: RouteGroup[] = Array.from(routeMap.entries()).map(([, routeDoses]) => {
-        const sorted      = [...routeDoses].sort((a, b) => a.doseTime.getTime() - b.doseTime.getTime())
-        const primary     = sorted.find((d) => d.status.phase !== 'ended') ?? sorted[sorted.length - 1]
-        const units       = [...new Set(sorted.map((d) => d.unit))]
-        const uniformUnit = units.length === 1
-        return {
-          route: primary.route,
-          doses: sorted,
+      const routes: RouteGroup[] = []
+      let routeIdx = 0
+      for (const [route, routeDoses] of byRoute) {
+        const primary = routeDoses[0]
+        const totalAmount = routeDoses.reduce((sum, d) => sum + d.amount, 0)
+        const uniformUnit = routeDoses.every(d => d.unit === primary.unit)
+
+        routes.push({
+          route,
+          doses: routeDoses,
           primary,
-          totalAmount: uniformUnit ? sorted.reduce((s, d) => s + d.amount, 0) : 0,
-          unit: units[0] ?? '',
+          totalAmount,
+          unit: primary.unit,
           uniformUnit,
-          paletteIndex: paletteIndex++,
-        }
-      })
-
-      const activeItems = items.filter((d) => d.status.phase !== 'ended')
-      const windowItems = activeItems.length > 0 ? activeItems : items
-      const windowStart = new Date(Math.min(...windowItems.map((d) => d.doseTime.getTime())))
-      let maxEnd = 0
-      for (const d of windowItems) {
-        const offsetMins = (d.doseTime.getTime() - windowStart.getTime()) / 60_000
-        maxEnd = Math.max(maxEnd, offsetMins + d.timings.totalDuration)
+          paletteIndex: routeIdx,
+        })
+        routeIdx++
       }
 
-      const allSorted        = [...items].sort((a, b) => a.doseTime.getTime() - b.doseTime.getTime())
-      const substancePrimary = allSorted.find((d) => d.status.phase !== 'ended') ?? allSorted[allSorted.length - 1]
+      // Compute display window: 5 min before earliest dose, 10 min after last ends
+      const earliest = substanceDoses[0]
+      const latestEnd = substanceDoses.reduce((max, d) => {
+        const end = d.doseTime.getTime() + d.timings.totalDuration * 60_000
+        return Math.max(max, end)
+      }, 0)
 
-      return {
-        key: substanceKey,
-        substanceName: substancePrimary.substanceName,
-        categories: substancePrimary.categories ?? [],
+      const windowStart = new Date(earliest.doseTime.getTime() - 5 * 60_000)
+      const windowEnd = new Date(latestEnd + 10 * 60_000)
+      const windowDuration = (windowEnd.getTime() - windowStart.getTime()) / 60_000
+
+      result.push({
+        key: earliest.substanceName.toLowerCase(),
+        substanceName: earliest.substanceName,
+        categories: getDoseCategories(earliest),
         routes,
-        primary: substancePrimary,
-        windowDuration: maxEnd,
+        primary: earliest,
+        windowDuration,
         windowStart,
-      }
-    })
+      })
+    }
+
+    // Sort groups by earliest dose time
+    result.sort((a, b) => a.primary.doseTime.getTime() - b.primary.doseTime.getTime())
+    return result
   }, [enriched])
 
-  const handleMouseMove = useCallback(
-    (groupKey: string, e: React.MouseEvent<SVGSVGElement> | React.TouchEvent<SVGSVGElement>, windowDuration: number, windowStart: Date) => {
-      const pendingRaf = rafRefs.current[groupKey]
-      if (pendingRaf !== null && pendingRaf !== undefined) cancelAnimationFrame(pendingRaf)
+  /* ---------------------------------------------------------------- */
+  /*  Handlers                                                         */
+  /* ---------------------------------------------------------------- */
 
-      const clientX = 'touches' in e ? e.touches[0]?.clientX ?? 0 : e.clientX
-      const svgEl = e.currentTarget
+  // Hover: rAF-throttled tooltip computation + screen-X storage (#10)
+  const handleMouseMove = useCallback((
+    e: React.MouseEvent<SVGSVGElement>,
+    groupKey: string,
+    group: SubstanceGroup,
+  ) => {
+    const svgEl = svgRefs.current[groupKey]
+    if (!svgEl) return
 
-      rafRefs.current[groupKey] = requestAnimationFrame(() => {
-        rafRefs.current[groupKey] = null
-        const ctm      = svgEl.getScreenCTM()
-        const svgX     = ctm ? (clientX - ctm.e) / ctm.a : 0
-        const progress = Math.max(0, Math.min(100, ((svgX - PL) / GW) * 100))
-        const mins     = (progress / 100) * windowDuration
-        const group    = groups.find((g) => g.key === groupKey)
+    const rect = svgEl.getBoundingClientRect()
+    const clientX = e.clientX
+    const scaleX = SVG_W / rect.width
+    const mouseX = (clientX - rect.left) * scaleX
+    const progress = ((mouseX - PL) / GW) * 100
 
-        const hoverMins = mins
-        let closestRoute = group?.routes[0]
-        if (group) {
-          let minDist = Infinity
-          for (const rg of group.routes) {
-            if (rg.primary.status.phase === 'ended') continue
-            const offsetMins = (rg.primary.doseTime.getTime() - group.windowStart.getTime()) / 60_000
-            const routeMidMins = offsetMins + rg.primary.timings.totalDuration / 2
-            const dist = Math.abs(hoverMins - routeMidMins)
-            if (dist < minDist) { minDist = dist; closestRoute = rg }
-          }
-        }
-        const refTimings = closestRoute?.primary.timings
-
-        setTooltips((prev) => ({
-          ...prev,
-          [groupKey]: {
-            phase:        refTimings ? phaseNameAt(progress, refTimings) : '',
-            phaseTime:    formatMinutes(mins),
-            absoluteTime: addMinutes(windowStart, mins),
-            intensity:    refTimings ? intensityAt(progress, refTimings) : 0,
-            progress,
-          },
-        }))
+    if (progress < 0 || progress > 100) {
+      setTooltipX(prev => {
+        const next = { ...prev }
+        delete next[groupKey]
+        return next
       })
-    },
-    [groups],
-  )
-
-  const handleMouseLeave = useCallback((key: string) => {
-    const pendingRaf = rafRefs.current[key]
-    if (pendingRaf !== null && pendingRaf !== undefined) {
-      cancelAnimationFrame(pendingRaf)
-      rafRefs.current[key] = null
+      setTooltips(prev => {
+        const next = { ...prev }
+        delete next[groupKey]
+        return next
+      })
+      return
     }
-    setTooltips((prev) => { const next = { ...prev }; delete next[key]; return next })
+
+    // Store screen-space X position for tooltip positioning (#2, #10)
+    const screenX = clientX - rect.left
+    setTooltipX(prev => ({ ...prev, [groupKey]: screenX }))
+
+    // Throttle tooltip computation via rAF
+    if (rafRefs.current[groupKey] !== null) {
+      cancelAnimationFrame(rafRefs.current[groupKey]!)
+    }
+
+    rafRefs.current[groupKey] = requestAnimationFrame(() => {
+      const data = computeTooltipAtProgress(progress, group)
+      if (data) {
+        setTooltips(prev => ({ ...prev, [groupKey]: data }))
+      }
+    })
   }, [])
 
-  const handleRouteClick = useCallback((substanceKey: string, route: string) => {
-    setSelectedRoutes((prev) => ({ ...prev, [substanceKey]: prev[substanceKey] === route ? null : route }))
+  // Clear tooltip on mouse leave
+  const handleMouseLeave = useCallback((groupKey: string) => {
+    setTooltipX(prev => {
+      const next = { ...prev }
+      delete next[groupKey]
+      return next
+    })
+    setTooltips(prev => {
+      const next = { ...prev }
+      delete next[groupKey]
+      return next
+    })
   }, [])
 
-  const handleDoseChipClick = useCallback((doseId: string, substanceKey: string) => {
-    setFocusedDoseId(doseId)
-    const svg = svgRefs.current[substanceKey]
-    if (svg) svg.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+  // Toggle route isolation
+  const handleRouteClick = useCallback((groupKey: string, route: string) => {
+    setSelectedRoutes(prev => {
+      const current = prev[groupKey]
+      if (current === route) {
+        return { ...prev, [groupKey]: null }
+      }
+      return { ...prev, [groupKey]: route }
+    })
+  }, [])
+
+  // Highlight a dose on the graph for 3 seconds
+  const handleDoseChipClick = useCallback((doseId: string) => {
     if (focusTimerRef.current !== null) clearTimeout(focusTimerRef.current)
-    focusTimerRef.current = setTimeout(() => setFocusedDoseId(null), 1800)
+    setFocusedDoseId(doseId)
+    focusTimerRef.current = setTimeout(() => setFocusedDoseId(null), 3_000)
   }, [])
 
-  const getCategoryColor = (cat: string) =>
-    categoryColors[cat as keyof typeof categoryColors] || 'text-gray-500 bg-gray-500/10 border-gray-500/20'
+  /* ---------------------------------------------------------------- */
+  /*  Helpers                                                          */
+  /* ---------------------------------------------------------------- */
+
+  const getCategoryColor = useCallback((categories: string[]): string => {
+    if (categories.length === 0) return 'hsl(var(--muted-foreground))'
+    const primary = categories[0]
+    return categoryColors[primary] ?? 'hsl(var(--muted-foreground))'
+  }, [])
+
+  /* ---------------------------------------------------------------- */
+  /*  Loading / empty states                                           */
+  /* ---------------------------------------------------------------- */
 
   if (!isLoaded) {
     return (
-      <Card>
-        <CardContent className="flex items-center justify-center py-8">
+      <Card className="hidden md:block">
+        <CardContent className="flex items-center justify-center py-12">
           <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
+          <span className="ml-2 text-sm text-muted-foreground">Loading active doses…</span>
         </CardContent>
       </Card>
     )
   }
 
-  if (groups.length === 0) return null
+  if (groups.length === 0) {
+    return (
+      <Card className="hidden md:block">
+        <CardHeader>
+          <CardTitle className="text-lg flex items-center gap-2">
+            <Activity className="h-5 w-5 text-purple-500" />
+            Active Timeline
+          </CardTitle>
+          <CardDescription>No active doses to display</CardDescription>
+        </CardHeader>
+        <CardContent className="flex flex-col items-center justify-center py-8 text-muted-foreground">
+          <Layers className="h-10 w-10 mb-3 opacity-40" />
+          <p className="text-sm">Log a dose to see the intensity timeline</p>
+        </CardContent>
+      </Card>
+    )
+  }
+
+  /* ---------------------------------------------------------------- */
+  /*  Render                                                           */
+  /* ---------------------------------------------------------------- */
 
   return (
     <>
-      {/* ── Mobile ──────────────────────────────────────────────────────── */}
+      {/* ── Mobile view ── */}
       <div className="md:hidden space-y-3">
         <div className="flex items-center gap-2">
           <Activity className="h-4 w-4 text-purple-500" />
           <h3 className="text-sm font-semibold">Active doses</h3>
         </div>
-        {groups.map((g) => (
+        {groups.map(g => (
           <MobilePhaseBar key={g.key} group={g} />
         ))}
       </div>
 
-      {/* ── Desktop ─────────────────────────────────────────────────────── */}
+      {/* ── Desktop Card ── */}
       <Card className="hidden md:block">
         <CardHeader className="pb-3">
-          <CardTitle className="flex items-center gap-2">
+          <CardTitle className="text-lg flex items-center gap-2">
             <Activity className="h-5 w-5 text-purple-500" />
             Active Timeline
           </CardTitle>
           <CardDescription>
-            Real-time view of your active doses. Hover over the graph for details.
+            Real-time intensity curves for {groups.length} substance{groups.length !== 1 ? 's' : ''}
           </CardDescription>
         </CardHeader>
-        <CardContent className="space-y-4">
-          {groups.map((group) => {
-            const dose         = group.primary
-            const colors       = phaseColors[dose.status.phase]
-            const PhaseIcon    = phaseIcons[dose.status.phase]
+
+        <CardContent className="space-y-6">
+          {groups.map(group => {
+            const isExpanded = expandedGroup === group.key
+            const tooltip = tooltips[group.key]
+            const tooltipScreenX = tooltipX[group.key]
+            const selectedRoute = selectedRoutes[group.key]
+            const visibleRoutes = selectedRoute
+              ? group.routes.filter(r => r.route.toLowerCase() === selectedRoute)
+              : group.routes
+
+            const bandTimings = visibleRoutes.length > 0
+              ? visibleRoutes[0].primary.timings
+              : group.primary.timings
+
+            const allActive = group.routes.some(rg =>
+              rg.doses.some(d => d.status.phase !== 'ended' && d.status.phase !== 'not_started'),
+            )
+
+            const primaryDose = group.primary
             const isMultiRoute = group.routes.length > 1
-            const isExpanded   = expandedGroup === group.key
-            const expandedId   = `expanded-${group.key}`
-            const tip          = tooltips[group.key]
-            const marks        = buildTimeMarkers(group.windowDuration, group.windowStart)
 
-            const refRoute   = group.routes.find((r) => r.primary.status.phase !== 'ended') ?? group.routes[0]
-            const refTimings = refRoute.primary.timings
-            const bandRanges = getPhaseBandRanges(refTimings)
+            const nowProgress = (() => {
+              if (!allActive) return -1
+              // Find any active dose and compute its global progress the same way DoseMarker does
+              const activeDose = group.routes
+                .flatMap(rg => rg.doses)
+                .find(d => d.status.phase !== 'ended' && d.status.phase !== 'not_started')
+              if (!activeDose) return -1
+              const elapsedMins = activeDose.timings.totalDuration - activeDose.status.totalRemaining
+              const doseOffsetMins = (activeDose.doseTime.getTime() - group.windowStart.getTime()) / 60_000
+              return (doseOffsetMins + elapsedMins) / group.windowDuration * 100
+            })()
+            const timeMarkers = buildTimeMarkers(group.windowDuration, group.windowStart)
 
-            const allActive     = group.routes.some((r) => r.primary.status.phase !== 'ended')
-            const selectedRoute = selectedRoutes[group.key] ?? null
+            // Current combined intensity for the header badge (#3)
+            const currentCombinedIntensity = (() => {
+              if (!allActive || nowProgress <= 0 || nowProgress >= 100) return null
+              const activeDoses = group.routes
+                .flatMap(rg => rg.doses)
+                .filter(d => d.status.phase !== 'ended' && d.status.phase !== 'not_started')
+              if (activeDoses.length === 0) return null
+              const intensities = activeDoses.map(d => {
+                const elapsed = d.timings.totalDuration - d.status.totalRemaining
+                const prog = (elapsed / d.timings.totalDuration) * 100
+                return intensityAt(prog, d.timings)
+              })
+              return Math.round(combinedIntensityAt(intensities))
+            })()
 
-            const knownSubstance = substances.find(
-              s => s.id === dose.substanceId || s.name.toLowerCase() === group.substanceName.toLowerCase()
+            // Substance link slug (optional — degrades gracefully if not found)
+            const substanceEntry = substances?.find?.(
+              (s: { name?: string }) =>
+                s.name?.toLowerCase() === group.substanceName.toLowerCase(),
             )
 
-            const anyEstimated = group.routes.some(rg =>
-              rg.doses.some(d => d.durationIsEstimated)
-            )
-            // Use the first estimated dose's sourceRoute for the badge tooltip
-            const estimatedSourceRoute = group.routes
-              .flatMap(rg => rg.doses)
-              .find(d => d.durationIsEstimated)
-              ?.durationSourceRoute
+            // Category accent color
+            const catColor = getCategoryColor(group.categories)
 
-            // Check if any dose has incomplete phase data
-            const anyIncompletePhases = group.routes.some(rg =>
-              rg.doses.some(d => hasIncompletePhases(d.duration))
-            )
+            // Total doses across all visible routes
+            const totalDoses = visibleRoutes.reduce((sum, r) => sum + r.doses.length, 0)
+
+            /* ====================================================== */
+            /*  Per-group render                                       */
+            /* ====================================================== */
 
             return (
-              <div
-                key={group.key}
-                className={`rounded-lg border border-border/50 bg-gradient-to-br from-background to-muted/20 p-4 space-y-4 ${!allActive ? 'opacity-80' : ''}`}
-              >
-                {/* ── Header ───────────────────────────────────────────── */}
-                <div className="flex items-center justify-between flex-wrap gap-2">
+              <div key={group.key} className="space-y-3">
+                {/* ── Header: substance name, badges, combined intensity ── */}
+                <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2 flex-wrap">
-                    {knownSubstance ? (
-                      <Link
-                        href={`/?substance=${knownSubstance.id}`}
-                        className="font-semibold text-foreground hover:underline hover:text-primary transition-colors"
-                      >
-                        {group.substanceName}
-                      </Link>
-                    ) : (
-                      <span className="font-semibold text-foreground">{group.substanceName}</span>
-                    )}
+                    {/* Category dot */}
+                    <span
+                      className="w-2 h-2 rounded-full shrink-0"
+                      style={{ backgroundColor: catColor }}
+                    />
 
-                    {/* ── Estimated duration badge ──────────────────────── */}
-                    {anyEstimated && (
-                      <EstimatedDurationBadge sourceRoute={estimatedSourceRoute} />
-                    )}
+                    {/* Substance name (linked if we have a slug) */}
+                    <h3 className="font-semibold text-base">
+                      {substanceEntry?.id ? (
+                        <Link
+                          href={`/?substance=${substanceEntry.id}`}
+                          className="hover:underline underline-offset-4"
+                        >
+                          {group.substanceName}
+                        </Link>
+                      ) : (
+                        group.substanceName
+                      )}
+                    </h3>
 
-                    {/* ── Incomplete phases badge ──────────────────────── */}
-                    {anyIncompletePhases && (
-                      <span className="inline-flex items-center gap-1 text-[10px] font-semibold px-1.5 py-0.5 rounded-full cursor-help
-                        bg-blue-500/15 text-blue-400 border border-blue-500/30"
-                        title="Duration data is incomplete. Phase timings are estimated based on onset and total duration."
-                      >
-                        <AlertTriangle className="h-2.5 w-2.5" />
-                        Incomplete data
-                      </span>
-                    )}
-
-                    {isMultiRoute && (
-                      <span className="inline-flex items-center gap-1 text-xs font-medium text-muted-foreground bg-muted/60 px-2 py-0.5 rounded-full border border-border/50">
-                        <Layers className="h-3 w-3" />
-                        {group.routes.length} routes
-                        {selectedRoute && (
-                          <button
-                            onClick={() => handleRouteClick(group.key, selectedRoute)}
-                            className="ml-1 text-[10px] text-muted-foreground hover:text-foreground underline underline-offset-2"
-                          >
-                            show all
-                          </button>
-                        )}
-                      </span>
-                    )}
-                    {getDoseCategories(dose).map((cat) => (
-                      <Badge key={cat} variant="outline" className={getCategoryColor(cat)}>
-                        {cat}
-                      </Badge>
-                    ))}
-                    <Badge className={`${colors.bg} text-white text-xs shadow-sm`}>
-                      <PhaseIcon className="h-3 w-3 mr-1" />
-                      {formatPhaseName(dose.status.phase)}
+                    {/* Phase badge */}
+                    <Badge
+                      variant="outline"
+                      className={`${phaseColors[primaryDose.status.phase].border} ${phaseColors[primaryDose.status.phase].text} text-[10px] px-1.5 py-0`}
+                    >
+                      {(() => {
+                        const PhaseIcon = phaseIcons[primaryDose.status.phase]
+                        return <PhaseIcon className="h-3 w-3 mr-0.5" />
+                      })()}
+                      {formatPhaseName(primaryDose.status.phase)}
                     </Badge>
+
+                    {/* Estimated duration badge (when phases are incomplete) */}
+                    {hasIncompletePhases(primaryDose.duration) && (
+                      <EstimatedDurationBadge />
+                    )}
+
+                    {/* #3 — Combined intensity display in header */}
+                    {allActive && currentCombinedIntensity !== null && (
+                      <Badge variant="outline" className="text-xs font-mono">
+                        <Activity className="h-3 w-3 mr-1 text-purple-400" />
+                        {currentCombinedIntensity}%
+                      </Badge>
+                    )}
                   </div>
 
-                  {/* Route summary pills */}
-                  <div className="flex items-center gap-2 flex-wrap">
-                    {group.routes.map((rg) => {
-                      const palette  = ROUTE_PALETTE[rg.paletteIndex]
-                      const dc       = phaseColors[rg.primary.status.phase]
-                      const isActive = selectedRoute === null || selectedRoute === rg.route
-                      const timeLeft = rg.primary.status.phase === 'not_started' || rg.primary.status.phase === 'ended'
-                        ? null
-                        : formatMinutes(rg.primary.status.totalRemaining)
+                  {/* Remaining time */}
+                  {allActive && primaryDose.status.totalRemaining > 0 && (
+                    <span className="text-xs text-muted-foreground flex items-center gap-1">
+                      <Timer className="h-3 w-3" />
+                      {formatMinutes(primaryDose.status.totalRemaining)} remaining
+                    </span>
+                  )}
+                </div>
+
+                {/* ── Route pills (multi-route groups) ── */}
+                {isMultiRoute && (
+                  <div className="flex items-center gap-1.5 flex-wrap">
+                    <span className="text-[10px] text-muted-foreground mr-1">Routes:</span>
+                    {group.routes.map(rg => {
+                      const palette = ROUTE_PALETTE[rg.paletteIndex % ROUTE_PALETTE.length]
+                      const isSelected = selectedRoute === rg.route.toLowerCase()
+                      const pillClasses = isSelected
+                        ? 'ring-1 ring-offset-1 ring-offset-background'
+                        : 'opacity-60 hover:opacity-100'
                       return (
                         <button
                           key={rg.route}
-                          onClick={() => handleRouteClick(group.key, rg.route)}
-                          aria-pressed={selectedRoute === rg.route}
-                          className="flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-xs font-semibold transition-all duration-200 cursor-pointer"
+                          onClick={() => handleRouteClick(group.key, rg.route.toLowerCase())}
+                          className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium border transition-all ${pillClasses}`}
                           style={{
-                            borderColor:   palette.stroke,
-                            color:         isActive ? palette.stroke : palette.stroke + '55',
-                            background:    selectedRoute === rg.route ? palette.stroke + '30' : isActive ? palette.stroke + '1a' : 'transparent',
-                            opacity:       isActive ? 1 : 0.45,
-                            outline:       selectedRoute === rg.route ? `2px solid ${palette.stroke}44` : 'none',
-                            outlineOffset: '2px',
+                            borderColor: palette.stroke,
+                            color: palette.stroke,
                           }}
-                          title={selectedRoute === rg.route ? 'Click to show all routes' : 'Click to isolate this route'}
                         >
+                          <span
+                            className="w-2 h-2 rounded-full"
+                            style={{ backgroundColor: palette.fill }}
+                          />
                           {rg.route}
-                          <span className="opacity-40 font-normal">·</span>
-                          {(() => {
-                            if (rg.uniformUnit) {
-                              const formatted = formatDoseAmount(rg.totalAmount, rg.unit)
-                              return `${formatted.amount} ${formatUnit(formatted.unit, formatted.amount)}`
-                            }
-                            return `${rg.doses.length}×`
-                          })()}
-                          {timeLeft && (
-                            <>
-                              <span className="opacity-40 font-normal">·</span>
-                              <span className={`text-[10px] font-medium ${dc.text}`}>{timeLeft}</span>
-                            </>
-                          )}
                         </button>
                       )
                     })}
-                  </div>
-                </div>
-
-                {/* ── Dose breakdown table ──────────────────────────────── */}
-                {group.routes.some((rg) => rg.doses.length > 1) && (
-                  <div className="space-y-1.5">
-                    {group.routes.map((rg) => {
-                      const palette       = ROUTE_PALETTE[rg.paletteIndex]
-                      const isRouteActive = selectedRoute === null || selectedRoute === rg.route
-                      return (
-                        <div
-                          key={rg.route}
-                          className="flex items-start gap-3 transition-opacity duration-200"
-                          style={{ opacity: isRouteActive ? 1 : 0.35 }}
-                        >
-                          <button
-                            className="text-xs font-semibold w-20 shrink-0 pt-0.5 text-left hover:underline transition-opacity"
-                            style={{ color: palette.stroke }}
-                            onClick={() => handleRouteClick(group.key, rg.route)}
-                          >
-                            {rg.route}
-                          </button>
-                          <div className="flex flex-wrap gap-1.5">
-                            {rg.doses.map((d) => {
-                              const dc        = phaseColors[d.status.phase]
-                              const isFocused = focusedDoseId === d.id
-                              return (
-                                <button
-                                  key={d.id}
-                                  onClick={() => handleDoseChipClick(d.id, group.key)}
-                                  aria-pressed={isFocused}
-                                  aria-describedby={`${group.key}-graph`}
-                                  className={`inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-md border transition-all duration-150 cursor-pointer
-                                    ${dc.fill} ${dc.border}
-                                    ${isFocused ? 'ring-2 ring-offset-1 ring-offset-background scale-105' : 'hover:brightness-125 hover:scale-[1.03]'}
-                                  `}
-                                  style={isFocused ? { ringColor: palette.stroke } : undefined}
-                                  title="Click to highlight on graph"
-                                >
-                                  <span className="font-medium text-foreground">
-                                    {(() => {
-                                      const formatted = formatDoseAmount(d.amount, d.unit)
-                                      return `${formatted.amount} ${formatUnit(formatted.unit, formatted.amount)}`
-                                    })()}
-                                  </span>
-                                  <span className="text-muted-foreground">@ {format(d.doseTime, 'h:mm a')}</span>
-                                  <span className={`font-medium ${dc.text}`}>
-                                    {d.status.phase === 'not_started' ? 'upcoming'
-                                      : d.status.phase === 'ended' ? '✓'
-                                      : formatMinutes(d.status.totalRemaining)}
-                                  </span>
-                                </button>
-                              )
-                            })}
-                          </div>
-                        </div>
-                      )
-                    })}
+                    {selectedRoute && (
+                      <button
+                        onClick={() => handleRouteClick(group.key, selectedRoute)}
+                        className="text-[10px] text-muted-foreground hover:text-foreground ml-1"
+                      >
+                        Show all
+                      </button>
+                    )}
                   </div>
                 )}
 
-                {/* ── SVG Graph ─────────────────────────────────────────── */}
-                {allActive && (
-                  <div className="relative w-full overflow-hidden">
-                    <svg
-                      id={`${group.key}-graph`}
-                      ref={(el) => { svgRefs.current[group.key] = el }}
-                      viewBox={`0 0 ${SVG_W} ${SVG_H}`}
-                      className="w-full h-auto max-h-56 cursor-crosshair"
-                      preserveAspectRatio="xMidYMid meet"
-                      role="img"
-                      aria-label={`Effect intensity timeline for ${group.substanceName}`}
-                      onMouseMove={(e) => handleMouseMove(group.key, e, group.windowDuration, group.windowStart)}
-                      onMouseLeave={() => handleMouseLeave(group.key)}
-                      onTouchMove={(e) => handleMouseMove(group.key, e, group.windowDuration, group.windowStart)}
-                      onTouchEnd={() => handleMouseLeave(group.key)}
-                    >
-                      <title>Effect intensity timeline for {group.substanceName}</title>
+                {/* ── Dose breakdown chips with phase progress indicators (#5) ── */}
+                <div className="flex items-center gap-1.5 flex-wrap">
+                  {visibleRoutes.map(rg => {
+                    const palette = ROUTE_PALETTE[rg.paletteIndex % ROUTE_PALETTE.length]
+                    return rg.doses.map(d => {
+                      const doseId = d.id ?? d.doseTime.getTime().toString()
+                      const isFocused = focusedDoseId === doseId
+                      const formatted = formatDoseAmount(d.amount, d.unit)
+                      const isDoseActive = d.status.phase !== 'not_started' && d.status.phase !== 'ended'
 
-                      <defs>
-                        {group.routes.map((rg) => {
-                          const palette = ROUTE_PALETTE[rg.paletteIndex]
-                          return (
-                            <g key={rg.route}>
-                              <linearGradient id={`ag-${group.key}-${rg.paletteIndex}`} x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%"   stopColor={palette.stroke} stopOpacity="0.35" />
-                                <stop offset="60%"  stopColor={palette.stroke} stopOpacity="0.12" />
-                                <stop offset="100%" stopColor={palette.stroke} stopOpacity="0.03" />
-                              </linearGradient>
-                              <filter id={`glow-${group.key}-${rg.paletteIndex}`} x="-20%" y="-20%" width="140%" height="140%">
-                                <feGaussianBlur stdDeviation="3" result="blur" />
-                                <feMerge>
-                                  <feMergeNode in="blur" />
-                                  <feMergeNode in="SourceGraphic" />
-                                </feMerge>
-                              </filter>
-                            </g>
-                          )
-                        })}
-                        <filter id={`ds-${group.key}`} x="-50%" y="-50%" width="200%" height="200%">
-                          <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#a855f7" floodOpacity="0.5" />
-                        </filter>
-                      </defs>
+                      return (
+                        <button
+                          key={`${rg.route}-${doseId}`}
+                          onClick={() => handleDoseChipClick(doseId)}
+                          className={`relative inline-flex items-center gap-1 px-2 py-1 rounded-md text-[11px] font-medium border transition-all ${
+                            isFocused
+                              ? 'ring-2 ring-purple-500/50 border-purple-500/50'
+                              : 'border-border hover:border-border/80'
+                          }`}
+                          style={{ color: palette.stroke }}
+                        >
+                          {/* Route-colored dot */}
+                          <span
+                            className="w-1.5 h-1.5 rounded-full shrink-0"
+                            style={{
+                              backgroundColor: palette.fill,
+                              opacity: isDoseActive ? 1 : 0.4,
+                            }}
+                          />
+                          <span>{formatted.amount}{formatUnit(formatted.unit, d.amount)}</span>
+                          <span className="text-muted-foreground">{rg.route}</span>
 
-                      {/* Phase background bands */}
-                      <g opacity="0.12">
-                        {PHASE_BANDS.map((band, i) => {
-                          const { startFrac, endFrac } = bandRanges[i]
-                          return (
-                            <rect key={band.name}
-                              x={toX(startFrac * 100)} y={PT}
-                              width={(endFrac - startFrac) * GW} height={GH}
-                              fill={band.fill}
+                          {/* #5 — Phase progress indicator bar at bottom of chip */}
+                          {isDoseActive && (
+                            <div
+                              className="absolute bottom-0 left-0 h-0.5 rounded-full transition-all duration-500"
+                              style={{
+                                width: `${d.status.progress}%`,
+                                background: palette.stroke,
+                                opacity: 0.6,
+                              }}
                             />
-                          )
-                        })}
-                      </g>
+                          )}
+                        </button>
+                      )
+                    })
+                  })}
+                </div>
 
-                      {/* Grid lines */}
-                      <g className="text-muted-foreground/30" stroke="currentColor" strokeWidth="1">
-                        {[0, 0.25, 0.5, 0.75, 1].map((f) => (
-                          <line key={f} x1={PL} y1={PT + GH * f} x2={SVG_W - 20} y2={PT + GH * f}
-                            strokeDasharray={f === 1 ? undefined : '4,4'} />
-                        ))}
-                      </g>
-
-                      {/* Phase label strip */}
-                      {PHASE_BANDS.map((band, i) => {
-                        const { startFrac, endFrac } = bandRanges[i]
-                        const px = (endFrac - startFrac) * GW
-                        if (px < 12) return null
-                        const midProgress = ((startFrac + endFrac) / 2) * 100
+                {/* ── SVG Graph ── */}
+                <div className="relative">
+                  <svg
+                    ref={el => { svgRefs.current[group.key] = el }}
+                    viewBox={`0 0 ${SVG_W} ${SVG_H}`}
+                    className="w-full h-auto select-none"
+                    role="img"
+                    aria-label={`Intensity timeline for ${group.substanceName}`}
+                    tabIndex={0}
+                    onMouseMove={e => handleMouseMove(e, group.key, group)}
+                    onMouseLeave={() => handleMouseLeave(group.key)}
+                    onKeyDown={e => {
+                      // #7 — Keyboard accessibility: arrow keys move tooltip, Escape clears
+                      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+                        e.preventDefault()
+                        const step = 2
+                        const currentTip = tooltips[group.key]
+                        const newProgress = currentTip
+                          ? Math.max(0, Math.min(100, currentTip.progress + (e.key === 'ArrowRight' ? step : -step)))
+                          : 50
+                        const data = computeTooltipAtProgress(newProgress, group)
+                        if (data) {
+                          setTooltips(prev => ({ ...prev, [group.key]: data }))
+                          // Compute screen-space X for the tooltip div
+                          const svgEl = svgRefs.current[group.key]
+                          if (svgEl) {
+                            const rect = svgEl.getBoundingClientRect()
+                            const scaleX = SVG_W / rect.width
+                            const svgXPos = toX(newProgress)
+                            const screenXPos = svgXPos / scaleX
+                            setTooltipX(prev => ({ ...prev, [group.key]: screenXPos }))
+                          }
+                        }
+                      }
+                      if (e.key === 'Escape') {
+                        handleMouseLeave(group.key)
+                      }
+                    }}
+                  >
+                    {/* ── Defs: per-route area-fill gradients ── */}
+                    <defs>
+                      {visibleRoutes.map((rg, ri) => {
+                        const palette = ROUTE_PALETTE[rg.paletteIndex % ROUTE_PALETTE.length]
                         return (
-                          <text key={band.name} x={toX(midProgress)} y={PT - 8}
-                            textAnchor="middle" fontSize="11" fontWeight="600" fill={band.labelColor} opacity="0.9">
-                            {px < 40 ? band.name.slice(0, 1) : px < 70 ? band.name.slice(0, 2) : band.name}
-                          </text>
+                          <linearGradient
+                            key={`area-grad-${group.key}-${ri}`}
+                            id={`area-grad-${group.key}-${ri}`}
+                            x1="0" y1="0" x2="0" y2="1"
+                          >
+                            <stop offset="0%" stopColor={palette.fill} stopOpacity="0.25" />
+                            <stop offset="100%" stopColor={palette.fill} stopOpacity="0.02" />
+                          </linearGradient>
                         )
                       })}
+                    </defs>
 
-                      {/* Area fills */}
-                      {group.routes.map((rg) => {
-                        const palette    = ROUTE_PALETTE[rg.paletteIndex]
-                        const isIsolated = selectedRoute !== null && selectedRoute !== rg.route
-                        return rg.doses
-                          .filter((d) => d.status.phase !== 'ended')
-                          .map((d) => {
-                            const offsetMins = (d.doseTime.getTime() - group.windowStart.getTime()) / 60_000
-                            const area       = areaPath(d.timings, offsetMins, group.windowDuration)
-                            return (
-                              <path key={`area-${rg.route}-${d.id}`} d={area}
-                                fill={`url(#ag-${group.key}-${rg.paletteIndex})`}
-                                opacity={isIsolated ? 0.1 : 1}
-                                style={{ transition: 'opacity 0.2s ease' }}
-                              />
-                            )
-                          })
-                      })}
+                    {/* ── Graph area background ── */}
+                    <rect
+                      x={PL}
+                      y={PT}
+                      width={GW}
+                      height={GH}
+                      fill="currentColor"
+                      className="text-muted/30"
+                      rx="4"
+                    />
 
-                      {/* Curves */}
-                      {group.routes.map((rg) => {
-                        const palette    = ROUTE_PALETTE[rg.paletteIndex]
-                        const isIsolated = selectedRoute !== null && selectedRoute !== rg.route
-                        return rg.doses
-                          .filter((d) => d.status.phase !== 'ended')
-                          .map((d) => {
-                            const offsetMins = (d.doseTime.getTime() - group.windowStart.getTime()) / 60_000
-                            const curve      = curvePath(d.timings, offsetMins, group.windowDuration)
-                            const isPrimary  = d.id === rg.primary.id
-                            // Dashed stroke for estimated durations
-                            const isEstimated = d.durationIsEstimated
-                            // Dotted stroke for incomplete phases
-                            const isIncomplete = hasIncompletePhases(d.duration)
-                            return (
-                              <path key={`curve-${rg.route}-${d.id}`} d={curve}
-                                fill="none"
-                                stroke={palette.stroke}
-                                strokeWidth={selectedRoute === rg.route ? 3 : 2.5}
-                                strokeDasharray={isEstimated ? '8,4' : isIncomplete ? '4,2' : undefined}
-                                filter={`url(#glow-${group.key}-${rg.paletteIndex})`}
-                                opacity={isIsolated ? 0.15 : isPrimary ? 1 : 0.5}
-                                style={{ transition: 'opacity 0.2s ease' }}
-                              />
-                            )
-                          })
-                      })}
+                    {/* ── Phase bands (background color regions) ── */}
+                    {(() => {
+                      const bands = getPhaseBandRanges(bandTimings)
+                      const NARROW_PX = 50  // threshold for "narrow" bands (pixels)
 
-                      {/* Dose markers */}
-                      {group.routes.map((rg) => {
-                        const palette    = ROUTE_PALETTE[rg.paletteIndex]
-                        const isIsolated = selectedRoute !== null && selectedRoute !== rg.route
+                      const narrowBoundaryTicks: { x: number; color: string }[] = []
+
+                      const bandElements = bands.map((band) => {
+                        const phaseBand = PHASE_BANDS.find(b => b.phase === band.phase)
+                        if (!phaseBand) return null
+                        const x1 = toX(band.startFrac * 100)
+                        const x2 = toX(band.endFrac * 100)
+                        const bandWidth = x2 - x1
+
+                        if (bandWidth > 0 && bandWidth < NARROW_PX) {
+                          narrowBoundaryTicks.push({ x: x2, color: phaseBand.fill })
+                        }
+
+                        const bandOpacity = bandWidth < 10 ? 0.25
+                          : bandWidth < NARROW_PX ? 0.12
+                          : 0.06
+
                         return (
-                          <g key={`markers-${rg.route}`} opacity={isIsolated ? 0.2 : 1} style={{ transition: 'opacity 0.2s ease' }}>
-                            {rg.doses.filter((d) => d.status.phase !== 'ended').map((d, di) => {
-                              const doseOffsetMins = (d.doseTime.getTime() - group.windowStart.getTime()) / 60_000
+                          <rect
+                            key={band.phase}
+                            x={x1}
+                            y={PT}
+                            width={Math.max(0, bandWidth)}
+                            height={GH}
+                            fill={phaseBand.fill}
+                            opacity={bandOpacity}
+                            rx="2"
+                          />
+                        )
+                      })
+
+                      const tickElements = narrowBoundaryTicks.map((tick, i) => (
+                        <line
+                          key={`narrow-tick-${i}`}
+                          x1={tick.x}
+                          y1={PT}
+                          x2={tick.x}
+                          y2={PT + GH}
+                          stroke={tick.color}
+                          strokeWidth="1.5"
+                          strokeDasharray="3,3"
+                          opacity="0.4"
+                        />
+                      ))
+
+                      return [...bandElements, ...tickElements]
+                    })()}
+
+                    {/* ── Phase band labels (above graph) ── */}
+                    {(() => {
+                      const bands = getPhaseBandRanges(bandTimings)
+                      const NARROW_PX = 50  // match the band rendering threshold
+
+                      return bands.map((band, bandIdx) => {
+                        const phaseBand = PHASE_BANDS.find(b => b.phase === band.phase)
+                        if (!phaseBand) return null
+                        const x1 = toX(band.startFrac * 100)
+                        const x2 = toX(band.endFrac * 100)
+                        const bandWidth = x2 - x1
+
+                        // Wide band: centered label (current behavior)
+                        if (bandWidth >= NARROW_PX) {
+                          const midX = (x1 + x2) / 2
+                          return (
+                            <text
+                              key={`label-${band.phase}`}
+                              x={midX}
+                              y={PT - 8}
+                              textAnchor="middle"
+                              fontSize="9"
+                              fontWeight="500"
+                              fill={phaseBand.labelColor}
+                              opacity="0.7"
+                            >
+                              {phaseBand.name}
+                            </text>
+                          )
+                        }
+
+                        if (bandWidth <= 0) return null
+
+                        let narrowCount = 0
+                        for (let j = 0; j < bandIdx; j++) {
+                          const prevX1 = toX(bands[j].startFrac * 100)
+                          const prevX2 = toX(bands[j].endFrac * 100)
+                          if (prevX2 - prevX1 > 0 && prevX2 - prevX1 < NARROW_PX) narrowCount++
+                        }
+
+                        const labelX = x2 + 6 + narrowCount * 42
+
+                        return (
+                          <g key={`label-${band.phase}`}>
+                            {/* Colored dot at the phase boundary */}
+                            <circle
+                              cx={x2}
+                              cy={PT - 5}
+                              r="2.5"
+                              fill={phaseBand.fill}
+                              opacity="0.9"
+                            />
+                            {/* Thin line connecting dot to label */}
+                            <line
+                              x1={x2 + 2}
+                              y1={PT - 5}
+                              x2={labelX - 1}
+                              y2={PT - 5}
+                              stroke={phaseBand.fill}
+                              strokeWidth="0.5"
+                              opacity="0.5"
+                            />
+                            {/* Compact label positioned right of boundary */}
+                            <text
+                              x={labelX}
+                              y={PT - 2}
+                              textAnchor="start"
+                              fontSize="8"
+                              fontWeight="600"
+                              fill={phaseBand.labelColor}
+                              opacity="0.85"
+                            >
+                              {phaseBand.name}
+                            </text>
+                          </g>
+                        )
+                      })
+                    })()}
+
+                    {/* ── Intensity Y-axis labels ── */}
+                    {[0, 50, 100].map(val => (
+                      <text
+                        key={`y-label-${val}`}
+                        x={PL - 6}
+                        y={toY(val) + 3}
+                        textAnchor="end"
+                        fontSize="9"
+                        fill="currentColor"
+                        className="text-muted-foreground"
+                      >
+                        {val}%
+                      </text>
+                    ))}
+
+                    {/* ── Horizontal grid lines ── */}
+                    {[25, 50, 75].map(val => (
+                      <line
+                        key={`grid-${val}`}
+                        x1={PL}
+                        y1={toY(val)}
+                        x2={PL + GW}
+                        y2={toY(val)}
+                        stroke="currentColor"
+                        className="text-muted-foreground/20"
+                        strokeWidth="0.5"
+                        strokeDasharray="4,4"
+                      />
+                    ))}
+
+                    {/* ── Time markers (X axis ticks + labels) ── */}
+                    {timeMarkers.map(marker => {
+                      const mx = toX(marker.progress)
+                      return (
+                        <g key={marker.label}>
+                          <line
+                            x1={mx}
+                            y1={PT + GH}
+                            x2={mx}
+                            y2={PT + GH + 6}
+                            stroke="currentColor"
+                            className="text-muted-foreground/40"
+                            strokeWidth="1"
+                          />
+                          <text
+                            x={mx}
+                            y={PT + GH + 18}
+                            textAnchor="middle"
+                            fontSize="9"
+                            fill="currentColor"
+                            className="text-muted-foreground"
+                          >
+                            {marker.label}
+                          </text>
+                        </g>
+                      )
+                    })}
+
+                    {/* ── Intensity curves + area fills per route ── */}
+                    {(() => {
+                      let globalDoseIdx = 0
+                      const globalTotal = visibleRoutes.reduce((s, r) => s + r.doses.length, 0)
+
+                      return visibleRoutes.map(rg => {
+                        const palette = ROUTE_PALETTE[rg.paletteIndex % ROUTE_PALETTE.length]
+                        const ri = group.routes.indexOf(rg)
+
+                        return (
+                          <g key={rg.route}>
+                            {rg.doses.map((d, doseIdx) => {
+                              const doseId = d.id ?? d.doseTime.getTime()
+                              const doseOffset = (d.doseTime.getTime() - group.windowStart.getTime()) / 60_000
+                              const curve = curvePath(d.timings, doseOffset, group.windowDuration)
+                              const area = areaPath(d.timings, doseOffset, group.windowDuration)
+                              const isPrimary = d === rg.primary
+                              const isEnded = d.status.phase === 'ended'
+                              const currentGlobalIdx = globalDoseIdx++
+
                               return (
-                                <DoseMarker
-                                  key={d.id}
-                                  d={d}
-                                  isPrimary={di === 0}
-                                  groupKey={group.key}
-                                  hex={palette.stroke}
-                                  offsetMins={doseOffsetMins}
-                                  windowDuration={group.windowDuration}
-                                  isFocused={focusedDoseId === d.id}
-                                />
+                                <g key={doseId} opacity={isEnded ? 0.35 : 1}>
+                                  <path d={area} fill={`url(#area-grad-${group.key}-${ri})`} />
+                                  <path
+                                    d={curve}
+                                    fill="none"
+                                    stroke={palette.stroke}
+                                    strokeWidth={isPrimary ? 2.5 : 1.5}
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    opacity={isPrimary ? 0.9 : 0.5}
+                                  />
+                                  <DoseMarker
+                                    d={d}
+                                    isPrimary={isPrimary}
+                                    groupKey={group.key}
+                                    hex={palette.stroke}
+                                    offsetMins={doseOffset}
+                                    windowDuration={group.windowDuration}
+                                    isFocused={focusedDoseId === doseId.toString()}
+                                    isMultiDose={globalTotal > 1}
+                                    doseIndex={currentGlobalIdx}
+                                  />
+                                </g>
                               )
                             })}
                           </g>
                         )
-                      })}
+                      })
+                    })()}
 
-                      {/* Time axis */}
-                      <g fontSize="10" fill="currentColor" className="text-muted-foreground/60">
-                        {marks.map((m, i) => (
-                          <text key={i} x={toX(m.progress)} y={SVG_H - 40 + 14} textAnchor="middle">
-                            {m.label}
-                          </text>
-                        ))}
-                      </g>
-
-                      {/* Route legend */}
-                      {isMultiRoute && (
+                    {/* ── Hover crosshair ── */}
+                    {tooltip && (() => {
+                      const hx = toX(tooltip.progress)
+                      const hy = toY(tooltip.intensity)
+                      return (
                         <g>
-                          {group.routes.map((rg, li) => {
-                            const palette    = ROUTE_PALETTE[rg.paletteIndex]
-                            const lx         = PL + li * 120
-                            const ly         = SVG_H - 7
-                            const isSelected = selectedRoute === rg.route
-                            const isIsolated = selectedRoute !== null && !isSelected
-                            return (
-                              <g key={rg.route}
-                                onClick={() => handleRouteClick(group.key, rg.route)}
-                                role="button"
-                                aria-pressed={isSelected}
-                                aria-label={`${isSelected ? 'Deselect' : 'Isolate'} ${rg.route} route`}
-                                className="cursor-pointer"
-                                opacity={isIsolated ? 0.35 : 1}
-                                style={{ transition: 'opacity 0.2s ease' }}
-                              >
-                                <rect x={lx - 2} y={ly - 14} width={90} height={16} fill="transparent" />
-                                <line x1={lx} y1={ly - 5} x2={lx + 26} y2={ly - 5}
-                                  stroke={palette.stroke} strokeWidth={isSelected ? 4 : 3.5} strokeLinecap="round" />
-                                <circle cx={lx + 13} cy={ly - 5} r="3" fill={palette.stroke} />
-                                <text x={lx + 32} y={ly} fontSize="11" fill={palette.stroke}
-                                  fontWeight={isSelected ? '700' : '600'}>
-                                  {rg.route}
-                                </text>
-                              </g>
-                            )
-                          })}
+                          <line
+                            x1={hx}
+                            y1={PT}
+                            x2={hx}
+                            y2={PT + GH}
+                            stroke="#ffffff44"
+                            strokeWidth="1"
+                            strokeDasharray="4,4"
+                          />
+                          <circle
+                            cx={hx}
+                            cy={hy}
+                            r="5"
+                            fill="#fff"
+                            stroke="#a855f7"
+                            strokeWidth="2"
+                          />
                         </g>
-                      )}
+                      )
+                    })()}
 
-                      {/* Hover crosshair */}
-                      {tip && (
-                        <line
-                          x1={toX(tip.progress)} y1={PT}
-                          x2={toX(tip.progress)} y2={PT + GH}
-                          stroke="#fff" strokeWidth="1.5" strokeDasharray="4,4" opacity="0.5"
-                        />
-                      )}
-                    </svg>
+                    {/* #1 — Now indicator: pulsing vertical line at current time */}
+                    {allActive && (() => {
+                      if (nowProgress < 0 || nowProgress > 100) return null
+                      const nx = toX(nowProgress)
+                      return (
+                        <g>
+                          <line
+                            x1={nx}
+                            y1={PT - 4}
+                            x2={nx}
+                            y2={PT + GH}
+                            stroke={NOW_INDICATOR.color}
+                            strokeWidth={NOW_INDICATOR.strokeWidth}
+                            strokeDasharray={NOW_INDICATOR.dashArray}
+                            opacity="0.6"
+                          />
+                          <circle
+                            cx={nx}
+                            cy={PT - 6}
+                            r={NOW_INDICATOR.dotRadius}
+                            fill={NOW_INDICATOR.color}
+                          >
+                            <animate
+                              attributeName="opacity"
+                              values="1;0.3;1"
+                              dur={`${NOW_INDICATOR.pulseDurationMs}ms`}
+                              repeatCount="indefinite"
+                            />
+                          </circle>
+                        </g>
+                      )
+                    })()}
+                  </svg>
 
-                    {/* Hover tooltip */}
-                    {tip && (
-                      <div className="mt-2 p-3 bg-gradient-to-r from-muted/80 to-muted/40 rounded-lg text-sm border border-border/50 backdrop-blur-sm space-y-2">
-                        <div className="flex items-center justify-between gap-4">
-                          <div className="flex items-center gap-2">
-                            <span className={`font-semibold ${
-                              tip.phase === 'Onset'   ? 'text-blue-400'
-                              : tip.phase === 'Comeup' ? 'text-amber-400'
-                              : tip.phase === 'Peak'   ? 'text-purple-400'
-                              : 'text-cyan-400'
-                            }`}>
-                              {tip.phase}
+                  {tooltip && tooltipScreenX !== undefined && (
+                    <div
+                      className="absolute z-20 pointer-events-none"
+                      style={{
+                        left: `${tooltipScreenX}px`,
+                        top: '0',
+                        transform: 'translateX(-50%)',
+                      }}
+                    >
+                      <div
+                        className="rounded-lg border border-white/20 bg-black/70 backdrop-blur-xl px-3 py-2.5 shadow-2xl min-w-[200px] max-w-[280px]"
+                        role="tooltip"
+                      >
+                        {/* Header: phase name + time + optional NOW badge */}
+                        <div className="flex items-center justify-between mb-2">
+                          <span
+                            className="text-xs font-semibold"
+                            style={{
+                              color: markerHex[tooltip.phase as keyof typeof markerHex] ?? '#a855f7',
+                            }}
+                          >
+                            {formatPhaseName(tooltip.phase)}
+                          </span>
+                          <div className="flex items-center gap-1.5">
+                            {/* Small "NOW" badge when hovering near the current time */}
+                            {(() => {
+                              const isNearNow = Math.abs(tooltip.progress - nowProgress) < 3
+                              if (!isNearNow) return null
+                              return (
+                                <span className="inline-flex items-center gap-0.5 px-1.5 py-0 rounded text-[9px] font-bold bg-rose-500/30 text-rose-300">
+                                  <span className="w-1 h-1 rounded-full bg-rose-400 animate-pulse" />
+                                  NOW
+                                </span>
+                              )
+                            })()}
+                            <span className="text-[10px] text-white/60">
+                              {format(tooltip.absoluteTime, 'h:mm a')}
                             </span>
-                            <span className="text-muted-foreground">{tip.phaseTime} from start</span>
                           </div>
-                          <span className="text-muted-foreground flex items-center gap-1">
-                            <Clock className="h-3 w-3" />
-                            {format(tip.absoluteTime, 'h:mm a')}
+                        </div>
+
+                        {/* #4 — Combined intensity bar (highlighted) */}
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="text-[10px] font-semibold text-white/50 w-20 shrink-0">
+                            Combined
+                          </span>
+                          <div className="flex-1 h-2 bg-white/10 rounded-full overflow-hidden">
+                            <div
+                              className="h-full rounded-full bg-gradient-to-r from-purple-500 to-pink-500 transition-all"
+                              style={{ width: `${Math.round(tooltip.intensity)}%` }}
+                            />
+                          </div>
+                          <span className="text-xs font-bold w-10 text-right text-purple-300">
+                            {Math.round(tooltip.intensity)}%
                           </span>
                         </div>
-                        <div className="space-y-1">
-                          <div className="flex items-center justify-between text-[10px] text-muted-foreground pb-0.5">
-                            <span>Estimated effect intensity at this moment</span>
-                            <span>0 → max</span>
-                          </div>
-                          {group.routes.map((rg) => {
-                            if (rg.primary.status.phase === 'ended') return null
-                            const palette       = ROUTE_PALETTE[rg.paletteIndex]
-                            const offsetMins    = (rg.primary.doseTime.getTime() - group.windowStart.getTime()) / 60_000
-                            const hoverMins     = (tip.progress / 100) * group.windowDuration
-                            const localMins     = hoverMins - offsetMins
-                            const localProgress = Math.max(0, Math.min(100, (localMins / rg.primary.timings.totalDuration) * 100))
-                            const intensity     = localMins < 0 || localMins > rg.primary.timings.totalDuration
-                              ? 0
-                              : Math.round(intensityAt(localProgress, rg.primary.timings))
-                            return (
-                              <div key={rg.route} className="flex items-center gap-2">
-                                <span className="text-xs font-semibold w-20 shrink-0" style={{ color: palette.stroke }}>{rg.route}</span>
-                                <div className="flex-1 h-1.5 bg-muted/50 rounded-full overflow-hidden">
-                                  <div className="h-full rounded-full transition-all"
-                                    style={{ width: `${intensity}%`, background: palette.stroke }} />
+
+                        {/* Per-route intensity bars */}
+                        {tooltip.routeIntensities && tooltip.routeIntensities.length > 1 && (
+                          <div className="space-y-1">
+                            {tooltip.routeIntensities.map(ri => {
+                              const palette = ROUTE_PALETTE[ri.paletteIndex % ROUTE_PALETTE.length]
+                              return (
+                                <div key={ri.route} className="flex items-center gap-2">
+                                  <span className="text-[10px] font-medium text-white/50 w-20 shrink-0 truncate capitalize">
+                                    {ri.route}
+                                  </span>
+                                  <div className="flex-1 h-1.5 bg-white/10 rounded-full overflow-hidden">
+                                    <div
+                                      className="h-full rounded-full transition-all"
+                                      style={{
+                                        width: `${Math.round(ri.intensity)}%`,
+                                        backgroundColor: palette.stroke,
+                                      }}
+                                    />
+                                  </div>
+                                  <span className="text-[10px] w-10 text-right text-white/70">
+                                    {Math.round(ri.intensity)}%
+                                  </span>
                                 </div>
-                                <span className="text-xs font-medium w-10 text-right" style={{ color: palette.stroke }}>
-                                  {intensity}%
-                                </span>
+                              )
+                            })}
+                          </div>
+                        )}
+
+                        {/* Bottom: intensity + time-in summary */}
+                        <div className="mt-2 pt-1.5 border-t border-white/10 flex items-baseline gap-2">
+                          <span className="text-base font-bold text-white">
+                            {Math.round(tooltip.intensity)}%
+                          </span>
+                          <span className="text-[10px] text-white/50">
+                            intensity · {tooltip.phaseTime} in
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* ── Footer: dose count + expand toggle ── */}
+                <div className="flex items-center justify-between text-[10px] text-muted-foreground">
+                  <span>
+                    {visibleRoutes.length} route{visibleRoutes.length !== 1 ? 's' : ''} ·{' '}
+                    {totalDoses} dose{totalDoses !== 1 ? 's' : ''}
+                  </span>
+                  <button
+                    onClick={() => setExpandedGroup(isExpanded ? null : group.key)}
+                    className="flex items-center gap-1 hover:text-foreground transition-colors"
+                  >
+                    {isExpanded ? (
+                      <>
+                        <ChevronUp className="h-3 w-3" />
+                        Less
+                      </>
+                    ) : (
+                      <>
+                        <ChevronDown className="h-3 w-3" />
+                        Phase details
+                      </>
+                    )}
+                  </button>
+                </div>
+
+                {/* #6 — Enhanced expanded phase details */}
+                {isExpanded && (
+                  <div className="mt-2 space-y-2">
+                    {visibleRoutes.map(rg => {
+                      const palette = ROUTE_PALETTE[rg.paletteIndex % ROUTE_PALETTE.length]
+                      return (
+                        <div key={rg.route} className="space-y-1.5">
+                          {/* Route header */}
+                          <div className="flex items-center gap-1.5">
+                            <span
+                              className="w-2 h-2 rounded-full"
+                              style={{ backgroundColor: palette.fill }}
+                            />
+                            <span className="text-xs font-medium capitalize">{rg.route}</span>
+                            {rg.uniformUnit && (
+                              <span className="text-[10px] text-muted-foreground">
+                                {rg.totalAmount}{rg.unit} total
+                              </span>
+                            )}
+                          </div>
+
+                          {/* Dose cards */}
+                          {rg.doses.map(d => {
+                            const doseId = d.id ?? d.doseTime.getTime()
+                            const PhaseIcon = phaseIcons[d.status.phase]
+
+                            const phases: { key: string; end: number }[] = [
+                              { key: 'onset',     end: d.timings.onsetEnd  },
+                              { key: 'comeup',    end: d.timings.comeupEnd },
+                              { key: 'peak',      end: d.timings.peakEnd   },
+                              { key: 'offset',    end: d.timings.offsetEnd },
+                              ...(d.timings.afterglowEnd > d.timings.offsetEnd
+                                ? [{ key: 'afterglow', end: d.timings.afterglowEnd }]
+                                : []),
+                            ]
+
+                            const phaseOrder = ['onset', 'comeup', 'peak', 'offset', 'afterglow']
+
+                            return (
+                              <div key={doseId} className="ml-4 space-y-1">
+                                {/* Dose amount header */}
+                                <div className="flex items-center gap-1.5 text-[10px] text-muted-foreground">
+                                  <span className="font-medium text-foreground">
+                                    {formatDoseAmount(d.amount, d.unit).amount}
+                                    {formatUnit(d.unit, d.amount)}
+                                  </span>
+                                  <span>·</span>
+                                  <span>{format(d.doseTime, 'h:mm a')}</span>
+                                  <span className={`inline-flex items-center gap-0.5 ${phaseColors[d.status.phase].text}`}>
+                                    <PhaseIcon className="h-3 w-3" />
+                                    {formatPhaseName(d.status.phase)}
+                                  </span>
+                                </div>
+
+                                {/* Phase detail cards */}
+                                {phases.map((p, pi) => {
+                                  const start = pi === 0 ? 0 : phases[pi - 1].end
+                                  const duration = Math.max(0, Math.round(p.end - start))
+                                  const isActive = d.status.phase === p.key
+                                  const currentPhaseIdx = phaseOrder.indexOf(d.status.phase)
+                                  const isPast = d.status.phase !== 'not_started' && d.status.phase !== 'ended'
+                                    ? currentPhaseIdx > pi
+                                    : false
+
+                                  // Intensity at the end of this phase
+                                  const phaseEndProgress = (p.end / d.timings.totalDuration) * 100
+                                  const phasePeakIntensity = intensityAt(phaseEndProgress, d.timings)
+
+                                  return (
+                                    <div
+                                      key={p.key}
+                                      className={`flex items-center gap-2 px-2 py-1.5 rounded-md text-xs transition-all ${
+                                        isActive
+                                          ? 'ring-1 ring-purple-500/30 bg-purple-500/5'
+                                          : isPast
+                                            ? 'opacity-50'
+                                            : 'opacity-30'
+                                      }`}
+                                    >
+                                      {(() => {
+                                        const phaseKey = p.key as PhaseName
+                                        const PhaseIcon = phaseIcons[phaseKey]
+                                        const pc = phaseColors[phaseKey]
+                                        return (
+                                          <>
+                                            {/* Phase icon */}
+                                            <PhaseIcon className={`h-3.5 w-3.5 shrink-0 ${pc.text}`} />
+
+                                            {/* Phase name + duration in parentheses */}
+                                            <span className={`font-medium w-16 ${pc.text}`}>
+                                              {formatPhaseName(phaseKey)}
+                                            </span>
+                                          </>
+                                        )
+                                      })()}
+                                      <span className="text-[10px] text-muted-foreground">
+                                        ({formatMinutes(duration)})
+                                      </span>
+
+                                      {/* Mini sparkline showing intensity curve shape (#6) */}
+                                      <PhaseSparkline
+                                        timings={d.timings}
+                                        phase={p.key}
+                                        isActive={isActive}
+                                      />
+
+                                      {/* Small intensity gauge bar (#6) */}
+                                      <div className="flex-1 h-1 bg-muted/50 rounded-full overflow-hidden max-w-[60px]">
+                                        <div
+                                          className="h-full rounded-full transition-all"
+                                          style={{
+                                            width: `${Math.round(phasePeakIntensity)}%`,
+                                            backgroundColor: palette.fill,
+                                            opacity: isActive ? 0.8 : 0.3,
+                                          }}
+                                        />
+                                      </div>
+
+                                      {/* Intensity value */}
+                                      <span className="text-[10px] font-mono text-muted-foreground w-8 text-right">
+                                        {Math.round(phasePeakIntensity)}%
+                                      </span>
+
+                                      {/* Pulsing dot for current phase (#6 highlight) */}
+                                      {isActive && (
+                                        <span className="w-1.5 h-1.5 rounded-full bg-purple-500 animate-pulse" />
+                                      )}
+                                    </div>
+                                  )
+                                })}
                               </div>
                             )
                           })}
                         </div>
-                        {/* Estimated duration note in tooltip */}
-                        {anyEstimated && (
-                          <p className="text-[10px] text-amber-400/70 border-t border-border/30 pt-2 flex items-center gap-1">
-                            <span>⚗</span>
-                            Timeline curve is based on interpolated duration data — actual timing may vary.
-                          </p>
-                        )}
-                        {/* Incomplete phases note in tooltip */}
-                        {anyIncompletePhases && (
-                          <p className="text-[10px] text-blue-400/70 border-t border-border/30 pt-2 flex items-center gap-1">
-                            <AlertTriangle className="h-2.5 w-2.5" />
-                            Phase timings are estimated from onset and total duration — individual phases may differ.
-                          </p>
-                        )}
-                      </div>
-                    )}
-                  </div>
-                )}
-
-                {/* ── Footer ───────────────────────────────────────────── */}
-                <div className="flex items-center justify-between text-sm pt-2 border-t border-border/50">
-                  <div className="flex items-center gap-4">
-                    {dose.status.phase !== 'not_started' && dose.status.phase !== 'ended' && (
-                      <>
-                        <span className={`${colors.text} font-medium`}>
-                          <Timer className="h-3 w-3 inline mr-1" />
-                          {formatMinutes(dose.status.totalRemaining)} remaining
-                        </span>
-                        <span className="text-muted-foreground">
-                          Phase: {formatMinutes(dose.status.timeRemaining)} left
-                        </span>
-                      </>
-                    )}
-                    {dose.status.phase === 'not_started' && (
-                      <span className="text-slate-400">
-                        Starts in {formatMinutes(dose.status.timeRemaining)}
-                      </span>
-                    )}
-                    {dose.status.phase === 'ended' && (
-                      <span className="text-gray-400 font-medium">
-                        <Clock className="h-3 w-3 inline mr-1" />
-                        Experience concluded
-                      </span>
-                    )}
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-muted-foreground text-xs">Total: {dose.duration?.total}</span>
-                    <button
-                      onClick={() => setExpandedGroup(isExpanded ? null : group.key)}
-                      className="p-1 hover:bg-muted/50 rounded transition-colors"
-                      aria-label={isExpanded ? 'Collapse phase details' : 'Expand phase details'}
-                      aria-expanded={isExpanded}
-                      aria-controls={expandedId}
-                    >
-                      {isExpanded ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
-                    </button>
-                  </div>
-                </div>
-
-                {/* ── Expanded phase details ────────────────────────────── */}
-                {isExpanded && (
-                  <div id={expandedId} className="pt-3 border-t border-border/50 space-y-3">
-                    <div className="grid grid-cols-4 gap-2 text-center text-xs">
-                      {([
-                        { label: 'Onset',  time: dose.duration?.onset,  pc: phaseColors.onset  },
-                        { label: 'Comeup', time: dose.duration?.comeup, pc: phaseColors.comeup },
-                        { label: 'Peak',   time: dose.duration?.peak,   pc: phaseColors.peak   },
-                        { label: 'Offset', time: dose.duration?.offset, pc: phaseColors.offset },
-                      ] as const).map((p) => (
-                        <div key={p.label} className={`p-2.5 rounded-lg ${p.pc.fill} border ${p.pc.border}`}>
-                          <div className={`font-semibold ${p.pc.text}`}>{p.label}</div>
-                          <div className="mt-0.5 text-foreground">{p.time || '—'}</div>
-                        </div>
-                      ))}
-                    </div>
-                    <div className="text-xs text-muted-foreground flex items-center gap-1.5 bg-muted/30 p-2 rounded">
-                      <Info className="h-3.5 w-3.5 flex-shrink-0" />
-                      <span>{phaseDescriptions[dose.status.phase]}</span>
-                    </div>
-                    {/* Estimated duration detail in expanded section */}
-                    {anyEstimated && (
-                      <div className="text-xs flex items-start gap-1.5 bg-amber-500/8 border border-amber-500/20 p-2 rounded">
-                        <span className="text-amber-400 shrink-0">⚗</span>
-                        <span className="text-amber-300/80">
-                          Duration interpolated from <span className="font-medium">{estimatedSourceRoute}</span> route data.
-                          Timeline is an estimate — actual phases may differ.
-                        </span>
-                      </div>
-                    )}
-                    {/* Incomplete phases disclaimer in expanded section */}
-                    {anyIncompletePhases && (
-                      <div className="text-xs flex items-start gap-1.5 bg-blue-500/8 border border-blue-500/20 p-2 rounded">
-                        <AlertTriangle className="h-3.5 w-3.5 text-blue-400 shrink-0 mt-0.5" />
-                        <span className="text-blue-300/80">
-                          <span className="font-medium text-blue-400">Incomplete duration data.</span> Only onset and total duration were provided.
-                          Phase timings (comeup, peak, offset) are estimated proportionally and may not reflect actual experience.
-                        </span>
-                      </div>
-                    )}
+                      )
+                    })}
                   </div>
                 )}
               </div>

@@ -52,6 +52,7 @@ export const pma: Substance =
       "Vasoconstriction"
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "oral": {
       "dosage": {
@@ -66,7 +67,8 @@ export const pma: Substance =
         "comeup": "Unknown",
         "peak": "Unknown",
         "offset": "Unknown",
-        "total": "Unknown"
+        "total": "Unknown",
+        "afterglow": "Unknown"
       }
     }
   },
@@ -82,8 +84,8 @@ export const pma: Substance =
     "DOx"
   ],
   "harmReduction": [
-    "PMA and its relative PMMA Toxicity can be considered extremely toxic when compared to other substances such as Methamphetamine or MDMA . Toxicity Ingestion of PMA has been associated with severe tachycardia (abnormally high heart rate), seizures, dehydration, hyperthermia, and death. PMA has a relatively slow onset, causing many users to redose which causes excess toxicity.",
-    "It is strongly recommended that one use harm reduction practices when using this substance."
+    "can be considered extremely toxic when compared to other substances such as Methamphetamine or MDMA",
+    "Ingestion of PMA has been associated with severe tachycardia (abnormally high heart rate), seizures, hyperthermia, and death"
   ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {

@@ -30,7 +30,7 @@ export const oxycodone: Substance =
     "opioids"
   ],
   "class": "Substituted morphinans",
-  "description": "Oxycodone (also known under brand names including Roxicodone, OxyContin, Percocet, Oxecta, OxyIR, Endone, Oxynorm, Faroxy and OxyNEO) is a semi-synthetic opioid synthesized from poppy-derived thebaine. It is a narcotic analgesic within the morphinan chemical class and is generally indicated for relief of moderate to severe pain. It was developed in 1916 in Germany as one of several new semi-synthetic opioids in an attempt to improve on the existing opioids.",
+  "description": "opiates\nOxycodone (also known under brand names including Roxicodone, OxyContin, Percocet, Oxecta, OxyIR, Endone, Oxynorm, Faroxy and OxyNEO) is a semi-synthetic opioid synthesized from poppy-derived thebaine. It is a narcotic analgesic within the morphinan chemical class and is generally indicated for relief of moderate to severe pain. It was developed in 1916 in Germany as one of several new semi-synthetic opioids in an attempt to improve on the existing opioids.",
   "effects": {
     "positive": [
       "Euphoria - In comparison to other opioids, this particular substance can be considered similar in its physical euphoria when compared with that of morphine or diacetylmorphine (heroin) and more intense when compared to kratom and hydrocodone. The sensation itself can be described as extreme feelings of intense physical comfort, warmth, love and bliss.",
@@ -63,6 +63,7 @@ export const oxycodone: Substance =
       "Irritability - While opioids are well known for their ability to improve mood, they can also have the paradoxical effect of increasing the user's sensitivity to irritable stimuli. This can manifest as aloofness and sudden outbursts of anger and aggression (colloquially known as \\\"opiate rage\\\"). It appears to occur more frequently during the comedown of the experience and/or with heavy use."
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "insufflated": {
       "dosage": {
@@ -77,7 +78,8 @@ export const oxycodone: Substance =
         "comeup": "20-40 minutes",
         "peak": "1.5-4 hours",
         "offset": "45-120 minutes",
-        "total": "3-5 hours"
+        "total": "3-5 hours",
+        "afterglow": "Unknown"
       }
     },
     "intravenous": {
@@ -93,7 +95,8 @@ export const oxycodone: Substance =
         "comeup": "Unknown",
         "peak": "3-5 hours",
         "offset": "Unknown",
-        "total": "3-5 hours"
+        "total": "3-5 hours",
+        "afterglow": "Unknown"
       }
     },
     "oral": {
@@ -109,7 +112,8 @@ export const oxycodone: Substance =
         "comeup": "60-120 minutes",
         "peak": "1-2 hours",
         "offset": "0-2 hours",
-        "total": "4-8 hours"
+        "total": "4-8 hours",
+        "afterglow": "Unknown"
       }
     },
     "smoked": {
@@ -125,7 +129,8 @@ export const oxycodone: Substance =
         "comeup": "Unknown",
         "peak": "Unknown",
         "offset": "Unknown",
-        "total": "1-3 hours"
+        "total": "1-3 hours",
+        "afterglow": "Unknown"
       }
     }
   },
@@ -141,11 +146,8 @@ export const oxycodone: Substance =
     "Grapefruit"
   ],
   "harmReduction": [
-    "Oxycodone has a low toxicity relative to dose. As with all opioids, long-term effects can vary but can include diminished libido, apathy, and memory loss. It is also Toxicity potentially lethal when mixed with depressants like alcohol or benzodiazepines.",
-    "It is strongly recommended that one use harm reduction practices when using this drug.",
-    "As with other opioids, the chronic use of oxycodone can be considered moderately addictive with a high potential for abuse and is capable of causing psychological dependence among certain users. When addiction has developed, cravings and  may occur if a person suddenly stops their usage.",
-    "Tolerance to many of the effects of oxycodone develops with prolonged and repeated use. The rate at which this occurs develops at different rates for different effects, with tolerance to the constipation-inducing effects developing particularly slowly for instance. This results in users having to administer increasingly large doses to achieve the same effects. After that, it takes about 3 - 7 days for the tolerance to be reduced to half and 1 - 2 weeks to be back at baseline (in the absence of further consumption). Oxycodone presents cross-tolerance with all other opioids, meaning that after the consumption of oxycodone all opioids will have a reduced effect.",
-    "The risk of fatal opioid overdoses rise sharply after a period of cessation and relapse, largely because of reduced tolerance. To account for this lack of tolerance, it is safer to only dose a fraction of one's usual dosage if relapsing. It has also been found that the environment one is in can play a role in opioid tolerance. In one scientific study, rats with the same history of heroin administration were significantly more likely to die after receiving their dose in an environment not associated with the drug in contrast to a familiar environment."
+    "low toxicity",
+    "potentially lethal when mixed with depressants like alcohol or benzodiazepines"
   ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {

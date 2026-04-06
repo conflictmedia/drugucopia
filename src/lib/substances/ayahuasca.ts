@@ -129,9 +129,9 @@ export const ayahuasca: Substance =
         "comeup": "Unknown",
         "peak": "1-2 hours",
         "offset": "1-2 hours",
-        "total": "5-10 hours"
-      },
-      "notes": "Afterglow: 1-8 hours"
+        "total": "5-10 hours",
+        "afterglow": "1-8 hours"
+      }
     }
   },
   "interactions": [],

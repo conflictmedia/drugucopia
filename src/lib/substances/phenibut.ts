@@ -67,6 +67,7 @@ export const phenibut: Substance =
       "Depression - A low mood can be experienced as an after-effect of high or frequent dosing."
     ]
   },
+  "defaultUnit": "g",
   "routeData": {
     "oral": {
       "dosage": {
@@ -81,22 +82,15 @@ export const phenibut: Substance =
         "comeup": "1.5-3 hours",
         "peak": "3-4 hours",
         "offset": "4-6 hours",
-        "total": "10-16 hours"
-      },
-      "notes": "Afterglow: 6-24 hours"
+        "total": "10-16 hours",
+        "afterglow": "6-24 hours"
+      }
     }
   },
   "interactions": [],
   "harmReduction": [
-    "Phenibut has a low toxicity relative to dose. However, it is Toxicity potentially lethal when mixed with depressants like alcohol, benzodiazepines or opioids.",
-    "Phenibut hydrochloride is highly caustic and in sensitive users can cause intestinal discomfort and diarrhea with some lower digestive tract bleeding.",
-    "Due to the extremely long come up period relative to other substances, some users may experience an urge to redose out of the belief that it is weak or not working. This should be avoided to prevent overdose.",
-    "It is strongly recommended that one use harm reduction practices when using this substance.",
-    "Phenibut is moderately physically and psychologically addictive, although this usually only occurs with heavy abuse of the substance.",
-    "Tolerance will develop to the sedative-hypnotic effects within a couple of days of continuous use.",
-    "After cessation, the tolerance returns to baseline in 7 - 14 days.",
-    "Withdrawal symptoms or rebound symptoms may occur after ceasing usage abruptly following a few weeks or longer of steady dosing and may necessitate a gradual dose reduction. Withdrawal symptoms include severe anxiety, nervousness, hallucinations, tremors, agitation, dizziness, tension, irritation, rapid heartbeat, fatigue, loss of appetite, nausea, vomiting, psychosis, and insomnia.",
-    "Phenibut produces cross-tolerance with all GABAgenic depressants, meaning that after its consumption, depressants will have a reduced effect."
+    "low toxicity",
+    "potentially lethal when mixed with depressants like alcohol, benzodiazepines or opioids"
   ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {

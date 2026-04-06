@@ -68,6 +68,7 @@ export const _4_aco_dipt: Substance =
       "Physical fatigue"
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "oral": {
       "dosage": {
@@ -82,9 +83,9 @@ export const _4_aco_dipt: Substance =
         "comeup": "20-40 minutes",
         "peak": "1.5-2 hours",
         "offset": "1-1.5 hours",
-        "total": "3-4 hours"
-      },
-      "notes": "Afterglow: 2-6 hours"
+        "total": "3-4 hours",
+        "afterglow": "2-6 hours"
+      }
     }
   },
   "interactions": [
@@ -92,10 +93,7 @@ export const _4_aco_dipt: Substance =
     "Tramadol"
   ],
   "harmReduction": [
-    "The toxicity and long-term health effects of recreational 4-AcO-DiPT use do not seem to have been studied in any scientific context and the exact toxic dose is unknown. This is because 4-AcO-DiPT is a research chemical with very little history of human usage. Anecdotal evidence from people within the psychonaut community who have tried 4-AcO-DiPT suggests that there are no negative health effects attributed to simply trying the drug by itself at low to moderate doses and using it very sparingly (although nothing can be completely guaranteed). Independent research should always be done to ensure that a combination of two or more substances is safe before consumption.",
-    "It is strongly recommended that one use harm reduction practices when using this drug.",
-    "4-AcO-DiPT is not habit-forming and the desire to use it can actually decrease with repeated administration. As with most psychedelics, it is generally considered to have a built-in, self-regulating aspect. However, it should be noted that due to the distinctly hedonic effects this substance produces, it may possess a higher liability for frequent or excessive consumption relative to most psychedelics.",
-    "Tolerance to the effects of 4-AcO-DiPT is built almost immediately after ingestion. Afterward, it takes about 3 days for the tolerance to be reduced to half and 7 days to be back at baseline (in the absence of further consumption). 4-AcO-DiPT presents cross-tolerance with all psychedelics, meaning that after the consumption of 4-AcO-DiPT all psychedelics will have a reduced effect."
+    "toxic dose is unknown"
   ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {

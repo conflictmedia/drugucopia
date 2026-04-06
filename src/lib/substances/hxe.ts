@@ -58,6 +58,7 @@ export const hxe: Substance =
       "Suppression"
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "insufflated": {
       "dosage": {
@@ -72,9 +73,9 @@ export const hxe: Substance =
         "comeup": "20-40 minutes",
         "peak": "1.5-4 hours",
         "offset": "2-4 hours",
-        "total": "3-6 hours"
-      },
-      "notes": "Afterglow: 2-7 hours"
+        "total": "3-6 hours",
+        "afterglow": "2-7 hours"
+      }
     },
     "oral": {
       "dosage": {
@@ -89,9 +90,9 @@ export const hxe: Substance =
         "comeup": "30-60 minutes",
         "peak": "2-4 hours",
         "offset": "3-6 hours",
-        "total": "3-8 hours"
-      },
-      "notes": "Afterglow: 1-12 hours"
+        "total": "3-8 hours",
+        "afterglow": "1-12 hours"
+      }
     },
     "sublingual": {
       "dosage": {
@@ -106,23 +107,13 @@ export const hxe: Substance =
         "comeup": "30-60 minutes",
         "peak": "2-4 hours",
         "offset": "2-6 hours",
-        "total": "3-6 hours"
-      },
-      "notes": "Afterglow: 1-12 hours"
+        "total": "3-6 hours",
+        "afterglow": "1-12 hours"
+      }
     }
   },
   "interactions": [],
-  "harmReduction": [
-    "The toxicity and long-term health effects of recreational HXE use do not seem to have been studied in any scientific context and the exact toxic dosage is unknown. This is because HXE has very little history of human usage.",
-    "It is strongly recommended that one use harm reduction practices when using this substance.",
-    "The lethal dosage of HXE is not known. Based on it's effect it could probably be assumed, that it might carry roughly the same risk of death like similar compounds like DMXE or MXPr.",
-    "As with other nmda receptor antagonists, the chronic use of HXE can be considered moderately addictive with a high potential for abuse and is capable of producing psychological dependence among certain users.",
-    "when addiction has developed, cravings and withdrawal effects may occur if a person suddenly stops their usage.",
-    "tolerance to many of the effects of HXE develops with prolonged and repeated use.",
-    "this results in users having to administer increasingly large doses to achieve the same effects.",
-    "after that, it takes about 3 - 7 days for the tolerance to be reduced to half and 1 - 2 weeks to be back at baseline (in the absence of further consumption).",
-    "HXE presents cross-tolerance with cross-tolerance all dissociatives, meaning that after the consumption of HXE all dissociatives will have a reduced effect."
-  ],
+  "harmReduction": [],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {
     "formula": "Unknown",

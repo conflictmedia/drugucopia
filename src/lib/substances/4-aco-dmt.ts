@@ -83,6 +83,7 @@ export const _4_aco_dmt: Substance =
       "Auditory hallucination"
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "insufflated": {
       "dosage": {
@@ -97,9 +98,9 @@ export const _4_aco_dmt: Substance =
         "comeup": "30-60 minutes",
         "peak": "1.5-2.5 hours",
         "offset": "1-1.5 hours",
-        "total": "3-5 hours"
-      },
-      "notes": "Afterglow: 2+ hours"
+        "total": "3-5 hours",
+        "afterglow": "2+ hours"
+      }
     },
     "oral": {
       "dosage": {
@@ -114,9 +115,9 @@ export const _4_aco_dmt: Substance =
         "comeup": "30-75 minutes",
         "peak": "2-3.5 hours",
         "offset": "1-2 hours",
-        "total": "4-7 hours"
-      },
-      "notes": "Afterglow: 4-48 hours"
+        "total": "4-7 hours",
+        "afterglow": "4-48 hours"
+      }
     }
   },
   "interactions": [
@@ -124,15 +125,7 @@ export const _4_aco_dmt: Substance =
     "Tramadol"
   ],
   "harmReduction": [
-    "The toxicity and long-term health effects of 4-AcO-DMT have not been studied and the exact toxic dose is unknown.",
-    "This is because 4-AcO-DMT is a research chemical with a very short history of human usage.",
-    "4-AcO-DMT is assumed to have a similar safety profile as psilocybin mushrooms due to their similar chemical structures, although there is currently no data to support this.",
-    "Anecdotal evidence suggests that there are no negative health effects attributed to simply trying 4-AcO-DMT by itself at low to moderate doses and using it very sparingly (but nothing can be completely guaranteed). Independent research should always be done to ensure that a combination of two or more substances is safe before consumption.",
-    "It is strongly recommended that one use harm reduction practices when using this substance.",
-    "Like other psychedelics, 4-AcO-DMT is considered to be non-addictive with low potential for abuse.",
-    "Tolerance to the effects of 4-AcO-DMT is built almost immediately after ingestion.",
-    "After that, it takes about 7 days for tolerance to return to baseline (in the absence of further consumption).",
-    "4-AcO-DMT produces cross-tolerance with all psychedelics, meaning that after the consumption of 4-AcO-DMT all psychedelics will have a reduced effect."
+    "toxic dose is unknown"
   ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {

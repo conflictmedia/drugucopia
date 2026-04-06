@@ -62,6 +62,7 @@ export const tma_6: Substance =
       "Hallucinations"
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "oral": {
       "dosage": {
@@ -76,9 +77,9 @@ export const tma_6: Substance =
         "comeup": "1.5-3 hours",
         "peak": "5-8 hours",
         "offset": "3-5 hours",
-        "total": "10-16 hours"
-      },
-      "notes": "Afterglow: 6-18 hours"
+        "total": "10-16 hours",
+        "afterglow": "6-18 hours"
+      }
     }
   },
   "interactions": [
@@ -89,9 +90,7 @@ export const tma_6: Substance =
     "5-HTP"
   ],
   "harmReduction": [
-    "The toxicity and long-term health effects of recreational TMA-6 use do not seem to have been studied in any scientific context and the exact toxic dose is unknown. This is because TMA-6 has very little history of human usage. Anecdotal evidence from people within the psychonaut community who have tried TMA-6 suggests that there are no negative health effects attributed to simply trying the drug by itself at low to moderate doses and using it very sparingly (but nothing can be completely guaranteed). Independent research should always be done to ensure that a combination of two or more substances is safe before consumption.",
-    "Though largely unstudied TMA-6 is largely considered to be not habit-forming and the desire to use it can actually decrease with consumption. It is most often self-regulating.",
-    "Tolerance to the effects of TMA-6 are built almost immediately after ingestion. After that, it takes about 3 days for the tolerance to be reduced to half and 7 days to be back at baseline (in the absence of further consumption). TMA-6 presents cross-tolerance with all psychedelics, meaning that after the consumption of TMA-6 all psychedelics and stimulants will have a reduced effect."
+    "toxic dose is unknown"
   ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {

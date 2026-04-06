@@ -55,9 +55,9 @@ export const blue_lotus: Substance =
         "comeup": "5-10 minutes",
         "peak": "1-2 hours",
         "offset": "2-2.5 hours",
-        "total": "6-8 hours"
-      },
-      "notes": "Afterglow: 6-8 hours"
+        "total": "6-8 hours",
+        "afterglow": "6-8 hours"
+      }
     },
     "smoked": {
       "dosage": {
@@ -72,17 +72,13 @@ export const blue_lotus: Substance =
         "comeup": "Unknown",
         "peak": "Unknown",
         "offset": "Unknown",
-        "total": "Unknown"
+        "total": "Unknown",
+        "afterglow": "Unknown"
       }
     }
   },
   "interactions": [],
-  "harmReduction": [
-    "The toxicity of Blue Lotus is misunderstood and poorly researched. Only the pure alkaloids have been tested with little toxicity, however, mixing Blue Lotus with other substances could present a risk.",
-    "It is strongly recommended that one use harm reduction practices when using this substance.",
-    "There are no studies on aporphine in animals. However, studies on subcutaneous apomorphine injection, the bioactive form of aporphine, have been carried out. In a 5-day study, mice were administered up to 10 mg/kg apomorphine subcutaneously daily. No adverse effects were observed other than a slight increase in dopamine levels.",
-    "Blue Lotus is not thought to be addictive. Its compounds have been used in the treatment of alcohol and morphine addiction."
-  ],
+  "harmReduction": [],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {
     "formula": "Unknown",

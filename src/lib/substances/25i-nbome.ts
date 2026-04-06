@@ -103,6 +103,7 @@ export const _25i_nbome: Substance =
       "Hallucinations"
     ]
   },
+  "defaultUnit": "µg",
   "routeData": {
     "insufflated": {
       "dosage": {
@@ -117,9 +118,9 @@ export const _25i_nbome: Substance =
         "comeup": "10-30 minutes",
         "peak": "60-120 minutes",
         "offset": "120-180 minutes",
-        "total": "4-6 hours"
-      },
-      "notes": "Afterglow: 1-7 days"
+        "total": "4-6 hours",
+        "afterglow": "1-7 days"
+      }
     },
     "sublingual": {
       "dosage": {
@@ -134,9 +135,9 @@ export const _25i_nbome: Substance =
         "comeup": "30-120 minutes",
         "peak": "2-4 hours",
         "offset": "1-4 hours",
-        "total": "6-10 hours"
-      },
-      "notes": "Afterglow: 3-6 days"
+        "total": "6-10 hours",
+        "afterglow": "3-6 days"
+      }
     }
   },
   "interactions": [
@@ -148,9 +149,7 @@ export const _25i_nbome: Substance =
     "Tramadol"
   ],
   "harmReduction": [
-    "Short-term as well as long-term damage of NBOMes have been occasionally tied to serious physical and mental problems on seemingly random people, including memory and speech difficulties, heart problems, HPPD and in some cases Anxiety and PTSD, from particularly difficult experiences.",
-    "25I-NBOMe is a relatively new substance, and little is known about its pharmacological risks or its interaction with other substances. The LD50 has not yet been determined although it is potentially fatal at heavy dosages. PsychonautWiki advises that due to 25I-NBOMe's extreme potency it should not be insufflated as this method of administration appears to have led to several deaths in the past year.",
-    "This substance came to media attention in early 2012 after a cluster of seven non-fatal overdoses with the drug were reported in or around Richmond, Virginia. As of May 2013, 25I-NBOMe has reportedly led to five overdose deaths in the United States."
+    "potentially fatal at heavy dosages"
   ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {

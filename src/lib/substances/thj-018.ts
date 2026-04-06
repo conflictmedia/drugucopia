@@ -53,6 +53,7 @@ export const thj_018: Substance =
       "Psychosis - The prolonged usage of synthetic cannabinoids may increase one's disposition to psychosis, particularly in vulnerable individuals with risk factors for psychotic illnesses (like a past or family history of schizophrenia)."
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "smoked": {
       "dosage": {
@@ -67,22 +68,16 @@ export const thj_018: Substance =
         "comeup": "Unknown",
         "peak": "60-90 minutes",
         "offset": "5-10 minutes",
-        "total": "2-3 hours"
-      },
-      "notes": "Afterglow: 60-90 minutes"
+        "total": "2-3 hours",
+        "afterglow": "60-90 minutes"
+      }
     }
   },
   "interactions": [
     "Lithium"
   ],
   "harmReduction": [
-    "The toxicity and long-term health effects of recreational THJ-018 use do not seem to have been studied in any scientific context and the exact toxic dosage is unknown. This is because THJ-018 has very little history of human usage. Anecdotal evidence from people who have tried THJ-018 within the community suggest that there do not seem to be any negative health effects attributed to simply trying this drug at low to moderate doses by itself and using it sparingly (but nothing can be completely guaranteed). Informal experiments have shown that overdose will cause physical discomfort including heart palpitations, vertigo and sedation at much lower than dangerous doses, usually causing the user to suffer large amounts of anxiety or to fall asleep.",
-    "It has often been recommended that those with severe pre-existing mental conditions should not ingest these substances due to the way they strongly increase one's current state of mind and emotions. Also, like THC, prolonged usage of synthetic cannabinoids may increase one's disposition to mental illness and psychosis, particularly in vulnerable individuals with risk factors for psychotic illnesses (like a past or family history of schizophrenia).",
-    "As synthetic cannabinoids are active in the milligram range (with below 5mg being a common dose), it is important to use proper precautions when dosing to avoid a negative experience.",
-    "It is strongly recommended that one use harm reduction practices when using this drug.",
-    "As with other synthetic cannibanoids, the chronic use of THJ-018 can be considered moderately addictive with a high potential for abuse and is capable of causing psychological dependence among certain users. When addiction has developed, cravings and withdrawal effects may occur if a person suddenly stops their usage.",
-    "Tolerance to many of the effects of THJ-018 develops with prolonged and repeated use. This results in users having to administer increasingly large doses to achieve the same effects. After that, it takes about 3 - 7 days for the tolerance to be reduced to half and 1 - 2 weeks to be back at baseline (in the absence of further consumption). THJ-018 presents cross-tolerance with all cannabinoids, meaning that after the consumption of THJ-018 all cannabinoids will have a reduced effect.",
-    "Although there is no valid data on the toxicity of synthetic cannabinoids so far, there is concern that the naphthalene group found in THJ-018 and some other synthetic cannabinoids may be toxic or carcinogenic."
+    "exact toxic dosage is unknown"
   ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {

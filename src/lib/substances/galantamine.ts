@@ -43,6 +43,7 @@ export const galantamine: Substance =
       "Hallucinations"
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "oral": {
       "dosage": {
@@ -57,16 +58,14 @@ export const galantamine: Substance =
         "comeup": "Unknown",
         "peak": "Unknown",
         "offset": "Unknown",
-        "total": "6-12 hours"
+        "total": "6-12 hours",
+        "afterglow": "Unknown"
       }
     }
   },
   "interactions": [],
   "harmReduction": [
-    "Galantamine is non-addictive, is not known to cause harm in reasonable doses, and has an extremely low toxicity relative to dose. Various studies have shown that in reasonable doses in a careful context, it presents few negative cognitive, psychiatric or toxic physical consequences, though some exist.",
-    "It is strongly recommended that one be familiar with harm reduction practices when using this drug.",
-    "Galantamine is not known to be not habit-forming and the desire to use it can actually decrease with use. It is most often self-regulating.",
-    "Galantamine does not seem to build up an immediate tolerance, and, due to its long half life, becomes stronger with prolonged use. Caution should be heeded when taking galantamine for extended periods longer than two weeks. Galantamine presents cross-tolerance with no other known compounds, meaning that after the consumption of Galantamine all other psychoactive compounds will not have a reduced effect."
+    "extremely low toxicity"
   ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {

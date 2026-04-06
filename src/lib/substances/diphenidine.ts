@@ -63,6 +63,7 @@ export const diphenidine: Substance =
       "Auditory hallucination"
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "oral": {
       "dosage": {
@@ -77,9 +78,9 @@ export const diphenidine: Substance =
         "comeup": "Unknown",
         "peak": "Unknown",
         "offset": "Unknown",
-        "total": "2-5 hours"
-      },
-      "notes": "Afterglow: 4-24 hours"
+        "total": "2-5 hours",
+        "afterglow": "4-24 hours"
+      }
     },
     "rectal": {
       "dosage": {
@@ -94,7 +95,8 @@ export const diphenidine: Substance =
         "comeup": "Unknown",
         "peak": "Unknown",
         "offset": "Unknown",
-        "total": "5-7 hours"
+        "total": "5-7 hours",
+        "afterglow": "Unknown"
       }
     },
     "smoked": {
@@ -110,9 +112,9 @@ export const diphenidine: Substance =
         "comeup": "Unknown",
         "peak": "0.5-2 hours",
         "offset": "20-40 minutes",
-        "total": "1-3 hours"
-      },
-      "notes": "Afterglow: 2-5 hours"
+        "total": "1-3 hours",
+        "afterglow": "2-5 hours"
+      }
     }
   },
   "interactions": [
@@ -120,12 +122,7 @@ export const diphenidine: Substance =
     "Depressants"
   ],
   "harmReduction": [
-    "The toxicity and long-term health effects of recreational diphenidine use do not appear to have been studied in any scientific context and the exact toxic dosage is unknown. This is because diphenidine has very little history of human usage.",
-    "Some anecdotal reports suggest diphenidine may increase the risk of mania and psychosis. This is common with many dissociatives, particularly with those that provide stimulation such as PCP.",
-    "It has been reported that regular use can lead to increased blood pressure and rapid heart rate.",
-    "It is strongly recommended that one use harm reduction practices when using this substance.",
-    "As with other NMDA receptor antagonists, the chronic use of diphenidine can be considered moderately addictive with a high potential for abuse. It is likely capable of causing psychological dependence among certain users. When addiction has developed, cravings and withdrawal effects may occur if one suddenly stops their usage.",
-    "Tolerance to many of the effects of diphenidine develops with prolonged and repeated use. This results in users having to administer increasingly large doses to achieve the same effects. After that, it takes about 3 - 7 days for the tolerance to be reduced to half and 1 - 2 weeks to be back at baseline (in the absence of further consumption). Diphenidine presents cross-tolerance with all dissociatives, meaning that after the consumption of diphenidine all dissociatives will have a reduced effect."
+    "exact toxic dosage is unknown"
   ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {

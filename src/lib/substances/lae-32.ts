@@ -30,6 +30,7 @@ export const lae_32: Substance =
       "Personality regression"
     ]
   },
+  "defaultUnit": "µg",
   "routeData": {
     "oral": {
       "dosage": {
@@ -44,7 +45,8 @@ export const lae_32: Substance =
         "comeup": "Unknown",
         "peak": "Unknown",
         "offset": "Unknown",
-        "total": "4-10 hours"
+        "total": "4-10 hours",
+        "afterglow": "Unknown"
       }
     }
   },

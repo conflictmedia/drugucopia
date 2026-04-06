@@ -45,6 +45,7 @@ export const fenethylline: Substance =
       "Motivation suppression"
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "oral": {
       "dosage": {
@@ -59,7 +60,8 @@ export const fenethylline: Substance =
         "comeup": "Unknown",
         "peak": "Unknown",
         "offset": "Unknown",
-        "total": "3-4 hours"
+        "total": "3-4 hours",
+        "afterglow": "Unknown"
       }
     }
   },

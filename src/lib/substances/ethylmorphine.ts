@@ -20,7 +20,7 @@ export const ethylmorphine: Substance =
     "opioids"
   ],
   "class": "Substituted morphinans",
-  "description": "Ethylmorphine, also known as codethyline and dionine, is a semi-synthetic morphinan opioid first created by Merck in 1884 and used as a weaker alternative to morphine. Today, it is most commonly used as an antitussive which is available in cough syrup preparations like Cocillana, Cosylan, Solvipect comp. (in combination with guaifenesin) and Lepheton (in combination with ephedrine), or in tablet form sold as Tussipax (in combination with codeine).",
+  "description": "opiates\nEthylmorphine, also known as codethyline and dionine, is a semi-synthetic morphinan opioid first created by Merck in 1884 and used as a weaker alternative to morphine. Today, it is most commonly used as an antitussive which is available in cough syrup preparations like Cocillana, Cosylan, Solvipect comp. (in combination with guaifenesin) and Lepheton (in combination with ephedrine), or in tablet form sold as Tussipax (in combination with codeine).",
   "effects": {
     "positive": [
       "Euphoria - This particular substance can be considered as less intense in its physical euphoria when compared with that of morphine or diacetylmorphine (heroin).",
@@ -47,6 +47,7 @@ export const ethylmorphine: Substance =
       "Orgasm suppression"
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "oral": {
       "dosage": {
@@ -61,7 +62,8 @@ export const ethylmorphine: Substance =
         "comeup": "Unknown",
         "peak": "Unknown",
         "offset": "Unknown",
-        "total": "4-5 hours"
+        "total": "4-5 hours",
+        "afterglow": "Unknown"
       }
     }
   },
@@ -77,10 +79,8 @@ export const ethylmorphine: Substance =
     "Grapefruit"
   ],
   "harmReduction": [
-    "Ethylmorphine has a low toxicity relative to dose. However, despite its relatively low toxicity for an opioid, at least one death has been attributed to oral consumption of ethylmorphine alone, without the presence of other depressants. As with all opioids, long-term effects can vary but can include diminished libido, apathy and memory loss. It is also Toxicity potentially lethal when mixed with depressants like alcohol or benzodiazepines.",
-    "It is strongly recommended that one use harm reduction practices when using this drug.",
-    "As with other opioids, the chronic use of ethylmorphine can be very addictive with a high potential for abuse and is capable of causing psychological dependence among certain users. When addiction has developed, cravings and  may occur if a person suddenly stops their usage.",
-    "Tolerance to many of the effects of ethylmorphine develops with prolonged and repeated use. The rate at which this occurs develops at different rates for different effects, with tolerance to the constipation-inducing effects developing particularly slowly for instance. This results in users having to administer increasingly large doses to achieve the same effects. After that, it takes about 3 - 7 days for the tolerance to be reduced to half and 1 - 2 weeks to be back at baseline (in the absence of further consumption). Ethylmorphine presents cross-tolerance with all other opioids, meaning that after the consumption of ethylmorphine all opioids will have a reduced effect."
+    "low toxicity",
+    "potentially lethal when mixed with depressants like alcohol or benzodiazepines"
   ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {

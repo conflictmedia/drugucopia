@@ -4,6 +4,7 @@ export interface Duration {
   peak: string
   offset: string
   total: string
+  afterglow?: string
 }
 
 export interface DoseLog {

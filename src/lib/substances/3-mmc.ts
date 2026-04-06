@@ -82,6 +82,7 @@ export const _3_mmc: Substance =
       "Motivation suppression"
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "insufflated": {
       "dosage": {
@@ -96,9 +97,9 @@ export const _3_mmc: Substance =
         "comeup": "10-20 minutes",
         "peak": "1-1.5 hours",
         "offset": "1-2 hours",
-        "total": "2.5-4.5 hours"
-      },
-      "notes": "Afterglow: 1-1.5 hours"
+        "total": "2.5-4.5 hours",
+        "afterglow": "1-1.5 hours"
+      }
     },
     "intravenous": {
       "dosage": {
@@ -113,9 +114,9 @@ export const _3_mmc: Substance =
         "comeup": "1-2 minutes",
         "peak": "1-1.5 hours",
         "offset": "1-2 hours",
-        "total": "2-4 hours"
-      },
-      "notes": "Afterglow: 1-2 Hours"
+        "total": "2-4 hours",
+        "afterglow": "1-2 Hours"
+      }
     },
     "oral": {
       "dosage": {
@@ -130,9 +131,9 @@ export const _3_mmc: Substance =
         "comeup": "30-60 minutes",
         "peak": "2-3 hours",
         "offset": "1-1.5 hours",
-        "total": "4-6 hours"
-      },
-      "notes": "Afterglow: 2-4 hours"
+        "total": "4-6 hours",
+        "afterglow": "2-4 hours"
+      }
     }
   },
   "interactions": [
@@ -148,12 +149,7 @@ export const _3_mmc: Substance =
     "MDMA",
     "Stimulants"
   ],
-  "harmReduction": [
-    "As with most research chemicals, the long-term effects of 3-MMC have not been researched extensively enough to provide accurate information of its risks and harm.",
-    "It is strongly recommended that one use harm reduction practices when using this substance.",
-    "As with other stimulants, the chronic use of 3-MMC can be considered extremely addictive with a high potential for abuse and is capable of causing psychological dependence among certain users. When addiction has developed, cravings and withdrawal effects may occur if a person suddenly stops their usage. It is said that this compound is considerably more addictive than that of mephedrone.",
-    "Tolerance to many of the effects of 3-MMC develops with prolonged and repeated use. This results in users having to administer increasingly large doses to achieve the same effects. After that, it takes about 3 - 7 days for the tolerance to be reduced to half and 1 - 2 weeks to be back at baseline (in the absence of further consumption). 3-MMC presents cross-tolerance with all dopaminergic stimulants, meaning that after the consumption of 3-MMC all stimulants will have a reduced effect."
-  ],
+  "harmReduction": [],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {
     "formula": "Unknown",

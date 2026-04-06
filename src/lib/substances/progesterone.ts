@@ -40,6 +40,7 @@ export const progesterone: Substance =
       "Dizziness"
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "oral": {
       "dosage": {
@@ -54,9 +55,9 @@ export const progesterone: Substance =
         "comeup": "Unknown",
         "peak": "Unknown",
         "offset": "Unknown",
-        "total": "2-4 hours"
-      },
-      "notes": "Afterglow: 4-6 hours"
+        "total": "2-4 hours",
+        "afterglow": "4-6 hours"
+      }
     },
     "rectal": {
       "dosage": {
@@ -71,21 +72,13 @@ export const progesterone: Substance =
         "comeup": "Unknown",
         "peak": "Unknown",
         "offset": "Unknown",
-        "total": "8-12 hours"
-      },
-      "notes": "Afterglow: 6-12 hours"
+        "total": "8-12 hours",
+        "afterglow": "6-12 hours"
+      }
     }
   },
   "interactions": [],
-  "harmReduction": [
-    "Warning: Progesterone is a naturally occuring sex hormone, changing its levels might induce gender dysphoria or premenstrual syndrome.",
-    "Progesterone has relatively low toxicity relative to dose.",
-    "It is strongly recommended that one use harm reduction practices when using this substance.",
-    "The observed LD50 in mice was 100mg/kg via intravenous, 327mg/kg intraperitoneal and > 200mg/kg orally, anasthetic effects were observed at 16mg/kg intraperitoneal.",
-    "Dependence potential of Progesterone has been sparsely reported by transfeminine people. There is one case report of a women on post menopausal HRT that documents addiction.",
-    "Tolerance to the offects of Progesterone metabolites on GABA will build within a few years and return to baseline within a few months after cessation.",
-    "Combining oral progesterone with food leads to a two fold increase in absorptions.  Since oral progesterone is a oil soluable reports of increased effects when combined with fatty foods do seem plausible."
-  ],
+  "harmReduction": [],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {
     "formula": "Unknown",
