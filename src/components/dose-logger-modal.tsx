@@ -86,7 +86,7 @@ const unitOptions: ComboboxOption[] = [
 
 const defaultRouteOptions: ComboboxOption[] = [
   { value: 'oral', label: 'Oral' },
-  { value: 'insufflation', label: 'Insufflation' },
+  { value: 'insufflated', label: 'Insufflated' },
   { value: 'inhalation', label: 'Inhalation' },
   { value: 'sublingual', label: 'Sublingual' },
   { value: 'rectal', label: 'Rectal' },
@@ -151,13 +151,14 @@ function parseAmountUnit(input: string): { amount: string; unit: string | null }
 /* ------------------------------------------------------------------ */
 
 /** Known routes for auto-matching */
-const KNOWN_ROUTES = ['oral', 'insufflation', 'inhalation', 'sublingual', 'rectal', 'intramuscular', 'transdermal', 'intravenous', 'smoked', 'vaped', 'snorted', 'nasal', 'subq', 'subcutaneous']
+const KNOWN_ROUTES = ['oral', 'insufflated', 'inhalation', 'sublingual', 'rectal', 'intramuscular', 'transdermal', 'intravenous', 'smoked', 'vaped', 'snorted', 'nasal', 'subq', 'subcutaneous']
 
 /** Route aliases */
 const ROUTE_ALIASES: Record<string, string> = {
-  'snorted': 'insufflation',
-  'nasal': 'insufflation',
-  'nose': 'insufflation',
+  'snorted': 'insufflated',
+  'snort': 'insufflated',
+  'nasal': 'insufflated',
+  'nose': 'insufflated',
   'smoked': 'smoked',
   'vaped': 'vaped',
   'vape': 'vaped',
@@ -177,7 +178,7 @@ const ROUTE_ALIASES: Record<string, string> = {
 }
 
 /**
- * Parse a quick input string like "Caffeine 100 mg oral", "100mg LSD sublingual", "2 tabs MDMA insufflation"
+ * Parse a quick input string like "Caffeine 100 mg oral", "100mg LSD sublingual", "2 tabs MDMA insufflated"
  * Returns extracted substance name, amount, unit, and route.
  */
 function parseQuickInput(
@@ -198,7 +199,7 @@ function parseQuickInput(
     const regex = new RegExp(`\\b${knownRoute}\\b`, 'i')
     const routeMatch = lowerTrimmed.match(regex)
     if (routeMatch && routeMatch.index !== undefined) {
-      // Prefer longer matches (e.g., "insufflation" over "nasal")
+      // Prefer longer matches (e.g., "insufflated" over "nasal")
       if (routeMatch[0].length > routeLength) {
         extractedRoute = ROUTE_ALIASES[knownRoute] || knownRoute
         routeIndex = routeMatch.index
