@@ -20,7 +20,7 @@ export const methadone: Substance =
     "opioids"
   ],
   "class": "Diphenylpropylamine",
-  "description": "Methadone (sold under trade names such as Dolophine and Methadose) is a synthetic opioid analgesic used for the treatment of moderate to severe pain and for the treatment of opioid addiction. The subjective effects are similar to those of other synthetic opioids such as fentanyl, however, most users note a significantly stronger euphoria. Like dextropropoxyphene, the use of methadone is associated with cardiac arrhythmia, however it is more common with dextropropoxyphene than it is with methadone.",
+  "description": "opiates\nMethadone (sold under trade names such as Dolophine and Methadose) is a synthetic opioid analgesic used for the treatment of moderate to severe pain and for the treatment of opioid addiction. The subjective effects are similar to those of other synthetic opioids such as fentanyl, however, most users note a significantly stronger euphoria. Like dextropropoxyphene, the use of methadone is associated with cardiac arrhythmia, however it is more common with dextropropoxyphene than it is with methadone.",
   "effects": {
     "positive": [
       "Physical euphoria - This particular substance can be considered moderately intense, more commonly with the L-enantiomer, in its physical euphoria when compared with that of morphine or diacetylmorphine (heroin), and definitely stronger than that of other synthetic opioids such as tramadol. The sensation itself can be described as extreme feelings of intense physical comfort, extreme warmth, love and bliss.",
@@ -50,6 +50,7 @@ export const methadone: Substance =
       "Abnormal heartbeat - A rare but potentially fatal side effect of methadone's potential to prolong the QT interval. Torsades de pointes is an abnormal heart rhythm which can lead to sudden cardiac death."
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "oral": {
       "dosage": {
@@ -64,9 +65,9 @@ export const methadone: Substance =
         "comeup": "2-4 hours",
         "peak": "4-6 hours",
         "offset": "4-6 hours",
-        "total": "10-19 hours"
-      },
-      "notes": "Afterglow: 1-24 hours"
+        "total": "10-19 hours",
+        "afterglow": "1-24 hours"
+      }
     }
   },
   "interactions": [
@@ -86,12 +87,8 @@ export const methadone: Substance =
     "5-HTP"
   ],
   "harmReduction": [
-    "Methadone has a moderate toxicity relative to dose. As with all opioids, long-term effects can vary but can include diminished libido, apathy and memory loss. It is also Toxicity potentially lethal when mixed with depressants like alcohol or benzodiazepines and generally has a wider range of substances which it is  in comparison to other opioids. Methadone is known to lower the seizure threshold. It should not be taken during  as this can potentially cause seizures.",
-    "It is strongly recommended that one use harm reduction practices when using this drug.",
-    "As with other opioids, the chronic use of methadone can be considered extremely addictive with a high potential for abuse and is capable of causing psychological dependence among certain users. When addiction has developed, cravings and  may occur if a person suddenly stops their usage.",
-    "Tolerance to many of the effects of methadone develops with prolonged and repeated use. The rate at which this occurs develops at different rates for different effects, with tolerance to the constipation-inducing effects developing particularly slowly for instance. This results in users having to administer increasingly large doses to achieve the same effects. After that, it takes about 3 - 7 days for the tolerance to be reduced to half and 1 - 2 weeks to be back at baseline (in the absence of further consumption). Methadone presents cross-tolerance with all other opioids, meaning that after the consumption of methadone all opioids will have a reduced effect.",
-    "The risk of fatal opioid overdoses rise sharply after a period of cessation and relapse, largely because of reduced tolerance. To account for this lack of tolerance, it is safer to only dose a fraction of one's usual dosage if relapsing. It has also been found that the environment one is in can play a role in opioid tolerance. In one scientific study, rats with the same history of heroin administration were significantly more likely to die after receiving their dose in an environment not associated with the drug in contrast to a familiar environment.",
-    "While methadone has been reported to occasionally cause serotonin syndrome when combined with certain substances (such as those listed below), anecdotal reports suggests that it does so at a much lower rate than tramadol."
+    "moderate toxicity",
+    "potentially lethal when mixed with depressants like alcohol or benzodiazepines"
   ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {

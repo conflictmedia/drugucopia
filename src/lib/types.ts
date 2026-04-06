@@ -14,6 +14,7 @@ export interface RouteDosageDuration {
     peak: string;
     offset: string;
     total: string;
+    afterglow: string;
   };
   notes?: string;
 }
@@ -23,7 +24,7 @@ export interface Substance {
   name: string;
   commonNames: string[];
   categories: SubstanceCategory[];
-  
+  defaultUnit?: string;
   class: string;
   description: string;
   dosage?: {} 

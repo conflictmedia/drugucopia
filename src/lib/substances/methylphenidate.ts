@@ -54,6 +54,7 @@ export const methylphenidate: Substance =
       "Motivation suppression"
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "insufflated": {
       "dosage": {
@@ -68,9 +69,9 @@ export const methylphenidate: Substance =
         "comeup": "15-40 minutes",
         "peak": "30-45 minutes",
         "offset": "2-4 hours",
-        "total": "2-4 hours"
-      },
-      "notes": "Afterglow: 1-4 hours"
+        "total": "2-4 hours",
+        "afterglow": "1-4 hours"
+      }
     },
     "oral": {
       "dosage": {
@@ -85,9 +86,9 @@ export const methylphenidate: Substance =
         "comeup": "20-45 minutes",
         "peak": "60-90 minutes",
         "offset": "45-60 minutes",
-        "total": "2.5-4 hours"
-      },
-      "notes": "Afterglow: 2-6 hours"
+        "total": "2.5-4 hours",
+        "afterglow": "2-6 hours"
+      }
     }
   },
   "interactions": [

@@ -53,6 +53,7 @@ export const zopiclone: Substance =
       "Auditory hallucinations - The auditory hallucinations of Zopiclone are mostly voices, and appear at higher doses. Sleep deprivation magnifies this effect."
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "oral": {
       "dosage": {
@@ -67,18 +68,15 @@ export const zopiclone: Substance =
         "comeup": "Unknown",
         "peak": "3-4 hours",
         "offset": "Unknown",
-        "total": "3.5-9 hours"
+        "total": "3.5-9 hours",
+        "afterglow": "Unknown"
       }
     }
   },
   "interactions": [],
   "harmReduction": [
-    "Zopiclone is generally thought to have a low toxicity relative to dose. However, it is Toxicity potentially lethal when mixed with depressants like benzodiazepines, alcohol or opioids. When combined with one or several of these substances the already existing chance of a having a \"black-out\" is significantly increased, leaving the user with very little to no memory of the events that occurred whilst under the influence of zopiclone alone or combined with most other CNS depressants.",
-    "Some users have reported taking zopiclone in combination with alcohol in an attempt to treat hangovers with varying degrees of success.",
-    "It is strongly recommended that one use harm reduction practices when using this substance.",
-    "Zopiclone is extremely physically and psychologically addictive. This compound may have an even greater addictive potential than benzodiazepines.",
-    "Tolerance will develop to the sedative-hypnotic effects within a couple of weeks of daily use. After cessation, the tolerance returns to baseline in 7 - 14 days. Withdrawal symptoms or rebound symptoms may occur after ceasing usage abruptly following a few weeks or longer of steady dosing, and may necessitate a gradual dose reduction.",
-    "Zopiclone presents cross-tolerance with all benzodiazepines, meaning that after its consumption benzodiazepines and most other GABAgenic depressants will have a reduced effect."
+    "low toxicity",
+    "potentially lethal when mixed with depressants like benzodiazepines, alcohol or opioids"
   ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {

@@ -52,6 +52,7 @@ export const bromo_dragonfly: Substance =
       "Motivation suppression"
     ]
   },
+  "defaultUnit": "µg",
   "routeData": {
     "oral": {
       "dosage": {
@@ -66,9 +67,9 @@ export const bromo_dragonfly: Substance =
         "comeup": "3-6 hours",
         "peak": "6-12 hours",
         "offset": "3-8 hours",
-        "total": "1-4 days"
-      },
-      "notes": "Afterglow: 12-36 hours"
+        "total": "1-4 days",
+        "afterglow": "12-36 hours"
+      }
     }
   },
   "interactions": [

@@ -70,6 +70,7 @@ export const a_pvp: Substance =
       "Motivation suppression"
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "insufflated": {
       "dosage": {
@@ -84,9 +85,9 @@ export const a_pvp: Substance =
         "comeup": "Unknown",
         "peak": "20-45 minutes",
         "offset": "30-90 minutes",
-        "total": "2-5 hours"
-      },
-      "notes": "Afterglow: 2-4 hours"
+        "total": "2-5 hours",
+        "afterglow": "2-4 hours"
+      }
     },
     "oral": {
       "dosage": {
@@ -101,9 +102,9 @@ export const a_pvp: Substance =
         "comeup": "Unknown",
         "peak": "1-2.5 hours",
         "offset": "1-5 hours",
-        "total": "2-6 hours"
-      },
-      "notes": "Afterglow: 4-12 hours"
+        "total": "2-6 hours",
+        "afterglow": "4-12 hours"
+      }
     },
     "smoked": {
       "dosage": {
@@ -118,9 +119,9 @@ export const a_pvp: Substance =
         "comeup": "Unknown",
         "peak": "3-6 minutes",
         "offset": "15-30 minutes",
-        "total": "30-60 minutes"
-      },
-      "notes": "Afterglow: 1-3 hours"
+        "total": "30-60 minutes",
+        "afterglow": "1-3 hours"
+      }
     }
   },
   "interactions": [
@@ -137,13 +138,7 @@ export const a_pvp: Substance =
     "Stimulants"
   ],
   "harmReduction": [
-    "The toxicity and long-term health effects of recreational α-PVP use do not appear to have been studied in any scientific context and the exact toxic dosage is unknown. This is because α-PVP has very little history of human usage.",
-    "Anecdotal reports suggest that there do not seem to be any negative health effects attributed to simply trying this substance at low to moderate doses by itself and using it sparingly (but nothing can be guaranteed).",
-    "α-PVP has been reported to be the cause, or a significant contributory cause, of death in suicides and overdoses caused by combinations of drugs. α-PVP has also been linked to at least one death where it was combined with pentedrone and caused heart failure.",
-    "It is strongly recommended that one use harm reduction practices when using this substance.",
-    "As with other stimulants, the chronic use of α-PVP can be considered highly addictive with a high potential for abuse and is capable of causing psychological dependence among certain users. When addiction has developed, cravings and withdrawal effects may occur if a person suddenly stops their usage.",
-    "Tolerance to many of the effects of α-PVP develops with prolonged and repeated use. This results in users having to administer increasingly large doses to achieve the same effects. After that, it takes about 3 - 7 days for the tolerance to be reduced to half and 1 - 2 weeks to be back at baseline (in the absence of further consumption). α-PVP produces cross-tolerance with all dopaminergic stimulants, meaning that after the consumption of α-PVP all stimulants will have a reduced effect.",
-    "α-PVP, like other stimulants, can result in a stimulant psychosis that may present with a variety of symptoms (e.g., paranoia, hallucinations, or delusions). A review on treatment for amphetamine, dextroamphetamine, and methamphetamine abuse-induced psychosis states that about 5–15% of users fail to recover completely. The same review asserts that, based upon at least one trial, antipsychotic medications effectively resolve the symptoms of acute amphetamine psychosis."
+    "exact toxic dosage is unknown"
   ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {

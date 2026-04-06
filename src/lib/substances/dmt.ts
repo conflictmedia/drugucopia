@@ -88,6 +88,7 @@ export const dmt: Substance =
       "Multiple thought streams - This effect tends to manifest in a much more chaotic fashion, in tandem with the sensation of cognitive overload."
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "intravenous": {
       "dosage": {
@@ -102,7 +103,8 @@ export const dmt: Substance =
         "comeup": "70-100 seconds",
         "peak": "2-5 minutes",
         "offset": "10-20 minutes",
-        "total": "15-30 minutes"
+        "total": "15-30 minutes",
+        "afterglow": "Unknown"
       }
     },
     "smoked": {
@@ -118,9 +120,9 @@ export const dmt: Substance =
         "comeup": "1-3 minutes",
         "peak": "2-8 minutes",
         "offset": "1-6 minutes",
-        "total": "5-20 minutes"
-      },
-      "notes": "Afterglow: 10-60 minutes"
+        "total": "5-20 minutes",
+        "afterglow": "10-60 minutes"
+      }
     }
   },
   "interactions": [
@@ -128,12 +130,7 @@ export const dmt: Substance =
     "Tramadol"
   ],
   "harmReduction": [
-    "DMT is considered to be non-addictive, is not associated with any form of neurotoxicity, and has an extremely low toxicity relative to dose. As with other psychedelic substances, there are relatively few physical side effects associated with acute DMT exposure. Various studies have shown that in reasonable doses in a careful context, it has little to no negative cognitive, psychiatric or physical consequences.",
-    "However, as with psychedelics generally, DMT is thought to be able to act as a potential trigger for those with underlying psychiatric conditions. Those with a personal or family history of mental illness are advised not to use this substance unless under medical supervision.",
-    "Despite the lack of physical risks, it is highly advised to approach this substance with extreme caution and harm reduction practices.",
-    "The median lethal dose (LD50) of DMT in humans has never been reached in any setting, nor is this expected to change due to its pharmacological properties.",
-    "Like other serotonergic psychedelics, DMT is considered to be non-addictive with a low abuse potential. There are no literature reports of successful attempts to train animals to self-administer DMT — an animal model predictive of abuse liability — indicating that it does not have the necessary pharmacology to either initiate or maintain dependence. Likewise, there is virtually no withdrawal syndrome when chronic use of DMT is stopped.",
-    "Notably, tolerance to the effects of DMT does not appear to occur. The reason for this is unknown. Likewise, DMT does not produce cross-tolerance with other psychedelics, meaning that after the consumption of DMT, psychedelics will not have a reduced effect."
+    "extremely low toxicity"
   ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {

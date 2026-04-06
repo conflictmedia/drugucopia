@@ -72,7 +72,8 @@ export const tizanidine: Substance =
         "comeup": "Unknown",
         "peak": "60-120 minutes",
         "offset": "Unknown",
-        "total": "2-6 hours"
+        "total": "2-6 hours",
+        "afterglow": "Unknown"
       }
     }
   },
@@ -80,14 +81,7 @@ export const tizanidine: Substance =
     "Depressants",
     "Dissociatives"
   ],
-  "harmReduction": [
-    "It is strongly recommended that one use harm reduction practices when using this substance.",
-    "While no long term studies of tizanidine use in humans have been done, studies done in animals indicate no signs of long term carcinogenicity. However, tizanidine has been shown to have a developmental effect on young rats.",
-    "Some long term tizanidine use has been attributed to liver problems and in extreme cases, liver failure and death.",
-    "The LD50 of oral tizanidine in rats was found to be 414mg/kg in rats and 235 mg/kg in mice.",
-    "In some cases, Tizanidine overdose can be reversed with naloxone; however, this is not the case with everyone  .",
-    "While dependence is rare, use of Tizanidine exceeding 36mg daily over an extended period of time can lead to hypertensive withdrawals. In cases where dependence has been built, a user should taper to avoid a hypertensive crisis."
-  ],
+  "harmReduction": [],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {
     "formula": "Unknown",

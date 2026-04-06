@@ -84,6 +84,7 @@ export const _25n_nbome: Substance =
       "Hallucinations"
     ]
   },
+  "defaultUnit": "µg",
   "routeData": {
     "sublingual": {
       "dosage": {
@@ -98,9 +99,9 @@ export const _25n_nbome: Substance =
         "comeup": "Unknown",
         "peak": "2-3 hours",
         "offset": "2-3 hours",
-        "total": "5-10 hours"
-      },
-      "notes": "Afterglow: 5-10 hours"
+        "total": "5-10 hours",
+        "afterglow": "5-10 hours"
+      }
     }
   },
   "interactions": [

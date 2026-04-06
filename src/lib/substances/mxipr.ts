@@ -63,6 +63,7 @@ export const mxipr: Substance =
       "Suppression - This effect can be described as a muffling and quieting of externally sourced sound which results in it sounding more indistinct and distant than it would usually be."
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "insufflated": {
       "dosage": {
@@ -77,9 +78,9 @@ export const mxipr: Substance =
         "comeup": "Unknown",
         "peak": "Unknown",
         "offset": "Unknown",
-        "total": "1.5-4 hours"
-      },
-      "notes": "Afterglow: 2-12 hours"
+        "total": "1.5-4 hours",
+        "afterglow": "2-12 hours"
+      }
     },
     "oral": {
       "dosage": {
@@ -94,9 +95,9 @@ export const mxipr: Substance =
         "comeup": "Unknown",
         "peak": "Unknown",
         "offset": "Unknown",
-        "total": "2-5 hours"
-      },
-      "notes": "Afterglow: 4-48 hours"
+        "total": "2-5 hours",
+        "afterglow": "4-48 hours"
+      }
     }
   },
   "interactions": [
@@ -104,23 +105,7 @@ export const mxipr: Substance =
     "Depressants"
   ],
   "harmReduction": [
-    "The toxicity and long-term health effects of recreational MXiPr use do not seem to have been studied in any scientific context and the exact toxic dosage is unknown. This is because MXiPr has very little history of human usage.",
-    "MXiPr has anecdotally been reported to produce seizures at very high dosages.",
-    "If one suspects that it may be impure and are still keen on taking this substance, using an oral route of administration may process the impurities though first-pass metabolism.",
-    "It is strongly recommended that one use harm reduction practices when using this substance.",
-    "As with other NMDA receptor antagonists, the chronic use of MXiPr can be considered moderately addictive with a high potential for abuse and is capable of producing psychological dependence among certain users.",
-    "When addiction has developed, cravings and withdrawal effects may occur if one suddenly stops their usage.",
-    "Tolerance to many of the effects of MXiPr develops with prolonged and repeated use. This results in users having to administer increasingly large doses to achieve the same effects.",
-    "After that, it takes about 3 - 7 days for the tolerance to be reduced to half and 1 - 2 weeks to be back at baseline (in the absence of further consumption).",
-    "MXiPr exhibits cross-tolerance with all dissociatives, meaning that after the consumption of MXiPr all dissociatives will have a reduced effect.",
-    "Regarding its long-term health effects when used repeatedly and over excessive periods, MXiPr is suspected to exhibit similar bladder and urinary tract problems found with ketamine, but to a lesser extent. This is because MXiPr is far more potent than ketamine, so significantly less of substance needs to be consumed. Symptoms of ketamine-induced cystitis can become severe and can be described as:",
-    "Urinary frequency - Urinary frequency is the need to empty the bladder every few minutes.",
-    "Urinary urgency - This can be described as a sudden, compelling need to urinate.",
-    "Urinary pressure - This is experienced as a constant sensation of fullness in the bladder that is unrelieved by urination.",
-    "Pelvic and bladder pain - Pain can develop suddenly and severely, especially since the bladder fills with urine.",
-    "Hematuria - Hematuria is visible blood in the urine.",
-    "Incontinence - This is the leakage of urine.",
-    "All of these, however, can easily be avoided by simply not using MXiPr on a daily or even weekly basis and consciously limiting one's usage of the substance."
+    "toxic dosage is unknown"
   ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {

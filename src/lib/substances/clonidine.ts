@@ -65,7 +65,8 @@ export const clonidine: Substance =
         "comeup": "Unknown",
         "peak": "60-90 minutes",
         "offset": "6-8 hours",
-        "total": "6-8 hours"
+        "total": "6-8 hours",
+        "afterglow": "Unknown"
       }
     }
   },

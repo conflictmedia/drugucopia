@@ -55,9 +55,9 @@ export const grayanotoxin: Substance =
         "comeup": "Unknown",
         "peak": "Unknown",
         "offset": "Unknown",
-        "total": "Unknown"
-      },
-      "notes": "Afterglow: Unknown"
+        "total": "Unknown",
+        "afterglow": "Unknown"
+      }
     }
   },
   "interactions": [
@@ -65,9 +65,7 @@ export const grayanotoxin: Substance =
     "Cholinergics",
     "Depressants"
   ],
-  "harmReduction": [
-    "It is strongly recommended that one use harm reduction practices when using this substance."
-  ],
+  "harmReduction": [],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {
     "formula": "Unknown",

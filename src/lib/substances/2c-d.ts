@@ -71,6 +71,7 @@ export const _2c_d: Substance =
       "Hallucinations"
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "oral": {
       "dosage": {
@@ -85,9 +86,9 @@ export const _2c_d: Substance =
         "comeup": "20-40 minutes",
         "peak": "1.5-2.5 hours",
         "offset": "0.5-1.5 hours",
-        "total": "3-5 hours"
-      },
-      "notes": "Afterglow: 1-4 hours"
+        "total": "3-5 hours",
+        "afterglow": "1-4 hours"
+      }
     }
   },
   "interactions": [
@@ -95,11 +96,7 @@ export const _2c_d: Substance =
     "Tramadol"
   ],
   "harmReduction": [
-    "The toxicity and long-term health effects of recreational 2C-D use do not seem to have been studied in any scientific context and the exact toxic dose is unknown. This is because 2C-D is a research chemical with very little history of human usage.",
-    "Anecdotal evidence from those within the community who have tried 2C-D suggests that there are no negative health effects attributed to simply trying the substance by itself at low to moderate doses and using it very sparingly (but nothing can be completely guaranteed). Independent research should always be done to ensure that a combination of two or more substances is safe before consumption.",
-    "It is strongly recommended that one use harm reduction practices when using this substance.",
-    "2C-D is not habit-forming and the desire to use it can actually decrease with use. It is most often self-regulating.",
-    "Tolerance to the effects of 2C-D is built almost immediately after ingestion. After that, it takes about 3 days for the tolerance to be reduced to half and 7 days to be back at baseline (in the absence of further consumption). 2C-D presents cross-tolerance with all psychedelics, meaning that after the consumption of 2C-D all psychedelics will have a reduced effect."
+    "toxic dose is unknown"
   ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {

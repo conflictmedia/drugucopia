@@ -98,6 +98,7 @@ export const dob: Substance =
       "Hallucinations"
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "oral": {
       "dosage": {
@@ -112,9 +113,9 @@ export const dob: Substance =
         "comeup": "2-4 hours",
         "peak": "6-10 hours",
         "offset": "4-8 hours",
-        "total": "14-24 hours"
-      },
-      "notes": "Afterglow: 4-16 hours"
+        "total": "14-24 hours",
+        "afterglow": "4-16 hours"
+      }
     }
   },
   "interactions": [
@@ -122,11 +123,7 @@ export const dob: Substance =
     "Tramadol"
   ],
   "harmReduction": [
-    "The toxicity and long-term health effects of recreational DOB use do not seem to have been studied in any scientific context and the exact toxic dose is unknown. This is because DOB is a research chemical with very little history of human usage.",
-    "Anecdotal reports from those who have tried DOB suggests that there are no negative health effects attributed to simply trying the substance by itself at low to moderate doses and using it very sparingly (but nothing can be completely guaranteed). Independent research should always be done to ensure that a combination of two or more substances is safe before consumption.",
-    "It is strongly recommended that one use harm reduction practices when using this substance.",
-    "DOB is not habit-forming, and the desire to use it can decrease with use. It is most often self-regulating.",
-    "Tolerance to the effects of DOB is built almost immediately after ingestion. After that, it takes about 4-7 days for the tolerance to be reduced to half and 7-10 days to be back at baseline (in the absence of further consumption). DOB presents cross-tolerance with all psychedelics, meaning that after the consumption of DOB all psychedelics will have a reduced effect."
+    "toxic dose is unknown"
   ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {

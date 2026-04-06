@@ -98,6 +98,7 @@ export const _25c_nbome: Substance =
       "Hallucinations"
     ]
   },
+  "defaultUnit": "µg",
   "routeData": {
     "sublingual": {
       "dosage": {
@@ -112,7 +113,8 @@ export const _25c_nbome: Substance =
         "comeup": "30-90 minutes",
         "peak": "4-6 hours",
         "offset": "1-4 hours",
-        "total": "8-10 hours"
+        "total": "8-10 hours",
+        "afterglow": "Unknown"
       }
     }
   },
@@ -125,11 +127,7 @@ export const _25c_nbome: Substance =
     "Tramadol"
   ],
   "harmReduction": [
-    "25C-NBOMe is a relatively new substance, and little is known about its pharmacological risks or its interaction with other substances. The LD50 has not yet been determined although it can be fatal at heavy dosages.",
-    "It is advised that due to 25C-NBOMe's extreme potency it should not be insufflated (snorted) as this method of administration has been attributed to several fatal overdoses due to improper dosing.",
-    "It is strongly recommended that one use harm reduction practices when using this substance.",
-    "25C-NBOMe is not habit-forming, and the desire to use it can actually decrease with use. It is most often self-regulating.",
-    "Tolerance to the effects of 25C-NBOMe is built almost immediately after ingestion. After that, it takes about 7 days for the tolerance to be reduced to half and 14 days to be back at baseline (in the absence of further consumption). 25C-NBOMe presents cross-tolerance with all psychedelics, meaning that after the consumption of 25C-NBOMe all psychedelics will have a reduced effect."
+    "fatal at heavy dosages"
   ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {

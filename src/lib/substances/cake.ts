@@ -41,6 +41,7 @@ export const cake: Substance =
       "Appetite suppression"
     ]
   },
+  "defaultUnit": "g",
   "routeData": {
     "oral": {
       "dosage": {
@@ -55,16 +56,13 @@ export const cake: Substance =
         "comeup": "Unknown",
         "peak": "Unknown",
         "offset": "Unknown",
-        "total": "Unknown"
+        "total": "Unknown",
+        "afterglow": "Unknown"
       }
     }
   },
   "interactions": [],
-  "harmReduction": [
-    "Studies shows that cake is highly addictive due to presence of cakecadine, disaccharides and polysaccharides.",
-    "Studies suggest that regularly use of cake can cause hyperglycemia which can lead to permanent brain damage.",
-    "Researches showed that frequently use of cake can cause pancreas damage."
-  ],
+  "harmReduction": [],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {
     "formula": "Unknown",

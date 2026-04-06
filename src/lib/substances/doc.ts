@@ -91,6 +91,7 @@ export const doc: Substance =
       "Auditory hallucination"
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "insufflated": {
       "dosage": {
@@ -105,9 +106,9 @@ export const doc: Substance =
         "comeup": "10-30 minutes",
         "peak": "2-6 hours",
         "offset": "2-8 hours",
-        "total": "Unknown"
-      },
-      "notes": "Afterglow: 2-24 hours"
+        "total": "Unknown",
+        "afterglow": "2-24 hours"
+      }
     },
     "oral": {
       "dosage": {
@@ -122,9 +123,9 @@ export const doc: Substance =
         "comeup": "2-3 hours",
         "peak": "6-12 hours",
         "offset": "2-8 hours",
-        "total": "12-24 hours"
-      },
-      "notes": "Afterglow: 6-24 hours"
+        "total": "12-24 hours",
+        "afterglow": "6-24 hours"
+      }
     }
   },
   "interactions": [
@@ -132,12 +133,7 @@ export const doc: Substance =
     "Tramadol"
   ],
   "harmReduction": [
-    "The toxicity and long-term health effects of recreational DOC use do not seem to have been studied in any scientific context and the exact toxic dose is unknown.",
-    "Anecdotal reports suggest that there are no negative health effects attributed to simply trying DOC by itself at low to moderate doses and using it very sparingly (but nothing can be completely guaranteed). Independent research should always be done to ensure that a combination of two or more substances is safe before consumption.",
-    "Medical literature reports multiple physical complications associated with the use of DOC.  An individual's cause of death was reported as DOC toxicity and confirmed with GC-MS in the Journal of Analytical Toxicology. Seizures have been associated with the use of DOC in another medical journal.",
-    "It is strongly recommended that one use harm reduction practices when using this substance.",
-    "DOC is not habit-forming, and the desire to use it can actually decrease with use. It is most often self-regulating.",
-    "Tolerance to the effects of DOC is built almost immediately after ingestion. After that, it takes about 3 days for the tolerance to be reduced to half and 7 days to be back at baseline (in the absence of further consumption). DOC presents cross-tolerance with all psychedelics, meaning that after the consumption of DOC all psychedelics will have a reduced effect."
+    "toxic dose is unknown"
   ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {

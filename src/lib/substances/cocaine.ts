@@ -76,6 +76,7 @@ export const cocaine: Substance =
       "Headache"
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "insufflated": {
       "dosage": {
@@ -90,7 +91,8 @@ export const cocaine: Substance =
         "comeup": "5-12 minutes",
         "peak": "7.5-16 minutes",
         "offset": "10-25 minutes",
-        "total": "10-90 minutes"
+        "total": "10-90 minutes",
+        "afterglow": "Unknown"
       }
     },
     "intravenous": {
@@ -106,7 +108,8 @@ export const cocaine: Substance =
         "comeup": "1-2 minutes",
         "peak": "2-10 minutes",
         "offset": "1-5 minutes",
-        "total": "5-15 minutes"
+        "total": "5-15 minutes",
+        "afterglow": "Unknown"
       }
     },
     "oral": {
@@ -122,7 +125,8 @@ export const cocaine: Substance =
         "comeup": "40-50 minutes",
         "peak": "60-180 minutes",
         "offset": "10-25 minutes",
-        "total": "120-240 minutes"
+        "total": "120-240 minutes",
+        "afterglow": "Unknown"
       }
     },
     "smoked": {
@@ -138,7 +142,8 @@ export const cocaine: Substance =
         "comeup": "1-2 minutes",
         "peak": "2-10 minutes",
         "offset": "1-5 minutes",
-        "total": "5-15 minutes"
+        "total": "5-15 minutes",
+        "afterglow": "Unknown"
       }
     }
   },
@@ -156,23 +161,7 @@ export const cocaine: Substance =
     "Alcohol"
   ],
   "harmReduction": [
-    "Chronic cocaine use has been shown to lead to neurotoxicity, being associated with high morbidity and mortality rates. Its extended use or abuse does also cause short-term downregulation of neurotransmitters.",
-    "The most potentially harmful physical effects of cocaine appear to be not neurological but cardiovascular. Severe cardiac adverse events, particularly sudden cardiac death, become a serious risk at high doses due to cocaine's blocking effect on cardiac sodium channels.",
-    "Moreover, long-term cocaine use may result in cocaine-related cardiomyopathy.",
-    "Regular cocaine insufflation, the most popular method of ingestion, can have extremely adverse effects on one's nostrils, nose, and nasal cavities. These include a loss of the sense of smell, nosebleeds, difficulty swallowing, hoarseness, or a chronically runny nose.",
-    "\"Crack lung\" is a term for various pulmonary diseases caused by smoking crack cocaine, and it can develop even after short-term or initial use. While crack lung is usually reversible with appropriate medical care and most people recover fully, in some cases—especially if complications arise—lasting lung damage may occur.",
-    "It is strongly recommended that one use harm reduction practices if using this substance.",
-    "Susceptible individuals have died from as little as 30 mg applied to mucous membranes, whereas addicts may tolerate up to 5 grams daily.",
-    "As with other stimulants, the chronic use of cocaine can be considered highly addictive with a high potential for abuse and is capable of causing psychological dependence among certain users. When addiction has developed, cravings and withdrawal effects may occur if a person suddenly stops their usage. Addiction is a serious risk with heavy recreational cocaine use but is unlikely to arise from typical medical use.",
-    "Tolerance to many of the effects of cocaine develops with prolonged and repeated use. This results in users having to administer increasingly large doses to achieve the same effects. After that, it takes about 3 - 7 days for the tolerance to be reduced to half and 1 - 2 weeks to be back at baseline (in the absence of further consumption).",
-    "Cocaine exhibits cross-tolerance with all dopaminergic stimulants, meaning that after the consumption of cocaine all stimulants will have a reduced effect.",
-    "Despite evidence of brain structure and function changes in chronic users, a 2018 systematic review found limited support for widespread cognitive impairment caused by long-term cocaine use, suggesting that common assumptions about pervasive cognitive deficits may be overstated.",
-    "After taking cocaine on a regular basis, some users will become addicted. When the substance is discontinued immediately, the user will experience what has come to be known as a \"crash\" along with a number of other cocaine withdrawal symptoms including paranoia, depression, Decreased libido, anxiety, itching, mood swings, irritability, fatigue, insomnia, an intense craving for more cocaine, and, in some cases, nausea and vomiting.",
-    "These symptoms can last for weeks or, in some cases, months. Even after most withdrawal symptoms dissipate most users feel the need to continue using the drug; this feeling can last for years and may peak during times of stress. About 30-40% of cocaine addicts will turn to other substances such as medication and alcohol after giving up cocaine.",
-    "The misuse of cocaine has a high correlation with suicide. In those who use cocaine, the risk is greatest during the withdrawal phase.",
-    "Cocaine has a similar potential to induce temporary psychosis with more than half of cocaine abusers reporting at least some psychotic symptoms at some point.",
-    "Typical symptoms of sufferers include paranoid delusions that they are being followed and that their drug use is being watched accompanied by hallucinations that support the delusional beliefs. Delusional parasitosis with formication (\"cocaine bugs\") is also a fairly common symptom.",
-    "Cocaine-induced psychosis shows sensitization toward the psychotic effects of the drug. This means that psychosis becomes more severe with repeated intermittent use."
+    "individuals have died from as little as 30 mg applied to mucous membranes, whereas addicts may tolerate up to 5 grams daily"
   ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {

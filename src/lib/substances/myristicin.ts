@@ -98,6 +98,7 @@ export const myristicin: Substance =
       "Stomach cramp This effect can be decreased by using oil extraction method"
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "oral": {
       "dosage": {
@@ -112,9 +113,9 @@ export const myristicin: Substance =
         "comeup": "1-4 hours",
         "peak": "9-12 hours",
         "offset": "12-48 hours",
-        "total": "12-72 hours"
-      },
-      "notes": "Afterglow: 24-72 hours"
+        "total": "12-72 hours",
+        "afterglow": "24-72 hours"
+      }
     }
   },
   "interactions": [
@@ -126,17 +127,8 @@ export const myristicin: Substance =
     "Serotonin releasers"
   ],
   "harmReduction": [
-    "Myristicin is neurotoxic and can be fatal in extremely high doses. Also myristicin causes severe dehydration. It increases side effects of myristicin.",
-    "Myristicin is not known to be addictive and the desire to use it can actually decrease with use.",
-    "Information regarding tolerance is unknown.",
-    "Stimulants - Nutmeg puts a fair amount of strain on the cardiovascular system, adding stimulant drugs to the mix would increase side effects.",
-    "Alcohol - Anecdotal reports suggest that small/medium amounts of alcohol can create some positive effects, however respiratory depression is a risk. Large amounts of alcohol should not be combined with myristicin in any circumstance.",
-    "Opioids - Large amounts of opioids can lead to respiratory depression when taken with myristicin.",
-    "Benzodiazepines",
-    "DXM - While it is possible to take a very small dose of DXM with myristicin, it is highly risky and is generally seen to be dangerous.",
-    "DPH - DPH is cardio toxic, combining it with myristicin could be fatal.",
-    "Depressants - Respiratory depression is a risk when combining with depressant drugs, while a few anecdotal reports have shown few side effects, it is generally recommended against.",
-    "Serotonin releasers such as MDMA, 4-FA, methamphetamine, methylone and αMT will cause serotonin syndrome. If planning to combine these two, proceed with great caution."
+    "is neurotoxic",
+    "can be fatal in extremely high doses"
   ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {

@@ -42,6 +42,7 @@ export const pramiracetam: Substance =
       "Emotion suppression - Most prominent among its effects is its ability to bring the user to a mellow or emotionally dulled state. In comparison to other substances such as quetiapine or benzodiazepines, it manifests itself lucidly, rather than invoking carelessness or dulling thought."
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "oral": {
       "dosage": {
@@ -56,17 +57,14 @@ export const pramiracetam: Substance =
         "comeup": "Unknown",
         "peak": "Unknown",
         "offset": "Unknown",
-        "total": "4-7 hours"
+        "total": "4-7 hours",
+        "afterglow": "Unknown"
       }
     }
   },
   "interactions": [],
   "harmReduction": [
-    "The toxicity and long-term health effects of pramiracetam use do not seem to have been studied in any scientific context and the exact toxic dosage is unknown. This is because pramiracetam has very little history of human usage. Anecdotal evidence from people who have tried pramiracetam within the community suggest that there do not seem to be any negative health effects attributed to simply trying this drug at low to moderate doses by itself and using it sparingly (but nothing can be completely guaranteed).",
-    "There are anecdotal reports of users experiencing painful chemical burns caused by ingesting pramiracetam powder sublingually. Other routes of administration do not seem to cause the same effects.",
-    "It is strongly recommended that one use harm reduction practices when using this substance.",
-    "The chronic use of Pramiracetam can be considered as not addictive with a low potential for abuse. It does not seem to be capable of causing psychological dependence among certain users.",
-    "Tolerance to many of the effects of Pramiracetam develops with prolonged and repeated use. This results in users having to administer increasingly large doses to achieve the same effects. After that, it takes about 3 - 7 days for the tolerance to be reduced to half and 1 - 2 weeks to be back at baseline (in the absence of further consumption). Pramiracetam may presents cross-tolerance with all racetam nootropics, meaning that after the consumption of pramiracetam certain nootropics such as aniracetam and piracetam may have a reduced effect."
+    "exact toxic dosage is unknown"
   ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {

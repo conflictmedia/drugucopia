@@ -29,6 +29,7 @@ export const dextroamphetamine: Substance =
     "neutral": [],
     "negative": []
   },
+  "defaultUnit": "mg",
   "routeData": {
     "insufflated": {
       "dosage": {
@@ -43,9 +44,9 @@ export const dextroamphetamine: Substance =
         "comeup": "5-15 minutes",
         "peak": "1-2 hours",
         "offset": "1.5-3 hours",
-        "total": "3-6 hours"
-      },
-      "notes": "Afterglow: 2-4 hours"
+        "total": "3-6 hours",
+        "afterglow": "2-4 hours"
+      }
     },
     "oral": {
       "dosage": {
@@ -60,9 +61,9 @@ export const dextroamphetamine: Substance =
         "comeup": "30-60 minutes",
         "peak": "2.5-4 hours",
         "offset": "2-3 hours",
-        "total": "6-8 hours"
-      },
-      "notes": "Afterglow: 3-6 hours"
+        "total": "6-8 hours",
+        "afterglow": "3-6 hours"
+      }
     }
   },
   "interactions": [

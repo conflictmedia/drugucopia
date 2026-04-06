@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, useCallback } from 'react'
 import { format } from 'date-fns'
 import {
   Dialog,
@@ -18,7 +18,7 @@ import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { Combobox, type ComboboxOption } from '@/components/ui/combobox'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
-import { Plus, Loader2, AlertTriangle } from 'lucide-react'
+import { Plus, Loader2, AlertTriangle, Zap } from 'lucide-react'
 import { substances } from '@/lib/substances/index'
 import { useToast } from '@/hooks/use-toast'
 import { useDoseStore } from '@/store/dose-store'
@@ -97,6 +97,189 @@ const defaultRouteOptions: ComboboxOption[] = [
   { value: 'vaped', label: 'Vaped' },
 ]
 
+/* ------------------------------------------------------------------ */
+/*  Smart amount+unit parsing                                          */
+/* ------------------------------------------------------------------ */
+
+/** All known unit values for auto-matching */
+const KNOWN_UNITS = unitOptions.map(u => u.value)
+
+/** Aliases: full words or common variations → canonical unit */
+const UNIT_ALIASES: Record<string, string> = {
+  'micrograms': 'μg', 'microgram': 'μg', 'mcg': 'μg', 'ug': 'μg',
+  'milligrams': 'mg', 'milligram': 'mg',
+  'grams': 'g', 'gram': 'g',
+  'milliliters': 'ml', 'milliliter': 'ml', 'mls': 'ml',
+  'drops': 'drop', 'puffs': 'puff', 'tabs': 'tab', 'tablets': 'tab',
+  'capsules': 'capsule', 'pills': 'capsule', 'hits': 'hit',
+  'lines': 'line', 'drinks': 'drink', 'shots': 'shot',
+  'joints': 'joint', 'blunts': 'blunt', 'bowls': 'bowl', 'blinkers': 'blinker',
+}
+
+/**
+ * Parse "5 mg", "100μg", "2.5 g" → { amount: "5", unit: "mg" }.
+ * Returns unit as null when only a number is typed.
+ */
+function parseAmountUnit(input: string): { amount: string; unit: string | null } {
+  const trimmed = input.trim()
+  if (!trimmed) return { amount: '', unit: null }
+
+  // Match: numeric value (int, decimal) + optional trailing alphabetic unit
+  const match = trimmed.match(/^([\-\+]?\d*\.?\d+)(?:\s*([a-zA-Zμμ]+))?$/)
+  if (match) {
+    const amountStr = match[1]
+    const unitStr = match[2]
+    if (!unitStr) return { amount: amountStr, unit: null }
+
+    const lower = unitStr.toLowerCase()
+
+    // Direct match
+    if (KNOWN_UNITS.includes(lower)) return { amount: amountStr, unit: lower }
+
+    // Alias match
+    if (UNIT_ALIASES[lower]) return { amount: amountStr, unit: UNIT_ALIASES[lower] }
+
+    // No match — return as custom unit
+    return { amount: amountStr, unit: lower }
+  }
+
+  return { amount: trimmed, unit: null }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Quick Input Parser - Extract substance, amount, unit from string   */
+/* ------------------------------------------------------------------ */
+
+/**
+ * Parse a quick input string like "Caffeine 100 mg", "100mg LSD", "2 tabs MDMA"
+ * Returns extracted substance name, amount, and unit.
+ */
+function parseQuickInput(
+  input: string,
+  substanceList: typeof substances
+): { substanceName: string; substanceId: string; amount: string; unit: string | null; categories: string[] } {
+  const trimmed = input.trim()
+  if (!trimmed) return { substanceName: '', substanceId: '', amount: '', unit: null, categories: [] }
+
+  // Pattern: Try to find a numeric amount with optional unit anywhere in the string
+  // Match patterns like: "100", "100mg", "100 mg", "2.5g", "2 tabs", etc.
+  const amountWithUnitRegex = /(\d*\.?\d+)\s*([a-zA-Zμμ]+)?/g
+
+  let match
+  let amountStr = ''
+  let unitStr: string | null = null
+  let amountIndex = -1
+  let amountLength = 0
+
+  // Find the first numeric pattern (likely the dose)
+  while ((match = amountWithUnitRegex.exec(trimmed)) !== null) {
+    const num = match[1]
+    const unit = match[2]
+
+    // Skip very short numbers that might be part of a substance name (like "2C-B")
+    if (num.length === 1 && !unit) continue
+
+    amountStr = num
+    unitStr = unit || null
+    amountIndex = match.index
+    amountLength = match[0].length
+    break
+  }
+
+  if (!amountStr) {
+    // No amount found, treat entire input as substance name
+    const found = substanceList.find(s =>
+      s.name.toLowerCase() === trimmed.toLowerCase() ||
+      s.commonNames?.some(cn => cn.toLowerCase() === trimmed.toLowerCase()) ||
+      s.aliases?.some(a => a.toLowerCase() === trimmed.toLowerCase())
+    )
+    if (found) {
+      const raw = found as any
+      const cats: string[] = Array.isArray(raw.categories) && raw.categories.length > 0
+        ? raw.categories
+        : typeof raw.category === 'string' && raw.category && raw.category !== 'unknown'
+        ? [raw.category]
+        : []
+      return { substanceName: found.name, substanceId: found.id, amount: '', unit: null, categories: cats }
+    }
+    return { substanceName: trimmed, substanceId: '', amount: '', unit: null, categories: [] }
+  }
+
+  // Resolve unit
+  let resolvedUnit: string | null = null
+  if (unitStr) {
+    const lower = unitStr.toLowerCase()
+    if (KNOWN_UNITS.includes(lower)) {
+      resolvedUnit = lower
+    } else if (UNIT_ALIASES[lower]) {
+      resolvedUnit = UNIT_ALIASES[lower]
+    } else {
+      resolvedUnit = lower
+    }
+  }
+
+  // Extract substance name by removing the amount+unit part
+  const beforeAmount = trimmed.slice(0, amountIndex).trim()
+  const afterAmount = trimmed.slice(amountIndex + amountLength).trim()
+
+  // Combine before and after parts to get substance name
+  let potentialSubstance = (beforeAmount + ' ' + afterAmount).trim()
+
+  // Try to match against substance list
+  let substanceName = potentialSubstance
+  let substanceId = ''
+  let categories: string[] = []
+
+  if (potentialSubstance) {
+    const lower = potentialSubstance.toLowerCase()
+
+    // Try exact match first
+    const exactMatch = substanceList.find(s =>
+      s.name.toLowerCase() === lower ||
+      s.commonNames?.some(cn => cn.toLowerCase() === lower) ||
+      s.aliases?.some(a => a.toLowerCase() === lower)
+    )
+
+    if (exactMatch) {
+      substanceName = exactMatch.name
+      substanceId = exactMatch.id
+      const raw = exactMatch as any
+      categories = Array.isArray(raw.categories) && raw.categories.length > 0
+        ? raw.categories
+        : typeof raw.category === 'string' && raw.category && raw.category !== 'unknown'
+        ? [raw.category]
+        : []
+    } else {
+      // Try partial match (substance name contains the input or vice versa)
+      const partialMatch = substanceList.find(s => {
+        const nameLower = s.name.toLowerCase()
+        return nameLower.includes(lower) || lower.includes(nameLower) ||
+          s.commonNames?.some(cn => {
+            const cnLower = cn.toLowerCase()
+            return cnLower.includes(lower) || lower.includes(cnLower)
+          }) ||
+          s.aliases?.some(a => {
+            const aLower = a.toLowerCase()
+            return aLower.includes(lower) || lower.includes(aLower)
+          })
+      })
+
+      if (partialMatch) {
+        substanceName = partialMatch.name
+        substanceId = partialMatch.id
+        const raw = partialMatch as any
+        categories = Array.isArray(raw.categories) && raw.categories.length > 0
+          ? raw.categories
+          : typeof raw.category === 'string' && raw.category && raw.category !== 'unknown'
+          ? [raw.category]
+          : []
+      }
+    }
+  }
+
+  return { substanceName, substanceId, amount: amountStr, unit: resolvedUnit, categories }
+}
+
 /** Format a unit with proper singular/plural based on amount */
 export function formatUnit(unit: string, amount: number): string {
   const invariantUnits = ['mg', 'g', 'μg', 'ml', 'mL']
@@ -131,6 +314,10 @@ export function DoseLoggerModal({
   const [loading, setLoading] = useState(false)
   const { toast } = useToast()
   const { doses, addDose } = useDoseStore()
+
+  // Quick input state - single field that can parse substance + amount + unit
+  const [quickInput, setQuickInput] = useState('')
+  const [quickInputFocused, setQuickInputFocused] = useState(false)
 
   const [substanceId, setSubstanceId] = useState(preselectedSubstanceId || '')
   const [substanceName, setSubstanceName] = useState(preselectedSubstanceName || '')
@@ -245,12 +432,39 @@ export function DoseLoggerModal({
     return Array.from(interactions)
   }, [selectedSubstance, activeDoses])
 
-  // Include commonNames as keywords for search filtering
-  const substanceOptions: ComboboxOption[] = substances.map(s => ({ 
-    value: s.id, 
-    label: s.name,
-    keywords: s.commonNames
-  }))
+  const substanceOptions: ComboboxOption[] = substances.map(s => ({ value: s.id, label: s.name }))
+
+  /* ── Quick Input handler - parses substance + amount + unit from single string ─── */
+  const handleQuickInputChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value
+    setQuickInput(value)
+
+    // Parse the input
+    const parsed = parseQuickInput(value, substances)
+
+    // Update all relevant fields
+    if (parsed.substanceName) {
+      setSubstanceName(parsed.substanceName)
+      setSubstanceId(parsed.substanceId || `custom-${Date.now()}`)
+      setCategories(parsed.categories)
+    }
+    if (parsed.amount) {
+      setAmount(parsed.amount)
+    }
+    if (parsed.unit) {
+      setUnit(parsed.unit)
+    }
+  }, [])
+
+  /* ── Smart amount input handler ──────────────────────────────────────── */
+  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const raw = e.target.value
+    const parsed = parseAmountUnit(raw)
+    setAmount(parsed.amount)
+    if (parsed.unit) {
+      setUnit(parsed.unit)
+    }
+  }
 
   const handleSubmit = async () => {
     if (!substanceName || !amount) {
@@ -310,6 +524,7 @@ export function DoseLoggerModal({
   }
 
   const resetForm = () => {
+    setQuickInput('')
     if (!preselectedSubstanceId) {
       setSubstanceId('')
       setSubstanceName('')
@@ -372,6 +587,35 @@ export function DoseLoggerModal({
         </DialogHeader>
         <form onSubmit={onSubmit}>
           <div className="grid gap-4 py-4">
+            {/* ── Quick Input Field ─────────────────────────────────────── */}
+            <div className="grid gap-2">
+              <Label className="flex items-center gap-2">
+                <Zap className="h-4 w-4 text-yellow-500" />
+                Quick Input
+              </Label>
+              <Input
+                type="text"
+                placeholder="e.g. &quot;Caffeine 100 mg&quot;, &quot;LSD 100ug&quot;, &quot;2 tabs MDMA&quot;"
+                value={quickInput}
+                onChange={handleQuickInputChange}
+                onFocus={() => setQuickInputFocused(true)}
+                onBlur={() => setQuickInputFocused(false)}
+                className="text-base"
+              />
+              <p className="text-xs text-muted-foreground">
+                Type substance + amount + unit to auto-fill all fields below
+              </p>
+            </div>
+
+            {/* ── Divider when quick input has content ───────────────────── */}
+            {quickInput && (substanceName || amount) && (
+              <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                <div className="h-px flex-1 bg-border" />
+                <span>Auto-filled from quick input</span>
+                <div className="h-px flex-1 bg-border" />
+              </div>
+            )}
+
             <div className="grid gap-2">
               <Label>Substance</Label>
               <Combobox
@@ -399,9 +643,9 @@ export function DoseLoggerModal({
               <div className="grid gap-2">
                 <Label>Amount</Label>
                 <Input
-                  type="number"
-                  step="0.1"
-                  placeholder="e.g., 100"
+                  type="text"
+                  inputMode="decimal"
+                  placeholder="e.g., 100, 2.5"
                   value={amount}
                   onChange={(e) => setAmount(e.target.value)}
                 />

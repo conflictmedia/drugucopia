@@ -94,6 +94,7 @@ export const met: Substance =
       "Headaches"
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "insufflated": {
       "dosage": {
@@ -108,9 +109,9 @@ export const met: Substance =
         "comeup": "20-40 minutes",
         "peak": "1-1.5 hours",
         "offset": "1-2.5 hours",
-        "total": "2-4 hours"
-      },
-      "notes": "Afterglow: 4-12 hours"
+        "total": "2-4 hours",
+        "afterglow": "4-12 hours"
+      }
     },
     "oral": {
       "dosage": {
@@ -125,9 +126,9 @@ export const met: Substance =
         "comeup": "30-60 minutes",
         "peak": "1.5-2.5 hours",
         "offset": "1-3 hours",
-        "total": "4-6 hours"
-      },
-      "notes": "Afterglow: 6-24 hours"
+        "total": "4-6 hours",
+        "afterglow": "6-24 hours"
+      }
     },
     "smoked": {
       "dosage": {
@@ -142,17 +143,14 @@ export const met: Substance =
         "comeup": "Unknown",
         "peak": "10-20 minutes",
         "offset": "20-40 minutes",
-        "total": "30-75 minutes"
-      },
-      "notes": "Afterglow: 20-60 minutes"
+        "total": "30-75 minutes",
+        "afterglow": "20-60 minutes"
+      }
     }
   },
   "interactions": [],
   "harmReduction": [
-    "The toxicity and long-term health effects of recreational MET use do not seem to have been studied in any scientific context and the exact toxic dose is unknown. This is because MET is a research chemical with very little history of human usage. Anecdotal evidence from people within the community who have tried MET suggest that there are no negative health effects attributed to simply trying the substance by itself at low to moderate doses and using it very sparingly (but nothing can be completely guaranteed). Independent research should always be done to ensure that a combination of two or more substances is safe before consumption.",
-    "It is strongly recommended that one use harm reduction practices when using this substance.",
-    "Early reports suggest MET is not habit-forming and the desire to use it can actually decrease with regular consumption. Like with most psychedelics it is most widely thought to be self-regulating.",
-    "As with DMT, tolerance to the effects of MET does not readily occur, though its extended residual effects indicate a mild form of tolerance may be present when used in quick succession. However, it presents little to no cross-tolerance with other psychedelics, meaning that after the consumption of MET psychedelics will not display a reduced effect."
+    "toxic dose is unknown"
   ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {

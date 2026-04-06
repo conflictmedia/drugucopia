@@ -48,6 +48,7 @@ export const mexedrone: Substance =
       "Motivation suppression"
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "oral": {
       "dosage": {
@@ -62,7 +63,8 @@ export const mexedrone: Substance =
         "comeup": "Unknown",
         "peak": "Unknown",
         "offset": "Unknown",
-        "total": "4-6 hours"
+        "total": "4-6 hours",
+        "afterglow": "Unknown"
       }
     }
   },
@@ -80,11 +82,7 @@ export const mexedrone: Substance =
     "Stimulants"
   ],
   "harmReduction": [
-    "The toxicity and long-term health effects of recreational mexedrone use do not seem to have been studied in any scientific context and the exact toxic dosage is unknown. This is because mexedrone has very little history of human usage.",
-    "Anecdotal reports from those who have tried mexedrone within the community suggest that there do not seem to be any negative health effects attributed to simply trying this drug at low to moderate doses by itself and using it sparingly (but nothing can be completely guaranteed).",
-    "It is strongly recommended that one use harm reduction practices when using this drug.",
-    "As with other stimulants, the chronic use of mexedrone can be considered moderately addictive with a high potential for abuse and is capable of causing psychological dependence among certain users. When addiction has developed, cravings and withdrawal effects may occur if a person suddenly stops their usage.",
-    "Tolerance to many of the effects of mexedrone develops with prolonged and repeated use. This results in users having to administer increasingly large doses to achieve the same effects. After that, it takes about 3 - 7 days for the tolerance to be reduced to half and 1 - 2 weeks to be back at baseline (in the absence of further consumption). Mexedrone presents cross-tolerance with all dopaminergic stimulants, meaning that after the consumption of mexedrone all stimulants will have a reduced effect."
+    "exact toxic dosage is unknown"
   ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {

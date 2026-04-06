@@ -84,6 +84,7 @@ export const memantine: Substance =
       "Auditory suppression"
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "oral": {
       "dosage": {
@@ -98,9 +99,9 @@ export const memantine: Substance =
         "comeup": "2-3 hours",
         "peak": "3-12 hours",
         "offset": "5-24 hours",
-        "total": "18-36 hours"
-      },
-      "notes": "Afterglow: 8-24 hours"
+        "total": "18-36 hours",
+        "afterglow": "8-24 hours"
+      }
     }
   },
   "interactions": [
@@ -108,15 +109,7 @@ export const memantine: Substance =
     "Depressants"
   ],
   "harmReduction": [
-    "The toxicity and long-term health effects of recreational memantine use do not seem to have been studied in any scientific context and the exact toxic dosage is unknown, although up to 400mg has been tolerated. This is because memantine has very little history of recreational human usage.",
-    "Anecdotal evidence from people who have tried memantine within the community suggests that there do not seem to be any negative health effects attributed to simply trying this drug at low to moderate doses by itself and using it sparingly (but nothing can be completely guaranteed). Independent research should always be done to ensure that a combination of two or more substances is safe before consumption.",
-    "The dependence potential for memantine is unknown. However, due to its long duration and long onset, users are discouraged to redose, meaning it is unlikely users will develop an addiction.",
-    "Memantine presents cross-tolerance with all dissociatives, meaning that after the consumption of memantine all dissociatives will have a reduced effect.",
-    "Cannabis - Cannabis is reported to increase the effects of memantine.",
-    "Nicotine - Anecdotal reports suggest an interaction between tobacco and memantine.",
-    "Opioids - Memantine is reported to increase the effects, prevent build up and in some cases reverse tolerance to opioids.",
-    "Stimulants - Memantine is reported to increase the effects, prevent build up and in some cases reverse tolerance to stimulants.",
-    "Alcohol - Memantine is reported to increase the effects, prevent build up and, in some cases, reverse tolerance to alcohol."
+    "exact toxic dosage is unknown"
   ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {

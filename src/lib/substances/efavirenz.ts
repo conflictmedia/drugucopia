@@ -60,6 +60,7 @@ export const efavirenz: Substance =
       "Auditory hallucination"
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "smoked": {
       "dosage": {
@@ -74,9 +75,9 @@ export const efavirenz: Substance =
         "comeup": "Unknown",
         "peak": "1-2 hours",
         "offset": "Unknown",
-        "total": "Unknown"
-      },
-      "notes": "Afterglow: 6-12 hours"
+        "total": "Unknown",
+        "afterglow": "6-12 hours"
+      }
     }
   },
   "interactions": [
@@ -87,10 +88,8 @@ export const efavirenz: Substance =
     "5-HTP"
   ],
   "harmReduction": [
-    "Efavirenz has a low toxicity relative to dose. Like many HIV medications, efavirenz may cause liver toxicity at high doses or after chronic use.",
-    "It is strongly recommended that one use harm reduction practices when using this drug.",
-    "Efavirenz is not known to be habit-forming. While developing a tolerance to efavirenz is extremely rare, abusing efavirenz may cause HIV to become resistant to the drug and increase the viral load in patients with HIV.",
-    "Efavirenz is a weak serotonin reuptake inhibitor, so it is possible that combining heavy doses of efavirenz and the substances listed below may result in serotonin syndrome."
+    "low toxicity",
+    "may cause liver toxicity at high doses or after chronic use"
   ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {

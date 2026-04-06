@@ -70,6 +70,7 @@ export const methcathinone: Substance =
       "Motivation suppression"
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "oral": {
       "dosage": {
@@ -84,7 +85,8 @@ export const methcathinone: Substance =
         "comeup": "Unknown",
         "peak": "Unknown",
         "offset": "Unknown",
-        "total": "4-6 hours"
+        "total": "4-6 hours",
+        "afterglow": "Unknown"
       }
     }
   },

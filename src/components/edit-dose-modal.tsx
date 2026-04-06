@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, useCallback } from 'react'
 import { format } from 'date-fns'
 import {
   Dialog,
@@ -16,7 +16,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { Combobox, type ComboboxOption } from '@/components/ui/combobox'
-import { Loader2, Pencil } from 'lucide-react'
+import { Loader2, Pencil, Zap } from 'lucide-react'
 import { formatUnit } from './dose-logger-modal'
 import { substances } from '@/lib/substances/index'
 import { useToast } from '@/hooks/use-toast'
@@ -69,10 +69,148 @@ const defaultRouteOptions: ComboboxOption[] = [
   { value: 'smoked', label: 'Smoked' }, { value: 'vaped', label: 'Vaped' },
 ]
 
+/* ------------------------------------------------------------------ */
+/*  Smart amount+unit parsing                                          */
+/* ------------------------------------------------------------------ */
+
+const KNOWN_UNITS = unitOptions.map(u => u.value)
+
+const UNIT_ALIASES: Record<string, string> = {
+  'micrograms': 'μg', 'microgram': 'μg', 'mcg': 'μg', 'ug': 'μg',
+  'milligrams': 'mg', 'milligram': 'mg',
+  'grams': 'g', 'gram': 'g',
+  'milliliters': 'ml', 'milliliter': 'ml', 'mls': 'ml',
+  'drops': 'drop', 'puffs': 'puff', 'tabs': 'tab', 'tablets': 'tab',
+  'capsules': 'capsule', 'pills': 'capsule', 'hits': 'hit',
+  'lines': 'line', 'drinks': 'drink', 'shots': 'shot',
+  'joints': 'joint', 'blunts': 'blunt', 'bowls': 'bowl', 'blinkers': 'blinker',
+}
+
+function parseAmountUnit(input: string): { amount: string; unit: string | null } {
+  const trimmed = input.trim()
+  if (!trimmed) return { amount: '', unit: null }
+
+  const match = trimmed.match(/^([\-\+]?\d*\.?\d+)(?:\s*([a-zA-Zμμ]+))?$/)
+  if (match) {
+    const amountStr = match[1]
+    const unitStr = match[2]
+    if (!unitStr) return { amount: amountStr, unit: null }
+
+    const lower = unitStr.toLowerCase()
+    if (KNOWN_UNITS.includes(lower)) return { amount: amountStr, unit: lower }
+    if (UNIT_ALIASES[lower]) return { amount: amountStr, unit: UNIT_ALIASES[lower] }
+    return { amount: amountStr, unit: lower }
+  }
+
+  return { amount: trimmed, unit: null }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Quick Input Parser - Extract substance, amount, unit from string   */
+/* ------------------------------------------------------------------ */
+
+function parseQuickInput(
+  input: string,
+  substanceList: typeof substances
+): { substanceName: string; substanceId: string; amount: string; unit: string | null } {
+  const trimmed = input.trim()
+  if (!trimmed) return { substanceName: '', substanceId: '', amount: '', unit: null }
+
+  const amountWithUnitRegex = /(\d*\.?\d+)\s*([a-zA-Zμμ]+)?/g
+
+  let match
+  let amountStr = ''
+  let unitStr: string | null = null
+  let amountIndex = -1
+  let amountLength = 0
+
+  while ((match = amountWithUnitRegex.exec(trimmed)) !== null) {
+    const num = match[1]
+    const unit = match[2]
+
+    if (num.length === 1 && !unit) continue
+
+    amountStr = num
+    unitStr = unit || null
+    amountIndex = match.index
+    amountLength = match[0].length
+    break
+  }
+
+  if (!amountStr) {
+    const found = substanceList.find(s =>
+      s.name.toLowerCase() === trimmed.toLowerCase() ||
+      s.commonNames?.some(cn => cn.toLowerCase() === trimmed.toLowerCase()) ||
+      s.aliases?.some(a => a.toLowerCase() === trimmed.toLowerCase())
+    )
+    if (found) {
+      return { substanceName: found.name, substanceId: found.id, amount: '', unit: null }
+    }
+    return { substanceName: trimmed, substanceId: '', amount: '', unit: null }
+  }
+
+  let resolvedUnit: string | null = null
+  if (unitStr) {
+    const lower = unitStr.toLowerCase()
+    if (KNOWN_UNITS.includes(lower)) {
+      resolvedUnit = lower
+    } else if (UNIT_ALIASES[lower]) {
+      resolvedUnit = UNIT_ALIASES[lower]
+    } else {
+      resolvedUnit = lower
+    }
+  }
+
+  const beforeAmount = trimmed.slice(0, amountIndex).trim()
+  const afterAmount = trimmed.slice(amountIndex + amountLength).trim()
+  let potentialSubstance = (beforeAmount + ' ' + afterAmount).trim()
+
+  let substanceName = potentialSubstance
+  let substanceId = ''
+
+  if (potentialSubstance) {
+    const lower = potentialSubstance.toLowerCase()
+
+    const exactMatch = substanceList.find(s =>
+      s.name.toLowerCase() === lower ||
+      s.commonNames?.some(cn => cn.toLowerCase() === lower) ||
+      s.aliases?.some(a => a.toLowerCase() === lower)
+    )
+
+    if (exactMatch) {
+      substanceName = exactMatch.name
+      substanceId = exactMatch.id
+    } else {
+      const partialMatch = substanceList.find(s => {
+        const nameLower = s.name.toLowerCase()
+        return nameLower.includes(lower) || lower.includes(nameLower) ||
+          s.commonNames?.some(cn => {
+            const cnLower = cn.toLowerCase()
+            return cnLower.includes(lower) || lower.includes(cnLower)
+          }) ||
+          s.aliases?.some(a => {
+            const aLower = a.toLowerCase()
+            return aLower.includes(lower) || lower.includes(aLower)
+          })
+      })
+
+      if (partialMatch) {
+        substanceName = partialMatch.name
+        substanceId = partialMatch.id
+      }
+    }
+  }
+
+  return { substanceName, substanceId, amount: amountStr, unit: resolvedUnit }
+}
+
 export function EditDoseModal({ dose, open, onOpenChange, onSaved }: EditDoseModalProps) {
   const { toast } = useToast()
   const { updateDose } = useDoseStore()
   const [loading, setLoading] = useState(false)
+
+  // Quick input state
+  const [quickInput, setQuickInput] = useState('')
 
   const [substanceId, setSubstanceId] = useState(dose.substanceId)
   const [substanceName, setSubstanceName] = useState(dose.substanceName)
@@ -100,12 +238,7 @@ export function EditDoseModal({ dose, open, onOpenChange, onSaved }: EditDoseMod
     setDurationOverride(dose.duration ?? null)
   }, [dose])
 
-  // Include commonNames as keywords for search filtering
-  const substanceOptions: ComboboxOption[] = substances.map(s => ({ 
-    value: s.id, 
-    label: s.name,
-    keywords: s.commonNames
-  }))
+  const substanceOptions: ComboboxOption[] = substances.map(s => ({ value: s.id, label: s.name }))
   const selectedSubstance = substances.find(s => s.id === substanceId)
 
   // Interpolated estimate for the current substance+route combo
@@ -150,6 +283,37 @@ export function EditDoseModal({ dose, open, onOpenChange, onSaved }: EditDoseMod
     }
     setDurationOverride(null)
   }
+
+  /* ── Smart amount input handler ──────────────────────────────────────── */
+  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const raw = e.target.value
+    const parsed = parseAmountUnit(raw)
+    setAmount(parsed.amount)
+    if (parsed.unit) {
+      setUnit(parsed.unit)
+    }
+  }
+
+  /* ── Quick Input handler - parses substance + amount + unit from single string ─── */
+  const handleQuickInputChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value
+    setQuickInput(value)
+
+    // Parse the input
+    const parsed = parseQuickInput(value, substances)
+
+    // Update all relevant fields
+    if (parsed.substanceName) {
+      setSubstanceName(parsed.substanceName)
+      setSubstanceId(parsed.substanceId || `custom-${Date.now()}`)
+    }
+    if (parsed.amount) {
+      setAmount(parsed.amount)
+    }
+    if (parsed.unit) {
+      setUnit(parsed.unit)
+    }
+  }, [])
 
   const handleSave = async () => {
     if (!substanceName || !amount) {
@@ -208,6 +372,33 @@ export function EditDoseModal({ dose, open, onOpenChange, onSaved }: EditDoseMod
         </DialogHeader>
         <form onSubmit={onSubmit}>
           <div className="grid gap-4 py-4">
+            {/* ── Quick Input Field ─────────────────────────────────────── */}
+            <div className="grid gap-2">
+              <Label className="flex items-center gap-2">
+                <Zap className="h-4 w-4 text-yellow-500" />
+                Quick Input
+              </Label>
+              <Input
+                type="text"
+                placeholder="e.g. &quot;Caffeine 100 mg&quot;, &quot;LSD 100ug&quot;, &quot;2 tabs MDMA&quot;"
+                value={quickInput}
+                onChange={handleQuickInputChange}
+                className="text-base"
+              />
+              <p className="text-xs text-muted-foreground">
+                Type substance + amount + unit to auto-fill all fields below
+              </p>
+            </div>
+
+            {/* ── Divider when quick input has content ───────────────────── */}
+            {quickInput && (substanceName || amount) && (
+              <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                <div className="h-px flex-1 bg-border" />
+                <span>Auto-filled from quick input</span>
+                <div className="h-px flex-1 bg-border" />
+              </div>
+            )}
+
             <div className="grid gap-2">
               <Label>Substance</Label>
               <Combobox
@@ -222,7 +413,13 @@ export function EditDoseModal({ dose, open, onOpenChange, onSaved }: EditDoseMod
             <div className="grid grid-cols-2 gap-4">
               <div className="grid gap-2">
                 <Label>Amount</Label>
-                <Input type="number" step="0.1" value={amount} onChange={(e) => setAmount(e.target.value)} />
+                <Input
+                  type="text"
+                  inputMode="decimal"
+                  placeholder="e.g., 100, 2.5"
+                  value={amount}
+                  onChange={(e) => setAmount(e.target.value)}
+                />
               </div>
               <div className="grid gap-2">
                 <Label>Unit</Label>

@@ -96,6 +96,7 @@ export const dpt: Substance =
       "Thought loops"
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "insufflated": {
       "dosage": {
@@ -110,9 +111,9 @@ export const dpt: Substance =
         "comeup": "Unknown",
         "peak": "30-45 minutes",
         "offset": "Unknown",
-        "total": "3-5 hours"
-      },
-      "notes": "Afterglow: 2-4 hours"
+        "total": "3-5 hours",
+        "afterglow": "2-4 hours"
+      }
     },
     "oral": {
       "dosage": {
@@ -127,9 +128,9 @@ export const dpt: Substance =
         "comeup": "Unknown",
         "peak": "Unknown",
         "offset": "Unknown",
-        "total": "2-4 hours"
-      },
-      "notes": "Afterglow: 2-3 hours"
+        "total": "2-4 hours",
+        "afterglow": "2-3 hours"
+      }
     },
     "smoked": {
       "dosage": {
@@ -144,35 +145,14 @@ export const dpt: Substance =
         "comeup": "Unknown",
         "peak": "Unknown",
         "offset": "Unknown",
-        "total": "30-90 minutes"
-      },
-      "notes": "Afterglow: 2-4 hours"
-    },
-    "intramuscular": {
-      "dosage": {
-        "threshold": "10mg",
-        "light": "15-20mg",
-        "common": "15-75mg",
-        "strong": "50-125mg",
-        "heavy": "125mg+"
-      },
-      "duration": {
-        "onset": "2-10 minutes",
-        "comeup": "10-30 minutes",
-        "peak": "30-60 minutes",
-        "offset": "1-3 hours",
-        "total": "3-4 hours"
-      },
-      "notes": "LLM (GLM5 - Advanced Search) DERIVED DATA, MAY NOT BE ACCURATE!!!!!!!"
+        "total": "30-90 minutes",
+        "afterglow": "2-4 hours"
+      }
     }
   },
   "interactions": [],
   "harmReduction": [
-    "The toxicity and long-term health effects of recreational DPT do not seem to have been studied in any scientific context and the exact toxic dose is unknown. This is because DPT is a research chemical with very little history of human usage. There has been one death associated with the use DPT and seizures, but the dose is unknown.",
-    "Anecdotal reports from those who have taken DPT suggests that negative health effects are not likely to occur from simply trying it by itself at low to moderate doses and using it sparingly (although nothing can be guaranteed). Independent research should always be done to ensure that a combination of two or more substances is safe before consumption.",
-    "It is strongly recommended that one use harm reduction practices when using this substance.",
-    "DPT is not habit-forming and the desire to use it can actually decrease with use. As with most psychedelics, it is reported to be self-limiting.",
-    "Tolerance to the effects of DPT has been shown to not be built in animal models. However, it has been reported to be able to build slightly relative to DMT, although still to an insignificant degree compared to most psychedelics."
+    "toxic dose is unknown"
   ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {

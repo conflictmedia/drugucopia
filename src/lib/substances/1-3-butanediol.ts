@@ -52,9 +52,9 @@ export const _1_3_butanediol: Substance =
         "comeup": "Unknown",
         "peak": "Unknown",
         "offset": "Unknown",
-        "total": "Unknown"
-      },
-      "notes": "Afterglow: Unknown"
+        "total": "Unknown",
+        "afterglow": "Unknown"
+      }
     },
     "sublingual": {
       "dosage": {
@@ -69,9 +69,9 @@ export const _1_3_butanediol: Substance =
         "comeup": "Unknown",
         "peak": "Unknown",
         "offset": "Unknown",
-        "total": "Unknown"
-      },
-      "notes": "Afterglow: Unknown"
+        "total": "Unknown",
+        "afterglow": "Unknown"
+      }
     }
   },
   "interactions": [],

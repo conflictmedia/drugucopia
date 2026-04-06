@@ -33,6 +33,7 @@ export const naloxone: Substance =
       "Emotion suppression - The emotion suppression found on naloxone is noticeably similar to the same experience found within antipsychotics although without the accompanying analysis suppression and thought deceleration."
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "insufflated": {
       "dosage": {
@@ -47,7 +48,8 @@ export const naloxone: Substance =
         "comeup": "Unknown",
         "peak": "Unknown",
         "offset": "Unknown",
-        "total": "30-60 minutes"
+        "total": "30-60 minutes",
+        "afterglow": "Unknown"
       }
     },
     "intramuscular": {
@@ -63,7 +65,8 @@ export const naloxone: Substance =
         "comeup": "Unknown",
         "peak": "Unknown",
         "offset": "Unknown",
-        "total": "30-60 minutes"
+        "total": "30-60 minutes",
+        "afterglow": "Unknown"
       }
     },
     "intravenous": {
@@ -79,7 +82,8 @@ export const naloxone: Substance =
         "comeup": "Unknown",
         "peak": "Unknown",
         "offset": "Unknown",
-        "total": "30-60 minutes"
+        "total": "30-60 minutes",
+        "afterglow": "Unknown"
       }
     },
     "oral": {
@@ -95,17 +99,13 @@ export const naloxone: Substance =
         "comeup": "20-40 minutes",
         "peak": "1-2 hours",
         "offset": "30-60 minutes",
-        "total": "1-2 hours"
-      },
-      "notes": "Afterglow: 1-12 hours"
+        "total": "1-2 hours",
+        "afterglow": "1-12 hours"
+      }
     }
   },
   "interactions": [],
-  "harmReduction": [
-    "Naloxone is considered not habit-forming. When naloxone is administered in an opioid overdose, the individual will go through immediate withdrawal. Sudden opioid withdrawal may be life-threatening in extreme cases. Symptoms of opioid withdrawal may include, but are not limited to agitation, nausea, psychosis, temperature regulation suppression, anxiety, physical fatigue, excessive yawning, sweating, dehydration, and pupil dilation.",
-    "It has been noted that naloxone may be needed in higher dosages depending on the opioid that was consumed. It is not uncommon for several doses of naloxone to be administered in overdose cases involving fentanyl or one of its many analogs. If an individual does not have opioids in their system when naloxone is administered, it may cause dehydration and nausea.",
-    "It is strongly recommended that one use harm reduction practices when using this substance."
-  ],
+  "harmReduction": [],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {
     "formula": "Unknown",

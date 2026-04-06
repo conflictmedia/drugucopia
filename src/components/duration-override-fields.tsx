@@ -1,6 +1,5 @@
 'use client'
 
-
 import { useState, useEffect } from 'react'
 import { AlertTriangle, ChevronDown, ChevronUp, FlaskConical, Clock, Info } from 'lucide-react'
 import { Input } from '@/components/ui/input'
@@ -15,11 +14,12 @@ interface DurationOverrideFieldsProps {
 }
 
 const PHASES: { key: keyof Duration; label: string; color: string; placeholder: string }[] = [
-  { key: 'onset',  label: 'Onset',  color: 'text-blue-400',   placeholder: 'e.g. 20-40 minutes' },
-  { key: 'comeup', label: 'Come-up',color: 'text-amber-400',  placeholder: 'e.g. 30-60 minutes' },
-  { key: 'peak',   label: 'Peak',   color: 'text-purple-400', placeholder: 'e.g. 2-3 hours'     },
-  { key: 'offset', label: 'Offset', color: 'text-cyan-400',   placeholder: 'e.g. 1-2 hours'     },
-  { key: 'total',  label: 'Total',  color: 'text-green-400',  placeholder: 'e.g. 4-6 hours'     },
+  { key: 'onset',     label: 'Onset',      color: 'text-blue-400',   placeholder: 'e.g. 20-40 minutes' },
+  { key: 'comeup',    label: 'Come-up',    color: 'text-amber-400',  placeholder: 'e.g. 30-60 minutes' },
+  { key: 'peak',      label: 'Peak',       color: 'text-purple-400', placeholder: 'e.g. 2-3 hours'     },
+  { key: 'offset',    label: 'Offset',     color: 'text-cyan-400',   placeholder: 'e.g. 1-2 hours'     },
+  { key: 'afterglow', label: 'Afterglow',  color: 'text-indigo-400', placeholder: 'e.g. 1-3 hours'     },
+  { key: 'total',     label: 'Total',      color: 'text-green-400',  placeholder: 'e.g. 4-6 hours'     },
 ]
 
 export function DurationOverrideFields({
@@ -30,20 +30,22 @@ export function DurationOverrideFields({
   const [expanded, setExpanded] = useState(defaultExpanded || !!baseDuration?.isEstimated)
 
   const [values, setValues] = useState<Duration>({
-    onset:  baseDuration?.onset  ?? '',
-    comeup: baseDuration?.comeup ?? '',
-    peak:   baseDuration?.peak   ?? '',
-    offset: baseDuration?.offset ?? '',
-    total:  baseDuration?.total  ?? '',
+    onset:     baseDuration?.onset     ?? '',
+    comeup:    baseDuration?.comeup    ?? '',
+    peak:      baseDuration?.peak      ?? '',
+    offset:    baseDuration?.offset    ?? '',
+    afterglow: (baseDuration as any)?.afterglow ?? '',
+    total:     baseDuration?.total     ?? '',
   })
 
   useEffect(() => {
     setValues({
-      onset:  baseDuration?.onset  ?? '',
-      comeup: baseDuration?.comeup ?? '',
-      peak:   baseDuration?.peak   ?? '',
-      offset: baseDuration?.offset ?? '',
-      total:  baseDuration?.total  ?? '',
+      onset:     baseDuration?.onset     ?? '',
+      comeup:    baseDuration?.comeup    ?? '',
+      peak:      baseDuration?.peak      ?? '',
+      offset:    baseDuration?.offset    ?? '',
+      afterglow: (baseDuration as any)?.afterglow ?? '',
+      total:     baseDuration?.total     ?? '',
     })
     if (baseDuration?.isEstimated) setExpanded(true)
   }, [baseDuration])
@@ -136,7 +138,12 @@ export function DurationOverrideFields({
           <div className="grid grid-cols-2 gap-x-3 gap-y-2 sm:grid-cols-3">
             {PHASES.map(({ key, label, color, placeholder }) => (
               <div key={key} className="grid gap-1">
-                <Label className={`text-xs font-medium ${color}`}>{label}</Label>
+                <Label className={`text-xs font-medium ${color}`}>
+                  {label}
+                  {key === 'afterglow' && (
+                    <span className="ml-1 text-[10px] font-normal text-muted-foreground">(optional)</span>
+                  )}
+                </Label>
                 <Input
                   value={values[key] ?? ''}
                   onChange={(e) => handleChange(key, e.target.value)}

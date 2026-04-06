@@ -92,6 +92,7 @@ export const mda: Substance =
       "Motivation suppression"
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "oral": {
       "dosage": {
@@ -106,9 +107,9 @@ export const mda: Substance =
         "comeup": "15-45 minutes",
         "peak": "2.5-4 hours",
         "offset": "2-3 hours",
-        "total": "5-8 hours"
-      },
-      "notes": "Afterglow: 4-48 hours"
+        "total": "5-8 hours",
+        "afterglow": "4-48 hours"
+      }
     }
   },
   "interactions": [

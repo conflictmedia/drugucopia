@@ -41,6 +41,7 @@ export const theanine: Substance =
       "Headaches - Headaches are usually only reported at high doses, well above 200mg."
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "oral": {
       "dosage": {
@@ -55,16 +56,14 @@ export const theanine: Substance =
         "comeup": "Unknown",
         "peak": "1-3 hours",
         "offset": "Unknown",
-        "total": "3-6 hours"
+        "total": "3-6 hours",
+        "afterglow": "Unknown"
       }
     }
   },
   "interactions": [],
   "harmReduction": [
-    "Theanine is non-addictive, is not known to cause brain damage, and has an extremely low toxicity relative to dose. There are relatively few physical side effects associated with acute theanine exposure. Various studies have shown that in reasonable doses in a careful context, it presents no negative cognitive, psychiatric or toxic physical consequences.",
-    "It is strongly recommended that one use harm reduction practices when using this substance.",
-    "Theanine is not habit-forming.",
-    "Tolerance to the effects of theanine are built up after prolonged and repeated usage. After noticeable tolerance has been built, it takes about 5 days for tolerance to be reduced by half and 10 days return to baseline. Theanine presents cross-tolerance with no other known compounds, meaning that after the consumption of theanine all other psychoactive compounds will not have a reduced effect."
+    "extremely low toxicity"
   ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {

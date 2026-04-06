@@ -111,16 +111,13 @@ export const ibogaine: Substance =
         "comeup": "Unknown",
         "peak": "18-36 hours",
         "offset": "Unknown",
-        "total": "Unknown"
-      },
-      "notes": "Afterglow: 24-72 hours"
+        "total": "Unknown",
+        "afterglow": "24-72 hours"
+      }
     }
   },
   "interactions": [],
-  "harmReduction": [
-    "Ibogaine has been associated with life-threatening heart complications, such as QT prolongation. It can be taken safely, but only under the supervision of trained medical professionals.",
-    "Ibogaine is not habit-forming, and the desire to use it can actually decrease with regular consumption. Like most psychedelics, it is most often thought to be self-regulating."
-  ],
+  "harmReduction": [],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {
     "formula": "Unknown",

@@ -82,6 +82,7 @@ export const lisdexamfetamine: Substance =
       "Motivation suppression"
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "oral": {
       "dosage": {
@@ -96,9 +97,9 @@ export const lisdexamfetamine: Substance =
         "comeup": "30-60 minutes",
         "peak": "3-5 hours",
         "offset": "4-6 hours",
-        "total": "10-14 hours"
-      },
-      "notes": "Afterglow: 2-6 hours"
+        "total": "10-14 hours",
+        "afterglow": "2-6 hours"
+      }
     }
   },
   "interactions": [

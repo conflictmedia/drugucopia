@@ -25,6 +25,7 @@ export const _7_hydroxymitragynine: Substance =
     ],
     "negative": []
   },
+  "defaultUnit": "mg",
   "routeData": {
     "oral": {
       "dosage": {

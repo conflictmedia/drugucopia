@@ -55,6 +55,7 @@ export const methoxphenidine: Substance =
       "Hallucinations - Audial time dilation experienced at moderate to heavy dosages can be described as being processed 2-5 seconds after occurring, having an extremely low frame rate with echoing, lengthy syllables."
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "oral": {
       "dosage": {
@@ -69,9 +70,9 @@ export const methoxphenidine: Substance =
         "comeup": "Unknown",
         "peak": "Unknown",
         "offset": "Unknown",
-        "total": "6-8 hours"
-      },
-      "notes": "Afterglow: 1-3 hours"
+        "total": "6-8 hours",
+        "afterglow": "1-3 hours"
+      }
     }
   },
   "interactions": [
@@ -80,11 +81,7 @@ export const methoxphenidine: Substance =
     "Dissociatives"
   ],
   "harmReduction": [
-    "The toxicity and long-term health effects of recreational MXP use do not seem to have been studied in any scientific context and the exact toxic dosage is unknown. This is because MXP has very little history of human usage.",
-    "Anecdotal reports from those who have tried this substance that there do not seem to be any negative health effects attributed to simply trying it by itself at low to moderate doses and using it sparingly (but nothing can be completely guaranteed). Independent research should always be done to ensure that a combination of two or more substances is safe before consumption.",
-    "It is strongly recommended that one use harm reduction practices when using this substance.",
-    "As with other NMDA receptor antagonists, the chronic use of MXP can be considered moderately addictive with a high potential for abuse and is capable of causing psychological dependence among certain users. When addiction has developed, cravings and withdrawal effects may occur if a person suddenly stops their usage.",
-    "Tolerance to many of the effects of MXP develops with prolonged and repeated use. This results in users having to administer increasingly large doses to achieve the same effects. After that, it takes about 3 - 7 days for the tolerance to be reduced to half and 1 - 2 weeks to be back at baseline (in the absence of further consumption). MXP presents cross-tolerance with all dissociatives, meaning that after the consumption of MXP all dissociatives will have a reduced effect."
+    "exact toxic dosage is unknown"
   ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {

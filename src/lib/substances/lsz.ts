@@ -50,6 +50,7 @@ export const lsz: Substance =
       "Hallucinations"
     ]
   },
+  "defaultUnit": "µg",
   "routeData": {
     "oral": {
       "dosage": {
@@ -64,9 +65,9 @@ export const lsz: Substance =
         "comeup": "30-60 minutes",
         "peak": "3-5 hours",
         "offset": "2-3 hours",
-        "total": "6-10 hours"
-      },
-      "notes": "Afterglow: 6-24 hours"
+        "total": "6-10 hours",
+        "afterglow": "6-24 hours"
+      }
     }
   },
   "interactions": [
@@ -74,10 +75,7 @@ export const lsz: Substance =
     "Tramadol"
   ],
   "harmReduction": [
-    "The toxicity and long-term health effects of recreational LSZ do not seem to have been studied in any scientific context and the exact toxic dose is unknown. This is because LSZ is a research chemical with very little history of human usage. Anecdotal evidence from people within the psychonaut community who have tried LSZ suggests that there are no negative health effects attributed to simply trying the drug by itself at low to moderate doses and using it very sparingly (but nothing can be completely guaranteed). Independent research should always be done to ensure that a combination of two or more substances is safe before consumption.",
-    "It is strongly recommended that one use harm reduction practices when using this substance.",
-    "LSZ is not habit-forming and the desire to use it can actually decrease with use. It is most often self-regulating.",
-    "Tolerance to the effects of LSZ is built almost immediately after ingestion. After that, it takes about 3 days for the tolerance to be reduced to half and 7 days to be back at baseline (in the absence of further consumption). LSZ presents cross-tolerance with all psychedelics, meaning that all psychedelics will have a reduced effect after the consumption of LSZ."
+    "toxic dose is unknown"
   ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {

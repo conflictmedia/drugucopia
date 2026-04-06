@@ -37,6 +37,7 @@ export const mephenaqualone: Substance =
       "Disinhibition - Like other CNS depressants, it can reduce social inhibitions and make users more talkative or outgoing."
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "oral": {
       "dosage": {
@@ -51,15 +52,13 @@ export const mephenaqualone: Substance =
         "comeup": "5-10 minutes",
         "peak": "2-4 hours",
         "offset": "10-15 hours",
-        "total": "15-20 hours"
-      },
-      "notes": "Afterglow: 6-12 hours"
+        "total": "15-20 hours",
+        "afterglow": "6-12 hours"
+      }
     }
   },
   "interactions": [],
-  "harmReduction": [
-    "The toxicity profile of mephenaqualone is not well-documented, but it is assumed to be similar to that of methaqualone. Overdosing on mephenaqualone can lead to severe sedation, respiratory depression, and potentially life-threatening symptoms. As with all CNS depressants, combining mephenaqualone with other depressants like alcohol or benzodiazepines significantly increases the risk of overdose and fatal respiratory depression."
-  ],
+  "harmReduction": [],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {
     "formula": "Unknown",

@@ -95,6 +95,7 @@ export const methamphetamine: Substance =
       "Psychosis"
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "insufflated": {
       "dosage": {
@@ -109,9 +110,9 @@ export const methamphetamine: Substance =
         "comeup": "3-5 minutes",
         "peak": "1.5-3 hours",
         "offset": "2-4 hours",
-        "total": "4-7 hours"
-      },
-      "notes": "Afterglow: 6-24 hours"
+        "total": "4-7 hours",
+        "afterglow": "6-24 hours"
+      }
     },
     "intravenous": {
       "dosage": {
@@ -126,9 +127,9 @@ export const methamphetamine: Substance =
         "comeup": "1-2 minutes",
         "peak": "1-3 hours",
         "offset": "3-4 hours",
-        "total": "4-8 hours"
-      },
-      "notes": "Afterglow: 12-24 Hours"
+        "total": "4-8 hours",
+        "afterglow": "12-24 Hours"
+      }
     },
     "oral": {
       "dosage": {
@@ -143,9 +144,9 @@ export const methamphetamine: Substance =
         "comeup": "1-3 hours",
         "peak": "3-5 hours",
         "offset": "3-4 hours",
-        "total": "8-12 hours"
-      },
-      "notes": "Afterglow: 12-24 hours"
+        "total": "8-12 hours",
+        "afterglow": "12-24 hours"
+      }
     },
     "rectal": {
       "dosage": {
@@ -160,9 +161,9 @@ export const methamphetamine: Substance =
         "comeup": "3-5 minutes",
         "peak": "2-4 hours",
         "offset": "3-5 hours",
-        "total": "6-10 hours"
-      },
-      "notes": "Afterglow: 12-24 hours"
+        "total": "6-10 hours",
+        "afterglow": "12-24 hours"
+      }
     },
     "smoked": {
       "dosage": {
@@ -177,9 +178,9 @@ export const methamphetamine: Substance =
         "comeup": "5-10 seconds",
         "peak": "1-3 hours",
         "offset": "1-3 hours",
-        "total": "2-6 hours"
-      },
-      "notes": "Afterglow: 2-24 hours"
+        "total": "2-6 hours",
+        "afterglow": "2-24 hours"
+      }
     }
   },
   "interactions": [
@@ -193,21 +194,7 @@ export const methamphetamine: Substance =
     "5-MeO-xxT",
     "DOx"
   ],
-  "harmReduction": [
-    "There is evidence that methamphetamine causes brain damage from long-term use in humans; this damage includes adverse changes in brain structure and function, such as reductions in gray matter volume in several brain regions and adverse changes in markers of metabolic integrity.",
-    "Unlike amphetamine, methamphetamine is directly neurotoxic to dopamine neurons. Moreover, methamphetamine abuse is associated with an increased risk of Parkinson's disease due to excessive pre-synaptic dopamine autoxidation, a mechanism of neurotoxicity. Similar to the neurotoxic effects on the dopamine system, methamphetamine can also result in neurotoxicity to serotonin neurons. It has been demonstrated that a high core temperature is correlated with an increase in the neurotoxic effects of methamphetamine. As a result of methamphetamine-induced neurotoxicity to dopamine neurons, chronic use may also lead to post acute withdrawals which persist beyond the withdrawal period for months, and even up to a year.",
-    "As with other stimulants, the chronic use of methamphetamine can be considered extremely addictive with a high potential for abuse and is capable of causing psychological dependence among certain users. When addiction has developed, cravings and withdrawal effects may occur if a person suddenly stops their usage.",
-    "Tolerance to the effects of methamphetamine rapidly develops with prolonged and repeated use. This results in users having to administer increasingly large doses to achieve the same effects. After that, it takes about 3 - 7 days for the tolerance to be reduced to half and 1 - 2 weeks to be back at baseline (in the absence of further consumption). Methamphetamine presents cross-tolerance with all dopaminergic stimulants, meaning that after the consumption of methamphetamine all stimulants will have a reduced effect.",
-    "The evidence on effective treatments for amphetamine and methamphetamine dependence and abuse is limited. In light of this, fluoxetine and imipramine appear to have some limited benefits in treating abuse and addiction, \"no treatment has been demonstrated to be effective for the treatment of methamphetamine dependence and abuse\".",
-    "In highly dependent amphetamine and methamphetamine abusers, \"when chronic heavy users abruptly discontinue methamphetamine use, many report a time-limited withdrawal syndrome that occurs within 24 hours of their last dose\". Withdrawal symptoms in chronic, high-dose users are frequent, occurring in up to 87.6% of cases, and persist for three to four weeks with a marked \"crash\" phase occurring during the first week. Methamphetamine withdrawal symptoms can include anxiety, drug craving, dysphoric mood, fatigue, increased appetite, increased movement or decreased movement, lack of motivation, sleeplessness or sleepiness, and vivid or lucid dreams. Withdrawal symptoms are associated with the degree of dependence (i.e., the extent of abuse). The mental depression associated with methamphetamine withdrawal lasts longer and is more severe than that of cocaine withdrawal.",
-    "Although it is clear that vaporised methamphetamine is more addictive than oral or insufflated amphetamine, there is debate as to whether the drug itself is inherently more addictive, and if so, how important the difference is. Besides the duration of action, the main difference between the two drugs is that methamphetamine is proportionally more centrally and less peripherally active. One reason is because the increased lipid solubility of the methyl group causes faster central absorption. Another cause is the fact that methamphetamine releases proportionally more dopamine at an equivalent dose. D-methamphetamine releases a dopamine:norepinephrine ratio of ~1:1.3 from synapses versus ~1:2 for d-amphetamine. Their effect on the norepinephrine (NET) and dopamine (DAT) transporters are more alike but there is a slight difference. D-methamphetamine favours NET by a factor of about 4 vs 5 for d-amphetamine. D-methamphetamine is also slightly more serotonergic. This may be a negligible difference, as the ratio of serotonin:norepinephrine release is only 1:60 for d-methamphetamine and 1:80 for d-amphetamine. Neither drug has any appreciable affinity for the serotonin transporter (SERT).",
-    "This increased central vs peripheral effect of methamphetamine agrees with the common subjective feeling among stimulant users that the methamphetamine high has less of an inherently 'jittery' quality to it. The downside is that this aversive effect may be helpful as it discourages harmful levels of use. It is unclear what real world impact this difference has. A double-blind but small study of 13 methamphetamine users revealed only a minor preference towards methamphetamine, and this may be explained by the users having a greater familiarity with the drug.",
-    "It is strongly recommended that one use harm reduction practices when using this substance.",
-    "Abuse of methamphetamine can result in a stimulant psychosis that may present with a variety of symptoms (e.g., paranoia, hallucinations, delusions). A review on treatment for amphetamine, dextroamphetamine, and methamphetamine abuse-induced psychosis states that about 5–15% of users fail to recover completely. The same review asserts that, based upon at least one trial, antipsychotic medications effectively resolve the symptoms of acute amphetamine psychosis. Psychosis very rarely arises from therapeutic use.",
-    "A methamphetamine overdose may result in a wide range of symptoms and is potentially fatal at heavy dosages. A moderate overdose of methamphetamine may induce symptoms such as abnormal heart rhythm, confusion, dysuria, high or low blood pressure, hyperthermia, hyperreflexia, myalgia, severe agitation, tachypnea, tremor, urinary hesitancy, and urinary retention. An extremely large overdose may produce symptoms such as adrenergic storm, methamphetamine psychosis, anuria, cardiogenic shock, cerebral hemorrhage, circulatory collapse, hyperpyrexia, pulmonary hypertension, renal failure, rhabdomyolysis, serotonin syndrome, and a form of stereotypy (\"tweaking\"). A methamphetamine overdose will likely also result in mild brain damage due to dopaminergic and serotonergic neurotoxicity. Death from fatal methamphetamine poisoning is typically preceded by convulsions and coma.",
-    "Acute methamphetamine overdose is largely managed by treating the symptoms, and administration of benzodiazepines relieves symptoms such as agitation, hypertension, tachycardia, and seizure.",
-    "Studies have shown that N-acetylcysteine (NAC) can block the harmful neurotoxic effects of methamphetamine while preventing neurotransmitter depletion in rats and clinical trials in humans to treat methamphetamine dependence are currently underway. NAC may be effective for reducing the cravings and psychological dependence as well. NAC has a short half life and a sustained release formulation may be preferred for harm reduction purposes. Selenium has also been shown to protect the brain against meth induced neurotoxicity. However, it is worth noting that this data is preliminary and may not be applicable to humans."
-  ],
+  "harmReduction": [],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {
     "formula": "Unknown",

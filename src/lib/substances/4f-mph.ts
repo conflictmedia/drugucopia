@@ -63,6 +63,7 @@ export const _4f_mph: Substance =
       "Suggestibility suppression"
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "insufflated": {
       "dosage": {
@@ -77,9 +78,9 @@ export const _4f_mph: Substance =
         "comeup": "Unknown",
         "peak": "1-2 hours",
         "offset": "1-2 hours",
-        "total": "3-6 hours"
-      },
-      "notes": "Afterglow: 4-8 hours"
+        "total": "3-6 hours",
+        "afterglow": "4-8 hours"
+      }
     },
     "oral": {
       "dosage": {
@@ -94,9 +95,9 @@ export const _4f_mph: Substance =
         "comeup": "Unknown",
         "peak": "2-4 hours",
         "offset": "1-2 hours",
-        "total": "4-8 hours"
-      },
-      "notes": "Afterglow: 5-10 hours"
+        "total": "4-8 hours",
+        "afterglow": "5-10 hours"
+      }
     }
   },
   "interactions": [
@@ -108,12 +109,7 @@ export const _4f_mph: Substance =
     "MDMA",
     "Stimulants"
   ],
-  "harmReduction": [
-    "The toxicity and long-term health effects of recreational 4F-MPH use do not seem to have been studied in any scientific context and the exact toxic dosage is unknown. This is because 4F-MPH is a research chemical with very little history of human usage. Anecdotal evidence from people who have tried 4F-MPH suggests that there are no negative health effects attributed to simply trying the drug by itself at low to moderate doses and using it very sparingly (but nothing can be completely guaranteed). Independent researchshould always be done to ensure that a combination of two or more substances is safe before consumption.",
-    "It is strongly recommended that one use harm reduction practices when using this drug.",
-    "In terms of its tolerance, 4F-MPH can be used multiple days in a row for extended periods of time, but acute tolerance does exist and builds up gradually over repeated extended use. This results in the user requiring an increase in dosage to achieve the same effects. Tolerance is reported to build quicker than methylphenidate.",
-    "4F-MPH has potential for abuse on par with that of amphetamine or MDMA due to its lack of significant tolerance, euphoric effects and action upon dopamine transporters."
-  ],
+  "harmReduction": [],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {
     "formula": "Unknown",

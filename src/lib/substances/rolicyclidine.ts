@@ -69,6 +69,7 @@ export const rolicyclidine: Substance =
       "Auditory suppression"
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "insufflated": {
       "dosage": {
@@ -83,9 +84,9 @@ export const rolicyclidine: Substance =
         "comeup": "30-90 minutes",
         "peak": "2-3 hours",
         "offset": "1-2 hours",
-        "total": "4-6 hours"
-      },
-      "notes": "Afterglow: 4-48 hours"
+        "total": "4-6 hours",
+        "afterglow": "4-48 hours"
+      }
     },
     "oral": {
       "dosage": {
@@ -100,9 +101,9 @@ export const rolicyclidine: Substance =
         "comeup": "30-120 minutes",
         "peak": "2-3 hours",
         "offset": "3-4 hours",
-        "total": "6-12 hours"
-      },
-      "notes": "Afterglow: 12-48 hours"
+        "total": "6-12 hours",
+        "afterglow": "12-48 hours"
+      }
     },
     "smoked": {
       "dosage": {
@@ -117,9 +118,9 @@ export const rolicyclidine: Substance =
         "comeup": "20-40 minutes",
         "peak": "2-3 hours",
         "offset": "1-2 hours",
-        "total": "4-6 hours"
-      },
-      "notes": "Afterglow: 4-48 hours"
+        "total": "4-6 hours",
+        "afterglow": "4-48 hours"
+      }
     }
   },
   "interactions": [

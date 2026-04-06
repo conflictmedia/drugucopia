@@ -48,6 +48,7 @@ export const sts_135: Substance =
       "Psychosis - The prolonged usage of synthetic cannabinoids may increase one's disposition to psychosis, particularly in vulnerable individuals with risk factors for psychotic illnesses (like a past or family history of schizophrenia)."
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "smoked": {
       "dosage": {
@@ -62,9 +63,9 @@ export const sts_135: Substance =
         "comeup": "10-45 minutes",
         "peak": "10-30 minutes",
         "offset": "5-10 minutes",
-        "total": "30-60 minutes"
-      },
-      "notes": "Afterglow: 15-45 minutes"
+        "total": "30-60 minutes",
+        "afterglow": "15-45 minutes"
+      }
     }
   },
   "interactions": [

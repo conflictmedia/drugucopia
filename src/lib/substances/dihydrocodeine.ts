@@ -18,7 +18,7 @@ export const dihydrocodeine: Substance =
     "opioids"
   ],
   "class": "Substituted morphinans",
-  "description": "Dihydrocodeine is a semi-synthetic morphinan opioid analgesic prescribed for pain, or as an antitussive (either alone or compounded with paracetamol or aspirin). Its many brand names include Synalgos DC, Panlor DC, Panlor SS, Contugesic, Bron Tablet, New Bron Solution-ACE, Pabron S Gold W Tablets, Huscode, Drocode, Paracodin, Codidol, Dehace, Didor Continus, Dicogesic, Codhydrine, Dekacodin, DHC, DH-Codeine, Didrate, Dihydrin, Hydrocodin, Makatussin, Nadeine, Novicodin, Rapacodin, Paramol, Remedeine, Dico and DF-118. It is also noteworthy that Dihydrocodeine has no ceiling effect unlike codeine (considered to be around 200-600mg/day) , meaning with Dihydrocodeine you can, theoretically, achieve more euphoria the higher the dose, which codeine can’t due to the so-called ceiling effect.",
+  "description": "opiates\nDihydrocodeine is a semi-synthetic morphinan opioid analgesic prescribed for pain, or as an antitussive (either alone or compounded with paracetamol or aspirin). Its many brand names include Synalgos DC, Panlor DC, Panlor SS, Contugesic, Bron Tablet, New Bron Solution-ACE, Pabron S Gold W Tablets, Huscode, Drocode, Paracodin, Codidol, Dehace, Didor Continus, Dicogesic, Codhydrine, Dekacodin, DHC, DH-Codeine, Didrate, Dihydrin, Hydrocodin, Makatussin, Nadeine, Novicodin, Rapacodin, Paramol, Remedeine, Dico and DF-118. It is also noteworthy that Dihydrocodeine has no ceiling effect unlike codeine (considered to be around 200-600mg/day) , meaning with Dihydrocodeine you can, theoretically, achieve more euphoria the higher the dose, which codeine can’t due to the so-called ceiling effect.",
   "effects": {
     "positive": [
       "Euphoria - This particular substance can be considered as less intense in its physical euphoria when compared with that of morphine or heroin due to the upper limit of how much can be converted into its active form through metabolism. However, may be considered more euphoric than codeine due to its more powerful analgesic effects. The sensation itself can be described as extreme feelings of intense physical comfort, warmth and bliss which spreads throughout the body.",
@@ -44,6 +44,7 @@ export const dihydrocodeine: Substance =
       "Orgasm suppression"
     ]
   },
+  "defaultUnit": "mg",
   "routeData": {
     "oral": {
       "dosage": {
@@ -58,7 +59,8 @@ export const dihydrocodeine: Substance =
         "comeup": "Unknown",
         "peak": "Unknown",
         "offset": "Unknown",
-        "total": "3-4 hours"
+        "total": "3-4 hours",
+        "afterglow": "Unknown"
       }
     }
   },
@@ -74,10 +76,8 @@ export const dihydrocodeine: Substance =
     "Grapefruit"
   ],
   "harmReduction": [
-    "Dihydrocodeine has a low toxicity relative to dose. As with all opiates, long-term effects can vary but can include diminished libido, apathy and memory loss. Some people may also have an allergic reaction to dihydrocodeine, such as the swelling of skin and rashes. It is also Toxicity potentially lethal when mixed with depressants like alcohol or benzodiazepines.",
-    "It is strongly recommended that one use harm reduction practices when using this drug.",
-    "As with other opioids, the chronic use of dihydrocodeine can be considered moderately addictive with a high potential for abuse and is capable of causing psychological dependence among certain users. When addiction has developed, cravings and  may occur if a person suddenly stops their usage.",
-    "Tolerance to many of the effects of dihydrocodeine develops with prolonged and repeated use. The rate at which this occurs develops at different rates for different effects, with tolerance to the constipation-inducing effects developing particularly slowly for instance. This results in users having to administer increasingly large doses to achieve the same effects. After that, it takes about 3 - 7 days for the tolerance to be reduced to half and 1 - 2 weeks to be back at baseline (in the absence of further consumption). Dihydrocodeine presents cross-tolerance with all other opioids, meaning that after the consumption of dihydrocodeine all opioids will have a reduced effect."
+    "low toxicity",
+    "potentially lethal when mixed with depressants like alcohol or benzodiazepines"
   ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {
