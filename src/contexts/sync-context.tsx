@@ -99,6 +99,7 @@ export function SyncProvider({ children }: { children: React.ReactNode }) {
   const unsubscribeRef = useRef<(() => void) | null>(null)
   const lastPushedHashRef = useRef<string | null>(null)
   const isPushingRef = useRef(false)
+  const initialSyncDoneRef = useRef(false)
 
   // Initialize Zustand store on mount
   useEffect(() => {
@@ -123,9 +124,8 @@ export function SyncProvider({ children }: { children: React.ReactNode }) {
     }
   }, [doses, deletedIds, isLoaded])
 
-  // Automatically push to sync whenever local store changes (if synced)
   useEffect(() => {
-    if (syncStatus === 'synced' && isLoaded) {
+    if (syncStatus === 'synced' && isLoaded && initialSyncDoneRef.current) {
       pushToSync()
     }
   }, [doses, deletedIds, syncStatus, isLoaded, pushToSync])
@@ -147,6 +147,7 @@ export function SyncProvider({ children }: { children: React.ReactNode }) {
       cryptoKeyRef.current = await deriveKey(pass, rId)
       hashedRoomRef.current = await hashRoomName(rId, pass)
       localStorage.setItem(SYNC_AUTH_KEY, JSON.stringify({ savedRoom: rId, savedPass: pass }))
+      initialSyncDoneRef.current = false
 
       const docRef = doc(db, 'secure_rooms', hashedRoomRef.current)
 
@@ -154,20 +155,33 @@ export function SyncProvider({ children }: { children: React.ReactNode }) {
         if (isPushingRef.current) return
 
         if (!docSnap.exists()) {
+          // New room — nothing to pull, push local state immediately
+          initialSyncDoneRef.current = true
           pushToSync()
           return
         }
 
         const remoteData = docSnap.data()
         const remoteHash = remoteData.encrypted?.ciphertext?.substring(0, 32)
-        if (remoteHash && remoteHash === lastPushedHashRef.current) return
+        if (remoteHash && remoteHash === lastPushedHashRef.current) {
+          initialSyncDoneRef.current = true
+          return
+        }
 
         try {
           const payload = await decryptData(remoteData.encrypted, cryptoKeyRef.current!)
           const remoteDoses: DoseLog[] = Array.isArray(payload) ? payload : payload.doses ?? []
           const remoteDeleted: Set<string> = new Set(Array.isArray(payload) ? [] : payload.deleted ?? [])
 
-          const { doses: merged, deleted: mergedDeleted } = mergeDoses(useDoseStore.getState().doses, remoteDoses, useDoseStore.getState().deletedIds, remoteDeleted)
+          const localDoses = useDoseStore.getState().doses
+          const localDeleted = useDoseStore.getState().deletedIds
+
+          const isFirstSync = !initialSyncDoneRef.current
+          initialSyncDoneRef.current = true
+
+          const effectiveLocalDeleted = isFirstSync ? new Set<string>() : localDeleted
+
+          const { doses: merged, deleted: mergedDeleted } = mergeDoses(localDoses, remoteDoses, effectiveLocalDeleted, remoteDeleted)
 
           setDosesFromSync(merged, mergedDeleted)
 
