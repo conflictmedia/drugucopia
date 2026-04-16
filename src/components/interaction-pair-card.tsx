@@ -1,6 +1,6 @@
 'use client'
 
-import { AlertTriangle, HelpCircle, ShieldAlert } from 'lucide-react'
+import { AlertTriangle, HelpCircle, ShieldAlert, ThumbsDown, ThumbsUp, TrendingDown } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
@@ -27,20 +27,39 @@ const severityConfig = {
     badgeLabel: 'UNSAFE',
     iconColor: 'text-orange-400',
   },
-  uncertain: {
+  caution: {
     icon: HelpCircle,
-    borderColor: 'border-yellow-500/30',
-    bgColor: 'bg-yellow-500/5',
-    badgeColor: 'bg-yellow-500/15 text-yellow-400 border-yellow-500/30',
-    badgeLabel: 'UNCERTAIN',
-    iconColor: 'text-yellow-400',
+    borderColor: 'border-amber-500/30',
+    bgColor: 'bg-amber-500/5',
+    badgeColor: 'bg-amber-500/15 text-amber-400 border-amber-500/30',
+    badgeLabel: 'CAUTION',
+    iconColor: 'text-amber-400',
   },
+  'low-risk': {
+    icon: ThumbsUp,
+    borderColor: 'border-emerald-500/30',
+    bgColor: 'bg-emerald-500/5',
+    badgeColor: 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30',
+    badgeLabel: 'LOW RISK',
+    iconColor: 'text-emerald-400',
+  },
+}
+
+const tripsitStatusLabel: Record<string, string> = {
+  'Low Risk & Synergy': 'SYNERGY',
+  'Low Risk & No Synergy': 'NO SYNERGY',
+  'Low Risk & Decrease': 'DECREASES',
 }
 
 export function InteractionPairCard({ result }: InteractionPairCardProps) {
   const config = severityConfig[result.severity]
   const Icon = config.icon
-  const isCurated = result.sources.includes('curated')
+  const isTripsit = result.sources.includes('tripsit')
+
+  // Determine sub-label for low-risk results
+  const subLabel = result.tripsitStatus
+    ? tripsitStatusLabel[result.tripsitStatus]
+    : null
 
   return (
     <Card
@@ -54,7 +73,13 @@ export function InteractionPairCard({ result }: InteractionPairCardProps) {
         <div className="flex items-start gap-3">
           {/* Icon */}
           <div className={cn('p-1.5 rounded-lg shrink-0', config.bgColor)}>
-            <Icon className={cn('h-4 w-4', config.iconColor)} />
+            {result.tripsitStatus === 'Low Risk & Decrease' ? (
+              <TrendingDown className={cn('h-4 w-4', config.iconColor)} />
+            ) : result.tripsitStatus === 'Low Risk & No Synergy' ? (
+              <ThumbsDown className={cn('h-4 w-4', config.iconColor)} />
+            ) : (
+              <Icon className={cn('h-4 w-4', config.iconColor)} />
+            )}
           </div>
 
           {/* Content */}
@@ -70,7 +95,7 @@ export function InteractionPairCard({ result }: InteractionPairCardProps) {
               </Badge>
             </div>
 
-            {/* Description (from curated data) */}
+            {/* Description */}
             {result.description && (
               <p className="text-sm text-muted-foreground leading-relaxed mb-2">
                 {result.description}
@@ -89,6 +114,34 @@ export function InteractionPairCard({ result }: InteractionPairCardProps) {
               </div>
             )}
 
+            {/* Academic sources (collapsible) */}
+            {result.tripsitSources && result.tripsitSources.length > 0 && (
+              <details className="mb-2">
+                <summary className="text-xs text-muted-foreground cursor-pointer hover:text-foreground transition-colors">
+                  {result.tripsitSources.length} source{result.tripsitSources.length !== 1 ? 's' : ''}
+                </summary>
+                <ul className="mt-1 space-y-1">
+                  {result.tripsitSources.slice(0, 3).map((src, i) => (
+                    <li key={i} className="text-xs text-muted-foreground">
+                      <a
+                        href={src.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-foreground underline decoration-muted-foreground/30 hover:decoration-foreground/50 transition-colors"
+                      >
+                        {src.title}
+                      </a>
+                    </li>
+                  ))}
+                  {result.tripsitSources.length > 3 && (
+                    <li className="text-xs text-muted-foreground">
+                      +{result.tripsitSources.length - 3} more source{result.tripsitSources.length - 3 !== 1 ? 's' : ''}
+                    </li>
+                  )}
+                </ul>
+              </details>
+            )}
+
             {/* Metadata row */}
             <div className="flex items-center gap-2">
               <Badge
@@ -97,9 +150,17 @@ export function InteractionPairCard({ result }: InteractionPairCardProps) {
               >
                 {config.badgeLabel}
               </Badge>
-              {isCurated && (
+              {subLabel && (
+                <Badge
+                  variant="outline"
+                  className={cn('text-[10px] font-bold', config.badgeColor)}
+                >
+                  {subLabel}
+                </Badge>
+              )}
+              {isTripsit && (
                 <Badge variant="outline" className="text-[10px] text-blue-400 border-blue-500/30 bg-blue-500/10">
-                  CURATED
+                  TRIPSIT
                 </Badge>
               )}
             </div>
