@@ -107,6 +107,19 @@ const categoryDotColors: Record<SubstanceCategory, string> = {
   other: 'bg-zinc-500',
 }
 
+const categoryGlowClasses: Record<SubstanceCategory, string> = {
+  stimulants: 'hover:glow-amber',
+  depressants: 'hover:glow-indigo',
+  hallucinogens: 'hover:glow-purple',
+  dissociatives: 'hover:glow-cyan',
+  empathogens: 'hover:glow-pink',
+  cannabinoids: 'hover:glow-green',
+  opioids: 'hover:glow-red',
+  deliriants: 'hover:glow-slate',
+  nootropics: 'hover:glow-teal-cat',
+  other: 'hover:glow-zinc',
+}
+
 const riskLevelColors = {
   'low': 'bg-green-500/20 text-green-400 border-green-500/30',
   'moderate': 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30',
@@ -208,14 +221,14 @@ const SubstanceCard = memo(function SubstanceCard({ substance, onSelect }: Subst
 
   return (
     <Card
-      className="cursor-pointer hover:border-primary/50 transition-colors group"
+      className={`cursor-pointer hover:border-primary/50 transition-all group card-lift ${primary ? categoryGlowClasses[primary] : ''}`}
       onClick={() => onSelect(substance)}
     >
       <CardHeader className="pb-3">
         <div className="flex items-start justify-between">
           <div className="flex items-center gap-3">
             {primary && (
-              <div className={`p-2 rounded-lg shrink-0 ${categoryColors[primary]}`}>
+              <div className={`p-2 rounded-lg shrink-0 transition-shadow duration-300 group-hover:shadow-lg ${categoryColors[primary]}`}>
                 <CategoryIcon substance={substance} className="h-4 w-4" />
               </div>
             )}
@@ -283,7 +296,7 @@ const MobileSubstanceRow = memo(function MobileSubstanceRow({ substance, onSelec
   return (
     <button
       onClick={() => onSelect(substance)}
-      className="w-full text-left flex items-start gap-3 p-4 rounded-2xl border border-border bg-card hover:border-primary/40 active:scale-[0.99] transition-all"
+      className="w-full text-left flex items-start gap-3 p-4 rounded-2xl border border-border bg-card hover:border-primary/40 active:scale-[0.99] transition-all card-lift"
     >
       {primary && (
         <div className={`p-2.5 rounded-xl shrink-0 ${categoryColors[primary]}`}>
@@ -574,7 +587,7 @@ function MobileBottomNav({
                 key={id}
                 className="flex-1 flex flex-col items-center justify-center py-2 gap-0.5"
               >
-                <span className="w-10 h-10 rounded-full bg-primary flex items-center justify-center shadow-sm">
+                <span className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-md hover:shadow-lg transition-shadow">
                   <Icon className="h-5 w-5 text-primary-foreground" />
                 </span>
                 <span className="text-[10px] text-muted-foreground">{label}</span>
@@ -590,8 +603,8 @@ function MobileBottomNav({
               className="flex-1 flex flex-col items-center justify-center py-2 gap-0.5"
             >
               <span
-                className={`w-8 h-8 rounded-xl flex items-center justify-center transition-colors ${
-                  isActive ? 'bg-accent' : ''
+                className={`w-8 h-8 rounded-xl flex items-center justify-center transition-all duration-200 ${
+                  isActive ? 'bg-primary/15 scale-105' : ''
                 }`}
               >
                 <Icon className={`h-5 w-5 ${isActive ? 'text-foreground' : 'text-muted-foreground'}`} />
@@ -678,7 +691,7 @@ function SubstanceDetail({
   return (
     <div className="min-h-screen bg-background flex flex-col">
       {/* Desktop header */}
-      <header className="hidden md:flex sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 h-14 items-center gap-4 px-4 lg:px-6">
+      <header className="hidden md:flex sticky top-14 z-40 border-b border-border/50 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60 h-14 items-center gap-4 px-4 lg:px-6">
         <Button variant="ghost" size="sm" onClick={onBack} className="gap-2">
           <ArrowLeft className="h-4 w-4" />
           Back
@@ -708,7 +721,7 @@ function SubstanceDetail({
       </header>
 
       {/* Mobile header */}
-      <header className="md:hidden sticky top-0 z-40 bg-background/95 backdrop-blur border-b border-border">
+      <header className="md:hidden sticky top-14 z-30 bg-background/80 backdrop-blur border-b border-border/50">
         <div className="flex items-center gap-3 h-13 px-4">
           <button onClick={onBack} className="p-2 -ml-2 rounded-lg hover:bg-muted transition-colors">
             <ArrowLeft className="h-5 w-5" />
@@ -806,7 +819,7 @@ function SubstanceDetail({
         )}
 
         <Tabs defaultValue="effects" className="w-full">
-          <div className="sticky top-[52px] z-30 bg-background border-b border-border">
+          <div className="sticky top-0 z-30 bg-background border-b border-border">
             <TabsList className="w-full h-auto p-0 bg-transparent rounded-none flex overflow-x-auto scrollbar-none justify-start gap-0">
               {['effects', 'dosage', 'harm', 'info', 'interactions'].map((tab) => {
                 const labels: Record<string, string> = {
@@ -1551,7 +1564,7 @@ function HomeContent() {
       {/* Main content */}
       <div className="flex-1 flex flex-col min-w-0">
         {/* Desktop header */}
-        <header className="hidden md:flex sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 h-14 items-center px-4 lg:px-6 gap-4">
+        <header className="hidden md:flex sticky top-14 z-40 border-b border-border/50 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60 h-14 items-center px-4 lg:px-6 gap-4">
           {!sidebarOpen && (
             <Button
               variant="ghost"
@@ -1611,7 +1624,7 @@ function HomeContent() {
         </header>
 
         {/* Mobile header */}
-        <header className="md:hidden sticky top-0 z-40 bg-background/95 backdrop-blur border-b border-border">
+        <header className="md:hidden sticky top-14 z-30 bg-background/80 backdrop-blur border-b border-border/50">
           <div className="flex items-center gap-3 px-4 h-12">
             <Image src="logo.png" alt="Drugucopia" width={28} height={28} className="rounded-lg" />
             <span className="font-bold text-base flex-1">Drugucopia</span>
