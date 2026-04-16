@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState, useMemo, useEffect, useRef, useCallback, Suspense, memo, useDeferredValue } from 'react'
-import Image from 'next/image'
 import { useSearchParams, useRouter, usePathname } from 'next/navigation'
 import {
   Search,
@@ -37,15 +36,12 @@ import {
   Send,
   PenLine,
   CalendarDays,
-  Timer,
 } from 'lucide-react'
-import { ThemeToggle } from '@/components/theme-toggle'
 import { DoseLoggerModal } from '@/components/dose-logger-modal'
 import { DoseHistory } from '@/components/dose-history'
 import { DoseStats } from '@/components/dose-stats'
 import { ActiveDosesTimeline } from '@/components/active-doses-timeline'
 import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
@@ -716,7 +712,6 @@ function SubstanceDetail({
           <Badge variant="outline" className={riskLevelColors[substance.riskLevel]}>
             {substance.riskLevel.replace('-', ' ')} risk
           </Badge>
-          <ThemeToggle />
         </div>
       </header>
 
@@ -740,7 +735,6 @@ function SubstanceDetail({
               </button>
             }
           />
-          <ThemeToggle />
         </div>
       </header>
 
@@ -1286,6 +1280,17 @@ function HomeContent() {
   const [selectedCategory, setSelectedCategory] = useState<SubstanceCategory | 'all'>('all')
   const [selectedSubstance, setSelectedSubstance] = useState<Substance | null>(null)
   const [searchQuery, setSearchQuery] = useState('')
+
+  // Listen for search events from SharedNav
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const query = (e as CustomEvent).detail
+      setSearchQuery(query)
+    }
+    window.addEventListener('drugucopia:search', handler)
+    return () => window.removeEventListener('drugucopia:search', handler)
+  }, [])
+
   // PERF: defer the filter pass so keystrokes feel instant
   const deferredQuery = useDeferredValue(searchQuery)
   const [sidebarOpen, setSidebarOpen] = useState(true)
@@ -1440,46 +1445,19 @@ function HomeContent() {
         } hidden md:flex transition-all duration-300 border-r bg-muted/30 overflow-hidden shrink-0 flex-col`}
       >
         <div className="h-full flex flex-col">
-          <div className="p-4 border-b space-y-4">
-            <div>
-              <div className="flex items-center gap-2">
-                <Image src="logo.png" alt="Drugucopia Logo" width={36} height={36} className="rounded-lg" />
-                <span className="font-bold text-lg flex-1">Drugucopia</span>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="h-8 w-8 shrink-0"
-                  onClick={() => setSidebarOpen(false)}
-                >
-                  <X className="h-4 w-4" />
-                </Button>
-              </div>
-              <p className="text-xs text-muted-foreground mt-1">Psychoactive Substances Documentation</p>
-            </div>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="outline" size="sm" className="w-full text-xs bg-background">
-                  <Github className="mr-2 h-3 w-3" />
-                  Contribute / Feedback
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="start" className="w-52">
-                <DropdownMenuItem onClick={() => window.open(GITHUB_NEW_SUBSTANCE_URL, '_blank')}>
-                  <Send className="mr-2 h-4 w-4" />Submit a New Substance
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => window.open(GITHUB_INFO_CHANGE_URL, '_blank')}>
-                  <PenLine className="mr-2 h-4 w-4" />Submit Info Change
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={() => window.open(GITHUB_FEEDBACK_URL, '_blank')}>
-                  <AlertTriangle className="mr-2 h-4 w-4" />Feedback / Report Issue
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={() => window.open(GITHUB_MAIN_URL, '_blank')}>
-                  <Github className="mr-2 h-4 w-4" />Repo
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+          <div className="p-4 border-b">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="w-full justify-start gap-2 text-muted-foreground"
+              onClick={() => setSidebarOpen(false)}
+            >
+              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <line x1="9" y1="3" x2="9" y2="21" />
+              </svg>
+              Collapse Sidebar
+            </Button>
           </div>
 
           <ScrollArea className="flex-1 p-4">
@@ -1507,22 +1485,6 @@ function HomeContent() {
               >
                 <Activity className="h-4 w-4" />
                 Dose Log
-              </Button>
-              <Button
-                variant="ghost"
-                className="w-full justify-start gap-2 text-orange-500 hover:text-orange-400 hover:bg-orange-500/10"
-                onClick={() => router.push('/harm-reduction/')}
-              >
-                <Shield className="h-4 w-4" />
-                Harm Reduction
-              </Button>
-              <Button
-                variant="ghost"
-                className="w-full justify-start gap-2 text-purple-500 hover:text-purple-400 hover:bg-purple-500/10"
-                onClick={() => router.push('/interactions/')}
-              >
-                <Shuffle className="h-4 w-4" />
-                Interaction Checker
               </Button>
               <Separator className="my-3" />
               {categories.map((category) => {
@@ -1580,28 +1542,6 @@ function HomeContent() {
             </Button>
           )}
 
-          {desktopView === 'substances' && (
-            <div className="flex-1 max-w-md">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                <Input
-                  placeholder="Search substances..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-9 pr-9"
-                />
-                {searchQuery && (
-                  <button
-                    onClick={() => setSearchQuery('')}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    <X className="h-4 w-4" />
-                  </button>
-                )}
-              </div>
-            </div>
-          )}
-
           {desktopView === 'dose-log' && (
             <div className="flex-1">
               <h2 className="text-lg font-semibold">Dose Log</h2>
@@ -1609,59 +1549,14 @@ function HomeContent() {
           )}
 
           <div className="ml-auto flex items-center gap-2">
-            <Button
-              variant="ghost"
-              size="icon"
-              className="h-8 w-8 shrink-0"
-              onClick={() => router.push('/harm-reduction/')}
-              title="Harm Reduction Resources"
-            >
-              <Shield className="h-4 w-4" />
-            </Button>
             {desktopView === 'dose-log' && <DoseLoggerModal onLogCreated={handleDoseLogged} />}
-            <ThemeToggle />
           </div>
         </header>
 
         {/* Mobile header */}
         <header className="md:hidden sticky top-14 z-30 bg-background/80 backdrop-blur border-b border-border/50">
-          <div className="flex items-center gap-3 px-4 h-12">
-            <Image src="logo.png" alt="Drugucopia" width={28} height={28} className="rounded-lg" />
-            <span className="font-bold text-base flex-1">Drugucopia</span>
-            <button
-              onClick={() => router.push('/harm-reduction/')}
-              className="p-2 rounded-lg hover:bg-muted transition-colors"
-              title="Harm Reduction Resources"
-            >
-              <Shield className="h-4 w-4" />
-            </button>
-            <ThemeToggle />
-          </div>
-
-          {mobileTab === 'substances' && (
-            <div className="px-4 pb-2">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                <Input
-                  placeholder="Search substances…"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-9 pr-9 h-9"
-                />
-                {searchQuery && (
-                  <button
-                    onClick={() => setSearchQuery('')}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    <X className="h-4 w-4" />
-                  </button>
-                )}
-              </div>
-            </div>
-          )}
-
           {mobileTab === 'timeline' && (
-            <div className="px-4 pb-2 flex items-center justify-between">
+            <div className="flex items-center justify-between px-4 h-12">
               <span className="text-sm font-medium">Active timeline</span>
               <DoseLoggerModal onLogCreated={handleDoseLogged} trigger={
                 <button className="flex items-center gap-1.5 h-8 px-3 bg-primary text-primary-foreground rounded-lg text-sm font-medium">
@@ -1672,13 +1567,19 @@ function HomeContent() {
           )}
 
           {mobileTab === 'history' && (
-            <div className="px-4 pb-2 flex items-center justify-between">
+            <div className="flex items-center justify-between px-4 h-12">
               <span className="text-sm font-medium">Dose history</span>
               <DoseLoggerModal onLogCreated={handleDoseLogged} trigger={
                 <button className="flex items-center gap-1.5 h-8 px-3 bg-primary text-primary-foreground rounded-lg text-sm font-medium">
                   <Plus className="h-3.5 w-3.5" />Log
                 </button>
               } />
+            </div>
+          )}
+
+          {mobileTab === 'substances' && (
+            <div className="px-4 h-12 flex items-center">
+              <span className="text-sm font-medium">{selectedCategory === 'all' ? `${filteredSubstances.length} substances` : categories.find((c) => c.id === selectedCategory)?.name}</span>
             </div>
           )}
         </header>

@@ -11,10 +11,12 @@ import {
   Sun,
   Menu,
   X,
+  Search,
 } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 import { cn } from '@/lib/utils'
 
 const navItems = [
@@ -28,12 +30,24 @@ export function SharedNav() {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [searchQuery, setSearchQuery] = useState('')
+  const isHomePage = pathname === '/'
 
-  /* eslint-disable react-hooks/set-state-in-effect -- mount detection for hydration-safe theme rendering */
   useEffect(() => {
     setMounted(true)
   }, [])
-  /* eslint-enable react-hooks/set-state-in-effect */
+
+  // Clear search when navigating away from home
+  useEffect(() => {
+    if (!isHomePage) {
+      setSearchQuery('')
+    }
+  }, [isHomePage])
+
+  const handleSearchChange = (value: string) => {
+    setSearchQuery(value)
+    window.dispatchEvent(new CustomEvent('drugucopia:search', { detail: value }))
+  }
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/50 glass">
@@ -75,6 +89,32 @@ export function SharedNav() {
             )
           })}
         </nav>
+
+        {/* Desktop Search (only on home page) */}
+        {isHomePage && (
+          <div className="hidden md:block flex-1 max-w-sm mx-4">
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+              <Input
+                placeholder="Search substances..."
+                value={searchQuery}
+                onChange={(e) => handleSearchChange(e.target.value)}
+                className="pl-9 pr-9 h-9 bg-muted/50 border-border/50"
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => handleSearchChange('')}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* Spacer when not on home page */}
+        {!isHomePage && <div className="hidden md:block flex-1" />}
 
         {/* Mobile menu button */}
         <button
@@ -140,6 +180,30 @@ export function SharedNav() {
                   </Link>
                 )
               })}
+
+              {/* Mobile search (only on home page) */}
+              {isHomePage && (
+                <div className="px-2 py-1">
+                  <div className="relative">
+                    <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                    <Input
+                      placeholder="Search substances..."
+                      value={searchQuery}
+                      onChange={(e) => handleSearchChange(e.target.value)}
+                      className="pl-9 pr-9 h-10"
+                    />
+                    {searchQuery && (
+                      <button
+                        onClick={() => handleSearchChange('')}
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                      >
+                        <X className="h-4 w-4" />
+                      </button>
+                    )}
+                  </div>
+                </div>
+              )}
+
               <div className="border-t border-border/50 mt-1 pt-1">
                 {mounted && (
                   <Button
@@ -166,4 +230,3 @@ export function SharedNav() {
     </header>
   )
 }
-
