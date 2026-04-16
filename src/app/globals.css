@@ -188,196 +188,193 @@ html {
   }
 }
 
-/* ─── Glassmorphism ─── */
-.glass {
-  background: oklch(0.17 0.006 250 / 70%);
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  border: 1px solid oklch(0.95 0.01 250 / 8%);
-}
+/* ─── Custom Utilities ─── */
+@layer base {
 
-.glass-light {
-  background: oklch(1 0 0 / 70%);
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  border: 1px solid oklch(0.90 0.01 250 / 20%);
-}
-
-/* ─── Gradient Text ─── */
-.gradient-text {
-  background: linear-gradient(135deg, oklch(0.75 0.15 250), oklch(0.70 0.18 300), oklch(0.75 0.12 160));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.gradient-text-warm {
-  background: linear-gradient(135deg, oklch(0.75 0.15 300), oklch(0.78 0.14 80));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* ─── Animated Mesh Gradient Background ─── */
-.mesh-gradient {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.mesh-gradient::before,
-.mesh-gradient::after {
-  content: '';
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(120px);
-  opacity: 0.15;
-  animation: float 20s ease-in-out infinite;
-}
-
-.mesh-gradient::before {
-  width: 600px;
-  height: 600px;
-  background: oklch(0.55 0.18 250);
-  top: -200px;
-  right: -200px;
-}
-
-.mesh-gradient::after {
-  width: 500px;
-  height: 500px;
-  background: oklch(0.55 0.15 300);
-  bottom: -150px;
-  left: -150px;
-  animation-delay: -10s;
-  animation-direction: reverse;
-}
-
-@keyframes float {
-
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
+  /* ─── Glassmorphism ─── */
+  .glass {
+    background: color-mix(in oklch, var(--card) 70%, transparent);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid var(--border);
   }
 
-  25% {
-    transform: translate(50px, -30px) scale(1.05);
+  /* ─── Gradient Text ─── */
+  .gradient-text {
+    background: linear-gradient(135deg, oklch(0.75 0.15 250), oklch(0.70 0.18 300), oklch(0.75 0.12 160));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
-  50% {
-    transform: translate(-20px, 40px) scale(0.95);
+  .gradient-text-warm {
+    background: linear-gradient(135deg, oklch(0.75 0.15 300), oklch(0.78 0.14 80));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
-  75% {
-    transform: translate(-40px, -20px) scale(1.02);
-  }
-}
-
-/* ─── Glow Effects ─── */
-.glow-teal {
-  box-shadow: 0 0 20px oklch(0.55 0.15 250 / 15%), 0 0 40px oklch(0.55 0.15 250 / 5%);
-}
-
-.glow-teal-strong {
-  box-shadow: 0 0 30px oklch(0.55 0.15 250 / 25%), 0 0 60px oklch(0.55 0.15 250 / 10%);
-}
-
-/* Category-specific glow utilities */
-.glow-amber {
-  box-shadow: 0 0 20px oklch(0.75 0.15 85 / 15%);
-}
-
-.glow-indigo {
-  box-shadow: 0 0 20px oklch(0.55 0.20 275 / 15%);
-}
-
-.glow-purple {
-  box-shadow: 0 0 20px oklch(0.55 0.20 300 / 15%);
-}
-
-.glow-cyan {
-  box-shadow: 0 0 20px oklch(0.65 0.15 200 / 15%);
-}
-
-.glow-pink {
-  box-shadow: 0 0 20px oklch(0.65 0.18 350 / 15%);
-}
-
-.glow-green {
-  box-shadow: 0 0 20px oklch(0.65 0.18 150 / 15%);
-}
-
-.glow-red {
-  box-shadow: 0 0 20px oklch(0.60 0.20 25 / 15%);
-}
-
-.glow-slate {
-  box-shadow: 0 0 20px oklch(0.55 0.02 260 / 15%);
-}
-
-.glow-teal-cat {
-  box-shadow: 0 0 20px oklch(0.65 0.12 180 / 15%);
-}
-
-.glow-zinc {
-  box-shadow: 0 0 20px oklch(0.55 0.02 260 / 15%);
-}
-
-/* ─── Subtle Gradient Border ─── */
-.gradient-border {
-  position: relative;
-}
-
-.gradient-border::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(135deg, oklch(0.55 0.15 250 / 30%), oklch(0.55 0.15 300 / 30%), oklch(0.55 0.12 160 / 30%));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-}
-
-/* ─── Section Divider with Gradient ─── */
-.gradient-divider {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, oklch(0.55 0.12 250 / 30%), transparent);
-  border: none;
-}
-
-/* ─── Pulse Animation for Emergency Items ─── */
-@keyframes pulse-glow {
-
-  0%,
-  100% {
-    box-shadow: 0 0 8px oklch(0.55 0.20 25 / 20%);
+  /* ─── Animated Mesh Gradient Background ─── */
+  .mesh-gradient {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
   }
 
-  50% {
-    box-shadow: 0 0 20px oklch(0.55 0.20 25 / 35%);
+  .mesh-gradient::before,
+  .mesh-gradient::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.15;
+    animation: float 20s ease-in-out infinite;
   }
-}
 
-.pulse-danger {
-  animation: pulse-glow 2s ease-in-out infinite;
-}
+  .mesh-gradient::before {
+    width: 600px;
+    height: 600px;
+    background: oklch(0.55 0.18 250);
+    top: -200px;
+    right: -200px;
+  }
 
-/* ─── Smooth Card Hover Lift ─── */
-.card-lift {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
+  .mesh-gradient::after {
+    width: 500px;
+    height: 500px;
+    background: oklch(0.55 0.15 300);
+    bottom: -150px;
+    left: -150px;
+    animation-delay: -10s;
+    animation-direction: reverse;
+  }
 
-.card-lift:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px oklch(0 0 0 / 20%);
-}
+  @keyframes float {
 
-:root .card-lift:hover {
-  box-shadow: 0 8px 30px oklch(0 0 0 / 8%);
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+
+    25% {
+      transform: translate(50px, -30px) scale(1.05);
+    }
+
+    50% {
+      transform: translate(-20px, 40px) scale(0.95);
+    }
+
+    75% {
+      transform: translate(-40px, -20px) scale(1.02);
+    }
+  }
+
+  /* ─── Glow Effects ─── */
+  .glow-teal {
+    box-shadow: 0 0 20px oklch(0.55 0.15 250 / 15%), 0 0 40px oklch(0.55 0.15 250 / 5%);
+  }
+
+  .glow-teal-strong {
+    box-shadow: 0 0 30px oklch(0.55 0.15 250 / 25%), 0 0 60px oklch(0.55 0.15 250 / 10%);
+  }
+
+  /* Category-specific glow utilities */
+  .glow-amber {
+    box-shadow: 0 0 20px oklch(0.75 0.15 85 / 15%);
+  }
+
+  .glow-indigo {
+    box-shadow: 0 0 20px oklch(0.55 0.20 275 / 15%);
+  }
+
+  .glow-purple {
+    box-shadow: 0 0 20px oklch(0.55 0.20 300 / 15%);
+  }
+
+  .glow-cyan {
+    box-shadow: 0 0 20px oklch(0.65 0.15 200 / 15%);
+  }
+
+  .glow-pink {
+    box-shadow: 0 0 20px oklch(0.65 0.18 350 / 15%);
+  }
+
+  .glow-green {
+    box-shadow: 0 0 20px oklch(0.65 0.18 150 / 15%);
+  }
+
+  .glow-red {
+    box-shadow: 0 0 20px oklch(0.60 0.20 25 / 15%);
+  }
+
+  .glow-slate {
+    box-shadow: 0 0 20px oklch(0.55 0.02 260 / 15%);
+  }
+
+  .glow-teal-cat {
+    box-shadow: 0 0 20px oklch(0.65 0.12 180 / 15%);
+  }
+
+  .glow-zinc {
+    box-shadow: 0 0 20px oklch(0.55 0.02 260 / 15%);
+  }
+
+  /* ─── Subtle Gradient Border ─── */
+  .gradient-border {
+    position: relative;
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, oklch(0.55 0.15 250 / 30%), oklch(0.55 0.15 300 / 30%), oklch(0.55 0.12 160 / 30%));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  /* ─── Section Divider with Gradient ─── */
+  .gradient-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, oklch(0.55 0.12 250 / 30%), transparent);
+    border: none;
+  }
+
+  /* ─── Pulse Animation for Emergency Items ─── */
+  @keyframes pulse-glow {
+
+    0%,
+    100% {
+      box-shadow: 0 0 8px oklch(0.55 0.20 25 / 20%);
+    }
+
+    50% {
+      box-shadow: 0 0 20px oklch(0.55 0.20 25 / 35%);
+    }
+  }
+
+  .pulse-danger {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  /* ─── Smooth Card Hover Lift ─── */
+  .card-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .card-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px oklch(0 0 0 / 20%);
+  }
+
+  :root .card-lift:hover {
+    box-shadow: 0 8px 30px oklch(0 0 0 / 8%);
+  }
 }
