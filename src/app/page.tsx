@@ -1291,6 +1291,17 @@ function HomeContent() {
     return () => window.removeEventListener('drugucopia:search', handler)
   }, [])
 
+  // Listen for dose-log events from SharedNav
+  useEffect(() => {
+    const handler = () => {
+      setDesktopView('dose-log')
+      setMobileTab('timeline')
+      router.push(`${pathname}?view=dose-log`)
+    }
+    window.addEventListener('drugucopia:dose-log', handler)
+    return () => window.removeEventListener('drugucopia:dose-log', handler)
+  }, [pathname, router])
+
   // PERF: defer the filter pass so keystrokes feel instant
   const deferredQuery = useDeferredValue(searchQuery)
   const [sidebarOpen, setSidebarOpen] = useState(true)
@@ -1475,17 +1486,6 @@ function HomeContent() {
                 All Substances
                 <Badge variant="outline" className="ml-auto">{substances.length}</Badge>
               </Button>
-              <Button
-                variant={desktopView === 'dose-log' ? 'secondary' : 'ghost'}
-                className="w-full justify-start gap-2"
-                onClick={() => {
-                  setDesktopView('dose-log')
-                  router.push(`${pathname}?view=dose-log`)
-                }}
-              >
-                <Activity className="h-4 w-4" />
-                Dose Log
-              </Button>
               <Separator className="my-3" />
               {categories.map((category) => {
                 const Icon = categoryIcons[category.id]
@@ -1525,9 +1525,35 @@ function HomeContent() {
 
       {/* Main content */}
       <div className="flex-1 flex flex-col min-w-0">
-        {/* Desktop header */}
-        <header className="hidden md:flex sticky top-14 z-40 border-b border-border/50 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60 h-14 items-center px-4 lg:px-6 gap-4">
-          {!sidebarOpen && (
+        {/* Desktop dose-log header (only shown in dose-log view) */}
+        {desktopView === 'dose-log' && (
+          <header className="hidden md:flex sticky top-14 z-40 border-b border-border/50 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60 h-14 items-center px-4 lg:px-6 gap-4">
+            {!sidebarOpen && (
+              <Button
+                variant="ghost"
+                size="icon"
+                className="-ml-2"
+                onClick={() => setSidebarOpen(true)}
+              >
+                <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
+                  <line x1="3" y1="6" x2="21" y2="6" />
+                  <line x1="3" y1="12" x2="21" y2="12" />
+                  <line x1="3" y1="18" x2="21" y2="18" />
+                </svg>
+              </Button>
+            )}
+            <div className="flex-1">
+              <h2 className="text-lg font-semibold">Dose Log</h2>
+            </div>
+            <div className="ml-auto flex items-center gap-2">
+              <DoseLoggerModal onLogCreated={handleDoseLogged} />
+            </div>
+          </header>
+        )}
+
+        {/* Desktop sidebar expand button (shown when sidebar is collapsed and in substances view) */}
+        {desktopView !== 'dose-log' && !sidebarOpen && (
+          <div className="hidden md:flex sticky top-14 z-40">
             <Button
               variant="ghost"
               size="icon"
@@ -1540,20 +1566,11 @@ function HomeContent() {
                 <line x1="3" y1="18" x2="21" y2="18" />
               </svg>
             </Button>
-          )}
-
-          {desktopView === 'dose-log' && (
-            <div className="flex-1">
-              <h2 className="text-lg font-semibold">Dose Log</h2>
-            </div>
-          )}
-
-          <div className="ml-auto flex items-center gap-2">
-            {desktopView === 'dose-log' && <DoseLoggerModal onLogCreated={handleDoseLogged} />}
           </div>
-        </header>
+        )}
 
-        {/* Mobile header */}
+        {/* Mobile header (only for timeline/history views) */}
+        {mobileTab !== 'substances' && (
         <header className="md:hidden sticky top-14 z-30 bg-background/80 backdrop-blur border-b border-border/50">
           {mobileTab === 'timeline' && (
             <div className="flex items-center justify-between px-4 h-12">
@@ -1576,13 +1593,8 @@ function HomeContent() {
               } />
             </div>
           )}
-
-          {mobileTab === 'substances' && (
-            <div className="px-4 h-12 flex items-center">
-              <span className="text-sm font-medium">{selectedCategory === 'all' ? `${filteredSubstances.length} substances` : categories.find((c) => c.id === selectedCategory)?.name}</span>
-            </div>
-          )}
         </header>
+        )}
 
         {/* Content */}
         <main className="flex-1">
