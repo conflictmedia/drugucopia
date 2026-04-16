@@ -99,6 +99,9 @@ export function SyncProvider({ children }: { children: React.ReactNode }) {
   const unsubscribeRef = useRef<(() => void) | null>(null)
   const lastPushedHashRef = useRef<string | null>(null)
   const isPushingRef = useRef(false)
+  // Tracks whether the first pull from remote has completed after connect/reconnect.
+  // Prevents pushing local-only changes (e.g. deletions made while disconnected)
+  // before we've had a chance to pull the authoritative remote state.
   const initialSyncDoneRef = useRef(false)
 
   // Initialize Zustand store on mount
@@ -106,11 +109,20 @@ export function SyncProvider({ children }: { children: React.ReactNode }) {
     initialize()
   }, [initialize])
 
+  // Use refs for doses/deletedIds so pushToSync doesn't recreate on every state change.
+  // This prevents unnecessary effect triggers in the auto-push useEffect.
+  const dosesRef = useRef(doses)
+  const deletedIdsRef = useRef(deletedIds)
+  dosesRef.current = doses
+  deletedIdsRef.current = deletedIds
+
   const pushToSync = useCallback(async () => {
     if (!cryptoKeyRef.current || !hashedRoomRef.current || isPushingRef.current || !isLoaded) return
     isPushingRef.current = true
     try {
-      const payload = { doses, deleted: [...deletedIds] }
+      const currentDoses = dosesRef.current
+      const currentDeleted = deletedIdsRef.current
+      const payload = { doses: currentDoses, deleted: [...currentDeleted] }
       const encrypted = await encryptData(payload, cryptoKeyRef.current)
       lastPushedHashRef.current = encrypted.ciphertext.substring(0, 32)
       await setDoc(doc(db, 'secure_rooms', hashedRoomRef.current), {
@@ -122,11 +134,32 @@ export function SyncProvider({ children }: { children: React.ReactNode }) {
     } finally {
       isPushingRef.current = false
     }
-  }, [doses, deletedIds, isLoaded])
+  }, [isLoaded])
 
+  // Debounce timer ref for auto-push
+  const pushDebounceRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  // Automatically push to sync whenever local store changes (if synced)
+  // Debounced with 500ms to coalesce rapid mutations (imports, bulk deletes)
+  // into a single Firestore write, preventing resource-exhausted errors.
+  // Only fires after initial pull has completed.
   useEffect(() => {
+    if (pushDebounceRef.current) {
+      clearTimeout(pushDebounceRef.current)
+      pushDebounceRef.current = null
+    }
+
     if (syncStatus === 'synced' && isLoaded && initialSyncDoneRef.current) {
-      pushToSync()
+      pushDebounceRef.current = setTimeout(() => {
+        pushToSync()
+      }, 500)
+    }
+
+    return () => {
+      if (pushDebounceRef.current) {
+        clearTimeout(pushDebounceRef.current)
+        pushDebounceRef.current = null
+      }
     }
   }, [doses, deletedIds, syncStatus, isLoaded, pushToSync])
 
@@ -164,6 +197,8 @@ export function SyncProvider({ children }: { children: React.ReactNode }) {
         const remoteData = docSnap.data()
         const remoteHash = remoteData.encrypted?.ciphertext?.substring(0, 32)
         if (remoteHash && remoteHash === lastPushedHashRef.current) {
+          // Even for echo-suppressed snapshots, mark initial sync done
+          // so the auto-push can resume
           initialSyncDoneRef.current = true
           return
         }
@@ -176,6 +211,10 @@ export function SyncProvider({ children }: { children: React.ReactNode }) {
           const localDoses = useDoseStore.getState().doses
           const localDeleted = useDoseStore.getState().deletedIds
 
+          // On the first sync after connect/reconnect, ignore local deletions.
+          // This ensures that entries deleted while offline are restored from
+          // the remote source of truth, rather than the deletions being
+          // propagated back and wiping the remote data.
           const isFirstSync = !initialSyncDoneRef.current
           initialSyncDoneRef.current = true
 
