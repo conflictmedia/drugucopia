@@ -9,6 +9,7 @@ import {
   Heart,
   Brain,
   Droplets,
+  ArrowLeft,
   Syringe,
   GlassWater,
   AlertOctagon,
@@ -20,9 +21,11 @@ import {
   Shuffle,
   type LucideIcon,
 } from 'lucide-react'
+import { ThemeToggle } from '@/components/theme-toggle'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
+import { Separator } from '@/components/ui/separator'
 import {
   Accordion,
   AccordionContent,
@@ -101,7 +104,7 @@ function getGuideIcon(name: string): LucideIcon {
 
 function EmergencyCard({ resource }: { resource: typeof emergencyResources[0] }) {
   return (
-    <Card className="border-red-500/20 bg-red-500/5 pulse-danger card-lift">
+    <Card className="border-red-500/20 bg-red-500/5">
       <CardContent className="p-4">
         <div className="flex items-start gap-3">
           <div className="p-2 rounded-lg bg-red-500/10 shrink-0">
@@ -121,8 +124,8 @@ function EmergencyCard({ resource }: { resource: typeof emergencyResources[0] })
 function PrincipleChip({ principle }: { principle: typeof quickPrinciples[0] }) {
   const Icon = getGuideIcon(principle.icon) || Shield
   return (
-    <Card className="flex items-start gap-3 p-4 card-lift">
-      <div className="p-2 rounded-lg bg-gradient-to-br from-primary/15 to-primary/5 shrink-0 border border-primary/10">
+    <Card className="flex items-start gap-3 p-4">
+      <div className="p-2 rounded-lg bg-primary/10 shrink-0">
         <Icon className="h-4 w-4 text-primary" />
       </div>
       <div className="min-w-0">
@@ -138,7 +141,7 @@ function InteractionRow({ interaction }: { interaction: DangerousInteraction }) 
   const riskLabel = riskLabels[interaction.risk] || interaction.risk.toUpperCase()
 
   return (
-    <div className="flex items-start gap-3 p-3 rounded-xl border border-border bg-card hover:bg-muted/30 transition-all card-lift">
+    <div className="flex items-start gap-3 p-3 rounded-xl border border-border bg-card hover:bg-muted/30 transition-colors">
       <div className="flex items-center gap-2 shrink-0 mt-0.5">
         <AlertTriangle className="h-4 w-4 text-red-400" />
       </div>
@@ -178,16 +181,49 @@ export default function HarmReductionPage() {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
+      {/* ── Desktop Header ── */}
+      <header className="hidden md:flex sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 h-14 items-center gap-4 px-4 lg:px-6">
+        <Button variant="ghost" size="sm" onClick={() => router.push('/')} className="gap-2">
+          <ArrowLeft className="h-4 w-4" />
+          Back
+        </Button>
+        <Separator orientation="vertical" className="h-6" />
+        <div className="flex items-center gap-2">
+          <Shield className="h-5 w-5 text-primary" />
+          <h1 className="text-lg font-semibold">Harm Reduction Resources</h1>
+        </div>
+        <div className="ml-auto">
+          <ThemeToggle />
+        </div>
+      </header>
+
+      {/* ── Mobile Header ── */}
+      <header className="md:hidden sticky top-0 z-40 bg-background/95 backdrop-blur border-b border-border">
+        <div className="flex items-center gap-3 h-13 px-4">
+          <button
+            onClick={() => router.push('/')}
+            className="p-2 -ml-2 rounded-lg hover:bg-muted transition-colors"
+          >
+            <ArrowLeft className="h-5 w-5" />
+          </button>
+          <div className="flex items-center gap-2 flex-1 min-w-0">
+            <Shield className="h-4 w-4 text-primary shrink-0" />
+            <h1 className="text-base font-semibold truncate">Harm Reduction Resources</h1>
+          </div>
+          <ThemeToggle />
+        </div>
+      </header>
+
       {/* ── Desktop Content ── */}
-      <div className="hidden md:block container mx-auto py-6 lg:py-10 max-w-5xl">
+      <main className="hidden md:block container mx-auto py-6 lg:py-10 max-w-5xl">
         {/* Hero */}
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-3">
-            <div className="p-3 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/10">
+            <div className="p-3 rounded-xl bg-primary/10">
               <Shield className="h-8 w-8 text-primary" />
             </div>
             <div>
-              <h2 className="text-3xl font-bold tracking-tight gradient-text">Harm Reduction Resources</h2>
+              <h2 className="text-3xl font-bold tracking-tight">Harm Reduction Resources</h2>
               <p className="text-muted-foreground mt-1">
                 Comprehensive harm reduction information to help you stay safe.
                 Evidence-based, non-judgmental, and focused on reducing harm.
@@ -209,7 +245,7 @@ export default function HarmReductionPage() {
           </div>
         </section>
 
-        <hr className="gradient-divider my-8" />
+        <Separator className="my-8" />
 
         {/* Quick Principles */}
         <section className="mb-8">
@@ -224,7 +260,7 @@ export default function HarmReductionPage() {
           </div>
         </section>
 
-        <hr className="gradient-divider my-8" />
+        <Separator className="my-8" />
 
         {/* Harm Reduction Guides */}
         <section className="mb-8">
@@ -232,7 +268,7 @@ export default function HarmReductionPage() {
             <BookOpen className="h-5 w-5 text-primary" />
             <h3 className="text-xl font-semibold">Harm Reduction Guides</h3>
           </div>
-          <Card className="gradient-border">
+          <Card>
             <Accordion type="multiple" className="w-full">
               {generalGuides.map((guide) => {
                 const GuideIcon = getGuideIcon(guide.icon)
@@ -281,14 +317,14 @@ export default function HarmReductionPage() {
           </Card>
         </section>
 
-        <hr className="gradient-divider my-8" />
+        <Separator className="my-8" />
 
         {/* Dangerous Interactions */}
         <section className="mb-8">
           <div className="flex items-center gap-2 mb-4">
             <AlertTriangle className="h-5 w-5 text-red-400" />
             <h3 className="text-xl font-semibold">Dangerous Interactions</h3>
-            <Badge variant="outline" className="bg-red-500/15 border-red-500/30 text-red-400 text-xs font-medium">
+            <Badge variant="outline" className="bg-red-500/10 border-red-500/20 text-red-400 text-xs">
               {dangerousInteractions.length} known dangerous combos
             </Badge>
             <div className="ml-auto">
@@ -310,7 +346,7 @@ export default function HarmReductionPage() {
           </div>
         </section>
 
-        <hr className="gradient-divider my-8" />
+        <Separator className="my-8" />
 
         {/* External Resources */}
         <section className="mb-8">
@@ -327,7 +363,7 @@ export default function HarmReductionPage() {
                 rel="noopener noreferrer"
                 className="block"
               >
-                <Card className="hover:border-primary/50 transition-all h-full card-lift">
+                <Card className="hover:border-primary/50 transition-colors h-full">
                   <CardContent className="p-4">
                     <div className="flex items-start justify-between gap-2">
                       <div className="min-w-0">
@@ -347,11 +383,11 @@ export default function HarmReductionPage() {
           </div>
         </section>
 
-        <hr className="gradient-divider my-8" />
+        <Separator className="my-8" />
 
         {/* Disclaimer */}
         <section className="mb-8">
-          <Card className="border-yellow-500/20 bg-yellow-500/5 card-lift">
+          <Card className="border-yellow-500/20 bg-yellow-500/5">
             <CardContent className="p-4">
               <div className="flex items-start gap-3">
                 <AlertTriangle className="h-5 w-5 text-yellow-500 mt-0.5 shrink-0" />
@@ -373,18 +409,18 @@ export default function HarmReductionPage() {
             </CardContent>
           </Card>
         </section>
-      </div>
+      </main>
 
       {/* ── Mobile Content ── */}
       <div className="md:hidden flex-1 overflow-y-auto pb-8">
         {/* Hero */}
         <div className="px-4 pt-4 pb-3 border-b border-border">
           <div className="flex items-center gap-3 mb-2">
-            <div className="p-2.5 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/10">
+            <div className="p-2.5 rounded-xl bg-primary/10">
               <Shield className="h-6 w-6 text-primary" />
             </div>
             <div>
-              <h2 className="text-xl font-bold gradient-text">Harm Reduction Resources</h2>
+              <h2 className="text-xl font-bold">Harm Reduction Resources</h2>
               <p className="text-xs text-muted-foreground mt-0.5">
                 Comprehensive harm reduction info to keep you safe.
               </p>
@@ -417,7 +453,7 @@ export default function HarmReductionPage() {
               return (
                 <div
                   key={principle.id}
-                  className="flex-shrink-0 w-40 p-3 rounded-xl border border-border bg-card card-lift"
+                  className="flex-shrink-0 w-40 p-3 rounded-xl border border-border bg-card"
                 >
                   <div className="p-1.5 rounded-md bg-primary/10 w-fit mb-2">
                     <Icon className="h-3.5 w-3.5 text-primary" />
@@ -512,7 +548,7 @@ export default function HarmReductionPage() {
                 rel="noopener noreferrer"
                 className="block"
               >
-                <Card className="hover:border-primary/50 transition-all card-lift">
+                <Card className="hover:border-primary/50 transition-colors">
                   <CardContent className="p-3">
                     <p className="text-sm font-semibold flex items-center gap-1.5">
                       {resource.name}

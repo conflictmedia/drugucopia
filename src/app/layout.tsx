@@ -4,7 +4,6 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "next-themes";
 import { SyncProvider } from "@/contexts/sync-context";
-import { SharedNav } from "@/components/shared-nav";
 
 const ibmPlexSans = IBM_Plex_Sans({
   variable: "--font-ibm-plex-sans",
@@ -13,7 +12,6 @@ const ibmPlexSans = IBM_Plex_Sans({
 });
 
 const ibmPlexMono = IBM_Plex_Mono({
-  variable: "--font-ibm-plex-mono",
   weight: '400',
   subsets: ["latin"],
 });
@@ -36,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${ibmPlexSans.variable} ${ibmPlexMono.variable} antialiased bg-background text-foreground`}
+        className={`${ibmPlexSans.className} ${ibmPlexMono.className} antialiased bg-background text-foreground`}
       >
         <ThemeProvider
           attribute="class"
@@ -44,12 +42,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          {/* Wrap app with SyncProvider */}
           <SyncProvider>
-            <div className="mesh-gradient" />
-            <SharedNav />
-            <main className="min-h-[calc(100vh-3.5rem)]">
-              {children}
-            </main>
+            {children}
             <Toaster />
           </SyncProvider>
         </ThemeProvider>
