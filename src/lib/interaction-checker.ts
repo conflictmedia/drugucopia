@@ -102,37 +102,40 @@ function resolveSubstance(id: string): Substance | undefined {
 }
 
 function consolidatePairs(pairs: InteractionResult[]): InteractionResult[] {
-  const map = new Map<string, InteractionResult>();
+  // Key by substance pair only (no severity) — TripSit always wins for a pair.
+  // If TripSit has an entry for a pair, all fallback results for that pair are dropped.
+  const pairMap = new Map<string, InteractionResult>();
+  const tripsitPairs = new Set<string>();
+
+  // First pass: collect TripSit results (they're authoritative)
   for (const pair of pairs) {
     const names = [pair.substanceA, pair.substanceB].sort();
-    const key = `${names[0]}|${names[1]}|${pair.severity}`;
-    const existing = map.get(key);
+    const key = `${names[0]}|${names[1]}`;
+    if (pair.sources.includes('tripsit')) {
+      pairMap.set(key, { ...pair });
+      tripsitPairs.add(key);
+    }
+  }
+
+  // Second pass: add fallback results only for pairs NOT covered by TripSit
+  for (const pair of pairs) {
+    const names = [pair.substanceA, pair.substanceB].sort();
+    const key = `${names[0]}|${names[1]}`;
+    if (pair.sources.includes('tripsit')) continue; // already handled
+    if (tripsitPairs.has(key)) continue; // TripSit covers this pair — skip fallback
+
+    const existing = pairMap.get(key);
     if (existing) {
+      // Merge matched terms from fallback
       for (const term of pair.matchedTerms) {
         if (!existing.matchedTerms.includes(term)) existing.matchedTerms.push(term);
       }
-      // TripSit is authoritative — don't downgrade it
-      const existingHasTripsit = existing.sources.includes('tripsit');
-      const newHasTripsit = pair.sources.includes('tripsit');
-      if (!existingHasTripsit && newHasTripsit) {
-        // Replace with TripSit version
-        map.set(key, { ...pair });
-      } else if (existingHasTripsit && !newHasTripsit) {
-        // Keep existing TripSit version
-      } else {
-        // Both or neither — merge sources
-        for (const src of pair.sources) {
-          if (!existing.sources.includes(src)) existing.sources.push(src);
-        }
-        if (pair.description && !existing.description) existing.description = pair.description;
-        if (pair.tripsitStatus && !existing.tripsitStatus) existing.tripsitStatus = pair.tripsitStatus;
-        if (pair.tripsitSources && !existing.tripsitSources) existing.tripsitSources = pair.tripsitSources;
-      }
     } else {
-      map.set(key, { ...pair });
+      pairMap.set(key, { ...pair });
     }
   }
-  return Array.from(map.values());
+
+  return Array.from(pairMap.values());
 }
 
 // ─── TRIPSIT COMBO LOOKUP ───────────────────────────────────────────────────
