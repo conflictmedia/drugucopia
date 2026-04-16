@@ -114,14 +114,14 @@ export function InteractionPairCard({ result }: InteractionPairCardProps) {
               </div>
             )}
 
-            {/* Academic sources (collapsible) */}
+            {/* Academic sources (collapsible — shows all when expanded) */}
             {result.tripsitSources && result.tripsitSources.length > 0 && (
-              <details className="mb-2">
-                <summary className="text-xs text-muted-foreground cursor-pointer hover:text-foreground transition-colors">
+              <details className="mb-2 group">
+                <summary className="text-xs text-muted-foreground cursor-pointer hover:text-foreground transition-colors select-none">
                   {result.tripsitSources.length} source{result.tripsitSources.length !== 1 ? 's' : ''}
                 </summary>
                 <ul className="mt-1 space-y-1">
-                  {result.tripsitSources.slice(0, 3).map((src, i) => (
+                  {result.tripsitSources.map((src, i) => (
                     <li key={i} className="text-xs text-muted-foreground">
                       <a
                         href={src.url}
@@ -133,11 +133,6 @@ export function InteractionPairCard({ result }: InteractionPairCardProps) {
                       </a>
                     </li>
                   ))}
-                  {result.tripsitSources.length > 3 && (
-                    <li className="text-xs text-muted-foreground">
-                      +{result.tripsitSources.length - 3} more source{result.tripsitSources.length - 3 !== 1 ? 's' : ''}
-                    </li>
-                  )}
                 </ul>
               </details>
             )}
