@@ -158,7 +158,10 @@ function checkTripSitCombos(selectedSubs: Substance[]): InteractionResult[] {
     subTripsitClasses.set(sub.id, classes);
   }
 
-  // For each pair, check all combinations of TripSit classes
+  // For each pair, check all combinations of TripSit classes.
+  // Prefer the most specific match: when a substance ID directly matches a
+  // TripSit class name (e.g. tramadol→tramadol vs tramadol→opioids), that
+  // combo is more accurate than a generic parent-class match.
   for (let i = 0; i < selectedSubs.length; i++) {
     for (let j = i + 1; j < selectedSubs.length; j++) {
       const subA = selectedSubs[i];
@@ -166,27 +169,41 @@ function checkTripSitCombos(selectedSubs: Substance[]): InteractionResult[] {
       const classesA = subTripsitClasses.get(subA.id) || [];
       const classesB = subTripsitClasses.get(subB.id) || [];
 
-      let found = false;
+      const idsA = [subA.id.toLowerCase()];
+      const idsB = [subB.id.toLowerCase()];
+
+      // Collect all matching combos with a specificity score
+      let bestCombo: { key: string; combo: typeof tripsitLookup[string]; specificity: number } | null = null;
       for (const classA of classesA) {
         for (const classB of classesB) {
           const key = [classA, classB].sort().join('|');
           const combo = tripsitLookup[key];
           if (combo) {
-            results.push({
-              substanceA: subA.name,
-              substanceB: subB.name,
-              severity: mapTripsitStatus(combo.status),
-              matchedTerms: [combo.status],
-              sources: ['tripsit'],
-              description: combo.note || undefined,
-              tripsitStatus: combo.status,
-              tripsitSources: combo.sources.length > 0 ? combo.sources : undefined,
-            });
-            found = true;
-            break;
+            // Specificity: how many of the matched classes directly match a
+            // selected substance ID. Higher = more specific (e.g. tramadol
+            // matching "tramadol" class is more specific than "opioids").
+            let specificity = 0;
+            if (idsA.includes(classA)) specificity++;
+            if (idsB.includes(classB)) specificity++;
+            if (!bestCombo || specificity > bestCombo.specificity) {
+              bestCombo = { key, combo, specificity };
+            }
           }
         }
-        if (found) break;
+      }
+
+      if (bestCombo) {
+        const { combo } = bestCombo;
+        results.push({
+          substanceA: subA.name,
+          substanceB: subB.name,
+          severity: mapTripsitStatus(combo.status),
+          matchedTerms: [combo.status],
+          sources: ['tripsit'],
+          description: combo.note || undefined,
+          tripsitStatus: combo.status,
+          tripsitSources: combo.sources.length > 0 ? combo.sources : undefined,
+        });
       }
     }
   }
@@ -244,6 +261,121 @@ function checkPerSubstanceInteractions(selectedSubs: Substance[]): InteractionRe
   }
 
   return results;
+}
+
+// ─── SINGLE SUBSTANCE INTERACTION LOOKUP ────────────────────────────────────
+
+/**
+ * When only one substance is selected, look up ALL known interactions
+ * for that substance from the TripSit combos database and per-substance data.
+ */
+export function checkSingleSubstanceInteractions(substanceId: string): InteractionCheckResult {
+  const sub = resolveSubstance(substanceId)
+  if (!sub) {
+    return {
+      pairs: [],
+      crossTolerances: [],
+      summary: { dangerous: 0, unsafe: 0, caution: 0, lowRisk: 0, total: 0 },
+    }
+  }
+
+  const classes = resolveTripsitClasses(sub.id)
+  const nameLower = sub.name.toLowerCase()
+  if (!classes.includes(nameLower)) classes.push(nameLower)
+
+  const results: InteractionResult[] = []
+  const seen = new Set<string>()
+
+  // Scan all TripSit entries for any pair involving this substance's classes
+  for (const [key, combo] of Object.entries(tripsitLookup)) {
+    // The lookup key is alphabetically sorted (e.g. "mdma|tramadol"), but
+    // combo.drugA/drugB are NOT necessarily in that order. Check the actual
+    // drug names against the classes to determine which side matches.
+    const drugAMatches = classes.some(c => c === combo.drugA.toLowerCase())
+    const drugBMatches = classes.some(c => c === combo.drugB.toLowerCase())
+    if (!drugAMatches && !drugBMatches) continue
+
+    // The "other" substance is the one we're NOT checking
+    const otherName = drugAMatches ? combo.drugB : combo.drugA
+    // Capitalize class name for display
+    const otherDisplay = otherName
+      .split(/[\s-/]/)
+      .map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+      .join(' ')
+
+    const dedupeKey = `${[sub.name, otherDisplay].sort().join('|')}`
+    if (seen.has(dedupeKey)) continue
+    seen.add(dedupeKey)
+
+    results.push({
+      substanceA: sub.name,
+      substanceB: otherDisplay,
+      severity: mapTripsitStatus(combo.status),
+      matchedTerms: [combo.status],
+      sources: ['tripsit'],
+      description: combo.note || undefined,
+      tripsitStatus: combo.status,
+      tripsitSources: combo.sources.length > 0 ? combo.sources : undefined,
+    })
+  }
+
+  // For single-substance lookups, the TripSit scan above is comprehensive (421 pairs
+  // covering 31 drug classes). Per-substance fallback strings are less accurate and
+  // often overlap with TripSit results under different names (e.g. "Depressants" vs
+  // "Benzodiazepines"). Skip fallback entirely when TripSit found results.
+  if (results.length === 0) {
+    const severityChecks: Array<{ key: string; severity: InteractionSeverity }> = [
+      { key: 'dangerous', severity: 'dangerous' },
+      { key: 'unsafe', severity: 'unsafe' },
+      { key: 'uncertain', severity: 'caution' },
+    ]
+
+    for (const { key, severity } of severityChecks) {
+      const interactionList = sub.interactions[key] || []
+      for (const interactionStr of interactionList) {
+        const otherName = interactionStr.trim().toLowerCase()
+
+        const otherDisplay = otherName
+          .split(/[\s-/]/)
+          .map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+          .join(' ')
+
+        results.push({
+          substanceA: sub.name,
+          substanceB: otherDisplay,
+          severity,
+          matchedTerms: [interactionStr],
+          sources: ['substance-data'],
+        })
+      }
+    }
+  }
+
+  // Sort by severity
+  const severityOrder: Record<InteractionSeverity, number> = {
+    dangerous: 0, unsafe: 1, caution: 2, 'low-risk': 3,
+  }
+  results.sort((a, b) => {
+    const sd = severityOrder[a.severity] - severityOrder[b.severity]
+    if (sd !== 0) return sd
+    return a.substanceB.localeCompare(b.substanceB)
+  })
+
+  const summary = {
+    dangerous: results.filter(p => p.severity === 'dangerous').length,
+    unsafe: results.filter(p => p.severity === 'unsafe').length,
+    caution: results.filter(p => p.severity === 'caution').length,
+    lowRisk: results.filter(p => p.severity === 'low-risk').length,
+    total: results.length,
+  }
+
+  // Cross-tolerances
+  const crossTolerances: CrossToleranceResult[] = (sub.interactions.crossTolerances || []).map(t => ({
+    tolerance: t,
+    substances: [sub.name],
+  }))
+
+  return { pairs: results, crossTolerances, summary }
 }
 
 // ─── MAIN CHECK FUNCTION ───────────────────────────────────────────────────

@@ -27,7 +27,7 @@ export function InteractionResults({
   selectedCount,
   isLoading,
 }: InteractionResultsProps) {
-  if (selectedCount < 2) {
+  if (selectedCount === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-16 text-center">
         <div className="p-4 rounded-2xl bg-muted/50 mb-4">
@@ -35,8 +35,9 @@ export function InteractionResults({
         </div>
         <h3 className="text-lg font-semibold mb-1">Select Substances</h3>
         <p className="text-sm text-muted-foreground max-w-sm">
-          Choose at least 2 substances to check for interactions. The checker will analyze
-          all pairwise combinations and cross-tolerances.
+          Choose one or more substances to check for interactions. Selecting a single substance
+          will show all known interactions for it; selecting two or more will check pairwise
+          combinations and cross-tolerances.
         </p>
       </div>
     )
