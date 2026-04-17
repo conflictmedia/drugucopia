@@ -18,7 +18,7 @@ import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { Combobox, type ComboboxOption } from '@/components/ui/combobox'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
-import { Plus, Loader2, AlertTriangle, Zap, ArrowRightLeft } from 'lucide-react'
+import { Plus, Loader2, AlertTriangle, Zap } from 'lucide-react'
 import { substances } from '@/lib/substances/index'
 import { useToast } from '@/hooks/use-toast'
 import { useDoseStore } from '@/store/dose-store'
@@ -364,105 +364,20 @@ export function evaluateMathExpression(
 /**
  * Parse a quick input string like "Caffeine 100 mg oral", "100mg LSD sublingual", "2 tabs MDMA insufflation"
  * Returns extracted substance name, amount, unit, and route.
- * Now supports math expressions like "DXM 15 pills * 15mg".
- */
-/**
- * Parse a dosage range string like "75-150µg" or "300µg" and return the lower-bound
- * value and unit — used as a fixed per-unit estimate (e.g. one tab ≈ lower bound of common).
- * Examples: "75-150µg" → 75, "300µg" → 300, "10-20mg" → 10
- */
-function parseDosageLowerBound(rangeStr: string): { value: number; unit: string } | null {
-  const trimmed = rangeStr.trim()
-  if (!trimmed || trimmed.toLowerCase() === 'unknown') return null
-  // Match range: "75-150µg" — use the lower bound
-  const rangeMatch = trimmed.match(/^(\d+\.?\d*)\s*[-–]\s*(\d+\.?\d*)\s*([a-zA-Z\u03BC\u00B5]+)/)
-  if (rangeMatch) {
-    const low = parseFloat(rangeMatch[1])
-    const unit = rangeMatch[3]
-    return { value: low, unit }
-  }
-  // Single value: "300µg"
-  const singleMatch = trimmed.match(/^(\d+\.?\d*)\s*([a-zA-Z\u03BC\u00B5]+)/)
-  if (singleMatch) {
-    return { value: parseFloat(singleMatch[1]), unit: singleMatch[2] }
-  }
-  return null
-}
-
-/** Count units that should trigger dose auto-conversion */
-const CONVERTIBLE_COUNT_UNITS = new Set([
-  'tab', 'tabs', 'tablet', 'tablets', 'capsule', 'capsules', 'pill', 'pills',
-  'joint', 'joints', 'blunt', 'blunts', 'bowl', 'bowls', 'hit', 'hits',
-  'puff', 'puffs', 'drink', 'drinks', 'drop', 'drops', 'serving', 'servings',
-  'blinker', 'blinkers', 'line', 'lines',
-])
-
-/**
- * Given a matched substance and a count unit (e.g. "tab"), look up the
- * substance's routeData to find the typical "common" dose and convert
- * the count to an actual dose amount.
+ * Supports math expressions like "DXM 15 pills * 15mg".
  *
- * Returns { amount, unit, originalExpression } or null if conversion isn't possible.
+ * Note: Count units (puff, tab, capsule, etc.) are NO LONGER auto-converted to mg.
+ * Auto-conversion was unreliable because we can't determine the actual dose from a
+ * count unit alone (e.g. "1 puff" of THC could vary wildly). Conversion only happens
+ * when the user explicitly provides a math equation (e.g. "5 pills * 10mg").
  */
-function resolveCountToDose(
-  substance: any,
-  count: number,
-  countUnit: string,
-  route: string
-): { amount: number; unit: string; originalExpression: string } | null {
-  if (!substance?.routeData || count <= 0) return null
-
-  // Normalize count unit
-  const normalizedUnit = UNIT_ALIASES[countUnit.toLowerCase()] || countUnit.toLowerCase()
-  if (!CONVERTIBLE_COUNT_UNITS.has(normalizedUnit)) return null
-
-  // Find the best matching route key in routeData
-  // Try exact route match first, then common fallbacks
-  const routeKeys = Object.keys(substance.routeData)
-  let routeData = substance.routeData[route]
-
-  // Fallback route mapping for common count-unit → route associations
-  if (!routeData) {
-    const routeFallbacks: Record<string, string[]> = {
-      'oral': ['oral', 'sublingual'],
-      'smoked': ['smoked', 'vaped'],
-      'insufflated': ['insufflated', 'intranasal'],
-    }
-    const fallbacks = routeFallbacks[route] || [route]
-    for (const fb of fallbacks) {
-      if (substance.routeData[fb]) {
-        routeData = substance.routeData[fb]
-        break
-      }
-    }
-  }
-
-  // Last resort: use the first available route
-  if (!routeData && routeKeys.length > 0) {
-    routeData = substance.routeData[routeKeys[0]]
-  }
-
-  if (!routeData?.dosage?.common) return null
-
-  const parsed = parseDosageLowerBound(routeData.dosage.common)
-  if (!parsed) return null
-
-  // Prefer the substance's defaultUnit if available, otherwise use the parsed unit
-  const unit = substance.defaultUnit || parsed.unit
-
-  return {
-    amount: Math.round(parsed.value * count * 100) / 100,
-    unit,
-    originalExpression: `${count} ${normalizedUnit}${count !== 1 ? 's' : ''}`,
-  }
-}
 
 function parseQuickInput(
   input: string,
   substanceList: typeof substances
-): { substanceName: string; substanceId: string; amount: string; unit: string | null; route: string | null; categories: string[]; mathResult: { result: number; unit: string; expression: string } | null; unitConversion: { original: string; converted: string } | null } {
+): { substanceName: string; substanceId: string; amount: string; unit: string | null; route: string | null; categories: string[]; mathResult: { result: number; unit: string; expression: string } | null } {
   const trimmed = input.trim()
-  if (!trimmed) return { substanceName: '', substanceId: '', amount: '', unit: null, route: null, categories: [], mathResult: null, unitConversion: null }
+  if (!trimmed) return { substanceName: '', substanceId: '', amount: '', unit: null, route: null, categories: [], mathResult: null }
 
   // First, try to extract route from the input
   let extractedRoute: string | null = null
@@ -592,7 +507,6 @@ function parseQuickInput(
       route: extractedRoute || unitImpliedRoute,
       categories,
       mathResult: { result: mathEval.result, unit: mathEval.unit, expression: mathEval.expression },
-      unitConversion: null,
     }
   }
 
@@ -612,7 +526,7 @@ function parseQuickInput(
       : typeof raw.category === 'string' && raw.category && raw.category !== 'unknown'
       ? [raw.category]
       : []
-    return { substanceName: fullExactMatch.name, substanceId: fullExactMatch.id, amount: '', unit: null, route: extractedRoute, categories: cats, mathResult: null, unitConversion: null }
+    return { substanceName: fullExactMatch.name, substanceId: fullExactMatch.id, amount: '', unit: null, route: extractedRoute, categories: cats, mathResult: null }
   }
 
   // ── Standard parsing (no math expression detected) ───────────────────
@@ -655,9 +569,9 @@ function parseQuickInput(
         : typeof raw.category === 'string' && raw.category && raw.category !== 'unknown'
         ? [raw.category]
         : []
-      return { substanceName: found.name, substanceId: found.id, amount: '', unit: null, route: extractedRoute, categories: cats, mathResult: null, unitConversion: null }
+      return { substanceName: found.name, substanceId: found.id, amount: '', unit: null, route: extractedRoute, categories: cats, mathResult: null }
     }
-    return { substanceName: inputWithoutRoute, substanceId: '', amount: '', unit: null, route: extractedRoute, categories: [], mathResult: null, unitConversion: null }
+    return { substanceName: inputWithoutRoute, substanceId: '', amount: '', unit: null, route: extractedRoute, categories: [], mathResult: null }
   }
 
   // Resolve unit with fuzzy matching
@@ -776,34 +690,12 @@ function parseQuickInput(
     }
   }
 
-  // ── Count unit → dose conversion ───────────────────────────────────────
-  // If the resolved unit is a count unit (tab, joint, etc.) and we matched a
-  // substance with routeData, auto-convert to the "common" dose midpoint.
-  let unitConversion: { original: string; converted: string } | null = null
-  if (substanceId && resolvedUnit) {
-    const normalizedUnit = UNIT_ALIASES[resolvedUnit.toLowerCase()] || resolvedUnit.toLowerCase()
-    if (CONVERTIBLE_COUNT_UNITS.has(normalizedUnit)) {
-      const matchedSubstance = substanceList.find(s => s.id === substanceId)
-      if (matchedSubstance) {
-        const count = parseFloat(amountStr) || 1
-        const finalRoute = extractedRoute || unitImpliedRoute || 'oral'
-        const conversion = resolveCountToDose(matchedSubstance, count, resolvedUnit, finalRoute)
-        if (conversion) {
-          const formattedAmount = conversion.amount % 1 === 0
-            ? conversion.amount.toString()
-            : conversion.amount.toFixed(1).replace(/\.0$/, '')
-          unitConversion = {
-            original: conversion.originalExpression,
-            converted: `${formattedAmount} ${conversion.unit}`,
-          }
-          amountStr = formattedAmount
-          resolvedUnit = conversion.unit
-        }
-      }
-    }
-  }
+  // ── No auto-conversion of count units ──────────────────────────────────
+  // Count units (puff, tab, capsule, etc.) are kept as-is. We cannot reliably
+  // convert them to mg because the actual dose per count unit varies widely.
+  // Users who want a conversion should use a math expression (e.g. "5 pills * 10mg").
 
-  return { substanceName, substanceId, amount: amountStr, unit: resolvedUnit, route: extractedRoute || unitImpliedRoute, categories, mathResult: null, unitConversion }
+  return { substanceName, substanceId, amount: amountStr, unit: resolvedUnit, route: extractedRoute || unitImpliedRoute, categories, mathResult: null }
 }
 
 /** Format a unit with proper singular/plural based on amount */
@@ -844,7 +736,6 @@ export function DoseLoggerModal({
   // Quick input state - single field that can parse substance + amount + unit
   const [quickInput, setQuickInput] = useState('')
   const [mathResult, setMathResult] = useState<{ result: number; unit: string; expression: string } | null>(null)
-  const [unitConversion, setUnitConversion] = useState<{ original: string; converted: string } | null>(null)
 
   const [substanceId, setSubstanceId] = useState(preselectedSubstanceId || '')
   const [substanceName, setSubstanceName] = useState(preselectedSubstanceName || '')
@@ -895,7 +786,6 @@ export function DoseLoggerModal({
 
     // Update math result for preview
     setMathResult(parsed.mathResult)
-    setUnitConversion(parsed.unitConversion)
 
     // Update all relevant fields
     if (parsed.substanceName) {
@@ -1072,7 +962,6 @@ export function DoseLoggerModal({
   const resetForm = () => {
     setQuickInput('')
     setMathResult(null)
-    setUnitConversion(null)
     if (!preselectedSubstanceId) {
       setSubstanceId('')
       setSubstanceName('')
@@ -1149,26 +1038,9 @@ export function DoseLoggerModal({
                 className="text-base"
               />
               <p className="text-xs text-muted-foreground">
-                Type substance + amount + unit (+ optional route). Count units auto-convert (e.g. &quot;1 tab LSD&quot; &rarr; 75ug (uses ranges from routeData)). Supports math: &quot;15 pills * 15mg DXM&quot;
+                Type substance + amount + unit (+ optional route). Supports math: &quot;5 pills * 10mg THC&quot; or &quot;2 tabs * 100ug LSD&quot;
               </p>
             </div>
-
-            {/* ── Unit conversion preview ─────────────────────────────────── */}
-            {unitConversion && !mathResult && (
-              <div className="flex items-center gap-3 px-4 py-3 rounded-lg bg-blue-500/10 border border-blue-500/25">
-                <div className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-500/20 shrink-0">
-                  <ArrowRightLeft className="h-4 w-4 text-blue-500" />
-                </div>
-                <div className="min-w-0">
-                  <p className="text-xs text-blue-600 dark:text-blue-400 font-medium">
-                    Dose conversion: {unitConversion.original} (common dose)
-                  </p>
-                  <p className="text-sm font-semibold text-blue-700 dark:text-blue-300">
-                    &asymp; {unitConversion.converted}
-                  </p>
-                </div>
-              </div>
-            )}
 
             {/* ── Math calculation preview ────────────────────────────────── */}
             {mathResult && (
