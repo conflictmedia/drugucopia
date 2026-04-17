@@ -131,15 +131,15 @@ export function resolveTripsitClasses(substanceId: string): string[] {
   const map = getDrugucopiaToTripsit()
   const lower = substanceId.toLowerCase()
 
-  // Direct match
-  if (map.has(lower)) return map.get(lower)!
+  // Direct match — return a COPY to prevent callers from mutating the cached array
+  if (map.has(lower)) return [...map.get(lower)!]
 
   // Check if the ID itself IS a TripSit class name
   if (tripsitToDrugucopia[lower]) return [lower]
 
   // Try with hyphens → spaces (e.g. "psilocybin-mushrooms" → "psilocybin mushrooms")
   const spaced = lower.replace(/-/g, ' ')
-  if (map.has(spaced)) return map.get(spaced)!
+  if (map.has(spaced)) return [...map.get(spaced)!]
 
   return []
 }
