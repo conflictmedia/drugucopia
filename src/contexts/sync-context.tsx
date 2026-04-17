@@ -1,8 +1,8 @@
 'use client'
 
 import React, { createContext, useContext, useEffect, useRef, useState, useCallback } from 'react'
-import { initializeApp } from 'firebase/app'
-import { getFirestore, doc, onSnapshot, setDoc, serverTimestamp } from 'firebase/firestore'
+import { initializeApp, getApps, type FirebaseApp } from 'firebase/app'
+import { getFirestore, type Firestore, doc, onSnapshot, setDoc, serverTimestamp } from 'firebase/firestore'
 import { useToast } from '../hooks/use-toast'
 import { useDoseStore } from '../store/dose-store'
 import { DoseLog } from '../types'
@@ -16,13 +16,46 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID
 }
 
-const app = initializeApp(firebaseConfig)
-const db = getFirestore(app)
+// Lazy-initialize Firebase so the app doesn't crash if env vars are missing.
+// getDb() returns null when Firebase can't be initialized, and every caller
+// checks for null before proceeding — no TypeScript "Firestore | null" error.
+let _app: FirebaseApp | null = null
+let _db: Firestore | null = null
+
+function getDb(): Firestore | null {
+  if (_db) return _db
+  if (!firebaseConfig.apiKey) return null
+  try {
+    _app = getApps().length ? getApps()[0] : initializeApp(firebaseConfig)
+    _db = getFirestore(_app)
+    return _db
+  } catch {
+    console.warn('Firebase initialization failed')
+    return null
+  }
+}
 const SYNC_AUTH_KEY = 'drugucopia-sync-auth'
 
 // --- CRYPTO UTILS ---
-const buf2base64 = (buf: ArrayBuffer | Uint8Array) => btoa(String.fromCharCode(...new Uint8Array(buf)))
-const base642buf = (b64: string) => new Uint8Array([...atob(b64)].map(c => c.charCodeAt(0)))
+// Chunked to avoid "Maximum call stack size exceeded" on large payloads
+const buf2base64 = (buf: ArrayBuffer | Uint8Array) => {
+  const bytes = new Uint8Array(buf)
+  const chunkSize = 8192
+  let binary = ''
+  for (let i = 0; i < bytes.length; i += chunkSize) {
+    binary += String.fromCharCode.apply(null, bytes.subarray(i, i + chunkSize) as unknown as number[])
+  }
+  return btoa(binary)
+}
+
+const base642buf = (b64: string) => {
+  const binaryStr = atob(b64)
+  const bytes = new Uint8Array(binaryStr.length)
+  for (let i = 0; i < binaryStr.length; i++) {
+    bytes[i] = binaryStr.charCodeAt(i)
+  }
+  return bytes
+}
 
 const hashRoomName = async (roomName: string, password: string) => {
   const data = new TextEncoder().encode(roomName + password + 'drugucopia-salt')
@@ -118,6 +151,8 @@ export function SyncProvider({ children }: { children: React.ReactNode }) {
 
   const pushToSync = useCallback(async () => {
     if (!cryptoKeyRef.current || !hashedRoomRef.current || isPushingRef.current || !isLoaded) return
+    const db = getDb()
+    if (!db) return
     isPushingRef.current = true
     try {
       const currentDoses = dosesRef.current
@@ -182,51 +217,65 @@ export function SyncProvider({ children }: { children: React.ReactNode }) {
       localStorage.setItem(SYNC_AUTH_KEY, JSON.stringify({ savedRoom: rId, savedPass: pass }))
       initialSyncDoneRef.current = false
 
+      const db = getDb()
+      if (!db) {
+        setSyncStatus('error')
+        toast({ title: 'Sync Unavailable', description: 'Firebase is not configured. Check your environment variables.', variant: 'destructive' })
+        return
+      }
+
       const docRef = doc(db, 'secure_rooms', hashedRoomRef.current)
 
-      unsubscribeRef.current = onSnapshot(docRef, async (docSnap) => {
-        if (isPushingRef.current) return
+      unsubscribeRef.current = onSnapshot(docRef, {
+        next: async (docSnap) => {
+          if (isPushingRef.current) return
 
-        if (!docSnap.exists()) {
-          // New room — nothing to pull, push local state immediately
-          initialSyncDoneRef.current = true
-          pushToSync()
-          return
-        }
+          if (!docSnap.exists()) {
+            // New room — nothing to pull, push local state immediately
+            initialSyncDoneRef.current = true
+            pushToSync()
+            return
+          }
 
-        const remoteData = docSnap.data()
-        const remoteHash = remoteData.encrypted?.ciphertext?.substring(0, 32)
-        if (remoteHash && remoteHash === lastPushedHashRef.current) {
-          // Even for echo-suppressed snapshots, mark initial sync done
-          // so the auto-push can resume
-          initialSyncDoneRef.current = true
-          return
-        }
+          const remoteData = docSnap.data()
+          const remoteHash = remoteData.encrypted?.ciphertext?.substring(0, 32)
+          if (remoteHash && remoteHash === lastPushedHashRef.current) {
+            // Even for echo-suppressed snapshots, mark initial sync done
+            // so the auto-push can resume
+            initialSyncDoneRef.current = true
+            return
+          }
 
-        try {
-          const payload = await decryptData(remoteData.encrypted, cryptoKeyRef.current!)
-          const remoteDoses: DoseLog[] = Array.isArray(payload) ? payload : payload.doses ?? []
-          const remoteDeleted: Set<string> = new Set(Array.isArray(payload) ? [] : payload.deleted ?? [])
+          try {
+            const payload = await decryptData(remoteData.encrypted, cryptoKeyRef.current!)
+            const remoteDoses: DoseLog[] = Array.isArray(payload) ? payload : payload.doses ?? []
+            const remoteDeleted: Set<string> = new Set(Array.isArray(payload) ? [] : payload.deleted ?? [])
 
-          const localDoses = useDoseStore.getState().doses
-          const localDeleted = useDoseStore.getState().deletedIds
+            const localDoses = useDoseStore.getState().doses
+            const localDeleted = useDoseStore.getState().deletedIds
 
-          // On the first sync after connect/reconnect, ignore local deletions.
-          // This ensures that entries deleted while offline are restored from
-          // the remote source of truth, rather than the deletions being
-          // propagated back and wiping the remote data.
-          const isFirstSync = !initialSyncDoneRef.current
-          initialSyncDoneRef.current = true
+            // On the first sync after connect/reconnect, ignore local deletions.
+            // This ensures that entries deleted while offline are restored from
+            // the remote source of truth, rather than the deletions being
+            // propagated back and wiping the remote data.
+            const isFirstSync = !initialSyncDoneRef.current
+            initialSyncDoneRef.current = true
 
-          const effectiveLocalDeleted = isFirstSync ? new Set<string>() : localDeleted
+            const effectiveLocalDeleted = isFirstSync ? new Set<string>() : localDeleted
 
-          const { doses: merged, deleted: mergedDeleted } = mergeDoses(localDoses, remoteDoses, effectiveLocalDeleted, remoteDeleted)
+            const { doses: merged, deleted: mergedDeleted } = mergeDoses(localDoses, remoteDoses, effectiveLocalDeleted, remoteDeleted)
 
-          setDosesFromSync(merged, mergedDeleted)
+            setDosesFromSync(merged, mergedDeleted)
 
-        } catch (e) {
-          console.error('Decryption failed:', e)
+          } catch (e) {
+            console.error('Decryption failed:', e)
+            setSyncStatus('error')
+          }
+        },
+        error: (err) => {
+          console.error('Firestore snapshot error:', err)
           setSyncStatus('error')
+          toast({ title: 'Sync Error', description: 'Lost connection to sync room. Changes save locally.', variant: 'destructive' })
         }
       })
 
