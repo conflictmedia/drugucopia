@@ -1,7 +1,7 @@
 'use client'
 
 import { formatDoseAmount } from '@/lib/utils'
-import { useState, useRef } from 'react'
+import { useState, useRef, useMemo } from 'react'
 import { format, isToday, isYesterday, isThisWeek, isThisMonth } from 'date-fns'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -806,6 +806,8 @@ export function DoseHistory() {
     return groups
   }
 
+  const groupedDoses = useMemo(() => groupDosesByDate(doses), [doses])
+
   const getCategoryColor = (category: string) =>
     categoryColors[category as keyof typeof categoryColors] ||
     'text-gray-500 bg-gray-500/10 border-gray-500/20'
@@ -978,7 +980,7 @@ export function DoseHistory() {
             </div>
           ) : (
             <ScrollArea className="h-[400px] pr-4">
-              {Object.entries(groupDosesByDate(doses)).map(([dateGroup, groupDoses]) => {
+              {Object.entries(groupedDoses).map(([dateGroup, groupDoses]) => {
                 return (
                   <div key={dateGroup} className="mb-6">
                     <h4 className="text-sm font-medium text-muted-foreground mb-3 sticky top-0 bg-background py-1 z-10 text-center">

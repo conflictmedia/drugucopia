@@ -198,7 +198,8 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
   /*  Store & state                                                    */
   /* ---------------------------------------------------------------- */
 
-  const { doses, isLoaded } = useDoseStore()
+  const doses = useDoseStore(s => s.doses)
+  const isLoaded = useDoseStore(s => s.isLoaded)
   const [tick, setTick] = useState(0)
   const [tooltips, setTooltips] = useState<Record<string, TooltipData>>({})
   const [expandedGroup, setExpandedGroup] = useState<string | null>(null)

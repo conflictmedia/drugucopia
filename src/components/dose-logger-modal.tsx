@@ -731,7 +731,8 @@ export function DoseLoggerModal({
   const [open, setOpen] = useState(false)
   const [loading, setLoading] = useState(false)
   const { toast } = useToast()
-  const { doses, addDose } = useDoseStore()
+  const doses = useDoseStore(s => s.doses)
+  const addDose = useDoseStore(s => s.addDose)
 
   // Quick input state - single field that can parse substance + amount + unit
   const [quickInput, setQuickInput] = useState('')
@@ -804,7 +805,7 @@ export function DoseLoggerModal({
     }
   }, [])
 
-  const selectedSubstance = substances.find(s => s.id === substanceId)
+  const selectedSubstance = useMemo(() => substances.find(s => s.id === substanceId), [substanceId, substances])
 
   // ── Duration resolution ──────────────────────────────────────────────────
   // Priority: user override > real routeData > interpolated estimate > null
@@ -886,7 +887,7 @@ export function DoseLoggerModal({
     return Array.from(interactions)
   }, [selectedSubstance, activeDoses])
 
-  const substanceOptions: ComboboxOption[] = substances.map(s => ({ value: s.id, label: s.name }))
+  const substanceOptions: ComboboxOption[] = useMemo(() => substances.map(s => ({ value: s.id, label: s.name })), [substances])
 
   /* ── Smart amount input handler ──────────────────────────────────────── */
   const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {

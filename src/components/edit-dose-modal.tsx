@@ -167,7 +167,7 @@ function parseAmountUnit(input: string): { amount: string; unit: string | null }
 
 export function EditDoseModal({ dose, open, onOpenChange, onSaved }: EditDoseModalProps) {
   const { toast } = useToast()
-  const { updateDose } = useDoseStore()
+  const updateDose = useDoseStore(s => s.updateDose)
   const [loading, setLoading] = useState(false)
 
   const [substanceId, setSubstanceId] = useState(dose.substanceId)
@@ -196,7 +196,7 @@ export function EditDoseModal({ dose, open, onOpenChange, onSaved }: EditDoseMod
     setDurationOverride(dose.duration ?? null)
   }, [dose])
 
-  const substanceOptions: ComboboxOption[] = substances.map(s => ({ value: s.id, label: s.name }))
+  const substanceOptions: ComboboxOption[] = useMemo(() => substances.map(s => ({ value: s.id, label: s.name })), [substances])
   const selectedSubstance = substances.find(s => s.id === substanceId)
 
   // Interpolated estimate for the current substance+route combo
