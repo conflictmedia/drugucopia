@@ -1731,9 +1731,15 @@ export function getSubstancesByRoute(route: string): Substance[] {
 
 export function getSubstancesByInteraction(interaction: string): Substance[] {
   const lowerInteraction = interaction.toLowerCase();
-  return substances.filter(s =>
-    s.interactions.some(i => i.toLowerCase().includes(lowerInteraction))
-  );
+  return substances.filter(s => {
+    const all = [
+      ...(s.interactions.dangerous || []),
+      ...(s.interactions.unsafe || []),
+      ...(s.interactions.uncertain || []),
+      ...(s.interactions.crossTolerances || []),
+    ];
+    return all.some(i => i.toLowerCase().includes(lowerInteraction));
+  });
 }
 
 export function getSubstanceCount(): number {
