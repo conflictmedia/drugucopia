@@ -543,7 +543,7 @@ function parsePWJournalJSON(text: string): ImportResult {
 
 
 export function DoseHistory() {
-  const { doses, isLoaded, deleteDose, addDose } = useDoseStore()
+  const { doses, isLoaded, deleteDose, addDose, addDoses, replaceDoses, clearAllDoses } = useDoseStore()
   const { syncStatus, roomId, password, setRoomId, setPassword, connectToSync, disconnectSync } = useSync()
   const { toast } = useToast()
 
@@ -701,12 +701,19 @@ export function DoseHistory() {
           skipped++
           continue
         }
-        // overwrite: remove old record first
-        deleteDose(dose.id)
         overwritten++
       }
-      addDose(dose)
       added++
+    }
+
+    // Single bulk state update instead of N individual addDose/deleteDose calls.
+    // This prevents Firestore write stream exhaustion from rapid-fire sync pushes.
+    const toAdd = importPreview.doses.filter(d => !existingIds.has(d.id) || strategy === 'overwrite')
+    if (strategy === 'overwrite') {
+      // replaceDoses handles removing old versions of incoming IDs
+      replaceDoses(importPreview.doses)
+    } else {
+      addDoses(toAdd)
     }
 
     setIsImporting(false)
@@ -731,12 +738,10 @@ export function DoseHistory() {
     setIsDeletingAll(true)
 
     const doseCount = doses.length
-    const doseIds = doses.map((d) => d.id)
 
-    // Delete all doses
-    for (const id of doseIds) {
-      deleteDose(id)
-    }
+    // Single bulk operation instead of N individual deleteDose calls.
+    // Prevents Firestore write stream exhaustion from rapid-fire sync pushes.
+    clearAllDoses()
 
     setIsDeletingAll(false)
     setShowDeleteAllDialog(false)

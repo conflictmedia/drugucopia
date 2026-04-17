@@ -1,6 +1,5 @@
 'use client'
 
-import { useMemo } from 'react'
 import {
   ShieldAlert,
   AlertTriangle,
@@ -8,6 +7,7 @@ import {
   CheckCircle2,
   Shuffle,
   ArrowRightLeft,
+  ThumbsUp,
 } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -27,8 +27,7 @@ export function InteractionResults({
   selectedCount,
   isLoading,
 }: InteractionResultsProps) {
-  // Not enough substances selected
-  if (selectedCount < 2) {
+  if (selectedCount === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-16 text-center">
         <div className="p-4 rounded-2xl bg-muted/50 mb-4">
@@ -36,14 +35,14 @@ export function InteractionResults({
         </div>
         <h3 className="text-lg font-semibold mb-1">Select Substances</h3>
         <p className="text-sm text-muted-foreground max-w-sm">
-          Choose at least 2 substances to check for interactions. The checker will analyze
-          all pairwise combinations and cross-tolerances.
+          Choose one or more substances to check for interactions. Selecting a single substance
+          will show all known interactions for it; selecting two or more will check pairwise
+          combinations and cross-tolerances.
         </p>
       </div>
     )
   }
 
-  // Loading state
   if (isLoading) {
     return (
       <div className="flex flex-col items-center justify-center py-16">
@@ -58,7 +57,6 @@ export function InteractionResults({
 
   if (!result) return null
 
-  // No interactions found
   if (result.summary.total === 0 && result.crossTolerances.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-16 text-center">
@@ -76,7 +74,9 @@ export function InteractionResults({
 
   const dangerous = result.pairs.filter((p) => p.severity === 'dangerous')
   const unsafe = result.pairs.filter((p) => p.severity === 'unsafe')
-  const uncertain = result.pairs.filter((p) => p.severity === 'uncertain')
+  const caution = result.pairs.filter((p) => p.severity === 'caution')
+  const lowRisk = result.pairs.filter((p) => p.severity === 'low-risk')
+  const hasRisks = dangerous.length > 0 || unsafe.length > 0
 
   return (
     <div className="space-y-6">
@@ -88,7 +88,9 @@ export function InteractionResults({
             ? 'bg-red-500/10 border-red-500/30'
             : result.summary.unsafe > 0
               ? 'bg-orange-500/10 border-orange-500/30'
-              : 'bg-yellow-500/10 border-yellow-500/30'
+              : result.summary.caution > 0
+                ? 'bg-amber-500/10 border-amber-500/30'
+                : 'bg-emerald-500/10 border-emerald-500/30'
         )}
       >
         <div className="flex items-center gap-3 mb-3">
@@ -96,8 +98,10 @@ export function InteractionResults({
             <ShieldAlert className="h-5 w-5 text-red-400" />
           ) : result.summary.unsafe > 0 ? (
             <AlertTriangle className="h-5 w-5 text-orange-400" />
+          ) : result.summary.caution > 0 ? (
+            <HelpCircle className="h-5 w-5 text-amber-400" />
           ) : (
-            <HelpCircle className="h-5 w-5 text-yellow-400" />
+            <ThumbsUp className="h-5 w-5 text-emerald-400" />
           )}
           <h3 className="font-semibold">Interaction Summary</h3>
         </div>
@@ -112,9 +116,14 @@ export function InteractionResults({
               {result.summary.unsafe} Unsafe
             </Badge>
           )}
-          {result.summary.uncertain > 0 && (
-            <Badge variant="outline" className="bg-yellow-500/15 text-yellow-400 border-yellow-500/30 font-bold">
-              {result.summary.uncertain} Uncertain
+          {result.summary.caution > 0 && (
+            <Badge variant="outline" className="bg-amber-500/15 text-amber-400 border-amber-500/30 font-bold">
+              {result.summary.caution} Caution
+            </Badge>
+          )}
+          {result.summary.lowRisk > 0 && (
+            <Badge variant="outline" className="bg-emerald-500/15 text-emerald-400 border-emerald-500/30 font-bold">
+              {result.summary.lowRisk} Low Risk
             </Badge>
           )}
           <Badge variant="outline" className="text-muted-foreground">
@@ -162,21 +171,42 @@ export function InteractionResults({
         </>
       )}
 
-      {/* Uncertain Interactions */}
-      {uncertain.length > 0 && (
+      {/* Caution Interactions */}
+      {caution.length > 0 && (
         <>
-          {(dangerous.length > 0 || unsafe.length > 0) && <Separator className="my-4" />}
+          {hasRisks && <Separator className="my-4" />}
           <section>
             <div className="flex items-center gap-2 mb-3">
-              <HelpCircle className="h-4 w-4 text-yellow-400" />
-              <h4 className="text-sm font-semibold text-yellow-400">Uncertain Interactions</h4>
-              <Badge variant="outline" className="text-[10px] bg-yellow-500/15 text-yellow-400 border-yellow-500/30">
-                {uncertain.length}
+              <HelpCircle className="h-4 w-4 text-amber-400" />
+              <h4 className="text-sm font-semibold text-amber-400">Use Caution</h4>
+              <Badge variant="outline" className="text-[10px] bg-amber-500/15 text-amber-400 border-amber-500/30">
+                {caution.length}
               </Badge>
             </div>
             <div className="space-y-3">
-              {uncertain.map((pair, i) => (
-                <InteractionPairCard key={`uncertain-${i}`} result={pair} />
+              {caution.map((pair, i) => (
+                <InteractionPairCard key={`caution-${i}`} result={pair} />
+              ))}
+            </div>
+          </section>
+        </>
+      )}
+
+      {/* Low Risk Interactions (synergies, decreases, no synergy) */}
+      {lowRisk.length > 0 && (
+        <>
+          {(hasRisks || caution.length > 0) && <Separator className="my-4" />}
+          <section>
+            <div className="flex items-center gap-2 mb-3">
+              <ThumbsUp className="h-4 w-4 text-emerald-400" />
+              <h4 className="text-sm font-semibold text-emerald-400">Low Risk Combinations</h4>
+              <Badge variant="outline" className="text-[10px] bg-emerald-500/15 text-emerald-400 border-emerald-500/30">
+                {lowRisk.length}
+              </Badge>
+            </div>
+            <div className="space-y-3">
+              {lowRisk.map((pair, i) => (
+                <InteractionPairCard key={`lowrisk-${i}`} result={pair} />
               ))}
             </div>
           </section>
@@ -237,11 +267,11 @@ export function InteractionResults({
             <div>
               <p className="text-xs font-semibold mb-1">Disclaimer</p>
               <p className="text-[11px] text-muted-foreground leading-relaxed">
-                This interaction checker uses data from community-maintained substance
-                profiles. It may not capture all possible interactions, and absence of a
-                known interaction does not guarantee safety. Always perform independent
-                research and consult qualified healthcare professionals. In case of
-                emergency, contact your local emergency services immediately.
+                Interaction data sourced from TripSit&apos;s community-maintained combos database
+                and per-substance profiles. Absence of a known interaction does not guarantee
+                safety. Always perform independent research and consult qualified healthcare
+                professionals. In case of emergency, contact your local emergency services
+                immediately.
               </p>
             </div>
           </div>

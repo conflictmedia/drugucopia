@@ -1,27 +1,34 @@
 // Interaction Checker Engine
 // Checks drug-drug interactions between selected substances using
-// per-substance interaction data and curated dangerous interaction pairs.
+// the TripSit combos database (primary) and per-substance interaction data (fallback).
 
 import { substances, getSubstanceById } from '@/lib/substances/index';
-import { dangerousInteractions } from '@/lib/harm-reduction-data';
-import type { Substance } from '@/lib/types';
+import { tripsitLookup } from '@/lib/tripsit-combos';
+import { resolveTripsitClasses } from '@/lib/tripsit-aliases';
+import type { Substance, TripSitCombo } from '@/lib/types';
 
 // ─── TYPES ──────────────────────────────────────────────────────────────────
 
-export type InteractionSeverity = 'dangerous' | 'unsafe' | 'uncertain';
+export type InteractionSeverity =
+  | 'dangerous'
+  | 'unsafe'
+  | 'caution'
+  | 'low-risk'
 
 export interface InteractionResult {
-  substanceA: string;       // Substance name A
-  substanceB: string;       // Substance name B
+  substanceA: string;
+  substanceB: string;
   severity: InteractionSeverity;
-  matchedTerms: string[];   // All interaction strings that matched
-  sources: string[];        // Where matches came from
-  description?: string;     // Enriched description from curated data
+  matchedTerms: string[];
+  sources: string[];            // 'tripsit' | 'substance-a' | 'substance-b'
+  description?: string;
+  tripsitStatus?: string;       // Original TripSit status e.g. "Low Risk & Synergy"
+  tripsitSources?: TripSitCombo['sources']; // Academic sources from TripSit
 }
 
 export interface CrossToleranceResult {
-  tolerance: string;        // e.g., "serotonergic"
-  substances: string[];     // Substance names that share this tolerance
+  tolerance: string;
+  substances: string[];
 }
 
 export interface InteractionCheckResult {
@@ -30,19 +37,29 @@ export interface InteractionCheckResult {
   summary: {
     dangerous: number;
     unsafe: number;
-    uncertain: number;
+    caution: number;
+    lowRisk: number;
     total: number;
   };
 }
 
+// ─── TRIPSIT STATUS MAPPING ────────────────────────────────────────────────
+
+function mapTripsitStatus(status: string): InteractionSeverity {
+  switch (status) {
+    case 'Dangerous': return 'dangerous'
+    case 'Unsafe': return 'unsafe'
+    case 'Caution': return 'caution'
+    default: return 'low-risk' // Low Risk & Synergy, Low Risk & No Synergy, Low Risk & Decrease
+  }
+}
+
 // ─── HELPERS ────────────────────────────────────────────────────────────────
 
-/** Escape special regex characters */
 function escapeRegExp(s: string): string {
   return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-/** Build searchable keywords from a substance for fuzzy matching */
 function getSubstanceKeywords(sub: Substance): string[] {
   return [
     sub.name,
@@ -56,7 +73,6 @@ function getSubstanceKeywords(sub: Substance): string[] {
     .filter((s: string) => s !== 'other' && s.length > 1);
 }
 
-/** Check if any interaction string from a list matches against any keyword */
 function matchInteractionList(
   interactionList: string[],
   keywords: string[]
@@ -65,125 +81,179 @@ function matchInteractionList(
     const interactionLower = interactionStr.toLowerCase();
     for (const keyword of keywords) {
       try {
-        // Use word boundary matching for multi-char keywords to avoid
-        // false positives like "meth" matching inside "tramadol"
         if (keyword.length > 2) {
           const regex = new RegExp(`\\b${escapeRegExp(keyword)}\\b`, 'i');
-          if (regex.test(interactionLower)) {
-            return interactionStr;
-          }
+          if (regex.test(interactionLower)) return interactionStr;
         } else {
-          // Short keywords use simple includes (acceptable for short strings)
-          if (interactionLower.includes(keyword)) {
-            return interactionStr;
-          }
+          if (interactionLower.includes(keyword)) return interactionStr;
         }
       } catch {
-        // Regex construction failed — skip this keyword rather than
-        // falling back to loose substring matching
+        // skip
       }
     }
   }
   return null;
 }
 
-/** Check if two substance keywords overlap in any meaningful way */
-function keywordsOverlap(kwA: string[], kwB: string[]): string | null {
-  for (const a of kwA) {
-    for (const b of kwB) {
-      if (a === b && a.length > 2) return a;
-      // Check if one is a significant substring of the other
-      if (a.length > 4 && b.includes(a)) return a;
-      if (b.length > 4 && a.includes(b)) return b;
-    }
-  }
-  return null;
-}
-
-/** Consolidate interaction pairs — merge same pair+severity into one result */
-function consolidatePairs(pairs: InteractionResult[]): InteractionResult[] {
-  const map = new Map<string, InteractionResult>();
-  for (const pair of pairs) {
-    // Normalize key so A+B and B+A are the same
-    const names = [pair.substanceA, pair.substanceB].sort();
-    const key = `${names[0]}|${names[1]}|${pair.severity}`;
-    const existing = map.get(key);
-    if (existing) {
-      // Merge matched terms and sources, deduplicating
-      for (const term of pair.matchedTerms) {
-        if (!existing.matchedTerms.includes(term)) existing.matchedTerms.push(term);
-      }
-      for (const src of pair.sources) {
-        if (!existing.sources.includes(src)) existing.sources.push(src);
-      }
-      // Prefer curated description
-      if (pair.description && !existing.description) existing.description = pair.description;
-    } else {
-      map.set(key, { ...pair });
-    }
-  }
-  return Array.from(map.values());
-}
-
-/** Get a substance by ID or name fallback */
 function resolveSubstance(id: string): Substance | undefined {
   return getSubstanceById(id) ?? substances.find(
     (s) => s.name.toLowerCase() === id.toLowerCase()
   );
 }
 
-// ─── CURATED PAIR MATCHING ──────────────────────────────────────────────────
+function consolidatePairs(pairs: InteractionResult[]): InteractionResult[] {
+  // Key by substance pair only (no severity) — TripSit always wins for a pair.
+  // If TripSit has an entry for a pair, all fallback results for that pair are dropped.
+  const pairMap = new Map<string, InteractionResult>();
+  const tripsitPairs = new Set<string>();
 
-/** Check curated dangerous interaction pairs against selected substances */
-function checkCuratedPairs(
-  selectedSubs: Substance[]
-): InteractionResult[] {
+  // First pass: collect TripSit results (they're authoritative)
+  for (const pair of pairs) {
+    const names = [pair.substanceA, pair.substanceB].sort();
+    const key = `${names[0]}|${names[1]}`;
+    if (pair.sources.includes('tripsit')) {
+      pairMap.set(key, { ...pair });
+      tripsitPairs.add(key);
+    }
+  }
+
+  // Second pass: add fallback results only for pairs NOT covered by TripSit
+  for (const pair of pairs) {
+    const names = [pair.substanceA, pair.substanceB].sort();
+    const key = `${names[0]}|${names[1]}`;
+    if (pair.sources.includes('tripsit')) continue; // already handled
+    if (tripsitPairs.has(key)) continue; // TripSit covers this pair — skip fallback
+
+    const existing = pairMap.get(key);
+    if (existing) {
+      // Merge matched terms from fallback
+      for (const term of pair.matchedTerms) {
+        if (!existing.matchedTerms.includes(term)) existing.matchedTerms.push(term);
+      }
+    } else {
+      pairMap.set(key, { ...pair });
+    }
+  }
+
+  return Array.from(pairMap.values());
+}
+
+// ─── TRIPSIT COMBO LOOKUP ───────────────────────────────────────────────────
+
+/**
+ * Check TripSit combo database for interactions between selected substances.
+ * Uses the alias map to resolve individual substance IDs to TripSit class names.
+ */
+function checkTripSitCombos(selectedSubs: Substance[]): InteractionResult[] {
   const results: InteractionResult[] = [];
-
   if (selectedSubs.length < 2) return results;
 
-  // Build a pool of all keywords from all selected substances
-  const allKeywordsBySub = selectedSubs.map((sub) => ({
-    sub,
-    keywords: getSubstanceKeywords(sub),
-  }));
+  // Build a map: substance → TripSit classes it belongs to
+  const subTripsitClasses = new Map<string, string[]>();
+  for (const sub of selectedSubs) {
+    const classes = resolveTripsitClasses(sub.id);
+    // Also try the substance name itself as a potential TripSit key
+    const nameLower = sub.name.toLowerCase()
+    if (!classes.includes(nameLower)) classes.push(nameLower)
+    subTripsitClasses.set(sub.id, classes);
+  }
 
-  for (const curated of dangerousInteractions) {
-    // Check if at least 2 selected substances match this curated pair
-    const matchedSubs: Substance[] = [];
+  // For each pair, check all combinations of TripSit classes.
+  // Prefer the most specific match: when a substance ID directly matches a
+  // TripSit class name (e.g. tramadol→tramadol vs tramadol→opioids), that
+  // combo is more accurate than a generic parent-class match.
+  for (let i = 0; i < selectedSubs.length; i++) {
+    for (let j = i + 1; j < selectedSubs.length; j++) {
+      const subA = selectedSubs[i];
+      const subB = selectedSubs[j];
+      const classesA = subTripsitClasses.get(subA.id) || [];
+      const classesB = subTripsitClasses.get(subB.id) || [];
 
-    for (const { sub, keywords } of allKeywordsBySub) {
-      // Check if any curated substance string matches this substance's keywords
-      for (const curatedSub of curated.substances) {
-        const curatedLower = curatedLower_normalized(curatedSub);
-        const matches = keywords.some((kw) =>
-          curatedMatch(kw, curatedLower)
-        );
-        if (matches && !matchedSubs.includes(sub)) {
-          matchedSubs.push(sub);
-          break;
+      const idsA = [subA.id.toLowerCase()];
+      const idsB = [subB.id.toLowerCase()];
+
+      // Collect all matching combos with a specificity score
+      let bestCombo: { key: string; combo: typeof tripsitLookup[string]; specificity: number } | null = null;
+      for (const classA of classesA) {
+        for (const classB of classesB) {
+          const key = [classA, classB].sort().join('|');
+          const combo = tripsitLookup[key];
+          if (combo) {
+            // Specificity: how many of the matched classes directly match a
+            // selected substance ID. Higher = more specific (e.g. tramadol
+            // matching "tramadol" class is more specific than "opioids").
+            let specificity = 0;
+            if (idsA.includes(classA)) specificity++;
+            if (idsB.includes(classB)) specificity++;
+            if (!bestCombo || specificity > bestCombo.specificity) {
+              bestCombo = { key, combo, specificity };
+            }
+          }
         }
       }
+
+      if (bestCombo) {
+        const { combo } = bestCombo;
+        results.push({
+          substanceA: subA.name,
+          substanceB: subB.name,
+          severity: mapTripsitStatus(combo.status),
+          matchedTerms: [combo.status],
+          sources: ['tripsit'],
+          description: combo.note || undefined,
+          tripsitStatus: combo.status,
+          tripsitSources: combo.sources.length > 0 ? combo.sources : undefined,
+        });
+      }
     }
+  }
 
-    // Need at least 2 matched substances for this curated interaction to apply
-    if (matchedSubs.length >= 2) {
-      // Map curated risk to severity
-      let severity: InteractionSeverity;
-      if (curated.risk === 'fatal') severity = 'dangerous';
-      else if (curated.risk === 'high') severity = 'unsafe';
-      else severity = 'uncertain';
+  return results;
+}
 
-      // Generate pair combinations
-      for (let i = 0; i < matchedSubs.length; i++) {
-        for (let j = i + 1; j < matchedSubs.length; j++) {
+// ─── PER-SUBSTANCE INTERACTION CHECKING (fallback) ─────────────────────────
+
+function checkPerSubstanceInteractions(selectedSubs: Substance[]): InteractionResult[] {
+  const results: InteractionResult[] = [];
+
+  for (let i = 0; i < selectedSubs.length; i++) {
+    for (let j = i + 1; j < selectedSubs.length; j++) {
+      const subA = selectedSubs[i];
+      const subB = selectedSubs[j];
+      const kwA = getSubstanceKeywords(subA);
+      const kwB = getSubstanceKeywords(subB);
+
+      // Map old "uncertain" to new "caution"
+      const severityChecks: Array<{ key: string; severity: InteractionSeverity }> = [
+        { key: 'dangerous', severity: 'dangerous' },
+        { key: 'unsafe', severity: 'unsafe' },
+        { key: 'uncertain', severity: 'caution' },
+      ];
+
+      for (const { key, severity } of severityChecks) {
+        // Forward: A's interactions vs B's keywords
+        const interactionListA = subA.interactions[key] || [];
+        const matchA = matchInteractionList(interactionListA, kwB);
+        if (matchA) {
           results.push({
-            substanceA: matchedSubs[i].name,
-            substanceB: matchedSubs[j].name,
+            substanceA: subA.name,
+            substanceB: subB.name,
             severity,
-            matchedTerms: [curated.substances.join(' + ')],
-            sources: ['curated'],
-            description: curated.description,
+            matchedTerms: [matchA],
+            sources: ['substance-a'],
+          });
+        }
+
+        // Reverse: B's interactions vs A's keywords
+        const interactionListB = subB.interactions[key] || [];
+        const matchB = matchInteractionList(interactionListB, kwA);
+        if (matchB) {
+          results.push({
+            substanceA: subA.name,
+            substanceB: subB.name,
+            severity,
+            matchedTerms: [matchB],
+            sources: ['substance-b'],
           });
         }
       }
@@ -193,45 +263,119 @@ function checkCuratedPairs(
   return results;
 }
 
-/** Normalize a curated substance string for matching */
-function curatedLower_normalized(s: string): string {
-  return s
-    .toLowerCase()
-    .replace(/[^a-z0-9]/g, '');
-}
+// ─── SINGLE SUBSTANCE INTERACTION LOOKUP ────────────────────────────────────
 
 /**
- * Match a substance keyword against a curated interaction substance string.
- *
- * Uses a tiered approach to avoid false positives:
- *  1. Exact match:          kw === curated  (e.g., "cocaine" = "cocaine")
- *  2. Keyword contains curated: kw.includes(curated)  (e.g., "methamphetamine" contains "meth")
- *  3. Curated prefix of keyword with gap ≥ 3:  curated starts with kw and has 3+ extra chars
- *     (e.g., "ghbgbl" starts with "ghb" — compound abbreviation)
- *  4. Curated contains keyword with gap ≥ 3:
- *     (e.g., "dextromethorphandxm" contains "dxm")
- *
- * The gap ≥ 3 constraint prevents "amphetamines" from matching "amphetamine"
- * (only 1 char difference) while still allowing "ghbgbl" to match "ghb" (3 char gap).
+ * When only one substance is selected, look up ALL known interactions
+ * for that substance from the TripSit combos database and per-substance data.
  */
-function curatedMatch(kw: string, curatedLower: string): boolean {
-  // 1. Exact match
-  if (kw === curatedLower) return true;
+export function checkSingleSubstanceInteractions(substanceId: string): InteractionCheckResult {
+  const sub = resolveSubstance(substanceId)
+  if (!sub) {
+    return {
+      pairs: [],
+      crossTolerances: [],
+      summary: { dangerous: 0, unsafe: 0, caution: 0, lowRisk: 0, total: 0 },
+    }
+  }
 
-  // 2. Keyword contains curated string (e.g., "methamphetamine" contains "meth")
-  if (kw.includes(curatedLower)) return true;
+  const classes = resolveTripsitClasses(sub.id)
+  const nameLower = sub.name.toLowerCase()
+  if (!classes.includes(nameLower)) classes.push(nameLower)
 
-  // For the remaining checks, require a minimum length gap of 3 chars
-  // to avoid near-matches like "amphetamines" ≈ "amphetamine"
-  const minGap = 3;
+  const results: InteractionResult[] = []
+  const seen = new Set<string>()
 
-  // 3. Curated string starts with keyword — compound abbreviations
-  if (curatedLower.startsWith(kw) && curatedLower.length >= kw.length + minGap) return true;
+  // Scan all TripSit entries for any pair involving this substance's classes
+  for (const [key, combo] of Object.entries(tripsitLookup)) {
+    // The lookup key is alphabetically sorted (e.g. "mdma|tramadol"), but
+    // combo.drugA/drugB are NOT necessarily in that order. Check the actual
+    // drug names against the classes to determine which side matches.
+    const drugAMatches = classes.some(c => c === combo.drugA.toLowerCase())
+    const drugBMatches = classes.some(c => c === combo.drugB.toLowerCase())
+    if (!drugAMatches && !drugBMatches) continue
 
-  // 4. Curated string contains keyword — with length gap constraint
-  if (curatedLower.includes(kw) && curatedLower.length >= kw.length + minGap) return true;
+    // The "other" substance is the one we're NOT checking
+    const otherName = drugAMatches ? combo.drugB : combo.drugA
+    // Capitalize class name for display
+    const otherDisplay = otherName
+      .split(/[\s-/]/)
+      .map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+      .join(' ')
 
-  return false;
+    const dedupeKey = `${[sub.name, otherDisplay].sort().join('|')}`
+    if (seen.has(dedupeKey)) continue
+    seen.add(dedupeKey)
+
+    results.push({
+      substanceA: sub.name,
+      substanceB: otherDisplay,
+      severity: mapTripsitStatus(combo.status),
+      matchedTerms: [combo.status],
+      sources: ['tripsit'],
+      description: combo.note || undefined,
+      tripsitStatus: combo.status,
+      tripsitSources: combo.sources.length > 0 ? combo.sources : undefined,
+    })
+  }
+
+  // For single-substance lookups, the TripSit scan above is comprehensive (421 pairs
+  // covering 31 drug classes). Per-substance fallback strings are less accurate and
+  // often overlap with TripSit results under different names (e.g. "Depressants" vs
+  // "Benzodiazepines"). Skip fallback entirely when TripSit found results.
+  if (results.length === 0) {
+    const severityChecks: Array<{ key: string; severity: InteractionSeverity }> = [
+      { key: 'dangerous', severity: 'dangerous' },
+      { key: 'unsafe', severity: 'unsafe' },
+      { key: 'uncertain', severity: 'caution' },
+    ]
+
+    for (const { key, severity } of severityChecks) {
+      const interactionList = sub.interactions[key] || []
+      for (const interactionStr of interactionList) {
+        const otherName = interactionStr.trim().toLowerCase()
+
+        const otherDisplay = otherName
+          .split(/[\s-/]/)
+          .map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+          .join(' ')
+
+        results.push({
+          substanceA: sub.name,
+          substanceB: otherDisplay,
+          severity,
+          matchedTerms: [interactionStr],
+          sources: ['substance-data'],
+        })
+      }
+    }
+  }
+
+  // Sort by severity
+  const severityOrder: Record<InteractionSeverity, number> = {
+    dangerous: 0, unsafe: 1, caution: 2, 'low-risk': 3,
+  }
+  results.sort((a, b) => {
+    const sd = severityOrder[a.severity] - severityOrder[b.severity]
+    if (sd !== 0) return sd
+    return a.substanceB.localeCompare(b.substanceB)
+  })
+
+  const summary = {
+    dangerous: results.filter(p => p.severity === 'dangerous').length,
+    unsafe: results.filter(p => p.severity === 'unsafe').length,
+    caution: results.filter(p => p.severity === 'caution').length,
+    lowRisk: results.filter(p => p.severity === 'low-risk').length,
+    total: results.length,
+  }
+
+  // Cross-tolerances
+  const crossTolerances: CrossToleranceResult[] = (sub.interactions.crossTolerances || []).map(t => ({
+    tolerance: t,
+    substances: [sub.name],
+  }))
+
+  return { pairs: results, crossTolerances, summary }
 }
 
 // ─── MAIN CHECK FUNCTION ───────────────────────────────────────────────────
@@ -239,65 +383,31 @@ function curatedMatch(kw: string, curatedLower: string): boolean {
 /**
  * Check interactions between a list of substance IDs.
  * Returns all interaction pairs, cross-tolerances, and a summary.
+ *
+ * Data sources (in priority order):
+ *  1. TripSit combos database — 841 pairs with notes and academic sources
+ *  2. Per-substance interaction strings — fallback for substances not in TripSit
  */
 export function checkInteractions(substanceIds: string[]): InteractionCheckResult {
-  const pairs: InteractionResult[] = [];
   const crossToleranceMap = new Map<string, string[]>();
 
-  // Resolve substances
   const resolvedSubs = substanceIds
     .map((id) => resolveSubstance(id))
     .filter(Boolean) as Substance[];
 
   if (resolvedSubs.length < 2) {
-    return { pairs: [], crossTolerances: [], summary: { dangerous: 0, unsafe: 0, uncertain: 0, total: 0 } };
+    return {
+      pairs: [],
+      crossTolerances: [],
+      summary: { dangerous: 0, unsafe: 0, caution: 0, lowRisk: 0, total: 0 },
+    };
   }
 
-  // ── 1. Pairwise substance interaction checking ──
-  for (let i = 0; i < resolvedSubs.length; i++) {
-    for (let j = i + 1; j < resolvedSubs.length; j++) {
-      const subA = resolvedSubs[i];
-      const subB = resolvedSubs[j];
-      const kwA = getSubstanceKeywords(subA);
-      const kwB = getSubstanceKeywords(subB);
+  // ── 1. TripSit combo database (primary, authoritative) ──
+  const tripsitResults = checkTripSitCombos(resolvedSubs);
 
-      // Check A's interactions against B's keywords (forward)
-      const severityOrder: InteractionSeverity[] = ['dangerous', 'unsafe', 'uncertain'];
-
-      for (const severity of severityOrder) {
-        const interactionList = subA.interactions[severity] || [];
-        const match = matchInteractionList(interactionList, kwB);
-        if (match) {
-          pairs.push({
-            substanceA: subA.name,
-            substanceB: subB.name,
-            severity,
-            matchedTerms: [match],
-            sources: ['substance-a'],
-          });
-        }
-      }
-
-      // Check B's interactions against A's keywords (reverse)
-      for (const severity of severityOrder) {
-        const interactionList = subB.interactions[severity] || [];
-        const match = matchInteractionList(interactionList, kwA);
-        if (match) {
-          pairs.push({
-            substanceA: subA.name,
-            substanceB: subB.name,
-            severity,
-            matchedTerms: [match],
-            sources: ['substance-b'],
-          });
-        }
-      }
-    }
-  }
-
-  // ── 2. Curated dangerous interaction pairs ──
-  const curatedResults = checkCuratedPairs(resolvedSubs);
-  pairs.push(...curatedResults);
+  // ── 2. Per-substance interaction data (fallback) ──
+  const perSubstanceResults = checkPerSubstanceInteractions(resolvedSubs);
 
   // ── 3. Cross-tolerance analysis ──
   for (const sub of resolvedSubs) {
@@ -313,7 +423,6 @@ export function checkInteractions(substanceIds: string[]): InteractionCheckResul
     }
   }
 
-  // Only include cross-tolerances shared by 2+ substances
   const crossTolerances: CrossToleranceResult[] = [];
   for (const [tolerance, subs] of crossToleranceMap) {
     if (subs.length >= 2) {
@@ -321,21 +430,24 @@ export function checkInteractions(substanceIds: string[]): InteractionCheckResul
     }
   }
 
-  // ── 4. Consolidate and sort ──
-  const consolidatedPairs = consolidatePairs(pairs);
+  // ── 4. Consolidate (TripSit takes priority) and sort ──
+  const allPairs = [...tripsitResults, ...perSubstanceResults];
+  const consolidatedPairs = consolidatePairs(allPairs);
 
-  // Sort: dangerous first, then unsafe, then uncertain
   const severityOrder: Record<InteractionSeverity, number> = {
     dangerous: 0,
     unsafe: 1,
-    uncertain: 2,
+    caution: 2,
+    'low-risk': 3,
   };
+
   consolidatedPairs.sort((a, b) => {
     const severityDiff = severityOrder[a.severity] - severityOrder[b.severity];
     if (severityDiff !== 0) return severityDiff;
-    // Within same severity, prefer curated results (they have descriptions)
-    if (a.sources.includes('curated') && !b.sources.includes('curated')) return -1;
-    if (!a.sources.includes('curated') && b.sources.includes('curated')) return 1;
+    // Within same severity, prefer TripSit results
+    const aTripsit = a.sources.includes('tripsit') ? 0 : 1;
+    const bTripsit = b.sources.includes('tripsit') ? 0 : 1;
+    if (aTripsit !== bTripsit) return aTripsit - bTripsit;
     return a.substanceA.localeCompare(b.substanceA);
   });
 
@@ -343,7 +455,8 @@ export function checkInteractions(substanceIds: string[]): InteractionCheckResul
   const summary = {
     dangerous: consolidatedPairs.filter((p) => p.severity === 'dangerous').length,
     unsafe: consolidatedPairs.filter((p) => p.severity === 'unsafe').length,
-    uncertain: consolidatedPairs.filter((p) => p.severity === 'uncertain').length,
+    caution: consolidatedPairs.filter((p) => p.severity === 'caution').length,
+    lowRisk: consolidatedPairs.filter((p) => p.severity === 'low-risk').length,
     total: consolidatedPairs.length,
   };
 

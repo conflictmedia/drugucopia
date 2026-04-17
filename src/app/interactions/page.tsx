@@ -12,7 +12,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { InteractionSubstanceSelector } from '@/components/interaction-substance-selector'
 import { InteractionResults } from '@/components/interaction-results'
-import { checkInteractions } from '@/lib/interaction-checker'
+import { checkInteractions, checkSingleSubstanceInteractions } from '@/lib/interaction-checker'
 import type { InteractionCheckResult } from '@/lib/interaction-checker'
 
 // ─── MAIN PAGE ───────────────────────────────────────────────────────────────
@@ -47,16 +47,21 @@ function InteractionsPageInner() {
 
   // Run interaction check whenever selection changes (with debounce-like behavior)
   useEffect(() => {
-    if (selectedIds.length >= 2) {
-      // Small delay for visual feedback
-      const timer = setTimeout(() => {
+    if (selectedIds.length === 0) {
+      setResult(null)
+      return
+    }
+
+    const timer = setTimeout(() => {
+      if (selectedIds.length === 1) {
+        const checkResult = checkSingleSubstanceInteractions(selectedIds[0])
+        setResult(checkResult)
+      } else {
         const checkResult = checkInteractions(selectedIds)
         setResult(checkResult)
-      }, 100)
-      return () => clearTimeout(timer)
-    } else {
-      setResult(null)
-    }
+      }
+    }, 100)
+    return () => clearTimeout(timer)
   }, [selectedIds])
 
   const handleSelectionChange = useCallback((ids: string[]) => {
@@ -76,8 +81,8 @@ function InteractionsPageInner() {
             <div>
               <h2 className="text-3xl font-bold tracking-tight gradient-text">Interaction Checker</h2>
               <p className="text-muted-foreground mt-1">
-                Check for interactions between multiple substances. Select two or more
-                substances below to see detailed interaction warnings, severity levels,
+                Check for drug interactions. Select one substance to see all known
+                interactions, or select two or more to check pairwise combinations
                 and cross-tolerance information.
               </p>
             </div>
@@ -155,7 +160,7 @@ function InteractionsPageInner() {
             <div>
               <h2 className="text-xl font-bold gradient-text">Interaction Checker</h2>
               <p className="text-xs text-muted-foreground mt-0.5">
-                Check interactions between substances
+                Check interactions for one or more substances
               </p>
             </div>
           </div>

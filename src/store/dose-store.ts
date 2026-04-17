@@ -11,8 +11,11 @@ interface DoseStore {
 
   initialize: () => (() => void) | void
   addDose: (dose: DoseLog) => void
+  addDoses: (newDoses: DoseLog[]) => void
+  replaceDoses: (newDoses: DoseLog[]) => void
   updateDose: (dose: DoseLog) => void
   deleteDose: (id: string) => void
+  clearAllDoses: () => void
   setDosesFromSync: (doses: DoseLog[], deletedIds: Set<string>) => void
 }
 
@@ -81,6 +84,40 @@ export const useDoseStore = create<DoseStore>((set, get) => ({
       localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedDoses))
       localStorage.setItem(DELETED_KEY, JSON.stringify([...updatedDeleted]))
       return { doses: updatedDoses, deletedIds: updatedDeleted }
+    })
+  },
+
+  // Bulk add — single state update for multiple doses (e.g. import).
+  // Coalesces into one store update + one localStorage write.
+  addDoses: (newDoses) => {
+    set((state) => {
+      const updated = sortByTime([...newDoses, ...state.doses])
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(updated))
+      return { doses: updated }
+    })
+  },
+
+  // Replace all doses — used for import with overwrite strategy.
+  // Removes any existing doses with IDs in the new set, then adds them.
+  replaceDoses: (newDoses) => {
+    set((state) => {
+      const newIds = new Set(newDoses.map(d => d.id))
+      const kept = state.doses.filter(d => !newIds.has(d.id))
+      const updated = sortByTime([...newDoses, ...kept])
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(updated))
+      return { doses: updated }
+    })
+  },
+
+  // Clear all doses — single state update instead of N individual deletes.
+  clearAllDoses: () => {
+    set((state) => {
+      const allIds = [...state.doses.map(d => d.id), ...state.deletedIds]
+      const updatedDeleted = new Set(state.deletedIds)
+      allIds.forEach(id => updatedDeleted.add(id))
+      localStorage.setItem(STORAGE_KEY, '[]')
+      localStorage.setItem(DELETED_KEY, JSON.stringify([...updatedDeleted]))
+      return { doses: [], deletedIds: updatedDeleted }
     })
   },
 
