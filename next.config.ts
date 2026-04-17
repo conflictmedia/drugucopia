@@ -15,9 +15,9 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: false,
   },
-  reactStrictMode: false,
+  reactStrictMode: true,
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,
   },
