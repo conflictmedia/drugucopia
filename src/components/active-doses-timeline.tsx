@@ -2,6 +2,12 @@
 
 import { formatDoseAmount } from '@/lib/utils'
 
+/** Sanitize a string for use in SVG/CSS identifiers (gradient IDs, url() refs).
+ *  Spaces and special chars break CSS `url(#…)` parsing — replace with hyphens. */
+function svgSafeId(str: string): string {
+  return str.replace(/[^a-zA-Z0-9_-]/g, '-')
+}
+
 function formatUnit(unit: string, amount: number): string {
   const invariantUnits = ['mg', 'g', 'μg', 'ml', 'mL']
   if (invariantUnits.includes(unit)) return unit
@@ -801,10 +807,11 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
                     <defs>
                       {visibleRoutes.map((rg, ri) => {
                         const palette = ROUTE_PALETTE[rg.paletteIndex % ROUTE_PALETTE.length]
+                        const safeKey = svgSafeId(group.key)
                         return (
                           <linearGradient
-                            key={`area-grad-${group.key}-${ri}`}
-                            id={`area-grad-${group.key}-${ri}`}
+                            key={`area-grad-${safeKey}-${ri}`}
+                            id={`area-grad-${safeKey}-${ri}`}
                             x1="0" y1="0" x2="0" y2="1"
                           >
                             <stop offset="0%" stopColor={palette.fill} stopOpacity="0.25" />
@@ -1028,9 +1035,9 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
                       let globalDoseIdx = 0
                       const globalTotal = visibleRoutes.reduce((s, r) => s + r.doses.length, 0)
 
-                      return visibleRoutes.map(rg => {
+                      return visibleRoutes.map((rg, ri) => {
                         const palette = ROUTE_PALETTE[rg.paletteIndex % ROUTE_PALETTE.length]
-                        const ri = group.routes.indexOf(rg)
+                        const safeKey = svgSafeId(group.key)
 
                         return (
                           <g key={rg.route}>
@@ -1050,7 +1057,7 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
 
                               return (
                                 <g key={doseId} opacity={isEnded ? 0.35 : 1}>
-                                  <path d={area} fill={`url(#area-grad-${group.key}-${ri})`} />
+                                  <path d={area} fill={`url(#area-grad-${safeKey}-${ri})`} />
                                   <path
                                     d={curve}
                                     fill="none"
