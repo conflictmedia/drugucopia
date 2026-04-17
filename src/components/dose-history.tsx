@@ -564,6 +564,23 @@ export function DoseHistory() {
   const psyloJsonInputRef = useRef<HTMLInputElement>(null)
   const pwjournalInputRef = useRef<HTMLInputElement>(null)
 
+  const groupDosesByDate = (doses: DoseLog[]) => {
+    const groups: { [key: string]: DoseLog[] } = {}
+    doses.forEach((dose) => {
+      const date = new Date(dose.timestamp)
+      const key = isToday(date) ? 'Today'
+        : isYesterday(date) ? 'Yesterday'
+          : isThisWeek(date) ? 'This Week'
+            : isThisMonth(date) ? 'This Month'
+              : format(date, 'MMMM yyyy')
+      if (!groups[key]) groups[key] = []
+      groups[key].push(dose)
+    })
+    return groups
+  }
+
+  const groupedDoses = useMemo(() => groupDosesByDate(doses), [doses])
+
   if (!isLoaded) {
     return (
       <Card>
@@ -790,23 +807,6 @@ export function DoseHistory() {
     setRedosing(null)
     toast({ title: 'Redose logged', description: `${dose.substanceName} logged again.` })
   }
-
-  const groupDosesByDate = (doses: DoseLog[]) => {
-    const groups: { [key: string]: DoseLog[] } = {}
-    doses.forEach((dose) => {
-      const date = new Date(dose.timestamp)
-      const key = isToday(date) ? 'Today'
-        : isYesterday(date) ? 'Yesterday'
-          : isThisWeek(date) ? 'This Week'
-            : isThisMonth(date) ? 'This Month'
-              : format(date, 'MMMM yyyy')
-      if (!groups[key]) groups[key] = []
-      groups[key].push(dose)
-    })
-    return groups
-  }
-
-  const groupedDoses = useMemo(() => groupDosesByDate(doses), [doses])
 
   const getCategoryColor = (category: string) =>
     categoryColors[category as keyof typeof categoryColors] ||
