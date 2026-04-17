@@ -20,7 +20,7 @@ import { Combobox, type ComboboxOption } from '@/components/ui/combobox'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Plus, Loader2, AlertTriangle, Zap } from 'lucide-react'
 import { substances } from '@/lib/substances/index'
-import { useToast } from '@/hooks/use-toast'
+import { toast } from '@/hooks/use-toast'
 import { useDoseStore } from '@/store/dose-store'
 import { DoseLog, Duration } from '@/types'
 import { calculatePhaseTimings, getPhaseStatus } from '@/components/dose-timeline/dose-timeline-utils'
@@ -232,6 +232,10 @@ const ROUTE_ALIASES: Record<string, string> = {
   'drank': 'oral',
 }
 
+/** Pre-compiled route regexes — built once at module level, not on every keystroke */
+const ROUTE_REGEXES = [...KNOWN_ROUTES, ...Object.keys(ROUTE_ALIASES)]
+  .map(r => ({ route: r, regex: new RegExp(`\\b${r}\\b`, 'i') }))
+
 /**
  * Evaluate a math expression found in the quick input.
  * Supports patterns like:
@@ -384,15 +388,14 @@ function parseQuickInput(
   let routeIndex = -1
   let routeLength = 0
 
-  // Check for known routes in the input (case-insensitive)
+  // Check for known routes in the input (case-insensitive) — uses pre-compiled regexes
   const lowerTrimmed = trimmed.toLowerCase()
-  for (const knownRoute of [...KNOWN_ROUTES, ...Object.keys(ROUTE_ALIASES)]) {
-    const regex = new RegExp(`\\b${knownRoute}\\b`, 'i')
+  for (const { route, regex } of ROUTE_REGEXES) {
     const routeMatch = lowerTrimmed.match(regex)
     if (routeMatch && routeMatch.index !== undefined) {
       // Prefer longer matches (e.g., "insufflation" over "nasal")
       if (routeMatch[0].length > routeLength) {
-        extractedRoute = ROUTE_ALIASES[knownRoute] || knownRoute
+        extractedRoute = ROUTE_ALIASES[route] || route
         routeIndex = routeMatch.index
         routeLength = routeMatch[0].length
       }
@@ -720,6 +723,10 @@ export function formatUnit(unit: string, amount: number): string {
   return unit
 }
 
+// Stable empty array so the conditional selector returns the same reference
+// when the modal is closed, avoiding unnecessary re-renders on dose changes.
+const EMPTY_DOSES: DoseLog[] = []
+
 export function DoseLoggerModal({
   onLogCreated,
   trigger,
@@ -730,8 +737,9 @@ export function DoseLoggerModal({
 }: DoseLoggerModalProps) {
   const [open, setOpen] = useState(false)
   const [loading, setLoading] = useState(false)
-  const { toast } = useToast()
-  const doses = useDoseStore(s => s.doses)
+  // Only subscribe to doses when the modal is open — avoids re-renders on every
+  // dose change while the modal is closed (which is most of the time).
+  const doses = useDoseStore(s => open ? s.doses : EMPTY_DOSES)
   const addDose = useDoseStore(s => s.addDose)
 
   // Quick input state - single field that can parse substance + amount + unit
@@ -856,10 +864,23 @@ export function DoseLoggerModal({
     }
 
     const matchAny = (interactionList: string[], keywords: string[]): boolean => {
-      return interactionList.some(i => keywords.some(k => {
-        try { return new RegExp(`\\b${escapeRegExp(k)}\\b`, 'i').test(i.toLowerCase()) }
-        catch { return i.toLowerCase().includes(k) }
-      }))
+      // Pre-compile keyword regexes once, not per interaction string
+      const compiledRegexes: RegExp[] = []
+      const shortKeywords: string[] = []
+      for (const k of keywords) {
+        if (k.length > 2) {
+          try { compiledRegexes.push(new RegExp(`\\b${escapeRegExp(k)}\\b`, 'i')) }
+          catch { /* skip invalid */ }
+        } else {
+          shortKeywords.push(k)
+        }
+      }
+
+      return interactionList.some(i => {
+        const lower = i.toLowerCase()
+        return compiledRegexes.some(regex => regex.test(lower)) ||
+               shortKeywords.some(k => lower.includes(k))
+      })
     }
 
     for (const dose of activeDoses) {

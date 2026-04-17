@@ -11,9 +11,10 @@ import { Input } from '@/components/ui/input'
 import { Trash2, Calendar, Clock, Droplets, Activity, Loader2, Download, Upload, Cloud, CloudOff, Lock, CheckCircle2, RotateCcw, Pencil, FileJson, FileText, ChevronDown, AlertTriangle } from 'lucide-react'
 import { categoryColors } from '@/lib/categories'
 import { substances } from '@/lib/substances/index'
-import { useToast } from '@/hooks/use-toast'
+import { toast } from '@/hooks/use-toast'
 import { EditDoseModal } from './edit-dose-modal'
 import { useDoseStore } from '@/store/dose-store'
+import { useShallow } from 'zustand/react/shallow'
 import { useSync } from '@/contexts/sync-context'
 import { DoseLog } from '@/types'
 import {
@@ -543,9 +544,18 @@ function parsePWJournalJSON(text: string): ImportResult {
 
 
 export function DoseHistory() {
-  const { doses, isLoaded, deleteDose, addDose, addDoses, replaceDoses, clearAllDoses } = useDoseStore()
+  const doses = useDoseStore(s => s.doses)
+  const isLoaded = useDoseStore(s => s.isLoaded)
+  const { deleteDose, addDose, addDoses, replaceDoses, clearAllDoses } = useDoseStore(
+    useShallow(s => ({
+      deleteDose: s.deleteDose,
+      addDose: s.addDose,
+      addDoses: s.addDoses,
+      replaceDoses: s.replaceDoses,
+      clearAllDoses: s.clearAllDoses,
+    }))
+  )
   const { syncStatus, roomId, password, setRoomId, setPassword, connectToSync, disconnectSync } = useSync()
-  const { toast } = useToast()
 
   const [deleting, setDeleting] = useState<string | null>(null)
   const [redosing, setRedosing] = useState<string | null>(null)

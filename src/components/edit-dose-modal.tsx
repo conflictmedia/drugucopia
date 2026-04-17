@@ -19,7 +19,7 @@ import { Combobox, type ComboboxOption } from '@/components/ui/combobox'
 import { Loader2, Pencil } from 'lucide-react'
 import { formatUnit } from './dose-logger-modal'
 import { substances } from '@/lib/substances/index'
-import { useToast } from '@/hooks/use-toast'
+import { toast } from '@/hooks/use-toast'
 import { useDoseStore } from '@/store/dose-store'
 import { DoseLog, Duration } from '@/types'
 import { getDurationForRoute } from '@/lib/duration-interpolation'
@@ -166,7 +166,6 @@ function parseAmountUnit(input: string): { amount: string; unit: string | null }
 }
 
 export function EditDoseModal({ dose, open, onOpenChange, onSaved }: EditDoseModalProps) {
-  const { toast } = useToast()
   const updateDose = useDoseStore(s => s.updateDose)
   const [loading, setLoading] = useState(false)
 
