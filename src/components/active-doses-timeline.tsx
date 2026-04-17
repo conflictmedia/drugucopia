@@ -8,21 +8,24 @@ function svgSafeId(str: string): string {
   return str.replace(/[^a-zA-Z0-9_-]/g, '-')
 }
 
+const INVARIANT_UNITS = ['mg', 'g', 'μg', 'ml', 'mL']
+
+const PLURAL_RULES: Record<string, string> = {
+  'drop': 'drops', 'puff': 'puffs', 'tab': 'tabs', 'capsule': 'capsules',
+  'hit': 'hits', 'line': 'lines', 'drink': 'drinks', 'shot': 'shots',
+  'joint': 'joints', 'blunt': 'blunts', 'bowl': 'bowls', 'blinker': 'blinkers',
+}
+
+const SINGULAR_RULES: Record<string, string> = Object.fromEntries(
+  Object.entries(PLURAL_RULES).map(([sing, plur]) => [plur, sing])
+)
+
 function formatUnit(unit: string, amount: number): string {
-  const invariantUnits = ['mg', 'g', 'μg', 'ml', 'mL']
-  if (invariantUnits.includes(unit)) return unit
+  if (INVARIANT_UNITS.includes(unit)) return unit
   const isSingular = amount === 1 || (amount > 0 && amount < 1)
-  const pluralRules: Record<string, string> = {
-    'drop': 'drops', 'puff': 'puffs', 'tab': 'tabs', 'capsule': 'capsules',
-    'hit': 'hits', 'line': 'lines', 'drink': 'drinks', 'shot': 'shots',
-    'joint': 'joints', 'blunt': 'blunts', 'bowl': 'bowls', 'blinker': 'blinkers',
-  }
-  const singularRules: Record<string, string> = Object.fromEntries(
-    Object.entries(pluralRules).map(([sing, plur]) => [plur, sing])
-  )
-  if (isSingular && singularRules[unit]) return singularRules[unit]
-  if (!isSingular && pluralRules[unit]) return pluralRules[unit]
-  if (!isSingular && !pluralRules[unit] && !singularRules[unit]) return unit + 's'
+  if (isSingular && SINGULAR_RULES[unit]) return SINGULAR_RULES[unit]
+  if (!isSingular && PLURAL_RULES[unit]) return PLURAL_RULES[unit]
+  if (!isSingular && !PLURAL_RULES[unit] && !SINGULAR_RULES[unit]) return unit + 's'
   return unit
 }
 
@@ -247,10 +250,14 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
       .sort((a, b) => a.doseTime.getTime() - b.doseTime.getTime())
   }, [doses, tick, refreshTrigger])
 
-  // Step 2: pass through doses (ended filtering happens in groups for fresh time check)
-  const enriched = useMemo(() => {
-    return baseDoses
-  }, [baseDoses])
+  // Step 2: lookup map for substance entries (avoids O(N) find per group per render)
+  const substanceByName = useMemo(() => {
+    const map = new Map<string, typeof substances[number]>()
+    for (const s of substances) {
+      map.set(s.name.toLowerCase(), s)
+    }
+    return map
+  }, [])
 
   // Step 3: group by substance → route, compute display window
   // Also filter out ended doses here to ensure fresh time check
@@ -259,7 +266,7 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
     const now = Date.now()
 
     // Filter out ended doses (dose ends when offset phase ends)
-    const activeDoses = enriched.filter(d => {
+    const activeDoses = baseDoses.filter(d => {
       const elapsedMins = (now - d.doseTime.getTime()) / 60_000
       return elapsedMins < d.timings.offsetEnd
     })
@@ -327,7 +334,7 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
     // Sort groups by earliest dose time
     result.sort((a, b) => a.primary.doseTime.getTime() - b.primary.doseTime.getTime())
     return result
-  }, [enriched, tick])
+  }, [baseDoses, tick])
 
   /* ---------------------------------------------------------------- */
   /*  Handlers                                                         */
@@ -432,6 +439,42 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
     const primary = categories[0]
     return categoryColors[primary] ?? 'hsl(var(--muted-foreground))'
   }, [])
+
+  // Pre-compute expensive SVG paths for all groups/doses.
+  // curvePath/areaPath involve 80+ Math.exp iterations each — memoizing prevents
+  // recomputation on every hover state change or unrelated re-render.
+  const svgPaths = useMemo(() => {
+    const paths = new Map<string, { curve: string; area: string }>()
+    for (const group of groups) {
+      for (const rg of group.routes) {
+        for (const d of rg.doses) {
+          const doseId = String(d.id ?? d.doseTime.getTime())
+          const doseOffset = (d.doseTime.getTime() - group.windowStart.getTime()) / 60_000
+          paths.set(`${group.key}:${doseId}`, {
+            curve: curvePath(d.timings, doseOffset, group.windowDuration),
+            area: areaPath(d.timings, doseOffset, group.windowDuration),
+          })
+        }
+      }
+    }
+    return paths
+  }, [groups])
+
+  // Pre-compute phase band ranges per group (called twice per group without this)
+  const groupPhaseBands = useMemo(() => {
+    const map = new Map<string, ReturnType<typeof getPhaseBandRanges>>()
+    for (const group of groups) {
+      const bandTimings = (() => {
+        const primary = group.routes.find(r => r.primary)
+        if (!primary) return group.routes[0]?.primary?.timings
+        return primary.primary.timings
+      })()
+      if (bandTimings) {
+        map.set(group.key, getPhaseBandRanges(bandTimings))
+      }
+    }
+    return map
+  }, [groups])
 
   /* ---------------------------------------------------------------- */
   /*  Loading / empty states                                           */
@@ -578,10 +621,7 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
             })()
 
             // Substance link slug (optional — degrades gracefully if not found)
-            const substanceEntry = substances?.find?.(
-              (s: { name?: string }) =>
-                s.name?.toLowerCase() === group.substanceName.toLowerCase(),
-            )
+            const substanceEntry = substanceByName.get(group.substanceName.toLowerCase())
 
             // Category accent color
             const catColor = getCategoryColor(group.categories)
@@ -835,7 +875,7 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
 
                     {/* ── Phase bands (background color regions) ── */}
                     {(() => {
-                      const bands = getPhaseBandRanges(bandTimings)
+                      const bands = groupPhaseBands.get(group.key) ?? getPhaseBandRanges(bandTimings)
                       const NARROW_PX = 50  // threshold for "narrow" bands (pixels)
 
                       const narrowBoundaryTicks: { x: number; color: string }[] = []
@@ -891,7 +931,7 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
 
                     {/* ── Phase band labels (above graph) ── */}
                     {(() => {
-                      const bands = getPhaseBandRanges(bandTimings)
+                      const bands = groupPhaseBands.get(group.key) ?? getPhaseBandRanges(bandTimings)
                       const NARROW_PX = 50  // match the band rendering threshold
 
                       return bands.map((band, bandIdx) => {
@@ -1045,8 +1085,9 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
                             {rg.doses.map((d, doseIdx) => {
                               const doseId = d.id ?? d.doseTime.getTime()
                               const doseOffset = (d.doseTime.getTime() - group.windowStart.getTime()) / 60_000
-                              const curve = curvePath(d.timings, doseOffset, group.windowDuration)
-                              const area = areaPath(d.timings, doseOffset, group.windowDuration)
+                              const precomputed = svgPaths.get(`${group.key}:${doseId}`)
+                              const curve = precomputed?.curve ?? ''
+                              const area = precomputed?.area ?? ''
                               const isPrimary = d === rg.primary
                               // Use fresh timing to check if dose has ended
                               const doseElapsedMins = (now - d.doseTime.getTime()) / 60_000
