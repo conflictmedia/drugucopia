@@ -5,6 +5,7 @@ import type { Substance } from '../types';
 export { _7_hydroxymitragynine } from './7-hydroxymitragynine';
 export { _1_3_butanediol } from './1-3-butanediol';
 export { _1p_eth_lad } from './1p-eth-lad';
+export { magnesium_glycinate } from './magnesium-glycinate'
 export { _1cp_mipla } from './1cp-mipla';
 export { _1cp_al_lad } from './1cp-al-lad';
 export { _1b_lsd } from './1b-lsd';
