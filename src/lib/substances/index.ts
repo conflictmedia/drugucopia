@@ -10,6 +10,7 @@ export type {
 
 // Re-export individual substances
 export {
+  magnesium_glycinate,
   _1_3_butanediol,
   _1p_eth_lad,
   _1cp_mipla,
@@ -293,6 +294,7 @@ export {
 // Import for helper functions
 import { Substance, SubstanceCategory } from '../types';
 import {
+  magnesium_glycinate,
   _1_3_butanediol,
   _1p_eth_lad,
   _1cp_mipla,
@@ -575,6 +577,7 @@ import {
 
 // All substances combined into a single array
 export const substances: Substance[] = [
+   magnesium_glycinate,
   _1_3_butanediol,
   _1p_eth_lad,
   _1cp_mipla,
@@ -867,7 +870,8 @@ const substancesByCategory: Record<string, Substance[]> = {
     jwh_073,
     sts_135,
     thj_018,
-    thj_2201
+    thj_2201,
+    cannabis
   ],
   'deliriants': [
     benzydamine,
@@ -1117,8 +1121,7 @@ const substancesByCategory: Record<string, Substance[]> = {
   ],
   'other': [
     blue_lotus,
-    bromazepam,
-    cannabis
+    bromazepam
   ],
   'stimulants': [
     _2_5_dma,
@@ -1194,6 +1197,7 @@ const substancesByCategory: Record<string, Substance[]> = {
 
 // Map for quick ID lookup
 const substancesById: Record<string, Substance> = {
+  'magnesium-glycinate': magnesium_glycinate,
   '1-3-butanediol': _1_3_butanediol,
   '1p-eth-lad': _1p_eth_lad,
   '1cp-mipla': _1cp_mipla,
