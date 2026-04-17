@@ -3,7 +3,7 @@
 import React, { createContext, useContext, useEffect, useRef, useState, useCallback, useMemo } from 'react'
 import { initializeApp, getApps, type FirebaseApp } from 'firebase/app'
 import { getFirestore, type Firestore, doc, onSnapshot, setDoc, serverTimestamp } from 'firebase/firestore'
-import { useToast } from '../hooks/use-toast'
+import { toast } from '../hooks/use-toast'
 import { useDoseStore } from '../store/dose-store'
 import { DoseLog } from '../types'
 
@@ -120,8 +120,6 @@ interface SyncContextType {
 const SyncContext = createContext<SyncContextType | null>(null)
 
 export function SyncProvider({ children }: { children: React.ReactNode }) {
-  const { toast } = useToast()
-
   // Use individual Zustand selectors to avoid subscribing to the entire store.
   // Only subscribe to what the UI actually renders (syncStatus, isLoaded for conditionals).
   // Read doses/deletedIds via getState() inside effects/callbacks to avoid re-renders.
@@ -141,6 +139,15 @@ export function SyncProvider({ children }: { children: React.ReactNode }) {
   const initialSyncDoneRef = useRef(false)
   const syncStatusRef = useRef<'idle' | 'connecting' | 'synced' | 'error'>('idle')
   const pushDebounceRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  // Keep refs in sync with roomId/password state so connectToSync can read
+  // current values without depending on them in its useCallback dependency array.
+  // This prevents the callback (and the entire context value) from being
+  // recreated on every keystroke in the room/password inputs.
+  const roomIdRef = useRef(roomId)
+  const passwordRef = useRef(password)
+  useEffect(() => { roomIdRef.current = roomId }, [roomId])
+  useEffect(() => { passwordRef.current = password }, [password])
 
   // Wrapper that keeps both React state and ref in sync
   const setSyncStatus = useCallback((status: 'idle' | 'connecting' | 'synced' | 'error') => {
@@ -207,8 +214,10 @@ export function SyncProvider({ children }: { children: React.ReactNode }) {
     }
   }, [pushToSync])
 
-  const connectToSync = useCallback(async (rId = roomId, pass = password) => {
-    if (!rId || !pass) return
+  const connectToSync = useCallback(async (rId?: string, pass?: string) => {
+    const effectiveRId = rId ?? roomIdRef.current
+    const effectivePass = pass ?? passwordRef.current
+    if (!effectiveRId || !effectivePass) return
     if (!window.crypto?.subtle) {
       toast({ title: 'Encryption Blocked', description: 'HTTPS is required for syncing.', variant: 'destructive' })
       return
@@ -221,9 +230,9 @@ export function SyncProvider({ children }: { children: React.ReactNode }) {
 
     setSyncStatus('connecting')
     try {
-      cryptoKeyRef.current = await deriveKey(pass, rId)
-      hashedRoomRef.current = await hashRoomName(rId, pass)
-      localStorage.setItem(SYNC_AUTH_KEY, JSON.stringify({ savedRoom: rId, savedPass: pass }))
+      cryptoKeyRef.current = await deriveKey(effectivePass, effectiveRId)
+      hashedRoomRef.current = await hashRoomName(effectiveRId, effectivePass)
+      localStorage.setItem(SYNC_AUTH_KEY, JSON.stringify({ savedRoom: effectiveRId, savedPass: effectivePass }))
       initialSyncDoneRef.current = false
 
       const db = getDb()
@@ -294,8 +303,9 @@ export function SyncProvider({ children }: { children: React.ReactNode }) {
       console.error('Sync connection error:', error)
       setSyncStatus('error')
     }
+  // roomId and password are read via refs to avoid recreating on every keystroke
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [roomId, password, isLoaded, toast, setDosesFromSync, pushToSync, setSyncStatus])
+  }, [isLoaded, setDosesFromSync, pushToSync, setSyncStatus])
 
   const disconnectSync = useCallback(() => {
     if (unsubscribeRef.current) unsubscribeRef.current()
@@ -309,7 +319,7 @@ export function SyncProvider({ children }: { children: React.ReactNode }) {
     setPassword('')
     toast({ title: 'Sync Disconnected', description: 'Data will only save locally.' })
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [toast, setSyncStatus])
+  }, [setSyncStatus])
 
   // Auto-connect on load
   useEffect(() => {

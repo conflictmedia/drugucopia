@@ -1489,7 +1489,7 @@ export function getSubstanceById(id: string): Substance | undefined {
  * Get all substances in a specific category
  */
 export function getSubstancesByCategory(category: string): Substance[] {
-  return substancesByCategory[category] || [];
+  return substancesByCategory[category] ? [...substancesByCategory[category]] : [];
 }
 
 /**
@@ -1538,6 +1538,9 @@ export function searchSubstancesRanked(
   const { categoryFilter, limit = 50 } = options || {};
   const scored: { substance: Substance; score: number; matchField: string }[] = [];
 
+  // Pre-compile word-boundary regex once for the entire search (used in steps 4 & 5)
+  const wordBoundaryRe = new RegExp(`(?:^|\\s)${escapeSearchRegex(lowerQuery)}`, 'i');
+
   for (const s of substances) {
     // Apply category filter early
     if (categoryFilter && !(s.categories || []).includes(categoryFilter as any)) {
@@ -1577,8 +1580,7 @@ export function searchSubstancesRanked(
 
     // 4. Word-boundary match in name
     if (bestScore < 400) {
-      const wordRe = new RegExp(`(?:^|\\s)${escapeSearchRegex(lowerQuery)}`, 'i');
-      if (wordRe.test(s.name)) {
+      if (wordBoundaryRe.test(s.name)) {
         bestScore = 400;
         bestField = 'name';
       }
@@ -1588,8 +1590,7 @@ export function searchSubstancesRanked(
     if (bestScore < 300) {
       const allNames = [...(s.commonNames || []), ...(s.aliases || [])];
       for (const n of allNames) {
-        const wordRe = new RegExp(`(?:^|\\s)${escapeSearchRegex(lowerQuery)}`, 'i');
-        if (wordRe.test(n) && bestScore < 300) {
+        if (wordBoundaryRe.test(n) && bestScore < 300) {
           bestScore = 300;
           bestField = n.length <= 15 ? n : 'name';
           break;
