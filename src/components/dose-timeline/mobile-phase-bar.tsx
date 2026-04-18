@@ -314,7 +314,7 @@ export function MobilePhaseBar({ group, className = '' }: MobilePhaseBarProps) {
         const localMins = globalMins - offsetMins
         const localProgress = (localMins / dose.timings.totalDuration) * 100
         if (localProgress >= 0 && localProgress <= 100) {
-          intensities.push(intensityAt(localProgress, dose.timings))
+          intensities.push(intensityAt(localProgress, dose.timings) * (dose.doseHeight ?? 1))
         }
       }
     }

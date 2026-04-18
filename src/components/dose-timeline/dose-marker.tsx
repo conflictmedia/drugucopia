@@ -1,6 +1,5 @@
 'use client'
 
-import { format } from 'date-fns'
 import { EnrichedDose } from './dose-timeline-types'
 import { PT, GH, PL, GW, SVG_W, markerHex } from './dose-timeline-constants'
 import { toX, toY, intensityAt } from './dose-timeline-utils'
@@ -213,7 +212,7 @@ export function DoseMarker({
             x1={dotX}
             y1={my + radius + 2}
             x2={dotX}
-            y2={PT + GH + 28 + doseIndex * 14}
+            y2={PT + GH + 16 + doseIndex * 10}
             stroke={hex}
             strokeWidth="0.5"
             strokeDasharray="2,2"
@@ -221,7 +220,7 @@ export function DoseMarker({
           />
           <text
             x={dotX}
-            y={PT + GH + 32 + doseIndex * 14}
+            y={PT + GH + 19 + doseIndex * 10}
             textAnchor="middle"
             fontSize="9"
             fontWeight={isPrimary ? '700' : '500'}
@@ -229,9 +228,7 @@ export function DoseMarker({
             opacity={isPrimary ? 1 : 0.8}
             aria-hidden="true"
           >
-            {isPrimary
-              ? `${formattedDose.amount} ${formattedDose.unit}`
-              : format(d.doseTime, 'h:mm')}
+            {formattedDose.amount} {formattedDose.unit}
           </text>
         </g>
       )}
