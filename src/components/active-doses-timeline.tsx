@@ -229,6 +229,7 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
   const [selectedRoutes, setSelectedRoutes] = useState<Record<string, string | null>>({})
   const [selectedDoses, setSelectedDoses] = useState<Record<string, string | null>>({}) // dose isolation
   const [tooltipX, setTooltipX] = useState<Record<string, number>>({})
+  const [hiddenSubstances, setHiddenSubstances] = useState<Set<string>>(new Set())
 
   const svgRefs = useRef<Record<string, SVGSVGElement | null>>({})
   const rafRefs = useRef<Record<string, number | null>>({})
@@ -574,12 +575,54 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
             Active Timeline
           </CardTitle>
           <CardDescription>
-            Real-time intensity curves for {groups.length} substance{groups.length !== 1 ? 's' : ''}
+            Real-time intensity curves for {groups.length} substance{groups.length !== 1 ? 's' : ''} (Click them to toggle view)
           </CardDescription>
+          {groups.length > 1 && (
+            <div className="flex items-center gap-1.5 flex-wrap mt-1">
+              {groups.map(g => {
+                const hidden = hiddenSubstances.has(g.key)
+                const color = getCategoryColor(g.categories)
+                return (
+                  <button
+                    key={g.key}
+                    onClick={() => setHiddenSubstances(prev => {
+                      const next = new Set(prev)
+                      if (next.has(g.key)) next.delete(g.key)
+                      else next.add(g.key)
+                      return next
+                    })}
+                    className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium border transition-all ${
+                      hidden
+                        ? 'opacity-30 border-border line-through'
+                        : 'opacity-90 hover:opacity-100'
+                    }`}
+                    style={{
+                      borderColor: hidden ? undefined : color,
+                      color,
+                    }}
+                  >
+                    <span
+                      className="w-1.5 h-1.5 rounded-full shrink-0"
+                      style={{ backgroundColor: color, opacity: hidden ? 0.3 : 1 }}
+                    />
+                    {g.substanceName}
+                  </button>
+                )
+              })}
+              {hiddenSubstances.size > 0 && (
+                <button
+                  onClick={() => setHiddenSubstances(new Set())}
+                  className="text-[10px] text-muted-foreground hover:text-foreground ml-0.5"
+                >
+                  Show all
+                </button>
+              )}
+            </div>
+          )}
         </CardHeader>
 
         <CardContent className="space-y-2">
-          {groups.map(group => {
+          {groups.filter(g => !hiddenSubstances.has(g.key)).map(group => {
             const isExpanded = expandedGroup === group.key
             const tooltip = tooltips[group.key]
             const tooltipScreenX = tooltipX[group.key]
