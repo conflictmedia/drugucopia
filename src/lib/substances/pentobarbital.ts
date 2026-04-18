@@ -20,7 +20,7 @@ export const pentobarbital: Substance =
     "depressants"
   ],
   "class": "Barbiturates",
-  "description": "Phenobarbital\nPentobarbital, also known as pentobarbitone in British English and by the brand name Nembutal, is a short-acting psychoactive drug of the barbiturate class which produces powerful anxiolytic, hypnotic, muscle relaxant and amnesic effects. Pentobarbital works in a similar fashion to benzodiazepines, however barbiturates bind to a distinct allosteric site on the GABAA receptor. Compared to other barbiturates such as phenobarbital, pentobarbital has a prompt onset of action, generally working within fifteen minutes of ingestion.",
+  "description": "Pentobarbital, also known as pentobarbitone in British English and by the brand name Nembutal, is a short-acting psychoactive drug of the barbiturate class which produces powerful anxiolytic, hypnotic, muscle relaxant and amnesic effects. Pentobarbital works in a similar fashion to benzodiazepines, however barbiturates bind to a distinct allosteric site on the GABAA receptor. Compared to other barbiturates such as phenobarbital, pentobarbital has a prompt onset of action, generally working within fifteen minutes of ingestion.",
   "effects": {
     "positive": [
       "Muscle relaxation",

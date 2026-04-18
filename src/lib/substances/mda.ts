@@ -44,7 +44,7 @@ export const mda: Substance =
       "Increased libido",
       "Wakefulness - This component is present, but to a noticeably lesser degree than MDMA. Users often report being heavily sedated or \\\"floored\\\" compared to typical stimulants.",
       "Existential self-realization - Although this effect is present, it is not quite as pronounced or as consistent when compared to other hallucinogens such as mescaline, LSD or MXE. Due to the relative calmness and lack of chaotic energy that MDA possesses relative to MDMA, however, this combined with its extended duration may make it a better therapeutic agent and can be thought of as being more similar to mescaline than MDMA.",
-      "Unity and interconnectedness - Experiences of unity, oneness, and interconnectedness between level 2 - 3 are common within MDA. This component most consistently manifests itself at high doses within large crowds at raves and musical  events in the form of \\\"becoming one with the crowd.\\\"",
+      "Unity and interconnectedness - Experiences of unity, oneness, and interconnectedness between level 2 - 3 are common within MDA. This component most consistently manifests itself at high doses within large crowds at raves and musical events in the form of \\\"becoming one with the crowd.\\\"",
       "Wakefulness"
     ],
     "neutral": [

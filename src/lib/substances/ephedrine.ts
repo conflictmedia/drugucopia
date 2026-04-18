@@ -19,7 +19,7 @@ export const ephedrine: Substance =
     "stimulants"
   ],
   "class": "Amphetamine",
-  "description": "Ephenidine\nEphedrine is a naturally occurring central nervous system stimulant obtained from the plant Ephedra equisetina. It is often used to prevent low blood pressure during spinal anesthesia. Ephedrine is closely related in structure to methamphetamine, and pseudoephedrine although its CNS actions are much less potent and also longer-acting than those of the amphetamines.",
+  "description": "Ephedrine is a naturally occurring central nervous system stimulant obtained from the plant Ephedra equisetina. It is often used to prevent low blood pressure during spinal anesthesia. Ephedrine is closely related in structure to methamphetamine, and pseudoephedrine although its CNS actions are much less potent and also longer-acting than those of the amphetamines.",
   "effects": {
     "positive": [
       "Stamina enhancement - Ephedrine is commonly used as a performance enhancer by athletes and bodybuilders",

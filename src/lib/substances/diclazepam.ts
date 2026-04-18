@@ -18,7 +18,7 @@ export const diclazepam: Substance =
     "depressants"
   ],
   "class": "Benzodiazepines",
-  "description": "benzodiazepines\nDiazepam\nDiclazepam (also known as chlorodiazepam) is a lesser-known novel depressant substance of the benzodiazepine class. Diclazepam was first synthesized by Leo Sternbach and his team at Hoffman-La Roche in 1960. It is highly recommended to taper one's dose by gradually lowering the amount taken each day over a prolonged period of time rather than stopping use abruptly, as this can lead to severe, potentially life-threatening withdrawal symptoms.",
+  "description": "Diclazepam (also known as chlorodiazepam) is a lesser-known novel depressant substance of the benzodiazepine class. Diclazepam was first synthesized by Leo Sternbach and his team at Hoffman-La Roche in 1960. It is highly recommended to taper one's dose by gradually lowering the amount taken each day over a prolonged period of time rather than stopping use abruptly, as this can lead to severe, potentially life-threatening withdrawal symptoms.",
   "effects": {
     "positive": [
       "Muscle relaxation"

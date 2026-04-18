@@ -21,7 +21,7 @@ export const clonazepam: Substance =
     "depressants"
   ],
   "class": "Benzodiazepines",
-  "description": "benzodiazepines\nClonazolam\nthumbnail|right|Klonopin 0.5 mg.thumbnail|right|Klonopin 1 mgthumbnail|right|Rivotril drops 2.5 mg/ml\nClonazepam (trade name Klonopin or Rivotril) is a long-acting psychoactive substance of the benzodiazepine class which produces mainly anxiolytic, but also anticonvulsant, muscle relaxant, amnesic, sedative, depressant and hypnotic effects. It is commonly used and FDA approved for the medical treatment of panic disorder, generalized anxiety disorder (GAD), and social anxiety disorder (SAD). It is highly recommended to taper one's dose by gradually lowering the amount taken each day for a prolonged period of time instead of stopping abruptly.",
+  "description": "Clonazepam (trade name Klonopin or Rivotril) is a long-acting psychoactive substance of the benzodiazepine class which produces mainly anxiolytic, but also anticonvulsant, muscle relaxant, amnesic, sedative, depressant and hypnotic effects. It is commonly used and FDA approved for the medical treatment of panic disorder, generalized anxiety disorder (GAD), and social anxiety disorder (SAD). It is highly recommended to taper one's dose by gradually lowering the amount taken each day for a prolonged period of time instead of stopping abruptly.",
   "effects": {
     "positive": [
       "Muscle relaxation - This effect is relatively strong when compared with alprazolam.",

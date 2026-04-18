@@ -20,7 +20,7 @@ export const pregabalin: Substance =
     "depressants"
   ],
   "class": "Gabapentinoids",
-  "description": "gabapentinoids\nPregabalin (also known as 3-isobutyl GABA and by the trade-name Lyrica) is a depressant substance of the gabapentinoid class. Pregabalin is a common prescription drug, which is typically used to treat neuropathic pain, anxiety, restless leg syndrome, and as an adjunct drug in the treatment of seizures. The advantages pregabalin has over gabapentin include greater bioavailability and potency, as well as a wider variety of accepted medical applications for pregabalin not seen with gabapentin, such as its successful use in the treatment of anxiety, in which the use of gabapentin was not successful, excluding some more severe cases.",
+  "description": "Pregabalin (also known as 3-isobutyl GABA and by the trade-name Lyrica) is a depressant substance of the gabapentinoid class. Pregabalin is a common prescription drug, which is typically used to treat neuropathic pain, anxiety, restless leg syndrome, and as an adjunct drug in the treatment of seizures. The advantages pregabalin has over gabapentin include greater bioavailability and potency, as well as a wider variety of accepted medical applications for pregabalin not seen with gabapentin, such as its successful use in the treatment of anxiety, in which the use of gabapentin was not successful, excluding some more severe cases.",
   "effects": {
     "positive": [
       "Appetite enhancement - This effect is not particularly prominent, but is reported to occur in some people. It can have a synergistic effect when combined with cannabis.",
@@ -57,7 +57,7 @@ export const pregabalin: Substance =
       "Tracers - This effect can be seen at high doses and is generally quite mild. It generally does not extend past level 2.",
       "Depth perception distortions - This effect is quite mild and only appears at very high doses.",
       "Drifting",
-      "Visual disconnection - This effect is generally quite mild and appears inconsistently at  high doses. It results in feeling as if one's sense of vision is distant or vague and being viewed through a screen or window. However, pregabalin is rarely reported to cause holes, spaces and voids or hallucinatory structures.",
+      "Visual disconnection - This effect is generally quite mild and appears inconsistently at high doses. It results in feeling as if one's sense of vision is distant or vague and being viewed through a screen or window. However, pregabalin is rarely reported to cause holes, spaces and voids or hallucinatory structures.",
       "Ego inflation",
       "Dream potentiation",
       "Thought deceleration",
@@ -72,7 +72,7 @@ export const pregabalin: Substance =
       "Orgasm depression - Some may experience a delayed but stronger orgasm even if they experience an increase in libido.",
       "Motor control loss - At higher doses this effect resembles that of benzodiazepines and alcohol. Users report stumbling and bumping in to walls.",
       "Object alteration - Although this effect is rare, it can still occur spontaneously, typically with heavy doses.",
-      "After images and *Frame rate suppression  at high / very high doses. These 2 effects together can make your vision feel more 'slow'.",
+      "After images and *Frame rate suppression at high / very high doses. These 2 effects together can make your vision feel more 'slow'.",
       "Psychosis - Even at therapeutic doses, pregabalin has been shown to have psychotic side effects in a minority of it's users . Sleep deprivation strongly potentiates this effect, which may be higher for people genetically predisposed to schizophrenia.",
       "Respiratory depression - While pregabalin may cause respiratory depression, this effect is not as strong as those with opioids and benzodiazepines.",
       "Dizziness - This effect is fairly prevalent at higher doses.",
@@ -144,7 +144,7 @@ export const pregabalin: Substance =
     "Tolerance will develop to the depressant effects within several months of continuous use. After cessation, the tolerance returns to baseline in 7 - 14 days. Withdrawal symptoms or rebound symptoms are likely to occur after ceasing usage abruptly following a few months or longer of steady dosing and may necessitate a gradual dose reduction.",
     "The withdrawal effects of abrupt cessation of chronic use include anxiety, insomnia, sweating, muscle spasms, gastrointestinal problems, hot and cold flashes, nausea, and a flu-like feeling.",
     "One report of a patient entering serotonin syndrome following perioperative",
-    "Oxycodone and pregabalin exists. However, several studies have failed to find any serotonergic effect whatsoever from pregabalin. One paper states, \"Although pregabalin is a structural analog of GABA, it has no clinically significant effects at GABA-A or GABA-B receptors, and it is not converted metabolically into GABA or a GABA agonist. Pregabalin is not a serotonin reuptake inhibitor and does not act as a glutamate receptor antagonist.\" A more recent study writes  that \"Pregabalin has no involvement with serotonin and dopamine receptors and does not inhibit dopamine, serotonin, or noradrenaline reuptake.\" Pregabalin's main mechanism of action is binding and blocking sub receptor on Voltage-Gated Calcium Channels, leading to a downstream reduction of overactive neurons.",
+    "Oxycodone and pregabalin exists. However, several studies have failed to find any serotonergic effect whatsoever from pregabalin. One paper states, \"Although pregabalin is a structural analog of GABA, it has no clinically significant effects at GABA-A or GABA-B receptors, and it is not converted metabolically into GABA or a GABA agonist. Pregabalin is not a serotonin reuptake inhibitor and does not act as a glutamate receptor antagonist.\" A more recent study writes that \"Pregabalin has no involvement with serotonin and dopamine receptors and does not inhibit dopamine, serotonin, or noradrenaline reuptake.\" Pregabalin's main mechanism of action is binding and blocking sub receptor on Voltage-Gated Calcium Channels, leading to a downstream reduction of overactive neurons.",
     "If pregabalin has serotonergic effects, it could interact negatively with other serotonergic substances, including SSRIs, MDMA, various analgesics, and possibly other recreational and medical substances. Given the total lack of evidence for any serotonergic activity in multiple studies, it seems possible that the one reported adverse event was a freak accident, caused by unknown factors."
   ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",

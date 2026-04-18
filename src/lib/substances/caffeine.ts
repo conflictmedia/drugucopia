@@ -18,7 +18,7 @@ export const caffeine: Substance =
     "stimulants"
   ],
   "class": "Xanthines",
-  "description": "Coffea (botany)\nCaffeine (also known as 1,3,7-Trimethylxanthine) is a naturally-occurring stimulant substance of the xanthine class. Caffeine is found in varying quantities in the seeds, leaves, and fruit of some plants where it acts as a natural pesticide, as well as enhancing the reward memory of pollinators. It is most commonly consumed by humans in infusions extracted from the seed of the coffee plant and the leaves of the tea bush, as well as from various foods and drinks containing products derived from the kola nut.",
+  "description": "Caffeine (also known as 1,3,7-Trimethylxanthine) is a naturally-occurring stimulant substance of the xanthine class. Caffeine is found in varying quantities in the seeds, leaves, and fruit of some plants where it acts as a natural pesticide, as well as enhancing the reward memory of pollinators. It is most commonly consumed by humans in infusions extracted from the seed of the coffee plant and the leaves of the tea bush, as well as from various foods and drinks containing products derived from the kola nut.",
   "effects": {
     "positive": [
       "Physical euphoria - Caffeine has been reported to produce very mild physical euphoria in non-tolerant users, especially when they are already well-rested. Some people report that caffeine is more euphoric in the afternoon than the morning.",

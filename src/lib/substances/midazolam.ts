@@ -19,7 +19,7 @@ export const midazolam: Substance =
     "depressants"
   ],
   "class": "Benzodiazepines",
-  "description": "benzodiazepines\nMidazolam (trade name Versed) is a depressant substance of the benzodiazepine class. It is on the World Health Organization's List of Essential Medicines. Subjective effects include sedation, anxiety suppression, disinhibition, muscle relaxation, respiratory depression, and moderate euphoria.",
+  "description": "Midazolam (trade name Versed) is a depressant substance of the benzodiazepine class. It is on the World Health Organization's List of Essential Medicines. Subjective effects include sedation, anxiety suppression, disinhibition, muscle relaxation, respiratory depression, and moderate euphoria.",
   "effects": {
     "positive": [],
     "neutral": [],

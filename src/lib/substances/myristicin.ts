@@ -27,7 +27,7 @@ export const myristicin: Substance =
       "Physical euphoria - This effect can be described as warm, calming sensations over the body which can be compared to alcohol.",
       "Colour enhancement - Visuals might be slightly more vibrant and objects might have a glow around them",
       "Empathy, affection and sociability enhancement",
-      "Emotion enhancement - This effect can enhance both negative and positive feelings, which  means set and setting can   alter the nutmeg experience",
+      "Emotion enhancement - This effect can enhance both negative and positive feelings, which means set and setting can   alter the nutmeg experience",
       "Euphoria",
       "Increased music appreciation",
       "Immersion enhancement - This effect is similar to cannabis and usually does not increase that much as the dose gets higher",
@@ -60,7 +60,7 @@ export const myristicin: Substance =
       "Darker urine",
       "Thought deceleration",
       "Stomach bloating This effect can be decreased by using oil extraction method",
-      "Anxiety at higher doses  or Anxiety suppression on lower doses with a positive setting",
+      "Anxiety at higher doses or Anxiety suppression on lower doses with a positive setting",
       "Dehydration This effect is the main cause of the hangover"
     ],
     "negative": [

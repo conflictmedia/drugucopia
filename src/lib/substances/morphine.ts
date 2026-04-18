@@ -29,7 +29,7 @@ export const morphine: Substance =
       "Physical euphoria - The physical euphoria experienced on this substance is extremely intense when compared to other opioids such as codeine or tramadol. The sensation itself can be described as feelings of intense physical comfort, warmth, love and bliss.",
       "Muscle relaxation",
       "Cognitive euphoria - Morphine produces cognitive euphoria that is substantially stronger compared to other opioids such as codeine or tramadol, but weaker than that of heroin, hydrocodone, and oxycodone. The sensation can be described as powerful and all-encompassing feelings of emotional bliss, contentment, and happiness.",
-      "Pain relief - Many report that they are still  aware of pain, however the pain is no longer of interest."
+      "Pain relief - Many report that they are still aware of pain, however the pain is no longer of interest."
     ],
     "neutral": [
       "Double vision - At high doses, the eyes unfocus and re-focus uncontrollably. This creates a blurred effect and double vision that is present no matter where one focuses their eyes. This can be so intense it becomes impossible to read or drive.",

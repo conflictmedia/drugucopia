@@ -31,7 +31,7 @@ export const flunitrazepam: Substance =
     "depressants"
   ],
   "class": "Benzodiazepines",
-  "description": "benzodiazepines\nFlunitrazepam (trade name Rohypnol) is a depressant substance of the benzodiazepine class that produces primarily hypnotic and amnesic, but also anxiolytic, anticonvulsant and sedative effects when administered. Users should note that the sudden discontinuation of benzodiazepines can be potentially dangerous or life-threatening for individuals using regularly for extended periods of time, sometimes resulting in seizures or death. It is highly recommended to taper one's dose by gradually lowering the amount taken each day for a prolonged period of time instead of stopping abruptly.",
+  "description": "Flunitrazepam (trade name Rohypnol) is a depressant substance of the benzodiazepine class that produces primarily hypnotic and amnesic, but also anxiolytic, anticonvulsant and sedative effects when administered. Users should note that the sudden discontinuation of benzodiazepines can be potentially dangerous or life-threatening for individuals using regularly for extended periods of time, sometimes resulting in seizures or death. It is highly recommended to taper one's dose by gradually lowering the amount taken each day for a prolonged period of time instead of stopping abruptly.",
   "effects": {
     "positive": [
       "Muscle relaxation",

@@ -19,7 +19,7 @@ export const ephenidine: Substance =
     "dissociatives"
   ],
   "class": "Diarylethylamines",
-  "description": "Ephedrine\nEphenidine (also known as NEDPA and EPE) is a lesser-known novel dissociative substance of the diarylethylamine class. Recreational use was not documented until the 2013 U.K. arylcyclohexylamine ban, when it was released on the online research chemical market. It was marketed alongside diphenidine and methoxphenidine as a substitute for methoxetamine (MXE) despite users claiming markedly different effects.",
+  "description": "Ephenidine (also known as NEDPA and EPE) is a lesser-known novel dissociative substance of the diarylethylamine class. Recreational use was not documented until the 2013 U.K. arylcyclohexylamine ban, when it was released on the online research chemical market. It was marketed alongside diphenidine and methoxphenidine as a substitute for methoxetamine (MXE) despite users claiming markedly different effects.",
   "effects": {
     "positive": [
       "Motivation enhancement - This occurs at low dosage.",

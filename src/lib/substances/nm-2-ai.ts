@@ -16,7 +16,7 @@ export const nm_2_ai: Substance =
     "stimulants"
   ],
   "class": "Amphetamine",
-  "description": "NM-2-AI (N-methyl-2-aminoindane) is a lesser-known novel stimulant substance of the aminoindane class. In comparison to 2-AI, this compound has a lower potency, a longer duration and very similar effects. It has recently become easily accessible  through online research chemical vendors where it is sold as a designer drug.",
+  "description": "NM-2-AI (N-methyl-2-aminoindane) is a lesser-known novel stimulant substance of the aminoindane class. In comparison to 2-AI, this compound has a lower potency, a longer duration and very similar effects. It has recently become easily accessible through online research chemical vendors where it is sold as a designer drug.",
   "effects": {
     "positive": [
       "Wakefulness",

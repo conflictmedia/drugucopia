@@ -21,7 +21,7 @@ export const gabapentin: Substance =
     "depressants"
   ],
   "class": "Gabapentinoids",
-  "description": "gabapentinoids\nGabapentin (also known as Neurontin) is a depressant substance of the gabapentinoid class. It is a structural analog of the neurotransmitter GABA and acts by inhibiting certain calcium channels in the brain, namely α2δ subunit-containing voltage-dependent calcium channels (VGCCs). Gabapentin was originally developed to treat epilepsy and is currently FDA approved to treat postherpetic neuralgia in adults and as an adjunctive therapy in the treatment of partial onset seizures.",
+  "description": "Gabapentin (also known as Neurontin) is a depressant substance of the gabapentinoid class. It is a structural analog of the neurotransmitter GABA and acts by inhibiting certain calcium channels in the brain, namely α2δ subunit-containing voltage-dependent calcium channels (VGCCs). Gabapentin was originally developed to treat epilepsy and is currently FDA approved to treat postherpetic neuralgia in adults and as an adjunctive therapy in the treatment of partial onset seizures.",
   "effects": {
     "positive": [
       "Appetite enhancement - Appetite enhancement is not particularly prominent, but is sometimes reported. It can have a synergistic effect when combined with cannabis.",

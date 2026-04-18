@@ -18,7 +18,7 @@ export const flubromazepam: Substance =
     "depressants"
   ],
   "class": "Benzodiazepines",
-  "description": "benzodiazepines\nFlubromazolam\nFlubromazepam is a long-lasting psychoactive substance of the benzodiazepine class which produces anxiolytic, sedative, muscle relaxant, depressant and amnesic effects. This compound was first made in 1960, but was never marketed and did not receive any further attention or study until late 2012. It's worth noting that the sudden discontinuation of benzodiazepines can be potentially dangerous or life-threatening for individuals regularly using for extended periods of time, sometimes resulting in seizures or death.",
+  "description": "Flubromazepam is a long-lasting psychoactive substance of the benzodiazepine class which produces anxiolytic, sedative, muscle relaxant, depressant and amnesic effects. This compound was first made in 1960, but was never marketed and did not receive any further attention or study until late 2012. It's worth noting that the sudden discontinuation of benzodiazepines can be potentially dangerous or life-threatening for individuals regularly using for extended periods of time, sometimes resulting in seizures or death.",
   "effects": {
     "positive": [
       "Muscle relaxation",

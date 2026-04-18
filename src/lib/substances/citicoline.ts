@@ -18,7 +18,7 @@ export const citicoline: Substance =
     "nootropics"
   ],
   "class": "Ammonium salt",
-  "description": "Citicoline (CDP-choline, cytidine 5'-diphosphocholine) is a water soluble nutrient which serves as a precursor to both choline and cytidine  within the brain  (which later converts to uridine). To humans, choline is an essential nutrient as its role in reducing the risk of neural tube defects, fatty liver disease, and other pathologies have been documented. This supplement is catered towards preventing or treating memory impairments associated with aging because both of the molecules it confers are neuroprotective and potentially enhance learning.",
+  "description": "Citicoline (CDP-choline, cytidine 5'-diphosphocholine) is a water soluble nutrient which serves as a precursor to both choline and cytidine within the brain  (which later converts to uridine). To humans, choline is an essential nutrient as its role in reducing the risk of neural tube defects, fatty liver disease, and other pathologies have been documented. This supplement is catered towards preventing or treating memory impairments associated with aging because both of the molecules it confers are neuroprotective and potentially enhance learning.",
   "effects": {
     "positive": [
       "Wakefulness - In comparison to Alpha-GPC, Citicoline manifests itself primarily in a mentally stimulating manner over a physical stimulation.",

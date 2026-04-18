@@ -19,7 +19,7 @@ export const zopiclone: Substance =
     "depressants"
   ],
   "class": "Cyclopyrrolone",
-  "description": "GABAergics\nZopiclone (also known by the trade names Zimovane and Imovane) is a non-benzodiazepine hypnotic substance of the cyclopyrrolone class. It belongs to a family of substances colloquially known as \"Z-drugs\", which includes zaleplon (Sonata) and zolpidem (Ambien and AmbienCR). While \"Z-drugs\" were initially thought to have less misuse potential than benzodiazepines, this appraisal has shifted somewhat in the last few years as a number of cases of addiction and habituation have been observed.",
+  "description": "Zopiclone (also known by the trade names Zimovane and Imovane) is a non-benzodiazepine hypnotic substance of the cyclopyrrolone class. It belongs to a family of substances colloquially known as \"Z-drugs\", which includes zaleplon (Sonata) and zolpidem (Ambien and AmbienCR). While \"Z-drugs\" were initially thought to have less misuse potential than benzodiazepines, this appraisal has shifted somewhat in the last few years as a number of cases of addiction and habituation have been observed.",
   "effects": {
     "positive": [
       "Muscle relaxation",

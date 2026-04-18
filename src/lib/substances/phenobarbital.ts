@@ -21,7 +21,7 @@ export const phenobarbital: Substance =
     "depressants"
   ],
   "class": "Barbiturates",
-  "description": "Pentobarbital\nPhenobarbital, also known as phenobarbitone in British English and by the brand name Luminal, is a long-acting psychoactive drug of the barbiturate class which produces powerful anxiolytic, hypnotic, muscle relaxant and amnesic effects. Phenobarbital is used medically as an anticonvulsant, and occasionally in the short term treatment of insomnia. Phenobarbital works in a similar fashion to benzodiazepines, however barbiturates bind to a distinct allosteric site on the GABAA receptor.",
+  "description": "Phenobarbital, also known as phenobarbitone in British English and by the brand name Luminal, is a long-acting psychoactive drug of the barbiturate class which produces powerful anxiolytic, hypnotic, muscle relaxant and amnesic effects. Phenobarbital is used medically as an anticonvulsant, and occasionally in the short term treatment of insomnia. Phenobarbital works in a similar fashion to benzodiazepines, however barbiturates bind to a distinct allosteric site on the GABAA receptor.",
   "effects": {
     "positive": [
       "Muscle relaxation",

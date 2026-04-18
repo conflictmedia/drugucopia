@@ -21,7 +21,7 @@ export const etizolam: Substance =
     "depressants"
   ],
   "class": "Thienodiazepines",
-  "description": "thienodiazepines\nEtizolam (also known as Etilaam, Etizest, Depas, and many others) is a novel depressant substance of the thienodiazepine class. It has been sold as a research chemical online and is commonly used as a substitute for pharmaceutical benzodiazepines like alprazolam (Xanax) or diazepam (Valium). As a result, individuals who are physically dependent on this substance are advised to taper their dose by gradually lowering the amount taken each day over a prolonged period of time instead of stopping use abruptly.",
+  "description": "Etizolam (also known as Etilaam, Etizest, Depas, and many others) is a novel depressant substance of the thienodiazepine class. It has been sold as a research chemical online and is commonly used as a substitute for pharmaceutical benzodiazepines like alprazolam (Xanax) or diazepam (Valium). As a result, individuals who are physically dependent on this substance are advised to taper their dose by gradually lowering the amount taken each day over a prolonged period of time instead of stopping use abruptly.",
   "effects": {
     "positive": [
       "Muscle relaxation This effect can be described as similar to diazepam, albeit mild-moderately less prominent depending on the dose. Low doses around 0.5-1mg typically cause an effect comparable to alprazolam.",

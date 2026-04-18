@@ -18,7 +18,7 @@ export const deschloroetizolam: Substance =
     "depressants"
   ],
   "class": "Thienodiazepines",
-  "description": "thienodiazepines\nDeschloroetizolam is a short-acting psychoactive substance of the thienodiazepine class which has been shown to produce depressant, anxiolytic, sedative, hypnotic, muscle relaxant, anticonvulsant and amnesic effects. Deschloroetizolam is closely related to etizolam (Etilaam), triazolam (Halcion), and alprazolam (Xanax). It is not prescribed and is not recognised as a controlled substance in many parts of the world, leading to its appearance within grey market research chemical vendors in 2014.",
+  "description": "Deschloroetizolam is a short-acting psychoactive substance of the thienodiazepine class which has been shown to produce depressant, anxiolytic, sedative, hypnotic, muscle relaxant, anticonvulsant and amnesic effects. Deschloroetizolam is closely related to etizolam (Etilaam), triazolam (Halcion), and alprazolam (Xanax). It is not prescribed and is not recognised as a controlled substance in many parts of the world, leading to its appearance within grey market research chemical vendors in 2014.",
   "effects": {
     "positive": [
       "Muscle relaxation",

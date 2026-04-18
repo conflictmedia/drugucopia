@@ -21,14 +21,14 @@ export const n_ethylhexedrone: Substance =
     "stimulants"
   ],
   "class": "Cathinone",
-  "description": "Hexedrone\nN-Ethylhexedrone (also known as NEH, ethyl-hex, ethyl-hexedrone, hex-en, ethylhexedrone and hexen) is a lesser-known novel stimulant substance of the cathinone class. N-Ethylhexedrone likely acts as a potent dopamine and norepinephrine reuptake inhibitor, without releasing neurotransmitters or affecting other neurotransmitters. It appears to have emerged on the online research chemical market in late 2015.",
+  "description": "N-Ethylhexedrone (also known as NEH, ethyl-hex, ethyl-hexedrone, hex-en, ethylhexedrone and hexen) is a lesser-known novel stimulant substance of the cathinone class. N-Ethylhexedrone likely acts as a potent dopamine and norepinephrine reuptake inhibitor, without releasing neurotransmitters or affecting other neurotransmitters. It appears to have emerged on the online research chemical market in late 2015.",
   "effects": {
     "positive": [
       "Stamina enhancement",
       "Euphoria - This effect is usually not as powerful as with amphetamine or mephedrone.",
       "Analysis enhancement - This effect is mostly present in lower doses and is considered weak compared to other stimulant compounds. At high doses, it becomes overshadowed by euphoric stimulation.",
       "Immersion enhancement",
-      "Focus enhancement - This component is most effective at low doses as anything higher will usually impair concentration due to the  accompanying euphoria.",
+      "Focus enhancement - This component is most effective at low doses as anything higher will usually impair concentration due to the accompanying euphoria.",
       "Motivation enhancement",
       "Increased libido",
       "Increased music appreciation",

@@ -36,7 +36,7 @@ export const mexedrone: Substance =
       "Thought deceleration"
     ],
     "negative": [
-      "Vibrating vision - At high doses, a person's eyeballs may begin  to spontaneously wiggle back and forth in a rapid motion, causing the vision to become blurry and temporarily out of focus. This is a condition known as nystagmus.",
+      "Vibrating vision - At high doses, a person's eyeballs may begin to spontaneously wiggle back and forth in a rapid motion, causing the vision to become blurry and temporarily out of focus. This is a condition known as nystagmus.",
       "Increased perspiration",
       "Dehydration",
       "Temperature regulation suppression",

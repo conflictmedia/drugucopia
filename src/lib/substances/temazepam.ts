@@ -20,7 +20,7 @@ export const temazepam: Substance =
     "depressants"
   ],
   "class": "Benzodiazepines",
-  "description": "benzodiazepines\nTemazepam (trade name Restoril) is a short-acting psychoactive substance of the benzodiazepine class which produces anxiolytic, sedative, hypnotic, muscle relaxant, anticonvulsant, and amnesic effects. Significant blood levels were achieved in 15-30 minutes post-ingestion with peak levels achieved within 30 minutes to 3 three hours. It's worth noting that the sudden discontinuation of benzodiazepines can be potentially dangerous or life-threatening for individuals using regularly for extended periods of time, sometimes resulting in seizures or death.",
+  "description": "Temazepam (trade name Restoril) is a short-acting psychoactive substance of the benzodiazepine class which produces anxiolytic, sedative, hypnotic, muscle relaxant, anticonvulsant, and amnesic effects. Significant blood levels were achieved in 15-30 minutes post-ingestion with peak levels achieved within 30 minutes to 3 three hours. It's worth noting that the sudden discontinuation of benzodiazepines can be potentially dangerous or life-threatening for individuals using regularly for extended periods of time, sometimes resulting in seizures or death.",
   "effects": {
     "positive": [
       "Muscle relaxation",

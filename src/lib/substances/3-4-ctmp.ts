@@ -69,7 +69,7 @@ export const _3_4_ctmp: Substance =
       "Emotion suppression - 3,4-CTMP may inconsistently reduce emotionality in a similar manner to methylphenidate.",
       "Anxiety - Mild at low-moderate doses, but can be extreme and debilitating at higher doses. It typically coincides with a highly elevated and possibly abnormal heart rate.",
       "Cognitive fatigue",
-      "Cognitive dysphoria - This is usually  much less intense than that induced during the comedown of methamphetamine and other serotonergic stimulants.",
+      "Cognitive dysphoria - This is usually much less intense than that induced during the comedown of methamphetamine and other serotonergic stimulants.",
       "Depression - This is usually much less intense than that induced during the comedown of methamphetamine and other serotonergic stimulants.",
       "Irritability",
       "Motivation suppression",

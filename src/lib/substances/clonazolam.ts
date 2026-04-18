@@ -21,7 +21,7 @@ export const clonazolam: Substance =
     "depressants"
   ],
   "class": "Benzodiazepines",
-  "description": "benzodiazepines\nClonazepam\nClonazolam is a novel depressant substance of the benzodiazepine chemical class which produces anxiolytic, sedative, muscle relaxant, and amnesic effects when administered. This compound is a novel research chemical derivative of the FDA-approved drugs clonazepam (Klonopin, Rivitrol) and alprazolam (Xanax). Clonazolam is reputed to be highly potent, and concerns have been raised that it and flubromazolam may pose comparatively higher risks than other designer benzodiazepines due to their ability to produce strong sedation and amnesia at oral doses as low as 0.5 mg, or 500 micrograms (µg).",
+  "description": "Clonazolam is a novel depressant substance of the benzodiazepine chemical class which produces anxiolytic, sedative, muscle relaxant, and amnesic effects when administered. This compound is a novel research chemical derivative of the FDA-approved drugs clonazepam (Klonopin, Rivitrol) and alprazolam (Xanax). Clonazolam is reputed to be highly potent, and concerns have been raised that it and flubromazolam may pose comparatively higher risks than other designer benzodiazepines due to their ability to produce strong sedation and amnesia at oral doses as low as 0.5 mg, or 500 micrograms (µg).",
   "effects": {
     "positive": [
       "Muscle relaxation - This effect is particularly strong when compared to other benzodiazepines such as alprazolam.",

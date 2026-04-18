@@ -19,7 +19,7 @@ export const baclofen: Substance =
     "depressants"
   ],
   "class": "Butyric acid",
-  "description": "GABAergics\nBaclofen (also known as Lioresal, Gablofen, Kemstro, Liofen) is a depressant substance of the butyric acid class. Today, it is used clinically to treat muscle spasticity, and holds promise as a treatment for alcoholism. Once physical dependence to a GABAergic substance occurs, the user cannot stop use abruptly without risking withdrawal symptoms such as anxiety, muscle tremors, and in severe cases, seizures.",
+  "description": "Baclofen (also known as Lioresal, Gablofen, Kemstro, Liofen) is a depressant substance of the butyric acid class. Today, it is used clinically to treat muscle spasticity, and holds promise as a treatment for alcoholism. Once physical dependence to a GABAergic substance occurs, the user cannot stop use abruptly without risking withdrawal symptoms such as anxiety, muscle tremors, and in severe cases, seizures.",
   "effects": {
     "positive": [
       "Physical euphoria - Compared to gabapentinoids (such as phenibut) and benzodiazepines, baclofen is considered less euphoric.",

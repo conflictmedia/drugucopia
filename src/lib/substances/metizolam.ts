@@ -19,7 +19,7 @@ export const metizolam: Substance =
     "depressants"
   ],
   "class": "Thienodiazepines",
-  "description": "thienodiazepines\nMetizolam (also known as Desmethyletizolam) is a synthetic depressant of the thienodiazepine chemical class that reportedly produces etizolam-like effects such as anxiety suppression, disinhibition, sedation, muscle relaxation and memory suppression when administered. Despite this, it has little to no history of human usage prior to its release as a grey area research chemical by online vendors in September 2015. Similar to benzodiazepines, the sudden discontinuation of thienodiazepines can be potentially dangerous or life-threatening for individuals using regularly for extended periods of time, sometimes resulting in seizures or death.",
+  "description": "Metizolam (also known as Desmethyletizolam) is a synthetic depressant of the thienodiazepine chemical class that reportedly produces etizolam-like effects such as anxiety suppression, disinhibition, sedation, muscle relaxation and memory suppression when administered. Despite this, it has little to no history of human usage prior to its release as a grey area research chemical by online vendors in September 2015. Similar to benzodiazepines, the sudden discontinuation of thienodiazepines can be potentially dangerous or life-threatening for individuals using regularly for extended periods of time, sometimes resulting in seizures or death.",
   "effects": {
     "positive": [
       "Muscle relaxation",

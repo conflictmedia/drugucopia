@@ -18,7 +18,7 @@ export const oxymorphone: Substance =
     "opioids"
   ],
   "class": "Substituted morphinans",
-  "description": "opiates\nOxymorphone (also known by the brand name Opana) is a semi-synthetic opioid analgesic used in the management of moderate to severe pain, and is similar in structure to other opioids such as morphine and heroin. Oxymorphone was first developed in Germany in 1914and introduced to the American market in 1959. Unlike many other opioids, oxymorphone is almost devoid of antitussive properties.Oxymorphone is an important precursor to other opioids and opioid antagonists such as naloxone.",
+  "description": "Oxymorphone (also known by the brand name Opana) is a semi-synthetic opioid analgesic used in the management of moderate to severe pain, and is similar in structure to other opioids such as morphine and heroin. Oxymorphone was first developed in Germany in 1914and introduced to the American market in 1959. Unlike many other opioids, oxymorphone is almost devoid of antitussive properties.Oxymorphone is an important precursor to other opioids and opioid antagonists such as naloxone.",
   "effects": {
     "positive": [
       "Euphoria - In comparison to other opioids, this particular substance can be considered similar in its physical euphoria when compared with that of morphine or diacetylmorphine (heroin) and more intense when compared to kratom and hydrocodone. The sensation itself can be described as feelings of intense physical comfort, warmth, love and bliss.",

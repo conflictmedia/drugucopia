@@ -20,7 +20,7 @@ export const ethylone: Substance =
     "stimulants"
   ],
   "class": "Unknown",
-  "description": "Ephylone\n3,4-methylenedioxy-N-ethylcathinone (also known as Ethylone, MDEC and βk-MDEA) is a synthetic entactogen and stimulant of the cathinone class. As a designer drug, ethylone is commonly sold on the street along with other cathinones like butylone or 3-MMC as a substitute or counterfeit for MDMA and/or methylone due to methylone's declining availability on the research chemicals market. Ethylone has only a short history of human use and is reported to be less potent than its relative methylone as well as possessing more classical stimulant-type as opposed to entactogenic effects.",
+  "description": "3,4-methylenedioxy-N-ethylcathinone (also known as Ethylone, MDEC and βk-MDEA) is a synthetic entactogen and stimulant of the cathinone class. As a designer drug, ethylone is commonly sold on the street along with other cathinones like butylone or 3-MMC as a substitute or counterfeit for MDMA and/or methylone due to methylone's declining availability on the research chemicals market. Ethylone has only a short history of human use and is reported to be less potent than its relative methylone as well as possessing more classical stimulant-type as opposed to entactogenic effects.",
   "effects": {
     "positive": [
       "Tactile enhancement",
@@ -40,7 +40,7 @@ export const ethylone: Substance =
       "Thought deceleration"
     ],
     "negative": [
-      "Vibrating vision - At high doses, a person's eyeballs may begin  to spontaneously wiggle back and forth in a rapid motion, causing the vision to become blurry and temporarily out of focus. This is a condition known as nystagmus.",
+      "Vibrating vision - At high doses, a person's eyeballs may begin to spontaneously wiggle back and forth in a rapid motion, causing the vision to become blurry and temporarily out of focus. This is a condition known as nystagmus.",
       "Increased heart rate",
       "Increased perspiration",
       "Dehydration - Feelings of dry mouth and dehydration are a universal experience with ethylone; this effect is a product of an increased heart rate and an extreme motivation to engage in strenuous physical activities. While it is important to avoid becoming dehydrated (especially when out dancing in a hot environment) there have been a number of users suffering from water intoxication through over-drinking, so it is advised that users simply sip at water and never over-drink.",
