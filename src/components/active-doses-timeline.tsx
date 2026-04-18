@@ -64,11 +64,12 @@ import {
   SVG_W, SVG_H, PL, PT, GW, GH, PHASE_BANDS,
   NOW_INDICATOR, markerHex,
 } from './dose-timeline/dose-timeline-constants'
+import { classifyDose } from '@/lib/dose-classification'
 import {
-  calculatePhaseTimings, getPhaseStatus, formatMinutes, formatPhaseName,
+  calculatePhaseTimings, calculateDoseScaledTimings, getPhaseStatus, formatMinutes, formatPhaseName,
   getDoseCategories, intensityAt, phaseNameAt, toX, toY, areaPath, curvePath,
   buildTimeMarkers, getPhaseBandRanges,
-  getNowProgress, combinedIntensityAt,
+  getNowProgress,
   parseDurationToMinutes, phaseStart, phaseEnd,
 } from './dose-timeline/dose-timeline-utils'
 import { DoseMarker } from './dose-timeline/dose-marker'
@@ -101,6 +102,7 @@ function computeTooltipAtProgress(
   const globalMins = (progress / 100) * windowDuration
   const routeIntensities: RouteIntensitySnapshot[] = []
   const allIntensities: number[] = []
+  let maxVisualIntensity = 0
 
   for (const rg of routes) {
     // Process ALL doses in this route, not just the primary one
@@ -110,20 +112,39 @@ function computeTooltipAtProgress(
       const localProgress = (localMins / dose.timings.totalDuration) * 100
 
       if (localProgress >= 0 && localProgress <= 100) {
-        const intensity = intensityAt(localProgress, dose.timings)
+        const rawIntensity = intensityAt(localProgress, dose.timings)
+        // Scale by dose height for dose-responsive intensity
+        const scaledIntensity = rawIntensity * (dose.doseHeight ?? 1)
         const phase = phaseNameAt(localProgress, dose.timings)
         routeIntensities.push({
           route: rg.route,
-          intensity,
+          intensity: scaledIntensity,
           phase,
           paletteIndex: rg.paletteIndex,
         })
-        allIntensities.push(intensity)
+        allIntensities.push(scaledIntensity)
+
+        // Compute visual intensity matching curvePath rendering:
+        // No dose-height scaling, apply edge fade, clamp to 0-100
+        let visIntensity = rawIntensity
+        if (localProgress < 2) {
+          visIntensity *= localProgress / 2
+        } else if (localProgress > 98) {
+          visIntensity *= (100 - localProgress) / 2
+        }
+        visIntensity = Math.max(0, Math.min(100, visIntensity))
+        if (visIntensity > maxVisualIntensity) {
+          maxVisualIntensity = visIntensity
+        }
       }
     }
   }
 
-  const combined = combinedIntensityAt(allIntensities)
+  // For the tooltip intensity display, use the raw visual intensity (no dose-height scaling)
+  // so it matches what the rendered curve actually shows (always peaks at 100% for single doses).
+  // Dose-height scaling still appears in the per-route breakdown (routeIntensities).
+  const displayIntensity = maxVisualIntensity
+
   const primaryPhase = routeIntensities.length > 0
     ? routeIntensities[0].phase
     : phaseNameAt(progress, primaryTimings)
@@ -134,7 +155,8 @@ function computeTooltipAtProgress(
     phase: primaryPhase,
     phaseTime: formatMinutes(globalMins),
     absoluteTime: absoluteDate,
-    intensity: combined,
+    intensity: displayIntensity,
+    visualIntensity: maxVisualIntensity,
     progress,
     routeIntensities,
   }
@@ -227,30 +249,7 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
   /*  Memos — data pipeline                                            */
   /* ---------------------------------------------------------------- */
 
-  // Step 1: filter to doses that have a meaningful total duration, then enrich
-  const baseDoses = useMemo(() => {
-    return doses
-      .filter(d => {
-        if (!d.duration) return false
-        const totalMins = parseDurationToMinutes(d.duration.total ?? '')
-        return totalMins > 0
-      })
-      .map(d => {
-        const timings = calculatePhaseTimings(d.duration!)
-        const doseTime = new Date(d.timestamp)
-        const status = getPhaseStatus(doseTime, timings)
-        const enriched: EnrichedDose = {
-          ...d,
-          timings,
-          status,
-          doseTime,
-        }
-        return enriched
-      })
-      .sort((a, b) => a.doseTime.getTime() - b.doseTime.getTime())
-  }, [doses, tick, refreshTrigger])
-
-  // Step 2: lookup map for substance entries (avoids O(N) find per group per render)
+  // Step 0: lookup map for substance entries (needed by dose classification in Step 1)
   const substanceByName = useMemo(() => {
     const map = new Map<string, typeof substances[number]>()
     for (const s of substances) {
@@ -259,7 +258,50 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
     return map
   }, [])
 
-  // Step 3: group by substance → route, compute display window
+  // Step 1: filter to doses that have a meaningful total duration, then enrich
+  // with dose classification, dose-scaled timings, and height.
+  const baseDoses = useMemo(() => {
+    return doses
+      .filter(d => {
+        if (!d.duration) return false
+        const totalMins = parseDurationToMinutes(d.duration.total ?? '')
+        return totalMins > 0
+      })
+      .map(d => {
+        const doseTime = new Date(d.timestamp)
+
+        // Look up substance data for dose classification
+        const substanceEntry = substanceByName.get(d.substanceName.toLowerCase())
+        const classification = substanceEntry
+          ? classifyDose(d.amount, d.unit, substanceEntry, d.route)
+          : null
+
+        const horizontalWeight = classification?.horizontalWeight ?? 0.5
+        const doseHeight = classification?.heightRelativeToCommon ?? 1
+
+        // Use dose-scaled timings when classification data is available,
+        // otherwise fall back to the standard (range-averaged) timings
+        const hasClassification = classification !== null
+        const timings = hasClassification
+          ? calculateDoseScaledTimings(d.duration!, horizontalWeight)
+          : calculatePhaseTimings(d.duration!)
+
+        const status = getPhaseStatus(doseTime, timings)
+        const enriched: EnrichedDose = {
+          ...d,
+          timings,
+          status,
+          doseTime,
+          doseHeight,
+          horizontalWeight,
+          doseClass: classification?.doseClass,
+        }
+        return enriched
+      })
+      .sort((a, b) => a.doseTime.getTime() - b.doseTime.getTime())
+  }, [doses, tick, refreshTrigger, substanceByName])
+
+  // Step 2: group by substance → route, compute display window
   // Also filter out ended doses here to ensure fresh time check
   // IMPORTANT: tick is in dependencies to force re-render when doses end
   const groups = useMemo(() => {
@@ -527,8 +569,8 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
       </div>
 
       {/* ── Desktop Card ── */}
-      <Card className="hidden md:block">
-        <CardHeader className="pb-3">
+      <Card className="hidden md:block py-3 gap-2">
+        <CardHeader className="pb-1">
           <CardTitle className="text-lg flex items-center gap-2">
             <Activity className="h-5 w-5 text-purple-500" />
             Active Timeline
@@ -538,7 +580,7 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
           </CardDescription>
         </CardHeader>
 
-        <CardContent className="space-y-6">
+        <CardContent className="space-y-2">
           {groups.map(group => {
             const isExpanded = expandedGroup === group.key
             const tooltip = tooltips[group.key]
@@ -612,12 +654,13 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
                   return elapsedMins < d.timings.offsetEnd
                 })
               if (activeDoses.length === 0) return null
-              const intensities = activeDoses.map(d => {
+              const rawIntensities = activeDoses.map(d => {
                 const elapsedMins = (now - d.doseTime.getTime()) / 60_000
                 const prog = (elapsedMins / d.timings.totalDuration) * 100
                 return intensityAt(prog, d.timings)
               })
-              return Math.round(combinedIntensityAt(intensities))
+              // Use max raw intensity (matching the visual curve, no dose-height scaling)
+              return Math.round(Math.max(...rawIntensities, 0))
             })()
 
             // Substance link slug (optional — degrades gracefully if not found)
@@ -631,7 +674,7 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
             /* ====================================================== */
 
             return (
-              <div key={group.key} className="space-y-3">
+              <div key={group.key} className="space-y-1.5">
                 {/* ── Header: substance name, badges, combined intensity ── */}
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2 flex-wrap">
@@ -932,85 +975,79 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
                     {/* ── Phase band labels (above graph) ── */}
                     {(() => {
                       const bands = groupPhaseBands.get(group.key) ?? getPhaseBandRanges(bandTimings)
-                      const NARROW_PX = 50  // match the band rendering threshold
+                      const CHAR_W = 5     // approx px per char at fontSize 8
+                      const LABEL_GAP = 4   // minimum gap between adjacent labels
 
-                      return bands.map((band, bandIdx) => {
-                        const phaseBand = PHASE_BANDS.find(b => b.phase === band.phase)
-                        if (!phaseBand) return null
-                        // Offset phase band labels by the dose's start time when isolated
-                        const startProgress = ((bandOffsetMins + band.startFrac * bandTimings.totalDuration) / group.windowDuration) * 100
-                        const endProgress = ((bandOffsetMins + band.endFrac * bandTimings.totalDuration) / group.windowDuration) * 100
-                        const x1 = toX(startProgress)
-                        const x2 = toX(endProgress)
-                        const bandWidth = x2 - x1
+                      // All labels use the same style: small, centered, colored dot prefix
+                      const LABEL_Y = PT - 4
 
-                        // Wide band: centered label (current behavior)
-                        if (bandWidth >= NARROW_PX) {
-                          const midX = (x1 + x2) / 2
-                          return (
-                            <text
-                              key={`label-${band.phase}`}
-                              x={midX}
-                              y={PT - 8}
-                              textAnchor="middle"
-                              fontSize="9"
-                              fontWeight="500"
-                              fill={phaseBand.labelColor}
-                              opacity="0.7"
-                            >
-                              {phaseBand.name}
-                            </text>
-                          )
+                      type Label = {
+                        leftEdge: number
+                        w: number
+                        name: string
+                        fill: string
+                        labelColor: string
+                        phase: string
+                      }
+
+                      const labels: Label[] = []
+
+                      for (const band of bands) {
+                        const pb = PHASE_BANDS.find(b => b.phase === band.phase)
+                        if (!pb) continue
+
+                        const sp = ((bandOffsetMins + band.startFrac * bandTimings.totalDuration) / group.windowDuration) * 100
+                        const ep = ((bandOffsetMins + band.endFrac * bandTimings.totalDuration) / group.windowDuration) * 100
+                        const x1 = toX(sp)
+                        const x2 = toX(ep)
+                        const bw = x2 - x1
+                        if (bw <= 0) continue
+
+                        // Center label in band, but clamp so it doesn't overflow the band edges
+                        const tw = pb.name.length * CHAR_W
+                        const midX = (x1 + x2) / 2
+                        const leftEdge = bw >= tw
+                          ? midX - tw / 2
+                          : Math.max(x1, midX - tw / 2)  // allow slight overflow for very narrow bands
+
+                        labels.push({
+                          leftEdge,
+                          w: tw,
+                          name: pb.name,
+                          fill: pb.fill,
+                          labelColor: pb.labelColor,
+                          phase: pb.phase,
+                        })
+                      }
+
+                      // Collision resolution: greedy row assignment (2 rows)
+                      const ROW_GAP = 10
+                      const rowEnds = [PL, PL]
+
+                      const placed = labels.map(l => {
+                        let row = 0
+                        if (l.leftEdge < rowEnds[0] + LABEL_GAP) row = 1
+                        if (l.leftEdge < rowEnds[row] + LABEL_GAP) {
+                          l.leftEdge = rowEnds[row] + LABEL_GAP
                         }
-
-                        if (bandWidth <= 0) return null
-
-                        let narrowCount = 0
-                        for (let j = 0; j < bandIdx; j++) {
-                          const prevStartProgress = ((bandOffsetMins + bands[j].startFrac * bandTimings.totalDuration) / group.windowDuration) * 100
-                          const prevEndProgress = ((bandOffsetMins + bands[j].endFrac * bandTimings.totalDuration) / group.windowDuration) * 100
-                          const prevX1 = toX(prevStartProgress)
-                          const prevX2 = toX(prevEndProgress)
-                          if (prevX2 - prevX1 > 0 && prevX2 - prevX1 < NARROW_PX) narrowCount++
-                        }
-
-                        const labelX = x2 + 6 + narrowCount * 42
-
-                        return (
-                          <g key={`label-${band.phase}`}>
-                            {/* Colored dot at the phase boundary */}
-                            <circle
-                              cx={x2}
-                              cy={PT - 5}
-                              r="2.5"
-                              fill={phaseBand.fill}
-                              opacity="0.9"
-                            />
-                            {/* Thin line connecting dot to label */}
-                            <line
-                              x1={x2 + 2}
-                              y1={PT - 5}
-                              x2={labelX - 1}
-                              y2={PT - 5}
-                              stroke={phaseBand.fill}
-                              strokeWidth="0.5"
-                              opacity="0.5"
-                            />
-                            {/* Compact label positioned right of boundary */}
-                            <text
-                              x={labelX}
-                              y={PT - 2}
-                              textAnchor="start"
-                              fontSize="8"
-                              fontWeight="600"
-                              fill={phaseBand.labelColor}
-                              opacity="0.85"
-                            >
-                              {phaseBand.name}
-                            </text>
-                          </g>
-                        )
+                        rowEnds[row] = l.leftEdge + l.w
+                        return { ...l, y: LABEL_Y - row * ROW_GAP }
                       })
+
+                      return placed.map(p => (
+                        <text
+                          key={`label-${p.phase}`}
+                          x={p.leftEdge + p.w / 2}
+                          y={p.y}
+                          textAnchor="middle"
+                          fontSize="8"
+                          fontWeight="500"
+                          fill={p.labelColor}
+                          opacity="0.75"
+                        >
+                          {p.name}
+                        </text>
+                      ))
                     })()}
 
                     {/* ── Intensity Y-axis labels ── */}
@@ -1052,14 +1089,14 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
                             x1={mx}
                             y1={PT + GH}
                             x2={mx}
-                            y2={PT + GH + 6}
+                            y2={PT + GH + 3}
                             stroke="currentColor"
                             className="text-muted-foreground/40"
                             strokeWidth="1"
                           />
                           <text
                             x={mx}
-                            y={PT + GH + 18}
+                            y={PT + GH + 12}
                             textAnchor="middle"
                             fontSize="9"
                             fill="currentColor"
@@ -1131,7 +1168,10 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
                     {/* ── Hover crosshair ── */}
                     {tooltip && (() => {
                       const hx = toX(tooltip.progress)
-                      const hy = toY(tooltip.intensity)
+                      // Use visualIntensity (matches curvePath rendering) so the dot
+                      // sits exactly on the rendered curve line.
+                      // Falls back to tooltip.intensity when no curve is active (visualIntensity = 0).
+                      const hy = toY(tooltip.visualIntensity > 0 ? tooltip.visualIntensity : tooltip.intensity)
                       return (
                         <g>
                           <line

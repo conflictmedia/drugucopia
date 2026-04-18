@@ -37,6 +37,12 @@ export interface EnrichedDose extends DoseLog {
   timings: PhaseTimings
   status: PhaseStatus
   doseTime: Date
+  /** Dose-relative height: userDose / avgCommonDose (linear, ~1.0 at common dose) */
+  doseHeight: number
+  /** 0–1 interpolation weight for duration ranges (from dose class) */
+  horizontalWeight: number
+  /** Classified dose class: threshold / light / common / strong / heavy */
+  doseClass?: string
 }
 
 /* ------------------------------------------------------------------ */
@@ -139,7 +145,10 @@ export interface TooltipData {
   phase: PhaseName
   phaseTime: string
   absoluteTime: Date
+  /** Combined intensity (dose-height scaled, used for tooltip text) */
   intensity: number
+  /** Visual intensity matching the rendered curve (no dose-height scaling, with edge fade, clamped 0-100) */
+  visualIntensity: number
   progress: number
   /** Per-route intensity breakdown (multi-route hover) */
   routeIntensities?: RouteIntensitySnapshot[]

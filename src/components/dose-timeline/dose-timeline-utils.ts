@@ -258,10 +258,15 @@ export function intensityAt(progress: number, t: PhaseTimings): number {
 
   const mins = (progress / 100) * t.totalDuration
 
-  /* ---- Onset + Comeup: one smooth sigmoid rise 0% → 100% ---- */
+  /* ---- Onset: flat zero (no subjective effects yet) ---- */
+  if (mins <= t.onsetEnd) {
+    return 0
+  }
+
+  /* ---- Comeup: smooth sigmoid rise 0% → 100% ---- */
   if (mins <= t.comeupEnd) {
-    const riseDuration = Math.max(t.comeupEnd, 1)
-    const frac = mins / riseDuration
+    const comeupDuration = Math.max(t.comeupEnd - t.onsetEnd, 1)
+    const frac = (mins - t.onsetEnd) / comeupDuration
     const k = 8
     const sig0 = 1 / (1 + Math.exp(k * 0.5))   // sigmoid at f=0
     const sig1 = 1 / (1 + Math.exp(-k * 0.5))  // sigmoid at f=1
@@ -333,6 +338,90 @@ export function phaseStart(key: string, t: PhaseTimings): number {
 export function isPhasePast(check: string, current: string): boolean {
   const order: string[] = ['onset', 'comeup', 'peak', 'offset']
   return order.indexOf(check) < order.indexOf(current)
+}
+
+/* ================================================================== */
+/*  Duration Range Parsing & Dose-Dependent Scaling                    */
+/* ================================================================== */
+
+/** Parse a duration string into { min, max } in minutes. */
+export function parseDurationRange(durationStr: string): { min: number; max: number } | null {
+  if (!durationStr) return null
+
+  const lower = durationStr.toLowerCase().replace(/[\u2013\u2014]/g, '-')
+
+  const rangeMatch = lower.match(
+    /([\d.]+)\s*[-–]\s*([\d.]+)\s*(minutes?|hours?|min|h|hr|m|seconds?|sec|s)s?/
+  )
+  if (rangeMatch) {
+    const lo = parseFloat(rangeMatch[1])
+    const hi = parseFloat(rangeMatch[2])
+    const unit = rangeMatch[3]
+    const toMins = (v: number) => {
+      if (unit.startsWith('s') || unit === 'sec') return v / 60
+      return unit.startsWith('h') || unit === 'hr' ? v * 60 : v
+    }
+    return { min: toMins(lo), max: toMins(hi) }
+  }
+
+  const singleMatch = lower.match(
+    /([\d.]+)\s*(minutes?|hours?|min|h|hr|m|seconds?|sec|s)s?/
+  )
+  if (singleMatch) {
+    const value = parseFloat(singleMatch[1])
+    const unit = singleMatch[2]
+    const toMins = (v: number) => {
+      if (unit.startsWith('s') || unit === 'sec') return v / 60
+      return unit.startsWith('h') || unit === 'hr' ? v * 60 : v
+    }
+    const mins = toMins(value)
+    // Treat single values as a narrow range ±10%
+    return { min: mins * 0.9, max: mins * 1.1 }
+  }
+
+  return null
+}
+
+/** Interpolate between min and max at a given weight (0–1). */
+function interpolateRange(min: number, max: number, weight: number): number {
+  return min + (max - min) * weight
+}
+
+/**
+ * Calculate dose-scaled phase timings.
+ *
+ * Unlike calculatePhaseTimings which averages ranges, this interpolates
+ * peak and offset duration based on the dose's horizontalWeight (0–1).
+ * Onset and comeup always use weight=0.5 (midpoint of range).
+ * Peak and offset use the dose's weight, so heavier doses get longer peaks/offsets.
+ */
+export function calculateDoseScaledTimings(
+  duration: Duration,
+  horizontalWeight: number = 0.5,
+): PhaseTimings {
+  const onsetRange = parseDurationRange(duration.onset)
+  const comeupRange = parseDurationRange(duration.comeup)
+  const peakRange = parseDurationRange(duration.peak)
+  const offsetRange = parseDurationRange(duration.offset)
+  const afterglowRange = parseDurationRange((duration as Duration & { afterglow?: string }).afterglow ?? '')
+  const totalRange = parseDurationRange(duration.total)
+
+  // Onset and comeup: use midpoint (weight=0.5) regardless of dose
+  const onsetMins = onsetRange ? interpolateRange(onsetRange.min, onsetRange.max, 0.5) : parseDurationToMinutes(duration.onset)
+  const comeupMins = comeupRange ? interpolateRange(comeupRange.min, comeupRange.max, 0.5) : parseDurationToMinutes(duration.comeup)
+
+  // Peak and offset: scale with dose weight
+  const peakMins = peakRange ? interpolateRange(peakRange.min, peakRange.max, horizontalWeight) : parseDurationToMinutes(duration.peak)
+  const offsetMins = offsetRange ? interpolateRange(offsetRange.min, offsetRange.max, horizontalWeight) : parseDurationToMinutes(duration.offset)
+  const afterglowMins = afterglowRange ? interpolateRange(afterglowRange.min, afterglowRange.max, 0.5) : parseDurationToMinutes((duration as Duration & { afterglow?: string }).afterglow ?? '')
+  const totalMins = totalRange ? interpolateRange(totalRange.min, totalRange.max, 0.5) : parseDurationToMinutes(duration.total)
+
+  // Fall back to the non-scaled calculation if range parsing failed
+  if (onsetMins > 0 && comeupMins > 0 && peakMins > 0 && offsetMins > 0) {
+    return buildTimings(onsetMins, comeupMins, peakMins, offsetMins, afterglowMins, totalMins)
+  }
+
+  return calculatePhaseTimings(duration)
 }
 
 /* ================================================================== */
@@ -420,9 +509,69 @@ export function curvePath(
     })
   }
 
-  // Clamp control points so the curve never overshoots above 100% intensity.
-  // In screen space the peak line is at y = PT (smallest y = topmost point).
-  return catmullRomToCubicBezier(pts, PT)
+  // Build the path in segments to avoid Catmull-Rom undershoot at the peak.
+  // The peak phase should be a flat line at y=PT (100% intensity).
+  // Catmull-Rom smoothing at the comeup→peak transition pulls the curve
+  // below 100%, so we split the points into smoothed and flat-peak segments.
+  const peakY = PT
+  const segments: { pts: Point2D[]; smooth: boolean }[] = []
+  let currentSeg: Point2D[] = [pts[0]]
+  let segSmooth = true
+
+  for (let i = 1; i < pts.length; i++) {
+    const isFlatPeak = pts[i].y <= peakY + 0.5 && pts[i - 1].y <= peakY + 0.5
+
+    if (isFlatPeak && segSmooth) {
+      // Transition from smoothed to flat peak — flush the smoothed segment
+      segments.push({ pts: currentSeg, smooth: true })
+      currentSeg = [pts[i - 1], pts[i]]  // overlap for continuity
+      segSmooth = false
+    } else if (!isFlatPeak && !segSmooth) {
+      // Transition from flat peak back to smoothed (offset) — flush flat segment
+      segments.push({ pts: currentSeg, smooth: false })
+      currentSeg = [pts[i - 1], pts[i]]  // overlap for continuity
+      segSmooth = true
+    } else {
+      currentSeg.push(pts[i])
+    }
+  }
+  segments.push({ pts: currentSeg, smooth: segSmooth })
+
+  let d = `M ${pts[0].x.toFixed(2)},${pts[0].y.toFixed(2)}`
+
+  for (let s = 0; s < segments.length; s++) {
+    const seg = segments[s]
+    if (seg.pts.length < 2) continue
+
+    if (!seg.smooth) {
+      // Flat peak: straight lineTo for each point — guarantees y=PT exactly
+      for (let i = 1; i < seg.pts.length; i++) {
+        d += ` L ${seg.pts[i].x.toFixed(2)},${seg.pts[i].y.toFixed(2)}`
+      }
+    } else {
+      // Smoothed (onset/comeup/offset): Catmull-Rom with overshoot clamping
+      const smoothPts = seg.pts
+      // Skip the first point (already in path from previous segment)
+      for (let i = 0; i < smoothPts.length - 1; i++) {
+        const p0 = i === 0 ? smoothPts[0] : smoothPts[i - 1]
+        const p1 = smoothPts[i]
+        const p2 = smoothPts[i + 1]
+        const p3 = i + 2 < smoothPts.length ? smoothPts[i + 2] : smoothPts[smoothPts.length - 1]
+
+        let cp1x = p1.x + (p2.x - p0.x) / 6
+        let cp1y = p1.y + (p2.y - p0.y) / 6
+        let cp2x = p2.x - (p3.x - p1.x) / 6
+        let cp2y = p2.y - (p3.y - p1.y) / 6
+
+        if (cp1y < peakY) cp1y = peakY
+        if (cp2y < peakY) cp2y = peakY
+
+        d += ` C ${cp1x.toFixed(2)},${cp1y.toFixed(2)} ${cp2x.toFixed(2)},${cp2y.toFixed(2)} ${p2.x.toFixed(2)},${p2.y.toFixed(2)}`
+      }
+    }
+  }
+
+  return d
 }
 
 /**
@@ -469,7 +618,62 @@ export function mobileCurvePath(
     })
   }
 
-  return catmullRomToCubicBezier(pts, MOBILE_PT)
+  // Same segment-based approach as desktop curvePath:
+  // flat lineTo for peak, Catmull-Rom for comeup/offset
+  const peakY = MOBILE_PT
+  const segments: { pts: Point2D[]; smooth: boolean }[] = []
+  let currentSeg: Point2D[] = [pts[0]]
+  let segSmooth = true
+
+  for (let i = 1; i < pts.length; i++) {
+    const isFlatPeak = pts[i].y <= peakY + 0.5 && pts[i - 1].y <= peakY + 0.5
+
+    if (isFlatPeak && segSmooth) {
+      segments.push({ pts: currentSeg, smooth: true })
+      currentSeg = [pts[i - 1], pts[i]]
+      segSmooth = false
+    } else if (!isFlatPeak && !segSmooth) {
+      segments.push({ pts: currentSeg, smooth: false })
+      currentSeg = [pts[i - 1], pts[i]]
+      segSmooth = true
+    } else {
+      currentSeg.push(pts[i])
+    }
+  }
+  segments.push({ pts: currentSeg, smooth: segSmooth })
+
+  let d = `M ${pts[0].x.toFixed(2)},${pts[0].y.toFixed(2)}`
+
+  for (let s = 0; s < segments.length; s++) {
+    const seg = segments[s]
+    if (seg.pts.length < 2) continue
+
+    if (!seg.smooth) {
+      for (let i = 1; i < seg.pts.length; i++) {
+        d += ` L ${seg.pts[i].x.toFixed(2)},${seg.pts[i].y.toFixed(2)}`
+      }
+    } else {
+      const smoothPts = seg.pts
+      for (let i = 0; i < smoothPts.length - 1; i++) {
+        const p0 = i === 0 ? smoothPts[0] : smoothPts[i - 1]
+        const p1 = smoothPts[i]
+        const p2 = smoothPts[i + 1]
+        const p3 = i + 2 < smoothPts.length ? smoothPts[i + 2] : smoothPts[smoothPts.length - 1]
+
+        let cp1x = p1.x + (p2.x - p0.x) / 6
+        let cp1y = p1.y + (p2.y - p0.y) / 6
+        let cp2x = p2.x - (p3.x - p1.x) / 6
+        let cp2y = p2.y - (p3.y - p1.y) / 6
+
+        if (cp1y < peakY) cp1y = peakY
+        if (cp2y < peakY) cp2y = peakY
+
+        d += ` C ${cp1x.toFixed(2)},${cp1y.toFixed(2)} ${cp2x.toFixed(2)},${cp2y.toFixed(2)} ${p2.x.toFixed(2)},${p2.y.toFixed(2)}`
+      }
+    }
+  }
+
+  return d
 }
 
 /**
@@ -541,11 +745,18 @@ export function combinedIntensityAt(intensities: number[]): number {
   if (intensities.length === 0) return 0
   if (intensities.length === 1) return clamp(intensities[0], 0, 100)
 
-  let product = 1
-  for (const i of intensities) {
-    product *= 1 - clamp(i, 0, 100) / 100
-  }
-  return clamp(100 * (1 - product), 0, 100)
+  // Additive stacking with soft ceiling.
+  // Purely additive (sum) reflects the reality that redosing adds intensity.
+  // A soft ceiling via log dampening prevents unrealistic visual stacking
+  // beyond ~1.5x a single-dose peak.
+  const rawSum = intensities.reduce((acc, i) => acc + clamp(i, 0, 100), 0)
+
+  // Apply soft ceiling: logarithmic dampening above 100
+  // At 100: output = 100 (no change)
+  // At 150: output = 100 + 22 = 122
+  // At 200: output = 100 + 39 = 139
+  if (rawSum <= 100) return rawSum
+  return clamp(100 + 50 * Math.log(rawSum / 100), 0, 200)
 }
 
 
@@ -562,37 +773,48 @@ export function getNowProgress(windowStart: Date, windowDuration: number): numbe
 }
 
 export function buildCombinedIntensityCurve(
-  routes: { doses: { timings: PhaseTimings }[] }[],
+  routes: { doses: { timings: PhaseTimings; doseHeight?: number; doseOffsetMins?: number }[] }[],
   windowDuration: number,
 ): CombinedIntensityPoint[] {
   const points: CombinedIntensityPoint[] = []
 
+  // Find the normalization factor: the tallest combined peak across all samples.
+  // This is computed in two passes — first pass finds the max, second applies it.
+  const rawPoints: { minutes: number; intensity: number; progress: number }[] = []
+
   for (let i = 0; i <= CURVE_SAMPLES; i++) {
     const progress = (i / CURVE_SAMPLES) * 100
     const minutes  = (progress / 100) * windowDuration
-
-    // Collect individual intensities from all doses in all routes
     const individualIntensities: number[] = []
 
     for (const route of routes) {
       for (const dose of route.doses) {
-        const doseOffsetMins = 0 // caller should adjust if doses have different start times
+        const doseOffsetMins = dose.doseOffsetMins ?? 0
         const doseTotalMins  = dose.timings.totalDuration
-
-        // Convert global progress to local dose progress
         const localProgress = ((minutes - doseOffsetMins) / doseTotalMins) * 100
+
         if (localProgress >= 0 && localProgress <= 100) {
-          individualIntensities.push(intensityAt(localProgress, dose.timings))
+          const rawIntensity = intensityAt(localProgress, dose.timings)
+          // Scale by dose height (relative to common dose)
+          const height = dose.doseHeight ?? 1
+          individualIntensities.push(rawIntensity * height)
         }
       }
     }
 
-    points.push({
+    rawPoints.push({
       minutes,
       intensity: combinedIntensityAt(individualIntensities),
       progress,
     })
   }
 
-  return points
+  // Normalize so the tallest combined peak fills the graph height (100)
+  const maxIntensity = rawPoints.reduce((max, p) => Math.max(max, p.intensity), 0)
+  const normalizer = maxIntensity > 0 ? 100 / maxIntensity : 1
+
+  return rawPoints.map(p => ({
+    ...p,
+    intensity: p.intensity * normalizer,
+  }))
 }
