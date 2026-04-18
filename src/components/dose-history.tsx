@@ -1,7 +1,7 @@
 'use client'
 
 import { formatDoseAmount } from '@/lib/utils'
-import { useState, useRef } from 'react'
+import { useState, useRef, useMemo } from 'react'
 import { format, isToday, isYesterday, isThisWeek, isThisMonth } from 'date-fns'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -11,9 +11,10 @@ import { Input } from '@/components/ui/input'
 import { Trash2, Calendar, Clock, Droplets, Activity, Loader2, Download, Upload, Cloud, CloudOff, Lock, CheckCircle2, RotateCcw, Pencil, FileJson, FileText, ChevronDown, AlertTriangle } from 'lucide-react'
 import { categoryColors } from '@/lib/categories'
 import { substances } from '@/lib/substances/index'
-import { useToast } from '@/hooks/use-toast'
+import { toast } from '@/hooks/use-toast'
 import { EditDoseModal } from './edit-dose-modal'
 import { useDoseStore } from '@/store/dose-store'
+import { useShallow } from 'zustand/react/shallow'
 import { useSync } from '@/contexts/sync-context'
 import { DoseLog } from '@/types'
 import {
@@ -543,9 +544,18 @@ function parsePWJournalJSON(text: string): ImportResult {
 
 
 export function DoseHistory() {
-  const { doses, isLoaded, deleteDose, addDose, addDoses, replaceDoses, clearAllDoses } = useDoseStore()
+  const doses = useDoseStore(s => s.doses)
+  const isLoaded = useDoseStore(s => s.isLoaded)
+  const { deleteDose, addDose, addDoses, replaceDoses, clearAllDoses } = useDoseStore(
+    useShallow(s => ({
+      deleteDose: s.deleteDose,
+      addDose: s.addDose,
+      addDoses: s.addDoses,
+      replaceDoses: s.replaceDoses,
+      clearAllDoses: s.clearAllDoses,
+    }))
+  )
   const { syncStatus, roomId, password, setRoomId, setPassword, connectToSync, disconnectSync } = useSync()
-  const { toast } = useToast()
 
   const [deleting, setDeleting] = useState<string | null>(null)
   const [redosing, setRedosing] = useState<string | null>(null)
@@ -563,6 +573,23 @@ export function DoseHistory() {
   const jsonInputRef = useRef<HTMLInputElement>(null)
   const psyloJsonInputRef = useRef<HTMLInputElement>(null)
   const pwjournalInputRef = useRef<HTMLInputElement>(null)
+
+  const groupDosesByDate = (doses: DoseLog[]) => {
+    const groups: { [key: string]: DoseLog[] } = {}
+    doses.forEach((dose) => {
+      const date = new Date(dose.timestamp)
+      const key = isToday(date) ? 'Today'
+        : isYesterday(date) ? 'Yesterday'
+          : isThisWeek(date) ? 'This Week'
+            : isThisMonth(date) ? 'This Month'
+              : format(date, 'MMMM yyyy')
+      if (!groups[key]) groups[key] = []
+      groups[key].push(dose)
+    })
+    return groups
+  }
+
+  const groupedDoses = useMemo(() => groupDosesByDate(doses), [doses])
 
   if (!isLoaded) {
     return (
@@ -791,21 +818,6 @@ export function DoseHistory() {
     toast({ title: 'Redose logged', description: `${dose.substanceName} logged again.` })
   }
 
-  const groupDosesByDate = (doses: DoseLog[]) => {
-    const groups: { [key: string]: DoseLog[] } = {}
-    doses.forEach((dose) => {
-      const date = new Date(dose.timestamp)
-      const key = isToday(date) ? 'Today'
-        : isYesterday(date) ? 'Yesterday'
-          : isThisWeek(date) ? 'This Week'
-            : isThisMonth(date) ? 'This Month'
-              : format(date, 'MMMM yyyy')
-      if (!groups[key]) groups[key] = []
-      groups[key].push(dose)
-    })
-    return groups
-  }
-
   const getCategoryColor = (category: string) =>
     categoryColors[category as keyof typeof categoryColors] ||
     'text-gray-500 bg-gray-500/10 border-gray-500/20'
@@ -978,7 +990,7 @@ export function DoseHistory() {
             </div>
           ) : (
             <ScrollArea className="h-[400px] pr-4">
-              {Object.entries(groupDosesByDate(doses)).map(([dateGroup, groupDoses]) => {
+              {Object.entries(groupedDoses).map(([dateGroup, groupDoses]) => {
                 return (
                   <div key={dateGroup} className="mb-6">
                     <h4 className="text-sm font-medium text-muted-foreground mb-3 sticky top-0 bg-background py-1 z-10 text-center">

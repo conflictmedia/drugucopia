@@ -26,13 +26,13 @@ interface DoseMarkerProps {
 }
 
 /* ================================================================== */
-/*  Unique ID generator for gradient defs (avoids SVG id collisions)   */
+/*  Deterministic SVG ID helper (avoids re-parsing gradients on render) */
 /* ================================================================== */
 
-let _gradientCounter = 0
-function uniqueId(prefix: string): string {
-  _gradientCounter += 1
-  return `${prefix}-${_gradientCounter}`
+/** Sanitize a string for use in SVG/CSS identifiers.
+ *  Spaces and special chars break CSS `url(#…)` parsing. */
+function svgSafeId(str: string): string {
+  return str.replace(/[^a-zA-Z0-9_-]/g, '-')
 }
 
 /* ================================================================== */
@@ -87,7 +87,7 @@ export function DoseMarker({
   const formattedDose = formatDoseAmount(d.amount, d.unit)
 
   /* ---- Gradient IDs ---- */
-  const guideGradId = uniqueId('dm-guide')
+  const guideGradId = `dm-guide-${svgSafeId(groupKey)}-${doseIndex}`
 
   return (
     <g

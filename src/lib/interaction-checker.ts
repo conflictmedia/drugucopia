@@ -77,19 +77,29 @@ function matchInteractionList(
   interactionList: string[],
   keywords: string[]
 ): string | null {
+  // Pre-compile keyword regexes once (instead of inside nested loops).
+  // Long keywords (>2 chars) need word-boundary regex; short ones use includes().
+  const compiledRegexes: RegExp[] = [];
+  const shortKeywords: string[] = [];
+  for (const keyword of keywords) {
+    try {
+      if (keyword.length > 2) {
+        compiledRegexes.push(new RegExp(`\\b${escapeRegExp(keyword)}\\b`, 'i'));
+      } else {
+        shortKeywords.push(keyword);
+      }
+    } catch {
+      // skip invalid regex patterns
+    }
+  }
+
   for (const interactionStr of interactionList) {
     const interactionLower = interactionStr.toLowerCase();
-    for (const keyword of keywords) {
-      try {
-        if (keyword.length > 2) {
-          const regex = new RegExp(`\\b${escapeRegExp(keyword)}\\b`, 'i');
-          if (regex.test(interactionLower)) return interactionStr;
-        } else {
-          if (interactionLower.includes(keyword)) return interactionStr;
-        }
-      } catch {
-        // skip
-      }
+    for (const regex of compiledRegexes) {
+      if (regex.test(interactionLower)) return interactionStr;
+    }
+    for (const short of shortKeywords) {
+      if (interactionLower.includes(short)) return interactionStr;
     }
   }
   return null;
