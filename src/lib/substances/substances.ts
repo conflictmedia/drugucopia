@@ -160,7 +160,6 @@ export { _2m2b } from './2m2b';
 export { alcohol } from './alcohol';
 export { alprazolam } from './alprazolam';
 export { baclofen } from './baclofen';
-export { cake } from './cake';
 export { carisoprodol } from './carisoprodol';
 export { clonazepam } from './clonazepam';
 export { clonidine } from './clonidine';
