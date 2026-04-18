@@ -113,16 +113,7 @@ function computeTooltipAtProgress(
 
       if (localProgress >= 0 && localProgress <= 100) {
         const rawIntensity = intensityAt(localProgress, dose.timings)
-        // Scale by dose height for dose-responsive intensity
-        const scaledIntensity = rawIntensity * (dose.doseHeight ?? 1)
         const phase = phaseNameAt(localProgress, dose.timings)
-        routeIntensities.push({
-          route: rg.route,
-          intensity: scaledIntensity,
-          phase,
-          paletteIndex: rg.paletteIndex,
-        })
-        allIntensities.push(scaledIntensity)
 
         // Compute visual intensity matching curvePath rendering:
         // No dose-height scaling, apply edge fade, clamp to 0-100
@@ -136,6 +127,13 @@ function computeTooltipAtProgress(
         if (visIntensity > maxVisualIntensity) {
           maxVisualIntensity = visIntensity
         }
+
+        routeIntensities.push({
+          route: rg.route,
+          intensity: visIntensity,
+          phase,
+          paletteIndex: rg.paletteIndex,
+        })
       }
     }
   }
