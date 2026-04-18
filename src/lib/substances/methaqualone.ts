@@ -25,7 +25,7 @@ export const methaqualone: Substance =
     "depressants"
   ],
   "class": "Quinazolinone",
-  "description": "GABAergics\nMethaqualone (brand name Quaalude in the US and Mandrax in the UK) is a central nervous system (CNS) depressant of the quinazolinone class that acts as a sedative and hypnotic. The sedative–hypnotic activity of methaqualone was first noted by researchers in the 1950s and in 1962 methaqualone itself was patented in the US by Wallace and Tiernan. The drug was popular in the 1970s with hippies and in the disco club scene, known as ludes (from \"quaaludes\") or disco biscuits.",
+  "description": "Methaqualone (brand name Quaalude in the US and Mandrax in the UK) is a central nervous system (CNS) depressant of the quinazolinone class that acts as a sedative and hypnotic. The sedative–hypnotic activity of methaqualone was first noted by researchers in the 1950s and in 1962 methaqualone itself was patented in the US by Wallace and Tiernan. The drug was popular in the 1970s with hippies and in the disco club scene, known as ludes (from \"quaaludes\") or disco biscuits.",
   "effects": {
     "positive": [
       "Physical euphoria - This compound is unusually euphoric in comparison to other compounds within the same class.",

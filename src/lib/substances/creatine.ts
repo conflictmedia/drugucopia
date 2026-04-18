@@ -20,7 +20,7 @@ export const creatine: Substance =
     "nootropics"
   ],
   "class": "Unknown",
-  "description": "is an amino acid with nootropic effects that occurs naturally within the body of  vertebrates and in some foods such as meat, eggs, and fish. It was identified in 1832 when Michel Eugène Chevreul isolated it from the basified water-extract of skeletal muscle. When taken as a supplement within humans, this compound has cognitive enhancing, neuroprotective, cardioprotective and performance enhancing effects which are particularly present during strenuous physical exercise.",
+  "description": "is an amino acid with nootropic effects that occurs naturally within the body of vertebrates and in some foods such as meat, eggs, and fish. It was identified in 1832 when Michel Eugène Chevreul isolated it from the basified water-extract of skeletal muscle. When taken as a supplement within humans, this compound has cognitive enhancing, neuroprotective, cardioprotective and performance enhancing effects which are particularly present during strenuous physical exercise.",
   "effects": {
     "positive": [
       "Appetite enhancement",

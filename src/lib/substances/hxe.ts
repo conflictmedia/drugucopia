@@ -31,7 +31,7 @@ export const hxe: Substance =
       "Tactile disconnection",
       "Visual disconnection - This eventually results in HXE's equivalent of the \\\"k-hole\\\" or more specifically, holes, spaces and voids alongside of structures.",
       "Consciousness disconnection",
-      "Spontaneous physical sensations - The body feeling  of HXE can be described as slightly warm, but also empty or rough at times.",
+      "Spontaneous physical sensations - The body feeling of HXE can be described as slightly warm, but also empty or rough at times.",
       "Gait alteration",
       "Optical sliding",
       "Visual acuity suppression",
@@ -129,7 +129,7 @@ export const hxe: Substance =
     "tolerance to many of the effects of HXE develops with prolonged and repeated use.",
     "this results in users having to administer increasingly large doses to achieve the same effects.",
     "after that, it takes about 3 - 7 days for the tolerance to be reduced to half and 1 - 2 weeks to be back at baseline (in the absence of further consumption).",
-    "HXE presents cross-tolerance with cross-tolerance all dissociatives, meaning that after the consumption of HXE all dissociatives will have a reduced effect."
+    "HXE presents cross-tolerance with all dissociatives, meaning that after the consumption of HXE all dissociatives will have a reduced effect."
   ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {

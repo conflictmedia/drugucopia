@@ -18,7 +18,7 @@ export const hexedrone: Substance =
     "stimulants"
   ],
   "class": "Cathinone",
-  "description": "N-Ethylhexedrone (Hexen)\nHexedrone is a novel synthetic stimulant of the cathinone class. Subjective effects include stimulation, disinhibition, thought acceleration and euphoria. Due to its novelty and extremely short history of human usage, all information related to the use of this compound should be treated with caution.",
+  "description": "Hexedrone is a novel synthetic stimulant of the cathinone class. Subjective effects include stimulation, disinhibition, thought acceleration and euphoria. Due to its novelty and extremely short history of human usage, all information related to the use of this compound should be treated with caution.",
   "effects": {
     "positive": [
       "Tactile enhancement",
@@ -76,7 +76,7 @@ export const hexedrone: Substance =
     ]
   },
   "harmReduction": [
-    "Since hexedrone has been insufficiently studied and most data consists of speculation and user experiences, one should be especially cautious when it comes to the risks and harm this substance may pose, especially in terms of seriouslong-term  health hazards.",
+    "Since hexedrone has been insufficiently studied and most data consists of speculation and user experiences, one should be especially cautious when it comes to the risks and harm this substance may pose, especially in terms of seriouslong-term health hazards.",
     "It is strongly recommended that one use harm reduction practices when using this drug.",
     "As with other stimulants, the chronic use of Hexedrone can be considered moderately addictive with a high potential for abuse and is capable of causing psychological dependence among certain users. When addiction has developed, cravings and withdrawal effects may occur if a person suddenly stops their usage.",
     "Tolerance to many of the effects of hexedrone develops with prolonged and repeated use. This results in users having to administer increasingly large doses to achieve the same effects. After that, it takes about 3 - 7 days for the tolerance to be reduced to half and 1 - 2 weeks to be back at baseline (in the absence of further consumption). Hexedrone presents cross-tolerance with all dopaminergic stimulants, meaning that after the consumption of Hexedrone all stimulants will have a reduced effect."

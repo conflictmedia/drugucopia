@@ -20,7 +20,7 @@ export const _4_ho_det: Substance =
     "hallucinogens"
   ],
   "class": "Substituted tryptamines",
-  "description": "It is notable for sharing many of its core features while retaining subtle variations in its duration, visual, cognitive and bodily effects. This compound was first discovered in the late 1950s by Albert Hofmann and Franz Troxler in their investigation of various psychedelic compounds that were structurally and chemically related to the principle active components he isolated from magic mushrooms, psilocybin (4-PO-DMT) and psilocin (4-HO-DMT). The substance was used together with its phosphoryloxy-analog 4-PO-DET in human clinical trials in the 1960s by the German researchers Hanscarl Leuner  and G. Baer.",
+  "description": "It is notable for sharing many of its core features while retaining subtle variations in its duration, visual, cognitive and bodily effects. This compound was first discovered in the late 1950s by Albert Hofmann and Franz Troxler in their investigation of various psychedelic compounds that were structurally and chemically related to the principle active components he isolated from magic mushrooms, psilocybin (4-PO-DMT) and psilocin (4-HO-DMT). The substance was used together with its phosphoryloxy-analog 4-PO-DET in human clinical trials in the 1960s by the German researchers Hanscarl Leuner and G. Baer.",
   "effects": {
     "positive": [
       "Tactile enhancement",

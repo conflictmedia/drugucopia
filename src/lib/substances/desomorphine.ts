@@ -20,7 +20,7 @@ export const desomorphine: Substance =
     "opioids"
   ],
   "class": "Substituted morphinans",
-  "description": "opiates\nDesomorphine (also known as Dihydrodesoxymorphine) is an opioid substance of the morphinan chemical class that produces analgesic, muscle-relaxing, sedative, and euphoric effects when administered. Its use and prevalence has been attributed to widespread availability of codeine tablets as inexpensive over-the-counter drugs, along with a simple production process that can be done in a kitchen laboratory using iodine, red phosphorus, paint thinner, and hydrochloric acid. A small number of cases involving krokodil use outside of Russia, including Germany and the United States, have been reported but have failed to be substantiated.",
+  "description": "Desomorphine (also known as Dihydrodesoxymorphine) is an opioid substance of the morphinan chemical class that produces analgesic, muscle-relaxing, sedative, and euphoric effects when administered. Its use and prevalence has been attributed to widespread availability of codeine tablets as inexpensive over-the-counter drugs, along with a simple production process that can be done in a kitchen laboratory using iodine, red phosphorus, paint thinner, and hydrochloric acid. A small number of cases involving krokodil use outside of Russia, including Germany and the United States, have been reported but have failed to be substantiated.",
   "effects": {
     "positive": [
       "Physical euphoria",

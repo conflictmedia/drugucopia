@@ -21,7 +21,7 @@ export const zolpidem: Substance =
     "depressants"
   ],
   "class": "Imidazopyridine",
-  "description": "GABAergics\nZolpidem (also known as Ambien, Intermezzo, Edluar, Stilnoct, Stilnox, Zolpimist, and others) is a non-benzodiazepine hypnotic of the imidazopyridine chemical class which is primarily used in the treatment of insomnia. When taken at recreational doses, it reportedly produces powerful and notoriously bizarre atypical hallucinogenic, dissociative, deliriant and even psychedelic effects. However, this evaluation has shifted  in the last few years as cases of addiction and habituation have accumulated.",
+  "description": "Zolpidem (also known as Ambien, Intermezzo, Edluar, Stilnoct, Stilnox, Zolpimist, and others) is a non-benzodiazepine hypnotic of the imidazopyridine chemical class which is primarily used in the treatment of insomnia. When taken at recreational doses, it reportedly produces powerful and notoriously bizarre atypical hallucinogenic, dissociative, deliriant and even psychedelic effects. However, this evaluation has shifted in the last few years as cases of addiction and habituation have accumulated.",
   "effects": {
     "positive": [
       "Physical euphoria - This manifests itself as a warm, soft glow which emanates from the center of the user's body.",

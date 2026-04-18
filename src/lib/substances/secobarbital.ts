@@ -20,7 +20,7 @@ export const secobarbital: Substance =
     "depressants"
   ],
   "class": "Barbiturates",
-  "description": "barbiturates\nSecobarbital, also known as secobarbitone in British English and by the brand name Seconal, is a short-acting psychoactive drug of the barbiturate class which produces powerful anxiolytic, hypnotic, muscle relaxant and amnesic effects. Secobarbital works in a similar fashion to benzodiazepines, however, barbiturates bind to a different and distinct allosteric site on the GABAA receptor. Compared to other barbiturates such as phenobarbital, secobarbital has a prompt onset of action, generally working within fifteen minutes of ingestion.",
+  "description": "Secobarbital, also known as secobarbitone in British English and by the brand name Seconal, is a short-acting psychoactive drug of the barbiturate class which produces powerful anxiolytic, hypnotic, muscle relaxant and amnesic effects. Secobarbital works in a similar fashion to benzodiazepines, however, barbiturates bind to a different and distinct allosteric site on the GABAA receptor. Compared to other barbiturates such as phenobarbital, secobarbital has a prompt onset of action, generally working within fifteen minutes of ingestion.",
   "effects": {
     "positive": [
       "Muscle relaxation",

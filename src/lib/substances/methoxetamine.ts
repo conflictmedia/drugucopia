@@ -20,7 +20,7 @@ export const methoxetamine: Substance =
     "dissociatives"
   ],
   "class": "Arylcyclohexylamines",
-  "description": "Methoxmetamine\n3-MeO-2'-Oxo-PCE (commonly known as Methoxetamine, MXE, Mexxy, among others) is a dissociative substance of the arylcyclohexylamine class that produces ketamine-like dissociative effects when administered. MXE was originally developed through the use of intelligent drug design, as a potential treatment for Phantom Limb Syndrome among other ailments. MXE had no documented history of human usage until it was first identified by the European Monitoring Centre for Drugs and Drug Addiction in November 2010.",
+  "description": "3-MeO-2'-Oxo-PCE (commonly known as Methoxetamine, MXE, Mexxy, among others) is a dissociative substance of the arylcyclohexylamine class that produces ketamine-like dissociative effects when administered. MXE was originally developed through the use of intelligent drug design, as a potential treatment for Phantom Limb Syndrome among other ailments. MXE had no documented history of human usage until it was first identified by the European Monitoring Centre for Drugs and Drug Addiction in November 2010.",
   "effects": {
     "positive": [
       "Cognitive euphoria",

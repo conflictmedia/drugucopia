@@ -112,7 +112,7 @@ export const dextromethorphan: Substance =
       "Dizziness - At higher dosages this can result in incapability to willingly stand up.",
       "Gustatory hallucination",
       "Physical autonomy - At very high dosages some may find to awake in strange locations, sometimes while standing or performing actions with no recollection of events or how they got there.",
-      "Tactile suppression - This partially to entirely suppresses  sense of touch, creating feelings of numbness within the extremities. It is responsible for the anesthetic properties of this substance.",
+      "Tactile suppression - This partially to entirely suppresses sense of touch, creating feelings of numbness within the extremities. It is responsible for the anesthetic properties of this substance.",
       "Nystagmus - At very high dosages one may be incapable of recognizing things such as movement of objects or human faces.",
       "Analysis suppression",
       "Confusion - This effect almost represents delirium in 3rd plateaus, although, your cognitive thinking abilities start to deminish when this effect starts with depersonalization.",

@@ -16,7 +16,7 @@ export const progesterone: Substance =
     "depressants"
   ],
   "class": "Steroid",
-  "description": "Opioids\nPregn-4-ene-3,20-dione, also known as Progesterone or P4 is a steroid sex hormone of the progestogen class. Progesterone can be taken orally, vaginal, rectal and by subcutaneous or intramuscular injection. Progesterone is commonly used as a part of trans-feminising hormone therapy or post menopausal Hormone replacement therapy.",
+  "description": "Pregn-4-ene-3,20-dione, also known as Progesterone or P4 is a steroid sex hormone of the progestogen class. Progesterone can be taken orally, vaginal, rectal and by subcutaneous or intramuscular injection. Progesterone is commonly used as a part of trans-feminising hormone therapy or post menopausal Hormone replacement therapy.",
   "effects": {
     "positive": [
       "Physical euphoria",

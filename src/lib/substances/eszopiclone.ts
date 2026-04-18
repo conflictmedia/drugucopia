@@ -19,7 +19,7 @@ export const eszopiclone: Substance =
     "depressants"
   ],
   "class": "Cyclopyrrolone",
-  "description": "GABAergics\nEszopiclone (also known by the trade names Lunesta) is a non-benzodiazepine hypnotic substance of the cyclopyrrolone class that is primarily used in the treatment of insomnia. Other Z-drugs include Zopiclone (Imovane) zaleplon (Sonata) and zolpidem (Ambien and AmbienCR). Eszopiclone is thought to increase the normal neurotransmission of the neurotransmitter GABA in the central nervous system in a similar yet distinct way to the activity of benzodiazepines.",
+  "description": "Eszopiclone (also known by the trade names Lunesta) is a non-benzodiazepine hypnotic substance of the cyclopyrrolone class that is primarily used in the treatment of insomnia. Other Z-drugs include Zopiclone (Imovane) zaleplon (Sonata) and zolpidem (Ambien and AmbienCR). Eszopiclone is thought to increase the normal neurotransmission of the neurotransmitter GABA in the central nervous system in a similar yet distinct way to the activity of benzodiazepines.",
   "effects": {
     "positive": [
       "Muscle relaxation",

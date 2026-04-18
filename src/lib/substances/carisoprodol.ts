@@ -19,7 +19,7 @@ export const carisoprodol: Substance =
     "depressants"
   ],
   "class": "1,3-Propanediol dicarbamate",
-  "description": "GABAergics\nCarisoprodol, also known by the brand name Soma, is a carbamate sedative-hypnotic. Carisoprodol is used medically as a centrally-acting muscle relaxant, anxiolytic and hypnotic for the short-term treatment of insomnia. Carisoprodol, like barbiturates, has been primarily replaced by benzodiazepines due to a larger therapeutic window, having less severe adverse effects and being safer in overdose.",
+  "description": "Carisoprodol, also known by the brand name Soma, is a carbamate sedative-hypnotic. Carisoprodol is used medically as a centrally-acting muscle relaxant, anxiolytic and hypnotic for the short-term treatment of insomnia. Carisoprodol, like barbiturates, has been primarily replaced by benzodiazepines due to a larger therapeutic window, having less severe adverse effects and being safer in overdose.",
   "effects": {
     "positive": [
       "Muscle relaxation",

@@ -18,7 +18,7 @@ export const flubromazolam: Substance =
     "depressants"
   ],
   "class": "Benzodiazepines",
-  "description": "benzodiazepines\nFlubromazepam\nFlubromazolam (JYI-73) is a novel synthetic depressant substance of the benzodiazepine, and specifically, the triazolobenzodiazepine class which produces anxiolytic, disinhibiting, sedative, muscle relaxant, and memory suppressing effects when administered. Thus, it poses comparatively higher risks than other designer benzodiazepines, due to its ability to produce strong sedation and amnesia even at a very low threshold dosage. It is worth noting that the sudden discontinuation of benzodiazepines can be potentially dangerous or life-threatening for individuals using regularly for extended periods of time, sometimes resulting in seizures or death.",
+  "description": "Flubromazolam (JYI-73) is a novel synthetic depressant substance of the benzodiazepine, and specifically, the triazolobenzodiazepine class which produces anxiolytic, disinhibiting, sedative, muscle relaxant, and memory suppressing effects when administered. Thus, it poses comparatively higher risks than other designer benzodiazepines, due to its ability to produce strong sedation and amnesia even at a very low threshold dosage. It is worth noting that the sudden discontinuation of benzodiazepines can be potentially dangerous or life-threatening for individuals using regularly for extended periods of time, sometimes resulting in seizures or death.",
   "effects": {
     "positive": [],
     "neutral": [

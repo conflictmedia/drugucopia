@@ -19,7 +19,7 @@ export const _2m2b: Substance =
     "depressants"
   ],
   "class": "Alcohol",
-  "description": "GABAergics\n2-Methyl-2-butanol (also known as tert-amyl alcohol or 2M2B) is a tertiary alcohol substance that produces depressant, hypnotic, and anxiolytic effects. Historically, it has been used in anesthesia as a component of avertin fluid mixed with tribromoethanol and water. It has a strong solvent smell reminiscent of gasoline and camphor, but with little flavor aside from a burning sensation.",
+  "description": "2-Methyl-2-butanol (also known as tert-amyl alcohol or 2M2B) is a tertiary alcohol substance that produces depressant, hypnotic, and anxiolytic effects. Historically, it has been used in anesthesia as a component of avertin fluid mixed with tribromoethanol and water. It has a strong solvent smell reminiscent of gasoline and camphor, but with little flavor aside from a burning sensation.",
   "effects": {
     "positive": [
       "Muscle relaxation",
@@ -82,7 +82,7 @@ export const _2m2b: Substance =
     ]
   },
   "harmReduction": [
-    "The toxicity and long-term health effects of recreational 2M2B use do not seem to have been studied in any scientific context and the exact toxic dosage is unknown although the lowest recorded fatal dose in a human is 30mL. However, 2M2B is expected to be less toxic than ethanol as  it cannot be metabolized into aldehydes in the same way. Anecdotal evidence from people who have tried 2M2B within the community suggest that there do not seem to be any negative health effects attributed to simply trying this drug at low to moderate doses by itself and using it sparingly (but nothing can be completely guaranteed).",
+    "The toxicity and long-term health effects of recreational 2M2B use do not seem to have been studied in any scientific context and the exact toxic dosage is unknown although the lowest recorded fatal dose in a human is 30mL. However, 2M2B is expected to be less toxic than ethanol as it cannot be metabolized into aldehydes in the same way. Anecdotal evidence from people who have tried 2M2B within the community suggest that there do not seem to be any negative health effects attributed to simply trying this drug at low to moderate doses by itself and using it sparingly (but nothing can be completely guaranteed).",
     "It is strongly recommended that one use harm reduction practices when using this substance.",
     "As with any other GABA receptor agonist, repeated use and increasing tolerance will eventually result in a withdrawal syndrome upon abrupt discontinuation resembling alcohol, barbiturate, or , up to and including delirium tremens (\"the shakes\"). The chronic use of this compound can be considered moderately addictive with a high potential for abuse and is capable of causing psychological dependence among certain users. When addiction has developed, cravings and withdrawal effects may occur if a person suddenly stops their usage.",
     "Tolerance to many of the effects of 2M2B develops with prolonged and repeated use. This results in users having to administer increasingly large doses to achieve the same effects. After that, it takes about 3 - 7 days for the tolerance to be reduced to half and 1 - 2 weeks to be back at baseline (in the absence of further consumption). 2M2B presents cross-tolerance with all GABAgenic depressants, meaning that after the consumption of 2M2B all depressants will have a reduced effect."

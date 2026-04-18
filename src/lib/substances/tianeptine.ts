@@ -31,7 +31,7 @@ export const tianeptine: Substance =
       "Motivation enhancement"
     ],
     "neutral": [
-      "Stimulation & Sedation - At lower to moderate doses, tianeptine is known for its  stimulating and motivating effects. Dosages beyond that can make it feel more like an traditional opioid and can result in more sedation.",
+      "Stimulation & Sedation - At lower to moderate doses, tianeptine is known for its stimulating and motivating effects. Dosages beyond that can make it feel more like an traditional opioid and can result in more sedation.",
       "Bronchodilation - Tianeptine increases the reuptake of serotonin, which has been found to combat bronchoconstriction.",
       "Ego inflation - Usually only occurs at dosages beyond the therapeutic recommendations.",
       "Itchiness - Like traditional opioids, itchiness may manifest at recreational doses, and can range from mild to severe depending on dosage and tolerance.",

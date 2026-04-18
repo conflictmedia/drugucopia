@@ -20,7 +20,7 @@ export const alprazolam: Substance =
     "depressants"
   ],
   "class": "Benzodiazepines",
-  "description": "benzodiazepines\nAlprazolam (also known as Xanax) is a depressant substance of the benzodiazepine class. 90% of peak effects are achieved within the 1st hour of using in preparation for panic disorder and full peak effects are achieved in 1.5 and 1.6 hours respectively. It is highly recommended to taper one's dose by gradually lowering the amount taken each day for a prolonged period of time instead of stopping abruptly.",
+  "description": "Alprazolam (also known as Xanax) is a depressant substance of the benzodiazepine class. 90% of peak effects are achieved within the 1st hour of using in preparation for panic disorder and full peak effects are achieved in 1.5 and 1.6 hours respectively. It is highly recommended to taper one's dose by gradually lowering the amount taken each day for a prolonged period of time instead of stopping abruptly.",
   "effects": {
     "positive": [
       "Appetite enhancement - Some users report that alprazolam is capable of enhancing appetite in a manner similar to alcohol and that it can have a synergistic effect with cannabis.",

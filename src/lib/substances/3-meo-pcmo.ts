@@ -16,7 +16,7 @@ export const _3_meo_pcmo: Substance =
     "dissociatives"
   ],
   "class": "Arylcyclohexylamines",
-  "description": "It is a dissociative NMDA receptor antagonist, sigma receptor agonist and anesthetic drug of the arylcyclohexylamine chemical class with a potency of less than 1/10th of that of 3-MeO-PCP. This compound induces a state referred to as \"dissociative anesthesia\" when ingested and is therefore used as a recreational drug. 3-MeO-PCMo has recently become easily accessible  through online research chemical vendors where it is being sold as a designer drug.",
+  "description": "It is a dissociative NMDA receptor antagonist, sigma receptor agonist and anesthetic drug of the arylcyclohexylamine chemical class with a potency of less than 1/10th of that of 3-MeO-PCP. This compound induces a state referred to as \"dissociative anesthesia\" when ingested and is therefore used as a recreational drug. 3-MeO-PCMo has recently become easily accessible through online research chemical vendors where it is being sold as a designer drug.",
   "effects": {
     "positive": [
       "Physical euphoria"

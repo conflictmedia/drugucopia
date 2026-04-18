@@ -151,7 +151,7 @@ export const lsa: Substance =
     "LSA is considered to be non-addictive with a low abuse potential. There are no literature reports of successful attempts to train animals to self-administer LSA, an animal model predictive of abuse liability, indicating that it does not possess the necessary pharmacology to either initiate or maintain dependence. There is virtually no withdrawal syndrome when use is stopped.",
     "Tolerance to the effects of LSA forms almost immediately after ingestion. After that, it takes about 7 days for the tolerance to return to baseline (in the absence of further consumption). LSA produces cross-tolerance with all psychedelics, meaning that after the use of LSA all psychedelics will have a reduced effect.",
     "Selective serotonin reuptake inhibitors (SSRIs) - SSRIs are reported to suppress the visual and cognitive effects of LSA.",
-    "MAOIs - MAO inhibitors, such as passionflower and syrian rue potentiate the visual and introspective effects of psychedelics. It is advised to take caution when combining MAOIs with psychedelics because they can increase the chance of having a bad trip and may  with other substances, such as SSRIs and stimulants, as well as some psychedelics such as MDA."
+    "MAOIs - MAO inhibitors, such as passionflower and syrian rue potentiate the visual and introspective effects of psychedelics. It is advised to take caution when combining MAOIs with psychedelics because they can increase the chance of having a bad trip and may with other substances, such as SSRIs and stimulants, as well as some psychedelics such as MDA."
   ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {

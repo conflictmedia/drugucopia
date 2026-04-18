@@ -12,14 +12,13 @@ export const _1_3_butanediol: Substance =
   "id": "1-3-butanediol",
   "name": "1,3-Butanediol",
   "commonNames": [
-    "DMT",
-    "Dimethyltryptamine",
-    "Dmitri"
+    "1,3-Butanediol",
+    "1,3-BDO"
   ],
   "categories": [
-    "hallucinogens"
+    "depressants"
   ],
-  "class": "Substituted tryptamines",
+  "class": "1,3-Butanediol",
   "description": "1,3-Butanediol, not to be confused with 1,4-butanediol (a GHB prodrug), is a depressant substance and a prodrug for the ketone body beta-hydroxybutyrate (BHB). It occurs as a thick, colorless liquid or solid depending on storage temperature, and has a distinct bitter-sweet taste. The toxicity of 1,3-Butanediol in animals models is lower than that of alcohol, potentially owing to the formation of a less toxic aldehyde following dehydrogenation by alcohol dehydrogenase.",
   "effects": {
     "positive": [
@@ -85,7 +84,7 @@ export const _1_3_butanediol: Substance =
   "chemistry": {
     "formula": "Unknown",
     "molecularWeight": "Unknown",
-    "class": "Substituted tryptamines"
+    "class": "1,3-Butanediol"
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
