@@ -67,7 +67,7 @@ export function SharedNav() {
             onClick={() => setMobileMenuOpen(false)}
           >
             <Image
-              src="/logo.png"
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/logo.png`}
               alt="Drugucopia"
               width={32}
               height={32}
