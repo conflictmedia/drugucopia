@@ -390,38 +390,70 @@ function interpolateRange(min: number, max: number, weight: number): number {
 /**
  * Calculate dose-scaled phase timings.
  *
- * Unlike calculatePhaseTimings which averages ranges, this interpolates
- * peak and offset duration based on the dose's horizontalWeight (0–1).
- * Onset and comeup always use weight=0.5 (midpoint of range).
- * Peak and offset use the dose's weight, so heavier doses get longer peaks/offsets.
+ * Uses the total duration as the anchor timeline length. Each phase's range
+ * is interpreted as a proportion of the total, then scaled to fit within the
+ * total. This prevents unrealistic timelines where offset starts too early
+ * (e.g., LSD offset at 5hr when total is 8-12hr).
+ *
+ * For dose scaling: the total range is interpolated by horizontalWeight
+ * (heavier doses → longer total), and each phase is scaled proportionally.
+ * Onset and comeup always use the midpoint of their range.
  */
 export function calculateDoseScaledTimings(
   duration: Duration,
   horizontalWeight: number = 0.5,
 ): PhaseTimings {
+  // Parse all phase ranges
   const onsetRange = parseDurationRange(duration.onset)
   const comeupRange = parseDurationRange(duration.comeup)
   const peakRange = parseDurationRange(duration.peak)
   const offsetRange = parseDurationRange(duration.offset)
-  const afterglowRange = parseDurationRange((duration as Duration & { afterglow?: string }).afterglow ?? '')
   const totalRange = parseDurationRange(duration.total)
 
-  // Onset and comeup: use midpoint (weight=0.5) regardless of dose
-  const onsetMins = onsetRange ? interpolateRange(onsetRange.min, onsetRange.max, 0.5) : parseDurationToMinutes(duration.onset)
-  const comeupMins = comeupRange ? interpolateRange(comeupRange.min, comeupRange.max, 0.5) : parseDurationToMinutes(duration.comeup)
-
-  // Peak and offset: scale with dose weight
-  const peakMins = peakRange ? interpolateRange(peakRange.min, peakRange.max, horizontalWeight) : parseDurationToMinutes(duration.peak)
-  const offsetMins = offsetRange ? interpolateRange(offsetRange.min, offsetRange.max, horizontalWeight) : parseDurationToMinutes(duration.offset)
-  const afterglowMins = afterglowRange ? interpolateRange(afterglowRange.min, afterglowRange.max, 0.5) : parseDurationToMinutes((duration as Duration & { afterglow?: string }).afterglow ?? '')
-  const totalMins = totalRange ? interpolateRange(totalRange.min, totalRange.max, 0.5) : parseDurationToMinutes(duration.total)
-
-  // Fall back to the non-scaled calculation if range parsing failed
-  if (onsetMins > 0 && comeupMins > 0 && peakMins > 0 && offsetMins > 0) {
-    return buildTimings(onsetMins, comeupMins, peakMins, offsetMins, afterglowMins, totalMins)
+  // If we don't have a total range, fall back to the standard calculation
+  if (!totalRange || totalRange.min <= 0) {
+    return calculatePhaseTimings(duration)
   }
 
-  return calculatePhaseTimings(duration)
+  // Use the total range as the anchor — heavier doses get longer timelines
+  const totalMins = interpolateRange(totalRange.min, totalRange.max, horizontalWeight)
+
+  // Calculate each phase's midpoint duration (in minutes)
+  const onsetMins = onsetRange
+    ? interpolateRange(onsetRange.min, onsetRange.max, 0.5)
+    : parseDurationToMinutes(duration.onset)
+
+  const comeupMins = comeupRange
+    ? interpolateRange(comeupRange.min, comeupRange.max, 0.5)
+    : parseDurationToMinutes(duration.comeup)
+
+  const peakMins = peakRange
+    ? interpolateRange(peakRange.min, peakRange.max, 0.5)
+    : parseDurationToMinutes(duration.peak)
+
+  const offsetMins = offsetRange
+    ? interpolateRange(offsetRange.min, offsetRange.max, 0.5)
+    : parseDurationToMinutes(duration.offset)
+
+  // Require at least onset + comeup + peak + offset to distribute
+  if (onsetMins <= 0 || comeupMins <= 0 || peakMins <= 0 || offsetMins <= 0) {
+    return calculatePhaseTimings(duration)
+  }
+
+  // Calculate the proportional share of each phase relative to their sum
+  const phaseSum = onsetMins + comeupMins + peakMins + offsetMins
+
+  // Scale each phase so they sum to totalMins
+  const finalOnset  = Math.max(onsetMins * (totalMins / phaseSum), 0.01)
+  const finalComeup = Math.max(comeupMins * (totalMins / phaseSum), 0.01)
+  const finalPeak   = Math.max(peakMins * (totalMins / phaseSum), 0.01)
+  const finalOffset = Math.max(offsetMins * (totalMins / phaseSum), 0.01)
+
+  // Afterglow (if present) is parsed separately — not scaled into the main timeline
+  const afterglowStr = (duration as Duration & { afterglow?: string }).afterglow ?? ''
+  const afterglowMins = parseDurationToMinutes(afterglowStr)
+
+  return buildTimings(finalOnset, finalComeup, finalPeak, finalOffset, afterglowMins)
 }
 
 /* ================================================================== */
