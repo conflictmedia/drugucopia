@@ -595,7 +595,7 @@ export function DoseHistory() {
     return (
       <Card>
         <CardContent className="flex justify-center py-8">
-          <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
+          <Loader2 className="h-6 w-6 animate-spin text-neutral-content" />
         </CardContent>
       </Card>
     )
@@ -910,7 +910,7 @@ export function DoseHistory() {
               size="sm"
               onClick={openDeleteAllDialog}
               disabled={doses.length === 0}
-              className="text-destructive hover:text-destructive hover:bg-destructive/10 border-destructive/30"
+              className="text-error hover:text-error hover:bg-error/10 border-error/30"
             >
               <Trash2 className="mr-2 h-4 w-4" />
               Delete All
@@ -951,9 +951,9 @@ export function DoseHistory() {
         {/* Sync panel */}
         {showSyncPanel && (
           <div className="px-6 pb-4">
-            <div className="bg-muted p-4 rounded-lg border">
+            <div className="bg-base-200 p-4 rounded-lg border">
               <div className="flex items-center gap-2 mb-3">
-                <Lock className="h-4 w-4 text-muted-foreground" />
+                <Lock className="h-4 w-4 text-neutral-content" />
                 <h4 className="text-sm font-semibold">End-to-End Encrypted Sync</h4>
               </div>
               {syncStatus === 'synced' ? (
@@ -966,8 +966,8 @@ export function DoseHistory() {
                 </div>
               ) : (
                 <div className="flex flex-col sm:flex-row gap-2">
-                  <Input placeholder="Room Name" value={roomId} onChange={(e) => setRoomId(e.target.value)} className="bg-background" />
-                  <Input type="password" placeholder="Secret Password" value={password} onChange={(e) => setPassword(e.target.value)} className="bg-background" />
+                  <Input placeholder="Room Name" value={roomId} onChange={(e) => setRoomId(e.target.value)} className="bg-base-100" />
+                  <Input type="password" placeholder="Secret Password" value={password} onChange={(e) => setPassword(e.target.value)} className="bg-base-100" />
                   <Button
                     onClick={() => connectToSync()}
                     disabled={syncStatus === 'connecting' || !roomId || !password}
@@ -985,7 +985,7 @@ export function DoseHistory() {
         <CardContent>
           {doses.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-8 text-center opacity-50">
-              <Calendar className="h-12 w-12 text-muted-foreground mb-4" />
+              <Calendar className="h-12 w-12 text-neutral-content mb-4" />
               <h3 className="text-lg font-medium mb-2">No doses logged yet</h3>
             </div>
           ) : (
@@ -993,7 +993,7 @@ export function DoseHistory() {
               {Object.entries(groupedDoses).map(([dateGroup, groupDoses]) => {
                 return (
                   <div key={dateGroup} className="mb-6">
-                    <h4 className="text-sm font-medium text-muted-foreground mb-3 sticky top-0 bg-background py-1 z-10 text-center">
+                    <h4 className="text-sm font-medium text-neutral-content mb-3 sticky top-0 bg-base-100 py-1 z-10 text-center">
                       {dateGroup}
                     </h4>
                     <div className="space-y-3">
@@ -1002,7 +1002,7 @@ export function DoseHistory() {
                         const knownSubstance = substances.find(s => s.id === dose.substanceId || s.name.toLowerCase() === dose.substanceName.toLowerCase())
 
                         return (
-                          <div key={dose.id} className="rounded-lg border p-3 hover:bg-muted/50 transition-colors">
+                          <div key={dose.id} className="rounded-lg border p-3 hover:bg-base-200/50 transition-colors">
                             <div className="flex items-start justify-between gap-2">
                               <div className="flex-1 min-w-0">
                                 <div className="flex items-center gap-2 flex-wrap">
@@ -1017,7 +1017,7 @@ export function DoseHistory() {
                                     <Badge key={cat} variant="outline" className={getCategoryColor(cat)}>{cat}</Badge>
                                   ))}
                                 </div>
-                                <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 mt-1.5 text-sm text-muted-foreground">
+                                <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 mt-1.5 text-sm text-neutral-content">
                                   <span className="flex items-center gap-1">
                                     <Droplets className="h-3 w-3 shrink-0" />
                                     {(() => {
@@ -1038,7 +1038,7 @@ export function DoseHistory() {
                                 <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => handleRedose(dose)} disabled={redosing === dose.id}>
                                   {redosing === dose.id ? <Loader2 className="animate-spin h-4 w-4" /> : <RotateCcw className="h-4 w-4" />}
                                 </Button>
-                                <Button variant="ghost" size="icon" className="h-8 w-8 text-destructive" onClick={() => handleDelete(dose.id)} disabled={deleting === dose.id}>
+                                <Button variant="ghost" size="icon" className="h-8 w-8 text-error" onClick={() => handleDelete(dose.id)} disabled={deleting === dose.id}>
                                   {deleting === dose.id ? <Loader2 className="animate-spin h-4 w-4" /> : <Trash2 className="h-4 w-4" />}
                                 </Button>
                               </div>
@@ -1081,21 +1081,21 @@ export function DoseHistory() {
             <div className="space-y-4 py-2">
               {/* Summary counts */}
               <div className="grid grid-cols-3 gap-3 text-center">
-                <div className="rounded-lg border bg-muted/40 p-3">
+                <div className="rounded-lg border bg-base-200/40 p-3">
                   <p className="text-2xl font-bold">{importPreview.doses.length}</p>
-                  <p className="text-xs text-muted-foreground mt-1">Total</p>
+                  <p className="text-xs text-neutral-content mt-1">Total</p>
                 </div>
                 <div className="rounded-lg border bg-green-500/10 border-green-500/20 p-3">
                   <p className="text-2xl font-bold text-green-600 dark:text-green-400">
                     {importPreview.newCount}
                   </p>
-                  <p className="text-xs text-muted-foreground mt-1">New</p>
+                  <p className="text-xs text-neutral-content mt-1">New</p>
                 </div>
-                <div className={`rounded-lg border p-3 ${importPreview.duplicateCount > 0 ? 'bg-amber-500/10 border-amber-500/20' : 'bg-muted/40'}`}>
+                <div className={`rounded-lg border p-3 ${importPreview.duplicateCount > 0 ? 'bg-amber-500/10 border-amber-500/20' : 'bg-base-200/40'}`}>
                   <p className={`text-2xl font-bold ${importPreview.duplicateCount > 0 ? 'text-amber-600 dark:text-amber-400' : ''}`}>
                     {importPreview.duplicateCount}
                   </p>
-                  <p className="text-xs text-muted-foreground mt-1">Duplicates</p>
+                  <p className="text-xs text-neutral-content mt-1">Duplicates</p>
                 </div>
               </div>
 
@@ -1151,7 +1151,7 @@ export function DoseHistory() {
       <Dialog open={showDeleteAllDialog} onOpenChange={(open) => !open && setShowDeleteAllDialog(false)}>
         <DialogContent className="max-w-md">
           <DialogHeader>
-            <DialogTitle className="flex items-center gap-2 text-destructive">
+            <DialogTitle className="flex items-center gap-2 text-error">
               <AlertTriangle className="h-5 w-5" />
               Delete All Doses
             </DialogTitle>
@@ -1162,14 +1162,14 @@ export function DoseHistory() {
 
           <div className="space-y-4 py-2">
             {/* Warning box */}
-            <div className="rounded-lg border border-destructive/30 bg-destructive/10 p-4">
+            <div className="rounded-lg border border-error/30 bg-error/10 p-4">
               <div className="flex gap-3">
-                <Trash2 className="h-5 w-5 text-destructive shrink-0 mt-0.5" />
+                <Trash2 className="h-5 w-5 text-error shrink-0 mt-0.5" />
                 <div className="space-y-2">
-                  <p className="text-sm font-medium text-destructive">
+                  <p className="text-sm font-medium text-error">
                     You are about to delete all your dose history
                   </p>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-neutral-content">
                     This will permanently remove {doses.length} dose log{doses.length !== 1 ? 's' : ''} from your history.
                     Consider exporting your data first if you want to keep a backup.
                   </p>
@@ -1180,7 +1180,7 @@ export function DoseHistory() {
             {/* Confirmation input */}
             <div className="space-y-2">
               <label htmlFor="delete-confirm" className="text-sm font-medium">
-                Type <span className="font-mono font-bold text-destructive">DELETE</span> to confirm
+                Type <span className="font-mono font-bold text-error">DELETE</span> to confirm
               </label>
               <Input
                 id="delete-confirm"

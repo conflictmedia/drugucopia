@@ -80,7 +80,7 @@ function DropdownMenuContent({
   return (
     <div
       className={cn(
-        "dropdown-content z-50 min-w-[8rem] overflow-hidden rounded-md border border-border bg-popover p-1 shadow-md",
+        "dropdown-content z-50 min-w-[8rem] overflow-hidden rounded-md border border-base-300 bg-base-100 p-1 shadow-md",
         align === "end" && "right-0",
         align === "start" && "left-0",
         className
@@ -88,7 +88,7 @@ function DropdownMenuContent({
       style={{ top: `${sideOffset + 100}%` }}
       {...props}
     >
-      <ul className="menu bg-popover text-popover-foreground p-0 rounded-md [&_li>a]:rounded-sm [&_li>a]:text-sm [&_li>a]:flex [&_li>a]:items-center [&_li>a]:gap-2 [&_li>a]:px-2 [&_li>a]:py-1.5 [&_li>a]:cursor-pointer [&_li>a]:hover:bg-accent [&_li>a]:hover:text-accent-foreground">
+      <ul className="menu bg-base-100 text-base-content p-0 rounded-md [&_li>a]:rounded-sm [&_li>a]:text-sm [&_li>a]:flex [&_li>a]:items-center [&_li>a]:gap-2 [&_li>a]:px-2 [&_li>a]:py-1.5 [&_li>a]:cursor-pointer [&_li>a]:hover:bg-base-200 [&_li>a]:hover:text-base-content">
         {children}
       </ul>
     </div>

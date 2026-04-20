@@ -89,7 +89,7 @@ export function InteractionPairCard({ result }: InteractionPairCardProps) {
               <Badge variant="outline" className="font-medium text-sm">
                 {result.substanceA}
               </Badge>
-              <span className="text-muted-foreground font-bold text-xs">&times;</span>
+              <span className="text-neutral-content font-bold text-xs">&times;</span>
               <Badge variant="outline" className="font-medium text-sm">
                 {result.substanceB}
               </Badge>
@@ -97,7 +97,7 @@ export function InteractionPairCard({ result }: InteractionPairCardProps) {
 
             {/* Description */}
             {result.description && (
-              <p className="text-sm text-muted-foreground leading-relaxed mb-2">
+              <p className="text-sm text-neutral-content leading-relaxed mb-2">
                 {result.description}
               </p>
             )}
@@ -105,7 +105,7 @@ export function InteractionPairCard({ result }: InteractionPairCardProps) {
             {/* Matched interaction terms */}
             {result.matchedTerms.length > 0 && (
               <div className="flex flex-wrap items-center gap-1.5 mb-2">
-                <span className="text-xs text-muted-foreground">Matched:</span>
+                <span className="text-xs text-neutral-content">Matched:</span>
                 {result.matchedTerms.map((term, i) => (
                   <Badge key={i} variant="secondary" className="text-xs">
                     {term}
@@ -117,17 +117,17 @@ export function InteractionPairCard({ result }: InteractionPairCardProps) {
             {/* Academic sources (collapsible — shows all when expanded) */}
             {result.tripsitSources && result.tripsitSources.length > 0 && (
               <details className="mb-2 group">
-                <summary className="text-xs text-muted-foreground cursor-pointer hover:text-foreground transition-colors select-none">
+                <summary className="text-xs text-neutral-content cursor-pointer hover:text-base-content transition-colors select-none">
                   {result.tripsitSources.length} source{result.tripsitSources.length !== 1 ? 's' : ''}
                 </summary>
                 <ul className="mt-1 space-y-1">
                   {result.tripsitSources.map((src, i) => (
-                    <li key={i} className="text-xs text-muted-foreground">
+                    <li key={i} className="text-xs text-neutral-content">
                       <a
                         href={src.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-foreground underline decoration-muted-foreground/30 hover:decoration-foreground/50 transition-colors"
+                        className="hover:text-base-content underline decoration-neutral-content/30 hover:decoration-base-content/50 transition-colors"
                       >
                         {src.title}
                       </a>

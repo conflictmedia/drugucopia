@@ -69,7 +69,7 @@ function InteractionsPageInner() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="min-h-screen bg-base-100 flex flex-col">
       {/* ── Desktop Content ── */}
       <div className="hidden md:block container mx-auto py-6 lg:py-10 max-w-5xl">
         {/* Hero */}
@@ -80,7 +80,7 @@ function InteractionsPageInner() {
             </div>
             <div>
               <h2 className="text-3xl font-bold tracking-tight gradient-text">Interaction Checker</h2>
-              <p className="text-muted-foreground mt-1">
+              <p className="text-neutral-content mt-1">
                 Check for drug interactions. Select one substance to see all known
                 interactions, or select two or more to check pairwise combinations
                 and cross-tolerance information.
@@ -98,7 +98,7 @@ function InteractionsPageInner() {
             <div className="sticky top-20">
               <div className="flex items-center gap-2 mb-3">
                 <Users className="h-4 w-4 text-primary" />
-                <h3 className="font-semibold text-foreground">Substances</h3>
+                <h3 className="font-semibold text-base-content">Substances</h3>
               </div>
               <InteractionSubstanceSelector
                 selectedIds={selectedIds}
@@ -107,7 +107,7 @@ function InteractionsPageInner() {
 
               {/* Quick-add popular combos */}
               <div className="mt-6">
-                <p className="text-xs text-muted-foreground mb-2 font-medium">Quick check:</p>
+                <p className="text-xs text-neutral-content mb-2 font-medium">Quick check:</p>
                 <div className="flex flex-wrap gap-1.5">
                   <QuickCombo
                     label="Alcohol + MDMA"
@@ -152,14 +152,14 @@ function InteractionsPageInner() {
       {/* ── Mobile Content ── */}
       <div className="md:hidden flex-1 overflow-y-auto pb-8">
         {/* Hero */}
-        <div className="px-4 pt-4 pb-3 border-b border-border">
+        <div className="px-4 pt-4 pb-3 border-b border-base-300">
           <div className="flex items-center gap-3 mb-2">
             <div className="p-2.5 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/10">
               <Shuffle className="h-6 w-6 text-primary" />
             </div>
             <div>
               <h2 className="text-xl font-bold gradient-text">Interaction Checker</h2>
-              <p className="text-xs text-muted-foreground mt-0.5">
+              <p className="text-xs text-neutral-content mt-0.5">
                 Check interactions for one or more substances
               </p>
             </div>
@@ -167,7 +167,7 @@ function InteractionsPageInner() {
         </div>
 
         {/* Selector */}
-        <section className="px-4 py-4 border-b border-border">
+        <section className="px-4 py-4 border-b border-base-300">
           <div className="flex items-center gap-2 mb-3">
             <Users className="h-4 w-4 text-primary" />
             <h3 className="text-sm font-semibold">Substances</h3>
@@ -179,7 +179,7 @@ function InteractionsPageInner() {
 
           {/* Quick combos */}
           <div className="mt-4">
-            <p className="text-xs text-muted-foreground mb-2 font-medium">Quick check:</p>
+            <p className="text-xs text-neutral-content mb-2 font-medium">Quick check:</p>
             <div className="flex flex-wrap gap-1.5">
               <QuickCombo
                 label="Alcohol + MDMA"
@@ -227,8 +227,8 @@ function QuickCombo({
     <button
       onClick={() => onClick(ids)}
       className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium
-        bg-muted/50 hover:bg-muted border border-border hover:border-primary/30
-        transition-all text-muted-foreground hover:text-foreground card-lift"
+        bg-base-200/50 hover:bg-base-200 border border-base-300 hover:border-primary/30
+        transition-all text-neutral-content hover:text-base-content card-lift"
     >
       <Zap className="h-3 w-3" />
       {label}

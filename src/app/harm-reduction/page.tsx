@@ -110,7 +110,7 @@ function EmergencyCard({ resource }: { resource: typeof emergencyResources[0] })
           <div className="min-w-0 flex-1">
             <p className="font-semibold text-sm">{resource.name}</p>
             <p className="text-lg font-mono font-bold text-red-400 mt-1">{resource.number}</p>
-            <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{resource.description}</p>
+            <p className="text-xs text-neutral-content mt-1 leading-relaxed">{resource.description}</p>
           </div>
         </div>
       </CardContent>
@@ -127,7 +127,7 @@ function PrincipleChip({ principle }: { principle: typeof quickPrinciples[0] }) 
       </div>
       <div className="min-w-0">
         <p className="font-semibold text-sm">{principle.title}</p>
-        <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">{principle.description}</p>
+        <p className="text-xs text-neutral-content mt-0.5 leading-relaxed">{principle.description}</p>
       </div>
     </Card>
   )
@@ -138,7 +138,7 @@ function InteractionRow({ interaction }: { interaction: DangerousInteraction }) 
   const riskLabel = riskLabels[interaction.risk] || interaction.risk.toUpperCase()
 
   return (
-    <div className="flex items-start gap-3 p-3 rounded-xl border border-border bg-card hover:bg-muted/30 transition-all card-lift">
+    <div className="flex items-start gap-3 p-3 rounded-xl border border-base-300 bg-base-100 hover:bg-base-200/30 transition-all card-lift">
       <div className="flex items-center gap-2 shrink-0 mt-0.5">
         <AlertTriangle className="h-4 w-4 text-red-400" />
       </div>
@@ -147,7 +147,7 @@ function InteractionRow({ interaction }: { interaction: DangerousInteraction }) 
           {interaction.substances.map((sub, i) => (
             <React.Fragment key={i}>
               {i > 0 && (
-                <span className="text-muted-foreground text-xs font-bold">+</span>
+                <span className="text-neutral-content text-xs font-bold">+</span>
               )}
               <Badge variant="outline" className="text-xs font-medium">
                 {sub}
@@ -155,7 +155,7 @@ function InteractionRow({ interaction }: { interaction: DangerousInteraction }) 
             </React.Fragment>
           ))}
         </div>
-        <p className="text-xs text-muted-foreground leading-relaxed">{interaction.description}</p>
+        <p className="text-xs text-neutral-content leading-relaxed">{interaction.description}</p>
         <div className="flex flex-wrap gap-1 mt-2">
           {interaction.category.map((cat) => (
             <Badge key={cat} variant="outline" className={`text-[10px] ${categoryColors[cat] || ''}`}>
@@ -177,7 +177,7 @@ export default function HarmReductionPage() {
   const router = useRouter()
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="min-h-screen bg-base-100 flex flex-col">
       {/* ── Desktop Content ── */}
       <div className="hidden md:block container mx-auto py-6 lg:py-10 max-w-5xl">
         {/* Hero */}
@@ -188,7 +188,7 @@ export default function HarmReductionPage() {
             </div>
             <div>
               <h2 className="text-3xl font-bold tracking-tight gradient-text">Harm Reduction Resources</h2>
-              <p className="text-muted-foreground mt-1">
+              <p className="text-neutral-content mt-1">
                 Comprehensive harm reduction information to help you stay safe.
                 Evidence-based, non-judgmental, and focused on reducing harm.
               </p>
@@ -240,8 +240,8 @@ export default function HarmReductionPage() {
                   <AccordionItem key={guide.id} value={guide.id}>
                     <AccordionTrigger className="px-4 hover:no-underline">
                       <div className="flex items-center gap-3">
-                        <div className="p-1.5 rounded-md bg-muted shrink-0">
-                          <GuideIcon className="h-4 w-4 text-muted-foreground" />
+                        <div className="p-1.5 rounded-md bg-base-200 shrink-0">
+                          <GuideIcon className="h-4 w-4 text-neutral-content" />
                         </div>
                         <span className="font-medium">{guide.title}</span>
                         <Badge
@@ -258,11 +258,11 @@ export default function HarmReductionPage() {
                           // Handle bold text
                           const parts = paragraph.split(/(\*\*[^*]+\*\*)/g)
                           return (
-                            <p key={i} className="text-sm text-muted-foreground leading-relaxed mb-3 last:mb-0">
+                            <p key={i} className="text-sm text-neutral-content leading-relaxed mb-3 last:mb-0">
                               {parts.map((part, j) => {
                                 if (part.startsWith('**') && part.endsWith('**')) {
                                   return (
-                                    <strong key={j} className="text-foreground font-semibold">
+                                    <strong key={j} className="text-base-content font-semibold">
                                       {part.slice(2, -2)}
                                     </strong>
                                   )
@@ -333,9 +333,9 @@ export default function HarmReductionPage() {
                       <div className="min-w-0">
                         <p className="font-semibold text-sm flex items-center gap-1.5">
                           {resource.name}
-                          <ExternalLink className="h-3 w-3 text-muted-foreground shrink-0" />
+                          <ExternalLink className="h-3 w-3 text-neutral-content shrink-0" />
                         </p>
-                        <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
+                        <p className="text-xs text-neutral-content mt-1 leading-relaxed">
                           {resource.description}
                         </p>
                       </div>
@@ -357,7 +357,7 @@ export default function HarmReductionPage() {
                 <AlertTriangle className="h-5 w-5 text-yellow-500 mt-0.5 shrink-0" />
                 <div>
                   <p className="font-semibold text-sm mb-1">Disclaimer</p>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
+                  <p className="text-xs text-neutral-content leading-relaxed">
                     This information is provided for educational and harm reduction purposes only. 
                     It is not medical advice, and should not replace professional medical guidance. 
                     Drugucopia does not encourage or condone the use of illegal substances. 
@@ -378,14 +378,14 @@ export default function HarmReductionPage() {
       {/* ── Mobile Content ── */}
       <div className="md:hidden flex-1 overflow-y-auto pb-8">
         {/* Hero */}
-        <div className="px-4 pt-4 pb-3 border-b border-border">
+        <div className="px-4 pt-4 pb-3 border-b border-base-300">
           <div className="flex items-center gap-3 mb-2">
             <div className="p-2.5 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/10">
               <Shield className="h-6 w-6 text-primary" />
             </div>
             <div>
               <h2 className="text-xl font-bold gradient-text">Harm Reduction Resources</h2>
-              <p className="text-xs text-muted-foreground mt-0.5">
+              <p className="text-xs text-neutral-content mt-0.5">
                 Comprehensive harm reduction info to keep you safe.
               </p>
             </div>
@@ -393,7 +393,7 @@ export default function HarmReductionPage() {
         </div>
 
         {/* Emergency Resources */}
-        <section className="px-4 py-4 border-b border-border">
+        <section className="px-4 py-4 border-b border-base-300">
           <div className="flex items-center gap-2 mb-3">
             <AlertTriangle className="h-4 w-4 text-red-400" />
             <h3 className="text-sm font-semibold">Emergency Contacts</h3>
@@ -406,7 +406,7 @@ export default function HarmReductionPage() {
         </section>
 
         {/* Quick Principles */}
-        <section className="py-4 border-b border-border">
+        <section className="py-4 border-b border-base-300">
           <div className="flex items-center gap-2 px-4 mb-3">
             <Shield className="h-4 w-4 text-primary" />
             <h3 className="text-sm font-semibold">Quick Principles</h3>
@@ -417,13 +417,13 @@ export default function HarmReductionPage() {
               return (
                 <div
                   key={principle.id}
-                  className="flex-shrink-0 w-40 p-3 rounded-xl border border-border bg-card card-lift"
+                  className="flex-shrink-0 w-40 p-3 rounded-xl border border-base-300 bg-base-100 card-lift"
                 >
                   <div className="p-1.5 rounded-md bg-primary/10 w-fit mb-2">
                     <Icon className="h-3.5 w-3.5 text-primary" />
                   </div>
                   <p className="text-xs font-semibold mb-0.5">{principle.title}</p>
-                  <p className="text-[10px] text-muted-foreground leading-relaxed">{principle.description}</p>
+                  <p className="text-[10px] text-neutral-content leading-relaxed">{principle.description}</p>
                 </div>
               )
             })}
@@ -431,7 +431,7 @@ export default function HarmReductionPage() {
         </section>
 
         {/* Harm Reduction Guides */}
-        <section className="py-4 border-b border-border">
+        <section className="py-4 border-b border-base-300">
           <div className="flex items-center gap-2 px-4 mb-3">
             <BookOpen className="h-4 w-4 text-primary" />
             <h3 className="text-sm font-semibold">Guides</h3>
@@ -444,8 +444,8 @@ export default function HarmReductionPage() {
                   <AccordionItem key={guide.id} value={guide.id}>
                     <AccordionTrigger className="px-4 py-3 hover:no-underline">
                       <div className="flex items-center gap-2.5 min-w-0">
-                        <div className="p-1 rounded-md bg-muted shrink-0">
-                          <GuideIcon className="h-3.5 w-3.5 text-muted-foreground" />
+                        <div className="p-1 rounded-md bg-base-200 shrink-0">
+                          <GuideIcon className="h-3.5 w-3.5 text-neutral-content" />
                         </div>
                         <span className="text-sm font-medium truncate">{guide.title}</span>
                         <Badge
@@ -461,11 +461,11 @@ export default function HarmReductionPage() {
                         {guide.content.split('\n\n').map((paragraph, i) => {
                           const parts = paragraph.split(/(\*\*[^*]+\*\*)/g)
                           return (
-                            <p key={i} className="text-xs text-muted-foreground leading-relaxed mb-2 last:mb-0">
+                            <p key={i} className="text-xs text-neutral-content leading-relaxed mb-2 last:mb-0">
                               {parts.map((part, j) => {
                                 if (part.startsWith('**') && part.endsWith('**')) {
                                   return (
-                                    <strong key={j} className="text-foreground font-semibold text-xs">
+                                    <strong key={j} className="text-base-content font-semibold text-xs">
                                       {part.slice(2, -2)}
                                     </strong>
                                   )
@@ -485,7 +485,7 @@ export default function HarmReductionPage() {
         </section>
 
         {/* Dangerous Interactions */}
-        <section className="py-4 border-b border-border">
+        <section className="py-4 border-b border-base-300">
           <div className="flex items-center gap-2 px-4 mb-3">
             <AlertTriangle className="h-4 w-4 text-red-400" />
             <h3 className="text-sm font-semibold">Dangerous Interactions</h3>
@@ -498,7 +498,7 @@ export default function HarmReductionPage() {
         </section>
 
         {/* External Resources */}
-        <section className="py-4 border-b border-border">
+        <section className="py-4 border-b border-base-300">
           <div className="flex items-center gap-2 px-4 mb-3">
             <ExternalLink className="h-4 w-4 text-primary" />
             <h3 className="text-sm font-semibold">Resources</h3>
@@ -516,9 +516,9 @@ export default function HarmReductionPage() {
                   <CardContent className="p-3">
                     <p className="text-sm font-semibold flex items-center gap-1.5">
                       {resource.name}
-                      <ExternalLink className="h-3 w-3 text-muted-foreground shrink-0" />
+                      <ExternalLink className="h-3 w-3 text-neutral-content shrink-0" />
                     </p>
-                    <p className="text-[11px] text-muted-foreground mt-0.5 leading-relaxed line-clamp-2">
+                    <p className="text-[11px] text-neutral-content mt-0.5 leading-relaxed line-clamp-2">
                       {resource.description}
                     </p>
                   </CardContent>
@@ -536,7 +536,7 @@ export default function HarmReductionPage() {
                 <AlertTriangle className="h-4 w-4 text-yellow-500 mt-0.5 shrink-0" />
                 <div>
                   <p className="text-xs font-semibold mb-1">Disclaimer</p>
-                  <p className="text-[10px] text-muted-foreground leading-relaxed">
+                  <p className="text-[10px] text-neutral-content leading-relaxed">
                     This information is for educational and harm reduction purposes only. 
                     Not medical advice. Drugucopia does not encourage illegal substance use. 
                     Always consult healthcare professionals for medical guidance. If you or 

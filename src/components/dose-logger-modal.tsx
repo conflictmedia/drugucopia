@@ -1059,7 +1059,7 @@ export function DoseLoggerModal({
                 onChange={handleQuickInputChange}
                 className="text-base"
               />
-              <p className="text-xs text-muted-foreground">
+              <p className="text-xs text-neutral-content">
                 Type substance + amount + unit (+ optional route). Supports math: &quot;5 pills * 10mg THC&quot; or &quot;2 tabs * 100ug LSD&quot;
               </p>
             </div>
@@ -1089,7 +1089,7 @@ export function DoseLoggerModal({
 
             {/* ── Divider when quick input has content ───────────────────── */}
             {quickInput && (substanceName || amount) && (
-              <div className="flex items-center gap-2 text-xs text-muted-foreground">
+              <div className="flex items-center gap-2 text-xs text-neutral-content">
                 <div className="h-px flex-1 bg-border" />
                 <span>Auto-filled from quick input</span>
                 <div className="h-px flex-1 bg-border" />
@@ -1105,11 +1105,11 @@ export function DoseLoggerModal({
                 placeholder="Select from list or type custom..."
                 allowCustom={true}
               />
-              <p className="text-xs text-muted-foreground">Select from list or type a custom substance</p>
+              <p className="text-xs text-neutral-content">Select from list or type a custom substance</p>
             </div>
 
             {interactingSubstances.length > 0 && (
-              <Alert variant="destructive" className="bg-destructive/10 text-destructive border-destructive/20">
+              <Alert variant="destructive" className="bg-error/10 text-error border-error/20">
                 <AlertTriangle className="h-4 w-4" />
                 <AlertTitle>Potential Interaction Warning</AlertTitle>
                 <AlertDescription>
@@ -1130,7 +1130,7 @@ export function DoseLoggerModal({
                   value={amount}
                   onChange={handleAmountChange}
                 />
-                <p className="text-xs text-muted-foreground">Type a unit after the amount (e.g. &quot;5 mg&quot;, &quot;100μg&quot;) to auto-select it</p>
+                <p className="text-xs text-neutral-content">Type a unit after the amount (e.g. &quot;5 mg&quot;, &quot;100μg&quot;) to auto-select it</p>
               </div>
               <div className="grid gap-2">
                 <Label>Unit</Label>
@@ -1155,7 +1155,7 @@ export function DoseLoggerModal({
                 placeholder="Select or type custom..."
                 allowCustom
               />
-              <p className="text-xs text-muted-foreground">Type a custom route if needed</p>
+              <p className="text-xs text-neutral-content">Type a custom route if needed</p>
             </div>
 
             <div className="grid gap-2">
@@ -1168,7 +1168,7 @@ export function DoseLoggerModal({
             </div>
 
             {/* ── Duration section ─────────────────────────────────────── */}
-            <div className="grid gap-2 rounded-lg border border-border/60 bg-muted/20 p-3">
+            <div className="grid gap-2 rounded-lg border border-base-300/60 bg-base-200/20 p-3">
               <DurationOverrideFields
                 baseDuration={estimatedDuration}
                 onChange={setDurationOverride}

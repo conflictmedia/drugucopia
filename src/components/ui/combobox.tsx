@@ -74,7 +74,7 @@ export function Combobox({
         }}
         className={cn(
           'btn btn-outline w-full justify-between font-normal h-10',
-          !value && 'text-muted-foreground'
+          !value && 'text-neutral-content'
         )}
       >
         <span className="truncate">{displayValue || placeholder}</span>
@@ -83,9 +83,9 @@ export function Combobox({
 
       {/* Dropdown */}
       {open && (
-        <div className="absolute z-50 mt-1 w-full rounded-md border border-border bg-popover shadow-md">
+        <div className="absolute z-50 mt-1 w-full rounded-md border border-base-300 bg-base-100 shadow-md">
           {/* Search input */}
-          <div className="p-2 border-b border-border">
+          <div className="p-2 border-b border-base-300">
             <input
               ref={inputRef}
               type="text"
@@ -112,7 +112,7 @@ export function Combobox({
                   Use &quot;{search}&quot;
                 </button>
               ) : (
-                <div className="py-6 text-center text-sm text-muted-foreground">
+                <div className="py-6 text-center text-sm text-neutral-content">
                   {emptyText}
                 </div>
               )
@@ -127,8 +127,8 @@ export function Combobox({
                     setSearch('')
                   }}
                   className={cn(
-                    'flex w-full items-center gap-2 rounded-sm px-2 py-1.5 text-sm cursor-pointer hover:bg-accent hover:text-accent-foreground transition-colors',
-                    value === option.value && 'bg-accent'
+                    'flex w-full items-center gap-2 rounded-sm px-2 py-1.5 text-sm cursor-pointer hover:bg-base-200 hover:text-base-content transition-colors',
+                    value === option.value && 'bg-primary/10'
                   )}
                 >
                   <Check

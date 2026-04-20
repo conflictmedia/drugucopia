@@ -30,11 +30,11 @@ export function InteractionResults({
   if (selectedCount === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-16 text-center">
-        <div className="p-4 rounded-2xl bg-muted/50 mb-4">
-          <Shuffle className="h-8 w-8 text-muted-foreground" />
+        <div className="p-4 rounded-2xl bg-base-200/50 mb-4">
+          <Shuffle className="h-8 w-8 text-neutral-content" />
         </div>
         <h3 className="text-lg font-semibold mb-1">Select Substances</h3>
-        <p className="text-sm text-muted-foreground max-w-sm">
+        <p className="text-sm text-neutral-content max-w-sm">
           Choose one or more substances to check for interactions. Selecting a single substance
           will show all known interactions for it; selecting two or more will check pairwise
           combinations and cross-tolerances.
@@ -46,11 +46,11 @@ export function InteractionResults({
   if (isLoading) {
     return (
       <div className="flex flex-col items-center justify-center py-16">
-        <div className="p-4 rounded-2xl bg-muted/50 mb-4 animate-pulse">
-          <Shuffle className="h-8 w-8 text-muted-foreground" />
+        <div className="p-4 rounded-2xl bg-base-200/50 mb-4 animate-pulse">
+          <Shuffle className="h-8 w-8 text-neutral-content" />
         </div>
         <h3 className="text-lg font-semibold mb-1">Analyzing interactions...</h3>
-        <p className="text-sm text-muted-foreground">Checking all substance pairs</p>
+        <p className="text-sm text-neutral-content">Checking all substance pairs</p>
       </div>
     )
   }
@@ -64,7 +64,7 @@ export function InteractionResults({
           <CheckCircle2 className="h-8 w-8 text-green-500" />
         </div>
         <h3 className="text-lg font-semibold mb-1">No Known Interactions</h3>
-        <p className="text-sm text-muted-foreground max-w-sm">
+        <p className="text-sm text-neutral-content max-w-sm">
           No documented interactions were found between the selected substances. This does
           not guarantee safety — always do your own research and consult professionals.
         </p>
@@ -126,7 +126,7 @@ export function InteractionResults({
               {result.summary.lowRisk} Low Risk
             </Badge>
           )}
-          <Badge variant="outline" className="text-muted-foreground">
+          <Badge variant="outline" className="text-neutral-content">
             {result.summary.total} total
           </Badge>
         </div>
@@ -233,11 +233,11 @@ export function InteractionResults({
                       <Badge variant="secondary" className="font-medium text-xs capitalize">
                         {ct.tolerance}
                       </Badge>
-                      <span className="text-xs text-muted-foreground">shared by</span>
+                      <span className="text-xs text-neutral-content">shared by</span>
                       {ct.substances.map((sub, j) => (
                         <span key={j} className="flex items-center gap-1">
                           {j > 0 && (
-                            <span className="text-muted-foreground text-xs">&bull;</span>
+                            <span className="text-neutral-content text-xs">&bull;</span>
                           )}
                           <Badge variant="outline" className="text-xs">
                             {sub}
@@ -249,7 +249,7 @@ export function InteractionResults({
                 </Card>
               ))}
             </div>
-            <p className="text-xs text-muted-foreground mt-2 leading-relaxed">
+            <p className="text-xs text-neutral-content mt-2 leading-relaxed">
               Cross-tolerance means that tolerance to one substance may reduce the effects of
               another substance in the same class. This can lead to taking higher doses than
               intended.
@@ -266,7 +266,7 @@ export function InteractionResults({
             <AlertTriangle className="h-4 w-4 text-yellow-500 mt-0.5 shrink-0" />
             <div>
               <p className="text-xs font-semibold mb-1">Disclaimer</p>
-              <p className="text-[11px] text-muted-foreground leading-relaxed">
+              <p className="text-[11px] text-neutral-content leading-relaxed">
                 Interaction data sourced from TripSit&apos;s community-maintained combos database
                 and per-substance profiles. Absence of a known interaction does not guarantee
                 safety. Always perform independent research and consult qualified healthcare

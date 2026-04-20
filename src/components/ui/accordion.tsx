@@ -43,7 +43,7 @@ function Accordion({
 
   return (
     <AccordionContext.Provider value={{ openItems, toggleItem, type }}>
-      <div className={cn("divide-y divide-border", className)} {...props}>
+      <div className={cn("divide-y divide-base-300", className)} {...props}>
         {children}
       </div>
     </AccordionContext.Provider>

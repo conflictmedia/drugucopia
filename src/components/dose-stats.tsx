@@ -89,7 +89,7 @@ export function DoseStats() {
           <CardTitle className="text-3xl">{stats.total}</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <div className="flex items-center gap-2 text-sm text-neutral-content">
             <Activity className="h-4 w-4" />
             <span>{stats.last7Days} in last 7 days</span>
           </div>
@@ -102,7 +102,7 @@ export function DoseStats() {
           <CardTitle className="text-3xl">{stats.restDays}</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <div className="flex items-center gap-2 text-sm text-neutral-content">
             <Calendar className="h-4 w-4" />
             <span>{stats.activeDays} active days</span>
           </div>
@@ -115,7 +115,7 @@ export function DoseStats() {
           <CardTitle className="text-3xl">{stats.daysSinceLast ?? '-'}</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <div className="flex items-center gap-2 text-sm text-neutral-content">
             <Clock className="h-4 w-4" />
             <span>
               {stats.daysSinceLast === 0
@@ -134,7 +134,7 @@ export function DoseStats() {
           <CardTitle className="text-3xl">{stats.last30Days}</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <div className="flex items-center gap-2 text-sm text-neutral-content">
             <TrendingUp className="h-4 w-4" />
             <span>total logs</span>
           </div>

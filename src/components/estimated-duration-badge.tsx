@@ -25,10 +25,10 @@ export function EstimatedDurationBadge({ sourceRoute, className = '' }: Estimate
       </TooltipTrigger>
       <TooltipContent side="top" className="max-w-xs text-xs">
         <p className="font-semibold mb-1">Duration is estimated</p>
-        <p className="text-muted-foreground leading-relaxed">
+        <p className="text-neutral-content leading-relaxed">
           No verified duration data exists for this route.
           {sourceRoute && (
-            <> Timeline was interpolated from <span className="font-medium text-foreground">{sourceRoute}</span> route data using pharmacokinetic multipliers.</>
+            <> Timeline was interpolated from <span className="font-medium text-base-content">{sourceRoute}</span> route data using pharmacokinetic multipliers.</>
           )}
         </p>
         <p className="text-amber-400/80 mt-1">

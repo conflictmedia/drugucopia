@@ -65,7 +65,7 @@ export function DurationOverrideFields({
       <button
         type="button"
         onClick={() => setExpanded(true)}
-        className="w-full flex items-center gap-2 text-xs text-muted-foreground hover:text-foreground transition-colors py-1"
+        className="w-full flex items-center gap-2 text-xs text-neutral-content hover:text-base-content transition-colors py-1"
       >
         <Clock className="h-3.5 w-3.5" />
         <span>Add custom duration (optional)</span>
@@ -82,7 +82,7 @@ export function DurationOverrideFields({
         onClick={() => setExpanded(!expanded)}
         className="w-full flex items-center gap-2 text-sm font-medium"
       >
-        <Clock className="h-4 w-4 text-muted-foreground" />
+        <Clock className="h-4 w-4 text-neutral-content" />
         <span>Duration</span>
         {isEstimated && (
           <span className="ml-1 inline-flex items-center gap-1 text-[10px] font-semibold px-1.5 py-0.5 rounded-full bg-amber-500/15 text-amber-400 border border-amber-500/30">
@@ -91,8 +91,8 @@ export function DurationOverrideFields({
           </span>
         )}
         {expanded
-          ? <ChevronUp   className="h-3.5 w-3.5 text-muted-foreground ml-auto" />
-          : <ChevronDown className="h-3.5 w-3.5 text-muted-foreground ml-auto" />
+          ? <ChevronUp   className="h-3.5 w-3.5 text-neutral-content ml-auto" />
+          : <ChevronDown className="h-3.5 w-3.5 text-neutral-content ml-auto" />
         }
       </button>
 
@@ -108,7 +108,7 @@ export function DurationOverrideFields({
                 </p>
               </div>
               {baseDuration?.estimationNote && (
-                <p className="text-[11px] text-muted-foreground leading-relaxed pl-5">
+                <p className="text-[11px] text-neutral-content leading-relaxed pl-5">
                   {baseDuration.estimationNote}
                 </p>
               )}
@@ -117,7 +117,7 @@ export function DurationOverrideFields({
                   Interpolated from: <span className="font-medium">{baseDuration.sourceRoute}</span> route data
                 </p>
               )}
-              <p className="text-[11px] text-muted-foreground pl-5 pt-0.5">
+              <p className="text-[11px] text-neutral-content pl-5 pt-0.5">
                 You can override any phase below with your own values.
               </p>
             </div>
@@ -125,9 +125,9 @@ export function DurationOverrideFields({
 
           {/* No data at all disclaimer */}
           {!isEstimated && !baseDuration && (
-            <div className="rounded-lg border border-border bg-muted/30 p-3 flex items-start gap-2">
-              <Info className="h-3.5 w-3.5 text-muted-foreground shrink-0 mt-0.5" />
-              <p className="text-xs text-muted-foreground leading-relaxed">
+            <div className="rounded-lg border border-base-300 bg-base-200/30 p-3 flex items-start gap-2">
+              <Info className="h-3.5 w-3.5 text-neutral-content shrink-0 mt-0.5" />
+              <p className="text-xs text-neutral-content leading-relaxed">
                 No duration data available for this substance and route.
                 Entering values here will enable the active timeline tracker.
               </p>
@@ -141,7 +141,7 @@ export function DurationOverrideFields({
                 <Label className={`text-xs font-medium ${color}`}>
                   {label}
                   {key === 'afterglow' && (
-                    <span className="ml-1 text-[10px] font-normal text-muted-foreground">(optional)</span>
+                    <span className="ml-1 text-[10px] font-normal text-neutral-content">(optional)</span>
                   )}
                 </Label>
                 <Input
@@ -154,7 +154,7 @@ export function DurationOverrideFields({
             ))}
           </div>
 
-          <p className="text-[11px] text-muted-foreground">
+          <p className="text-[11px] text-neutral-content">
             Format: <span className="font-mono">30-60 minutes</span> or <span className="font-mono">1-2 hours</span>.
             Onset and Total are required for the timeline.
           </p>

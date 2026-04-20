@@ -334,7 +334,7 @@ export function EditDoseModal({ dose, open, onOpenChange, onSaved }: EditDoseMod
                   value={amount}
                   onChange={handleAmountChange}
                 />
-                <p className="text-xs text-muted-foreground">Type a unit after the amount (e.g. &quot;5 mg&quot;) to auto-select it</p>
+                <p className="text-xs text-neutral-content">Type a unit after the amount (e.g. &quot;5 mg&quot;) to auto-select it</p>
               </div>
               <div className="grid gap-2">
                 <Label>Unit</Label>
@@ -361,7 +361,7 @@ export function EditDoseModal({ dose, open, onOpenChange, onSaved }: EditDoseMod
             </div>
 
             {/* ── Duration section ─────────────────────────────────────── */}
-            <div className="grid gap-2 rounded-lg border border-border/60 bg-muted/20 p-3">
+            <div className="grid gap-2 rounded-lg border border-base-300/60 bg-base-200/20 p-3">
               <DurationOverrideFields
                 baseDuration={fieldBaseDuration}
                 onChange={setDurationOverride}
