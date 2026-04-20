@@ -39,8 +39,9 @@ export default function RootLayout({
         className={`${ibmPlexSans.className} ${ibmPlexMono.className} antialiased bg-background text-foreground`}
       >
         <ThemeProvider
-          attribute="class"
+          attribute="data-theme"
           defaultTheme="dark"
+          themes={["light", "dark"]}
           enableSystem
           disableTransitionOnChange
         >
