@@ -688,11 +688,11 @@ function SubstanceDetail({
     <div className="min-h-screen bg-base-100 flex flex-col">
       {/* Desktop header */}
       <header className="hidden md:flex sticky top-14 z-40 border-b border-base-300/50 bg-base-100 h-14 items-center gap-4 px-4 lg:px-6">
-        <Button variant="ghost" size="sm" onClick={onBack} className="gap-2">
+        <button className="btn btn-ghost btn-sm gap-2" onClick={onBack}>
           <ArrowLeft className="h-4 w-4" />
           Back
-        </Button>
-        <Separator orientation="vertical" className="h-6" />
+        </button>
+        <div className="divider divider-horizontal mx-1 h-6" />
         <h1 className="text-lg font-semibold">{substance.name}</h1>
         <div className="ml-auto flex items-center gap-2 flex-wrap">
           <DoseLoggerModal
@@ -709,16 +709,16 @@ function SubstanceDetail({
             }
           />
           <CategoryBadges substance={substance} />
-          <Badge variant="outline" className={riskLevelColors[substance.riskLevel]}>
+          <span className={`badge badge-outline ${riskLevelColors[substance.riskLevel]}`}>
             {substance.riskLevel.replace('-', ' ')} risk
-          </Badge>
+          </span>
         </div>
       </header>
 
       {/* Mobile header */}
       <header className="md:hidden sticky top-14 z-30 bg-base-100 border-b border-base-300/50">
         <div className="flex items-center gap-3 h-13 px-4">
-          <button onClick={onBack} className="p-2 -ml-2 rounded-lg hover:bg-base-200 transition-colors">
+          <button onClick={onBack} className="btn btn-ghost btn-sm btn-square">
             <ArrowLeft className="h-5 w-5" />
           </button>
           <h1 className="text-base font-semibold flex-1 truncate">{substance.name}</h1>
@@ -729,7 +729,7 @@ function SubstanceDetail({
             preselectedRoute={selectedRoute || undefined}
             onLogCreated={onDoseLogged}
             trigger={
-              <button className="flex items-center gap-1.5 h-8 px-3 bg-primary text-primary-content rounded-lg text-sm font-medium">
+              <button className="btn btn-primary btn-sm gap-1.5">
                 <Plus className="h-4 w-4" />
                 Log
               </button>
@@ -763,14 +763,14 @@ function SubstanceDetail({
                       <ChevronRight className="h-2.5 w-2.5 opacity-50" />
                     </button>
                   ) : (
-                    <Badge key={cat} variant="outline" className={`text-xs ${categoryColors[cat]}`}>
+                    <span key={cat} className={`badge badge-outline text-xs ${categoryColors[cat]}`}>
                       {info?.name ?? cat}
-                    </Badge>
+                    </span>
                   )
                 })}
-                <Badge variant="outline" className={`text-xs ${riskLevelColors[substance.riskLevel]}`}>
+                <span className={`badge badge-outline text-xs ${riskLevelColors[substance.riskLevel]}`}>
                   {substance.riskLevel.replace('-', ' ')} risk
-                </Badge>
+                </span>
               </div>
             </div>
           </div>
