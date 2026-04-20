@@ -1012,8 +1012,9 @@ function SubstanceDetail({
       <main className="hidden md:block container mx-auto py-6 lg:py-10 scroll-mt-28">
         <div className="grid gap-6 lg:grid-cols-3 mb-8">
           <div className="lg:col-span-2 space-y-6">
-            <Card>
-              <CardHeader>
+            {/* Substance name card */}
+            <div className="card bg-base-100 border border-base-300 shadow-sm">
+              <div className="card-body">
                 <div className="flex items-center gap-3">
                   {primary && (
                     <div className={`p-2 rounded-lg ${categoryColors[primary]}`}>
@@ -1021,19 +1022,16 @@ function SubstanceDetail({
                     </div>
                   )}
                   <div>
-                    <CardTitle className="text-2xl">{substance.name}</CardTitle>
-                    <CardDescription>{substance.commonNames.join(' • ')}</CardDescription>
+                    <h2 className="card-title text-2xl">{substance.name}</h2>
+                    <p className="text-xs text-neutral-content">{substance.commonNames.join(' • ')}</p>
                   </div>
                 </div>
-              </CardHeader>
-              <CardContent className="space-y-4">
                 <p className="text-neutral-content leading-relaxed">{substance.description}</p>
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button variant="secondary" size="sm" className="w-full sm:w-auto">
-                      <Github className="mr-2 h-4 w-4" />
-                      Contribute on GitHub
-                    </Button>
+                    <button className="btn btn-secondary btn-sm w-full sm:w-auto">
+                      <Github className="h-4 w-4" />Contribute on GitHub
+                    </button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="start">
                     <DropdownMenuItem onClick={() => window.open(GITHUB_INFO_CHANGE_URL, '_blank')}>
@@ -1052,12 +1050,13 @@ function SubstanceDetail({
                     </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
 
-            <Card>
+            {/* Tabbed content: Dosage / Effects / Harm Reduction */}
+            <div className="card bg-base-100 border border-base-300 shadow-sm">
               <Tabs defaultValue="dosage">
-                <CardHeader className="pb-0">
+                <div className="card-body p-4 pb-0">
                   <TabsList className="grid w-full grid-cols-3">
                     <TabsTrigger value="dosage" className="gap-1.5">
                       <Droplets className="h-4 w-4" />Dosage & Routes
@@ -1069,8 +1068,8 @@ function SubstanceDetail({
                       <Shield className="h-4 w-4" />Harm Reduction
                     </TabsTrigger>
                   </TabsList>
-                </CardHeader>
-                <CardContent className="pt-4">
+                </div>
+                <div className="card-body pt-4">
                   <TabsContent value="dosage" className="mt-0">
                     <DosageDurationPanel substance={substance} onRouteChange={handleRouteChange} />
                   </TabsContent>
@@ -1120,154 +1119,156 @@ function SubstanceDetail({
                       ))}
                     </ul>
                   </TabsContent>
-                </CardContent>
+                </div>
               </Tabs>
-            </Card>
+            </div>
           </div>
 
           <div className="space-y-6">
-            <Card>
-              <CardHeader><CardTitle className="text-lg">Quick Info</CardTitle></CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex items-start gap-3">
-                  {primary && <CategoryIcon substance={substance} className="h-4 w-4 text-neutral-content mt-0.5" />}
-                  <div>
-                    <p className="text-sm text-neutral-content">{cats.length > 1 ? 'Categories' : 'Category'}</p>
-                    <div className="flex flex-wrap gap-1 mt-1">
-                      {cats.map((cat) => {
-                        const info = categories.find((c) => c.id === cat)
-                        return onCategoryClick ? (
-                          <button
-                            key={cat}
-                            onClick={() => onCategoryClick(cat)}
-                            className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-xs font-medium border transition-colors hover:brightness-125 cursor-pointer ${categoryColors[cat] ?? ''}`}
-                          >
-                            {info?.name ?? cat}
-                            <ChevronRight className="h-2.5 w-2.5 opacity-50" />
-                          </button>
-                        ) : (
-                          <Badge key={cat} variant="outline" className={categoryColors[cat] ?? ''}>
-                            {info?.name ?? cat}
-                          </Badge>
-                        )
-                      })}
+            {/* Quick Info */}
+            <div className="card bg-base-100 border border-base-300 shadow-sm">
+              <div className="card-body">
+                <h3 className="card-title text-lg">Quick Info</h3>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    {primary && <CategoryIcon substance={substance} className="h-4 w-4 text-neutral-content mt-0.5" />}
+                    <div>
+                      <p className="text-sm text-neutral-content">{cats.length > 1 ? 'Categories' : 'Category'}</p>
+                      <div className="flex flex-wrap gap-1 mt-1">
+                        {cats.map((cat) => {
+                          const info = categories.find((c) => c.id === cat)
+                          return onCategoryClick ? (
+                            <button
+                              key={cat}
+                              onClick={() => onCategoryClick(cat)}
+                              className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-xs font-medium border transition-colors hover:brightness-125 cursor-pointer ${categoryColors[cat] ?? ''}`}
+                            >
+                              {info?.name ?? cat}
+                              <ChevronRight className="h-2.5 w-2.5 opacity-50" />
+                            </button>
+                          ) : (
+                            <span key={cat} className={`badge badge-outline text-xs ${categoryColors[cat] ?? ''}`}>
+                              {info?.name ?? cat}
+                            </span>
+                          )
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <FlaskConical className="h-4 w-4 text-neutral-content" />
+                    <div>
+                      <p className="text-sm text-neutral-content">Class</p>
+                      <p className="font-medium">{substance.class}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Route className="h-4 w-4 text-neutral-content mt-0.5" />
+                    <div>
+                      <p className="text-sm text-neutral-content">Routes</p>
+                      <div className="flex flex-wrap gap-1 mt-1">
+                        {substance.routeData && Object.keys(substance.routeData).map((route) => (
+                          <span key={route} className="text-xs bg-base-200 px-2 py-0.5 rounded flex items-center gap-1">
+                            <span>{getRouteIcon(route)}</span><span>{route}</span>
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Scale className="h-4 w-4 text-neutral-content" />
+                    <div>
+                      <p className="text-sm text-neutral-content">Legality</p>
+                      <p className="font-medium text-sm">{substance.legality}</p>
                     </div>
                   </div>
                 </div>
-                <div className="flex items-center gap-3">
-                  <FlaskConical className="h-4 w-4 text-neutral-content" />
-                  <div>
-                    <p className="text-sm text-neutral-content">Class</p>
-                    <p className="font-medium">{substance.class}</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Route className="h-4 w-4 text-neutral-content mt-0.5" />
-                  <div>
-                    <p className="text-sm text-neutral-content">Routes</p>
-                    <div className="flex flex-wrap gap-1 mt-1">
-                      {substance.routeData && Object.keys(substance.routeData).map((route) => (
-                        <span key={route} className="text-xs bg-base-200 px-2 py-0.5 rounded flex items-center gap-1">
-                          <span>{getRouteIcon(route)}</span><span>{route}</span>
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Scale className="h-4 w-4 text-neutral-content" />
-                  <div>
-                    <p className="text-sm text-neutral-content">Legality</p>
-                    <p className="font-medium text-sm">{substance.legality}</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
 
-            <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0">
-                <CardTitle className="text-lg">Interactions</CardTitle>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => router.push(`/interactions?substances=${substance.id}`)}
-                  className="gap-1.5 text-xs"
-                >
-                  <Shuffle className="h-3 w-3" />
-                  Full Checker
-                </Button>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                {substance.interactions.dangerous.length > 0 && (
-                  <div>
-                    <p className="text-xs font-medium text-red-400 mb-2 flex items-center gap-1">
-                      <AlertTriangle className="h-3 w-3" />Dangerous
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {substance.interactions.dangerous.map((interaction, i) => (
-                        <Badge key={i} variant="outline" className="border-red-500/30 text-red-400">
-                          {interaction}
-                        </Badge>
-                      ))}
+            {/* Interactions */}
+            <div className="card bg-base-100 border border-base-300 shadow-sm">
+              <div className="card-body">
+                <div className="flex items-center justify-between">
+                  <h3 className="card-title text-lg">Interactions</h3>
+                  <button
+                    className="btn btn-outline btn-primary btn-sm gap-1.5 text-xs"
+                    onClick={() => router.push(`/interactions?substances=${substance.id}`)}
+                  >
+                    <Shuffle className="h-3 w-3" />Full Checker
+                  </button>
+                </div>
+                <div className="space-y-3">
+                  {substance.interactions.dangerous.length > 0 && (
+                    <div>
+                      <p className="text-xs font-medium text-red-400 mb-2 flex items-center gap-1">
+                        <AlertTriangle className="h-3 w-3" />Dangerous
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {substance.interactions.dangerous.map((interaction, i) => (
+                          <span key={i} className="badge badge-outline border-red-500/30 text-red-400">
+                            {interaction}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                )}
-                {substance.interactions.unsafe.length > 0 && (
-                  <div>
-                    <p className="text-xs font-medium text-orange-400 mb-2 flex items-center gap-1">
-                      <AlertTriangle className="h-3 w-3" />Unsafe
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {substance.interactions.unsafe.map((interaction, i) => (
-                        <Badge key={i} variant="outline" className="border-orange-500/30 text-orange-400">
-                          {interaction}
-                        </Badge>
-                      ))}
+                  )}
+                  {substance.interactions.unsafe.length > 0 && (
+                    <div>
+                      <p className="text-xs font-medium text-orange-400 mb-2 flex items-center gap-1">
+                        <AlertTriangle className="h-3 w-3" />Unsafe
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {substance.interactions.unsafe.map((interaction, i) => (
+                          <span key={i} className="badge badge-outline border-orange-500/30 text-orange-400">
+                            {interaction}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                )}
-                {substance.interactions.uncertain.length > 0 && (
-                  <div>
-                    <p className="text-xs font-medium text-yellow-400 mb-2 flex items-center gap-1">
-                      <Info className="h-3 w-3" />Uncertain
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {substance.interactions.uncertain.map((interaction, i) => (
-                        <Badge key={i} variant="outline" className="border-yellow-500/30 text-yellow-400">
-                          {interaction}
-                        </Badge>
-                      ))}
+                  )}
+                  {substance.interactions.uncertain.length > 0 && (
+                    <div>
+                      <p className="text-xs font-medium text-yellow-400 mb-2 flex items-center gap-1">
+                        <Info className="h-3 w-3" />Uncertain
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {substance.interactions.uncertain.map((interaction, i) => (
+                          <span key={i} className="badge badge-outline border-yellow-500/30 text-yellow-400">
+                            {interaction}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                )}
-                {substance.interactions.crossTolerances.length > 0 && (
-                  <div>
-                    <p className="text-xs font-medium text-blue-400 mb-2 flex items-center gap-1">
-                      <Activity className="h-3 w-3" />Cross-tolerances
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {substance.interactions.crossTolerances.map((interaction, i) => (
-                        <Badge key={i} variant="outline" className="border-blue-500/30 text-blue-400">
-                          {interaction}
-                        </Badge>
-                      ))}
+                  )}
+                  {substance.interactions.crossTolerances.length > 0 && (
+                    <div>
+                      <p className="text-xs font-medium text-blue-400 mb-2 flex items-center gap-1">
+                        <Activity className="h-3 w-3" />Cross-tolerances
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {substance.interactions.crossTolerances.map((interaction, i) => (
+                          <span key={i} className="badge badge-outline border-blue-500/30 text-blue-400">
+                            {interaction}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                )}
-              </CardContent>
-            </Card>
+                  )}
+                </div>
+              </div>
+            </div>
 
+            {/* History */}
             {substance.history && (
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-lg">
+              <div className="card bg-base-100 border border-base-300 shadow-sm">
+                <div className="card-body">
+                  <h3 className="card-title flex items-center gap-2 text-lg">
                     <History className="h-5 w-5" />History
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
+                  </h3>
                   <p className="text-sm text-neutral-content leading-relaxed">{substance.history}</p>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             )}
           </div>
         </div>
