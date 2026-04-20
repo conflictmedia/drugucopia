@@ -57,7 +57,7 @@ export function SharedNav() {
   }
 
   return (
-    <header className="navbar sticky top-0 z-50 w-full border-b border-base-300/50 glass">
+    <header className="nav-bar sticky top-0 z-50 w-full border-b border-base-300/50">
       <div className="flex h-14 items-center px-4 lg:px-6 gap-2">
         {/* Left: Logo + Nav Links */}
         <div className="flex items-center shrink-0">
@@ -178,7 +178,7 @@ export function SharedNav() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-t border-base-300/50 glass overflow-hidden"
+            className="md:hidden border-t border-base-300/50 nav-bar overflow-hidden"
           >
             <nav className="flex flex-col p-2 gap-1">
               {navItems.map((item) => {

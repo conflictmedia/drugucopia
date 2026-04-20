@@ -13,6 +13,9 @@ function useDialog() {
   return React.useContext(DialogContext)
 }
 
+/* ─── Marker to identify trigger elements ─── */
+const IS_TRIGGER = Symbol('IS_DIALOG_TRIGGER')
+
 /* ─── Dialog Root ─── */
 function Dialog({
   open,
@@ -44,8 +47,27 @@ function Dialog({
     return () => dialog.removeEventListener("close", handler)
   }, [onOpenChange])
 
+  // Separate trigger children from content children so we can render
+  // the trigger OUTSIDE the <dialog> element (which is display:none when closed).
+  // We detect triggers via the IS_TRIGGER symbol set by DialogTrigger.
+  let trigger: React.ReactNode = null
+  const content: React.ReactNode[] = []
+
+  React.Children.forEach(children, (child) => {
+    if (
+      React.isValidElement(child) &&
+      typeof child.type === 'function' &&
+      (child.type as any)[IS_TRIGGER]
+    ) {
+      trigger = child
+    } else {
+      content.push(child)
+    }
+  })
+
   return (
     <DialogContext.Provider value={{ open, onOpenChange }}>
+      {trigger}
       <dialog
         ref={dialogRef}
         className="modal"
@@ -56,7 +78,7 @@ function Dialog({
         }}
         {...props}
       >
-        {children}
+        {content}
       </dialog>
     </DialogContext.Provider>
   )
@@ -87,6 +109,8 @@ function DialogTrigger({
     </button>
   )
 }
+// Mark this component so Dialog can separate it from content children
+;(DialogTrigger as any)[IS_TRIGGER] = true
 
 /* ─── Dialog Content ─── */
 const DialogContent = React.forwardRef<

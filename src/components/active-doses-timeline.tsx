@@ -1220,7 +1220,7 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
                             y1={PT}
                             x2={hx}
                             y2={PT + GH}
-                            stroke="#ffffff44"
+                            stroke="#9ca3af44"
                             strokeWidth="1"
                             strokeDasharray="4,4"
                           />
@@ -1228,7 +1228,7 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
                             cx={hx}
                             cy={hy}
                             r="5"
-                            fill="#fff"
+                            fill="#b0b0c0"
                             stroke="#a855f7"
                             strokeWidth="2"
                           />
@@ -1280,7 +1280,7 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
                       }}
                     >
                       <div
-                        className="rounded-lg border border-white/20 bg-black/70 backdrop-blur-xl px-3 py-2.5 shadow-2xl min-w-[200px] max-w-[280px]"
+                        className="rounded-lg border border-neutral-500/25 bg-black/70 backdrop-blur-xl px-3 py-2.5 shadow-2xl min-w-[200px] max-w-[280px]"
                         role="tooltip"
                       >
                         {/* Header: phase name + time + optional NOW badge */}
@@ -1305,7 +1305,7 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
                                 </span>
                               )
                             })()}
-                            <span className="text-[10px] text-white/60">
+                            <span className="text-[10px] text-neutral-300/70">
                               {format(tooltip.absoluteTime, 'h:mm a')}
                             </span>
                           </div>
@@ -1313,10 +1313,10 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
 
                         {/* #4 — Combined intensity bar (highlighted) */}
                         <div className="flex items-center gap-2 mb-2">
-                          <span className="text-[10px] font-semibold text-white/50 w-20 shrink-0">
+                          <span className="text-[10px] font-semibold text-neutral-300/60 w-20 shrink-0">
                             Combined
                           </span>
-                          <div className="flex-1 h-2 bg-white/10 rounded-full overflow-hidden">
+                          <div className="flex-1 h-2 bg-neutral-500/15 rounded-full overflow-hidden">
                             <div
                               className="h-full rounded-full bg-gradient-to-r from-purple-500 to-pink-500 transition-all"
                               style={{ width: `${Math.round(tooltip.intensity)}%` }}
@@ -1334,10 +1334,10 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
                               const palette = ROUTE_PALETTE[ri.paletteIndex % ROUTE_PALETTE.length]
                               return (
                                 <div key={`${ri.route}-${idx}`} className="flex items-center gap-2">
-                                  <span className="text-[10px] font-medium text-white/50 w-20 shrink-0 truncate capitalize">
+                                  <span className="text-[10px] font-medium text-neutral-300/60 w-20 shrink-0 truncate capitalize">
                                     {ri.route}
                                   </span>
-                                  <div className="flex-1 h-1.5 bg-white/10 rounded-full overflow-hidden">
+                                  <div className="flex-1 h-1.5 bg-neutral-500/15 rounded-full overflow-hidden">
                                     <div
                                       className="h-full rounded-full transition-all"
                                       style={{
@@ -1346,7 +1346,7 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
                                       }}
                                     />
                                   </div>
-                                  <span className="text-[10px] w-10 text-right text-white/70">
+                                  <span className="text-[10px] w-10 text-right text-neutral-300/80">
                                     {Math.round(ri.intensity)}%
                                   </span>
                                 </div>
@@ -1356,11 +1356,11 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
                         )}
 
                         {/* Bottom: intensity + time-in summary */}
-                        <div className="mt-2 pt-1.5 border-t border-white/10 flex items-baseline gap-2">
-                          <span className="text-base font-bold text-white">
+                        <div className="mt-2 pt-1.5 border-t border-neutral-500/20 flex items-baseline gap-2">
+                          <span className="text-base font-bold text-neutral-200">
                             {Math.round(tooltip.intensity)}%
                           </span>
-                          <span className="text-[10px] text-white/50">
+                          <span className="text-[10px] text-neutral-300/60">
                             intensity · {tooltip.phaseTime} in
                           </span>
                         </div>

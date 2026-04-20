@@ -571,7 +571,7 @@ function MobileBottomNav({
   ]
 
   return (
-    <nav className="md:hidden fixed bottom-0 inset-x-0 z-50 bg-base-100/95 backdrop-blur border-t border-base-300 safe-area-pb">
+    <nav className="md:hidden fixed bottom-0 inset-x-0 z-50 bg-base-100 border-t border-base-300 safe-area-pb">
       <div className="flex">
         {items.map(({ id, label, icon: Icon }) => {
           const isLog = id === 'log'
@@ -687,7 +687,7 @@ function SubstanceDetail({
   return (
     <div className="min-h-screen bg-base-100 flex flex-col">
       {/* Desktop header */}
-      <header className="hidden md:flex sticky top-14 z-40 border-b border-base-300/50 bg-base-100/80 backdrop-blur supports-[backdrop-filter]:bg-base-100/60 h-14 items-center gap-4 px-4 lg:px-6">
+      <header className="hidden md:flex sticky top-14 z-40 border-b border-base-300/50 bg-base-100 h-14 items-center gap-4 px-4 lg:px-6">
         <Button variant="ghost" size="sm" onClick={onBack} className="gap-2">
           <ArrowLeft className="h-4 w-4" />
           Back
@@ -716,7 +716,7 @@ function SubstanceDetail({
       </header>
 
       {/* Mobile header */}
-      <header className="md:hidden sticky top-14 z-30 bg-base-100/80 backdrop-blur border-b border-base-300/50">
+      <header className="md:hidden sticky top-14 z-30 bg-base-100 border-b border-base-300/50">
         <div className="flex items-center gap-3 h-13 px-4">
           <button onClick={onBack} className="p-2 -ml-2 rounded-lg hover:bg-base-200 transition-colors">
             <ArrowLeft className="h-5 w-5" />
@@ -1527,7 +1527,7 @@ function HomeContent() {
       <div className="flex-1 flex flex-col min-w-0">
         {/* Desktop dose-log header (only shown in dose-log view) */}
         {desktopView === 'dose-log' && (
-          <header className="hidden md:flex sticky top-14 z-40 border-b border-base-300/50 bg-base-100/80 backdrop-blur supports-[backdrop-filter]:bg-base-100/60 h-14 items-center px-4 lg:px-6 gap-4">
+          <header className="hidden md:flex sticky top-14 z-40 border-b border-base-300/50 bg-base-100 h-14 items-center px-4 lg:px-6 gap-4">
             {!sidebarOpen && (
               <Button
                 variant="ghost"
@@ -1571,7 +1571,7 @@ function HomeContent() {
 
         {/* Mobile header (only for timeline/history views) */}
         {mobileTab !== 'substances' && (
-        <header className="md:hidden sticky top-14 z-30 bg-base-100/80 backdrop-blur border-b border-base-300/50">
+        <header className="md:hidden sticky top-14 z-30 bg-base-100 border-b border-base-300/50">
           {mobileTab === 'timeline' && (
             <div className="flex items-center justify-between px-4 h-12">
               <span className="text-sm font-medium">Active timeline</span>

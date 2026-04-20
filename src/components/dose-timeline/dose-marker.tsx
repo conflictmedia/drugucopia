@@ -195,13 +195,13 @@ export function DoseMarker({
         cy={my}
         r={isFocused ? radius + 2 : radius}
         fill={isHollow ? 'none' : hex}
-        stroke={isHollow ? hex : isFocused ? '#fff' : '#ffffff88'}
+        stroke={isHollow ? hex : isFocused ? '#b0b0c0' : '#9ca3af88'}
         strokeWidth={isFocused ? 2.5 : 1.5}
       />
 
       {/* ── Center highlight for primary active dots ── */}
       {isPrimary && !isHollow && !isEnded && (
-        <circle cx={dotX} cy={my} r={2.5} fill="#fff" opacity="0.85" />
+        <circle cx={dotX} cy={my} r={2.5} fill="#b0b0c0" opacity="0.75" />
       )}
 
       {/* ── Labels for multi-dose mode (below graph at fixed y) ── */}

@@ -67,7 +67,7 @@ const severityLabels: Record<GuideSeverity, string> = {
 }
 
 const riskColors: Record<string, string> = {
-  fatal: 'bg-red-600 text-white border-red-600',
+  fatal: 'bg-red-600 text-neutral-100 border-red-600',
   high: 'bg-orange-500/20 text-orange-400 border-orange-500/30',
   moderate: 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30',
 }

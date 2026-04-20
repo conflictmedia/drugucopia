@@ -465,7 +465,7 @@ export function MobilePhaseBar({ group, className = '' }: MobilePhaseBarProps) {
                 y1={MOBILE_PT}
                 x2={toMobileX(touchInspect.progress)}
                 y2={MOBILE_PT + MOBILE_GH}
-                stroke="#ffffff44"
+                stroke="#9ca3af44"
                 strokeWidth="1"
                 strokeDasharray="3,3"
               />
@@ -473,7 +473,7 @@ export function MobilePhaseBar({ group, className = '' }: MobilePhaseBarProps) {
                 cx={toMobileX(touchInspect.progress)}
                 cy={toMobileY(touchInspect.intensity)}
                 r="4"
-                fill="#fff"
+                fill="#b0b0c0"
                 stroke={markerHex[touchInspect.phase as PhaseStatus['phase']] ?? '#a855f7'}
                 strokeWidth="2"
               />
