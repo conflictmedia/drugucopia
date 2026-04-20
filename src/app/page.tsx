@@ -1009,7 +1009,7 @@ function SubstanceDetail({
       </div>
 
       {/* Desktop layout */}
-      <main className="hidden md:block container mx-auto py-6 lg:py-10">
+      <main className="hidden md:block container mx-auto py-6 lg:py-10 scroll-mt-28">
         <div className="grid gap-6 lg:grid-cols-3 mb-8">
           <div className="lg:col-span-2 space-y-6">
             <Card>
@@ -1056,67 +1056,72 @@ function SubstanceDetail({
             </Card>
 
             <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Sparkles className="h-5 w-5" />Effects
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <Tabs defaultValue="positive" className="w-full">
+              <Tabs defaultValue="dosage">
+                <CardHeader className="pb-0">
                   <TabsList className="grid w-full grid-cols-3">
-                    <TabsTrigger value="positive" className="text-green-500 data-[state=active]:bg-green-500/20">Positive</TabsTrigger>
-                    <TabsTrigger value="neutral" className="text-yellow-500 data-[state=active]:bg-yellow-500/20">Neutral</TabsTrigger>
-                    <TabsTrigger value="negative" className="text-red-500 data-[state=active]:bg-red-500/20">Negative</TabsTrigger>
+                    <TabsTrigger value="dosage" className="gap-1.5">
+                      <Droplets className="h-4 w-4" />Dosage & Routes
+                    </TabsTrigger>
+                    <TabsTrigger value="effects" className="gap-1.5">
+                      <Sparkles className="h-4 w-4" />Effects
+                    </TabsTrigger>
+                    <TabsTrigger value="harm" className="gap-1.5">
+                      <Shield className="h-4 w-4" />Harm Reduction
+                    </TabsTrigger>
                   </TabsList>
-                  <TabsContent value="positive" className="mt-4">
-                    <ul className="space-y-2">
-                      {substance.effects.positive.map((e, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 shrink-0" /><span>{e}</span>
+                </CardHeader>
+                <CardContent className="pt-4">
+                  <TabsContent value="dosage" className="mt-0">
+                    <DosageDurationPanel substance={substance} onRouteChange={handleRouteChange} />
+                  </TabsContent>
+                  <TabsContent value="effects" className="mt-0">
+                    <Tabs defaultValue="positive" className="w-full">
+                      <TabsList className="grid w-full grid-cols-3">
+                        <TabsTrigger value="positive" className="text-green-500 data-[state=active]:bg-green-500/20">Positive</TabsTrigger>
+                        <TabsTrigger value="neutral" className="text-yellow-500 data-[state=active]:bg-yellow-500/20">Neutral</TabsTrigger>
+                        <TabsTrigger value="negative" className="text-red-500 data-[state=active]:bg-red-500/20">Negative</TabsTrigger>
+                      </TabsList>
+                      <TabsContent value="positive" className="mt-4">
+                        <ul className="space-y-2">
+                          {substance.effects.positive.map((e, i) => (
+                            <li key={i} className="flex items-start gap-2">
+                              <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 shrink-0" /><span>{e}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </TabsContent>
+                      <TabsContent value="neutral" className="mt-4">
+                        <ul className="space-y-2">
+                          {substance.effects.neutral.map((e, i) => (
+                            <li key={i} className="flex items-start gap-2">
+                              <MinusCircle className="h-4 w-4 text-yellow-500 mt-0.5 shrink-0" /><span>{e}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </TabsContent>
+                      <TabsContent value="negative" className="mt-4">
+                        <ul className="space-y-2">
+                          {substance.effects.negative.map((e, i) => (
+                            <li key={i} className="flex items-start gap-2">
+                              <XCircle className="h-4 w-4 text-red-500 mt-0.5 shrink-0" /><span>{e}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </TabsContent>
+                    </Tabs>
+                  </TabsContent>
+                  <TabsContent value="harm" className="mt-0">
+                    <ul className="space-y-3">
+                      {substance.harmReduction.map((tip, i) => (
+                        <li key={i} className="flex items-start gap-3 p-3 rounded-xl bg-orange-500/5 border border-orange-500/20">
+                          <AlertTriangle className="h-4 w-4 text-orange-500 mt-0.5 shrink-0" />
+                          <span className="text-sm leading-relaxed">{tip}</span>
                         </li>
                       ))}
                     </ul>
                   </TabsContent>
-                  <TabsContent value="neutral" className="mt-4">
-                    <ul className="space-y-2">
-                      {substance.effects.neutral.map((e, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <MinusCircle className="h-4 w-4 text-yellow-500 mt-0.5 shrink-0" /><span>{e}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </TabsContent>
-                  <TabsContent value="negative" className="mt-4">
-                    <ul className="space-y-2">
-                      {substance.effects.negative.map((e, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <XCircle className="h-4 w-4 text-red-500 mt-0.5 shrink-0" /><span>{e}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </TabsContent>
-                </Tabs>
-              </CardContent>
-            </Card>
-
-            <DosageDurationPanel substance={substance} onRouteChange={handleRouteChange} />
-
-            <Card className="border-orange-500/30 bg-orange-500/5">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-lg text-orange-500">
-                  <Shield className="h-5 w-5" />Harm Reduction
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
-                  {substance.harmReduction.map((tip, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <AlertTriangle className="h-4 w-4 text-orange-500 mt-0.5 shrink-0" />
-                      <span className="text-sm">{tip}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
+                </CardContent>
+              </Tabs>
             </Card>
           </div>
 
