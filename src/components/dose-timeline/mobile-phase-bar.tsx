@@ -148,7 +148,7 @@ function DoseBreakdownItem({
       {/* Dose amount + phase label */}
       <div className="flex-1 min-w-0">
         <div className="flex items-baseline gap-1.5 flex-wrap">
-          <span className="text-xs font-semibold text-foreground truncate">
+          <span className="text-xs font-semibold text-base-content truncate">
             {formatted.amount}{formatted.unit}
           </span>
           <span className={`text-[10px] ${phaseColors[currentPhase as keyof typeof phaseColors]?.text || ''}`}>
@@ -164,7 +164,7 @@ function DoseBreakdownItem({
 
         {/* Mini progress bar */}
         {isActive && (
-          <div className="mt-0.5 h-1 rounded-full bg-muted overflow-hidden">
+          <div className="mt-0.5 h-1 rounded-full bg-base-200 overflow-hidden">
             <div
               className="h-full rounded-full transition-all duration-700 ease-out"
               style={{
@@ -182,7 +182,7 @@ function DoseBreakdownItem({
       </div>
 
       {/* Time badge */}
-      <span className="text-[10px] text-muted-foreground whitespace-nowrap">
+      <span className="text-[10px] text-neutral-content whitespace-nowrap">
         {format(dose.doseTime, 'h:mm')}
       </span>
     </div>
@@ -327,7 +327,7 @@ export function MobilePhaseBar({ group, className = '' }: MobilePhaseBarProps) {
       {/* ── Header ── */}
       <div className="flex items-center justify-between px-1 mb-1">
         <div>
-          <h3 className="text-sm font-semibold text-foreground leading-tight">
+          <h3 className="text-sm font-semibold text-base-content leading-tight">
             {group.substanceName}
           </h3>
           {/* Calculate primary dose phase using fresh timing */}
@@ -359,12 +359,12 @@ export function MobilePhaseBar({ group, className = '' }: MobilePhaseBarProps) {
                   {formatPhaseName(primaryPhase)}
                 </span>
                 {isLive && primaryRemaining > 0 && (
-                  <span className="text-xs text-muted-foreground">
+                  <span className="text-xs text-neutral-content">
                     {formatMinutes(primaryRemaining)} remaining
                   </span>
                 )}
                 {currentIntensity !== null && (
-                  <span className="text-xs font-medium text-foreground/70">
+                  <span className="text-xs font-medium text-base-content/70">
                     {currentIntensity}% intensity
                   </span>
                 )}
@@ -373,7 +373,7 @@ export function MobilePhaseBar({ group, className = '' }: MobilePhaseBarProps) {
           })()}
         </div>
         {activeRoutes.length > 1 && (
-          <span className="text-[10px] text-muted-foreground">
+          <span className="text-[10px] text-neutral-content">
             {activeRoutes.length} active routes
           </span>
         )}
@@ -401,7 +401,7 @@ export function MobilePhaseBar({ group, className = '' }: MobilePhaseBarProps) {
             width={MOBILE_SVG_W - MOBILE_PL - MOBILE_PR}
             height={MOBILE_GH}
             fill="currentColor"
-            className="text-muted/30"
+            className="text-base-200/30"
             rx="4"
           />
 
@@ -484,7 +484,7 @@ export function MobilePhaseBar({ group, className = '' }: MobilePhaseBarProps) {
         {/* ── Touch inspect tooltip card ── */}
         {touchInspect && (
           <div
-            className="absolute left-2 right-2 -bottom-[5.5rem] rounded-lg border border-border bg-card p-2.5 shadow-lg z-10 animate-in fade-in slide-in-from-top-2 duration-200"
+            className="absolute left-2 right-2 -bottom-[5.5rem] rounded-lg border border-base-300 bg-base-100 p-2.5 shadow-lg z-10 animate-in fade-in slide-in-from-top-2 duration-200"
             role="tooltip"
           >
             <div className="flex items-center justify-between">
@@ -496,15 +496,15 @@ export function MobilePhaseBar({ group, className = '' }: MobilePhaseBarProps) {
               >
                 {formatPhaseName(touchInspect.phase as PhaseStatus['phase'])}
               </span>
-              <span className="text-[10px] text-muted-foreground">
+              <span className="text-[10px] text-neutral-content">
                 {touchInspect.absoluteTime}
               </span>
             </div>
             <div className="mt-1 flex items-baseline gap-2">
-              <span className="text-lg font-bold text-foreground">
+              <span className="text-lg font-bold text-base-content">
                 {Math.round(touchInspect.intensity)}%
               </span>
-              <span className="text-[10px] text-muted-foreground">
+              <span className="text-[10px] text-neutral-content">
                 intensity · {touchInspect.timeFromStart} in
               </span>
             </div>

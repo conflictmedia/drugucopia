@@ -11,43 +11,45 @@
 
 @custom-variant dark (&:is([data-theme="dark"] *));
 
+/* ─── Map shadcn-style color names → daisyUI semantic tokens ─── */
+/* This lets bg-background, text-foreground, bg-muted etc. resolve
+   to the correct daisyUI colours in both light & dark themes.       */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-ibm-plex-sans);
-  --font-mono: var(--font-ibm-plex-mono);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
+  --color-background: var(--color-base-100);
+  --color-foreground: var(--color-base-content);
+  --color-card: var(--color-base-100);
+  --color-card-foreground: var(--color-base-content);
+  --color-popover: var(--color-base-100);
+  --color-popover-foreground: var(--color-base-content);
+  --color-primary: var(--color-primary);
+  --color-primary-foreground: var(--color-primary-content);
+  --color-secondary: var(--color-secondary);
+  --color-secondary-foreground: var(--color-secondary-content);
+  --color-muted: var(--color-base-200);
+  --color-muted-foreground: var(--color-neutral-content);
+  --color-accent: var(--color-accent);
+  --color-accent-foreground: var(--color-accent-content);
+  --color-destructive: var(--color-error);
+  --color-border: var(--color-base-300);
+  --color-input: var(--color-base-300);
+  --color-ring: var(--color-primary);
+  --color-chart-1: oklch(0.55 0.18 250);
+  --color-chart-2: oklch(0.55 0.15 160);
+  --color-chart-3: oklch(0.55 0.16 300);
+  --color-chart-4: oklch(0.65 0.15 80);
+  --color-chart-5: oklch(0.55 0.20 20);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --font-sans: var(--font-ibm-plex-sans);
+  --font-mono: var(--font-ibm-plex-mono);
 }
 
 /* ─── Light Theme ─── */
 [data-theme="light"] {
   --radius: 0.75rem;
 
-  /* DaisyUI theme colors */
   --color-base-100: oklch(0.985 0.002 80);
   --color-base-200: oklch(1 0 0);
   --color-base-300: oklch(0.96 0.01 250);
@@ -69,38 +71,12 @@
   --color-success: oklch(0.65 0.18 150);
   --color-warning: oklch(0.75 0.15 85);
   --color-error: oklch(0.577 0.245 27.325);
-
-  /* Backward-compatible shadcn CSS variables */
-  --background: oklch(0.985 0.002 80);
-  --foreground: oklch(0.145 0.005 250);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0.005 250);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0.005 250);
-  --primary: oklch(0.25 0.06 250);
-  --primary-foreground: oklch(0.98 0 0);
-  --secondary: oklch(0.96 0.01 250);
-  --secondary-foreground: oklch(0.25 0.06 250);
-  --muted: oklch(0.96 0.005 250);
-  --muted-foreground: oklch(0.50 0.02 250);
-  --accent: oklch(0.95 0.02 250);
-  --accent-foreground: oklch(0.25 0.06 250);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.90 0.01 250);
-  --input: oklch(0.90 0.01 250);
-  --ring: oklch(0.45 0.12 250);
-  --chart-1: oklch(0.55 0.18 250);
-  --chart-2: oklch(0.55 0.15 160);
-  --chart-3: oklch(0.55 0.16 300);
-  --chart-4: oklch(0.65 0.15 80);
-  --chart-5: oklch(0.55 0.20 20);
 }
 
 /* ─── Dark Theme ─── */
 [data-theme="dark"] {
   --radius: 0.75rem;
 
-  /* DaisyUI theme colors */
   --color-base-100: oklch(0.13 0.005 250);
   --color-base-200: oklch(0.17 0.006 250);
   --color-base-300: oklch(0.22 0.008 250);
@@ -122,40 +98,15 @@
   --color-success: oklch(0.70 0.18 150);
   --color-warning: oklch(0.75 0.15 85);
   --color-error: oklch(0.577 0.245 27.325);
-
-  /* Backward-compatible shadcn CSS variables */
-  --background: oklch(0.13 0.005 250);
-  --foreground: oklch(0.95 0.01 250);
-  --card: oklch(0.17 0.006 250);
-  --card-foreground: oklch(0.95 0.01 250);
-  --popover: oklch(0.17 0.006 250);
-  --popover-foreground: oklch(0.95 0.01 250);
-  --primary: oklch(0.95 0.01 80);
-  --primary-foreground: oklch(0.13 0.005 250);
-  --secondary: oklch(0.22 0.008 250);
-  --secondary-foreground: oklch(0.95 0.01 250);
-  --muted: oklch(0.22 0.005 250);
-  --muted-foreground: oklch(0.65 0.01 250);
-  --accent: oklch(0.22 0.01 250);
-  --accent-foreground: oklch(0.92 0.01 250);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.95 0.01 250 / 8%);
-  --input: oklch(0.95 0.01 250 / 12%);
-  --ring: oklch(0.5 0.12 250);
-  --chart-1: oklch(0.65 0.18 250);
-  --chart-2: oklch(0.70 0.15 160);
-  --chart-3: oklch(0.70 0.16 300);
-  --chart-4: oklch(0.75 0.15 80);
-  --chart-5: oklch(0.65 0.20 20);
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-base-300 outline-ring/50;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-base-100 text-base-content;
   }
 }
 
@@ -191,6 +142,7 @@ html {
   }
 
   .badge-tap-exempt,
+  .badge,
   [data-slot="badge"] {
     min-height: unset;
   }
@@ -215,10 +167,10 @@ html {
 @layer base {
 
   .glass {
-    background: color-mix(in oklch, var(--card) 70%, transparent);
+    background: color-mix(in oklch, var(--color-base-100) 70%, transparent);
     backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
-    border: 1px solid var(--border);
+    border: 1px solid var(--color-base-300);
   }
 
   .gradient-text {

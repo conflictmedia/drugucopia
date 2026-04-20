@@ -49,7 +49,7 @@ function TabsList({ className, children, ...props }: React.HTMLAttributes<HTMLDi
     <div
       role="tablist"
       className={cn(
-        "bg-muted text-muted-foreground inline-flex h-9 w-fit items-center justify-center rounded-lg p-[3px]",
+        "bg-base-200 text-neutral-content inline-flex h-9 w-fit items-center justify-center rounded-lg p-[3px]",
         className
       )}
       {...props}
@@ -78,8 +78,8 @@ function TabsTrigger({
       className={cn(
         "inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-md border border-transparent px-2 py-1 text-sm font-medium whitespace-nowrap transition-all focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0",
         isActive
-          ? "bg-background text-foreground shadow-sm border-border data-[state=active]:border-input data-[state=active]:bg-input/30"
-          : "text-muted-foreground",
+          ? "bg-base-100 text-base-content shadow-sm border-base-300 data-[state=active]:border-base-300 data-[state=active]:bg-base-200/30"
+          : "text-neutral-content",
         className
       )}
       {...props}

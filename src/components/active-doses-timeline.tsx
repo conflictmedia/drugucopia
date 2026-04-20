@@ -525,8 +525,8 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
     return (
       <Card className="hidden md:block">
         <CardContent className="flex items-center justify-center py-12">
-          <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
-          <span className="ml-2 text-sm text-muted-foreground">Loading active doses…</span>
+          <Loader2 className="h-6 w-6 animate-spin text-neutral-content" />
+          <span className="ml-2 text-sm text-neutral-content">Loading active doses…</span>
         </CardContent>
       </Card>
     )
@@ -542,7 +542,7 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
           </CardTitle>
           <CardDescription>No active doses to display</CardDescription>
         </CardHeader>
-        <CardContent className="flex flex-col items-center justify-center py-8 text-muted-foreground">
+        <CardContent className="flex flex-col items-center justify-center py-8 text-neutral-content">
           <Layers className="h-10 w-10 mb-3 opacity-40" />
           <p className="text-sm">Log a dose to see the intensity timeline</p>
         </CardContent>
@@ -593,7 +593,7 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
                     })}
                     className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium border transition-all ${
                       hidden
-                        ? 'opacity-30 border-border line-through'
+                        ? 'opacity-30 border-base-300 line-through'
                         : 'opacity-90 hover:opacity-100'
                     }`}
                     style={{
@@ -612,7 +612,7 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
               {hiddenSubstances.size > 0 && (
                 <button
                   onClick={() => setHiddenSubstances(new Set())}
-                  className="text-[10px] text-muted-foreground hover:text-foreground ml-0.5"
+                  className="text-[10px] text-neutral-content hover:text-base-content ml-0.5"
                 >
                   Show all
                 </button>
@@ -782,7 +782,7 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
 
                   {/* Remaining time */}
                   {allActive && primaryDose.status.totalRemaining > 0 && (
-                    <span className="text-xs text-muted-foreground flex items-center gap-1">
+                    <span className="text-xs text-neutral-content flex items-center gap-1">
                       <Timer className="h-3 w-3" />
                       {formatMinutes(primaryDose.status.totalRemaining)} remaining
                     </span>
@@ -792,7 +792,7 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
                 {/* ── Route pills (multi-route groups) ── */}
                 {isMultiRoute && (
                   <div className="flex items-center gap-1.5 flex-wrap">
-                    <span className="text-[10px] text-muted-foreground mr-1">Routes:</span>
+                    <span className="text-[10px] text-neutral-content mr-1">Routes:</span>
                     {group.routes.map(rg => {
                       const palette = ROUTE_PALETTE[rg.paletteIndex % ROUTE_PALETTE.length]
                       const isSelected = selectedRoute === rg.route.toLowerCase()
@@ -820,7 +820,7 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
                     {selectedRoute && (
                       <button
                         onClick={() => handleRouteClick(group.key, selectedRoute)}
-                        className="text-[10px] text-muted-foreground hover:text-foreground ml-1"
+                        className="text-[10px] text-neutral-content hover:text-base-content ml-1"
                       >
                         Show all
                       </button>
@@ -848,7 +848,7 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
                           className={`relative inline-flex items-center gap-1 px-2 py-1 rounded-md text-[11px] font-medium border transition-all ${
                             isIsolated
                               ? 'ring-2 ring-purple-500/50 border-purple-500/50 bg-purple-500/10'
-                              : 'border-border hover:border-border/80'
+                              : 'border-base-300 hover:border-base-300/80'
                           }`}
                           style={{ color: palette.stroke }}
                         >
@@ -861,7 +861,7 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
                             }}
                           />
                           <span>{formatted.amount} {formatUnit(formatted.unit, d.amount)}</span>
-                          <span className="text-muted-foreground">{rg.route}</span>
+                          <span className="text-neutral-content">{rg.route}</span>
 
                           {/* #5 — Phase progress indicator bar at bottom of chip */}
                           {isDoseActive && (
@@ -882,7 +882,7 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
                   {selectedDose && (
                     <button
                       onClick={() => handleDoseChipClick(group.key, selectedDose)}
-                      className="text-[10px] text-muted-foreground hover:text-foreground ml-1"
+                      className="text-[10px] text-neutral-content hover:text-base-content ml-1"
                     >
                       Show all
                     </button>
@@ -953,7 +953,7 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
                       width={GW}
                       height={GH}
                       fill="currentColor"
-                      className="text-muted/30"
+                      className="text-base-200/30"
                       rx="4"
                     />
 
@@ -1100,7 +1100,7 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
                         textAnchor="end"
                         fontSize="9"
                         fill="currentColor"
-                        className="text-muted-foreground"
+                        className="text-neutral-content"
                       >
                         {val}%
                       </text>
@@ -1115,7 +1115,7 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
                         x2={PL + GW}
                         y2={toY(val)}
                         stroke="currentColor"
-                        className="text-muted-foreground/20"
+                        className="text-neutral-content/20"
                         strokeWidth="0.5"
                         strokeDasharray="4,4"
                       />
@@ -1132,7 +1132,7 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
                             x2={mx}
                             y2={PT + GH + 3}
                             stroke="currentColor"
-                            className="text-muted-foreground/40"
+                            className="text-neutral-content/40"
                             strokeWidth="1"
                           />
                           <text
@@ -1141,7 +1141,7 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
                             textAnchor="middle"
                             fontSize="9"
                             fill="currentColor"
-                            className="text-muted-foreground"
+                            className="text-neutral-content"
                           >
                             {marker.label}
                           </text>
@@ -1370,14 +1370,14 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
                 </div>
 
                 {/* ── Footer: dose count + expand toggle ── */}
-                <div className="flex items-center justify-between text-[10px] text-muted-foreground">
+                <div className="flex items-center justify-between text-[10px] text-neutral-content">
                   <span>
                     {visibleRoutes.length} route{visibleRoutes.length !== 1 ? 's' : ''} ·{' '}
                     {totalDoses} dose{totalDoses !== 1 ? 's' : ''}
                   </span>
                   <button
                     onClick={() => setExpandedGroup(isExpanded ? null : group.key)}
-                    className="flex items-center gap-1 hover:text-foreground transition-colors"
+                    className="flex items-center gap-1 hover:text-base-content transition-colors"
                   >
                     {isExpanded ? (
                       <>
@@ -1408,7 +1408,7 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
                             />
                             <span className="text-xs font-medium capitalize">{rg.route}</span>
                             {rg.uniformUnit && (
-                              <span className="text-[10px] text-muted-foreground">
+                              <span className="text-[10px] text-neutral-content">
                                 {rg.totalAmount}{rg.unit} total
                               </span>
                             )}
@@ -1450,8 +1450,8 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
                             return (
                               <div key={doseId} className="ml-4 space-y-1">
                                 {/* Dose amount header */}
-                                <div className="flex items-center gap-1.5 text-[10px] text-muted-foreground flex-wrap">
-                                  <span className="font-medium text-foreground">
+                                <div className="flex items-center gap-1.5 text-[10px] text-neutral-content flex-wrap">
+                                  <span className="font-medium text-base-content">
                                     {formatDoseAmount(d.amount, d.unit).amount}
                                     {formatUnit(d.unit, d.amount)}
                                   </span>
@@ -1510,7 +1510,7 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
                                           </>
                                         )
                                       })()}
-                                      <span className="text-[10px] text-muted-foreground">
+                                      <span className="text-[10px] text-neutral-content">
                                         ({formatMinutes(duration)})
                                       </span>
 
@@ -1522,7 +1522,7 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
                                       />
 
                                       {/* Small intensity gauge bar (#6) */}
-                                      <div className="flex-1 h-1 bg-muted/50 rounded-full overflow-hidden max-w-[60px]">
+                                      <div className="flex-1 h-1 bg-base-200/50 rounded-full overflow-hidden max-w-[60px]">
                                         <div
                                           className="h-full rounded-full transition-all"
                                           style={{
@@ -1534,7 +1534,7 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
                                       </div>
 
                                       {/* Intensity value */}
-                                      <span className="text-[10px] font-mono text-muted-foreground w-8 text-right">
+                                      <span className="text-[10px] font-mono text-neutral-content w-8 text-right">
                                         {Math.round(phasePeakIntensity)}%
                                       </span>
 
