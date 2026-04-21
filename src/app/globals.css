@@ -188,6 +188,10 @@ html {
     border-color: oklch(0.25 0.008 250 / 40%);
   }
 
+  .card {
+    overflow: clip;
+  }
+
   [data-theme="dark"] .nav-bar {
     background: oklch(0.14 0.005 250);
     border-color: oklch(0.25 0.008 250 / 40%);
