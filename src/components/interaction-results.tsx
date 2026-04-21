@@ -9,9 +9,6 @@ import {
   ArrowRightLeft,
   ThumbsUp,
 } from 'lucide-react'
-import { Card, CardContent } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { Separator } from '@/components/ui/separator'
 import { cn } from '@/lib/utils'
 import { InteractionPairCard } from './interaction-pair-card'
 import type { InteractionCheckResult } from '@/lib/interaction-checker'
@@ -83,14 +80,14 @@ export function InteractionResults({
       {/* Summary Banner */}
       <div
         className={cn(
-          'rounded-xl p-4 border',
+          'alert',
           result.summary.dangerous > 0
-            ? 'bg-red-500/10 border-red-500/30'
+            ? 'alert-error'
             : result.summary.unsafe > 0
-              ? 'bg-orange-500/10 border-orange-500/30'
+              ? 'alert-warning'
               : result.summary.caution > 0
-                ? 'bg-amber-500/10 border-amber-500/30'
-                : 'bg-emerald-500/10 border-emerald-500/30'
+                ? 'alert-warning'
+                : 'alert-success'
         )}
       >
         <div className="flex items-center gap-3 mb-3">
@@ -107,28 +104,28 @@ export function InteractionResults({
         </div>
         <div className="flex flex-wrap gap-2">
           {result.summary.dangerous > 0 && (
-            <Badge variant="outline" className="bg-red-500/15 text-red-400 border-red-500/30 font-bold">
+            <span className="badge badge-outline bg-red-500/15 text-red-400 border-red-500/30 font-bold">
               {result.summary.dangerous} Dangerous
-            </Badge>
+            </span>
           )}
           {result.summary.unsafe > 0 && (
-            <Badge variant="outline" className="bg-orange-500/15 text-orange-400 border-orange-500/30 font-bold">
+            <span className="badge badge-outline bg-orange-500/15 text-orange-400 border-orange-500/30 font-bold">
               {result.summary.unsafe} Unsafe
-            </Badge>
+            </span>
           )}
           {result.summary.caution > 0 && (
-            <Badge variant="outline" className="bg-amber-500/15 text-amber-400 border-amber-500/30 font-bold">
+            <span className="badge badge-outline bg-amber-500/15 text-amber-400 border-amber-500/30 font-bold">
               {result.summary.caution} Caution
-            </Badge>
+            </span>
           )}
           {result.summary.lowRisk > 0 && (
-            <Badge variant="outline" className="bg-emerald-500/15 text-emerald-400 border-emerald-500/30 font-bold">
+            <span className="badge badge-outline bg-emerald-500/15 text-emerald-400 border-emerald-500/30 font-bold">
               {result.summary.lowRisk} Low Risk
-            </Badge>
+            </span>
           )}
-          <Badge variant="outline" className="text-neutral-content">
+          <span className="badge badge-outline text-neutral-content">
             {result.summary.total} total
-          </Badge>
+          </span>
         </div>
       </div>
 
@@ -138,9 +135,9 @@ export function InteractionResults({
           <div className="flex items-center gap-2 mb-3">
             <ShieldAlert className="h-4 w-4 text-red-400" />
             <h4 className="text-sm font-semibold text-red-400">Dangerous Interactions</h4>
-            <Badge variant="outline" className="text-[10px] bg-red-500/15 text-red-400 border-red-500/30">
+            <span className="badge badge-outline text-[10px] bg-red-500/15 text-red-400 border-red-500/30">
               {dangerous.length}
-            </Badge>
+            </span>
           </div>
           <div className="space-y-3">
             {dangerous.map((pair, i) => (
@@ -153,14 +150,14 @@ export function InteractionResults({
       {/* Unsafe Interactions */}
       {unsafe.length > 0 && (
         <>
-          {dangerous.length > 0 && <Separator className="my-4" />}
+          {dangerous.length > 0 && <div className="divider" />}
           <section>
             <div className="flex items-center gap-2 mb-3">
               <AlertTriangle className="h-4 w-4 text-orange-400" />
               <h4 className="text-sm font-semibold text-orange-400">Unsafe Interactions</h4>
-              <Badge variant="outline" className="text-[10px] bg-orange-500/15 text-orange-400 border-orange-500/30">
+              <span className="badge badge-outline text-[10px] bg-orange-500/15 text-orange-400 border-orange-500/30">
                 {unsafe.length}
-              </Badge>
+              </span>
             </div>
             <div className="space-y-3">
               {unsafe.map((pair, i) => (
@@ -174,14 +171,14 @@ export function InteractionResults({
       {/* Caution Interactions */}
       {caution.length > 0 && (
         <>
-          {hasRisks && <Separator className="my-4" />}
+          {hasRisks && <div className="divider" />}
           <section>
             <div className="flex items-center gap-2 mb-3">
               <HelpCircle className="h-4 w-4 text-amber-400" />
               <h4 className="text-sm font-semibold text-amber-400">Use Caution</h4>
-              <Badge variant="outline" className="text-[10px] bg-amber-500/15 text-amber-400 border-amber-500/30">
+              <span className="badge badge-outline text-[10px] bg-amber-500/15 text-amber-400 border-amber-500/30">
                 {caution.length}
-              </Badge>
+              </span>
             </div>
             <div className="space-y-3">
               {caution.map((pair, i) => (
@@ -195,14 +192,14 @@ export function InteractionResults({
       {/* Low Risk Interactions (synergies, decreases, no synergy) */}
       {lowRisk.length > 0 && (
         <>
-          {(hasRisks || caution.length > 0) && <Separator className="my-4" />}
+          {(hasRisks || caution.length > 0) && <div className="divider" />}
           <section>
             <div className="flex items-center gap-2 mb-3">
               <ThumbsUp className="h-4 w-4 text-emerald-400" />
               <h4 className="text-sm font-semibold text-emerald-400">Low Risk Combinations</h4>
-              <Badge variant="outline" className="text-[10px] bg-emerald-500/15 text-emerald-400 border-emerald-500/30">
+              <span className="badge badge-outline text-[10px] bg-emerald-500/15 text-emerald-400 border-emerald-500/30">
                 {lowRisk.length}
-              </Badge>
+              </span>
             </div>
             <div className="space-y-3">
               {lowRisk.map((pair, i) => (
@@ -216,37 +213,37 @@ export function InteractionResults({
       {/* Cross-Tolerances */}
       {result.crossTolerances.length > 0 && (
         <>
-          <Separator className="my-4" />
+          <div className="divider" />
           <section>
             <div className="flex items-center gap-2 mb-3">
               <ArrowRightLeft className="h-4 w-4 text-blue-400" />
               <h4 className="text-sm font-semibold text-blue-400">Cross-Tolerances</h4>
-              <Badge variant="outline" className="text-[10px] bg-blue-500/15 text-blue-400 border-blue-500/30">
+              <span className="badge badge-outline text-[10px] bg-blue-500/15 text-blue-400 border-blue-500/30">
                 {result.crossTolerances.length}
-              </Badge>
+              </span>
             </div>
             <div className="space-y-2">
               {result.crossTolerances.map((ct, i) => (
-                <Card key={`ct-${i}`} className="border-blue-500/20 bg-blue-500/5">
-                  <CardContent className="p-3">
+                <div key={`ct-${i}`} className="card border-blue-500/20 bg-blue-500/5">
+                  <div className="card-body p-3">
                     <div className="flex items-center gap-2 flex-wrap">
-                      <Badge variant="secondary" className="font-medium text-xs capitalize">
+                      <span className="badge badge-secondary font-medium text-xs capitalize">
                         {ct.tolerance}
-                      </Badge>
+                      </span>
                       <span className="text-xs text-neutral-content">shared by</span>
                       {ct.substances.map((sub, j) => (
                         <span key={j} className="flex items-center gap-1">
                           {j > 0 && (
                             <span className="text-neutral-content text-xs">&bull;</span>
                           )}
-                          <Badge variant="outline" className="text-xs">
+                          <span className="badge badge-outline text-xs">
                             {sub}
-                          </Badge>
+                          </span>
                         </span>
                       ))}
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               ))}
             </div>
             <p className="text-xs text-neutral-content mt-2 leading-relaxed">
@@ -259,24 +256,20 @@ export function InteractionResults({
       )}
 
       {/* Disclaimer */}
-      <Separator className="my-4" />
-      <Card className="border-yellow-500/20 bg-yellow-500/5">
-        <CardContent className="p-3">
-          <div className="flex items-start gap-2">
-            <AlertTriangle className="h-4 w-4 text-yellow-500 mt-0.5 shrink-0" />
-            <div>
-              <p className="text-xs font-semibold mb-1">Disclaimer</p>
-              <p className="text-[11px] text-neutral-content leading-relaxed">
-                Interaction data sourced from TripSit&apos;s community-maintained combos database
-                and per-substance profiles. Absence of a known interaction does not guarantee
-                safety. Always perform independent research and consult qualified healthcare
-                professionals. In case of emergency, contact your local emergency services
-                immediately.
-              </p>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
+      <div className="divider" />
+      <div className="alert alert-warning">
+        <AlertTriangle className="h-4 w-4 shrink-0" />
+        <div>
+          <h3 className="font-bold text-xs">Disclaimer</h3>
+          <p className="text-[11px] leading-relaxed">
+            Interaction data sourced from TripSit&apos;s community-maintained combos database
+            and per-substance profiles. Absence of a known interaction does not guarantee
+            safety. Always perform independent research and consult qualified healthcare
+            professionals. In case of emergency, contact your local emergency services
+            immediately.
+          </p>
+        </div>
+      </div>
     </div>
   )
 }
