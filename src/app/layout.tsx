@@ -36,11 +36,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${ibmPlexSans.className} ${ibmPlexMono.className} antialiased bg-background text-foreground`}
+        className={`${ibmPlexSans.className} ${ibmPlexMono.className} antialiased bg-base-100 text-base-content`}
       >
         <ThemeProvider
-          attribute="class"
+          attribute="data-theme"
           defaultTheme="dark"
+          themes={["light", "dark"]}
           enableSystem
           disableTransitionOnChange
         >

@@ -390,14 +390,15 @@ function interpolateRange(min: number, max: number, weight: number): number {
 /**
  * Calculate dose-scaled phase timings.
  *
- * Uses the total duration as the anchor timeline length. Each phase's range
- * is interpreted as a proportion of the total, then scaled to fit within the
- * total. This prevents unrealistic timelines where offset starts too early
- * (e.g., LSD offset at 5hr when total is 8-12hr).
+ * Uses the total duration as the anchor timeline length. The total range is
+ * interpolated by horizontalWeight (heavier doses → longer total).
  *
- * For dose scaling: the total range is interpolated by horizontalWeight
- * (heavier doses → longer total), and each phase is scaled proportionally.
- * Onset and comeup always use the midpoint of their range.
+ * Onset and comeup stay at their midpoint values because they depend on
+ * absorption rate, not dose size. Heavier doses primarily extend peak and
+ * offset. Only peak and offset are scaled to absorb the extra time.
+ *
+ * If onset + comeup already exceeds totalMins (rare edge case with
+ * inconsistent data), all phases are scaled proportionally as a fallback.
  */
 export function calculateDoseScaledTimings(
   duration: Duration,
@@ -440,14 +441,30 @@ export function calculateDoseScaledTimings(
     return calculatePhaseTimings(duration)
   }
 
-  // Calculate the proportional share of each phase relative to their sum
-  const phaseSum = onsetMins + comeupMins + peakMins + offsetMins
+  // Onset and comeup are absorption-dependent — keep them at midpoint.
+  // Heavier doses mainly extend peak and offset (elimination kinetics).
+  const absorptionTime = onsetMins + comeupMins
+  const finalOnset  = onsetMins
+  const finalComeup = comeupMins
 
-  // Scale each phase so they sum to totalMins
-  const finalOnset  = Math.max(onsetMins * (totalMins / phaseSum), 0.01)
-  const finalComeup = Math.max(comeupMins * (totalMins / phaseSum), 0.01)
-  const finalPeak   = Math.max(peakMins * (totalMins / phaseSum), 0.01)
-  const finalOffset = Math.max(offsetMins * (totalMins / phaseSum), 0.01)
+  // Edge case: if onset+comeup alone exceeds total, scale everything proportionally
+  if (absorptionTime >= totalMins) {
+    const phaseSum = onsetMins + comeupMins + peakMins + offsetMins
+    const scale = totalMins / phaseSum
+    const scaledOnset  = Math.max(onsetMins * scale, 0.01)
+    const scaledComeup = Math.max(comeupMins * scale, 0.01)
+    const scaledPeak   = Math.max(peakMins * scale, 0.01)
+    const scaledOffset = Math.max(offsetMins * scale, 0.01)
+    const afterglowStr = (duration as Duration & { afterglow?: string }).afterglow ?? ''
+    const afterglowMins = parseDurationToMinutes(afterglowStr)
+    return buildTimings(scaledOnset, scaledComeup, scaledPeak, scaledOffset, afterglowMins)
+  }
+
+  // Distribute remaining time proportionally between peak and offset
+  const remainingMins = totalMins - absorptionTime
+  const peakOffsetSum = peakMins + offsetMins
+  const finalPeak   = Math.max(peakMins * (remainingMins / peakOffsetSum), 0.01)
+  const finalOffset = Math.max(offsetMins * (remainingMins / peakOffsetSum), 0.01)
 
   // Afterglow (if present) is parsed separately — not scaled into the main timeline
   const afterglowStr = (duration as Duration & { afterglow?: string }).afterglow ?? ''
@@ -471,7 +488,7 @@ interface Point2D {
   y: number
 }
 
-function catmullRomToCubicBezier(pts: Point2D[], clampScreenY?: number): string {
+function catmullRomToCubicBezier(pts: Point2D[], clampScreenY?: number, clampBaseY?: number): string {
   if (pts.length < 2) {
     return pts.length === 1
       ? `M ${pts[0].x.toFixed(2)},${pts[0].y.toFixed(2)}`
@@ -499,13 +516,17 @@ function catmullRomToCubicBezier(pts: Point2D[], clampScreenY?: number): string 
     let cp2x = p2.x - (p3.x - p1.x) / 6
     let cp2y = p2.y - (p3.y - p1.y) / 6
 
-    // Clamp control-point y to prevent overshoot above the peak line.
-    // In SVG the y-axis is inverted (y increases downward), so a control
-    // point with y < clampScreenY would render ABOVE the peak boundary.
-    // Clamping it preserves C1 continuity in x while eliminating the bump.
+    // Clamp control-point y to prevent overshoot above the peak line and
+    // undershoot below the baseline. In SVG the y-axis is inverted (y increases
+    // downward), so y < clampScreenY renders ABOVE peak and y > clampBaseY
+    // renders BELOW the 0% baseline.
     if (clampScreenY != null) {
       cp1y = Math.max(cp1y, clampScreenY)
       cp2y = Math.max(cp2y, clampScreenY)
+    }
+    if (clampBaseY != null) {
+      cp1y = Math.min(cp1y, clampBaseY)
+      cp2y = Math.min(cp2y, clampBaseY)
     }
 
     d += ` C ${cp1x.toFixed(2)},${cp1y.toFixed(2)} ${cp2x.toFixed(2)},${cp2y.toFixed(2)} ${p2.x.toFixed(2)},${p2.y.toFixed(2)}`
@@ -581,9 +602,10 @@ export function curvePath(
         d += ` L ${seg.pts[i].x.toFixed(2)},${seg.pts[i].y.toFixed(2)}`
       }
     } else {
-      // Smoothed (onset/comeup/offset): Catmull-Rom with overshoot clamping
+      // Smoothed (onset/comeup/offset): Catmull-Rom with peak/baseline clamping
       const smoothPts = seg.pts
       // Skip the first point (already in path from previous segment)
+      const baseY = PT + GH
       for (let i = 0; i < smoothPts.length - 1; i++) {
         const p0 = i === 0 ? smoothPts[0] : smoothPts[i - 1]
         const p1 = smoothPts[i]
@@ -595,8 +617,12 @@ export function curvePath(
         let cp2x = p2.x - (p3.x - p1.x) / 6
         let cp2y = p2.y - (p3.y - p1.y) / 6
 
+        // Clamp to peak (no overshoot above 100%)
         if (cp1y < peakY) cp1y = peakY
         if (cp2y < peakY) cp2y = peakY
+        // Clamp to baseline (no undershoot below 0%)
+        if (cp1y > baseY) cp1y = baseY
+        if (cp2y > baseY) cp2y = baseY
 
         d += ` C ${cp1x.toFixed(2)},${cp1y.toFixed(2)} ${cp2x.toFixed(2)},${cp2y.toFixed(2)} ${p2.x.toFixed(2)},${p2.y.toFixed(2)}`
       }
@@ -685,7 +711,9 @@ export function mobileCurvePath(
         d += ` L ${seg.pts[i].x.toFixed(2)},${seg.pts[i].y.toFixed(2)}`
       }
     } else {
+      // Smoothed (onset/comeup/offset): Catmull-Rom with peak/baseline clamping
       const smoothPts = seg.pts
+      const mobileBaseY = MOBILE_PT + MOBILE_GH
       for (let i = 0; i < smoothPts.length - 1; i++) {
         const p0 = i === 0 ? smoothPts[0] : smoothPts[i - 1]
         const p1 = smoothPts[i]
@@ -697,8 +725,12 @@ export function mobileCurvePath(
         let cp2x = p2.x - (p3.x - p1.x) / 6
         let cp2y = p2.y - (p3.y - p1.y) / 6
 
+        // Clamp to peak (no overshoot above 100%)
         if (cp1y < peakY) cp1y = peakY
         if (cp2y < peakY) cp2y = peakY
+        // Clamp to baseline (no undershoot below 0%)
+        if (cp1y > mobileBaseY) cp1y = mobileBaseY
+        if (cp2y > mobileBaseY) cp2y = mobileBaseY
 
         d += ` C ${cp1x.toFixed(2)},${cp1y.toFixed(2)} ${cp2x.toFixed(2)},${cp2y.toFixed(2)} ${p2.x.toFixed(2)},${p2.y.toFixed(2)}`
       }

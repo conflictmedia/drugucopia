@@ -41,12 +41,8 @@ import { DoseLoggerModal } from '@/components/dose-logger-modal'
 import { DoseHistory } from '@/components/dose-history'
 import { DoseStats } from '@/components/dose-stats'
 import { ActiveDosesTimeline } from '@/components/active-doses-timeline'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { ScrollArea } from '@/components/ui/scroll-area'
-import { Separator } from '@/components/ui/separator'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -185,9 +181,9 @@ function CategoryBadges({ substance, className = '' }: { substance: Substance; c
       {cats.map((cat) => {
         const info = categories.find((c) => c.id === cat)
         return (
-          <Badge key={cat} variant="outline" className={categoryColors[cat] ?? ''}>
+          <span key={cat} className={`badge badge-outline ${categoryColors[cat] ?? ''}`}>
             {info?.name ?? cat}
-          </Badge>
+          </span>
         )
       })}
     </div>
@@ -216,11 +212,11 @@ const SubstanceCard = memo(function SubstanceCard({ substance, onSelect }: Subst
   const hasRouteData = substance.routeData && Object.keys(substance.routeData).length > 1
 
   return (
-    <Card
-      className={`cursor-pointer hover:border-primary/50 transition-all group card-lift ${primary ? categoryGlowClasses[primary] : ''}`}
+    <div
+      className={`card cursor-pointer hover:border-primary/50 transition-all group card-lift ${primary ? categoryGlowClasses[primary] : ''}`}
       onClick={() => onSelect(substance)}
     >
-      <CardHeader className="pb-3">
+      <div className="card-body">
         <div className="flex items-start justify-between">
           <div className="flex items-center gap-3">
             {primary && (
@@ -229,23 +225,21 @@ const SubstanceCard = memo(function SubstanceCard({ substance, onSelect }: Subst
               </div>
             )}
             <div className="min-w-0">
-              <CardTitle className="text-lg group-hover:text-primary transition-colors">
+              <h3 className="card-title text-lg group-hover:text-primary transition-colors">
                 {substance.name}
-              </CardTitle>
-              <CardDescription className="text-xs">{substance.class}</CardDescription>
+              </h3>
+              <p className="text-xs text-neutral-content">{substance.class}</p>
             </div>
           </div>
-          <ChevronRight className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors shrink-0" />
+          <ChevronRight className="h-5 w-5 text-neutral-content group-hover:text-primary transition-colors shrink-0" />
         </div>
-      </CardHeader>
-      <CardContent>
-        <p className="text-sm text-muted-foreground line-clamp-2 mb-3">{substance.description}</p>
-        <div className="flex flex-wrap gap-1 mb-2">
+        <p className="text-sm text-neutral-content line-clamp-3">{substance.description}</p>
+        <div className="flex flex-wrap gap-1">
           {substance.commonNames.slice(0, 2).map((name, i) => (
-            <Badge key={i} variant="secondary" className="text-xs">{name}</Badge>
+            <span key={i} className="badge badge-secondary text-xs max-w-[140px] truncate">{name}</span>
           ))}
           {substance.commonNames.length > 2 && (
-            <Badge variant="secondary" className="text-xs">+{substance.commonNames.length - 2}</Badge>
+            <span className="badge badge-secondary text-xs">+{substance.commonNames.length - 2}</span>
           )}
         </div>
         <div className="flex items-center justify-between gap-2 flex-wrap">
@@ -253,28 +247,28 @@ const SubstanceCard = memo(function SubstanceCard({ substance, onSelect }: Subst
             {cats.slice(0, 2).map((cat) => {
               const info = categories.find((c) => c.id === cat)
               return (
-                <Badge key={cat} variant="outline" className={`text-xs ${categoryColors[cat] ?? ''}`}>
+                <span key={cat} className={`badge badge-outline text-xs ${categoryColors[cat] ?? ''}`}>
                   {info?.name ?? cat}
-                </Badge>
+                </span>
               )
             })}
             {cats.length > 2 && (
-              <Badge variant="outline" className="text-xs text-muted-foreground">+{cats.length - 2}</Badge>
+              <span className="badge badge-outline text-xs text-neutral-content">+{cats.length - 2}</span>
             )}
           </div>
           <div className="flex items-center gap-1.5">
             {hasRouteData && (
-              <Badge variant="outline" className="text-xs border-primary/30 text-primary/70">
+              <span className="badge badge-outline text-xs border-primary/30 text-primary/70">
                 {Object.keys(substance.routeData!).length} routes
-              </Badge>
+              </span>
             )}
-            <Badge variant="outline" className={riskLevelColors[substance.riskLevel]}>
+            <span className={`badge badge-outline ${riskLevelColors[substance.riskLevel]}`}>
               {substance.riskLevel.replace('-', ' ')}
-            </Badge>
+            </span>
           </div>
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   )
 })
 
@@ -292,7 +286,7 @@ const MobileSubstanceRow = memo(function MobileSubstanceRow({ substance, onSelec
   return (
     <button
       onClick={() => onSelect(substance)}
-      className="w-full text-left flex items-start gap-3 p-4 rounded-2xl border border-border bg-card hover:border-primary/40 active:scale-[0.99] transition-all card-lift"
+      className="w-full text-left flex items-start gap-3 p-4 rounded-2xl border border-base-300 bg-base-100 hover:border-primary/40 active:scale-[0.99] transition-all card-lift"
     >
       {primary && (
         <div className={`p-2.5 rounded-xl shrink-0 ${categoryColors[primary]}`}>
@@ -302,27 +296,27 @@ const MobileSubstanceRow = memo(function MobileSubstanceRow({ substance, onSelec
       <div className="flex-1 min-w-0">
         <div className="flex items-start justify-between gap-2 mb-1">
           <span className="font-semibold text-base leading-tight">{substance.name}</span>
-          <ChevronRight className="h-4 w-4 text-muted-foreground shrink-0 mt-0.5" />
+          <ChevronRight className="h-4 w-4 text-neutral-content shrink-0 mt-0.5" />
         </div>
-        <p className="text-xs text-muted-foreground mb-2">{substance.class}</p>
-        <p className="text-sm text-muted-foreground line-clamp-2 mb-2 leading-relaxed">
+        <p className="text-xs text-neutral-content mb-2">{substance.class}</p>
+        <p className="text-sm text-neutral-content line-clamp-3 mb-2 leading-relaxed">
           {substance.description}
         </p>
         <div className="flex flex-wrap gap-1">
           {cats.slice(0, 2).map((cat) => {
             const info = categories.find((c) => c.id === cat)
             return (
-              <Badge key={cat} variant="outline" className={`text-xs ${categoryColors[cat]}`}>
+              <span key={cat} className={`badge badge-outline text-xs ${categoryColors[cat]}`}>
                 {info?.name ?? cat}
-              </Badge>
+              </span>
             )
           })}
           {cats.length > 2 && (
-            <Badge variant="outline" className="text-xs">+{cats.length - 2}</Badge>
+            <span className="badge badge-outline text-xs">+{cats.length - 2}</span>
           )}
-          <Badge variant="outline" className={`text-xs ${riskLevelColors[substance.riskLevel]}`}>
+          <span className={`badge badge-outline text-xs ${riskLevelColors[substance.riskLevel]}`}>
             {substance.riskLevel.replace('-', ' ')}
-          </Badge>
+          </span>
         </div>
       </div>
     </button>
@@ -378,18 +372,14 @@ function DosageDurationPanel({
   return (
     <div className="space-y-4">
       {hasRouteData && (
-        <Card className="border-primary/20 bg-primary/5">
-          <CardHeader className="pb-3">
-            <CardTitle className="flex items-center gap-2 text-base">
+        <div className="card border-primary/20 bg-primary/5 shadow-sm">
+          <div className="card-body">
+            <h3 className="card-title text-base flex items-center gap-2">
               <Syringe className="h-4 w-4" />
               Route of Administration
-            </CardTitle>
-            <CardDescription className="text-xs">
-              Dosage and duration vary significantly by route.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-none -mx-1 px-1">
+            </h3>
+            <p className="text-xs text-neutral-content">Dosage and duration vary significantly by route.</p>
+            <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-none -mx-1 px-1 mt-2">
               {Object.keys(substance.routeData!).map((route) => {
                 const isSelected = selectedRoute === route
                 const dangerClass = routeDangerColors[route] || ''
@@ -398,15 +388,11 @@ function DosageDurationPanel({
                     key={route}
                     onClick={() => setSelectedRoute(route)}
                     className={`
-                      flex-shrink-0 flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium border transition-all min-h-[40px]
-                      ${isSelected
-                        ? 'bg-primary text-primary-foreground border-primary shadow-sm'
-                        : `bg-background hover:bg-muted border-border ${dangerClass}`
-                      }
+                      btn btn-sm ${isSelected ? 'btn-primary' : `btn-ghost border border-base-300 hover:bg-base-200 ${dangerClass}`}
                     `}
                   >
                     <span>{getRouteIcon(route)}</span>
-                    <span>{route}</span>
+                    {route}
                     {(route === 'Intravenous' || route === 'Smoking') && !isSelected && (
                       <span className="text-orange-400 text-xs">⚠</span>
                     )}
@@ -415,29 +401,27 @@ function DosageDurationPanel({
               })}
             </div>
             {currentNotes && (
-              <div className="mt-3 flex items-start gap-2 p-3 rounded-lg bg-muted/50 border border-border">
-                <Info className="h-4 w-4 text-muted-foreground mt-0.5 shrink-0" />
-                <p className="text-xs text-muted-foreground leading-relaxed">{currentNotes}</p>
+              <div className="alert mt-3">
+                <Info className="h-4 w-4 shrink-0" />
+                <span className="text-xs leading-relaxed">{currentNotes}</span>
               </div>
             )}
-          </CardContent>
-        </Card>
+          </div>
+        </div>
       )}
 
       <div className="grid gap-4 sm:grid-cols-2">
-        <Card>
-          <CardHeader className="pb-2">
-            <CardTitle className="flex items-center gap-2 text-base">
+        <div className="card bg-base-100 border border-base-300 shadow-sm">
+          <div className="card-body">
+            <h3 className="card-title text-base flex items-center gap-2">
               <Droplets className="h-4 w-4" />
               Dosage
               {selectedRoute && hasRouteData && (
-                <Badge variant="outline" className="ml-auto text-xs font-normal">
+                <span className="badge badge-outline ml-auto text-xs font-normal">
                   {getRouteIcon(selectedRoute)} {selectedRoute}
-                </Badge>
+                </span>
               )}
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
+            </h3>
             <div className="space-y-1">
               {Object.entries(currentDosage).map(([level, amount]) => {
                 const levelColors: Record<string, string> = {
@@ -448,31 +432,29 @@ function DosageDurationPanel({
                   heavy: 'text-red-400 bg-red-500/10',
                 }
                 return (
-                  <div key={level} className="flex justify-between items-center py-2 border-b last:border-0">
+                  <div key={level} className="flex justify-between items-center py-2 border-b border-base-300 last:border-0">
                     <span className={`text-xs px-2 py-0.5 rounded capitalize font-medium ${levelColors[level] || ''}`}>
                       {level}
                     </span>
-                    <Badge variant="secondary" className="font-mono text-xs">{amount}</Badge>
+                    <span className="badge badge-secondary font-mono text-xs">{amount}</span>
                   </div>
                 )
               })}
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
 
-        <Card>
-          <CardHeader className="pb-2">
-            <CardTitle className="flex items-center gap-2 text-base">
+        <div className="card bg-base-100 border border-base-300 shadow-sm">
+          <div className="card-body">
+            <h3 className="card-title text-base flex items-center gap-2">
               <Clock className="h-4 w-4" />
               Duration
               {selectedRoute && hasRouteData && (
-                <Badge variant="outline" className="ml-auto text-xs font-normal">
+                <span className="badge badge-outline ml-auto text-xs font-normal">
                   {getRouteIcon(selectedRoute)} {selectedRoute}
-                </Badge>
+                </span>
               )}
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
+            </h3>
             <div className="space-y-1">
               {Object.entries(currentDuration).map(([phase, time]) => {
                 const phaseColors: Record<string, string> = {
@@ -483,70 +465,68 @@ function DosageDurationPanel({
                   total: 'text-green-400 bg-green-500/10',
                 }
                 return (
-                  <div key={phase} className="flex justify-between items-center py-2 border-b last:border-0">
+                  <div key={phase} className="flex justify-between items-center py-2 border-b border-base-300 last:border-0">
                     <span className={`text-xs px-2 py-0.5 rounded capitalize font-medium ${phaseColors[phase] || ''}`}>
                       {phase}
                     </span>
-                    <Badge variant="secondary" className="font-mono text-xs text-right max-w-[160px] whitespace-normal">
+                    <span className="badge badge-secondary font-mono text-xs text-right max-w-[160px] whitespace-normal">
                       {time}
-                    </Badge>
+                    </span>
                   </div>
                 )
               })}
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
       </div>
 
       {!hasRouteData && (
-        <p className="text-xs text-muted-foreground text-center py-2 opacity-70">
+        <p className="text-xs text-neutral-content text-center py-2 opacity-70">
           Route-specific data not available for this substance
         </p>
       )}
 
       {hasRouteData && Object.keys(substance.routeData!).length > 1 && (
-        <Card className="hidden sm:block">
-          <CardHeader className="pb-3">
-            <CardTitle className="text-base flex items-center gap-2">
+        <div className="card bg-base-100 border border-base-300 shadow-sm hidden sm:block">
+          <div className="card-body">
+            <h3 className="card-title text-base flex items-center gap-2">
               <Route className="h-4 w-4" />
               Routes comparison
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
+            </h3>
             <div className="overflow-x-auto">
-              <table className="w-full text-xs">
+              <table className="table table-xs">
                 <thead>
-                  <tr className="border-b">
-                    <th className="text-left py-2 pr-3 text-muted-foreground font-medium">Route</th>
-                    <th className="text-left py-2 pr-3 text-muted-foreground font-medium">Common dose</th>
-                    <th className="text-left py-2 pr-3 text-muted-foreground font-medium">Onset</th>
-                    <th className="text-left py-2 text-muted-foreground font-medium">Total</th>
+                  <tr>
+                    <th>Route</th>
+                    <th>Common dose</th>
+                    <th>Onset</th>
+                    <th>Total</th>
                   </tr>
                 </thead>
                 <tbody>
                   {(Object.entries(substance.routeData!) as [string, RouteDosageDuration][]).map(([route, data]) => (
                     <tr
                       key={route}
-                      className={`border-b last:border-0 cursor-pointer transition-colors hover:bg-muted/50 ${selectedRoute === route ? 'bg-primary/5' : ''}`}
+                      className={`cursor-pointer hover ${selectedRoute === route ? 'active' : ''}`}
                       onClick={() => setSelectedRoute(route)}
                     >
-                      <td className="py-2 pr-3 font-medium">
+                      <td className="font-medium">
                         <span className="flex items-center gap-1">
                           <span>{getRouteIcon(route)}</span>
                           <span>{route}</span>
                           {selectedRoute === route && <span className="text-primary text-xs">●</span>}
                         </span>
                       </td>
-                      <td className="py-2 pr-3 text-muted-foreground font-mono">{data.dosage.common}</td>
-                      <td className="py-2 pr-3 text-muted-foreground font-mono">{data.duration.onset}</td>
-                      <td className="py-2 text-muted-foreground font-mono">{data.duration.total}</td>
+                      <td className="font-mono text-neutral-content">{data.dosage.common}</td>
+                      <td className="font-mono text-neutral-content">{data.duration.onset}</td>
+                      <td className="font-mono text-neutral-content">{data.duration.total}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
       )}
     </div>
   )
@@ -571,7 +551,7 @@ function MobileBottomNav({
   ]
 
   return (
-    <nav className="md:hidden fixed bottom-0 inset-x-0 z-50 bg-background/95 backdrop-blur border-t border-border safe-area-pb">
+    <nav className="md:hidden fixed bottom-0 inset-x-0 z-50 bg-base-100 border-t border-base-300 safe-area-pb">
       <div className="flex">
         {items.map(({ id, label, icon: Icon }) => {
           const isLog = id === 'log'
@@ -584,9 +564,9 @@ function MobileBottomNav({
                 className="flex-1 flex flex-col items-center justify-center py-2 gap-0.5"
               >
                 <span className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-md hover:shadow-lg transition-shadow">
-                  <Icon className="h-5 w-5 text-primary-foreground" />
+                  <Icon className="h-5 w-5 text-primary-content" />
                 </span>
-                <span className="text-[10px] text-muted-foreground">{label}</span>
+                <span className="text-[10px] text-neutral-content">{label}</span>
               </button>
             )
             return <React.Fragment key={id}>{renderLogTrigger(btn)}</React.Fragment>
@@ -603,9 +583,9 @@ function MobileBottomNav({
                   isActive ? 'bg-primary/15 scale-105' : ''
                 }`}
               >
-                <Icon className={`h-5 w-5 ${isActive ? 'text-foreground' : 'text-muted-foreground'}`} />
+                <Icon className={`h-5 w-5 ${isActive ? 'text-base-content' : 'text-neutral-content'}`} />
               </span>
-              <span className={`text-[10px] ${isActive ? 'text-foreground font-medium' : 'text-muted-foreground'}`}>
+              <span className={`text-[10px] ${isActive ? 'text-base-content font-medium' : 'text-neutral-content'}`}>
                 {label}
               </span>
             </button>
@@ -631,8 +611,8 @@ function CategoryChipRow({
         onClick={() => onChange('all')}
         className={`flex-shrink-0 flex items-center gap-1.5 h-8 px-3 rounded-full text-xs font-medium border transition-colors ${
           selected === 'all'
-            ? 'bg-foreground text-background border-foreground'
-            : 'bg-muted text-muted-foreground border-border'
+            ? 'bg-base-content text-base-100 border-base-content'
+            : 'bg-base-200 text-neutral-content border-base-300'
         }`}
       >
         All
@@ -646,8 +626,8 @@ function CategoryChipRow({
             onClick={() => onChange(cat.id)}
             className={`flex-shrink-0 flex items-center gap-1.5 h-8 px-3 rounded-full text-xs font-medium border transition-colors ${
               isActive
-                ? 'bg-foreground text-background border-foreground'
-                : 'bg-muted text-muted-foreground border-border'
+                ? 'bg-base-content text-base-100 border-base-content'
+                : 'bg-base-200 text-neutral-content border-base-300'
             }`}
           >
             <span className={`w-2 h-2 rounded-full flex-shrink-0 ${dotColor}`} />
@@ -685,14 +665,14 @@ function SubstanceDetail({
   const quickDosage = firstRoute ? substance.routeData![firstRoute]?.dosage : null
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="min-h-screen bg-base-100 flex flex-col">
       {/* Desktop header */}
-      <header className="hidden md:flex sticky top-14 z-40 border-b border-border/50 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60 h-14 items-center gap-4 px-4 lg:px-6">
-        <Button variant="ghost" size="sm" onClick={onBack} className="gap-2">
+      <header className="hidden md:flex sticky top-14 z-40 border-b border-base-300/50 bg-base-100 h-14 items-center gap-4 px-4 lg:px-6">
+        <button className="btn btn-ghost btn-sm gap-2" onClick={onBack}>
           <ArrowLeft className="h-4 w-4" />
           Back
-        </Button>
-        <Separator orientation="vertical" className="h-6" />
+        </button>
+        <div className="divider divider-horizontal mx-1 h-6" />
         <h1 className="text-lg font-semibold">{substance.name}</h1>
         <div className="ml-auto flex items-center gap-2 flex-wrap">
           <DoseLoggerModal
@@ -702,23 +682,23 @@ function SubstanceDetail({
             preselectedRoute={selectedRoute || undefined}
             onLogCreated={onDoseLogged}
             trigger={
-              <Button size="sm" className="gap-2">
+              <button className="btn btn-primary btn-sm gap-2">
                 <Plus className="h-4 w-4" />
                 Log Dose
-              </Button>
+              </button>
             }
           />
           <CategoryBadges substance={substance} />
-          <Badge variant="outline" className={riskLevelColors[substance.riskLevel]}>
+          <span className={`badge badge-outline ${riskLevelColors[substance.riskLevel]}`}>
             {substance.riskLevel.replace('-', ' ')} risk
-          </Badge>
+          </span>
         </div>
       </header>
 
       {/* Mobile header */}
-      <header className="md:hidden sticky top-14 z-30 bg-background/80 backdrop-blur border-b border-border/50">
+      <header className="md:hidden sticky top-14 z-30 bg-base-100 border-b border-base-300/50">
         <div className="flex items-center gap-3 h-13 px-4">
-          <button onClick={onBack} className="p-2 -ml-2 rounded-lg hover:bg-muted transition-colors">
+          <button onClick={onBack} className="btn btn-ghost btn-sm btn-square">
             <ArrowLeft className="h-5 w-5" />
           </button>
           <h1 className="text-base font-semibold flex-1 truncate">{substance.name}</h1>
@@ -729,7 +709,7 @@ function SubstanceDetail({
             preselectedRoute={selectedRoute || undefined}
             onLogCreated={onDoseLogged}
             trigger={
-              <button className="flex items-center gap-1.5 h-8 px-3 bg-primary text-primary-foreground rounded-lg text-sm font-medium">
+              <button className="btn btn-primary btn-sm gap-1.5">
                 <Plus className="h-4 w-4" />
                 Log
               </button>
@@ -740,7 +720,7 @@ function SubstanceDetail({
 
       {/* Mobile content */}
       <div className="md:hidden flex-1 overflow-y-auto pb-24">
-        <div className="px-4 pt-4 pb-3 border-b border-border">
+        <div className="px-4 pt-4 pb-3 border-b border-base-300">
           <div className="flex items-start gap-3 mb-3">
             {primary && (
               <div className={`p-3 rounded-xl shrink-0 ${categoryColors[primary]}`}>
@@ -749,7 +729,7 @@ function SubstanceDetail({
             )}
             <div className="min-w-0">
               <h2 className="text-xl font-semibold">{substance.name}</h2>
-              <p className="text-xs text-muted-foreground mt-0.5">{substance.class}</p>
+              <p className="text-xs text-neutral-content mt-0.5">{substance.class}</p>
               <div className="flex flex-wrap gap-1 mt-2">
                 {cats.map((cat) => {
                   const info = categories.find((c) => c.id === cat)
@@ -763,48 +743,48 @@ function SubstanceDetail({
                       <ChevronRight className="h-2.5 w-2.5 opacity-50" />
                     </button>
                   ) : (
-                    <Badge key={cat} variant="outline" className={`text-xs ${categoryColors[cat]}`}>
+                    <span key={cat} className={`badge badge-outline text-xs ${categoryColors[cat]}`}>
                       {info?.name ?? cat}
-                    </Badge>
+                    </span>
                   )
                 })}
-                <Badge variant="outline" className={`text-xs ${riskLevelColors[substance.riskLevel]}`}>
+                <span className={`badge badge-outline text-xs ${riskLevelColors[substance.riskLevel]}`}>
                   {substance.riskLevel.replace('-', ' ')} risk
-                </Badge>
+                </span>
               </div>
             </div>
           </div>
-          <p className="text-sm text-muted-foreground leading-relaxed">{substance.description}</p>
+          <p className="text-sm text-neutral-content leading-relaxed">{substance.description}</p>
         </div>
 
         {quickDuration && (
-          <div className="flex gap-2 px-4 py-3 overflow-x-auto scrollbar-none border-b border-border">
+          <div className="flex gap-2 px-4 py-3 overflow-x-auto scrollbar-none border-b border-base-300">
             {quickDuration.onset && (
-              <div className="flex-shrink-0 flex flex-col items-center bg-muted rounded-xl px-4 py-2 min-w-[80px]">
-                <span className="text-[10px] text-muted-foreground uppercase tracking-wide">Onset</span>
+              <div className="flex-shrink-0 flex flex-col items-center bg-base-200 rounded-xl px-4 py-2 min-w-[80px]">
+                <span className="text-[10px] text-neutral-content uppercase tracking-wide">Onset</span>
                 <span className="text-sm font-medium mt-0.5">{quickDuration.onset}</span>
               </div>
             )}
             {quickDuration.peak && (
-              <div className="flex-shrink-0 flex flex-col items-center bg-muted rounded-xl px-4 py-2 min-w-[80px]">
-                <span className="text-[10px] text-muted-foreground uppercase tracking-wide">Peak</span>
+              <div className="flex-shrink-0 flex flex-col items-center bg-base-200 rounded-xl px-4 py-2 min-w-[80px]">
+                <span className="text-[10px] text-neutral-content uppercase tracking-wide">Peak</span>
                 <span className="text-sm font-medium mt-0.5">{quickDuration.peak}</span>
               </div>
             )}
             {quickDuration.total && (
-              <div className="flex-shrink-0 flex flex-col items-center bg-muted rounded-xl px-4 py-2 min-w-[80px]">
-                <span className="text-[10px] text-muted-foreground uppercase tracking-wide">Total</span>
+              <div className="flex-shrink-0 flex flex-col items-center bg-base-200 rounded-xl px-4 py-2 min-w-[80px]">
+                <span className="text-[10px] text-neutral-content uppercase tracking-wide">Total</span>
                 <span className="text-sm font-medium mt-0.5">{quickDuration.total}</span>
               </div>
             )}
             {quickDosage?.common && (
-              <div className="flex-shrink-0 flex flex-col items-center bg-muted rounded-xl px-4 py-2 min-w-[80px]">
-                <span className="text-[10px] text-muted-foreground uppercase tracking-wide">Common</span>
+              <div className="flex-shrink-0 flex flex-col items-center bg-base-200 rounded-xl px-4 py-2 min-w-[80px]">
+                <span className="text-[10px] text-neutral-content uppercase tracking-wide">Common</span>
                 <span className="text-sm font-medium mt-0.5 font-mono">{quickDosage.common}</span>
               </div>
             )}
-            <div className="flex-shrink-0 flex flex-col items-center bg-muted rounded-xl px-4 py-2 min-w-[80px]">
-              <span className="text-[10px] text-muted-foreground uppercase tracking-wide">Routes</span>
+            <div className="flex-shrink-0 flex flex-col items-center bg-base-200 rounded-xl px-4 py-2 min-w-[80px]">
+              <span className="text-[10px] text-neutral-content uppercase tracking-wide">Routes</span>
               <span className="text-sm font-medium mt-0.5">
                 {substance.routeData ? Object.keys(substance.routeData).length : '—'}
               </span>
@@ -813,7 +793,7 @@ function SubstanceDetail({
         )}
 
         <Tabs defaultValue="effects" className="w-full">
-          <div className="sticky top-0 z-30 bg-background border-b border-border">
+          <div className="sticky top-0 z-30 bg-base-100 border-b border-base-300">
             <TabsList className="w-full h-auto p-0 bg-transparent rounded-none flex overflow-x-auto scrollbar-none justify-start gap-0">
               {['effects', 'dosage', 'harm', 'info', 'interactions'].map((tab) => {
                 const labels: Record<string, string> = {
@@ -827,7 +807,7 @@ function SubstanceDetail({
                   <TabsTrigger
                     key={tab}
                     value={tab}
-                    className="flex-shrink-0 rounded-none border-b-2 border-transparent data-[state=active]:border-foreground data-[state=active]:bg-transparent px-4 h-11 text-sm font-medium text-muted-foreground data-[state=active]:text-foreground"
+                    className="flex-shrink-0 rounded-none border-b-2 border-transparent data-[state=active]:border-base-content data-[state=active]:bg-transparent px-4 h-11 text-sm font-medium text-neutral-content data-[state=active]:text-base-content"
                   >
                     {labels[tab]}
                   </TabsTrigger>
@@ -848,7 +828,7 @@ function SubstanceDetail({
                 ))}
               </ul>
             </div>
-            <Separator />
+            <div className="divider my-2" />
             <div>
               <p className="text-xs font-medium text-yellow-500 uppercase tracking-wide mb-2">Neutral</p>
               <ul className="space-y-2">
@@ -860,7 +840,7 @@ function SubstanceDetail({
                 ))}
               </ul>
             </div>
-            <Separator />
+            <div className="divider my-2" />
             <div>
               <p className="text-xs font-medium text-red-500 uppercase tracking-wide mb-2">Negative</p>
               <ul className="space-y-2">
@@ -891,42 +871,40 @@ function SubstanceDetail({
 
           <TabsContent value="info" className="mt-0 px-4 py-4 space-y-4">
             {substance.history && (
-              <Card>
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-base flex items-center gap-2">
+              <div className="card bg-base-100 border border-base-300 shadow-sm">
+                <div className="card-body">
+                  <h3 className="card-title text-base flex items-center gap-2">
                     <History className="h-4 w-4" />
                     History
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{substance.history}</p>
-                </CardContent>
-              </Card>
+                  </h3>
+                  <p className="text-sm text-neutral-content leading-relaxed">{substance.history}</p>
+                </div>
+              </div>
             )}
-            <Card>
-              <CardContent className="pt-4 space-y-3">
+            <div className="card bg-base-100 border border-base-300 shadow-sm">
+              <div className="card-body space-y-3">
                 <div className="flex items-center gap-3 text-sm">
-                  <Scale className="h-4 w-4 text-muted-foreground shrink-0" />
+                  <Scale className="h-4 w-4 text-neutral-content shrink-0" />
                   <div>
-                    <span className="text-muted-foreground">Legality: </span>
+                    <span className="text-neutral-content">Legality: </span>
                     <span>{substance.legality}</span>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 text-sm">
-                  <FlaskConical className="h-4 w-4 text-muted-foreground shrink-0" />
+                  <FlaskConical className="h-4 w-4 text-neutral-content shrink-0" />
                   <div>
-                    <span className="text-muted-foreground">Formula: </span>
+                    <span className="text-neutral-content">Formula: </span>
                     <span className="font-mono">{substance.chemistry.formula}</span>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="outline" size="sm" className="w-full gap-2">
+                <button className="btn btn-outline btn-primary btn-sm w-full gap-2">
                   <Github className="h-4 w-4" />
                   Contribute on GitHub
-                </Button>
+                </button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="center">
                 <DropdownMenuItem onClick={() => window.open(GITHUB_INFO_CHANGE_URL, '_blank')}>
@@ -955,9 +933,9 @@ function SubstanceDetail({
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {(substance.interactions.dangerous || []).map((interaction, i) => (
-                    <Badge key={i} variant="outline" className="border-red-500/30 text-red-400">
+                    <span key={i} className="badge badge-outline border-red-500/30 text-red-400">
                       {interaction}
-                    </Badge>
+                    </span>
                   ))}
                 </div>
               </div>
@@ -969,9 +947,9 @@ function SubstanceDetail({
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {(substance.interactions.unsafe || []).map((interaction, i) => (
-                    <Badge key={i} variant="outline" className="border-orange-500/30 text-orange-400">
+                    <span key={i} className="badge badge-outline border-orange-500/30 text-orange-400">
                       {interaction}
-                    </Badge>
+                    </span>
                   ))}
                 </div>
               </div>
@@ -983,9 +961,9 @@ function SubstanceDetail({
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {(substance.interactions.uncertain || []).map((interaction, i) => (
-                    <Badge key={i} variant="outline" className="border-yellow-500/30 text-yellow-400">
+                    <span key={i} className="badge badge-outline border-yellow-500/30 text-yellow-400">
                       {interaction}
-                    </Badge>
+                    </span>
                   ))}
                 </div>
               </div>
@@ -997,9 +975,9 @@ function SubstanceDetail({
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {(substance.interactions.crossTolerances || []).map((interaction, i) => (
-                    <Badge key={i} variant="outline" className="border-blue-500/30 text-blue-400">
+                    <span key={i} className="badge badge-outline border-blue-500/30 text-blue-400">
                       {interaction}
-                    </Badge>
+                    </span>
                   ))}
                 </div>
               </div>
@@ -1009,11 +987,12 @@ function SubstanceDetail({
       </div>
 
       {/* Desktop layout */}
-      <main className="hidden md:block container mx-auto py-6 lg:py-10">
+      <main className="hidden md:block container mx-auto py-6 lg:py-10 scroll-mt-28">
         <div className="grid gap-6 lg:grid-cols-3 mb-8">
           <div className="lg:col-span-2 space-y-6">
-            <Card>
-              <CardHeader>
+            {/* Substance name card */}
+            <div className="card bg-base-100 border border-base-300 shadow-sm">
+              <div className="card-body">
                 <div className="flex items-center gap-3">
                   {primary && (
                     <div className={`p-2 rounded-lg ${categoryColors[primary]}`}>
@@ -1021,19 +1000,16 @@ function SubstanceDetail({
                     </div>
                   )}
                   <div>
-                    <CardTitle className="text-2xl">{substance.name}</CardTitle>
-                    <CardDescription>{substance.commonNames.join(' • ')}</CardDescription>
+                    <h2 className="card-title text-2xl">{substance.name}</h2>
+                    <p className="text-xs text-neutral-content line-clamp-2">{substance.commonNames.join(' • ')}</p>
                   </div>
                 </div>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-muted-foreground leading-relaxed">{substance.description}</p>
+                <p className="text-neutral-content leading-relaxed">{substance.description}</p>
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button variant="secondary" size="sm" className="w-full sm:w-auto">
-                      <Github className="mr-2 h-4 w-4" />
-                      Contribute on GitHub
-                    </Button>
+                    <button className="btn btn-secondary btn-sm w-full sm:w-auto">
+                      <Github className="h-4 w-4" />Contribute on GitHub
+                    </button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="start">
                     <DropdownMenuItem onClick={() => window.open(GITHUB_INFO_CHANGE_URL, '_blank')}>
@@ -1052,217 +1028,225 @@ function SubstanceDetail({
                     </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
 
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Sparkles className="h-5 w-5" />Effects
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <Tabs defaultValue="positive" className="w-full">
+            {/* Tabbed content: Dosage / Effects / Harm Reduction */}
+            <div className="card bg-base-100 border border-base-300 shadow-sm">
+              <Tabs defaultValue="dosage">
+                <div className="card-body p-4 pb-0">
                   <TabsList className="grid w-full grid-cols-3">
-                    <TabsTrigger value="positive" className="text-green-500 data-[state=active]:bg-green-500/20">Positive</TabsTrigger>
-                    <TabsTrigger value="neutral" className="text-yellow-500 data-[state=active]:bg-yellow-500/20">Neutral</TabsTrigger>
-                    <TabsTrigger value="negative" className="text-red-500 data-[state=active]:bg-red-500/20">Negative</TabsTrigger>
+                    <TabsTrigger value="dosage" className="gap-1.5">
+                      <Droplets className="h-4 w-4" />Dosage & Routes
+                    </TabsTrigger>
+                    <TabsTrigger value="effects" className="gap-1.5">
+                      <Sparkles className="h-4 w-4" />Effects
+                    </TabsTrigger>
+                    <TabsTrigger value="harm" className="gap-1.5">
+                      <Shield className="h-4 w-4" />Harm Reduction
+                    </TabsTrigger>
                   </TabsList>
-                  <TabsContent value="positive" className="mt-4">
-                    <ul className="space-y-2">
-                      {substance.effects.positive.map((e, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 shrink-0" /><span>{e}</span>
+                </div>
+                <div className="card-body pt-4">
+                  <TabsContent value="dosage" className="mt-0">
+                    <DosageDurationPanel substance={substance} onRouteChange={handleRouteChange} />
+                  </TabsContent>
+                  <TabsContent value="effects" className="mt-0">
+                    <Tabs defaultValue="positive" className="w-full">
+                      <TabsList className="grid w-full grid-cols-3">
+                        <TabsTrigger value="positive" className="text-green-500 data-[state=active]:bg-green-500/20">Positive</TabsTrigger>
+                        <TabsTrigger value="neutral" className="text-yellow-500 data-[state=active]:bg-yellow-500/20">Neutral</TabsTrigger>
+                        <TabsTrigger value="negative" className="text-red-500 data-[state=active]:bg-red-500/20">Negative</TabsTrigger>
+                      </TabsList>
+                      <TabsContent value="positive" className="mt-4">
+                        <ul className="space-y-2">
+                          {substance.effects.positive.map((e, i) => (
+                            <li key={i} className="flex items-start gap-2">
+                              <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 shrink-0" /><span>{e}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </TabsContent>
+                      <TabsContent value="neutral" className="mt-4">
+                        <ul className="space-y-2">
+                          {substance.effects.neutral.map((e, i) => (
+                            <li key={i} className="flex items-start gap-2">
+                              <MinusCircle className="h-4 w-4 text-yellow-500 mt-0.5 shrink-0" /><span>{e}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </TabsContent>
+                      <TabsContent value="negative" className="mt-4">
+                        <ul className="space-y-2">
+                          {substance.effects.negative.map((e, i) => (
+                            <li key={i} className="flex items-start gap-2">
+                              <XCircle className="h-4 w-4 text-red-500 mt-0.5 shrink-0" /><span>{e}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </TabsContent>
+                    </Tabs>
+                  </TabsContent>
+                  <TabsContent value="harm" className="mt-0">
+                    <ul className="space-y-3">
+                      {substance.harmReduction.map((tip, i) => (
+                        <li key={i} className="flex items-start gap-3 p-3 rounded-xl bg-orange-500/5 border border-orange-500/20">
+                          <AlertTriangle className="h-4 w-4 text-orange-500 mt-0.5 shrink-0" />
+                          <span className="text-sm leading-relaxed">{tip}</span>
                         </li>
                       ))}
                     </ul>
                   </TabsContent>
-                  <TabsContent value="neutral" className="mt-4">
-                    <ul className="space-y-2">
-                      {substance.effects.neutral.map((e, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <MinusCircle className="h-4 w-4 text-yellow-500 mt-0.5 shrink-0" /><span>{e}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </TabsContent>
-                  <TabsContent value="negative" className="mt-4">
-                    <ul className="space-y-2">
-                      {substance.effects.negative.map((e, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <XCircle className="h-4 w-4 text-red-500 mt-0.5 shrink-0" /><span>{e}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </TabsContent>
-                </Tabs>
-              </CardContent>
-            </Card>
-
-            <DosageDurationPanel substance={substance} onRouteChange={handleRouteChange} />
-
-            <Card className="border-orange-500/30 bg-orange-500/5">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-lg text-orange-500">
-                  <Shield className="h-5 w-5" />Harm Reduction
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
-                  {substance.harmReduction.map((tip, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <AlertTriangle className="h-4 w-4 text-orange-500 mt-0.5 shrink-0" />
-                      <span className="text-sm">{tip}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
+                </div>
+              </Tabs>
+            </div>
           </div>
 
           <div className="space-y-6">
-            <Card>
-              <CardHeader><CardTitle className="text-lg">Quick Info</CardTitle></CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex items-start gap-3">
-                  {primary && <CategoryIcon substance={substance} className="h-4 w-4 text-muted-foreground mt-0.5" />}
-                  <div>
-                    <p className="text-sm text-muted-foreground">{cats.length > 1 ? 'Categories' : 'Category'}</p>
-                    <div className="flex flex-wrap gap-1 mt-1">
-                      {cats.map((cat) => {
-                        const info = categories.find((c) => c.id === cat)
-                        return onCategoryClick ? (
-                          <button
-                            key={cat}
-                            onClick={() => onCategoryClick(cat)}
-                            className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-xs font-medium border transition-colors hover:brightness-125 cursor-pointer ${categoryColors[cat] ?? ''}`}
-                          >
-                            {info?.name ?? cat}
-                            <ChevronRight className="h-2.5 w-2.5 opacity-50" />
-                          </button>
-                        ) : (
-                          <Badge key={cat} variant="outline" className={categoryColors[cat] ?? ''}>
-                            {info?.name ?? cat}
-                          </Badge>
-                        )
-                      })}
+            {/* Quick Info */}
+            <div className="card bg-base-100 border border-base-300 shadow-sm">
+              <div className="card-body">
+                <h3 className="card-title text-lg">Quick Info</h3>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    {primary && <CategoryIcon substance={substance} className="h-4 w-4 text-neutral-content mt-0.5" />}
+                    <div>
+                      <p className="text-sm text-neutral-content">{cats.length > 1 ? 'Categories' : 'Category'}</p>
+                      <div className="flex flex-wrap gap-1 mt-1">
+                        {cats.map((cat) => {
+                          const info = categories.find((c) => c.id === cat)
+                          return onCategoryClick ? (
+                            <button
+                              key={cat}
+                              onClick={() => onCategoryClick(cat)}
+                              className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-xs font-medium border transition-colors hover:brightness-125 cursor-pointer ${categoryColors[cat] ?? ''}`}
+                            >
+                              {info?.name ?? cat}
+                              <ChevronRight className="h-2.5 w-2.5 opacity-50" />
+                            </button>
+                          ) : (
+                            <span key={cat} className={`badge badge-outline text-xs ${categoryColors[cat] ?? ''}`}>
+                              {info?.name ?? cat}
+                            </span>
+                          )
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <FlaskConical className="h-4 w-4 text-neutral-content" />
+                    <div>
+                      <p className="text-sm text-neutral-content">Class</p>
+                      <p className="font-medium">{substance.class}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Route className="h-4 w-4 text-neutral-content mt-0.5" />
+                    <div>
+                      <p className="text-sm text-neutral-content">Routes</p>
+                      <div className="flex flex-wrap gap-1 mt-1">
+                        {substance.routeData && Object.keys(substance.routeData).map((route) => (
+                          <span key={route} className="text-xs bg-base-200 px-2 py-0.5 rounded flex items-center gap-1">
+                            <span>{getRouteIcon(route)}</span><span>{route}</span>
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Scale className="h-4 w-4 text-neutral-content" />
+                    <div>
+                      <p className="text-sm text-neutral-content">Legality</p>
+                      <p className="font-medium text-sm">{substance.legality}</p>
                     </div>
                   </div>
                 </div>
-                <div className="flex items-center gap-3">
-                  <FlaskConical className="h-4 w-4 text-muted-foreground" />
-                  <div>
-                    <p className="text-sm text-muted-foreground">Class</p>
-                    <p className="font-medium">{substance.class}</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Route className="h-4 w-4 text-muted-foreground mt-0.5" />
-                  <div>
-                    <p className="text-sm text-muted-foreground">Routes</p>
-                    <div className="flex flex-wrap gap-1 mt-1">
-                      {substance.routeData && Object.keys(substance.routeData).map((route) => (
-                        <span key={route} className="text-xs bg-muted px-2 py-0.5 rounded flex items-center gap-1">
-                          <span>{getRouteIcon(route)}</span><span>{route}</span>
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Scale className="h-4 w-4 text-muted-foreground" />
-                  <div>
-                    <p className="text-sm text-muted-foreground">Legality</p>
-                    <p className="font-medium text-sm">{substance.legality}</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
 
-            <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0">
-                <CardTitle className="text-lg">Interactions</CardTitle>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => router.push(`/interactions?substances=${substance.id}`)}
-                  className="gap-1.5 text-xs"
-                >
-                  <Shuffle className="h-3 w-3" />
-                  Full Checker
-                </Button>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                {substance.interactions.dangerous.length > 0 && (
-                  <div>
-                    <p className="text-xs font-medium text-red-400 mb-2 flex items-center gap-1">
-                      <AlertTriangle className="h-3 w-3" />Dangerous
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {substance.interactions.dangerous.map((interaction, i) => (
-                        <Badge key={i} variant="outline" className="border-red-500/30 text-red-400">
-                          {interaction}
-                        </Badge>
-                      ))}
+            {/* Interactions */}
+            <div className="card bg-base-100 border border-base-300 shadow-sm">
+              <div className="card-body">
+                <div className="flex items-center justify-between">
+                  <h3 className="card-title text-lg">Interactions</h3>
+                  <button
+                    className="btn btn-outline btn-primary btn-sm gap-1.5 text-xs"
+                    onClick={() => router.push(`/interactions?substances=${substance.id}`)}
+                  >
+                    <Shuffle className="h-3 w-3" />Full Checker
+                  </button>
+                </div>
+                <div className="space-y-3">
+                  {substance.interactions.dangerous.length > 0 && (
+                    <div>
+                      <p className="text-xs font-medium text-red-400 mb-2 flex items-center gap-1">
+                        <AlertTriangle className="h-3 w-3" />Dangerous
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {substance.interactions.dangerous.map((interaction, i) => (
+                          <span key={i} className="badge badge-outline border-red-500/30 text-red-400">
+                            {interaction}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                )}
-                {substance.interactions.unsafe.length > 0 && (
-                  <div>
-                    <p className="text-xs font-medium text-orange-400 mb-2 flex items-center gap-1">
-                      <AlertTriangle className="h-3 w-3" />Unsafe
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {substance.interactions.unsafe.map((interaction, i) => (
-                        <Badge key={i} variant="outline" className="border-orange-500/30 text-orange-400">
-                          {interaction}
-                        </Badge>
-                      ))}
+                  )}
+                  {substance.interactions.unsafe.length > 0 && (
+                    <div>
+                      <p className="text-xs font-medium text-orange-400 mb-2 flex items-center gap-1">
+                        <AlertTriangle className="h-3 w-3" />Unsafe
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {substance.interactions.unsafe.map((interaction, i) => (
+                          <span key={i} className="badge badge-outline border-orange-500/30 text-orange-400">
+                            {interaction}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                )}
-                {substance.interactions.uncertain.length > 0 && (
-                  <div>
-                    <p className="text-xs font-medium text-yellow-400 mb-2 flex items-center gap-1">
-                      <Info className="h-3 w-3" />Uncertain
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {substance.interactions.uncertain.map((interaction, i) => (
-                        <Badge key={i} variant="outline" className="border-yellow-500/30 text-yellow-400">
-                          {interaction}
-                        </Badge>
-                      ))}
+                  )}
+                  {substance.interactions.uncertain.length > 0 && (
+                    <div>
+                      <p className="text-xs font-medium text-yellow-400 mb-2 flex items-center gap-1">
+                        <Info className="h-3 w-3" />Uncertain
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {substance.interactions.uncertain.map((interaction, i) => (
+                          <span key={i} className="badge badge-outline border-yellow-500/30 text-yellow-400">
+                            {interaction}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                )}
-                {substance.interactions.crossTolerances.length > 0 && (
-                  <div>
-                    <p className="text-xs font-medium text-blue-400 mb-2 flex items-center gap-1">
-                      <Activity className="h-3 w-3" />Cross-tolerances
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {substance.interactions.crossTolerances.map((interaction, i) => (
-                        <Badge key={i} variant="outline" className="border-blue-500/30 text-blue-400">
-                          {interaction}
-                        </Badge>
-                      ))}
+                  )}
+                  {substance.interactions.crossTolerances.length > 0 && (
+                    <div>
+                      <p className="text-xs font-medium text-blue-400 mb-2 flex items-center gap-1">
+                        <Activity className="h-3 w-3" />Cross-tolerances
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {substance.interactions.crossTolerances.map((interaction, i) => (
+                          <span key={i} className="badge badge-outline border-blue-500/30 text-blue-400">
+                            {interaction}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                )}
-              </CardContent>
-            </Card>
+                  )}
+                </div>
+              </div>
+            </div>
 
+            {/* History */}
             {substance.history && (
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-lg">
+              <div className="card bg-base-100 border border-base-300 shadow-sm">
+                <div className="card-body">
+                  <h3 className="card-title flex items-center gap-2 text-lg">
                     <History className="h-5 w-5" />History
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{substance.history}</p>
-                </CardContent>
-              </Card>
+                  </h3>
+                  <p className="text-sm text-neutral-content leading-relaxed">{substance.history}</p>
+                </div>
+              </div>
             )}
           </div>
         </div>
@@ -1448,19 +1432,17 @@ function HomeContent() {
 
   // ── List / dose-log view ────────────────────────────────────────────────────
   return (
-    <div className="min-h-screen bg-background flex">
+    <div className="min-h-screen bg-base-100 flex">
       {/* Desktop sidebar */}
       <aside
         className={`${
           sidebarOpen ? 'w-64' : 'w-0'
-        } hidden md:flex transition-all duration-300 border-r bg-muted/30 overflow-hidden shrink-0 flex-col`}
+        } hidden md:flex transition-all duration-300 border-r bg-base-200/30 overflow-hidden shrink-0 flex-col`}
       >
         <div className="h-full flex flex-col">
           <div className="p-4 border-b">
-            <Button
-              variant="ghost"
-              size="sm"
-              className="w-full justify-start gap-2 text-muted-foreground"
+            <button
+              className="btn btn-ghost btn-sm w-full justify-start gap-2 text-neutral-content"
               onClick={() => setSidebarOpen(false)}
             >
               <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
@@ -1468,14 +1450,13 @@ function HomeContent() {
                 <line x1="9" y1="3" x2="9" y2="21" />
               </svg>
               Collapse Sidebar
-            </Button>
+            </button>
           </div>
 
           <ScrollArea className="flex-1 p-4">
             <div className="space-y-2">
-              <Button
-                variant={desktopView === 'substances' && selectedCategory === 'all' ? 'secondary' : 'ghost'}
-                className="w-full justify-start gap-2"
+              <button
+                className={`btn w-full justify-start gap-2 ${desktopView === 'substances' && selectedCategory === 'all' ? 'btn-secondary' : 'btn-ghost'}`}
                 onClick={() => {
                   setDesktopView('substances')
                   setSelectedCategory('all')
@@ -1484,17 +1465,16 @@ function HomeContent() {
               >
                 <Info className="h-4 w-4" />
                 All Substances
-                <Badge variant="outline" className="ml-auto">{substances.length}</Badge>
-              </Button>
-              <Separator className="my-3" />
+                <span className="badge badge-outline ml-auto">{substances.length}</span>
+              </button>
+              <div className="divider my-1" />
               {categories.map((category) => {
                 const Icon = categoryIcons[category.id]
                 const count = substances.filter((s) => substanceBelongsToCategory(s, category.id)).length
                 return (
-                  <Button
+                  <button
                     key={category.id}
-                    variant={desktopView === 'substances' && selectedCategory === category.id ? 'secondary' : 'ghost'}
-                    className="w-full justify-start gap-2"
+                    className={`btn w-full justify-start gap-2 ${desktopView === 'substances' && selectedCategory === category.id ? 'btn-secondary' : 'btn-ghost'}`}
                     onClick={() => {
                       setDesktopView('substances')
                       setSelectedCategory(category.id)
@@ -1503,21 +1483,17 @@ function HomeContent() {
                   >
                     <Icon className="h-4 w-4" />
                     <span className="truncate">{category.name}</span>
-                    <Badge variant="outline" className="ml-auto">{count}</Badge>
-                  </Button>
+                    <span className="badge badge-outline ml-auto">{count}</span>
+                  </button>
                 )
               })}
             </div>
           </ScrollArea>
 
           <div className="p-4 border-t">
-            <div className="rounded-lg bg-amber-500/10 border border-amber-500/20 p-3">
-              <div className="flex items-start gap-2">
-                <AlertTriangle className="h-4 w-4 text-amber-500 shrink-0 mt-0.5" />
-                <p className="text-xs text-amber-200/80 leading-relaxed">
-                  Educational and harm reduction purposes only. Always consult medical professionals.
-                </p>
-              </div>
+            <div className="alert alert-warning text-xs py-2">
+              <AlertTriangle className="h-4 w-4 shrink-0" />
+              <span>Educational and harm reduction purposes only. Always consult medical professionals.</span>
             </div>
           </div>
         </div>
@@ -1527,12 +1503,10 @@ function HomeContent() {
       <div className="flex-1 flex flex-col min-w-0">
         {/* Desktop dose-log header (only shown in dose-log view) */}
         {desktopView === 'dose-log' && (
-          <header className="hidden md:flex sticky top-14 z-40 border-b border-border/50 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60 h-14 items-center px-4 lg:px-6 gap-4">
+          <header className="hidden md:flex sticky top-14 z-40 border-b border-base-300/50 bg-base-100 h-14 items-center px-4 lg:px-6 gap-4">
             {!sidebarOpen && (
-              <Button
-                variant="ghost"
-                size="icon"
-                className="-ml-2"
+              <button
+                className="btn btn-ghost btn-square btn-sm -ml-2"
                 onClick={() => setSidebarOpen(true)}
               >
                 <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
@@ -1540,7 +1514,7 @@ function HomeContent() {
                   <line x1="3" y1="12" x2="21" y2="12" />
                   <line x1="3" y1="18" x2="21" y2="18" />
                 </svg>
-              </Button>
+              </button>
             )}
             <div className="flex-1">
               <h2 className="text-lg font-semibold">Dose Log</h2>
@@ -1554,10 +1528,8 @@ function HomeContent() {
         {/* Desktop sidebar expand button (shown when sidebar is collapsed and in substances view) */}
         {desktopView !== 'dose-log' && !sidebarOpen && (
           <div className="hidden md:flex sticky top-14 z-40">
-            <Button
-              variant="ghost"
-              size="icon"
-              className="-ml-2"
+            <button
+              className="btn btn-ghost btn-square btn-sm -ml-2"
               onClick={() => setSidebarOpen(true)}
             >
               <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
@@ -1565,18 +1537,18 @@ function HomeContent() {
                 <line x1="3" y1="12" x2="21" y2="12" />
                 <line x1="3" y1="18" x2="21" y2="18" />
               </svg>
-            </Button>
+            </button>
           </div>
         )}
 
         {/* Mobile header (only for timeline/history views) */}
         {mobileTab !== 'substances' && (
-        <header className="md:hidden sticky top-14 z-30 bg-background/80 backdrop-blur border-b border-border/50">
+        <header className="md:hidden sticky top-14 z-30 bg-base-100 border-b border-base-300/50">
           {mobileTab === 'timeline' && (
             <div className="flex items-center justify-between px-4 h-12">
               <span className="text-sm font-medium">Active timeline</span>
               <DoseLoggerModal onLogCreated={handleDoseLogged} trigger={
-                <button className="flex items-center gap-1.5 h-8 px-3 bg-primary text-primary-foreground rounded-lg text-sm font-medium">
+                <button className="flex items-center gap-1.5 h-8 px-3 bg-primary text-primary-content rounded-lg text-sm font-medium">
                   <Plus className="h-3.5 w-3.5" />Log
                 </button>
               } />
@@ -1587,7 +1559,7 @@ function HomeContent() {
             <div className="flex items-center justify-between px-4 h-12">
               <span className="text-sm font-medium">Dose history</span>
               <DoseLoggerModal onLogCreated={handleDoseLogged} trigger={
-                <button className="flex items-center gap-1.5 h-8 px-3 bg-primary text-primary-foreground rounded-lg text-sm font-medium">
+                <button className="flex items-center gap-1.5 h-8 px-3 bg-primary text-primary-content rounded-lg text-sm font-medium">
                   <Plus className="h-3.5 w-3.5" />Log
                 </button>
               } />
@@ -1617,7 +1589,7 @@ function HomeContent() {
                   </div>
                   <div>
                     <h2 className="text-2xl font-bold">{categories.find((c) => c.id === selectedCategory)?.name}</h2>
-                    <p className="text-muted-foreground text-sm">{categories.find((c) => c.id === selectedCategory)?.description}</p>
+                    <p className="text-neutral-content text-sm">{categories.find((c) => c.id === selectedCategory)?.description}</p>
                   </div>
                 </div>
               </div>
@@ -1625,7 +1597,7 @@ function HomeContent() {
             {selectedCategory === 'all' && (
               <div className="mb-6">
                 <h2 className="text-2xl font-bold mb-2">All Substances</h2>
-                <p className="text-muted-foreground">Browse the complete documentation of psychoactive substances</p>
+                <p className="text-neutral-content">Browse the complete documentation of psychoactive substances</p>
               </div>
             )}
 
@@ -1642,9 +1614,9 @@ function HomeContent() {
 
             {filteredSubstances.length === 0 && (
               <div className="text-center py-12">
-                <Search className="h-12 w-12 text-muted-foreground mx-auto mb-4 opacity-50" />
+                <Search className="h-12 w-12 text-neutral-content mx-auto mb-4 opacity-50" />
                 <h3 className="text-lg font-medium mb-2">No substances found</h3>
-                <p className="text-muted-foreground">Try adjusting your search or filter criteria</p>
+                <p className="text-neutral-content">Try adjusting your search or filter criteria</p>
               </div>
             )}
           </div>
@@ -1657,7 +1629,7 @@ function HomeContent() {
 
             {selectedCategory !== 'all' && (
               <div className="px-4 pb-3">
-                <p className="text-xs text-muted-foreground">
+                <p className="text-xs text-neutral-content">
                   {categories.find((c) => c.id === selectedCategory)?.description}
                 </p>
               </div>
@@ -1675,8 +1647,8 @@ function HomeContent() {
 
               {filteredSubstances.length === 0 && (
                 <div className="text-center py-16">
-                  <Search className="h-10 w-10 text-muted-foreground mx-auto mb-3 opacity-40" />
-                  <p className="text-muted-foreground text-sm">No substances found</p>
+                  <Search className="h-10 w-10 text-neutral-content mx-auto mb-3 opacity-40" />
+                  <p className="text-neutral-content text-sm">No substances found</p>
                 </div>
               )}
             </div>
@@ -1729,10 +1701,10 @@ function HomeContent() {
 export default function Home() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen bg-background flex items-center justify-center">
+      <div className="min-h-screen bg-base-100 flex items-center justify-center">
         <div className="flex flex-col items-center gap-4">
           <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
-          <p className="text-sm text-muted-foreground">Loading...</p>
+          <p className="text-sm text-neutral-content">Loading...</p>
         </div>
       </div>
     }>

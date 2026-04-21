@@ -1,35 +1,25 @@
-"use client"
+'use client'
 
-import { useToast } from "@/hooks/use-toast"
-import {
-  Toast,
-  ToastClose,
-  ToastDescription,
-  ToastProvider,
-  ToastTitle,
-  ToastViewport,
-} from "@/components/ui/toast"
+import { useTheme } from "next-themes"
+import { Toaster as SonnerToaster } from "sonner"
 
 export function Toaster() {
-  const { toasts } = useToast()
+  const { resolvedTheme } = useTheme()
 
   return (
-    <ToastProvider>
-      {toasts.map(function ({ id, title, description, action, ...props }) {
-        return (
-          <Toast key={id} {...props}>
-            <div className="grid gap-1">
-              {title && <ToastTitle>{title}</ToastTitle>}
-              {description && (
-                <ToastDescription>{description}</ToastDescription>
-              )}
-            </div>
-            {action}
-            <ToastClose />
-          </Toast>
-        )
-      })}
-      <ToastViewport />
-    </ToastProvider>
+    <SonnerToaster
+      theme={resolvedTheme === 'dark' ? 'dark' : 'light'}
+      position="bottom-right"
+      toastOptions={{
+        unstyled: false,
+        classNames: {
+          toast: "bg-base-100 text-base-content border border-base-300 shadow-lg",
+          title: "text-sm font-semibold",
+          description: "text-xs text-neutral-content",
+          actionButton: "btn btn-sm btn-primary",
+          cancelButton: "btn btn-sm btn-ghost",
+        },
+      }}
+    />
   )
 }

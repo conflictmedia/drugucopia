@@ -57,8 +57,8 @@ export function SharedNav() {
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/50 glass">
-      <div className="flex h-14 items-center px-4 lg:px-6">
+    <header className="nav-bar sticky top-0 z-50 w-full border-b border-base-300/50">
+      <div className="flex h-14 items-center px-4 lg:px-6 gap-2">
         {/* Left: Logo + Nav Links */}
         <div className="flex items-center shrink-0">
           <Link
@@ -91,7 +91,7 @@ export function SharedNav() {
                     size="sm"
                     className={cn(
                       'gap-2 text-sm',
-                      isActive && 'bg-primary/10 text-foreground font-medium'
+                      isActive && 'bg-primary/10 text-base-content font-medium'
                     )}
                   >
                     <Icon className="h-4 w-4" />
@@ -107,17 +107,17 @@ export function SharedNav() {
         {isHomePage && (
           <div className="hidden md:block flex-1 max-w-sm mx-4">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-content" />
               <Input
                 placeholder="Search substances..."
                 value={searchQuery}
                 onChange={(e) => handleSearchChange(e.target.value)}
-                className="pl-9 pr-9 h-9 bg-muted/50 border-border/50"
+                className="pl-9 pr-9 h-9 bg-base-200 border-base-300/50"
               />
               {searchQuery && (
                 <button
                   onClick={() => handleSearchChange('')}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-content hover:text-base-content transition-colors"
                 >
                   <X className="h-4 w-4" />
                 </button>
@@ -159,7 +159,7 @@ export function SharedNav() {
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-muted transition-colors"
+            className="md:hidden p-2 rounded-lg hover:bg-base-200 transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? (
@@ -178,7 +178,7 @@ export function SharedNav() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-t border-border/50 glass overflow-hidden"
+            className="md:hidden border-t border-base-300/50 nav-bar overflow-hidden"
           >
             <nav className="flex flex-col p-2 gap-1">
               {navItems.map((item) => {
@@ -221,7 +221,7 @@ export function SharedNav() {
               {isHomePage && (
                 <div className="px-2 py-1">
                   <div className="relative">
-                    <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                    <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-content" />
                     <Input
                       placeholder="Search substances..."
                       value={searchQuery}
@@ -231,7 +231,7 @@ export function SharedNav() {
                     {searchQuery && (
                       <button
                         onClick={() => handleSearchChange('')}
-                        className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-content hover:text-base-content transition-colors"
                       >
                         <X className="h-4 w-4" />
                       </button>
@@ -241,7 +241,7 @@ export function SharedNav() {
               )}
 
 {/* 
-              <div className="border-t border-border/50 mt-1 pt-1">
+              <div className="border-t border-base-300/50 mt-1 pt-1">
                 {mounted && (
                   <Button
                     variant="ghost"

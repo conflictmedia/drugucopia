@@ -231,7 +231,7 @@ export function InteractionSubstanceSelector({
               variant="ghost"
               size="sm"
               onClick={handleClearAll}
-              className="h-7 text-xs text-muted-foreground hover:text-destructive"
+              className="h-7 text-xs text-neutral-content hover:text-error"
             >
               Clear all
             </Button>
@@ -260,7 +260,7 @@ export function InteractionSubstanceSelector({
           }}
           disabled={selectedIds.length >= maxSelections}
         >
-          <span className="text-muted-foreground truncate">
+          <span className="text-neutral-content truncate">
             {selectedIds.length >= maxSelections
               ? `Maximum ${maxSelections} substances reached`
               : selectedIds.length > 0
@@ -276,27 +276,27 @@ export function InteractionSubstanceSelector({
             <div className="fixed inset-0 z-40" onClick={() => setOpen(false)} />
             <div
               ref={listRef}
-              className="absolute z-50 top-full mt-1 w-full rounded-md border bg-popover text-popover-foreground shadow-lg max-h-[380px] overflow-hidden"
+              className="absolute z-50 top-full mt-1 w-full rounded-md border bg-base-100 text-base-content shadow-lg max-h-[380px] overflow-hidden"
               onKeyDown={handleKeyDown}
             >
               {/* Search input */}
               <div className="p-2 border-b">
                 <div className="relative">
-                  <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
+                  <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-neutral-content" />
                   <input
                     ref={inputRef}
                     type="text"
                     placeholder="Type to search substances..."
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
-                    className="w-full bg-transparent text-sm outline-none placeholder:text-muted-foreground pl-8 pr-3 py-1.5"
+                    className="w-full bg-transparent text-sm outline-none placeholder:text-neutral-content pl-8 pr-3 py-1.5"
                     autoFocus
                   />
                 </div>
               </div>
 
               {/* Category filter chips */}
-              <div className="px-2 py-1.5 border-b bg-muted/30 flex gap-1 overflow-x-auto scrollbar-none">
+              <div className="px-2 py-1.5 border-b bg-base-200/30 flex gap-1 overflow-x-auto scrollbar-none">
                 {CATEGORIES.map((cat) => (
                   <button
                     key={cat.id}
@@ -309,7 +309,7 @@ export function InteractionSubstanceSelector({
                         ? cat.id === 'all'
                           ? 'bg-primary/20 text-primary border-primary/40'
                           : cat.color
-                        : 'bg-transparent text-muted-foreground border-transparent hover:border-border'
+                        : 'bg-transparent text-neutral-content border-transparent hover:border-base-300'
                     )}
                   >
                     {cat.label}
@@ -323,15 +323,15 @@ export function InteractionSubstanceSelector({
                 role="listbox"
               >
                 {!query.trim() && popularResults.length > 0 && (
-                  <div className="px-2 py-1.5 text-[10px] font-medium text-muted-foreground uppercase tracking-wider">
+                  <div className="px-2 py-1.5 text-[10px] font-medium text-neutral-content uppercase tracking-wider">
                     Popular
                   </div>
                 )}
 
                 {displayResults.length === 0 ? (
                   <div className="py-8 text-center">
-                    <div className="text-muted-foreground text-sm mb-1">No substances found</div>
-                    <div className="text-muted-foreground/60 text-xs">
+                    <div className="text-neutral-content text-sm mb-1">No substances found</div>
+                    <div className="text-neutral-content/60 text-xs">
                       Try a different search term or category
                     </div>
                   </div>
@@ -353,7 +353,7 @@ export function InteractionSubstanceSelector({
                         className={cn(
                           'flex items-center gap-2 w-full px-2 py-1.5 rounded-sm text-sm transition-colors text-left',
                           isActive
-                            ? 'bg-accent text-accent-foreground'
+                            ? 'bg-accent text-accent-content'
                             : 'hover:bg-accent/50'
                         )}
                       >
@@ -380,13 +380,13 @@ export function InteractionSubstanceSelector({
                           result.matchField !== 'class' &&
                           result.matchField !== 'category' &&
                           result.matchField !== 'description' && (
-                            <span className="text-[10px] px-1.5 py-0.5 rounded bg-muted text-muted-foreground truncate max-w-[90px]">
+                            <span className="text-[10px] px-1.5 py-0.5 rounded bg-base-200 text-neutral-content truncate max-w-[90px]">
                               {result.matchField}
                             </span>
                           )}
 
                         {/* Category pill */}
-                        <span className="text-[9px] px-1.5 py-0.5 rounded-full border border-border text-muted-foreground whitespace-nowrap hidden sm:inline-block">
+                        <span className="text-[9px] px-1.5 py-0.5 rounded-full border border-base-300 text-neutral-content whitespace-nowrap hidden sm:inline-block">
                           {sub.categories[0]}
                         </span>
                       </button>
@@ -396,7 +396,7 @@ export function InteractionSubstanceSelector({
 
                 {/* Result count */}
                 {displayResults.length > 0 && (
-                  <div className="px-2 py-1.5 text-[10px] text-muted-foreground border-t mt-1">
+                  <div className="px-2 py-1.5 text-[10px] text-neutral-content border-t mt-1">
                     {query.trim()
                       ? `${displayResults.length} result${displayResults.length !== 1 ? 's' : ''} found`
                       : `${totalFiltered} substances available`}
@@ -415,7 +415,7 @@ export function InteractionSubstanceSelector({
       </div>
 
       {/* Selection counter */}
-      <div className="flex items-center justify-between text-xs text-muted-foreground">
+      <div className="flex items-center justify-between text-xs text-neutral-content">
         <span>
           {selectedIds.length} of {maxSelections} selected
         </span>
