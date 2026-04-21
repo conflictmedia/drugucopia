@@ -1,8 +1,6 @@
 'use client'
 
 import { AlertTriangle, HelpCircle, ShieldAlert, ThumbsDown, ThumbsUp, TrendingDown } from 'lucide-react'
-import { Badge } from '@/components/ui/badge'
-import { Card, CardContent } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
 import type { InteractionResult } from '@/lib/interaction-checker'
 
@@ -62,14 +60,14 @@ export function InteractionPairCard({ result }: InteractionPairCardProps) {
     : null
 
   return (
-    <Card
+    <div
       className={cn(
-        'border transition-all hover:shadow-md',
+        'card border transition-all hover:shadow-md',
         config.borderColor,
         config.bgColor
       )}
     >
-      <CardContent className="p-4">
+      <div className="card-body p-4">
         <div className="flex items-start gap-3">
           {/* Icon */}
           <div className={cn('p-1.5 rounded-lg shrink-0', config.bgColor)}>
@@ -86,13 +84,13 @@ export function InteractionPairCard({ result }: InteractionPairCardProps) {
           <div className="flex-1 min-w-0">
             {/* Substance pair */}
             <div className="flex flex-wrap items-center gap-1.5 mb-2">
-              <Badge variant="outline" className="font-medium text-sm">
+              <span className="badge badge-outline font-medium text-sm">
                 {result.substanceA}
-              </Badge>
+              </span>
               <span className="text-neutral-content font-bold text-xs">&times;</span>
-              <Badge variant="outline" className="font-medium text-sm">
+              <span className="badge badge-outline font-medium text-sm">
                 {result.substanceB}
-              </Badge>
+              </span>
             </div>
 
             {/* Description */}
@@ -107,9 +105,9 @@ export function InteractionPairCard({ result }: InteractionPairCardProps) {
               <div className="flex flex-wrap items-center gap-1.5 mb-2">
                 <span className="text-xs text-neutral-content">Matched:</span>
                 {result.matchedTerms.map((term, i) => (
-                  <Badge key={i} variant="secondary" className="text-xs">
+                  <span key={i} className="badge badge-secondary text-xs">
                     {term}
-                  </Badge>
+                  </span>
                 ))}
               </div>
             )}
@@ -139,29 +137,27 @@ export function InteractionPairCard({ result }: InteractionPairCardProps) {
 
             {/* Metadata row */}
             <div className="flex items-center gap-2">
-              <Badge
-                variant="outline"
-                className={cn('text-[10px] font-bold', config.badgeColor)}
+              <span
+                className={cn('badge badge-outline text-[10px] font-bold', config.badgeColor)}
               >
                 {config.badgeLabel}
-              </Badge>
+              </span>
               {subLabel && (
-                <Badge
-                  variant="outline"
-                  className={cn('text-[10px] font-bold', config.badgeColor)}
+                <span
+                  className={cn('badge badge-outline text-[10px] font-bold', config.badgeColor)}
                 >
                   {subLabel}
-                </Badge>
+                </span>
               )}
               {isTripsit && (
-                <Badge variant="outline" className="text-[10px] text-blue-400 border-blue-500/30 bg-blue-500/10">
+                <span className="badge badge-outline text-[10px] text-blue-400 border-blue-500/30 bg-blue-500/10">
                   TRIPSIT
-                </Badge>
+                </span>
               )}
             </div>
           </div>
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   )
 }
