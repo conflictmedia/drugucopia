@@ -20,9 +20,6 @@ import {
   Shuffle,
   type LucideIcon,
 } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
-import { Card, CardContent } from '@/components/ui/card'
 import {
   Accordion,
   AccordionContent,
@@ -101,8 +98,8 @@ function getGuideIcon(name: string): LucideIcon {
 
 function EmergencyCard({ resource }: { resource: typeof emergencyResources[0] }) {
   return (
-    <Card className="border-red-500/20 bg-red-500/5 pulse-danger card-lift">
-      <CardContent className="p-4">
+    <div className="card border-red-500/20 bg-red-500/5 pulse-danger card-lift">
+      <div className="card-body p-4">
         <div className="flex items-start gap-3">
           <div className="p-2 rounded-lg bg-red-500/10 shrink-0">
             <Phone className="h-4 w-4 text-red-400" />
@@ -113,23 +110,25 @@ function EmergencyCard({ resource }: { resource: typeof emergencyResources[0] })
             <p className="text-xs text-neutral-content mt-1 leading-relaxed">{resource.description}</p>
           </div>
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   )
 }
 
 function PrincipleChip({ principle }: { principle: typeof quickPrinciples[0] }) {
   const Icon = getGuideIcon(principle.icon) || Shield
   return (
-    <Card className="flex items-start gap-3 p-4 card-lift">
-      <div className="p-2 rounded-lg bg-gradient-to-br from-primary/15 to-primary/5 shrink-0 border border-primary/10">
-        <Icon className="h-4 w-4 text-primary" />
+    <div className="card card-lift">
+      <div className="card-body flex-row items-start gap-3 p-4">
+        <div className="p-2 rounded-lg bg-gradient-to-br from-primary/15 to-primary/5 shrink-0 border border-primary/10">
+          <Icon className="h-4 w-4 text-primary" />
+        </div>
+        <div className="min-w-0">
+          <p className="font-semibold text-sm">{principle.title}</p>
+          <p className="text-xs text-neutral-content mt-0.5 leading-relaxed">{principle.description}</p>
+        </div>
       </div>
-      <div className="min-w-0">
-        <p className="font-semibold text-sm">{principle.title}</p>
-        <p className="text-xs text-neutral-content mt-0.5 leading-relaxed">{principle.description}</p>
-      </div>
-    </Card>
+    </div>
   )
 }
 
@@ -149,24 +148,24 @@ function InteractionRow({ interaction }: { interaction: DangerousInteraction }) 
               {i > 0 && (
                 <span className="text-neutral-content text-xs font-bold">+</span>
               )}
-              <Badge variant="outline" className="text-xs font-medium">
+              <span className="badge badge-outline text-xs font-medium">
                 {sub}
-              </Badge>
+              </span>
             </React.Fragment>
           ))}
         </div>
         <p className="text-xs text-neutral-content leading-relaxed">{interaction.description}</p>
         <div className="flex flex-wrap gap-1 mt-2">
           {interaction.category.map((cat) => (
-            <Badge key={cat} variant="outline" className={`text-[10px] ${categoryColors[cat] || ''}`}>
+            <span key={cat} className={`badge badge-outline text-[10px] ${categoryColors[cat] || ''}`}>
               {cat}
-            </Badge>
+            </span>
           ))}
         </div>
       </div>
-      <Badge variant="outline" className={`shrink-0 text-[10px] font-bold ${riskColor}`}>
+      <span className={`badge badge-outline shrink-0 text-[10px] font-bold ${riskColor}`}>
         {riskLabel}
-      </Badge>
+      </span>
     </div>
   )
 }
@@ -209,7 +208,7 @@ export default function HarmReductionPage() {
           </div>
         </section>
 
-        <hr className="gradient-divider my-8" />
+        <div className="divider" />
 
         {/* Quick Principles */}
         <section className="mb-8">
@@ -224,7 +223,7 @@ export default function HarmReductionPage() {
           </div>
         </section>
 
-        <hr className="gradient-divider my-8" />
+        <div className="divider" />
 
         {/* Harm Reduction Guides */}
         <section className="mb-8">
@@ -232,7 +231,7 @@ export default function HarmReductionPage() {
             <BookOpen className="h-5 w-5 text-primary" />
             <h3 className="text-xl font-semibold">Harm Reduction Guides</h3>
           </div>
-          <Card className="gradient-border">
+          <div className="card gradient-border">
             <Accordion type="multiple" className="w-full">
               {generalGuides.map((guide) => {
                 const GuideIcon = getGuideIcon(guide.icon)
@@ -244,18 +243,16 @@ export default function HarmReductionPage() {
                           <GuideIcon className="h-4 w-4 text-neutral-content" />
                         </div>
                         <span className="font-medium">{guide.title}</span>
-                        <Badge
-                          variant="outline"
-                          className={`ml-2 text-[10px] font-bold shrink-0 ${severityColors[guide.severity]}`}
+                        <span
+                          className={`badge badge-outline ml-2 text-[10px] font-bold shrink-0 ${severityColors[guide.severity]}`}
                         >
                           {severityLabels[guide.severity]}
-                        </Badge>
+                        </span>
                       </div>
                     </AccordionTrigger>
                     <AccordionContent className="px-4">
                       <div className="prose prose-sm dark:prose-invert max-w-none">
                         {guide.content.split('\n\n').map((paragraph, i) => {
-                          // Handle bold text
                           const parts = paragraph.split(/(\*\*[^*]+\*\*)/g)
                           return (
                             <p key={i} className="text-sm text-neutral-content leading-relaxed mb-3 last:mb-0">
@@ -278,29 +275,27 @@ export default function HarmReductionPage() {
                 )
               })}
             </Accordion>
-          </Card>
+          </div>
         </section>
 
-        <hr className="gradient-divider my-8" />
+        <div className="divider" />
 
         {/* Dangerous Interactions */}
         <section className="mb-8">
           <div className="flex items-center gap-2 mb-4">
             <AlertTriangle className="h-5 w-5 text-red-400" />
             <h3 className="text-xl font-semibold">Dangerous Interactions</h3>
-            <Badge variant="outline" className="bg-red-500/15 border-red-500/30 text-red-400 text-xs font-medium">
+            <span className="badge badge-outline bg-red-500/15 border-red-500/30 text-red-400 text-xs font-medium">
               {dangerousInteractions.length} known dangerous combos
-            </Badge>
+            </span>
             <div className="ml-auto">
-              <Button
-                variant="outline"
-                size="sm"
+              <button
+                className="btn btn-outline btn-primary btn-sm gap-1.5 text-xs"
                 onClick={() => router.push('/interactions')}
-                className="gap-1.5 text-xs"
               >
                 <Shuffle className="h-3 w-3" />
                 Full Checker
-              </Button>
+              </button>
             </div>
           </div>
           <div className="space-y-3 max-h-[600px] overflow-y-auto pr-1">
@@ -310,7 +305,7 @@ export default function HarmReductionPage() {
           </div>
         </section>
 
-        <hr className="gradient-divider my-8" />
+        <div className="divider" />
 
         {/* External Resources */}
         <section className="mb-8">
@@ -327,8 +322,8 @@ export default function HarmReductionPage() {
                 rel="noopener noreferrer"
                 className="block"
               >
-                <Card className="hover:border-primary/50 transition-all h-full card-lift">
-                  <CardContent className="p-4">
+                <div className="card hover:border-primary/50 transition-all h-full card-lift">
+                  <div className="card-body p-4">
                     <div className="flex items-start justify-between gap-2">
                       <div className="min-w-0">
                         <p className="font-semibold text-sm flex items-center gap-1.5">
@@ -340,38 +335,34 @@ export default function HarmReductionPage() {
                         </p>
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               </a>
             ))}
           </div>
         </section>
 
-        <hr className="gradient-divider my-8" />
+        <div className="divider" />
 
         {/* Disclaimer */}
         <section className="mb-8">
-          <Card className="border-yellow-500/20 bg-yellow-500/5 card-lift">
-            <CardContent className="p-4">
-              <div className="flex items-start gap-3">
-                <AlertTriangle className="h-5 w-5 text-yellow-500 mt-0.5 shrink-0" />
-                <div>
-                  <p className="font-semibold text-sm mb-1">Disclaimer</p>
-                  <p className="text-xs text-neutral-content leading-relaxed">
-                    This information is provided for educational and harm reduction purposes only. 
-                    It is not medical advice, and should not replace professional medical guidance. 
-                    Drugucopia does not encourage or condone the use of illegal substances. 
-                    The information presented here is compiled from publicly available harm reduction 
-                    resources and scientific literature, and while we strive for accuracy, we cannot 
-                    guarantee its completeness or correctness. Always consult qualified healthcare 
-                    professionals for medical advice, and always prioritize your health and safety.
-                    If you or someone you know is experiencing a medical emergency, call your local 
-                    emergency services immediately.
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+          <div className="alert alert-warning">
+            <AlertTriangle className="h-5 w-5 shrink-0" />
+            <div>
+              <h3 className="font-bold">Disclaimer</h3>
+              <p className="text-xs leading-relaxed">
+                This information is provided for educational and harm reduction purposes only. 
+                It is not medical advice, and should not replace professional medical guidance. 
+                Drugucopia does not encourage or condone the use of illegal substances. 
+                The information presented here is compiled from publicly available harm reduction 
+                resources and scientific literature, and while we strive for accuracy, we cannot 
+                guarantee its completeness or correctness. Always consult qualified healthcare 
+                professionals for medical advice, and always prioritize your health and safety.
+                If you or someone you know is experiencing a medical emergency, call your local 
+                emergency services immediately.
+              </p>
+            </div>
+          </div>
         </section>
       </div>
 
@@ -436,7 +427,7 @@ export default function HarmReductionPage() {
             <BookOpen className="h-4 w-4 text-primary" />
             <h3 className="text-sm font-semibold">Guides</h3>
           </div>
-          <Card className="mx-4">
+          <div className="card mx-4">
             <Accordion type="multiple" className="w-full">
               {generalGuides.map((guide) => {
                 const GuideIcon = getGuideIcon(guide.icon)
@@ -448,12 +439,11 @@ export default function HarmReductionPage() {
                           <GuideIcon className="h-3.5 w-3.5 text-neutral-content" />
                         </div>
                         <span className="text-sm font-medium truncate">{guide.title}</span>
-                        <Badge
-                          variant="outline"
-                          className={`text-[9px] font-bold shrink-0 ${severityColors[guide.severity]}`}
+                        <span
+                          className={`badge badge-outline text-[9px] font-bold shrink-0 ${severityColors[guide.severity]}`}
                         >
                           {severityLabels[guide.severity]}
-                        </Badge>
+                        </span>
                       </div>
                     </AccordionTrigger>
                     <AccordionContent className="px-4 pb-4">
@@ -481,7 +471,7 @@ export default function HarmReductionPage() {
                 )
               })}
             </Accordion>
-          </Card>
+          </div>
         </section>
 
         {/* Dangerous Interactions */}
@@ -512,8 +502,8 @@ export default function HarmReductionPage() {
                 rel="noopener noreferrer"
                 className="block"
               >
-                <Card className="hover:border-primary/50 transition-all card-lift">
-                  <CardContent className="p-3">
+                <div className="card hover:border-primary/50 transition-all card-lift">
+                  <div className="card-body p-3">
                     <p className="text-sm font-semibold flex items-center gap-1.5">
                       {resource.name}
                       <ExternalLink className="h-3 w-3 text-neutral-content shrink-0" />
@@ -521,8 +511,8 @@ export default function HarmReductionPage() {
                     <p className="text-[11px] text-neutral-content mt-0.5 leading-relaxed line-clamp-2">
                       {resource.description}
                     </p>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               </a>
             ))}
           </div>
@@ -530,22 +520,18 @@ export default function HarmReductionPage() {
 
         {/* Disclaimer */}
         <section className="px-4 py-4">
-          <Card className="border-yellow-500/20 bg-yellow-500/5">
-            <CardContent className="p-3">
-              <div className="flex items-start gap-2">
-                <AlertTriangle className="h-4 w-4 text-yellow-500 mt-0.5 shrink-0" />
-                <div>
-                  <p className="text-xs font-semibold mb-1">Disclaimer</p>
-                  <p className="text-[10px] text-neutral-content leading-relaxed">
-                    This information is for educational and harm reduction purposes only. 
-                    Not medical advice. Drugucopia does not encourage illegal substance use. 
-                    Always consult healthcare professionals for medical guidance. If you or 
-                    someone you know is experiencing a medical emergency, call emergency services immediately.
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+          <div className="alert alert-warning">
+            <AlertTriangle className="h-4 w-4 shrink-0" />
+            <div>
+              <h3 className="font-bold text-xs">Disclaimer</h3>
+              <p className="text-[10px] leading-relaxed">
+                This information is for educational and harm reduction purposes only. 
+                Not medical advice. Drugucopia does not encourage illegal substance use. 
+                Always consult healthcare professionals for medical guidance. If you or 
+                someone you know is experiencing a medical emergency, call emergency services immediately.
+              </p>
+            </div>
+          </div>
         </section>
       </div>
     </div>
