@@ -233,7 +233,7 @@ const SubstanceCard = memo(function SubstanceCard({ substance, onSelect }: Subst
           </div>
           <ChevronRight className="h-5 w-5 text-neutral-content group-hover:text-primary transition-colors shrink-0" />
         </div>
-        <p className="text-sm text-neutral-content line-clamp-2">{substance.description}</p>
+        <p className="text-sm text-neutral-content line-clamp-3">{substance.description}</p>
         <div className="flex flex-wrap gap-1">
           {substance.commonNames.slice(0, 2).map((name, i) => (
             <span key={i} className="badge badge-secondary text-xs">{name}</span>
@@ -299,7 +299,7 @@ const MobileSubstanceRow = memo(function MobileSubstanceRow({ substance, onSelec
           <ChevronRight className="h-4 w-4 text-neutral-content shrink-0 mt-0.5" />
         </div>
         <p className="text-xs text-neutral-content mb-2">{substance.class}</p>
-        <p className="text-sm text-neutral-content line-clamp-2 mb-2 leading-relaxed">
+        <p className="text-sm text-neutral-content line-clamp-3 mb-2 leading-relaxed">
           {substance.description}
         </p>
         <div className="flex flex-wrap gap-1">

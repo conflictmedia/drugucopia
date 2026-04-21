@@ -77,17 +77,18 @@ export function InteractionResults({
 
   return (
     <div className="space-y-6">
-      {/* Summary Banner */}
+      {/* Summary Banner — neutral bg with colored left border so badges don't
+          disappear into a matching-colored alert background (red-on-red, etc.) */}
       <div
         className={cn(
-          'alert',
+          'alert border-l-4',
           result.summary.dangerous > 0
-            ? 'alert-error'
+            ? 'border-l-red-500 bg-red-500/5'
             : result.summary.unsafe > 0
-              ? 'alert-warning'
+              ? 'border-l-orange-500 bg-orange-500/5'
               : result.summary.caution > 0
-                ? 'alert-warning'
-                : 'alert-success'
+                ? 'border-l-amber-500 bg-amber-500/5'
+                : 'border-l-emerald-500 bg-emerald-500/5'
         )}
       >
         <div className="flex items-center gap-3 mb-3">
@@ -104,26 +105,26 @@ export function InteractionResults({
         </div>
         <div className="flex flex-wrap gap-2">
           {result.summary.dangerous > 0 && (
-            <span className="badge badge-outline bg-red-500/15 text-red-400 border-red-500/30 font-bold">
+            <span className="badge bg-red-500/25 text-red-200 border-red-500/40 font-bold">
               {result.summary.dangerous} Dangerous
             </span>
           )}
           {result.summary.unsafe > 0 && (
-            <span className="badge badge-outline bg-orange-500/15 text-orange-400 border-orange-500/30 font-bold">
+            <span className="badge bg-orange-500/25 text-orange-200 border-orange-500/40 font-bold">
               {result.summary.unsafe} Unsafe
             </span>
           )}
           {result.summary.caution > 0 && (
-            <span className="badge badge-outline bg-amber-500/15 text-amber-400 border-amber-500/30 font-bold">
+            <span className="badge bg-amber-500/25 text-amber-200 border-amber-500/40 font-bold">
               {result.summary.caution} Caution
             </span>
           )}
           {result.summary.lowRisk > 0 && (
-            <span className="badge badge-outline bg-emerald-500/15 text-emerald-400 border-emerald-500/30 font-bold">
+            <span className="badge bg-emerald-500/25 text-emerald-200 border-emerald-500/40 font-bold">
               {result.summary.lowRisk} Low Risk
             </span>
           )}
-          <span className="badge badge-outline text-neutral-content">
+          <span className="badge badge-outline text-base-content/60">
             {result.summary.total} total
           </span>
         </div>
@@ -135,7 +136,7 @@ export function InteractionResults({
           <div className="flex items-center gap-2 mb-3">
             <ShieldAlert className="h-4 w-4 text-red-400" />
             <h4 className="text-sm font-semibold text-red-400">Dangerous Interactions</h4>
-            <span className="badge badge-outline text-[10px] bg-red-500/15 text-red-400 border-red-500/30">
+            <span className="badge text-[10px] bg-red-500/25 text-red-200 border-red-500/45">
               {dangerous.length}
             </span>
           </div>
@@ -155,7 +156,7 @@ export function InteractionResults({
             <div className="flex items-center gap-2 mb-3">
               <AlertTriangle className="h-4 w-4 text-orange-400" />
               <h4 className="text-sm font-semibold text-orange-400">Unsafe Interactions</h4>
-              <span className="badge badge-outline text-[10px] bg-orange-500/15 text-orange-400 border-orange-500/30">
+              <span className="badge text-[10px] bg-orange-500/25 text-orange-200 border-orange-500/45">
                 {unsafe.length}
               </span>
             </div>
@@ -176,7 +177,7 @@ export function InteractionResults({
             <div className="flex items-center gap-2 mb-3">
               <HelpCircle className="h-4 w-4 text-amber-400" />
               <h4 className="text-sm font-semibold text-amber-400">Use Caution</h4>
-              <span className="badge badge-outline text-[10px] bg-amber-500/15 text-amber-400 border-amber-500/30">
+              <span className="badge text-[10px] bg-amber-500/25 text-amber-200 border-amber-500/45">
                 {caution.length}
               </span>
             </div>
@@ -197,7 +198,7 @@ export function InteractionResults({
             <div className="flex items-center gap-2 mb-3">
               <ThumbsUp className="h-4 w-4 text-emerald-400" />
               <h4 className="text-sm font-semibold text-emerald-400">Low Risk Combinations</h4>
-              <span className="badge badge-outline text-[10px] bg-emerald-500/15 text-emerald-400 border-emerald-500/30">
+              <span className="badge text-[10px] bg-emerald-500/25 text-emerald-200 border-emerald-500/45">
                 {lowRisk.length}
               </span>
             </div>
@@ -218,13 +219,13 @@ export function InteractionResults({
             <div className="flex items-center gap-2 mb-3">
               <ArrowRightLeft className="h-4 w-4 text-blue-400" />
               <h4 className="text-sm font-semibold text-blue-400">Cross-Tolerances</h4>
-              <span className="badge badge-outline text-[10px] bg-blue-500/15 text-blue-400 border-blue-500/30">
+              <span className="badge text-[10px] bg-blue-500/25 text-blue-200 border-blue-500/45">
                 {result.crossTolerances.length}
               </span>
             </div>
             <div className="space-y-2">
               {result.crossTolerances.map((ct, i) => (
-                <div key={`ct-${i}`} className="card border-blue-500/20 bg-blue-500/5">
+                <div key={`ct-${i}`} className="card border-blue-500/20 bg-blue-500/3">
                   <div className="card-body p-3">
                     <div className="flex items-center gap-2 flex-wrap">
                       <span className="badge badge-secondary font-medium text-xs capitalize">

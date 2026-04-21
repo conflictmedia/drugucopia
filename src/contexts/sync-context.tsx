@@ -140,6 +140,16 @@ export function SyncProvider({ children }: { children: React.ReactNode }) {
   const syncStatusRef = useRef<'idle' | 'connecting' | 'synced' | 'error'>('idle')
   const pushDebounceRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
+  // Guard against feedback loop: when setDosesFromSync updates the Zustand
+  // store, the subscription listener fires and would schedule another push.
+  // This flag tells the subscription to skip the next auto-push.
+  const skipNextAutoPushRef = useRef(false)
+
+  // Rate-limit: minimum milliseconds between actual Firestore writes.
+  // Prevents rapid-fire setDoc calls that exhaust the write stream.
+  const MIN_WRITE_INTERVAL_MS = 3000
+  const lastWriteTimeRef = useRef<number>(0)
+
   // Keep refs in sync with roomId/password state so connectToSync can read
   // current values without depending on them in its useCallback dependency array.
   // This prevents the callback (and the entire context value) from being
@@ -169,6 +179,20 @@ export function SyncProvider({ children }: { children: React.ReactNode }) {
     if (!cryptoKeyRef.current || !hashedRoomRef.current || isPushingRef.current || !isLoaded) return
     const db = getDb()
     if (!db) return
+
+    // Rate-limit: enforce minimum interval between Firestore writes
+    const now = Date.now()
+    const elapsed = now - lastWriteTimeRef.current
+    if (elapsed < MIN_WRITE_INTERVAL_MS) {
+      const delay = MIN_WRITE_INTERVAL_MS - elapsed
+      if (pushDebounceRef.current) clearTimeout(pushDebounceRef.current)
+      pushDebounceRef.current = setTimeout(() => {
+        pushDebounceRef.current = null
+        pushToSync()
+      }, delay)
+      return
+    }
+
     isPushingRef.current = true
     try {
       const currentDoses = dosesRef.current
@@ -180,6 +204,7 @@ export function SyncProvider({ children }: { children: React.ReactNode }) {
         encrypted,
         updatedAt: serverTimestamp(),
       })
+      lastWriteTimeRef.current = Date.now()
     } catch (e) {
       console.error('Failed to push sync:', e)
     } finally {
@@ -194,14 +219,22 @@ export function SyncProvider({ children }: { children: React.ReactNode }) {
       dosesRef.current = state.doses
       deletedIdsRef.current = state.deletedIds
 
+      // Skip auto-push if this state change came from a sync merge.
+      // This prevents the feedback loop: remote data → merge → push → echo.
+      if (skipNextAutoPushRef.current) {
+        skipNextAutoPushRef.current = false
+        return
+      }
+
       if (syncStatusRef.current === 'synced' && state.isLoaded && initialSyncDoneRef.current) {
         if (pushDebounceRef.current) {
           clearTimeout(pushDebounceRef.current)
           pushDebounceRef.current = null
         }
         pushDebounceRef.current = setTimeout(() => {
+          pushDebounceRef.current = null
           pushToSync()
-        }, 500)
+        }, 2000)
       }
     })
 
@@ -283,6 +316,10 @@ export function SyncProvider({ children }: { children: React.ReactNode }) {
 
             const { doses: merged, deleted: mergedDeleted } = mergeDoses(localDoses, remoteDoses, effectiveLocalDeleted, remoteDeleted)
 
+            // Prevent the incoming sync merge from triggering an auto-push.
+            // Without this, the Zustand subscription would fire pushToSync
+            // again, creating a feedback loop that exhausts Firestore writes.
+            skipNextAutoPushRef.current = true
             setDosesFromSync(merged, mergedDeleted)
 
           } catch (e) {
@@ -313,6 +350,12 @@ export function SyncProvider({ children }: { children: React.ReactNode }) {
     cryptoKeyRef.current = null
     hashedRoomRef.current = null
     lastPushedHashRef.current = null
+    skipNextAutoPushRef.current = false
+    lastWriteTimeRef.current = 0
+    if (pushDebounceRef.current) {
+      clearTimeout(pushDebounceRef.current)
+      pushDebounceRef.current = null
+    }
     localStorage.removeItem(SYNC_AUTH_KEY)
     setSyncStatus('idle')
     setRoomId('')

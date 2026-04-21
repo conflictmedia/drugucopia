@@ -11,33 +11,33 @@ interface InteractionPairCardProps {
 const severityConfig = {
   dangerous: {
     icon: ShieldAlert,
-    borderColor: 'border-red-500/30',
-    bgColor: 'bg-red-500/5',
-    badgeColor: 'bg-red-500/15 text-red-400 border-red-500/30',
+    borderColor: 'border-red-500/25',
+    bgColor: 'bg-red-500/3',
+    badgeColor: 'bg-red-500/25 text-red-200 border-red-500/45',
     badgeLabel: 'DANGEROUS',
     iconColor: 'text-red-400',
   },
   unsafe: {
     icon: AlertTriangle,
-    borderColor: 'border-orange-500/30',
-    bgColor: 'bg-orange-500/5',
-    badgeColor: 'bg-orange-500/15 text-orange-400 border-orange-500/30',
+    borderColor: 'border-orange-500/25',
+    bgColor: 'bg-orange-500/3',
+    badgeColor: 'bg-orange-500/25 text-orange-200 border-orange-500/45',
     badgeLabel: 'UNSAFE',
     iconColor: 'text-orange-400',
   },
   caution: {
     icon: HelpCircle,
-    borderColor: 'border-amber-500/30',
-    bgColor: 'bg-amber-500/5',
-    badgeColor: 'bg-amber-500/15 text-amber-400 border-amber-500/30',
+    borderColor: 'border-amber-500/25',
+    bgColor: 'bg-amber-500/3',
+    badgeColor: 'bg-amber-500/25 text-amber-200 border-amber-500/45',
     badgeLabel: 'CAUTION',
     iconColor: 'text-amber-400',
   },
   'low-risk': {
     icon: ThumbsUp,
-    borderColor: 'border-emerald-500/30',
-    bgColor: 'bg-emerald-500/5',
-    badgeColor: 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30',
+    borderColor: 'border-emerald-500/25',
+    bgColor: 'bg-emerald-500/3',
+    badgeColor: 'bg-emerald-500/25 text-emerald-200 border-emerald-500/45',
     badgeLabel: 'LOW RISK',
     iconColor: 'text-emerald-400',
   },
@@ -138,19 +138,19 @@ export function InteractionPairCard({ result }: InteractionPairCardProps) {
             {/* Metadata row */}
             <div className="flex items-center gap-2">
               <span
-                className={cn('badge badge-outline text-[10px] font-bold', config.badgeColor)}
+                className={cn('badge text-[10px] font-bold', config.badgeColor)}
               >
                 {config.badgeLabel}
               </span>
               {subLabel && (
                 <span
-                  className={cn('badge badge-outline text-[10px] font-bold', config.badgeColor)}
+                  className={cn('badge text-[10px] font-bold', config.badgeColor)}
                 >
                   {subLabel}
                 </span>
               )}
               {isTripsit && (
-                <span className="badge badge-outline text-[10px] text-blue-400 border-blue-500/30 bg-blue-500/10">
+                <span className="badge text-[10px] text-blue-200 border-blue-500/45 bg-blue-500/25">
                   TRIPSIT
                 </span>
               )}
