@@ -41,12 +41,8 @@ import { DoseLoggerModal } from '@/components/dose-logger-modal'
 import { DoseHistory } from '@/components/dose-history'
 import { DoseStats } from '@/components/dose-stats'
 import { ActiveDosesTimeline } from '@/components/active-doses-timeline'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { ScrollArea } from '@/components/ui/scroll-area'
-import { Separator } from '@/components/ui/separator'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -185,9 +181,9 @@ function CategoryBadges({ substance, className = '' }: { substance: Substance; c
       {cats.map((cat) => {
         const info = categories.find((c) => c.id === cat)
         return (
-          <Badge key={cat} variant="outline" className={categoryColors[cat] ?? ''}>
+          <span key={cat} className={`badge badge-outline ${categoryColors[cat] ?? ''}`}>
             {info?.name ?? cat}
-          </Badge>
+          </span>
         )
       })}
     </div>
@@ -216,11 +212,11 @@ const SubstanceCard = memo(function SubstanceCard({ substance, onSelect }: Subst
   const hasRouteData = substance.routeData && Object.keys(substance.routeData).length > 1
 
   return (
-    <Card
-      className={`cursor-pointer hover:border-primary/50 transition-all group card-lift ${primary ? categoryGlowClasses[primary] : ''}`}
+    <div
+      className={`card cursor-pointer hover:border-primary/50 transition-all group card-lift ${primary ? categoryGlowClasses[primary] : ''}`}
       onClick={() => onSelect(substance)}
     >
-      <CardHeader className="pb-3">
+      <div className="card-body">
         <div className="flex items-start justify-between">
           <div className="flex items-center gap-3">
             {primary && (
@@ -229,23 +225,21 @@ const SubstanceCard = memo(function SubstanceCard({ substance, onSelect }: Subst
               </div>
             )}
             <div className="min-w-0">
-              <CardTitle className="text-lg group-hover:text-primary transition-colors">
+              <h3 className="card-title text-lg group-hover:text-primary transition-colors">
                 {substance.name}
-              </CardTitle>
-              <CardDescription className="text-xs">{substance.class}</CardDescription>
+              </h3>
+              <p className="text-xs text-neutral-content">{substance.class}</p>
             </div>
           </div>
           <ChevronRight className="h-5 w-5 text-neutral-content group-hover:text-primary transition-colors shrink-0" />
         </div>
-      </CardHeader>
-      <CardContent>
-        <p className="text-sm text-neutral-content line-clamp-2 mb-3">{substance.description}</p>
-        <div className="flex flex-wrap gap-1 mb-2">
+        <p className="text-sm text-neutral-content line-clamp-2">{substance.description}</p>
+        <div className="flex flex-wrap gap-1">
           {substance.commonNames.slice(0, 2).map((name, i) => (
-            <Badge key={i} variant="secondary" className="text-xs">{name}</Badge>
+            <span key={i} className="badge badge-secondary text-xs">{name}</span>
           ))}
           {substance.commonNames.length > 2 && (
-            <Badge variant="secondary" className="text-xs">+{substance.commonNames.length - 2}</Badge>
+            <span className="badge badge-secondary text-xs">+{substance.commonNames.length - 2}</span>
           )}
         </div>
         <div className="flex items-center justify-between gap-2 flex-wrap">
@@ -253,28 +247,28 @@ const SubstanceCard = memo(function SubstanceCard({ substance, onSelect }: Subst
             {cats.slice(0, 2).map((cat) => {
               const info = categories.find((c) => c.id === cat)
               return (
-                <Badge key={cat} variant="outline" className={`text-xs ${categoryColors[cat] ?? ''}`}>
+                <span key={cat} className={`badge badge-outline text-xs ${categoryColors[cat] ?? ''}`}>
                   {info?.name ?? cat}
-                </Badge>
+                </span>
               )
             })}
             {cats.length > 2 && (
-              <Badge variant="outline" className="text-xs text-neutral-content">+{cats.length - 2}</Badge>
+              <span className="badge badge-outline text-xs text-neutral-content">+{cats.length - 2}</span>
             )}
           </div>
           <div className="flex items-center gap-1.5">
             {hasRouteData && (
-              <Badge variant="outline" className="text-xs border-primary/30 text-primary/70">
+              <span className="badge badge-outline text-xs border-primary/30 text-primary/70">
                 {Object.keys(substance.routeData!).length} routes
-              </Badge>
+              </span>
             )}
-            <Badge variant="outline" className={riskLevelColors[substance.riskLevel]}>
+            <span className={`badge badge-outline ${riskLevelColors[substance.riskLevel]}`}>
               {substance.riskLevel.replace('-', ' ')}
-            </Badge>
+            </span>
           </div>
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   )
 })
 
@@ -312,17 +306,17 @@ const MobileSubstanceRow = memo(function MobileSubstanceRow({ substance, onSelec
           {cats.slice(0, 2).map((cat) => {
             const info = categories.find((c) => c.id === cat)
             return (
-              <Badge key={cat} variant="outline" className={`text-xs ${categoryColors[cat]}`}>
+              <span key={cat} className={`badge badge-outline text-xs ${categoryColors[cat]}`}>
                 {info?.name ?? cat}
-              </Badge>
+              </span>
             )
           })}
           {cats.length > 2 && (
-            <Badge variant="outline" className="text-xs">+{cats.length - 2}</Badge>
+            <span className="badge badge-outline text-xs">+{cats.length - 2}</span>
           )}
-          <Badge variant="outline" className={`text-xs ${riskLevelColors[substance.riskLevel]}`}>
+          <span className={`badge badge-outline text-xs ${riskLevelColors[substance.riskLevel]}`}>
             {substance.riskLevel.replace('-', ' ')}
-          </Badge>
+          </span>
         </div>
       </div>
     </button>
@@ -378,18 +372,14 @@ function DosageDurationPanel({
   return (
     <div className="space-y-4">
       {hasRouteData && (
-        <Card className="border-primary/20 bg-primary/5">
-          <CardHeader className="pb-3">
-            <CardTitle className="flex items-center gap-2 text-base">
+        <div className="card border-primary/20 bg-primary/5 shadow-sm">
+          <div className="card-body">
+            <h3 className="card-title text-base flex items-center gap-2">
               <Syringe className="h-4 w-4" />
               Route of Administration
-            </CardTitle>
-            <CardDescription className="text-xs">
-              Dosage and duration vary significantly by route.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-none -mx-1 px-1">
+            </h3>
+            <p className="text-xs text-neutral-content">Dosage and duration vary significantly by route.</p>
+            <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-none -mx-1 px-1 mt-2">
               {Object.keys(substance.routeData!).map((route) => {
                 const isSelected = selectedRoute === route
                 const dangerClass = routeDangerColors[route] || ''
@@ -398,15 +388,11 @@ function DosageDurationPanel({
                     key={route}
                     onClick={() => setSelectedRoute(route)}
                     className={`
-                      flex-shrink-0 flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium border transition-all min-h-[40px]
-                      ${isSelected
-                        ? 'bg-primary text-primary-content border-primary shadow-sm'
-                        : `bg-base-100 hover:bg-base-200 border-base-300 ${dangerClass}`
-                      }
+                      btn btn-sm ${isSelected ? 'btn-primary' : `btn-ghost border border-base-300 hover:bg-base-200 ${dangerClass}`}
                     `}
                   >
                     <span>{getRouteIcon(route)}</span>
-                    <span>{route}</span>
+                    {route}
                     {(route === 'Intravenous' || route === 'Smoking') && !isSelected && (
                       <span className="text-orange-400 text-xs">⚠</span>
                     )}
@@ -415,29 +401,27 @@ function DosageDurationPanel({
               })}
             </div>
             {currentNotes && (
-              <div className="mt-3 flex items-start gap-2 p-3 rounded-lg bg-base-200/50 border border-base-300">
-                <Info className="h-4 w-4 text-neutral-content mt-0.5 shrink-0" />
-                <p className="text-xs text-neutral-content leading-relaxed">{currentNotes}</p>
+              <div className="alert mt-3">
+                <Info className="h-4 w-4 shrink-0" />
+                <span className="text-xs leading-relaxed">{currentNotes}</span>
               </div>
             )}
-          </CardContent>
-        </Card>
+          </div>
+        </div>
       )}
 
       <div className="grid gap-4 sm:grid-cols-2">
-        <Card>
-          <CardHeader className="pb-2">
-            <CardTitle className="flex items-center gap-2 text-base">
+        <div className="card bg-base-100 border border-base-300 shadow-sm">
+          <div className="card-body">
+            <h3 className="card-title text-base flex items-center gap-2">
               <Droplets className="h-4 w-4" />
               Dosage
               {selectedRoute && hasRouteData && (
-                <Badge variant="outline" className="ml-auto text-xs font-normal">
+                <span className="badge badge-outline ml-auto text-xs font-normal">
                   {getRouteIcon(selectedRoute)} {selectedRoute}
-                </Badge>
+                </span>
               )}
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
+            </h3>
             <div className="space-y-1">
               {Object.entries(currentDosage).map(([level, amount]) => {
                 const levelColors: Record<string, string> = {
@@ -448,31 +432,29 @@ function DosageDurationPanel({
                   heavy: 'text-red-400 bg-red-500/10',
                 }
                 return (
-                  <div key={level} className="flex justify-between items-center py-2 border-b last:border-0">
+                  <div key={level} className="flex justify-between items-center py-2 border-b border-base-300 last:border-0">
                     <span className={`text-xs px-2 py-0.5 rounded capitalize font-medium ${levelColors[level] || ''}`}>
                       {level}
                     </span>
-                    <Badge variant="secondary" className="font-mono text-xs">{amount}</Badge>
+                    <span className="badge badge-secondary font-mono text-xs">{amount}</span>
                   </div>
                 )
               })}
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
 
-        <Card>
-          <CardHeader className="pb-2">
-            <CardTitle className="flex items-center gap-2 text-base">
+        <div className="card bg-base-100 border border-base-300 shadow-sm">
+          <div className="card-body">
+            <h3 className="card-title text-base flex items-center gap-2">
               <Clock className="h-4 w-4" />
               Duration
               {selectedRoute && hasRouteData && (
-                <Badge variant="outline" className="ml-auto text-xs font-normal">
+                <span className="badge badge-outline ml-auto text-xs font-normal">
                   {getRouteIcon(selectedRoute)} {selectedRoute}
-                </Badge>
+                </span>
               )}
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
+            </h3>
             <div className="space-y-1">
               {Object.entries(currentDuration).map(([phase, time]) => {
                 const phaseColors: Record<string, string> = {
@@ -483,19 +465,19 @@ function DosageDurationPanel({
                   total: 'text-green-400 bg-green-500/10',
                 }
                 return (
-                  <div key={phase} className="flex justify-between items-center py-2 border-b last:border-0">
+                  <div key={phase} className="flex justify-between items-center py-2 border-b border-base-300 last:border-0">
                     <span className={`text-xs px-2 py-0.5 rounded capitalize font-medium ${phaseColors[phase] || ''}`}>
                       {phase}
                     </span>
-                    <Badge variant="secondary" className="font-mono text-xs text-right max-w-[160px] whitespace-normal">
+                    <span className="badge badge-secondary font-mono text-xs text-right max-w-[160px] whitespace-normal">
                       {time}
-                    </Badge>
+                    </span>
                   </div>
                 )
               })}
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
       </div>
 
       {!hasRouteData && (
@@ -505,48 +487,46 @@ function DosageDurationPanel({
       )}
 
       {hasRouteData && Object.keys(substance.routeData!).length > 1 && (
-        <Card className="hidden sm:block">
-          <CardHeader className="pb-3">
-            <CardTitle className="text-base flex items-center gap-2">
+        <div className="card bg-base-100 border border-base-300 shadow-sm hidden sm:block">
+          <div className="card-body">
+            <h3 className="card-title text-base flex items-center gap-2">
               <Route className="h-4 w-4" />
               Routes comparison
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
+            </h3>
             <div className="overflow-x-auto">
-              <table className="w-full text-xs">
+              <table className="table table-xs">
                 <thead>
-                  <tr className="border-b">
-                    <th className="text-left py-2 pr-3 text-neutral-content font-medium">Route</th>
-                    <th className="text-left py-2 pr-3 text-neutral-content font-medium">Common dose</th>
-                    <th className="text-left py-2 pr-3 text-neutral-content font-medium">Onset</th>
-                    <th className="text-left py-2 text-neutral-content font-medium">Total</th>
+                  <tr>
+                    <th>Route</th>
+                    <th>Common dose</th>
+                    <th>Onset</th>
+                    <th>Total</th>
                   </tr>
                 </thead>
                 <tbody>
                   {(Object.entries(substance.routeData!) as [string, RouteDosageDuration][]).map(([route, data]) => (
                     <tr
                       key={route}
-                      className={`border-b last:border-0 cursor-pointer transition-colors hover:bg-base-200/50 ${selectedRoute === route ? 'bg-primary/5' : ''}`}
+                      className={`cursor-pointer hover ${selectedRoute === route ? 'active' : ''}`}
                       onClick={() => setSelectedRoute(route)}
                     >
-                      <td className="py-2 pr-3 font-medium">
+                      <td className="font-medium">
                         <span className="flex items-center gap-1">
                           <span>{getRouteIcon(route)}</span>
                           <span>{route}</span>
                           {selectedRoute === route && <span className="text-primary text-xs">●</span>}
                         </span>
                       </td>
-                      <td className="py-2 pr-3 text-neutral-content font-mono">{data.dosage.common}</td>
-                      <td className="py-2 pr-3 text-neutral-content font-mono">{data.duration.onset}</td>
-                      <td className="py-2 text-neutral-content font-mono">{data.duration.total}</td>
+                      <td className="font-mono text-neutral-content">{data.dosage.common}</td>
+                      <td className="font-mono text-neutral-content">{data.duration.onset}</td>
+                      <td className="font-mono text-neutral-content">{data.duration.total}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
       )}
     </div>
   )
@@ -702,10 +682,10 @@ function SubstanceDetail({
             preselectedRoute={selectedRoute || undefined}
             onLogCreated={onDoseLogged}
             trigger={
-              <Button size="sm" className="gap-2">
+              <button className="btn btn-primary btn-sm gap-2">
                 <Plus className="h-4 w-4" />
                 Log Dose
-              </Button>
+              </button>
             }
           />
           <CategoryBadges substance={substance} />
@@ -848,7 +828,7 @@ function SubstanceDetail({
                 ))}
               </ul>
             </div>
-            <Separator />
+            <div className="divider my-2" />
             <div>
               <p className="text-xs font-medium text-yellow-500 uppercase tracking-wide mb-2">Neutral</p>
               <ul className="space-y-2">
@@ -860,7 +840,7 @@ function SubstanceDetail({
                 ))}
               </ul>
             </div>
-            <Separator />
+            <div className="divider my-2" />
             <div>
               <p className="text-xs font-medium text-red-500 uppercase tracking-wide mb-2">Negative</p>
               <ul className="space-y-2">
@@ -891,20 +871,18 @@ function SubstanceDetail({
 
           <TabsContent value="info" className="mt-0 px-4 py-4 space-y-4">
             {substance.history && (
-              <Card>
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-base flex items-center gap-2">
+              <div className="card bg-base-100 border border-base-300 shadow-sm">
+                <div className="card-body">
+                  <h3 className="card-title text-base flex items-center gap-2">
                     <History className="h-4 w-4" />
                     History
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
+                  </h3>
                   <p className="text-sm text-neutral-content leading-relaxed">{substance.history}</p>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             )}
-            <Card>
-              <CardContent className="pt-4 space-y-3">
+            <div className="card bg-base-100 border border-base-300 shadow-sm">
+              <div className="card-body space-y-3">
                 <div className="flex items-center gap-3 text-sm">
                   <Scale className="h-4 w-4 text-neutral-content shrink-0" />
                   <div>
@@ -919,14 +897,14 @@ function SubstanceDetail({
                     <span className="font-mono">{substance.chemistry.formula}</span>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="outline" size="sm" className="w-full gap-2">
+                <button className="btn btn-outline btn-primary btn-sm w-full gap-2">
                   <Github className="h-4 w-4" />
                   Contribute on GitHub
-                </Button>
+                </button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="center">
                 <DropdownMenuItem onClick={() => window.open(GITHUB_INFO_CHANGE_URL, '_blank')}>
@@ -955,9 +933,9 @@ function SubstanceDetail({
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {(substance.interactions.dangerous || []).map((interaction, i) => (
-                    <Badge key={i} variant="outline" className="border-red-500/30 text-red-400">
+                    <span key={i} className="badge badge-outline border-red-500/30 text-red-400">
                       {interaction}
-                    </Badge>
+                    </span>
                   ))}
                 </div>
               </div>
@@ -969,9 +947,9 @@ function SubstanceDetail({
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {(substance.interactions.unsafe || []).map((interaction, i) => (
-                    <Badge key={i} variant="outline" className="border-orange-500/30 text-orange-400">
+                    <span key={i} className="badge badge-outline border-orange-500/30 text-orange-400">
                       {interaction}
-                    </Badge>
+                    </span>
                   ))}
                 </div>
               </div>
@@ -983,9 +961,9 @@ function SubstanceDetail({
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {(substance.interactions.uncertain || []).map((interaction, i) => (
-                    <Badge key={i} variant="outline" className="border-yellow-500/30 text-yellow-400">
+                    <span key={i} className="badge badge-outline border-yellow-500/30 text-yellow-400">
                       {interaction}
-                    </Badge>
+                    </span>
                   ))}
                 </div>
               </div>
@@ -997,9 +975,9 @@ function SubstanceDetail({
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {(substance.interactions.crossTolerances || []).map((interaction, i) => (
-                    <Badge key={i} variant="outline" className="border-blue-500/30 text-blue-400">
+                    <span key={i} className="badge badge-outline border-blue-500/30 text-blue-400">
                       {interaction}
-                    </Badge>
+                    </span>
                   ))}
                 </div>
               </div>
@@ -1463,10 +1441,8 @@ function HomeContent() {
       >
         <div className="h-full flex flex-col">
           <div className="p-4 border-b">
-            <Button
-              variant="ghost"
-              size="sm"
-              className="w-full justify-start gap-2 text-neutral-content"
+            <button
+              className="btn btn-ghost btn-sm w-full justify-start gap-2 text-neutral-content"
               onClick={() => setSidebarOpen(false)}
             >
               <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
@@ -1474,14 +1450,13 @@ function HomeContent() {
                 <line x1="9" y1="3" x2="9" y2="21" />
               </svg>
               Collapse Sidebar
-            </Button>
+            </button>
           </div>
 
           <ScrollArea className="flex-1 p-4">
             <div className="space-y-2">
-              <Button
-                variant={desktopView === 'substances' && selectedCategory === 'all' ? 'secondary' : 'ghost'}
-                className="w-full justify-start gap-2"
+              <button
+                className={`btn w-full justify-start gap-2 ${desktopView === 'substances' && selectedCategory === 'all' ? 'btn-secondary' : 'btn-ghost'}`}
                 onClick={() => {
                   setDesktopView('substances')
                   setSelectedCategory('all')
@@ -1490,17 +1465,16 @@ function HomeContent() {
               >
                 <Info className="h-4 w-4" />
                 All Substances
-                <Badge variant="outline" className="ml-auto">{substances.length}</Badge>
-              </Button>
-              <Separator className="my-3" />
+                <span className="badge badge-outline ml-auto">{substances.length}</span>
+              </button>
+              <div className="divider my-1" />
               {categories.map((category) => {
                 const Icon = categoryIcons[category.id]
                 const count = substances.filter((s) => substanceBelongsToCategory(s, category.id)).length
                 return (
-                  <Button
+                  <button
                     key={category.id}
-                    variant={desktopView === 'substances' && selectedCategory === category.id ? 'secondary' : 'ghost'}
-                    className="w-full justify-start gap-2"
+                    className={`btn w-full justify-start gap-2 ${desktopView === 'substances' && selectedCategory === category.id ? 'btn-secondary' : 'btn-ghost'}`}
                     onClick={() => {
                       setDesktopView('substances')
                       setSelectedCategory(category.id)
@@ -1509,21 +1483,17 @@ function HomeContent() {
                   >
                     <Icon className="h-4 w-4" />
                     <span className="truncate">{category.name}</span>
-                    <Badge variant="outline" className="ml-auto">{count}</Badge>
-                  </Button>
+                    <span className="badge badge-outline ml-auto">{count}</span>
+                  </button>
                 )
               })}
             </div>
           </ScrollArea>
 
           <div className="p-4 border-t">
-            <div className="rounded-lg bg-amber-500/10 border border-amber-500/20 p-3">
-              <div className="flex items-start gap-2">
-                <AlertTriangle className="h-4 w-4 text-amber-500 shrink-0 mt-0.5" />
-                <p className="text-xs text-amber-200/80 leading-relaxed">
-                  Educational and harm reduction purposes only. Always consult medical professionals.
-                </p>
-              </div>
+            <div className="alert alert-warning text-xs py-2">
+              <AlertTriangle className="h-4 w-4 shrink-0" />
+              <span>Educational and harm reduction purposes only. Always consult medical professionals.</span>
             </div>
           </div>
         </div>
@@ -1535,10 +1505,8 @@ function HomeContent() {
         {desktopView === 'dose-log' && (
           <header className="hidden md:flex sticky top-14 z-40 border-b border-base-300/50 bg-base-100 h-14 items-center px-4 lg:px-6 gap-4">
             {!sidebarOpen && (
-              <Button
-                variant="ghost"
-                size="icon"
-                className="-ml-2"
+              <button
+                className="btn btn-ghost btn-square btn-sm -ml-2"
                 onClick={() => setSidebarOpen(true)}
               >
                 <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
@@ -1546,7 +1514,7 @@ function HomeContent() {
                   <line x1="3" y1="12" x2="21" y2="12" />
                   <line x1="3" y1="18" x2="21" y2="18" />
                 </svg>
-              </Button>
+              </button>
             )}
             <div className="flex-1">
               <h2 className="text-lg font-semibold">Dose Log</h2>
@@ -1560,10 +1528,8 @@ function HomeContent() {
         {/* Desktop sidebar expand button (shown when sidebar is collapsed and in substances view) */}
         {desktopView !== 'dose-log' && !sidebarOpen && (
           <div className="hidden md:flex sticky top-14 z-40">
-            <Button
-              variant="ghost"
-              size="icon"
-              className="-ml-2"
+            <button
+              className="btn btn-ghost btn-square btn-sm -ml-2"
               onClick={() => setSidebarOpen(true)}
             >
               <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
@@ -1571,7 +1537,7 @@ function HomeContent() {
                 <line x1="3" y1="12" x2="21" y2="12" />
                 <line x1="3" y1="18" x2="21" y2="18" />
               </svg>
-            </Button>
+            </button>
           </div>
         )}
 
