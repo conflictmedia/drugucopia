@@ -8,8 +8,6 @@ import {
   Zap,
   Users,
 } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
 import { InteractionSubstanceSelector } from '@/components/interaction-substance-selector'
 import { InteractionResults } from '@/components/interaction-results'
 import { checkInteractions, checkSingleSubstanceInteractions } from '@/lib/interaction-checker'
@@ -89,7 +87,7 @@ function InteractionsPageInner() {
           </div>
         </div>
 
-        <hr className="gradient-divider my-6" />
+        <div className="divider" />
 
         {/* Two-column layout */}
         <div className="grid grid-cols-12 gap-6">
@@ -226,9 +224,7 @@ function QuickCombo({
   return (
     <button
       onClick={() => onClick(ids)}
-      className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium
-        bg-base-200/50 hover:bg-base-200 border border-base-300 hover:border-primary/30
-        transition-all text-neutral-content hover:text-base-content card-lift"
+      className="btn btn-sm btn-ghost border border-base-300 hover:border-primary/30 gap-1 text-xs text-neutral-content hover:text-base-content card-lift"
     >
       <Zap className="h-3 w-3" />
       {label}
