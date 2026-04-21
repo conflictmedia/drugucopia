@@ -106,7 +106,8 @@
   }
 
   body {
-    @apply bg-base-100 text-base-content;
+    @apply text-base-content;
+    background: transparent;
   }
 }
 
@@ -126,6 +127,7 @@
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  background: transparent;
 }
 
 .overflow-y-auto,
@@ -238,10 +240,11 @@ html {
   .milkdrop-canvas {
     position: fixed;
     inset: 0;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
+    display: block;
     pointer-events: none;
+    z-index: -1;
   }
 
   .visualizer-controls {

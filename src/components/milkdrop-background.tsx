@@ -1,15 +1,14 @@
 'use client'
 
-import { useRef, useEffect, useCallback } from 'react'
+import { useRef, useEffect } from 'react'
 import { useVisualizerStore } from '@/store/visualizer-store'
 
-// Shader sources must start with #version on the very first character.
-// No Unicode in GLSL comments - some drivers reject non-ASCII chars.
+// GLSL ES 1.00 shaders for WebGL1.
+// WebGL1 natively uses GLSL ES 1.00 — no #version directive needed.
 
 const VERT_SRC = [
-  '#version 300 es',
-  'in vec2 aPosition;',
-  'out vec2 vUv;',
+  'attribute vec2 aPosition;',
+  'varying vec2 vUv;',
   'void main() {',
   '  vUv = aPosition * 0.5 + 0.5;',
   '  gl_Position = vec4(aPosition, 0.0, 1.0);',
@@ -17,11 +16,9 @@ const VERT_SRC = [
 ].join('\n')
 
 const FRAG_SRC = [
-  '#version 300 es',
   'precision highp float;',
   '',
-  'in vec2 vUv;',
-  'out vec4 fragColor;',
+  'varying vec2 vUv;',
   '',
   'uniform float uTime;',
   'uniform vec2 uResolution;',
@@ -191,7 +188,7 @@ const FRAG_SRC = [
   '    color *= 0.85;',
   '  }',
   '',
-  '  fragColor = vec4(color, 1.0);',
+  '  gl_FragColor = vec4(color, 1.0);',
   '}',
 ].join('\n')
 
@@ -202,9 +199,12 @@ interface MilkdropBackgroundProps {
 }
 
 export function MilkdropBackground({ isDark }: MilkdropBackgroundProps) {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
-  const glRef = useRef<WebGL2RenderingContext | null>(null)
-  const programRef = useRef<WebGLProgram | null>(null)
+  // Use a container ref instead of a canvas ref.
+  // The canvas is created inside the effect so that React Strict Mode's
+  // double-mount gets a FRESH canvas each time — a canvas whose GL context
+  // was lost via WEBGL_lose_context will return that same dead context on
+  // subsequent getContext() calls, causing "(no info log)" compile failures.
+  const containerRef = useRef<HTMLDivElement>(null)
   const animFrameRef = useRef<number>(0)
   const startTimeRef = useRef<number>(0)
   const mouseRef = useRef<[number, number]>([0.5, 0.5])
@@ -228,26 +228,32 @@ export function MilkdropBackground({ isDark }: MilkdropBackgroundProps) {
   }, [isDark])
 
   useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
+    const container = containerRef.current
+    if (!container) return
 
-    const gl = canvas.getContext('webgl2', {
+    // Create a fresh canvas — critical for React Strict Mode double-mount
+    const canvas = document.createElement('canvas')
+    canvas.className = 'milkdrop-canvas'
+    container.appendChild(canvas)
+
+    const glOpts: WebGLContextAttributes = {
       alpha: false,
       antialias: false,
       depth: false,
       stencil: false,
       preserveDrawingBuffer: false,
       powerPreference: 'low-power',
-    })
+    }
+
+    const gl = canvas.getContext('webgl', glOpts)
 
     if (!gl) {
-      console.warn('WebGL2 not available for Milkdrop visualizer')
+      console.warn('WebGL not available for Milkdrop visualizer')
+      container.removeChild(canvas)
       return
     }
 
-    glRef.current = gl
-
-    // Helper to compile a shader with better error reporting
+    // Compile shader helper
     const compileShader = (type: number, source: string): WebGLShader | null => {
       const shader = gl.createShader(type)
       if (!shader) return null
@@ -257,7 +263,7 @@ export function MilkdropBackground({ isDark }: MilkdropBackgroundProps) {
         const infoLog = gl.getShaderInfoLog(shader)
         console.error(
           'Shader compile error:',
-          infoLog || '(no info log - possible driver issue)',
+          infoLog || '(no info log)',
           '\nSource (first 200 chars):',
           source.substring(0, 200)
         )
@@ -267,13 +273,18 @@ export function MilkdropBackground({ isDark }: MilkdropBackgroundProps) {
       return shader
     }
 
-    // Compile shaders
     const vert = compileShader(gl.VERTEX_SHADER, VERT_SRC)
     const frag = compileShader(gl.FRAGMENT_SHADER, FRAG_SRC)
-    if (!vert || !frag) return
+    if (!vert || !frag) {
+      container.removeChild(canvas)
+      return
+    }
 
     const program = gl.createProgram()
-    if (!program) return
+    if (!program) {
+      container.removeChild(canvas)
+      return
+    }
 
     gl.attachShader(program, vert)
     gl.attachShader(program, frag)
@@ -281,17 +292,14 @@ export function MilkdropBackground({ isDark }: MilkdropBackgroundProps) {
 
     if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
       console.error('Program link error:', gl.getProgramInfoLog(program))
+      container.removeChild(canvas)
       return
     }
 
-    programRef.current = program
     gl.useProgram(program)
 
     // Fullscreen quad
     const vertices = new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1])
-    const vao = gl.createVertexArray()
-    gl.bindVertexArray(vao)
-
     const vbo = gl.createBuffer()
     gl.bindBuffer(gl.ARRAY_BUFFER, vbo)
     gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW)
@@ -306,20 +314,29 @@ export function MilkdropBackground({ isDark }: MilkdropBackgroundProps) {
     // Resolution tracking
     const updateSize = () => {
       const dpr = Math.min(window.devicePixelRatio, 2)
-      // Render at half resolution for performance
       const renderDpr = dpr * 0.5
-      const w = Math.floor(canvas.clientWidth * renderDpr)
-      const h = Math.floor(canvas.clientHeight * renderDpr)
-      if (w > 0 && h > 0 && (canvas.width !== w || canvas.height !== h)) {
-        canvas.width = w
-        canvas.height = h
-        gl.viewport(0, 0, w, h)
+      const cssW = canvas.clientWidth || window.innerWidth
+      const cssH = canvas.clientHeight || window.innerHeight
+      const w = Math.floor(cssW * renderDpr)
+      const h = Math.floor(cssH * renderDpr)
+      if (w > 0 && h > 0) {
+        if (canvas.width !== w || canvas.height !== h) {
+          canvas.width = w
+          canvas.height = h
+          gl.viewport(0, 0, w, h)
+        }
       }
     }
 
-    updateSize()
+    // Defer first size update so the browser has time to compute layout
+    const initRaf = requestAnimationFrame(() => {
+      updateSize()
+      resizeObs.observe(canvas)
+    })
+
+    const onResize = () => updateSize()
+    window.addEventListener('resize', onResize)
     const resizeObs = new ResizeObserver(updateSize)
-    resizeObs.observe(canvas)
 
     // Mouse tracking
     const onMouse = (e: MouseEvent) => {
@@ -342,46 +359,47 @@ export function MilkdropBackground({ isDark }: MilkdropBackgroundProps) {
         return
       }
 
-      const currentGl = glRef.current
-      if (!currentGl) return
-
       // Smooth isDark transition
       const diff = targetIsDarkRef.current - isDarkRef.current
       isDarkRef.current += diff * 0.05
 
       const time = performance.now() / 1000 - startTimeRef.current
 
-      currentGl.uniform1f(uTime, time)
-      currentGl.uniform2f(uResolution, canvas.width, canvas.height)
-      currentGl.uniform2f(uMouse, mouseRef.current[0], mouseRef.current[1])
-      currentGl.uniform1f(uIntensity, intensityRef.current)
-      currentGl.uniform1f(uPreset, presetRef.current)
-      currentGl.uniform1f(uIsDark, isDarkRef.current)
+      gl.uniform1f(uTime, time)
+      gl.uniform2f(uResolution, canvas.width, canvas.height)
+      gl.uniform2f(uMouse, mouseRef.current[0], mouseRef.current[1])
+      gl.uniform1f(uIntensity, intensityRef.current)
+      gl.uniform1f(uPreset, presetRef.current)
+      gl.uniform1f(uIsDark, isDarkRef.current)
 
-      currentGl.drawArrays(currentGl.TRIANGLE_STRIP, 0, 4)
+      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
 
       animFrameRef.current = requestAnimationFrame(render)
     }
 
     animFrameRef.current = requestAnimationFrame(render)
 
+    // Cleanup
     return () => {
       cancelAnimationFrame(animFrameRef.current)
+      cancelAnimationFrame(initRaf)
       resizeObs.disconnect()
+      window.removeEventListener('resize', onResize)
       window.removeEventListener('mousemove', onMouse)
       gl.deleteProgram(program)
       gl.deleteShader(vert)
       gl.deleteShader(frag)
-      gl.getExtension('WEBGL_lose_context')?.loseContext()
-      glRef.current = null
-      programRef.current = null
+      // Remove our canvas from the DOM — the next mount will create a fresh one
+      if (container.contains(canvas)) {
+        container.removeChild(canvas)
+      }
     }
   }, [])
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="milkdrop-canvas"
+    <div
+      ref={containerRef}
+      className="milkdrop-container"
       aria-hidden="true"
     />
   )
