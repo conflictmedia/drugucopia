@@ -247,7 +247,7 @@ export function formatPhaseName(phase: PhaseStatus['phase']): string {
 
 export function getDoseCategories(dose: DoseLog): string[] {
   if (Array.isArray(dose.categories)) return dose.categories
-  const legacy = (dose as unknown as Record<string, unknown>).category as string | undefined
+  const legacy = (dose as Record<string, unknown>).category as string | undefined
   if (legacy && legacy !== 'unknown') return [legacy]
   return []
 }
@@ -488,7 +488,7 @@ interface Point2D {
   y: number
 }
 
-function catmullRomToCubicBezier(pts: Point2D[], clampScreenY?: number): string {
+function catmullRomToCubicBezier(pts: Point2D[], clampScreenY?: number, clampBaseY?: number): string {
   if (pts.length < 2) {
     return pts.length === 1
       ? `M ${pts[0].x.toFixed(2)},${pts[0].y.toFixed(2)}`
@@ -516,13 +516,17 @@ function catmullRomToCubicBezier(pts: Point2D[], clampScreenY?: number): string 
     let cp2x = p2.x - (p3.x - p1.x) / 6
     let cp2y = p2.y - (p3.y - p1.y) / 6
 
-    // Clamp control-point y to prevent overshoot above the peak line.
-    // In SVG the y-axis is inverted (y increases downward), so a control
-    // point with y < clampScreenY would render ABOVE the peak boundary.
-    // Clamping it preserves C1 continuity in x while eliminating the bump.
+    // Clamp control-point y to prevent overshoot above the peak line and
+    // undershoot below the baseline. In SVG the y-axis is inverted (y increases
+    // downward), so y < clampScreenY renders ABOVE peak and y > clampBaseY
+    // renders BELOW the 0% baseline.
     if (clampScreenY != null) {
       cp1y = Math.max(cp1y, clampScreenY)
       cp2y = Math.max(cp2y, clampScreenY)
+    }
+    if (clampBaseY != null) {
+      cp1y = Math.min(cp1y, clampBaseY)
+      cp2y = Math.min(cp2y, clampBaseY)
     }
 
     d += ` C ${cp1x.toFixed(2)},${cp1y.toFixed(2)} ${cp2x.toFixed(2)},${cp2y.toFixed(2)} ${p2.x.toFixed(2)},${p2.y.toFixed(2)}`
@@ -598,9 +602,10 @@ export function curvePath(
         d += ` L ${seg.pts[i].x.toFixed(2)},${seg.pts[i].y.toFixed(2)}`
       }
     } else {
-      // Smoothed (onset/comeup/offset): Catmull-Rom with overshoot clamping
+      // Smoothed (onset/comeup/offset): Catmull-Rom with peak/baseline clamping
       const smoothPts = seg.pts
       // Skip the first point (already in path from previous segment)
+      const baseY = PT + GH
       for (let i = 0; i < smoothPts.length - 1; i++) {
         const p0 = i === 0 ? smoothPts[0] : smoothPts[i - 1]
         const p1 = smoothPts[i]
@@ -612,8 +617,12 @@ export function curvePath(
         let cp2x = p2.x - (p3.x - p1.x) / 6
         let cp2y = p2.y - (p3.y - p1.y) / 6
 
+        // Clamp to peak (no overshoot above 100%)
         if (cp1y < peakY) cp1y = peakY
         if (cp2y < peakY) cp2y = peakY
+        // Clamp to baseline (no undershoot below 0%)
+        if (cp1y > baseY) cp1y = baseY
+        if (cp2y > baseY) cp2y = baseY
 
         d += ` C ${cp1x.toFixed(2)},${cp1y.toFixed(2)} ${cp2x.toFixed(2)},${cp2y.toFixed(2)} ${p2.x.toFixed(2)},${p2.y.toFixed(2)}`
       }
@@ -702,7 +711,9 @@ export function mobileCurvePath(
         d += ` L ${seg.pts[i].x.toFixed(2)},${seg.pts[i].y.toFixed(2)}`
       }
     } else {
+      // Smoothed (onset/comeup/offset): Catmull-Rom with peak/baseline clamping
       const smoothPts = seg.pts
+      const mobileBaseY = MOBILE_PT + MOBILE_GH
       for (let i = 0; i < smoothPts.length - 1; i++) {
         const p0 = i === 0 ? smoothPts[0] : smoothPts[i - 1]
         const p1 = smoothPts[i]
@@ -714,8 +725,12 @@ export function mobileCurvePath(
         let cp2x = p2.x - (p3.x - p1.x) / 6
         let cp2y = p2.y - (p3.y - p1.y) / 6
 
+        // Clamp to peak (no overshoot above 100%)
         if (cp1y < peakY) cp1y = peakY
         if (cp2y < peakY) cp2y = peakY
+        // Clamp to baseline (no undershoot below 0%)
+        if (cp1y > mobileBaseY) cp1y = mobileBaseY
+        if (cp2y > mobileBaseY) cp2y = mobileBaseY
 
         d += ` C ${cp1x.toFixed(2)},${cp1y.toFixed(2)} ${cp2x.toFixed(2)},${cp2y.toFixed(2)} ${p2.x.toFixed(2)},${p2.y.toFixed(2)}`
       }
