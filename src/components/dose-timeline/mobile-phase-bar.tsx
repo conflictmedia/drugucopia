@@ -14,6 +14,7 @@ import {
   markerHex,
   NOW_INDICATOR,
   ROUTE_PALETTE,
+  PHASE_BANDS,
 } from './dose-timeline-constants'
 import {
   toMobileX,
@@ -27,6 +28,7 @@ import {
   formatMinutes,
   formatPhaseName,
   combinedIntensityAt,
+  getPhaseBandRanges,
 } from './dose-timeline-utils'
 import { formatDoseAmount } from '@/lib/utils'
 
@@ -404,6 +406,40 @@ export function MobilePhaseBar({ group, className = '' }: MobilePhaseBarProps) {
             className="text-base-200/30"
             rx="4"
           />
+
+          {/* ── Phase bands (background color regions) ── */}
+          {(() => {
+            const bands = getPhaseBandRanges(primaryDose.timings)
+            const doseOffsetMins = (primaryDose.doseTime.getTime() - group.windowStart.getTime()) / 60_000
+            return bands.map((band) => {
+              const phaseBand = PHASE_BANDS.find(b => b.phase === band.phase)
+              if (!phaseBand) return null
+              const startProgress = ((doseOffsetMins + band.startFrac * primaryDose.timings.totalDuration) / group.windowDuration) * 100
+              const endProgress = ((doseOffsetMins + band.endFrac * primaryDose.timings.totalDuration) / group.windowDuration) * 100
+              const x1 = toMobileX(startProgress)
+              const x2 = toMobileX(endProgress)
+              const bandWidth = x2 - x1
+              if (bandWidth <= 0) return null
+
+              // Use subtle opacity; boost slightly for narrow bands so they remain visible
+              const bandOpacity = bandWidth < 10 ? 0.22
+                : bandWidth < 30 ? 0.14
+                : 0.08
+
+              return (
+                <rect
+                  key={band.phase}
+                  x={x1}
+                  y={MOBILE_PT}
+                  width={bandWidth}
+                  height={MOBILE_GH}
+                  fill={phaseBand.fill}
+                  opacity={bandOpacity}
+                  rx="2"
+                />
+              )
+            })
+          })()}
 
           {/* Curve paths per route */}
           {routePaths.map(({ route, stroke, area }) => {
