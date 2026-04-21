@@ -235,6 +235,52 @@ html {
     pointer-events: none;
   }
 
+  .milkdrop-canvas {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .visualizer-controls {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 40;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.375rem;
+  }
+
+  .visualizer-controls-panel {
+    background: oklch(0.15 0.005 250 / 90%);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid oklch(0.30 0.010 250 / 40%);
+    border-radius: 0.75rem;
+    padding: 0.75rem;
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  [data-theme="light"] .visualizer-controls-panel {
+    background: oklch(0.98 0.002 80 / 92%);
+    border-color: oklch(0.85 0.005 250 / 60%);
+  }
+
+  /* Hide visualizer controls on mobile (bottom nav area) */
+  @media (max-width: 767px) {
+    .visualizer-controls {
+      bottom: 5rem;
+      right: 0.75rem;
+    }
+  }
+
   .mesh-gradient::before,
   .mesh-gradient::after {
     content: '';
