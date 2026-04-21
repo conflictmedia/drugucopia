@@ -138,7 +138,15 @@ export const mda: Substance =
       "stimulant"
     ]
   },
-  "harmReduction": [],
+  "harmReduction": [
+    "Anecdotal evidence from people within the Psychonaut community who have tried MDA suggests that there are no negative health effects attributed to simply trying the drug by itself at low to moderate doses and using it very sparingly (but nothing can be completely guaranteed). Independent research should always be done to ensure that a combination of two or more substances is safe before consumption.",
+    "Harold Blauer died in January 1953 after being intravenously injected with 450 mg of MDA.",
+    "MDA is also known to be more neurotoxic when compared to substances such as MDMA or MDE.",
+    "It is strongly recommended that one use harm reduction practices when using this substance.",
+    "As with other stimulants, the chronic use of MDA can be considered moderately addictive with a high potential for abuse and is capable of causing psychological dependence among certain users. When addiction has developed, cravings and withdrawal effects may occur if a person suddenly stops their usage.",
+    "Tolerance to the psychedelic effects of MDA is built almost immediately after ingestion. However, tolerance to the stimulant and entactogenic effects are built up after repeated and heavy usage in a manner that varies between individuals. After that, it takes about 3 days for the tolerance to be reduced to half and 7 days to be back at baseline (in the absence of further consumption). MDA presents cross-tolerance with all psychedelics and most stimulants, meaning that after the consumption of MDA all psychedelics and some stimulants will have a reduced effect."
+
+  ],
   "legality": "Legal status varies by jurisdiction. Check local laws.",
   "chemistry": {
     "formula": "Unknown",
