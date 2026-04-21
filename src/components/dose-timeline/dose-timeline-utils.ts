@@ -247,7 +247,7 @@ export function formatPhaseName(phase: PhaseStatus['phase']): string {
 
 export function getDoseCategories(dose: DoseLog): string[] {
   if (Array.isArray(dose.categories)) return dose.categories
-  const legacy = (dose as Record<string, unknown>).category as string | undefined
+  const legacy = (dose as unknown as Record<string, unknown>).category as string | undefined
   if (legacy && legacy !== 'unknown') return [legacy]
   return []
 }
@@ -390,14 +390,15 @@ function interpolateRange(min: number, max: number, weight: number): number {
 /**
  * Calculate dose-scaled phase timings.
  *
- * Uses the total duration as the anchor timeline length. Each phase's range
- * is interpreted as a proportion of the total, then scaled to fit within the
- * total. This prevents unrealistic timelines where offset starts too early
- * (e.g., LSD offset at 5hr when total is 8-12hr).
+ * Uses the total duration as the anchor timeline length. The total range is
+ * interpolated by horizontalWeight (heavier doses → longer total).
  *
- * For dose scaling: the total range is interpolated by horizontalWeight
- * (heavier doses → longer total), and each phase is scaled proportionally.
- * Onset and comeup always use the midpoint of their range.
+ * Onset and comeup stay at their midpoint values because they depend on
+ * absorption rate, not dose size. Heavier doses primarily extend peak and
+ * offset. Only peak and offset are scaled to absorb the extra time.
+ *
+ * If onset + comeup already exceeds totalMins (rare edge case with
+ * inconsistent data), all phases are scaled proportionally as a fallback.
  */
 export function calculateDoseScaledTimings(
   duration: Duration,
@@ -440,14 +441,30 @@ export function calculateDoseScaledTimings(
     return calculatePhaseTimings(duration)
   }
 
-  // Calculate the proportional share of each phase relative to their sum
-  const phaseSum = onsetMins + comeupMins + peakMins + offsetMins
+  // Onset and comeup are absorption-dependent — keep them at midpoint.
+  // Heavier doses mainly extend peak and offset (elimination kinetics).
+  const absorptionTime = onsetMins + comeupMins
+  const finalOnset  = onsetMins
+  const finalComeup = comeupMins
 
-  // Scale each phase so they sum to totalMins
-  const finalOnset  = Math.max(onsetMins * (totalMins / phaseSum), 0.01)
-  const finalComeup = Math.max(comeupMins * (totalMins / phaseSum), 0.01)
-  const finalPeak   = Math.max(peakMins * (totalMins / phaseSum), 0.01)
-  const finalOffset = Math.max(offsetMins * (totalMins / phaseSum), 0.01)
+  // Edge case: if onset+comeup alone exceeds total, scale everything proportionally
+  if (absorptionTime >= totalMins) {
+    const phaseSum = onsetMins + comeupMins + peakMins + offsetMins
+    const scale = totalMins / phaseSum
+    const scaledOnset  = Math.max(onsetMins * scale, 0.01)
+    const scaledComeup = Math.max(comeupMins * scale, 0.01)
+    const scaledPeak   = Math.max(peakMins * scale, 0.01)
+    const scaledOffset = Math.max(offsetMins * scale, 0.01)
+    const afterglowStr = (duration as Duration & { afterglow?: string }).afterglow ?? ''
+    const afterglowMins = parseDurationToMinutes(afterglowStr)
+    return buildTimings(scaledOnset, scaledComeup, scaledPeak, scaledOffset, afterglowMins)
+  }
+
+  // Distribute remaining time proportionally between peak and offset
+  const remainingMins = totalMins - absorptionTime
+  const peakOffsetSum = peakMins + offsetMins
+  const finalPeak   = Math.max(peakMins * (remainingMins / peakOffsetSum), 0.01)
+  const finalOffset = Math.max(offsetMins * (remainingMins / peakOffsetSum), 0.01)
 
   // Afterglow (if present) is parsed separately — not scaled into the main timeline
   const afterglowStr = (duration as Duration & { afterglow?: string }).afterglow ?? ''
