@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: Psilocybin mushrooms
@@ -146,5 +146,6 @@ export const psilocybin_mushrooms: Substance =
   },
   "history": "thumb|250px|Cave art in Tassili n'Ajjer, Algeria (look at the shoulders and knees)\nA growing body of evidence suggests that psychoactive mushrooms have been used by humans in religious ceremonies for thousands of years. For example, murals dated 9000 to 7000 BCE found in the Sahara desert in southeast Algeria depict horned beings dressed as dancers holding mushroom-like objects. 6,000-year-old pictographs discovered near the Spanish town of Villar del Humo illustrate several mushrooms that have been tentatively identified as Psilocybe hispanica, a hallucinogenic species native to the area. Archaeological artifacts from Mexico have also been interpreted by some scholars as evidence for ritual and ceremonial usage of psychoactive mushrooms in the Mayan and Aztec cultures of Mesoamerica. Following the arrival of Spanish explorers to the New World in the 16th century, chroniclers reported the use of mushrooms by the natives for ceremonial and religious purposes. In 1957, Wasson described the psychedelic visions that he experienced during these rituals in \"Seeking the Magic Mushroom\", an article published in Life magazine. Heim cultivated the mushrooms in France, and sent samples for analysis to Albert Hofmann, a chemist employed by the Swiss pharmaceutical company Sandoz (now Novartis). He and his colleagues later synthesized a number of compounds chemically related to the naturally occurring psilocybin, to see how structural changes would affect psychoactivity. In the early 1960s, Harvard University became a testing ground for psilocybin via the efforts of Timothy Leary and his associates, Ralph Metzner and Richard Alpert, under a project known as the Harvard Psilocybin Project.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low"
+  "riskLevel": "low",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/Psilocybin_mushrooms"
 };

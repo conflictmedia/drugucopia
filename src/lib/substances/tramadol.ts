@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: Tramadol
@@ -124,5 +124,6 @@ export const tramadol: Substance =
   },
   "history": "Tramadol was synthesized in 1962 by chemists employed by the German pharmaceutical company Grünenthal. It became the leading analgesic drug in Germany and during the past 38 years it has been approved in over 100 countries, including the UK, USA, Republic of China and Canada. For a period of time it was believed tramadol was not a purely synthetic drug after its apparent discovery in the roots of the pin cushion tree.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low"
+  "riskLevel": "low",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/Tramadol"
 };

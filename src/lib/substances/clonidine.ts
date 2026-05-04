@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: Clonidine
@@ -90,5 +90,6 @@ export const clonidine: Substance =
   },
   "history": "In the early 1960s, the medicinal chemist Helmut Stähle was tasked by Boehringer Ingelheim with synthesizing a peripherally active a-adrenergic compound that would be useful for nasal decongestion as simple nose drops. A locally acting a-adrenergic vasoconstrictor agent was expected to provide relief from the symptoms of the common cold by shrinking the swollen nasal membranes and producing an unobstructed air passage. The synthetic design of clonidine was achieved when Stähle had the idea of substituting two chlorine groups on the phenyl group of the imidazoline structure, which most of the newer decongestive agents at the time were derived from.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate"
+  "riskLevel": "moderate",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/Clonidine"
 };

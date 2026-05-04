@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: Meclofenoxate
@@ -84,5 +84,6 @@ export const meclofenoxate: Substance =
   },
   "history": "Mecolofenoxate was developed in 1959 at the French National Scientific Research Center.\nMeclofenoxate has been tested as alzheimers treatment. Additionally it has been shown to invrease the life span of mice by up to 29.5%.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low"
+  "riskLevel": "low",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/Meclofenoxate"
 };

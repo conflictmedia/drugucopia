@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: Ephylone
@@ -131,5 +131,6 @@ export const ephylone: Substance =
   },
   "history": "Research chemicals#History and culture\nSynthetic cathinones were first synthesized in the late 1920s, starting with methcathinone and mephedrone. Their quasi-legality and ability to substitute for traditional stimulants like cocaine or amphetamine made them popular in certain demographics. A 2018 report issued by the drug testing organization Energy Control found evidence indicating increasing use of ephylone as a counterfeit or adulterant for MDMA.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate"
+  "riskLevel": "moderate",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/Ephylone"
 };

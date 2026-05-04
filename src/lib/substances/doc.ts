@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: DOC
@@ -159,5 +159,6 @@ export const doc: Substance =
   },
   "history": "DOC was first synthesized by 1972 by Ronald Coutts and Jerry Malicky at the University of Alberta. While human usage was popularized by the 1991 publication of its synthesis and pharmacology in PiHKAL (\"Phenethylamines I Have Known And Loved\") by Alexander Shulgin, a 1989 forensic analysis of designer amphetamine samples identified DOC in Canadian drug seizures.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate"
+  "riskLevel": "moderate",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/DOC"
 };

@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: ALD-52
@@ -151,5 +151,6 @@ export const ald_52: Substance =
   },
   "history": "In 1968 and 1969, a famous batch of LSD known as \"Orange Sunshine\" was synthesized by Nick Sand and Tim Scully and made widely available in California. This \"Orange Sunshine\" was long held by the hippie generation to be ALD-52 until 2005, when it was revealed by Nick Sand that \"Orange Sunshine\" was just a particularly well made batch of LSD dosed at 300 micrograms per unit. This was confirmed by Tim Scully in a 2017 Reddit AMA, where Scully explained that the claim that \"Orange Sunshine\" was technically not LSD arose from an \"ill-advised desperate defense strategy that failed miserably\" during his trial for LSD manufacture.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low"
+  "riskLevel": "low",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/ALD-52"
 };

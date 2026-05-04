@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: Lisdexamfetamine
@@ -139,5 +139,6 @@ export const lisdexamfetamine: Substance =
   },
   "history": "Lisdexamfetamine was developed by New River Pharmaceuticals as a longer-lasting and abuse-resistant version of d-amphetamine (dextroamphetamine).\nThe FDA approved lisdexamfetamine for ADHD treatment in adults on the 23th of April 2008 , followed by an approval for use in treating binge eating disorder in adults in January 2015.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate"
+  "riskLevel": "moderate",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/Lisdexamfetamine"
 };

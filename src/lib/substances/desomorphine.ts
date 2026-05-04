@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: Desomorphine
@@ -102,5 +102,6 @@ export const desomorphine: Substance =
   },
   "history": "It was originally synthesized with the intention to create an alternative to morphine in terms of tolerance and addiction properties and improve the side effect profile. Notably, the production of Permonid was continued in Switzerland until 1981 due to the idiosyncratic analgesic needs of a single patient in Bern, Switzerland, who suffered from a rare disease. These additives can include hydrochloric acid, red phosphorus (from matchbook striking surfaces), iodine, gasoline, and paint thinner and have been proposed to underly krokodil's severe skin and systemic effects.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate"
+  "riskLevel": "moderate",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/Desomorphine"
 };

@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: Dextromethorphan
@@ -217,5 +217,6 @@ export const dextromethorphan: Substance =
   },
   "history": "left|thumb|upright=0.7|1968 advertisement of Romilar DXM tablets\nThe racemic parent compound of dextromethorphan, racemethorphan, was first described in a Swiss and US patent application from Hoffmann-La Roche in 1946 and 1947, respectively. A resolution of the two isomers of racemethorphan with tartaric acid was published in 1952, and DXM was successfully tested in 1954 as part of US Navy and CIA-funded research on nonaddictive substitutes for codeine. As had been initially hoped, DXM was a solution for some of the problems associated with the use of codeine phosphate as a cough suppressant, such as sedation and opiate dependence, but like the dissociative anesthetics phencyclidine and ketamine, DXM later became associated with nonmedical use.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate"
+  "riskLevel": "moderate",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/Dextromethorphan"
 };

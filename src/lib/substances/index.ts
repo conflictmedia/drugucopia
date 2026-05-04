@@ -6,7 +6,7 @@ export type {
   SubstanceCategory,
   CategoryInfo,
   RouteDosageDuration
-} from '../types';
+} from './types';
 
 // Re-export individual substances
 export {
@@ -291,7 +291,7 @@ export {
 } from './substances';
 
 // Import for helper functions
-import { Substance, SubstanceCategory } from '../types';
+import { Substance, SubstanceCategory } from './types';
 import {
   magnesium_glycinate,
   _1_3_butanediol,

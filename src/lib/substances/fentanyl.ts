@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: Fentanyl
@@ -158,5 +158,6 @@ export const fentanyl: Substance =
   },
   "history": "Fentanyl was first synthesized by Paul Janssen in 1960 following the medical inception of pethidine several years earlier. The widespread use of fentanyl triggered the production of fentanyl citrate which entered the clinical practice as a general anesthetic under the trade name Sublimaze in the 1960s. It was followed in the next decade by the introduction of the first quick-acting prescription formulations of fentanyl for personal use, the Actiq lollipop and Fentora buccal through the delivery method of estradiol Mylan transdermal patches.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "very-high"
+  "riskLevel": "very-high",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/Fentanyl"
 };

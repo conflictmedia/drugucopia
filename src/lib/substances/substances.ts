@@ -1,5 +1,5 @@
 // Auto-generated - Re-exports all individual substances
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 
 export { _7_hydroxymitragynine } from './7-hydroxymitragynine';

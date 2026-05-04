@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: Dextroamphetamine
@@ -103,5 +103,6 @@ export const dextroamphetamine: Substance =
   },
   "history": "In 1937 Smith, Kline and French introduced tablets of the dextrorotary enantiomer of amphetamine(at that time sold as Benzedrine)under the tradename Dexedrine.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate"
+  "riskLevel": "moderate",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/Dextroamphetamine"
 };

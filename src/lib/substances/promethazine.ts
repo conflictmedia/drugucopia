@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: Promethazine
@@ -92,5 +92,6 @@ export const promethazine: Substance =
   },
   "history": "Promethazine was developed in the mid-1940s when a team of scientists from Rhône-Poulenc laboratories was able to synthesize it from phenothiazine and a diamine side chain of diphenhydramine. It became popular among the Houston rap and hip-hop scene in around 1990, and the trend resurfaced in around 2015 to 2016. Lean usually consists of ice, Sprite or a citrus soda, the promethazine/codeine cough syrup, and occasionally jolly ranchers for enhanced flavor.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate"
+  "riskLevel": "moderate",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/Promethazine"
 };

@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: Ephedrine
@@ -101,5 +101,6 @@ export const ephedrine: Substance =
   },
   "history": "Ephedrine in its natural form, known as má huáng in traditional Chinese medicine, has been documented in China since the Han dynasty (206 BC – 220 AD) as an anti-asthmatic and stimulant. In 1885, the chemical synthesis of ephedrine was first accomplished by Japanese organic chemist Nagai Nagayoshi based on his research on traditional Japanese and Chinese herbal medicines. The industrial manufacture of ephedrine in China began in the 1920s, when Merck began marketing and selling the drug as ephetonin.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate"
+  "riskLevel": "moderate",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/Ephedrine"
 };

@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: Methoxphenidine
@@ -102,5 +102,6 @@ export const methoxphenidine: Substance =
   },
   "history": "Methoxphenidine is an example of a designer drug, specifically chosen to mimic the functional or structural features of commonly used illicit substances and circumvent government regulation.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate"
+  "riskLevel": "moderate",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/Methoxphenidine"
 };

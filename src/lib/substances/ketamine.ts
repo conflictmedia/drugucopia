@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: Ketamine
@@ -210,5 +210,6 @@ export const ketamine: Substance =
   },
   "history": "Ketamine was first synthesized at Parke Davis Laboratories by the American scientist Calvin Stevens. The United States Food and Drug Administration approved it for human consumption in 1970. Ketamine is on the World Health Organization’s “Essential Drugs List”, a list of the safest and most effective drugs needed in a modern health system.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate"
+  "riskLevel": "moderate",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/Ketamine"
 };

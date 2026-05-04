@@ -1,5 +1,5 @@
 
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 
 export const _7_hydroxymitragynine: Substance = 
@@ -110,5 +110,6 @@ export const _7_hydroxymitragynine: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low"
+  "riskLevel": "low",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/7-Hydroxymitragynine"
 };

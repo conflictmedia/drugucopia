@@ -1,4 +1,4 @@
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: Magnesium Glycinate
@@ -112,5 +112,6 @@ export const magnesium_glycinate: Substance =
   },
   "history": "Magnesium was first isolated as an element by Sir Humphry Davy in 1808 through the electrolysis of magnesia and mercury oxide. The glycinate form of magnesium, where magnesium is chelated (bound) to the amino acid glycine, was developed later as pharmaceutical and supplement manufacturers sought more bioavailable and better-tolerated forms of magnesium supplementation. Glycine itself, the smallest amino acid, was first isolated in 1820 by Henri Braconnot. The combination of magnesium with glycine creates a stable chelate that survives digestion intact, allowing for efficient absorption in the intestines. Magnesium glycinate has become increasingly popular since the early 2000s as public awareness of magnesium deficiency has grown and as clinical research has demonstrated its superior bioavailability compared to inorganic magnesium salts like magnesium oxide.",
   "afterEffects": "Mild residual relaxation and improved sleep quality may persist for several hours after the primary effects have worn off. Some users report a sense of physical well-being and reduced muscle tension lasting into the following day when used consistently as a sleep aid.",
-  "riskLevel": "none"
+  "riskLevel": "none",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/Magnesium_Glycinate"
 };

@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: Psilocin
@@ -123,5 +123,6 @@ export const psilocin: Substance =
   },
   "history": "Psilocin and its phosphorylated inactive precursor (i.e. prodrug) psilocybin were first isolated and named in 1958 by Swiss chemist Albert Hofmann. Hofmann obtained the chemicals from laboratory-grown specimens of the entheogenic mushroom Psilocybe mexicana before proceeding to find their synthetic routes.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low"
+  "riskLevel": "low",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/Psilocin"
 };

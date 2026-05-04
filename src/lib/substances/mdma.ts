@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: MDMA
@@ -201,5 +201,6 @@ export const mdma: Substance =
   },
   "history": "thumb|left|200px|Patent Certificate for Merck's synthesis of MDMA, dated 1912\nMDMA was first synthesized in 1912 by the German chemist Dr. Anton Köllisch while employed at the pharmaceutical company Merck. It was not mentioned again until 1927, when Dr. Max Oberlin conducted the first proven pharmacological tests at Merck while searching for compounds with a similar action spectrum to adrenaline or ephetonine. After several hearings, a US Federal Administrative Law Judge recommended that MDMA should be made a Schedule III controlled substance so that it could be used in the medical field. In the United Kingdom, the 1971 Misuse of Drugs Act, which had already been altered in 1977 to include all ring-substituted amphetamines like MDMA, was further amended in 1985 to refer specifically to Ecstasy, placing it in the Class A category.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate"
+  "riskLevel": "moderate",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/MDMA"
 };

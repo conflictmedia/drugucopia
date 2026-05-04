@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: Ibogaine
@@ -134,5 +134,6 @@ export const ibogaine: Substance =
   },
   "history": "The Iboga tree is the central pillar of the Bwiti religion practiced in West-Central Africa, mainly Gabon, Cameroon, and the Republic of the Congo, which uses the alkaloid-containing roots of the plant for its psychoactive properties in a number of ceremonies. Ibogaine is also used by indigenous peoples in low doses to combat fatigue, hunger, and thirst. The total synthesis of ibogaine was described in 1956 and structural elucidation by X-ray crystallography was completed in 1960.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate"
+  "riskLevel": "moderate",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/Ibogaine"
 };

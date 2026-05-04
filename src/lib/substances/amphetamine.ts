@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: Amphetamine
@@ -196,5 +196,6 @@ export const amphetamine: Substance =
   },
   "history": "Amphetamine was first synthesized in Germany in 1887 by the Romanian chemist Lazăr Edeleanu, who named it phenylisopropylamine. In late 1933, Smith, Kline and French began selling amphetamine in the form of a decongestant inhaler under the name Benzedrine. Benzedrine sulfate was introduced 3 years later and was used to treat a wide variety of medical conditions, including narcolepsy, obesity, low blood pressure, low libido, and chronic pain.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate"
+  "riskLevel": "moderate",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/Amphetamine"
 };

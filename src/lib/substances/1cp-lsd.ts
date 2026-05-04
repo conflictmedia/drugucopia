@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: 1cP-LSD
@@ -148,5 +148,6 @@ export const _1cp_lsd: Substance =
   },
   "history": "Although formal documentation does not appear to have been published, 1cP-LSD was first discovered and synthesized in the Netherlands somewhere in 2015. It is part of a larger series of designer LSD analogs that have appeared on the research chemical market since the mid-2010s. In July 2021, Germany banned 1cP-LSD, and immediately thereafter 1V-LSD appeared on the market as its replacement.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate"
+  "riskLevel": "moderate",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/1cP-LSD"
 };

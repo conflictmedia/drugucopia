@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: Fenethylline
@@ -102,5 +102,6 @@ export const fenethylline: Substance =
   },
   "history": "Fenethylline was first synthesized by the German chemicals company Degussa AG in 1961\nIt was primarily marketed as a milder alternative to amphetamine, due to its lower potential for raising blood pressure, making it ideal for patients with cardiovascular disease. It was also used for the treatment of children with ADHD and less commonly narcolepsy.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate"
+  "riskLevel": "moderate",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/Fenethylline"
 };

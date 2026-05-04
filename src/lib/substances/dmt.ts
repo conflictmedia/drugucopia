@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: DMT
@@ -156,5 +156,6 @@ export const dmt: Substance =
   },
   "history": "DMT was first synthesized in 1931 by the German chemist Richard Helmuth Fredrick Manske. Its discovery as a natural product is generally credited to Brazilian chemist and microbiologist Oswaldo Gonçalves de Lima who, in 1946, isolated an alkaloid he named nigerina (nigerine) from the root bark of jurema preta (Mimosa tenuiflora). Since 1955, the substance has been found in a host of organisms: in at least fifty plant species belonging to ten families, and in at least four animal species, including one gorgonian and three mammalian species.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low"
+  "riskLevel": "low",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/DMT"
 };

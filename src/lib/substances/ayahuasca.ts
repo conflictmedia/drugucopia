@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: Ayahuasca
@@ -151,5 +151,6 @@ export const ayahuasca: Substance =
   },
   "history": "A 1000-year-old collection of drug paraphernalia found in a rock shelter in Bolivia features traces of five psychoactive chemicals, including cocaine and components of ayahuasca.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate"
+  "riskLevel": "moderate",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/Ayahuasca"
 };

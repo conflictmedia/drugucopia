@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: 2C-T-2
@@ -133,5 +133,6 @@ export const _2c_t_2: Substance =
   },
   "history": "Following the initial positive results found by Shulgin's research group, a more formal study was carried out by psychedelic psychotherapy pioneer Myron J. Stolaroff who was interested in evaluating the potential use of 2C-T-2 in psychotherapy. Based on the experiences of forty participants in the study who took 2C-T-2, Stolaroff compared the effects favorably to MDMA, describing it as more emotionally opening and permitting a wider exploration of feelings and thoughts.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate"
+  "riskLevel": "moderate",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/2C-T-2"
 };
