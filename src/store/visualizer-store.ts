@@ -37,7 +37,7 @@ function persist(state: Pick<VisualizerState, 'enabled' | 'intensity' | 'preset'
 
 export const useVisualizerStore = create<VisualizerState>((set, get) => ({
   enabled: true,
-  intensity: 0.8,
+  intensity: 0.45,
   preset: 0,
 
   setEnabled: (enabled) => {
