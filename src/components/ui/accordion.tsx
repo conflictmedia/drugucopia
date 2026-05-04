@@ -56,6 +56,9 @@ const AccordionContext = React.createContext<{
   type: "single" | "multiple"
 }>({ openItems: new Set(), toggleItem: () => {}, type: "single" })
 
+/* ─── AccordionItem Context (propagates value to children) ─── */
+const AccordionItemContext = React.createContext<string>("")
+
 function AccordionItem({
   value,
   className,
@@ -63,13 +66,15 @@ function AccordionItem({
   ...props
 }: React.HTMLAttributes<HTMLDivElement> & { value: string }) {
   return (
-    <div
-      data-state={useAccordionContext().openItems.has(value) ? "open" : "closed"}
-      className={cn("collapse collapse-arrow", className)}
-      {...props}
-    >
-      {children}
-    </div>
+    <AccordionItemContext.Provider value={value}>
+      <div
+        data-state={useAccordionContext().openItems.has(value) ? "open" : "closed"}
+        className={cn("collapse collapse-arrow", className)}
+        {...props}
+      >
+        {children}
+      </div>
+    </AccordionItemContext.Provider>
   )
 }
 
@@ -78,12 +83,12 @@ function useAccordionContext() {
 }
 
 function AccordionTrigger({
-  value,
   className,
   children,
   ...props
-}: React.ButtonHTMLAttributes<HTMLButtonElement> & { value: string }) {
+}: React.ButtonHTMLAttributes<HTMLButtonElement>) {
   const { openItems, toggleItem } = useAccordionContext()
+  const value = React.useContext(AccordionItemContext)
   const isOpen = openItems.has(value)
 
   return (
