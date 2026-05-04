@@ -439,4 +439,55 @@ html {
   :root .card-lift:hover {
     box-shadow: 0 8px 30px oklch(0 0 0 / 8%);
   }
+
+  /* ─── Transparent Card (black/glass background to see milkdrop behind) ─── */
+  .card-transparent {
+    background: rgba(0, 0, 0, 0.3) !important;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+
+  [data-theme="light"] .card-transparent {
+    background: rgba(255, 255, 255, 0.45) !important;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-color: rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06), inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+  }
+
+  /* ─── Transparent Alert (glass banner for interaction summary) ─── */
+  .alert-transparent {
+    background: rgba(0, 0, 0, 0.25) !important;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-color: rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.12), inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  }
+
+  [data-theme="light"] .alert-transparent {
+    background: rgba(255, 255, 255, 0.4) !important;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-color: rgba(0, 0, 0, 0.06) !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05), inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+  }
+
+  /* ─── Transparent dropdown/popover (for substance selector) ─── */
+  .dropdown-transparent {
+    background: rgba(8, 8, 20, 0.88) !important;
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border-color: rgba(255, 255, 255, 0.12) !important;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.06);
+  }
+
+  [data-theme="light"] .dropdown-transparent {
+    background: rgba(255, 255, 255, 0.92) !important;
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border-color: rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.04);
+  }
 }

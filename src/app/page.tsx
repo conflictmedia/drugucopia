@@ -213,7 +213,7 @@ const SubstanceCard = memo(function SubstanceCard({ substance, onSelect }: Subst
 
   return (
     <div
-      className={`card cursor-pointer hover:border-primary/50 transition-all group card-lift ${primary ? categoryGlowClasses[primary] : ''}`}
+      className={`card card-transparent cursor-pointer hover:border-primary/50 transition-all group card-lift ${primary ? categoryGlowClasses[primary] : ''}`}
       onClick={() => onSelect(substance)}
     >
       <div className="card-body">
@@ -286,7 +286,7 @@ const MobileSubstanceRow = memo(function MobileSubstanceRow({ substance, onSelec
   return (
     <button
       onClick={() => onSelect(substance)}
-      className="w-full text-left flex items-start gap-3 p-4 rounded-2xl border border-base-300 bg-base-100 hover:border-primary/40 active:scale-[0.99] transition-all card-lift"
+      className="w-full text-left flex items-start gap-3 p-4 rounded-2xl border border-white/10 card-transparent hover:border-primary/40 active:scale-[0.99] transition-all card-lift"
     >
       {primary && (
         <div className={`p-2.5 rounded-xl shrink-0 ${categoryColors[primary]}`}>
@@ -411,7 +411,7 @@ function DosageDurationPanel({
       )}
 
       <div className="grid gap-4 sm:grid-cols-2">
-        <div className="card bg-base-100 border border-base-300 shadow-sm">
+        <div className="card card-transparent">
           <div className="card-body">
             <h3 className="card-title text-base flex items-center gap-2">
               <Droplets className="h-4 w-4" />
@@ -444,7 +444,7 @@ function DosageDurationPanel({
           </div>
         </div>
 
-        <div className="card bg-base-100 border border-base-300 shadow-sm">
+        <div className="card card-transparent">
           <div className="card-body">
             <h3 className="card-title text-base flex items-center gap-2">
               <Clock className="h-4 w-4" />
@@ -487,7 +487,7 @@ function DosageDurationPanel({
       )}
 
       {hasRouteData && Object.keys(substance.routeData!).length > 1 && (
-        <div className="card bg-base-100 border border-base-300 shadow-sm hidden sm:block">
+        <div className="card card-transparent hidden sm:block">
           <div className="card-body">
             <h3 className="card-title text-base flex items-center gap-2">
               <Route className="h-4 w-4" />
@@ -665,9 +665,9 @@ function SubstanceDetail({
   const quickDosage = firstRoute ? substance.routeData![firstRoute]?.dosage : null
 
   return (
-    <div className="min-h-screen bg-base-100 flex flex-col">
+    <div className="min-h-screen flex flex-col">
       {/* Desktop header */}
-      <header className="hidden md:flex sticky top-14 z-40 border-b border-base-300/50 bg-base-100 h-14 items-center gap-4 px-4 lg:px-6">
+      <header className="hidden md:flex sticky top-14 z-40 border-b border-white/8 bg-transparent h-14 items-center gap-4 px-4 lg:px-6">
         <button className="btn btn-ghost btn-sm gap-2" onClick={onBack}>
           <ArrowLeft className="h-4 w-4" />
           Back
@@ -696,7 +696,7 @@ function SubstanceDetail({
       </header>
 
       {/* Mobile header */}
-      <header className="md:hidden sticky top-14 z-30 bg-base-100 border-b border-base-300/50">
+      <header className="md:hidden sticky top-14 z-30 bg-transparent border-b border-white/8">
         <div className="flex items-center gap-3 h-13 px-4">
           <button onClick={onBack} className="btn btn-ghost btn-sm btn-square">
             <ArrowLeft className="h-5 w-5" />
@@ -793,7 +793,7 @@ function SubstanceDetail({
         )}
 
         <Tabs defaultValue="effects" className="w-full">
-          <div className="sticky top-0 z-30 bg-base-100 border-b border-base-300">
+          <div className="sticky top-0 z-30 bg-transparent border-b border-white/8">
             <TabsList className="w-full h-auto p-0 bg-transparent rounded-none flex overflow-x-auto scrollbar-none justify-start gap-0">
               {['effects', 'dosage', 'harm', 'info', 'interactions'].map((tab) => {
                 const labels: Record<string, string> = {
@@ -871,7 +871,7 @@ function SubstanceDetail({
 
           <TabsContent value="info" className="mt-0 px-4 py-4 space-y-4">
             {substance.history && (
-              <div className="card bg-base-100 border border-base-300 shadow-sm">
+              <div className="card card-transparent">
                 <div className="card-body">
                   <h3 className="card-title text-base flex items-center gap-2">
                     <History className="h-4 w-4" />
@@ -881,7 +881,7 @@ function SubstanceDetail({
                 </div>
               </div>
             )}
-            <div className="card bg-base-100 border border-base-300 shadow-sm">
+            <div className="card card-transparent">
               <div className="card-body space-y-3">
                 <div className="flex items-center gap-3 text-sm">
                   <Scale className="h-4 w-4 text-neutral-content shrink-0" />
@@ -991,7 +991,7 @@ function SubstanceDetail({
         <div className="grid gap-6 lg:grid-cols-3 mb-8">
           <div className="lg:col-span-2 space-y-6">
             {/* Substance name card */}
-            <div className="card bg-base-100 border border-base-300 shadow-sm">
+            <div className="card card-transparent">
               <div className="card-body">
                 <div className="flex items-center gap-3">
                   {primary && (
@@ -1032,7 +1032,7 @@ function SubstanceDetail({
             </div>
 
             {/* Tabbed content: Dosage / Effects / Harm Reduction */}
-            <div className="card bg-base-100 border border-base-300 shadow-sm">
+            <div className="card card-transparent">
               <Tabs defaultValue="dosage">
                 <div className="card-body p-4 pb-0">
                   <TabsList className="grid w-full grid-cols-3">
@@ -1104,7 +1104,7 @@ function SubstanceDetail({
 
           <div className="space-y-6">
             {/* Quick Info */}
-            <div className="card bg-base-100 border border-base-300 shadow-sm">
+            <div className="card card-transparent">
               <div className="card-body">
                 <h3 className="card-title text-lg">Quick Info</h3>
                 <div className="space-y-4">
@@ -1165,7 +1165,7 @@ function SubstanceDetail({
             </div>
 
             {/* Interactions */}
-            <div className="card bg-base-100 border border-base-300 shadow-sm">
+            <div className="card card-transparent">
               <div className="card-body">
                 <div className="flex items-center justify-between">
                   <h3 className="card-title text-lg">Interactions</h3>
@@ -1239,7 +1239,7 @@ function SubstanceDetail({
 
             {/* History */}
             {substance.history && (
-              <div className="card bg-base-100 border border-base-300 shadow-sm">
+              <div className="card card-transparent">
                 <div className="card-body">
                   <h3 className="card-title flex items-center gap-2 text-lg">
                     <History className="h-5 w-5" />History
@@ -1432,12 +1432,12 @@ function HomeContent() {
 
   // ── List / dose-log view ────────────────────────────────────────────────────
   return (
-    <div className="min-h-screen bg-base-100 flex">
+    <div className="min-h-screen flex">
       {/* Desktop sidebar */}
       <aside
         className={`${
           sidebarOpen ? 'w-64' : 'w-0'
-        } hidden md:flex transition-all duration-300 border-r bg-base-200/30 overflow-hidden shrink-0 flex-col`}
+        } hidden md:flex transition-all duration-300 border-r border-white/8 card-transparent overflow-hidden shrink-0 flex-col`}
       >
         <div className="h-full flex flex-col">
           <div className="p-4 border-b">
@@ -1503,7 +1503,7 @@ function HomeContent() {
       <div className="flex-1 flex flex-col min-w-0">
         {/* Desktop dose-log header (only shown in dose-log view) */}
         {desktopView === 'dose-log' && (
-          <header className="hidden md:flex sticky top-14 z-40 border-b border-base-300/50 bg-base-100 h-14 items-center px-4 lg:px-6 gap-4">
+          <header className="hidden md:flex sticky top-14 z-40 border-b border-white/8 bg-transparent h-14 items-center px-4 lg:px-6 gap-4">
             {!sidebarOpen && (
               <button
                 className="btn btn-ghost btn-square btn-sm -ml-2"
@@ -1543,7 +1543,7 @@ function HomeContent() {
 
         {/* Mobile header (only for timeline/history views) */}
         {mobileTab !== 'substances' && (
-        <header className="md:hidden sticky top-14 z-30 bg-base-100 border-b border-base-300/50">
+        <header className="md:hidden sticky top-14 z-30 bg-transparent border-b border-white/8">
           {mobileTab === 'timeline' && (
             <div className="flex items-center justify-between px-4 h-12">
               <span className="text-sm font-medium">Active timeline</span>
