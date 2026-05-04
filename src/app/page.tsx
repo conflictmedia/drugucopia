@@ -36,6 +36,8 @@ import {
   Send,
   PenLine,
   CalendarDays,
+  ExternalLink,
+  BookOpen,
 } from 'lucide-react'
 import { DoseLoggerModal } from '@/components/dose-logger-modal'
 import { DoseHistory } from '@/components/dose-history'
@@ -895,6 +897,18 @@ function SubstanceDetail({
                 </div>
               </div>
             </div>
+            {substance.psychonautWikiUrl && (
+              <a
+                href={substance.psychonautWikiUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary btn-sm w-full gap-2"
+              >
+                <BookOpen className="h-4 w-4" />
+                View on PsychonautWiki
+                <ExternalLink className="h-3 w-3" />
+              </a>
+            )}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <button className="btn btn-outline btn-primary btn-sm w-full gap-2">
@@ -1001,29 +1015,31 @@ function SubstanceDetail({
                   </div>
                 </div>
                 <p className="text-neutral-content leading-relaxed">{substance.description}</p>
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <button className="btn btn-secondary btn-sm w-full sm:w-auto">
-                      <Github className="h-4 w-4" />Contribute on GitHub
-                    </button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="start">
-                    <DropdownMenuItem onClick={() => window.open(GITHUB_INFO_CHANGE_URL, '_blank')}>
-                      <PenLine className="mr-2 h-4 w-4" />Submit info change
-                    </DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => window.open(GITHUB_NEW_SUBSTANCE_URL, '_blank')}>
-                      <Send className="mr-2 h-4 w-4" />Submit new substance
-                    </DropdownMenuItem>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem onClick={() => window.open(GITHUB_FEEDBACK_URL, '_blank')}>
-                      <AlertTriangle className="mr-2 h-4 w-4" />Report issue
-                    </DropdownMenuItem>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem onClick={() => window.open(GITHUB_MAIN_URL, '_blank')}>
-                      <Github className="mr-2 h-4 w-4" />Repo
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
+                <div className="flex gap-2 flex-wrap">
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <button className="btn btn-secondary btn-sm w-full sm:w-auto">
+                        <Github className="h-4 w-4" />Contribute on GitHub
+                      </button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="start">
+                      <DropdownMenuItem onClick={() => window.open(GITHUB_INFO_CHANGE_URL, '_blank')}>
+                        <PenLine className="mr-2 h-4 w-4" />Submit info change
+                      </DropdownMenuItem>
+                      <DropdownMenuItem onClick={() => window.open(GITHUB_NEW_SUBSTANCE_URL, '_blank')}>
+                        <Send className="mr-2 h-4 w-4" />Submit new substance
+                      </DropdownMenuItem>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuItem onClick={() => window.open(GITHUB_FEEDBACK_URL, '_blank')}>
+                        <AlertTriangle className="mr-2 h-4 w-4" />Report issue
+                      </DropdownMenuItem>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuItem onClick={() => window.open(GITHUB_MAIN_URL, '_blank')}>
+                        <Github className="mr-2 h-4 w-4" />Repo
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </div>
               </div>
             </div>
 
@@ -1156,6 +1172,18 @@ function SubstanceDetail({
                       <p className="font-medium text-sm">{substance.legality}</p>
                     </div>
                   </div>
+                  {substance.psychonautWikiUrl && (
+                    <a
+                      href={substance.psychonautWikiUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-primary btn-sm gap-2 w-full"
+                    >
+                      <BookOpen className="h-4 w-4" />
+                      View on PsychonautWiki
+                      <ExternalLink className="h-3 w-3" />
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
