@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: Mescaline
@@ -156,5 +156,6 @@ export const mescaline: Substance =
   },
   "history": "The ritual use of the Peyote cactus has occurred for at least 5700 years by Native Americans in Mexico. Additionally, alternative mescaline-containing cacti such as the San Pedro have a long history of use in the South American continent, spanning from Peru to Ecuador. The principal psychoactive component in both Peyote and San Pedro, mescaline, was first isolated and identified in 1897 by the German chemist Arthur Heffter and first synthesized in 1919 by Ernst Späth. It was one of the first psychedelics to be experimented with by Western intellectuals like Aldous Huxley, who famously described its effects in the 1954 essay \"The Doors of Perception\".",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate"
+  "riskLevel": "moderate",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/Mescaline"
 };

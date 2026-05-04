@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: APICA
@@ -95,5 +95,6 @@ export const apica: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate"
+  "riskLevel": "moderate",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/APICA"
 };

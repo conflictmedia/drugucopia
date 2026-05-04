@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: 2C-T
@@ -110,5 +110,6 @@ export const _2c_t: Substance =
   },
   "history": "It was first synthesized and studied through a collaboration between David E. Nichols and Alexander Shulgin. However, 2C-T is almost unknown on the black market and is rarely sold online.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate"
+  "riskLevel": "moderate",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/2C-T"
 };

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useMemo, useCallback } from 'react'
+import { useState, useEffect, useMemo, useCallback, useRef } from 'react'
 import { format } from 'date-fns'
 import {
   Dialog,
@@ -18,14 +18,15 @@ import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { Combobox, type ComboboxOption } from '@/components/ui/combobox'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
-import { Plus, Loader2, AlertTriangle, Zap } from 'lucide-react'
-import { substances } from '@/lib/substances/index'
+import { Plus, Loader2, AlertTriangle, Zap, Clock } from 'lucide-react'
+import { substances, searchSubstancesRanked } from '@/lib/substances/index'
 import { toast } from '@/hooks/use-toast'
 import { useDoseStore } from '@/store/dose-store'
 import { DoseLog, Duration } from '@/types'
 import { calculatePhaseTimings, getPhaseStatus } from '@/components/dose-timeline/dose-timeline-utils'
 import { getDurationForRoute } from '@/lib/duration-interpolation'
 import { DurationOverrideFields } from '@/components/duration-override-fields'
+import { motion, AnimatePresence } from 'framer-motion'
 
 interface DoseLoggerModalProps {
   onLogCreated?: () => void
@@ -64,6 +65,19 @@ const settingOptions: ComboboxOption[] = [
   { value: 'travel', label: 'Traveling' },
   { value: 'other', label: 'Other' },
 ]
+
+const CATEGORY_DOTS: Record<string, string> = {
+  stimulants: 'bg-amber-500',
+  depressants: 'bg-indigo-500',
+  hallucinogens: 'bg-purple-500',
+  dissociatives: 'bg-cyan-500',
+  empathogens: 'bg-pink-500',
+  cannabinoids: 'bg-green-500',
+  opioids: 'bg-red-500',
+  deliriants: 'bg-slate-500',
+  nootropics: 'bg-teal-500',
+  other: 'bg-zinc-500',
+}
 
 const unitOptions: ComboboxOption[] = [
   { value: 'mg', label: 'mg (milligrams)' },
@@ -745,6 +759,9 @@ export function DoseLoggerModal({
   // Quick input state - single field that can parse substance + amount + unit
   const [quickInput, setQuickInput] = useState('')
   const [mathResult, setMathResult] = useState<{ result: number; unit: string; expression: string } | null>(null)
+  const quickInputRef = useRef<HTMLInputElement>(null)
+  const [showQuickSuggestions, setShowQuickSuggestions] = useState(false)
+  const [quickActiveIndex, setQuickActiveIndex] = useState(-1)
 
   const [substanceId, setSubstanceId] = useState(preselectedSubstanceId || '')
   const [substanceName, setSubstanceName] = useState(preselectedSubstanceName || '')
@@ -789,6 +806,7 @@ export function DoseLoggerModal({
   const handleQuickInputChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
     setQuickInput(value)
+    setShowQuickSuggestions(true)
 
     // Parse the input
     const parsed = parseQuickInput(value, substances)
@@ -813,7 +831,96 @@ export function DoseLoggerModal({
     }
   }, [])
 
+  const handleQuickInputBlur = useCallback(() => {
+    setTimeout(() => {
+      setShowQuickSuggestions(false)
+      setQuickActiveIndex(-1)
+    }, 150)
+  }, [])
+
+  const selectQuickSuggestion = useCallback((sId: string, sName: string, cats: string[]) => {
+    setSubstanceId(sId)
+    setSubstanceName(sName)
+    setCategories(cats)
+    setQuickInput(sName)
+    setShowQuickSuggestions(false)
+    setQuickActiveIndex(-1)
+    quickInputRef.current?.focus()
+  }, [])
+
+  // Quick input autocomplete suggestions
+  const quickSuggestions = useMemo(() => {
+    if (!quickInput.trim() || !showQuickSuggestions) return []
+    return searchSubstancesRanked(quickInput, { limit: 6 })
+  }, [quickInput, showQuickSuggestions])
+
+  const selectRecentSubstance = useCallback((sub: { name: string; id: string; category: string }) => {
+    setSubstanceId(sub.id)
+    setSubstanceName(sub.name)
+    setCategories(sub.category ? [sub.category] : [])
+    setQuickInput(sub.name)
+    quickInputRef.current?.focus()
+  }, [])
+
+  const handleQuickInputKeyDown = useCallback((e: React.KeyboardEvent) => {
+    if (showQuickSuggestions && quickSuggestions.length > 0) {
+      switch (e.key) {
+        case 'ArrowDown':
+          e.preventDefault()
+          setQuickActiveIndex(prev => prev < quickSuggestions.length - 1 ? prev + 1 : 0)
+          return
+        case 'ArrowUp':
+          e.preventDefault()
+          setQuickActiveIndex(prev => prev > 0 ? prev - 1 : quickSuggestions.length - 1)
+          return
+        case 'Escape':
+          e.preventDefault()
+          setShowQuickSuggestions(false)
+          setQuickActiveIndex(-1)
+          return
+        case 'Enter':
+          if (quickActiveIndex >= 0) {
+            e.preventDefault()
+            const sel = quickSuggestions[quickActiveIndex]
+            const raw = sel.substance as any
+            const cats = Array.isArray(raw.categories) && raw.categories.length > 0
+              ? raw.categories
+              : typeof raw.category === 'string' && raw.category && raw.category !== 'unknown'
+              ? [raw.category]
+              : []
+            selectQuickSuggestion(sel.substance.id, sel.substance.name, cats)
+            return
+          }
+          // No suggestion selected — let Enter submit the form naturally
+          if (substanceName && amount) return
+          break
+      }
+    }
+  }, [showQuickSuggestions, quickSuggestions, quickActiveIndex, substanceName, amount, selectQuickSuggestion])
+
   const selectedSubstance = useMemo(() => substances.find(s => s.id === substanceId), [substanceId, substances])
+
+  // Recent substances for quick-select chips (from dose history)
+  const recentSubstances = useMemo(() => {
+    const seen = new Map<string, { name: string; id: string; category: string }>()
+    for (let i = doses.length - 1; i >= 0; i--) {
+      const d = doses[i]
+      if (d.substanceName && !seen.has(d.substanceName)) {
+        seen.set(d.substanceName, {
+          name: d.substanceName,
+          id: d.substanceId,
+          category: d.categories?.[0] || ''
+        })
+      }
+      if (seen.size >= 8) break
+    }
+    return Array.from(seen.values())
+  }, [doses])
+
+  // Reset autocomplete active index when suggestions change
+  useEffect(() => {
+    setQuickActiveIndex(-1)
+  }, [quickSuggestions.length])
 
   // ── Duration resolution ──────────────────────────────────────────────────
   // Priority: user override > real routeData > interpolated estimate > null
@@ -984,6 +1091,8 @@ export function DoseLoggerModal({
   const resetForm = () => {
     setQuickInput('')
     setMathResult(null)
+    setShowQuickSuggestions(false)
+    setQuickActiveIndex(-1)
     if (!preselectedSubstanceId) {
       setSubstanceId('')
       setSubstanceName('')
@@ -1046,21 +1155,122 @@ export function DoseLoggerModal({
         </DialogHeader>
         <form onSubmit={onSubmit}>
           <div className="grid gap-4 py-4">
-            {/* ── Quick Input Field ─────────────────────────────────────── */}
+            {/* ── Quick Input Section ────────────────────────────────────── */}
             <div className="grid gap-2">
               <Label className="flex items-center gap-2">
                 <Zap className="h-4 w-4 text-yellow-500" />
                 Quick Input
               </Label>
-              <Input
-                type="text"
-                placeholder='e.g. "1 tab LSD", "2 joints THC", "Caffeine 100 mg oral", "15 pills * 15mg DXM"'
-                value={quickInput}
-                onChange={handleQuickInputChange}
-                className="text-base"
-              />
+
+              {/* Recent substances quick-select chips */}
+              {recentSubstances.length > 0 && !quickInput && (
+                <div className="flex items-center gap-1.5 flex-wrap">
+                  <Clock className="h-3 w-3 text-neutral-content/60 shrink-0" />
+                  <span className="text-[11px] text-neutral-content/60">Recent:</span>
+                  {recentSubstances.map(sub => (
+                    <button
+                      key={sub.id || sub.name}
+                      type="button"
+                      onClick={() => selectRecentSubstance(sub)}
+                      className="inline-flex items-center gap-1 px-2 py-0.5 text-xs rounded-full bg-base-200 hover:bg-base-300 text-base-content/80 hover:text-base-content transition-colors"
+                    >
+                      {sub.category && (
+                        <span className={`w-1.5 h-1.5 rounded-full ${CATEGORY_DOTS[sub.category] || 'bg-zinc-500'}`} />
+                      )}
+                      {sub.name}
+                    </button>
+                  ))}
+                </div>
+              )}
+
+              {/* Quick input with autocomplete dropdown */}
+              <div className="relative">
+                <Input
+                  ref={quickInputRef}
+                  type="text"
+                  placeholder='e.g. "1 tab LSD", "100mg MDMA", "15 pills * 15mg DXM"'
+                  value={quickInput}
+                  onChange={handleQuickInputChange}
+                  onFocus={() => setShowQuickSuggestions(true)}
+                  onBlur={handleQuickInputBlur}
+                  onKeyDown={handleQuickInputKeyDown}
+                  className="text-base"
+                />
+
+                {/* Autocomplete suggestions dropdown */}
+                <AnimatePresence>
+                  {showQuickSuggestions && quickSuggestions.length > 0 && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -4 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -4 }}
+                      transition={{ duration: 0.1 }}
+                      className="absolute z-50 top-full mt-1 w-full rounded-lg border border-base-300 bg-base-100 shadow-xl overflow-hidden"
+                    >
+                      <div className="max-h-48 overflow-y-auto p-1">
+                        {quickSuggestions.map((result, idx) => {
+                          const sub = result.substance
+                          const isActive = idx === quickActiveIndex
+                          return (
+                            <button
+                              key={sub.id}
+                              type="button"
+                              onMouseDown={(e) => {
+                                e.preventDefault()
+                                const raw = sub as any
+                                const cats = Array.isArray(raw.categories) && raw.categories.length > 0
+                                  ? raw.categories
+                                  : typeof raw.category === 'string' && raw.category && raw.category !== 'unknown'
+                                  ? [raw.category]
+                                  : []
+                                selectQuickSuggestion(sub.id, sub.name, cats)
+                              }}
+                              onMouseEnter={() => setQuickActiveIndex(idx)}
+                              className={`flex items-center gap-2 w-full px-2.5 py-1.5 rounded-md text-sm text-left transition-colors ${isActive ? 'bg-accent text-accent-content' : 'hover:bg-accent/50'}`}
+                            >
+                              <span className={`w-2 h-2 rounded-full shrink-0 ${CATEGORY_DOTS[sub.categories[0]] || 'bg-zinc-500'}`} />
+                              <span className="truncate font-medium">{sub.name}</span>
+                              <span className="text-[10px] text-neutral-content truncate ml-auto">{sub.class}</span>
+                            </button>
+                          )
+                        })}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Parsed token preview chips */}
+              {quickInput && (substanceName || amount) && (
+                <div className="flex items-center gap-1.5 flex-wrap min-h-[24px]">
+                  {substanceName && (
+                    <span className="inline-flex items-center gap-1.5 px-2 py-0.5 text-xs font-medium rounded-full bg-primary/10 text-primary border border-primary/20">
+                      {categories[0] && (
+                        <span className={`w-1.5 h-1.5 rounded-full ${CATEGORY_DOTS[categories[0]] || 'bg-zinc-500'}`} />
+                      )}
+                      {substanceName}
+                    </span>
+                  )}
+                  {amount && unit && (
+                    <span className="inline-flex items-center px-2 py-0.5 text-xs font-medium rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
+                      {amount} {unit}
+                    </span>
+                  )}
+                  {!amount && unit && (
+                    <span className="inline-flex items-center px-2 py-0.5 text-xs font-medium rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
+                      {unit}
+                    </span>
+                  )}
+                  {route && (
+                    <span className="inline-flex items-center px-2 py-0.5 text-xs font-medium rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
+                      {route}
+                    </span>
+                  )}
+                </div>
+              )}
+
               <p className="text-xs text-neutral-content">
-                Type substance + amount + unit (+ optional route). Supports math: &quot;5 pills * 10mg THC&quot; or &quot;2 tabs * 100ug LSD&quot;
+                Type substance + amount + unit (+ optional route). Supports math: &quot;5 pills * 10mg THC&quot;
               </p>
             </div>
 

@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: 4-FA
@@ -158,5 +158,6 @@ export const _4_fa: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "high"
+  "riskLevel": "high",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/4-FA"
 };

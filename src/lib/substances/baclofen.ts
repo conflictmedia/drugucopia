@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: Baclofen
@@ -121,5 +121,6 @@ export const baclofen: Substance =
   },
   "history": "Baclofen was synthesized in 1962 by Heinrich Keberle at Ciba (pharmaceutical company) in Basel, Switzerland, based on the idea of enhancing the lipophilicity of GABA in order to achieve penetration of the blood-brain barrier. In his 2008 book, Le Dernier Verre (translated literally as \"The Last Glass\" and published in English as \"The End of my Addiction\"), French-American cardiologist Olivier Ameisen described how he treated his alcoholism with baclofen. Inspired by this book, an anonymous donor gave $750,000 to the University of Amsterdam to initiate a clinical trial of high-dose baclofen, which Ameisen had called for since 2004.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low"
+  "riskLevel": "low",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/Baclofen"
 };

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
@@ -49,7 +50,9 @@ export default function RootLayout({
         >
           <SyncProvider>
             <MilkdropBackgroundWrapper />
-            <SharedNav />
+            <Suspense>
+              <SharedNav />
+            </Suspense>
             <main className="min-h-[calc(100vh-3.5rem)]">
               {children}
             </main>

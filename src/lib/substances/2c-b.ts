@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: 2C-B
@@ -189,5 +189,6 @@ export const _2c_b: Substance =
   },
   "history": "2C-B was first synthesized and tested for psychoactivity in 1974 by the American chemist and psychedelic researcher Alexander Shulgin, who was investigating novel psychedelic compounds based on the chemical structure of mescaline. These therapists reported that it created a warm, empathetic bond between them and their patients, helping to break down their ego defenses and inner resistances and allowing the patient to get in touch with suppressed emotions and repressed memories. The gentle nature of 2C-B, in addition to its mild side effects and short duration, were found to be desirable traits for a therapeutic setting. In the 1980s and early 1990s, several foreign companies legally manufactured the substance under the brand names \"Nexus\", \"Erox\", and \"Performax\" and advertised that it would alleviate impotence, frigidity, and diminished libido. It was marketed as medicine for Sangomas (traditional healers) under the name \"Ubulawu Nomathotholo\", which roughly translates to \"Medicine of the Singing Ancestors\".",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate"
+  "riskLevel": "moderate",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/2C-B"
 };

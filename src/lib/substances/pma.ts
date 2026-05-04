@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: PMA
@@ -112,5 +112,6 @@ export const pma: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "very-high"
+  "riskLevel": "very-high",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/PMA"
 };

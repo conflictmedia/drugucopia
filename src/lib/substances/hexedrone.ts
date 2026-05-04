@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: Hexedrone
@@ -89,5 +89,6 @@ export const hexedrone: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "high"
+  "riskLevel": "high",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/Hexedrone"
 };

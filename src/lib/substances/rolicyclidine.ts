@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: Rolicyclidine
@@ -161,5 +161,6 @@ export const rolicyclidine: Substance =
   },
   "history": "It was synthesized by Parke Davis chemists in the year 1958, later it showed up in some street samples of supposed PCP and was responsible for at least one confirmed death by gunshot wound in 1979",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "high"
+  "riskLevel": "high",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/Rolicyclidine"
 };

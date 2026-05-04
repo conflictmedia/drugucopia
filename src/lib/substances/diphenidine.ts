@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: Diphenidine
@@ -144,5 +144,6 @@ export const diphenidine: Substance =
   },
   "history": "It employed a nitrile displacement reaction analogous to the one that would later be used to discover phencyclidine in 1956. Shortly after the 2013 UK ban on arylcyclohexylamines, diphenidine and the related compound methoxphenidine became available on the grey market. In 2014, there were two cases of diphenidine being sold in combination with synthetic cannabinoids in Japanese herbal incense blends.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate"
+  "riskLevel": "moderate",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/Diphenidine"
 };

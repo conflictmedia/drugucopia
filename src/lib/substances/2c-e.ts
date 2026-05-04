@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: 2C-E
@@ -146,5 +146,6 @@ export const _2c_e: Substance =
   },
   "history": "2C-E was first synthesized and tested for human activity by Alexander Shulgin in 1977, who documented his findings in the 1991 book PiHKAL (\"Phenethylamines I Have Known and Loved\"). It is a member of the so-called \"magical half-dozen\" which refers to Shulgin's self-rated most important phenethylamine-derived compounds, all of which except mescaline he developed and synthesized himself. They are found within the first book of PiHKAL, and are as follows: Mescaline, DOM, 2C-B, 2C-E, 2C-T-2 and 2C-T-7.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate"
+  "riskLevel": "moderate",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/2C-E"
 };

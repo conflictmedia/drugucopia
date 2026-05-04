@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: MDA
@@ -155,5 +155,6 @@ export const mda: Substance =
   },
   "history": "The first animal tests occurred in 1939, followed by human trials in 1941 that explored it as a possible therapy for Parkinson's disease. MDA was eventually patented as a cough suppressant by H. D. Brown in 1958, as an ataractic by Smith, Kline & French in 1960, and as an anorectic under the trade name \"Amphedoxamine\" in 1961. In early 1968, the Bureau of Drug Abuse Control reported the seizure of over 1.4 kilograms of MDA and 11 kilograms of precursors from a clandestine laboratory in New York. The batch unleashed a wave of extraordinary hallucinations across the UK and Europe that year, since the chemists had inaccurately dosed the pills with almost 200 mg of the active substance, which is generally enjoyed at lower amounts.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "high"
+  "riskLevel": "high",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/MDA"
 };

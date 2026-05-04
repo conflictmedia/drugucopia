@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: MXiPr
@@ -138,5 +138,6 @@ export const mxipr: Substance =
   },
   "history": "MXiPr first appeared for sale on the online research chemical market in late 2020.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate"
+  "riskLevel": "moderate",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/MXiPr"
 };

@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: Methamphetamine
@@ -237,5 +237,6 @@ export const methamphetamine: Substance =
   },
   "history": "Amphetamine was first synthesized in 1887 in Germany by Romanian chemist Lazăr Edeleanu who named it phenylisopropylamine. Neither drug had a pharmacological use until 1934, when Smith, Kline, and French began selling amphetamine as an inhaler under the trade name Benzedrine as a decongestant. For example, in 1970 in the United States, the two drugs methamphetamine and amphetamine became schedule II controlled substances under the Controlled Substances Act.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "high"
+  "riskLevel": "high",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/Methamphetamine"
 };

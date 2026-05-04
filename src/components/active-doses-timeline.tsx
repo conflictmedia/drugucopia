@@ -646,14 +646,17 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
               return group.routes
             })()
 
-            const bandTimings = visibleRoutes.length > 0
-              ? visibleRoutes[0].primary.timings
-              : group.primary.timings
+            const bandDose = (() => {
+              if (visibleRoutes.length > 0 && visibleRoutes[0].doses.length > 0) {
+                return visibleRoutes[0].doses[0]
+              }
+              return group.primary
+            })()
+
+            const bandTimings = bandDose.timings
 
             // Calculate the offset for phase bands when a route/dose is isolated
-            const bandOffsetMins = visibleRoutes.length > 0
-              ? (visibleRoutes[0].primary.doseTime.getTime() - group.windowStart.getTime()) / 60_000
-              : 0
+            const bandOffsetMins = (bandDose.doseTime.getTime() - group.windowStart.getTime()) / 60_000
 
             // Check if any dose is still active using FRESH time calculation
             const now = Date.now()
@@ -959,7 +962,7 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
 
                     {/* ── Phase bands (background color regions) ── */}
                     {(() => {
-                      const bands = groupPhaseBands.get(group.key) ?? getPhaseBandRanges(bandTimings)
+                      const bands = (selectedDose ? null : groupPhaseBands.get(group.key)) ?? getPhaseBandRanges(bandTimings)
                       const NARROW_PX = 50  // threshold for "narrow" bands (pixels)
 
                       const narrowBoundaryTicks: { x: number; color: string }[] = []
@@ -1015,7 +1018,7 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
 
                     {/* ── Phase band labels (above graph) ── */}
                     {(() => {
-                      const bands = groupPhaseBands.get(group.key) ?? getPhaseBandRanges(bandTimings)
+                      const bands = (selectedDose ? null : groupPhaseBands.get(group.key)) ?? getPhaseBandRanges(bandTimings)
                       const CHAR_W = 5     // approx px per char at fontSize 8
                       const LABEL_GAP = 4   // minimum gap between adjacent labels
 

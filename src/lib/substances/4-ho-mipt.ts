@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: 4-HO-MiPT
@@ -143,5 +143,6 @@ export const _4_ho_mipt: Substance =
   },
   "history": "The first synthesis of 4-HO-MiPT was published in 1981 by a team of chemists led by David Repke. Repke and Shulgin later collaborated on a paper evaluating the effects of different oxygen substituents on the MiPT structure, describing 4-HO-MiPT as the most interesting of the series and the only one to possess classical hallucinogen effects.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate"
+  "riskLevel": "moderate",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/4-HO-MiPT"
 };

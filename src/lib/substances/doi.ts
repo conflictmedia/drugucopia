@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: DOI
@@ -138,5 +138,6 @@ export const doi: Substance =
   },
   "history": "DOI was first synthesized by a team at the University of Alberta in 1972.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate"
+  "riskLevel": "moderate",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/DOI"
 };

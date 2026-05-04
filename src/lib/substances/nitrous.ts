@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: Nitrous
@@ -135,5 +135,6 @@ export const nitrous: Substance =
   },
   "history": "Nitrous oxide gas was first synthesized in 1772 by English natural philosopher and chemist Joseph Priestley. He published his findings in the book Experiments and Observations on Different Kinds of Air (1775), describing the synthesis of the gas by heating iron filings dampened with nitric acid. In the book, there is the following passage;\nResearches chemical and philosophical: chiefly concerning nitrous oxide\nDavy notes the analgesic effect of nitrous oxide and its potential for use in surgical operations. In 1863, Gardner Quincy Colton began to administer the gas to patients in all of his \"Colton Dental Association\" clinics, administering nitrous oxide to over 25,000 patients over three years. Nitrous is on the World Health Organization's List of Essential Medicines, the most effective and safe medicines needed in a health system.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate"
+  "riskLevel": "moderate",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/Nitrous_oxide"
 };

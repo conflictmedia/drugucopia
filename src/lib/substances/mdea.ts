@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: MDEA
@@ -147,5 +147,6 @@ export const mdea: Substance =
   },
   "history": "In the United States, MDEA was introduced recreationally in 1985 as a legal substitute to the newly banned MDMA before it was made a Schedule I substance two years later on August 13, 1987 under the Federal Analogue Act. Since then, MDEA has rarely been sold on its own and has largely been used as an occasional additive or substitute ingredient in pills of \"Ecstasy\" (for instance, studies conducted in the 1990s found MDEA present in approximately four percent of ecstasy tablets). While MDEA shares many of the core entactogenic properties of MDMA, it is slightly less potent and considered to be more \"stoning\", lacking the pro-socializing and energizing \"magic\" most party-goers seek in their MDMA experiences.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate"
+  "riskLevel": "moderate",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/MDEA"
 };

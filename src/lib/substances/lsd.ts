@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: LSD
@@ -189,5 +189,6 @@ export const lsd: Substance =
   },
   "history": "The original synthesis of LSD was recorded on November 16, 1938, by the Swiss chemist Albert Hofmann while employed at the Sandoz Laboratories in Basel, Switzerland. However, it was not discovered to be psychoactive until five years later, when Hofmann claimed to have accidentally ingested an unknown quantity of the chemical before proceeding to ride his bike home. In 1947, Sandoz introduced LSD to the medical community under the name Delysid, marketing it as an experimental tool to induce temporary psychotic-like states in normals (“model-psychosis”) and later to enhance psychotherapeutic treatments (“psycholytic” or “psychedelic” therapy). In the 1950s, the U.S. Central Intelligence Agency (CIA) created a research program code-named MK-ULTRA that would conduct clandestine research investigating LSD for applications in 'mind control' and chemical warfare. Several prominent intellectuals, including Aldous Huxley, Timothy Leary, Al Hubbard, and Alan Watts began to advocate for the mass consumption of LSD; according to L. R. Veysey, they profoundly influenced the thinking of the new generation of youth.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low"
+  "riskLevel": "low",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/LSD"
 };

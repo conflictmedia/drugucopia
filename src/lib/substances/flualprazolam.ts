@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: Flualprazolam
@@ -101,5 +101,6 @@ export const flualprazolam: Substance =
   },
   "history": "Flualprazolam first appeared on the research chemical market around 2017",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate"
+  "riskLevel": "moderate",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/Flualprazolam"
 };

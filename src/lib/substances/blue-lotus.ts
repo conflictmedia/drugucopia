@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: Blue Lotus
@@ -97,5 +97,6 @@ export const blue_lotus: Substance =
   },
   "history": "Blue Lotus is thought to be the primary for the fruit of the lotus tree eaten by the mythical Lotophagi (Lotus Eaters) in Homer's Odyssey. The Lotus Eaters were a race of people living on an island dominated by the lotus tree, after they ate the lotus, they would forget their home and loved ones and long only to stay with their fellow lotus-eaters, falling into a infinite euphoric stupor. According to a 2023 preprint study, traces of Peganum harmala, and Blue Lotus were identified in an Egyptian ritual Bes-vase, of the 2nd century BCE\nThe plant and flower are very prominent and frequent in Ancient Egyptian art, cuisine and perfumes.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate"
+  "riskLevel": "moderate",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/Nymphaea_caerulea"
 };

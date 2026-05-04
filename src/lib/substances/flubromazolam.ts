@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: Flubromazolam
@@ -88,5 +88,6 @@ export const flubromazolam: Substance =
   },
   "history": null,
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "low"
+  "riskLevel": "low",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/Flubromazolam"
 };

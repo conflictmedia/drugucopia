@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: Cannabis
@@ -215,5 +215,6 @@ export const cannabis: Substance =
   "history": "The history of cannabis and its usage by humans dates back to at least the third millennium BC in written history, and possibly as far back as the Pre-Pottery Neolithic B (8800–6500 BCE) based on archaeological evidence. For millennia, the plant has been valued for its use for fiber and rope, as food and medicine, and for its psychoactive properties for religious and recreational use. In 2004, the U.N. estimated that global consumption patterns of cannabis indicated that approximately 4% of the adult world population (162 million people) used cannabis annually and that approximately 0.6% (22.5 million) of people used cannabis daily.",
   "afterEffects": "See route data for afterglow information.",
   "riskLevel": "moderate",
-  "aliases": []
+  "aliases": [],
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/Cannabis"
 };

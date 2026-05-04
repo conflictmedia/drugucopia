@@ -1,5 +1,5 @@
 // Auto-generated from substances.txt
-import type { Substance } from '../types';
+import type { Substance } from './types';
 
 // Substance Data
 // Name: 3-HO-PCP
@@ -118,5 +118,6 @@ export const _3_ho_pcp: Substance =
   },
   "history": "3-HO-PCP was first synthesized in 1978 to investigate the structure-activity relationship of phencyclidine (PCP) derivatives. Its potential as a research chemical for human use was not suggested until 1999 when a chemist using the pseudonym John Q. Beagle reported on its significantly increased potency relative to PCP as well as its \"profoundly enhanced affinity for the opiate receptor\" which was estimated to give it analgesic activity one order of magnitude lower than morphine. On October 18, 2012, the Advisory Council on the Misuse of Drugs in the United Kingdom released a report about methoxetamine, saying that the \"harms of methoxetamine are commensurate with Class B of the Misuse of Drugs Act (1971)\", despite the fact that the act does not classify drugs based on harm.",
   "afterEffects": "See route data for afterglow information.",
-  "riskLevel": "moderate"
+  "riskLevel": "moderate",
+  "psychonautWikiUrl": "https://psychonautwiki.org/wiki/3-HO-PCP"
 };
