@@ -98,7 +98,7 @@ function getGuideIcon(name: string): LucideIcon {
 
 function EmergencyCard({ resource }: { resource: typeof emergencyResources[0] }) {
   return (
-    <div className="card border-red-500/20 bg-red-500/5 pulse-danger card-lift">
+    <div className="card card-transparent border-red-500/20 bg-red-500/5 pulse-danger card-lift">
       <div className="card-body p-4">
         <div className="flex items-start gap-3">
           <div className="p-2 rounded-lg bg-red-500/10 shrink-0">
@@ -118,7 +118,7 @@ function EmergencyCard({ resource }: { resource: typeof emergencyResources[0] })
 function PrincipleChip({ principle }: { principle: typeof quickPrinciples[0] }) {
   const Icon = getGuideIcon(principle.icon) || Shield
   return (
-    <div className="card card-lift">
+    <div className="card card-transparent card-lift">
       <div className="card-body flex-row items-start gap-3 p-4">
         <div className="p-2 rounded-lg bg-gradient-to-br from-primary/15 to-primary/5 shrink-0 border border-primary/10">
           <Icon className="h-4 w-4 text-primary" />
@@ -137,7 +137,7 @@ function InteractionRow({ interaction }: { interaction: DangerousInteraction }) 
   const riskLabel = riskLabels[interaction.risk] || interaction.risk.toUpperCase()
 
   return (
-    <div className="flex items-start gap-3 p-3 rounded-xl border border-base-300 bg-base-100 hover:bg-base-200/30 transition-all card-lift">
+    <div className="flex items-start gap-3 p-3 rounded-xl border border-white/8 bg-transparent hover:bg-white/5 transition-all card-lift">
       <div className="flex items-center gap-2 shrink-0 mt-0.5">
         <AlertTriangle className="h-4 w-4 text-red-400" />
       </div>
@@ -176,7 +176,7 @@ export default function HarmReductionPage() {
   const router = useRouter()
 
   return (
-    <div className="min-h-screen bg-base-100 flex flex-col">
+    <div className="min-h-screen flex flex-col">
       {/* ── Desktop Content ── */}
       <div className="hidden md:block container mx-auto py-6 lg:py-10 max-w-5xl">
         {/* Hero */}
@@ -231,7 +231,7 @@ export default function HarmReductionPage() {
             <BookOpen className="h-5 w-5 text-primary" />
             <h3 className="text-xl font-semibold">Harm Reduction Guides</h3>
           </div>
-          <div className="card gradient-border">
+          <div className="card card-transparent gradient-border">
             <Accordion type="multiple" className="w-full">
               {generalGuides.map((guide) => {
                 const GuideIcon = getGuideIcon(guide.icon)
@@ -322,7 +322,7 @@ export default function HarmReductionPage() {
                 rel="noopener noreferrer"
                 className="block"
               >
-                <div className="card hover:border-primary/50 transition-all h-full card-lift">
+                <div className="card card-transparent hover:border-primary/50 transition-all h-full card-lift">
                   <div className="card-body p-4">
                     <div className="flex items-start justify-between gap-2">
                       <div className="min-w-0">
@@ -408,7 +408,7 @@ export default function HarmReductionPage() {
               return (
                 <div
                   key={principle.id}
-                  className="flex-shrink-0 w-40 p-3 rounded-xl border border-base-300 bg-base-100 card-lift"
+                  className="flex-shrink-0 w-40 p-3 rounded-xl border border-white/8 bg-transparent card-lift"
                 >
                   <div className="p-1.5 rounded-md bg-primary/10 w-fit mb-2">
                     <Icon className="h-3.5 w-3.5 text-primary" />
@@ -427,7 +427,7 @@ export default function HarmReductionPage() {
             <BookOpen className="h-4 w-4 text-primary" />
             <h3 className="text-sm font-semibold">Guides</h3>
           </div>
-          <div className="card mx-4">
+          <div className="card card-transparent mx-4">
             <Accordion type="multiple" className="w-full">
               {generalGuides.map((guide) => {
                 const GuideIcon = getGuideIcon(guide.icon)
@@ -502,7 +502,7 @@ export default function HarmReductionPage() {
                 rel="noopener noreferrer"
                 className="block"
               >
-                <div className="card hover:border-primary/50 transition-all card-lift">
+                <div className="card card-transparent hover:border-primary/50 transition-all card-lift">
                   <div className="card-body p-3">
                     <p className="text-sm font-semibold flex items-center gap-1.5">
                       {resource.name}

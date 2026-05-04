@@ -5,6 +5,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "next-themes";
 import { SyncProvider } from "@/contexts/sync-context";
 import { SharedNav } from "@/components/shared-nav";
+import { MilkdropBackgroundWrapper } from "@/components/milkdrop-background-wrapper";
+import { VisualizerControls } from "@/components/visualizer-controls";
 
 const ibmPlexSans = IBM_Plex_Sans({
   variable: "--font-ibm-plex-sans",
@@ -36,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${ibmPlexSans.className} ${ibmPlexMono.className} antialiased bg-base-100 text-base-content`}
+        className={`${ibmPlexSans.className} ${ibmPlexMono.className} antialiased text-base-content`}
       >
         <ThemeProvider
           attribute="data-theme"
@@ -46,11 +48,12 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <SyncProvider>
-            <div className="mesh-gradient" />
+            <MilkdropBackgroundWrapper />
             <SharedNav />
             <main className="min-h-[calc(100vh-3.5rem)]">
               {children}
             </main>
+            <VisualizerControls />
             <Toaster />
           </SyncProvider>
         </ThemeProvider>

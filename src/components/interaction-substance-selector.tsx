@@ -276,7 +276,7 @@ export function InteractionSubstanceSelector({
             <div className="fixed inset-0 z-40" onClick={() => setOpen(false)} />
             <div
               ref={listRef}
-              className="absolute z-50 top-full mt-1 w-full rounded-md border bg-base-100 text-base-content shadow-lg max-h-[380px] overflow-hidden"
+              className="absolute z-50 top-full mt-1 w-full rounded-md dropdown-transparent text-base-content shadow-lg max-h-[380px] overflow-hidden"
               onKeyDown={handleKeyDown}
             >
               {/* Search input */}
@@ -296,7 +296,7 @@ export function InteractionSubstanceSelector({
               </div>
 
               {/* Category filter chips */}
-              <div className="px-2 py-1.5 border-b bg-base-200/30 flex gap-1 overflow-x-auto scrollbar-none">
+              <div className="px-2 py-1.5 border-b border-white/8 flex gap-1 overflow-x-auto scrollbar-none">
                 {CATEGORIES.map((cat) => (
                   <button
                     key={cat.id}

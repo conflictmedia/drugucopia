@@ -67,7 +67,7 @@ function InteractionsPageInner() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-base-100 flex flex-col">
+    <div className="min-h-screen flex flex-col">
       {/* ── Desktop Content ── */}
       <div className="hidden md:block container mx-auto py-6 lg:py-10 max-w-5xl">
         {/* Hero */}
@@ -93,7 +93,7 @@ function InteractionsPageInner() {
         <div className="grid grid-cols-12 gap-6">
           {/* Left: Selector */}
           <div className="col-span-4">
-            <div className="sticky top-20">
+            <div className="sticky top-20 card card-transparent p-4">
               <div className="flex items-center gap-2 mb-3">
                 <Users className="h-4 w-4 text-primary" />
                 <h3 className="font-semibold text-base-content">Substances</h3>
@@ -150,7 +150,7 @@ function InteractionsPageInner() {
       {/* ── Mobile Content ── */}
       <div className="md:hidden flex-1 overflow-y-auto pb-8">
         {/* Hero */}
-        <div className="px-4 pt-4 pb-3 border-b border-base-300">
+        <div className="px-4 pt-4 pb-3 border-b border-white/8">
           <div className="flex items-center gap-3 mb-2">
             <div className="p-2.5 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/10">
               <Shuffle className="h-6 w-6 text-primary" />
@@ -165,7 +165,7 @@ function InteractionsPageInner() {
         </div>
 
         {/* Selector */}
-        <section className="px-4 py-4 border-b border-base-300">
+        <section className="px-4 py-4 border-b border-white/8">
           <div className="flex items-center gap-2 mb-3">
             <Users className="h-4 w-4 text-primary" />
             <h3 className="text-sm font-semibold">Substances</h3>
@@ -224,7 +224,7 @@ function QuickCombo({
   return (
     <button
       onClick={() => onClick(ids)}
-      className="btn btn-sm btn-ghost border border-base-300 hover:border-primary/30 gap-1 text-xs text-neutral-content hover:text-base-content card-lift"
+      className="btn btn-sm btn-ghost border border-white/10 hover:border-primary/30 gap-1 text-xs text-neutral-content hover:text-base-content card-lift"
     >
       <Zap className="h-3 w-3" />
       {label}

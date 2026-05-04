@@ -106,7 +106,8 @@
   }
 
   body {
-    @apply bg-base-100 text-base-content;
+    @apply text-base-content;
+    background: transparent;
   }
 }
 
@@ -126,6 +127,7 @@
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  background: transparent;
 }
 
 .overflow-y-auto,
@@ -233,6 +235,53 @@ html {
     z-index: -1;
     overflow: hidden;
     pointer-events: none;
+  }
+
+  .milkdrop-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .visualizer-controls {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 40;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.375rem;
+  }
+
+  .visualizer-controls-panel {
+    background: oklch(0.15 0.005 250 / 90%);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid oklch(0.30 0.010 250 / 40%);
+    border-radius: 0.75rem;
+    padding: 0.75rem;
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  [data-theme="light"] .visualizer-controls-panel {
+    background: oklch(0.98 0.002 80 / 92%);
+    border-color: oklch(0.85 0.005 250 / 60%);
+  }
+
+  /* Hide visualizer controls on mobile (bottom nav area) */
+  @media (max-width: 767px) {
+    .visualizer-controls {
+      bottom: 5rem;
+      right: 0.75rem;
+    }
   }
 
   .mesh-gradient::before,
@@ -389,5 +438,56 @@ html {
 
   :root .card-lift:hover {
     box-shadow: 0 8px 30px oklch(0 0 0 / 8%);
+  }
+
+  /* ─── Transparent Card (black/glass background to see milkdrop behind) ─── */
+  .card-transparent {
+    background: rgba(0, 0, 0, 0.3) !important;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+
+  [data-theme="light"] .card-transparent {
+    background: rgba(255, 255, 255, 0.45) !important;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-color: rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06), inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+  }
+
+  /* ─── Transparent Alert (glass banner for interaction summary) ─── */
+  .alert-transparent {
+    background: rgba(0, 0, 0, 0.25) !important;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-color: rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.12), inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  }
+
+  [data-theme="light"] .alert-transparent {
+    background: rgba(255, 255, 255, 0.4) !important;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-color: rgba(0, 0, 0, 0.06) !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05), inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+  }
+
+  /* ─── Transparent dropdown/popover (for substance selector) ─── */
+  .dropdown-transparent {
+    background: rgba(8, 8, 20, 0.88) !important;
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border-color: rgba(255, 255, 255, 0.12) !important;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.06);
+  }
+
+  [data-theme="light"] .dropdown-transparent {
+    background: rgba(255, 255, 255, 0.92) !important;
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border-color: rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.04);
   }
 }

@@ -27,7 +27,7 @@ export function InteractionResults({
   if (selectedCount === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-16 text-center">
-        <div className="p-4 rounded-2xl bg-base-200/50 mb-4">
+        <div className="p-4 rounded-2xl card-transparent mb-4">
           <Shuffle className="h-8 w-8 text-neutral-content" />
         </div>
         <h3 className="text-lg font-semibold mb-1">Select Substances</h3>
@@ -43,7 +43,7 @@ export function InteractionResults({
   if (isLoading) {
     return (
       <div className="flex flex-col items-center justify-center py-16">
-        <div className="p-4 rounded-2xl bg-base-200/50 mb-4 animate-pulse">
+        <div className="p-4 rounded-2xl card-transparent mb-4 animate-pulse">
           <Shuffle className="h-8 w-8 text-neutral-content" />
         </div>
         <h3 className="text-lg font-semibold mb-1">Analyzing interactions...</h3>
@@ -81,14 +81,14 @@ export function InteractionResults({
           disappear into a matching-colored alert background (red-on-red, etc.) */}
       <div
         className={cn(
-          'alert border-l-4',
+          'alert alert-transparent border-l-4',
           result.summary.dangerous > 0
-            ? 'border-l-red-500 bg-red-500/5'
+            ? 'border-l-red-500'
             : result.summary.unsafe > 0
-              ? 'border-l-orange-500 bg-orange-500/5'
+              ? 'border-l-orange-500'
               : result.summary.caution > 0
-                ? 'border-l-amber-500 bg-amber-500/5'
-                : 'border-l-emerald-500 bg-emerald-500/5'
+                ? 'border-l-amber-500'
+                : 'border-l-emerald-500'
         )}
       >
         <div className="flex items-center gap-3 mb-3">
@@ -225,7 +225,7 @@ export function InteractionResults({
             </div>
             <div className="space-y-2">
               {result.crossTolerances.map((ct, i) => (
-                <div key={`ct-${i}`} className="card border-blue-500/20 bg-blue-500/3">
+                <div key={`ct-${i}`} className="card card-transparent border-blue-500/20">
                   <div className="card-body p-3">
                     <div className="flex items-center gap-2 flex-wrap">
                       <span className="badge badge-secondary font-medium text-xs capitalize">
@@ -258,7 +258,7 @@ export function InteractionResults({
 
       {/* Disclaimer */}
       <div className="divider" />
-      <div className="alert alert-warning">
+      <div className="alert alert-transparent alert-warning">
         <AlertTriangle className="h-4 w-4 shrink-0" />
         <div>
           <h3 className="font-bold text-xs">Disclaimer</h3>
