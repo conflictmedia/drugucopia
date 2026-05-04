@@ -905,7 +905,7 @@ function SubstanceDetail({
                 className="btn btn-primary btn-sm w-full gap-2"
               >
                 <BookOpen className="h-4 w-4" />
-                View on PsychonautWiki
+                Detailed Info on PsychonautWiki
                 <ExternalLink className="h-3 w-3" />
               </a>
             )}
@@ -1180,7 +1180,7 @@ function SubstanceDetail({
                       className="btn btn-primary btn-sm gap-2 w-full"
                     >
                       <BookOpen className="h-4 w-4" />
-                      View on PsychonautWiki
+                      Detailed Info on PsychonautWiki
                       <ExternalLink className="h-3 w-3" />
                     </a>
                   )}
