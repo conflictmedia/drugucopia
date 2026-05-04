@@ -236,11 +236,7 @@ const SubstanceCard = memo(function SubstanceCard({ substance, onSelect }: Subst
         <p className="text-sm text-neutral-content line-clamp-3">{substance.description}</p>
         <div className="flex flex-wrap gap-1">
           {substance.commonNames.slice(0, 2).map((name, i) => (
-            <span key={i} className="badge badge-secondary text-xs max-w-[140px] truncate">{name}</span>
-          ))}
-          {substance.commonNames.length > 2 && (
-            <span className="badge badge-secondary text-xs">+{substance.commonNames.length - 2}</span>
-          )}
+            <span key={i} className="badge badge-secondary text-xs max-w-[140px] text-left block overflow-hidden text-ellipsis whitespace-nowrap" title={name}>{name}</span>          ))}
         </div>
         <div className="flex items-center justify-between gap-2 flex-wrap">
           <div className="flex flex-wrap gap-1">
