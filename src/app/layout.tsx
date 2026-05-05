@@ -22,8 +22,8 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Drugucopia - Psychoactive Substances Documentation",
-  description: "Documentation for psychoactive substances including effects, dosages, harm reduction.",
+  title: "Drugucopia - Dose Logger and Substance Resources",
+  description: "Documentation for psychoactive substances including effects, dosages, harm reduction, with a dose logger.",
   keywords: ["psychoactive", "substances", "documentation", "harm reduction", "drug information"],
   authors: [{ name: "conflictmedia @ conflict@cocaine.ninja" }],
   icons: {
