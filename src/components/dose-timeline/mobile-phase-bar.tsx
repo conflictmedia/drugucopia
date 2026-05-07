@@ -29,8 +29,10 @@ import {
   formatPhaseName,
   combinedIntensityAt,
   getPhaseBandRanges,
+  phaseEnd,
 } from './dose-timeline-utils'
 import { formatDoseAmount } from '@/lib/utils'
+import { Timer } from 'lucide-react'
 
 /* ================================================================== */
 /*  Shared helper — defined once in this file                          */
@@ -45,6 +47,7 @@ interface TouchInspect {
   intensity: number
   timeFromStart: string
   absoluteTime: string
+  minutesUntilPhaseChange: number
 }
 
 /* ================================================================== */
@@ -259,6 +262,13 @@ export function MobilePhaseBar({ group, className = '' }: MobilePhaseBarProps) {
       const intensity = intensityAt(clampedProgress, timings)
       const phase = phaseNameAt(clampedProgress, timings)
 
+      // Calculate minutes remaining until phase change
+      let minutesUntilPhaseChange = 0
+      if (clampedProgress >= 0 && clampedProgress <= 100) {
+        const pEnd = phaseEnd(phase, timings)
+        minutesUntilPhaseChange = Math.max(0, pEnd - localMins)
+      }
+
       const absoluteDate = addMinutes(group.windowStart, globalMins)
 
       setTouchInspect({
@@ -268,6 +278,7 @@ export function MobilePhaseBar({ group, className = '' }: MobilePhaseBarProps) {
         intensity,
         timeFromStart: formatMinutes(Math.round(localMins)),
         absoluteTime: format(absoluteDate, 'h:mm a'),
+        minutesUntilPhaseChange,
       })
     },
     [primaryDose, group],
@@ -520,7 +531,7 @@ export function MobilePhaseBar({ group, className = '' }: MobilePhaseBarProps) {
         {/* ── Touch inspect tooltip card ── */}
         {touchInspect && (
           <div
-            className="absolute left-2 right-2 -bottom-[5.5rem] rounded-lg border border-base-300 bg-base-100 p-2.5 shadow-lg z-10 animate-in fade-in slide-in-from-top-2 duration-200"
+            className="absolute left-2 right-2 -bottom-[6.5rem] rounded-lg border border-base-300 bg-base-100 p-2.5 shadow-lg z-10 animate-in fade-in slide-in-from-top-2 duration-200"
             role="tooltip"
           >
             <div className="flex items-center justify-between">
@@ -544,6 +555,19 @@ export function MobilePhaseBar({ group, className = '' }: MobilePhaseBarProps) {
                 intensity · {touchInspect.timeFromStart} in
               </span>
             </div>
+            {touchInspect.minutesUntilPhaseChange > 0 && (
+              <div className="mt-1 flex items-center gap-1">
+                <Timer className="h-3 w-3 text-neutral-content/60" />
+                <span className="text-[10px] text-neutral-content">
+                  <span className="font-medium">{formatMinutes(touchInspect.minutesUntilPhaseChange)}</span> until {(() => {
+                    const phaseOrder = ['onset', 'comeup', 'peak', 'offset']
+                    const idx = phaseOrder.indexOf(touchInspect.phase)
+                    const nextPhase = idx < phaseOrder.length - 1 ? phaseOrder[idx + 1] : null
+                    return nextPhase ? formatPhaseName(nextPhase as PhaseStatus['phase']) : 'end'
+                  })()}
+                </span>
+              </div>
+            )}
           </div>
         )}
       </div>

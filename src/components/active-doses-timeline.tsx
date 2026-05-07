@@ -96,6 +96,7 @@ function computeTooltipAtProgress(
   windowStart: Date,
   windowDuration: number,
   primaryTimings: PhaseTimings,
+  primaryOffsetMins: number,
 ): TooltipData | null {
   if (progress < 0 || progress > 100) return null
 
@@ -147,6 +148,15 @@ function computeTooltipAtProgress(
     ? routeIntensities[0].phase
     : phaseNameAt(progress, primaryTimings)
 
+  // Calculate minutes remaining until the current phase changes (for primary dose)
+  const primaryLocalMins = globalMins - primaryOffsetMins
+  const primaryLocalProgress = (primaryLocalMins / primaryTimings.totalDuration) * 100
+  let minutesUntilPhaseChange = 0
+  if (primaryLocalProgress >= 0 && primaryLocalProgress <= 100) {
+    const pEnd = phaseEnd(primaryPhase, primaryTimings)
+    minutesUntilPhaseChange = Math.max(0, pEnd - primaryLocalMins)
+  }
+
   const absoluteDate = addMinutes(windowStart, globalMins)
 
   return {
@@ -157,6 +167,7 @@ function computeTooltipAtProgress(
     visualIntensity: maxVisualIntensity,
     progress,
     routeIntensities,
+    minutesUntilPhaseChange,
   }
 }
 
@@ -389,6 +400,7 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
     windowStart: Date,
     windowDuration: number,
     primaryTimings: PhaseTimings,
+    primaryOffsetMins: number,
   ) => {
     const svgEl = svgRefs.current[groupKey]
     if (!svgEl) return
@@ -423,7 +435,7 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
     }
 
     rafRefs.current[groupKey] = requestAnimationFrame(() => {
-      const data = computeTooltipAtProgress(progress, routes, windowStart, windowDuration, primaryTimings)
+      const data = computeTooltipAtProgress(progress, routes, windowStart, windowDuration, primaryTimings, primaryOffsetMins)
       if (data) {
         setTooltips(prev => ({ ...prev, [groupKey]: data }))
       }
@@ -901,7 +913,7 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
                     role="img"
                     aria-label={`Intensity timeline for ${group.substanceName}`}
                     tabIndex={0}
-                    onMouseMove={e => handleMouseMove(e, group.key, visibleRoutes, group.windowStart, group.windowDuration, group.primary.timings)}
+                    onMouseMove={e => handleMouseMove(e, group.key, visibleRoutes, group.windowStart, group.windowDuration, group.primary.timings, (group.primary.doseTime.getTime() - group.windowStart.getTime()) / 60_000)}
                     onMouseLeave={() => handleMouseLeave(group.key)}
                     onKeyDown={e => {
                       // #7 — Keyboard accessibility: arrow keys move tooltip, Escape clears
@@ -912,7 +924,8 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
                         const newProgress = currentTip
                           ? Math.max(0, Math.min(100, currentTip.progress + (e.key === 'ArrowRight' ? step : -step)))
                           : 50
-                        const data = computeTooltipAtProgress(newProgress, visibleRoutes, group.windowStart, group.windowDuration, group.primary.timings)
+                        const primaryOffsetMins = (group.primary.doseTime.getTime() - group.windowStart.getTime()) / 60_000
+                        const data = computeTooltipAtProgress(newProgress, visibleRoutes, group.windowStart, group.windowDuration, group.primary.timings, primaryOffsetMins)
                         if (data) {
                           setTooltips(prev => ({ ...prev, [group.key]: data }))
                           // Compute screen-space X for the tooltip div
@@ -1367,6 +1380,21 @@ export function ActiveDosesTimeline({ refreshTrigger }: ActiveDosesTimelineProps
                             intensity · {tooltip.phaseTime} in
                           </span>
                         </div>
+
+                        {/* Minutes remaining until phase change */}
+                        {tooltip.minutesUntilPhaseChange > 0 && (
+                          <div className="mt-1 flex items-center gap-1.5">
+                            <Timer className="h-3 w-3 text-neutral-300/50" />
+                            <span className="text-[10px] text-neutral-300/70">
+                              <span className="font-medium text-neutral-300">{formatMinutes(tooltip.minutesUntilPhaseChange)}</span> until {(() => {
+                                const phaseOrder: PhaseName[] = ['onset', 'comeup', 'peak', 'offset']
+                                const idx = phaseOrder.indexOf(tooltip.phase)
+                                const nextPhase = idx < phaseOrder.length - 1 ? phaseOrder[idx + 1] : null
+                                return nextPhase ? formatPhaseName(nextPhase) : 'end'
+                              })()}
+                            </span>
+                          </div>
+                        )}
                       </div>
                     </div>
                   )}

@@ -152,4 +152,6 @@ export interface TooltipData {
   progress: number
   /** Per-route intensity breakdown (multi-route hover) */
   routeIntensities?: RouteIntensitySnapshot[]
+  /** Minutes remaining until the current phase changes to the next phase (for primary dose) */
+  minutesUntilPhaseChange: number
 }
